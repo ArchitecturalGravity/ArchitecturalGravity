@@ -214,7 +214,7 @@ def _capture_runtime_presentation(plan_document, boundary_document=None):
     if advisory.get("status") == "mismatch":
         return details, (
             f"Runtime / capture version mismatch: this plan uses {selected} but "
-            f"the capture version is {reference}. Capture fields may differ or fail entierly."
+            f"the capture version is {reference}. Capture fields may differ or fail entirely. "
             "This warning does not block benchmark runs."
         ), "warning"
     if advisory.get("status") != "match":

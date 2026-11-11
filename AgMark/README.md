@@ -103,6 +103,7 @@ This mode provides **execution and resource measurements only**. It does not pro
 
 - **Managed runtime missing or outdated:** rerun `Windows_Setup.bat`, then use `Windows_Run.bat`. Setup replaces the isolated environment.
 - **Build/accept/start is unavailable:** inspect the prerequisite messages and Environment/Diagnostics console tabs. Resolve the requirement for that operation and selected runner.
+- **Runtime / capture version mismatch:** the capture reference is the CLI release used for the implementation audit. The current reference is `0.167.0`; another runtime can still execute, with capture limitations reported explicitly. After a capture update, restart AgMark and build a new plan. Retained plans keep their original reference. See the [capture update runbook](shared/software_testing/adapters/codex_cli/CAPTURE_MAINTENANCE.md) and the [current capture audit](shared/software_testing/adapters/codex_cli/CAPTURE_AUDIT_0_167_0.md).
 - **No score or report:** check whether the run is Custom/unscored, failed, missing evidence or blocked during completion. Review retained diagnostics before comparing outcomes.
 - **Import fails:** use a supported intact `.agmark` archive. Import does not repair missing components or regenerate a report.
 - **Unexpected results after editing resources:** registrations bind resource identities. Consult the benchmark's maintenance rules rather than silently treating modified resources as the same experiment.

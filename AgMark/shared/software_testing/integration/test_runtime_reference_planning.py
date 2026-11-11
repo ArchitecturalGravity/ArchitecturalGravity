@@ -51,7 +51,7 @@ class RuntimeReferencePlanningTests(unittest.TestCase):
     def test_matching_mismatching_and_unknown_native_and_wsl_plans_remain_acceptable(self):
         reference = load_registration()['extensions'][UPDATE_EXTENSION]['reference_runtime_version']
         for mode in ('native', 'wsl'):
-            for version, status in ((reference, 'match'), ('0.166.0-alpha.1', 'match'), ('9.9.9', 'mismatch'), (None, 'unknown')):
+            for version, status in ((reference, 'match'), (reference + '-alpha.1', 'match'), ('0.166.0', 'mismatch'), ('9.9.9', 'mismatch'), (None, 'unknown')):
                 with self.subTest(mode=mode, version=version):
                     session, request = planning_fixture(version=version, mode=mode)
                     boundary_before = request.execution_boundary.to_dict()

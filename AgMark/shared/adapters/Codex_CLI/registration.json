@@ -322,7 +322,8 @@
         "AgMark/shared/telemetry/comparison.py",
         "AgMark/shared/adapters/Codex_CLI/source_projection.py",
         "AgMark/shared/evaluation/telemetry/source.py",
-        "AgMark/shared/runtime/identity/runtime_version.py"
+        "AgMark/shared/runtime/identity/runtime_version.py",
+        "AgMark/shared/telemetry/runtime_reference.py"
       ]
     },
     "arcgrav.adapters:treatment_measurements": {
@@ -360,15 +361,15 @@
         "acknowledgement_control_value": "acknowledged:agmark.original-diagnostics.stock-rollout@2.0.0"
       },
       "capability_audit": {
-        "runtime_version": "0.159.0",
-        "stock_commit": "687a119f0fcaace47e1f1abcc77cec6c813fd6da"
+        "runtime_version": "0.167.0",
+        "stock_commit": "086ccc833bc9cf01024ad2dd6af7dbd421b6bf9a"
       },
       "comparison_policy": "equal_capture_profile_and_scope_required",
       "replay_policy": "separate_post_finalization_execution_never_original_backfill"
     },
     "agmark.telemetry:capture-capability-update": {
-      "revision": "runtime-neutral-capture-v1",
-      "reference_runtime_version": "0.166.0"
+      "revision": "runtime-neutral-capture-v2",
+      "reference_runtime_version": "0.167.0"
     },
     "arcgrav.adapters:visible_controls": [
       "capture_mode",
@@ -455,7 +456,7 @@
     {
       "artifact_id": "AgMark/shared/adapters/Codex_CLI/session_record.py",
       "reference": "AgMark/shared/adapters/Codex_CLI/session_record.py",
-      "sha256": "sha256:f9b8cc90e5b7b0029a032da89aa27a73c3cb2cd8c0b266ce90b18f5be18ccb03"
+      "sha256": "sha256:91d37b7c2625dcf9ce0a007380d12827d8d23f465b27ccb3dc3a4790ca5bb496"
     },
     {
       "artifact_id": "AgMark/shared/adapters/Codex_CLI/session_values.py",
@@ -500,17 +501,17 @@
     {
       "artifact_id": "AgMark/shared/telemetry/evidence.py",
       "reference": "AgMark/shared/telemetry/evidence.py",
-      "sha256": "sha256:43325b517c551da870a808ea632789de6b5f6fa75a996afa65e078d8f50b0c62"
+      "sha256": "sha256:3316e2ebc84fd35407eae3c8df7af5af0890e71f68fba55bb9009aa50cdbf982"
     },
     {
       "artifact_id": "AgMark/shared/telemetry/privacy.py",
       "reference": "AgMark/shared/telemetry/privacy.py",
-      "sha256": "sha256:a4692db400a25919e52aae0593902710d6ab9e7011ab791ad507d9e8d093fb80"
+      "sha256": "sha256:2e66070b9f52663a0f35d31116340ba147799503947b290aef66130f4d2922bc"
     },
     {
       "artifact_id": "AgMark/shared/telemetry/profile.py",
       "reference": "AgMark/shared/telemetry/profile.py",
-      "sha256": "sha256:13c8b04fbf944ff7dd416be465637511d50803a6583dfc4b0b2ac5396caddf71"
+      "sha256": "sha256:b9075e862fa6d46a36f5df3739e3607be436919e40c1ea5ed69dc57869a38b42"
     },
     {
       "artifact_id": "AgMark/shared/telemetry/collector.py",
@@ -530,7 +531,7 @@
     {
       "artifact_id": "AgMark/shared/telemetry/capture.py",
       "reference": "AgMark/shared/telemetry/capture.py",
-      "sha256": "sha256:a0c6a4430cf9b2c011adca2fff7e3013d9ed37ab61f5a8d6499a578475736617"
+      "sha256": "sha256:35be1b3f1c7954be4b3221bd6e10ddba15ba114dc436321a2fba13fa6b93d2da"
     },
     {
       "artifact_id": "AgMark/shared/telemetry/projection.py",
@@ -571,6 +572,11 @@
       "artifact_id": "AgMark/shared/runtime/identity/runtime_version.py",
       "reference": "AgMark/shared/runtime/identity/runtime_version.py",
       "sha256": "sha256:ce491eb99a7e397d7bffae0aacf33bb903fae6dd149e89fa6034ce531f9949b0"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/runtime_reference.py",
+      "reference": "AgMark/shared/telemetry/runtime_reference.py",
+      "sha256": "sha256:46e2bf2660902494894553920e22cfec3a75331ea675ac593d449d09d5ffcf3a"
     }
   ],
   "capabilities": [

@@ -1,0 +1,2716 @@
+{
+  "audit_version": "1.0.0",
+  "reference_runtime_version": "0.167.0",
+  "capture_revision": "runtime-neutral-capture-v2",
+  "source": {
+    "repository": "https://github.com/openai/codex",
+    "tag": "rust-v0.167.0",
+    "commit": "086ccc833bc9cf01024ad2dd6af7dbd421b6bf9a",
+    "archive_sha256": "sha256:b1f43a4ffcb84af613828ec416f2d9110d1282d3991f46cc7d41e17dde67c575",
+    "files": 9264
+  },
+  "audit_harness_sha256": "sha256:f1435b509981a182ac67c1a7baf9df1c95dd553f026dbb07af8008d150fa6d3d",
+  "scope": "Controlled real CLI with local synthetic Responses HTTP/WebSocket provider; no real-provider/cache-efficiency claim.",
+  "executions": {
+    "linux_native": {
+      "cases": [
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:4bf064cdb198cf05f43f72b4f9b4f71d511760c6af573a4b9c62956707a9f4e2",
+          "name": "native-session-http-completed",
+          "normalized_sha256": "sha256:66e5c0f5adc7cf55150181b418ef5965142aa90f96a60bfb28d109555ca28533",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            },
+            {
+              "ordinal": 2
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:aaa3e5cc66921c67954c5d2ae07879f15881c82ffeb6fbc97d964309c010e12b",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 60,
+            "input_tokens": 300,
+            "output_tokens": 21,
+            "reasoning_tokens": 9
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:3bb962fc367aadaa5e4680570b054c8477202a5cef5703f143b9a2085e00fe53",
+          "name": "native-session-websocket-completed",
+          "normalized_sha256": "sha256:062fe1742ad3f64249ca7f8b23649fd9d214d9713af97f4e94f10c69e616a04e",
+          "passed": true,
+          "provider_requests": [
+            {
+              "kind": "warmup",
+              "ordinal": 1
+            },
+            {
+              "kind": "warmup",
+              "ordinal": 2
+            },
+            {
+              "kind": "generation",
+              "ordinal": 3
+            },
+            {
+              "kind": "generation",
+              "ordinal": 4
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:c80d8c9c0749797ef3b2a23b52f5f188fb972f82e01f5a3ce9676e9e65d3b21f",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 140,
+            "input_tokens": 700,
+            "output_tokens": 49,
+            "reasoning_tokens": 21
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:44685d510c3970b8918aa5a73b6a56d285c486b55a9ea2ecdc45cfb21db1c138",
+          "name": "native-telemetry-http-completed",
+          "normalized_sha256": "sha256:ffd995615154fa76407743a908b9d72051545768d68db7c234e41711a54c3c23",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            },
+            {
+              "ordinal": 2
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:e3eff2bc806cab05525aeb907dbc6894ab3ac0b3228bd7ffb9baec014d05cfe0",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 58,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 586,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 60,
+            "input_tokens": 300,
+            "output_tokens": 21,
+            "reasoning_tokens": 9
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:f3e66d15c77fd2e287384898e27b19057440e803bceb207a6409da735f6adbe5",
+          "name": "native-telemetry-websocket-completed",
+          "normalized_sha256": "sha256:44ec8fc608b56af2ec692e1bcf527b38da2632851a7bd924fdad36cbc8dd1d75",
+          "passed": true,
+          "provider_requests": [
+            {
+              "kind": "warmup",
+              "ordinal": 1
+            },
+            {
+              "kind": "warmup",
+              "ordinal": 2
+            },
+            {
+              "kind": "generation",
+              "ordinal": 3
+            },
+            {
+              "kind": "generation",
+              "ordinal": 4
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:895094e66577038bed1d90ac0f5e89b573020952db88034cbb9cbf8cb418ebad",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 30,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 62,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 681,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 140,
+            "input_tokens": 700,
+            "output_tokens": 49,
+            "reasoning_tokens": 21
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "diagnostic_graph_scope_accounted": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:06d554e6bbadaee2e92158e6a95cc7cc12e40186c07d1f4a62544d23b5b1476c",
+          "name": "native-deep_telemetry-http-completed",
+          "normalized_sha256": "sha256:a1686126a65289f218786ec5790393906fcf378444f34a4f646c0276d81a623f",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            },
+            {
+              "ordinal": 2
+            }
+          ],
+          "reductions": [
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            },
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            }
+          ],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:1163220ef129995599a8fea50eab31137d8235b076ecefe21dc5f6f54dcd7f14",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "diagnostic_graph_root_unmatched",
+              "rejected": 1,
+              "retained_events": 50,
+              "state": "partial"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 58,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 586,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 60,
+            "input_tokens": 300,
+            "output_tokens": 21,
+            "reasoning_tokens": 9
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "diagnostic_graph_scope_accounted": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:4743b389d5fff314e9c63519c0c79c2c3fd8cb86d6f8ff9a147219bf1c41a0b6",
+          "name": "native-deep_telemetry-websocket-completed",
+          "normalized_sha256": "sha256:351f5604bb4f230b0942ee0ab96595d6a053ff8b372f0106c8a5c50d0fc7bba4",
+          "passed": true,
+          "provider_requests": [
+            {
+              "kind": "warmup",
+              "ordinal": 1
+            },
+            {
+              "kind": "warmup",
+              "ordinal": 2
+            },
+            {
+              "kind": "generation",
+              "ordinal": 3
+            },
+            {
+              "kind": "generation",
+              "ordinal": 4
+            }
+          ],
+          "reductions": [
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            },
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            }
+          ],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:bde741cdcd935336390b444a5a71dab2093b593a74bb9c98df2d7a0667ff30d5",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "diagnostic_graph_root_unmatched",
+              "rejected": 1,
+              "retained_events": 50,
+              "state": "partial"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 30,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 62,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 681,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 140,
+            "input_tokens": 700,
+            "output_tokens": 49,
+            "reasoning_tokens": 21
+          }
+        },
+        {
+          "checks": {
+            "failure_visible": true,
+            "manifest_valid": true,
+            "process_did_not_complete": true,
+            "reconstruction_equal": true,
+            "runtime_identity_unchanged": true
+          },
+          "manifest_sha256": "sha256:f97e680d031a04d79de59f91ac47570c9e1604f9ec7fcd9ae256621cc770b8cf",
+          "name": "native-telemetry-http-failed",
+          "normalized_sha256": "sha256:06b4ed627a6642705b85178e98c087e43b1783476ef708da8ec359b69d40951c",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            }
+          ],
+          "reductions": [],
+          "returncode": 1,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:1c15786da294a74f171d933b3069f05e237470df99e84eb39863a6c614fa6c63",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 11,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 5,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "error": 1,
+            "item.completed": 1,
+            "thread.started": 1,
+            "turn.failed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": null,
+            "input_tokens": null,
+            "output_tokens": null,
+            "reasoning_tokens": null
+          }
+        },
+        {
+          "checks": {
+            "failure_visible": true,
+            "manifest_valid": true,
+            "process_did_not_complete": true,
+            "reconstruction_equal": true,
+            "runtime_identity_unchanged": true
+          },
+          "manifest_sha256": "sha256:ce213ed0b8d63d02341e9573bb70adb11b2fb93023edaa693b7c160e1bafcd0f",
+          "name": "native-telemetry-http-cancelled",
+          "normalized_sha256": "sha256:bac4e7d71a651ebdb4d7f4f360915fc834a6010592fa1839f941ae62e33ad3bd",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            }
+          ],
+          "reductions": [],
+          "returncode": -15,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:2832c468f7b058e2bcc1a7eeacc2e60c95582aa36538c58e025108e6048485f8",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": "session_discovery_timeout",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": "process_ended_without_terminal_event",
+              "rejected": 0,
+              "retained_events": 3,
+              "state": "partial"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 1,
+            "thread.started": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": null,
+            "input_tokens": null,
+            "output_tokens": null,
+            "reasoning_tokens": null
+          }
+        }
+      ],
+      "passed": true,
+      "provider": "controlled loopback only; synthetic usage; no provider cache behavior claim",
+      "request_capability_admission": "passed",
+      "runtime": {
+        "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+        "version": "codex-cli 0.167.0"
+      }
+    },
+    "windows_native": {
+      "cases": [
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:7abebddbf07a7744f31ed2d904e81c0fc3b77a40f6f2fdc17bcd384a777e2785",
+          "name": "native-session-http-completed",
+          "normalized_sha256": "sha256:a84636bc4ce7dc7499ea354ed7cca9578be3284f34774d15ad81de9d7c300845",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            },
+            {
+              "ordinal": 2
+            },
+            {
+              "ordinal": 3
+            },
+            {
+              "ordinal": 4
+            },
+            {
+              "ordinal": 5
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:edfdd48f8b458af0906e507b4cb05217b326c3d6e515e9f024e05e3b8d650f70",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:534340b92b480c078969189664e83aaa4185f053029284f7ee2edb2eefff26fa",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 18,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 120,
+            "input_tokens": 600,
+            "output_tokens": 42,
+            "reasoning_tokens": 18
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:a527e701794bb01482babc89d0c84821cd58ddf741bb8aac8f899ac3881d96ec",
+          "name": "native-session-websocket-completed",
+          "normalized_sha256": "sha256:02f94b0864ae64a79babcf217570b2299a5581579e578ed5c9469d9be2e3cbf7",
+          "passed": true,
+          "provider_requests": [
+            {
+              "kind": "warmup",
+              "ordinal": 1
+            },
+            {
+              "kind": "warmup",
+              "ordinal": 2
+            },
+            {
+              "kind": "generation",
+              "ordinal": 3
+            },
+            {
+              "kind": "generation",
+              "ordinal": 4
+            },
+            {
+              "kind": "generation",
+              "ordinal": 5
+            },
+            {
+              "kind": "generation",
+              "ordinal": 6
+            },
+            {
+              "kind": "generation",
+              "ordinal": 7
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:edfdd48f8b458af0906e507b4cb05217b326c3d6e515e9f024e05e3b8d650f70",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:026bff84f849c9bfcf3cd199601080252892fdeae60bfb485ddf21581b451a57",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 18,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 200,
+            "input_tokens": 1000,
+            "output_tokens": 70,
+            "reasoning_tokens": 30
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:8256a318086c59c6107fec9ebd60ea619a710f2c7f676351eb173c476431340b",
+          "name": "native-telemetry-http-completed",
+          "normalized_sha256": "sha256:b0678d51fdfc54165e2f9fe1e1669e4a9bec26873a9a044eeee6534735aa6b81",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            },
+            {
+              "ordinal": 2
+            },
+            {
+              "ordinal": 3
+            },
+            {
+              "ordinal": 4
+            },
+            {
+              "ordinal": 5
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:edfdd48f8b458af0906e507b4cb05217b326c3d6e515e9f024e05e3b8d650f70",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:ae8619ca78048d0004b228f8b00dcf028abf2c9a0eed60676066a843961ff702",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 40,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 68,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1192,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 18,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 120,
+            "input_tokens": 600,
+            "output_tokens": 42,
+            "reasoning_tokens": 18
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:c3b77f8ce8569452d0204c565d513e244b8e49e69c5f9cdbf5d3e31ec31c0ad4",
+          "name": "native-telemetry-websocket-completed",
+          "normalized_sha256": "sha256:b1e5ecd5a6454828d6d1afc484b2446d04ad6351ebee3266890db975344472d2",
+          "passed": true,
+          "provider_requests": [
+            {
+              "kind": "warmup",
+              "ordinal": 1
+            },
+            {
+              "kind": "warmup",
+              "ordinal": 2
+            },
+            {
+              "kind": "generation",
+              "ordinal": 3
+            },
+            {
+              "kind": "generation",
+              "ordinal": 4
+            },
+            {
+              "kind": "generation",
+              "ordinal": 5
+            },
+            {
+              "kind": "generation",
+              "ordinal": 6
+            },
+            {
+              "kind": "generation",
+              "ordinal": 7
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:edfdd48f8b458af0906e507b4cb05217b326c3d6e515e9f024e05e3b8d650f70",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:3a9a6ed1dc08bcd5ca3846e821a06795f62e74e502915f6543a7929084649330",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 43,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 72,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1286,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 18,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 200,
+            "input_tokens": 1000,
+            "output_tokens": 70,
+            "reasoning_tokens": 30
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "diagnostic_graph_scope_accounted": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:c72cb267c667fcdb725b1614e1099eb6eac65c212118815568435449494715a5",
+          "name": "native-deep_telemetry-http-completed",
+          "normalized_sha256": "sha256:e603b8f4d0ef2f567c46a472c41ee6f18d1a4f7be5521f8b257d2cd48c7704d2",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            },
+            {
+              "ordinal": 2
+            },
+            {
+              "ordinal": 3
+            },
+            {
+              "ordinal": 4
+            },
+            {
+              "ordinal": 5
+            }
+          ],
+          "reductions": [
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            },
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            }
+          ],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:edfdd48f8b458af0906e507b4cb05217b326c3d6e515e9f024e05e3b8d650f70",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:e9cfe943cba6fdc1afc15eaccdd91ed75088c899ac255818aa357b879a58f509",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "diagnostic_graph_root_unmatched",
+              "rejected": 1,
+              "retained_events": 76,
+              "state": "partial"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 40,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 68,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1192,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 18,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 120,
+            "input_tokens": 600,
+            "output_tokens": 42,
+            "reasoning_tokens": 18
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "diagnostic_graph_scope_accounted": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:3e2d69e027064f4a4508740ef07df3edd3552f4bca71578eefe048b534d92225",
+          "name": "native-deep_telemetry-websocket-completed",
+          "normalized_sha256": "sha256:bd35814e166e454e99ded992a2732675b69c8dd0e3ef05114a895a480f94578f",
+          "passed": true,
+          "provider_requests": [
+            {
+              "kind": "warmup",
+              "ordinal": 1
+            },
+            {
+              "kind": "warmup",
+              "ordinal": 2
+            },
+            {
+              "kind": "generation",
+              "ordinal": 3
+            },
+            {
+              "kind": "generation",
+              "ordinal": 4
+            },
+            {
+              "kind": "generation",
+              "ordinal": 5
+            },
+            {
+              "kind": "generation",
+              "ordinal": 6
+            },
+            {
+              "kind": "generation",
+              "ordinal": 7
+            }
+          ],
+          "reductions": [
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            },
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            }
+          ],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:edfdd48f8b458af0906e507b4cb05217b326c3d6e515e9f024e05e3b8d650f70",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:8fc65cc64864077e298be38b5f2a7afe6e5dce86892c8d5d9003fb3f2ecd0f38",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "diagnostic_graph_root_unmatched",
+              "rejected": 1,
+              "retained_events": 76,
+              "state": "partial"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 43,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 72,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1286,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 18,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 200,
+            "input_tokens": 1000,
+            "output_tokens": 70,
+            "reasoning_tokens": 30
+          }
+        },
+        {
+          "checks": {
+            "failure_visible": true,
+            "manifest_valid": true,
+            "process_did_not_complete": true,
+            "reconstruction_equal": true,
+            "runtime_identity_unchanged": true
+          },
+          "manifest_sha256": "sha256:ac5d092b22e78494a56417d55fcc60d935a146b92226227c0dd589dfed62758d",
+          "name": "native-telemetry-http-failed",
+          "normalized_sha256": "sha256:172a7f85f104bb73c509175bc9275a7945121eb98797eb9de208ef76132e3aa8",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            }
+          ],
+          "reductions": [],
+          "returncode": 1,
+          "runtime": {
+            "binary_sha256": "sha256:edfdd48f8b458af0906e507b4cb05217b326c3d6e515e9f024e05e3b8d650f70",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:3c40f401c4146e14fd35fcfca5b5c705a48fedba4a3e1a0d55bdf93134713ead",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 11,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 5,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "error": 1,
+            "item.completed": 1,
+            "thread.started": 1,
+            "turn.failed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": null,
+            "input_tokens": null,
+            "output_tokens": null,
+            "reasoning_tokens": null
+          }
+        },
+        {
+          "checks": {
+            "failure_visible": true,
+            "manifest_valid": true,
+            "process_did_not_complete": true,
+            "reconstruction_equal": true,
+            "runtime_identity_unchanged": true
+          },
+          "manifest_sha256": "sha256:4efb9c49f28ddaf0f25833f56d5ec680b16d25786245ab188a0a7ecfdaa3bd2a",
+          "name": "native-telemetry-http-cancelled",
+          "normalized_sha256": "sha256:dc3ec46ff507cc4f485dbf11bce28ba6311457ef821419abebc02aaf7c4090c6",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            }
+          ],
+          "reductions": [],
+          "returncode": 1,
+          "runtime": {
+            "binary_sha256": "sha256:edfdd48f8b458af0906e507b4cb05217b326c3d6e515e9f024e05e3b8d650f70",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:2832c468f7b058e2bcc1a7eeacc2e60c95582aa36538c58e025108e6048485f8",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 2,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": "session_discovery_timeout",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": "process_ended_without_terminal_event",
+              "rejected": 0,
+              "retained_events": 3,
+              "state": "partial"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 1,
+            "thread.started": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": null,
+            "input_tokens": null,
+            "output_tokens": null,
+            "reasoning_tokens": null
+          }
+        }
+      ],
+      "passed": true,
+      "provider": "controlled loopback only; synthetic usage; no provider cache behavior claim",
+      "request_capability_admission": "passed",
+      "runtime": {
+        "binary_sha256": "sha256:edfdd48f8b458af0906e507b4cb05217b326c3d6e515e9f024e05e3b8d650f70",
+        "version": "codex-cli 0.167.0"
+      }
+    },
+    "wsl_bridge": {
+      "cases": [
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:8a9562f83215e5635acdabdd02d012ee37df4c2daf0eab55afaadee50f29ebb9",
+          "name": "wsl-session-http-completed",
+          "normalized_sha256": "sha256:b0fec254666a2b0c7b2221b7ec0194f2444e78915350b156197894bec1350590",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            },
+            {
+              "ordinal": 2
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:0d20f62dece59ea3afb456b8ef1885f4a9169f77895f51bee3aea2f7672c5f0a",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 3,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 60,
+            "input_tokens": 300,
+            "output_tokens": 21,
+            "reasoning_tokens": 9
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:62055c636c1df61845f85b7320aed48fee852746dbf58f2a487baa2e28aec00b",
+          "name": "wsl-session-websocket-completed",
+          "normalized_sha256": "sha256:ef4d452cf78e462b00dbe5fbc93e8982dcea192947add32c8a9cb4a6a6df7d89",
+          "passed": true,
+          "provider_requests": [
+            {
+              "kind": "warmup",
+              "ordinal": 1
+            },
+            {
+              "kind": "warmup",
+              "ordinal": 2
+            },
+            {
+              "kind": "generation",
+              "ordinal": 3
+            },
+            {
+              "kind": "generation",
+              "ordinal": 4
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:eec3c476c3cbbab68d3075fe38dd599a18e2051fd0404cd67dbb9deed1c07aa1",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "legacy_capture_profile",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 3,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 140,
+            "input_tokens": 700,
+            "output_tokens": 49,
+            "reasoning_tokens": 21
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:f5f7183a0a994cb26edefadc2b47e7f7c26624862615ee83bf28f883b852b6d9",
+          "name": "wsl-telemetry-http-completed",
+          "normalized_sha256": "sha256:bdfb182b5b00dd168173acdfad8926f63873c4d1480720367ff9a46b31bc72da",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            },
+            {
+              "ordinal": 2
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:e9d17aed57fb811b387f55a5d66f355872029a0dfc1bf861eca69ac0b3e31ae5",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 58,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 586,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 3,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 60,
+            "input_tokens": 300,
+            "output_tokens": 21,
+            "reasoning_tokens": 9
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:2bc53513b05c155080949937d865651550eaf6c913ff527f972faa0d542cd26a",
+          "name": "wsl-telemetry-websocket-completed",
+          "normalized_sha256": "sha256:ac6efc81f4857f75f8f5964cb10f51a6eb2340eea1586ba2a87683acb666ff30",
+          "passed": true,
+          "provider_requests": [
+            {
+              "kind": "warmup",
+              "ordinal": 1
+            },
+            {
+              "kind": "warmup",
+              "ordinal": 2
+            },
+            {
+              "kind": "generation",
+              "ordinal": 3
+            },
+            {
+              "kind": "generation",
+              "ordinal": 4
+            }
+          ],
+          "reductions": [],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:1c7e74e5e75610c215f296da77bd43e76a083bd45bcb3559b02cafa0d963173d",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 30,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 62,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 681,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 3,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 140,
+            "input_tokens": 700,
+            "output_tokens": 49,
+            "reasoning_tokens": 21
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "diagnostic_graph_scope_accounted": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:cbc0b9c6d88f5fdaccbbbca461efe75638ddcc337cde206295f0100e5bb2e179",
+          "name": "wsl-deep_telemetry-http-completed",
+          "normalized_sha256": "sha256:ead364fb35cff550f3862e5052b4531c88d6ed6a1c8d1981dbbfa36cca1c580c",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            },
+            {
+              "ordinal": 2
+            }
+          ],
+          "reductions": [
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            },
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            }
+          ],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:07e81e19fa1233645183ab66c41c082957d2be2b4e01849c508824b02b1a262e",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "diagnostic_graph_root_unmatched",
+              "rejected": 1,
+              "retained_events": 50,
+              "state": "partial"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 58,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 586,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 3,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 60,
+            "input_tokens": 300,
+            "output_tokens": 21,
+            "reasoning_tokens": 9
+          }
+        },
+        {
+          "checks": {
+            "cumulative_counters_equal": true,
+            "diagnostic_graph_scope_accounted": true,
+            "expected_sources_settled": true,
+            "independent_response_counters_equal": true,
+            "manifest_valid": true,
+            "process_completed": true,
+            "reconstruction_equal": true,
+            "rollout_complete": true,
+            "runtime_identity_unchanged": true,
+            "tool_observed": true,
+            "usage_records_observed": true
+          },
+          "manifest_sha256": "sha256:defd69a9a20495e23cb38d397b4cce9719d00a43d902e3bc4f5ef269518e5af8",
+          "name": "wsl-deep_telemetry-websocket-completed",
+          "normalized_sha256": "sha256:25399a73e3cb7e3b4e07cbb0d90999844c4db125204ffa35e35a342767e82770",
+          "passed": true,
+          "provider_requests": [
+            {
+              "kind": "warmup",
+              "ordinal": 1
+            },
+            {
+              "kind": "warmup",
+              "ordinal": 2
+            },
+            {
+              "kind": "generation",
+              "ordinal": 3
+            },
+            {
+              "kind": "generation",
+              "ordinal": 4
+            }
+          ],
+          "reductions": [
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            },
+            {
+              "phase": "reduction",
+              "return_code": 0,
+              "status": "completed"
+            }
+          ],
+          "returncode": 0,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:0a8ee99863df696979d2cd53e01fc787e846b077b3a00871f999c6759e0bd429",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "diagnostic_graph_root_unmatched",
+              "rejected": 1,
+              "retained_events": 50,
+              "state": "partial"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 30,
+              "state": "settled"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 62,
+              "state": "settled"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 681,
+              "state": "settled"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 3,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 19,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 7,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 3,
+            "item.started": 1,
+            "thread.started": 1,
+            "turn.completed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": 140,
+            "input_tokens": 700,
+            "output_tokens": 49,
+            "reasoning_tokens": 21
+          }
+        },
+        {
+          "checks": {
+            "failure_visible": true,
+            "manifest_valid": true,
+            "process_did_not_complete": true,
+            "reconstruction_equal": true,
+            "runtime_identity_unchanged": true
+          },
+          "manifest_sha256": "sha256:6bebe03064b6add60916ae5cd76bc613bbd97d5be9250dc58ea3e9382b9ac829",
+          "name": "wsl-telemetry-http-failed",
+          "normalized_sha256": "sha256:316bc889534a728ea248d740ae42039b7ba2dbce008433e338368733098f0593",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            }
+          ],
+          "reductions": [],
+          "returncode": 1,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:b0a23b48869638f89d9fc275c3d1b9d8109ccd58a7f2f4738b96214f92f78923",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 3,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 11,
+              "state": "settled"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 5,
+              "state": "settled"
+            }
+          },
+          "stdout_events": {
+            "error": 1,
+            "item.completed": 1,
+            "thread.started": 1,
+            "turn.failed": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": null,
+            "input_tokens": null,
+            "output_tokens": null,
+            "reasoning_tokens": null
+          }
+        },
+        {
+          "checks": {
+            "failure_visible": true,
+            "manifest_valid": true,
+            "process_did_not_complete": true,
+            "reconstruction_equal": true,
+            "runtime_identity_unchanged": true
+          },
+          "manifest_sha256": "sha256:2201ac71b0ab14d683e1ee5ae894d084d7b448ff3d56cc36a665eb1947608440",
+          "name": "wsl-telemetry-http-cancelled",
+          "normalized_sha256": "sha256:fe40f574d4e7d0296084445bf76ce60d5062191181acb6c37a8d958fd0938b20",
+          "passed": true,
+          "provider_requests": [
+            {
+              "ordinal": 1
+            }
+          ],
+          "reductions": [],
+          "returncode": 143,
+          "runtime": {
+            "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+            "version": "codex-cli 0.167.0"
+          },
+          "session_source_sha256": "sha256:2832c468f7b058e2bcc1a7eeacc2e60c95582aa36538c58e025108e6048485f8",
+          "sources": {
+            "diagnostics": {
+              "parse_errors": 0,
+              "reason": "explicit_sensitive_diagnostic_opt_in_required",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "disabled"
+            },
+            "otel_logs": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_metrics": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "otel_traces": {
+              "parse_errors": 0,
+              "reason": "signal_not_exported_or_not_emitted",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "process": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 4,
+              "state": "settled"
+            },
+            "rollout": {
+              "parse_errors": 0,
+              "reason": "session_discovery_timeout",
+              "rejected": 0,
+              "retained_events": 0,
+              "state": "unavailable"
+            },
+            "stderr": {
+              "parse_errors": 0,
+              "reason": null,
+              "rejected": 0,
+              "retained_events": 1,
+              "state": "settled"
+            },
+            "stdout": {
+              "parse_errors": 0,
+              "reason": "process_ended_without_terminal_event",
+              "rejected": 0,
+              "retained_events": 3,
+              "state": "partial"
+            }
+          },
+          "stdout_events": {
+            "item.completed": 1,
+            "thread.started": 1,
+            "turn.started": 1
+          },
+          "token_counters": {
+            "cached_input_tokens": null,
+            "input_tokens": null,
+            "output_tokens": null,
+            "reasoning_tokens": null
+          }
+        }
+      ],
+      "passed": true,
+      "provider": "controlled loopback only; synthetic usage; no provider cache behavior claim",
+      "request_capability_admission": "passed",
+      "runtime": {
+        "binary_sha256": "sha256:cdcb45aaa01d0f14e298985e09465aebccd47f64ecd298aea44814af7b62bbda",
+        "version": "codex-cli 0.167.0"
+      }
+    }
+  }
+}

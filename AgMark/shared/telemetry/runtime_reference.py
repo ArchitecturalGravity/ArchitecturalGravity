@@ -18,6 +18,26 @@ _VERSION = re.compile(r"[0-9]+\.[0-9]+\.[0-9]+(?:-[0-9A-Za-z]+(?:[.-][0-9A-Za-z]
 _ADVISORY_FIELDS = {"schema_version", "runner_id", "update_revision", "reference_runtime_version",
     "selected_runtime_version", "status", "blocking"}
 
+# Release source plus real-binary controlled capture, documented in
+# software_testing/adapters/codex_cli/CAPTURE_AUDIT_0_167_0.md. These facts
+# describe a schema, not an allowlist for execution or a delivery guarantee.
+_CAPTURE_AUDITS = {
+    "0.167.0": {"source_commit": "086ccc833bc9cf01024ad2dd6af7dbd421b6bf9a",
+                "token_usage_record_v1": True},
+}
+
+
+def capture_schema_audit(runtime_version):
+    """Return demonstrated stock schema facts for an exact release label.
+
+    Prerelease/build variants do not inherit a stock release's source audit.
+    Persist capability markers with new captures so older evidence keeps its
+    original interpretation when this table grows.
+    """
+    if not isinstance(runtime_version, str):
+        return {}
+    return dict(_CAPTURE_AUDITS.get(runtime_version.removeprefix("codex-cli "), {}))
+
 
 def _version(value):
     if not isinstance(value, str):

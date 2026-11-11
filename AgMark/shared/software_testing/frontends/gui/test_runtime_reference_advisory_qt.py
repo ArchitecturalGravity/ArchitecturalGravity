@@ -103,7 +103,7 @@ class RuntimeReferenceAdvisoryTests(unittest.TestCase):
 
     def test_matching_unknown_and_undeclared_replacements_remove_stale_warning(self):
         cases = (('9.9.9', True, 'warning'), (self.reference, True, None),
-                 (None, True, 'neutral'), ('9.9.9', False, None), ('0.166.0-alpha.1', True, None))
+                 (None, True, 'neutral'), ('9.9.9', False, None), (self.reference + '-alpha.1', True, None))
         for version, metadata, tone in cases:
             with self.subTest(version=version, metadata=metadata):
                 projection = self.projection(version, metadata=metadata)

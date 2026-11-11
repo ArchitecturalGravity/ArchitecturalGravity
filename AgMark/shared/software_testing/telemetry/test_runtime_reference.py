@@ -11,8 +11,8 @@ class RuntimeReferenceTests(unittest.TestCase):
     def test_shipped_metadata_retains_only_capture_version_and_revision(self):
         metadata = load_registration()['extensions'][UPDATE_EXTENSION]
         self.assertEqual({
-            'revision': 'runtime-neutral-capture-v1',
-            'reference_runtime_version': '0.166.0',
+            'revision': 'runtime-neutral-capture-v2',
+            'reference_runtime_version': '0.167.0',
         }, metadata)
 
     def test_match_mismatch_and_unknown_are_nonblocking_and_retain_numeric_core(self):
@@ -22,7 +22,8 @@ class RuntimeReferenceTests(unittest.TestCase):
         for version, expected, normalized in (
             (reference, 'match', reference),
             ('codex-cli ' + reference, 'match', reference),
-            ('0.166.0-alpha.1', 'match', '0.166.0'),
+            (reference + '-alpha.1', 'match', reference),
+            ('0.166.0', 'mismatch', '0.166.0'),
             ('0.159.0', 'mismatch', '0.159.0'),
             ('9.9.9-rc.1+build.2', 'mismatch', '9.9.9'),
             (None, 'unknown', None), ('', 'unknown', None), ('latest', 'unknown', None),

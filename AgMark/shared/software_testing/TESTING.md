@@ -6,6 +6,14 @@ package layout:
 - `python shared/software_testing/ci.py --all`: all centralized operation-path tests.
 - `--head` / `--base` selects tests by Git impact; `--all` bypasses that selection.
 
+## Codex CLI capture maintenance
+
+For each CLI version change, follow the
+[capture update runbook](adapters/codex_cli/CAPTURE_MAINTENANCE.md). It covers
+interface/source review, actual binary probes, regression and retained-history
+checks, metadata/artifact updates, acceptance criteria and the release-audit
+template. Keep the procedure separate from version-specific audit results.
+
 ## Provider-free lifecycle harness
 
 `self_testing/` contains developer-only support for exercising the shared lifecycle

@@ -13,6 +13,14 @@ _RUNNER = "arcgrav.mock-model.runner"
 
 
 class RegisteredRunnerIdentityTests(unittest.TestCase):
+    def test_capture_schema_audit_is_bound_into_the_codex_runner_identity(self):
+        from AgMark.shared.adapters.Codex_CLI import load_registration
+        registration = load_registration()
+        reference = "AgMark/shared/telemetry/runtime_reference.py"
+        artifact = next(item for item in registration["implementation_artifacts"] if item["reference"] == reference)
+        self.assertEqual("sha256:" + hashlib.sha256((_ROOT / reference).read_bytes()).hexdigest(), artifact["sha256"])
+        self.assertIn(artifact["artifact_id"], registration["extensions"]["arcgrav.adapters:target_composition"]["runner_implementation_artifact_ids"])
+
     def test_repository_discovery_includes_registered_mock(self):
         authority = discover_repository_application_authority(_ROOT)
         ids = {source.registration["registration_id"] for source in authority.runner_sources}

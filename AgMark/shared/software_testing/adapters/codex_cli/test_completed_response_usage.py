@@ -17,6 +17,29 @@ def with_records(records, *, token_count=True):
 
 
 class CompletedResponseUsageTests(unittest.TestCase):
+    def test_audited_new_capture_marks_usage_capability_without_reinterpreting_old_sources(self):
+        from AgMark.shared.telemetry.runtime_reference import capture_schema_audit
+        from unittest.mock import patch
+        rows = [json.loads(line) for line in with_records([response()], token_count=False).splitlines()]
+        rows[0]["payload"]["cli_version"] = "0.167.0"
+        raw = b"".join((json.dumps(row) + "\n").encode() for row in rows)
+        source = {"availability": "retained", "thread_id": "trial",
+                  "content_base64": base64.b64encode(raw).decode()}
+        def capture(version="0.167.0"):
+            return extract_session_measurements(source, stdout(), runtime_version=version, process_complete=True)
+        with patch('AgMark.shared.telemetry.runtime_reference.capture_schema_audit', return_value={}):
+            old_value, old_record = capture()
+        value, record = capture()
+        self.assertEqual({"token_usage_record_v1": True}, record["capabilities"])
+        self.assertEqual("token_usage_record.thread_token_usage", record["usage_authority"])
+        self.assertTrue(record["completed_response_usage"])
+        self.assertEqual((value, record), extract_session_measurements(record, stdout(), runtime_version="0.167.0", process_complete=True))
+        self.assertNotIn("capabilities", old_record)
+        self.assertEqual((old_value, old_record), extract_session_measurements(old_record, stdout(), runtime_version="0.167.0", process_complete=True))
+        for version in ("0.167.0-alpha.1", "0.167.0+private", "9.9.9"):
+            self.assertEqual({}, capture_schema_audit(version))
+            self.assertNotIn("capabilities", capture(version)[1])
+
     def test_fresh_capture_retains_scopes_and_final_cumulative_fallback(self):
         value, record = extract(with_records([response(), response("response-2", usage(200, 80))], token_count=False))
         self.assertEqual("4.0.0", record["extraction_version"])

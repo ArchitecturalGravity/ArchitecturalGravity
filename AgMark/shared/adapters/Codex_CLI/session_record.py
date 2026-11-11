@@ -125,7 +125,12 @@ def parse_session_record(record, stdout, *, runtime_version, process_complete):
         "trace_complete": complete, "source_valid": valid}
     if raw is None:
         safe["reason"] = "matched_session_source_unavailable"
-    if record.get("capabilities", {}).get("token_usage_record_v1") is True:
+    from ...telemetry.runtime_reference import capture_schema_audit
+    audit = capture_schema_audit(full_runtime_version)
+    metadata = next((entry["payload"] for entry in records if entry["type"] == "session_meta"), {})
+    audited_record = (audit.get("token_usage_record_v1") is True and raw is not None and valid
+                      and metadata.get("cli_version") == full_runtime_version)
+    if audited_record or record.get("capabilities", {}).get("token_usage_record_v1") is True:
         safe["capabilities"] = {"token_usage_record_v1": True}
     for key in ("generation_id", "observation_id", "attempt"):
         if key in record: safe[key] = record[key]

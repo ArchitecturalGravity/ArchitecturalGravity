@@ -65,6 +65,7 @@ _NUMBER_KEYS = _NUMERIC_STRINGS | frozenset({
     "seq", "started_seq", "ended_seq", "started_at_unix_ms", "ended_at_unix_ms",
     "wall_time_unix_ms", "elapsed_ms", "latency_ms", "duration", "exit_code", "exit_status", "return_code",
     "status", "byte_length", "content_excluded", "yield_time_ms", "timeout_ms", "wall_time_seconds",
+    "recording_complete",
     "num_turns", "max_output_tokens", "max_input_tokens", "http.status_code",
     "gen_ai.usage.input_tokens", "gen_ai.usage.output_tokens",
     "gen_ai.usage.cache_read.input_tokens", "gen_ai.usage.cache_creation.input_tokens",
@@ -227,8 +228,14 @@ class Sanitizer:
                 return self.exclude()
             return self.aliases.identity(value) or self.exclude()
         if key in _TIME_KEYS:
+            # Zero OTLP timestamps are unspecified, not epoch observations.
+            # Let the first actual timestamp establish this source's origin.
+            if key in {"timeUnixNano", "observedTimeUnixNano", "startTimeUnixNano", "endTimeUnixNano"} and value in (0, "0"):
+                return self.exclude()
             retained = self.aliases.time(value, key, self.source)
             return retained if retained is not None else self.exclude()
+        if key == "recording_complete":
+            return value if type(value) is bool else self.exclude()
         if type(value) in {bool, int}:
             return value if key in _NUMBER_KEYS or key in {"schema_version", "kind", "aggregationTemporality", "status_code"} else self.exclude()
         if type(value) is float:

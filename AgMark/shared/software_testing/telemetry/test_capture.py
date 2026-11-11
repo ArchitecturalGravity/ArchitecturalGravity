@@ -131,7 +131,7 @@ class CaptureTests(unittest.TestCase):
         def send(index):
             return post(session, "logs", otlp("logs", [{"timeUnixNano": str(index), "attributes": [attr("future.counter", index)]}]))
         with ThreadPoolExecutor(max_workers=4) as pool:
-            self.assertEqual(list(pool.map(send, range(12))), [200] * 12)
+            self.assertEqual(list(pool.map(send, range(1, 13))), [200] * 12)
         start = time.monotonic()
         sealed = session.finish(stdout(), b"", rollout(), "cancelled")
         self.assertLess(time.monotonic() - start, 2)
@@ -139,6 +139,47 @@ class CaptureTests(unittest.TestCase):
         self.assertEqual([r["source_sequence"] for r in records], list(range(1, 13)))
         self.assertEqual(len({r["payload"]["timeUnixNano"] for r in records}), 12)
         self.assertTrue(validate_manifest(sealed))
+
+    def test_unspecified_observed_log_time_does_not_reject_a_real_timestamp(self):
+        session = self.make_capture()
+        timestamp = "1794350000000000000"
+        self.assertEqual(post(session, "logs", otlp("logs", [
+            {"timeUnixNano": "0", "observedTimeUnixNano": timestamp},
+            {"timeUnixNano": timestamp, "observedTimeUnixNano": "0",
+             "attributes": [attr("event.name", "codex.api_request")]},
+            {"timeUnixNano": str(int(timestamp) + 10),
+             "observedTimeUnixNano": str(int(timestamp) + 15)}])), 200)
+        sealed = session.finish(stdout(), b"", rollout(), "completed")
+        logs = [r["payload"] for r in sealed["records"] if r["source"] == "otel_logs"]
+        self.assertNotIn("timeUnixNano", logs[0])
+        self.assertEqual("0", logs[0]["observedTimeUnixNano"])
+        self.assertEqual("0", logs[1]["timeUnixNano"])
+        self.assertNotIn("observedTimeUnixNano", logs[1])
+        self.assertEqual("15", logs[2]["observedTimeUnixNano"])
+        self.assertEqual(0, sealed["sources"]["otel_logs"]["rejected"])
+        self.assertTrue(validate_manifest(sealed))
+
+    def test_schema_two_reduced_graph_retains_recording_outcome_and_rejects_unknown_schema(self):
+        for schema, complete in ((2, True), (2, False), (2, None), (3, True), (True, True)):
+            with self.subTest(schema=schema, complete=complete):
+                session = self.make_capture(profile=CaptureProfile(id="deep_telemetry",
+                    diagnostic_privacy_acknowledged=True))
+                bundle = session.diagnostic_root / "fixture"
+                bundle.mkdir()
+                state = {"schema_version": schema, "root_thread_id": "thread-1",
+                         "recording_complete": complete, "threads": {}, "raw_payloads": {}}
+                (bundle / "state.json").write_text(json.dumps(state))
+                sealed = session.finish(stdout(), b"", rollout(), "completed")
+                graphs = [r["payload"] for r in sealed["records"]
+                          if r["source"] == "diagnostics" and r["payload"].get("type") == "reduced_graph"]
+                supported = type(schema) is int and schema == 2 and type(complete) is bool
+                self.assertEqual(supported, bool(graphs))
+                if supported:
+                    self.assertIs(complete, graphs[0]["recording_complete"])
+                    self.assertEqual("settled" if complete else "partial", sealed["sources"]["diagnostics"]["state"])
+                else:
+                    self.assertGreater(sealed["sources"]["diagnostics"]["parse_errors"], 0)
+                self.assertTrue(validate_manifest(sealed))
 
     def test_invalid_otlp_is_counted_without_losing_valid_records(self):
         session = self.make_capture()
@@ -447,6 +488,19 @@ class CaptureTests(unittest.TestCase):
         sanitizer = Sanitizer()
         self.assertEqual(sanitizer.value({"traceId": "0" * 32, "spanId": "0" * 16,
             "parentSpanId": "0" * 16, "name": "codex.future"}), {})
+
+    def test_auxiliary_root_graph_cannot_be_joined_to_the_selected_thread(self):
+        session = self.make_capture(profile=CaptureProfile(id="deep_telemetry",
+            diagnostic_privacy_acknowledged=True))
+        bundle = session.diagnostic_root / "auxiliary"
+        bundle.mkdir()
+        (bundle / "state.json").write_text(json.dumps({"schema_version": 2,
+            "recording_complete": True, "root_thread_id": "another-thread", "threads": {}}))
+        sealed = session.finish(stdout(), b"", rollout(), "completed")
+        self.assertEqual("diagnostic_graph_root_unmatched", sealed["sources"]["diagnostics"]["reason"])
+        self.assertEqual("partial", sealed["completeness"]["status"])
+        self.assertFalse(any(r["payload"].get("type") == "reduced_graph" for r in sealed["records"]))
+        self.assertTrue(validate_manifest(sealed))
 
     def test_producer_reported_loss_marks_capture_and_dimensions_partial(self):
         session = self.make_capture()

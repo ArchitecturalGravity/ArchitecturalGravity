@@ -177,18 +177,22 @@ def _probe_transport(payload, transport):
     import struct
     snapshot = payload["snapshot"]
     requests = []
+    generations = 0
     class Provider(BaseHTTPRequestHandler):
         protocol_version = "HTTP/1.1"
         def log_message(self, *args):
             pass
         def events(self, body):
+            nonlocal generations
             n = len(requests) + 1
             warmup = body.get("generate") is False
+            if not warmup:
+                generations += 1
             requests.append({"ordinal": n} if transport == "http" else
                 {"ordinal": n, "kind": "warmup" if warmup else "generation"})
             item = ({"type": "function_call", "call_id": "probe", "name": "exec_command", "namespace": "functions",
-                "arguments": json.dumps({"cmd": "printf agmark-capability-probe", "max_output_tokens": 20})}
-                if n == (1 if transport == "http" else 2) else
+                "arguments": json.dumps({"cmd": "echo agmark-capability-probe", "max_output_tokens": 20})}
+                if not warmup and generations == 1 else
                 {"type": "message", "role": "assistant", "id": "answer", "content": [{"type": "output_text", "text": "probe-complete"}]})
             return [{"type": "response.created", "response": {"id": "resp_" + str(n)}},
                 *([] if warmup else [{"type": "response.output_item.done", "item": item}]),
@@ -196,6 +200,11 @@ def _probe_transport(payload, transport):
                     "input_tokens": 100*n, "input_tokens_details": {"cached_tokens": 20*n, "cache_write_tokens": 11*n},
                     "output_tokens": 7*n, "output_tokens_details": {"reasoning_tokens": 3*n}, "total_tokens": 107*n}}}]
         def do_POST(self):
+            # The CLI can also query e.g. analytics/codex/turn-costs. Those
+            # requests are not Responses generations and cannot supply probe
+            # counters or consume a scripted tool response.
+            if self.path != "/v1/responses":
+                self.send_error(404); return
             if transport != "http":
                 self.send_error(400); return
             length = int(self.headers.get("Content-Length", "0"))
@@ -206,7 +215,8 @@ def _probe_transport(payload, transport):
             self.send_response(200); self.send_header("Content-Type", "text/event-stream")
             self.send_header("Content-Length", str(len(raw))); self.end_headers(); self.wfile.write(raw)
         def do_GET(self):
-            if transport != "websocket" or self.headers.get("Upgrade", "").lower() != "websocket":
+            if (self.path != "/v1/responses" or transport != "websocket"
+                    or self.headers.get("Upgrade", "").lower() != "websocket"):
                 self.send_error(400); return
             accept = base64.b64encode(hashlib.sha1((self.headers["Sec-WebSocket-Key"] +
                 "258EAFA5-E914-47DA-95CA-C5AB0DC85B11").encode()).digest()).decode()

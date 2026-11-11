@@ -317,11 +317,15 @@ Only its return status is retained here; no subprocess output is captured.
         """Retain stock reducer nodes and explicit edges, excluding all text payloads."""
         try:
             state = decode_document(raw)
-            if not isinstance(state, dict) or state.get("schema_version") != 1:
+            if (not isinstance(state, dict) or type(state.get("schema_version")) is not int
+                    or state["schema_version"] not in {1, 2}):
                 raise ValueError("unsupported stock diagnostic graph schema")
+            if state["schema_version"] == 2 and type(state.get("recording_complete")) is not bool:
+                raise ValueError("missing stock diagnostic recording outcome")
             thread_id = self._returned_threads[0] if len(self._returned_threads) == 1 else None
             if thread_id is None or state.get("root_thread_id") != thread_id:
                 self.ledger.count("diagnostics", rejected=1)
+                self.ledger.state("diagnostics", "partial", "diagnostic_graph_root_unmatched")
                 return 0
             sanitizer = Sanitizer(aliases=self.aliases, source="diagnostics")
             header = sanitizer.value({k: v for k, v in state.items() if k not in _GRAPH_FAMILIES and k != "raw_payloads"})
@@ -330,6 +334,9 @@ Only its return status is retained here; no subprocess output is captured.
             excluded_payloads = len(state.get("raw_payloads", {})) if isinstance(state.get("raw_payloads"), dict) else 0
             self.ledger.add("diagnostics", {**header, "type": "reduced_graph", "representation": "stock_reduced_graph",
                 "graph_counts": counts, "raw_payloads_excluded": excluded_payloads})
+            if state.get("recording_complete") is False:
+                self.ledger.count("diagnostics", partial=1)
+                self.ledger.state("diagnostics", "partial", "stock_diagnostic_recording_incomplete")
             retained = 1
             for family in _GRAPH_FAMILIES:
                 nodes = state.get(family, {})

@@ -101,14 +101,16 @@ class CaptureProfile:
 
 
 def capability(runtime_version, launch_mode="native"):
-    from .runtime_reference import _version
+    from .runtime_reference import _version, capture_schema_audit
+    audit = capture_schema_audit(runtime_version)
     version = _version(runtime_version) or ""
     launch_mode = launch_mode if launch_mode in {"native", "wsl"} else "unknown"
     reason = None if launch_mode == "native" else "execution_environment_local_receiver_unavailable"
     return {"version": version, "launch_mode": launch_mode,
             "capability_status": "supported" if reason is None else "unsupported",
             "reason": reason, "evidence_commit": AUDIT_COMMIT if isinstance(runtime_version, str)
-                and runtime_version.removeprefix("codex-cli ") == AUDITED_RUNTIME else None,
+                and runtime_version.removeprefix("codex-cli ") == AUDITED_RUNTIME else audit.get("source_commit"),
+            "capabilities": {"token_usage_record_v1": True} if audit.get("token_usage_record_v1") else {},
             "signals": ["logs", "traces", "metrics"] if reason is None else [],
             "delivery": "best_effort_exporter", "complete_request_coverage": False,
             "individual_token_arrival_times": False, "exact_wire_latency": False}
