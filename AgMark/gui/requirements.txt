@@ -1,0 +1,3 @@
+# Production desktop GUI dependencies.
+# Keep this file independent of AgMark/shared/software_testing/.
+PySide6==6.11.2

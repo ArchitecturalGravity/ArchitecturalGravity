@@ -1,0 +1,144 @@
+# Intent: Build a project delivery structure that connects outcomes workstreams dependencies milestones constraints and ownership without prescribing unnecessary tactics
+
+Project:
+- Name: Neighborhood library reopening
+- Outcome: Reopen the renovated branch with:
+  - Building ready for normal operation
+  - Collection ready for service
+  - Staff ready for normal operation
+  - Public services ready for normal operation
+- Opening date: Monday 12 October
+- Sponsor: Director of neighborhood services
+- Delivery lead: Capital projects manager
+
+[OutcomeHierarchy]:
+- Safe occupancy:
+  - Building systems accepted
+  - Required inspections closed
+  - Life-safety documentation available to operations staff
+- Service readiness:
+  - Public technology operational
+  - Circulation stations operational
+  - Staff prepared for opening-day procedures
+- Public readiness:
+  - Collection available to patrons
+  - Wayfinding installed
+  - Community opening information published
+
+[Workstreams]:
+- BuildingReadiness:
+  - Outcome: Safe occupied facility ready for turnover
+  - Owner: Facilities project manager
+  - Produces:
+    - Accepted building systems
+    - Inspection closeout evidence
+    - Turnover package
+- TechnologyReadiness:
+  - Outcome: Public and staff technology ready for service
+  - Owner: Library technology lead
+  - Requires:
+    - Permanent power available
+    - Final furniture locations confirmed
+- CollectionMove:
+  - Outcome: Collection placed and discoverable in the reopened branch
+  - Owner: Collection services manager
+  - Requires:
+    - Dust-producing construction complete
+    - Shelving accepted
+- StaffReadiness:
+  - Outcome: Branch team ready to operate the reopened facility
+  - Owner: Branch manager
+  - Requires:
+    - Operating procedures approved
+    - Technology training environment available
+- PublicLaunch:
+  - Outcome: Patrons receive accurate reopening information and usable wayfinding
+  - Owner: Community engagement manager
+  - Requires:
+    - Opening date confirmed by sponsor
+    - Final public routes confirmed
+
+[DependencyGraph]:
+- Building systems acceptance:
+  - Enables: Inspection closeout
+- Inspection closeout:
+  - Enables: Safe occupancy milestone
+- Shelving acceptance:
+  - Requires: Dust-producing construction complete
+  - Enables: Collection move
+- Final furniture locations:
+  - Enables:
+    - Technology installation
+    - Final public routes
+- Technology installation:
+  - Enables: Staff technology training
+- Safe occupancy milestone:
+  - Enables: Staff occupancy
+- Collection move:
+  - Enables: Service readiness milestone
+- Staff technology training:
+  - Enables: Service readiness milestone
+- Final public routes:
+  - Enables:
+    - Wayfinding installation
+    - Public reopening information
+
+[Milestones]:
+- M1 Building accepted:
+  - Evidence: Signed inspection closeout and facilities turnover acceptance
+  - Owner: Facilities project manager
+- M2 Service ready:
+  - Requires:
+    - Collection move complete
+    - Public technology verified
+    - Circulation stations verified
+    - Staff opening procedures confirmed
+  - Owner: Branch manager
+- M3 Public ready:
+  - Requires:
+    - Wayfinding installed
+    - Reopening information approved
+  - Owner: Community engagement manager
+- M4 Reopen branch:
+  - Requires:
+    - M1 Building accepted
+    - M2 Service ready
+    - M3 Public ready
+  - Owner: Director of neighborhood services
+
+[Constraints]:
+- Public opening date may change only with sponsor approval
+- No collection move begins while dust-producing work remains active in collection areas
+- No public opening occurs without required occupancy approvals
+- Workstream owners remain accountable for outcomes even when delivery tasks are delegated
+- Planning detail should stop at the level needed to expose:
+  - Ownership
+  - Dependencies
+  - Milestone evidence
+  - Material delivery risk
+
+[DeliveryStructure]: []
+
+[Compose]:
+=> Organize the project around [OutcomeHierarchy] and [Workstreams]
+=> Connect each cross-workstream prerequisite through [DependencyGraph]
+=> Associate each milestone in [Milestones] with observable completion evidence and accountable ownership
+=> Apply [Constraints] to the proposed delivery structure
+=> Identify dependencies whose failure can block more than one workstream
+=> Identify outcome gaps that have no accountable owner
+=> Append the resulting delivery structure to [DeliveryStructure]
+
+[Review]:
+=> Verify every project outcome is owned by at least one workstream
+=> Verify every milestone has observable evidence rather than a subjective completion claim
+=> Verify dependencies cross workstream boundaries only where a real prerequisite exists
+=> Expose any ownership collision or unowned dependency
+=> Do not invent task-level tactics that are unnecessary to govern delivery
+
+Task:
+1. Run [Compose]
+2. Run [Review]
+3. Provide [DeliveryStructure] with:
+  - Critical cross-workstream dependencies
+  - Milestone owners
+  - Any uncovered outcome or ownership gaps

@@ -1,0 +1,21 @@
+# Intent: Determine whether a Postman collection can support an interactive OAuth login flow and configure it when possible
+
+Scope: C:\Programming\MyProject
+
+[CrmAuth]:
+- Postman collection for Crm
+- C:\Users\SomeUser\Desktop\CRM API.postman_collection.json
+
+[MyProjectAuth]:
+- Postman collection for MyProject
+- C:\Users\SomeUser\Desktop\MyProject API.postman_collection.json
+
+[Observation]:
+- I can click "Get New Access Token" for [CrmAuth], which opens a login window for the site
+
+[Goal]:
+- Modify [MyProjectAuth] to match [Observation]
+
+Task:
+1. Determine feasibility of [Goal] in the MyProject codebase AS [Fulfillable]
+2. If [Fulfillable] is true, apply [Goal] to [MyProjectAuth]

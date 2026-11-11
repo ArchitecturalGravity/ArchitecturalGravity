@@ -1,0 +1,21 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.swe_rebench_csv_compatibility_plan
+kind: research_reference
+source:
+  path: Research/swe_rebench_07_2026_trajectories/CSV_compatibility_plan.md
+  url: ../../swe_rebench_07_2026_trajectories/CSV_compatibility_plan.md
+  fingerprint: fnv1a32-dcf4e075
+sections:
+  codex-swe-rebench-powershell-csv-generator-plan: |-
+    The generator plan specifies a reproducible local PowerShell extraction of July 2026 Codex SWE-rebench trajectories into an operational-baseline CSV. It is a proposed local extraction contract, not a record that the script was executed.
+  objective: |-
+    Specify generate_codex_operational_baseline.ps1 to extract 555 Codex SWE-rebench episodes (111 tasks across five runs) from local schema.json and trajectories/codex/run_0.jsonl through run_4.jsonl. Produce codex_operational_baseline.csv as a generated artifact; preserve the version-controlled script and exact task-specification provenance.
+  working-directory-contract: |-
+    Run from Research/swe_rebench_07_2026_trajectories with paths relative to the current working directory, never repository-root discovery or PSScriptRoot. Wrong-directory or missing-input cases fail explicitly without parent search or download. Require -Force before overwriting an existing CSV; resolve optional -OutputPath against the current directory. Support Windows PowerShell and pwsh.
+  script-requirements: |-
+    Use only local inputs and built-in PowerShell, leaving source JSONL unchanged. Parse schema.json for required fields and schema_version; stream the five run files with one nonblank JSONL record per episode. Before output, require 555 unique trajectory IDs, 111 distinct tasks, five runs indexed 0–4 with 111 records each, and exactly one instance per run with matching run.index. Fail on malformed JSON, missing fields, version mismatch, unknown event types, duplicates, or omissions. Preserve source filenames and record positions. Count specification characters only in user prompts with status exact_task_input, as Unicode code points; audit all prompts by role and status. Never count system, developer, scaffold, or other prompt statuses. With no exact-task input or a zero denominator, set specification_available=false and leave affected counts and ratios blank; do not invent substitutes. Count tool_calls only from event.type=tool_call; record other normalized events separately. Retain resolution/evaluation/exit status, evaluation_matches_selected, and truncation, cache-limit, and infrastructure-redaction diagnostics. Calculate episode-level tool and normalized-event counts per 1,000 specification characters when the denominator is positive. Export and reimport CSV to verify 555 unique rows and totals against independently accumulated JSONL values; report coverage, event counts, outcomes, ratios, and per-run means/ranges.
+  csv-schema: |-
+    CSV Schema: Required columns at minimum: trajectory_id, instance_id, source_run_file, source_record_index, source_line_number, language, repository, participant_key, participant_type, scaffold, model, reasoning_effort, run_index, run_attempt, retry_number, resolved, evaluation_status, agent_exit_status, evaluation_matches_selected, prompt_count_total, user_prompt_count, exact_task_input_count, spec_chars, tool_calls, tool_results, file_changes, agent_steps, assistant_analysis_events, assistant_message_events, prompt_events, final_message_events, normalized_events_total, tool_calls_per_1k_spec_chars, events_per_1k_spec_chars, tool_result_limit_bytes, truncated_tool_results, cache_tool_results_omitted, infrastructure_redactions_present, infrastructure_redactions_json, specification_available, specification_status_summary. Preserve schema meaning and audit fields from Markdown.
+  aggregate-compatibility-requirement: |-
+    For 555 episodes, compute mean tool calls as sum(tool_calls)/555 and mean specification characters as sum(spec_chars)/555. Compute calls per 1,000 specification characters as sum(tool_calls)/(sum(spec_chars)/1,000), not the unweighted mean of per-episode ratios. If exact_task_input coverage is incomplete, report the missing coverage and do not present a partial-coverage ratio as the final primary cohort value.

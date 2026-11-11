@@ -1,0 +1,69 @@
+# Intent: Determine the damping regime of a cart-spring oscillator from measured motion while accounting for sensor offset and timing uncertainty
+
+[System]:
+- A cart is attached to a linear spring and released from a measured displacement
+- The displacement sensor records cart position at uniform nominal intervals
+- No external drive is applied after release
+
+[CandidateModels]:
+- Underdamped: Displacement oscillates with a decaying envelope
+- Critical: Displacement returns to equilibrium without oscillation at the fastest non-oscillatory rate
+- Overdamped: Displacement returns to equilibrium without oscillation more slowly than the critical case
+
+[Measurements]:
+- ./displacement-time.csv
+- ./sensor-calibration.md
+- ./timing-uncertainty.md
+- ./spring-linearity-check.csv
+
+[Assumptions]:
+- Spring force is linear over the measured displacement range
+- Damping is approximately velocity proportional during the observed interval
+- Cart mass is constant during the run
+- Sensor offset may be nonzero and must be estimated rather than assumed away
+
+[Observables]: []
+
+[Assessment]: []
+
+[Extract]:
+=> Estimate the equilibrium position from the late-time record in [Measurements] for [System] with uncertainty
+=> Subtract the estimated equilibrium offset before evaluating zero crossings
+=> Derive:
+  - Number of supported zero crossings
+  - Peak times
+  - Peak magnitudes
+  - Envelope decay when repeated peaks are resolved
+  - Return time to the equilibrium uncertainty band
+=> Append each derived quantity and its uncertainty basis to [Observables]
+
+[Discriminate]:
+=> Compare [Observables] with each item in [CandidateModels] under [Assumptions]
+=> Treat a zero crossing as supported only when its sign change exceeds displacement uncertainty
+=> If repeated peaks are supported:
+  => Test whether peak magnitude follows an exponential envelope within uncertainty
+  => Estimate the damped period without assuming the damping ratio in advance
+=> If no zero crossing is supported:
+  => Compare the return shape with critical and overdamped predictions
+  => Identify whether the available duration can actually distinguish those cases
+=> Record for each candidate:
+  - Supporting evidence
+  - Contradicting evidence
+  - Unresolved evidence
+=> Append the result to [Assessment]
+
+[Closure]:
+=> Classify the regime using [Assessment] only when the observations discriminate it from the alternatives
+=> Otherwise report the smallest unresolved set of candidate regimes
+=> Identify the next measurement that would most reduce the remaining ambiguity
+
+Task:
+1. Run [Extract]
+2. Run [Discriminate]
+3. Run [Closure]
+4. Report:
+  - Derived observables
+  - Candidate assessment
+  - Damping-regime conclusion
+  - Uncertainty limits
+  - Next discriminating measurement

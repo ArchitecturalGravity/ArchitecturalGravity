@@ -1,0 +1,75 @@
+# Intent: Reconcile financial records across these source types while matching supported transactions and isolating genuine exceptions before proving the remaining balance difference
+# - Bank
+# - General ledger
+# - Subledger
+
+[ReconciliationDate]: 2027-06-30
+
+[Bank]: ./june-bank-statement.csv
+
+[GeneralLedger]: ./cash-general-ledger.csv
+
+[Receivables]: ./accounts-receivable-subledger.csv
+
+[Payables]: ./accounts-payable-subledger.csv
+
+[Records]:
+- [Bank]
+- [GeneralLedger]
+- [Receivables]
+- [Payables]
+
+[MatchingRules]:
+- Match exact amount and reference when both are present
+- Permit posting-date differences of up to 3 business days when reference and amount agree
+- Do not net unrelated transactions merely because their totals offset
+- Treat the following as exceptions:
+  - Duplicate references
+  - Altered amounts
+  - Unsupported manual entries
+
+[Exceptions]: []
+
+[Reconcile]:
+=> Observe [Records] as of [ReconciliationDate]
+=> Start from the ending balance in [Bank]
+=> Match bank activity to [GeneralLedger] using [MatchingRules]
+=> Classify unmatched items as one of:
+  - Outstanding timing item
+  - Bank-only item requiring ledger entry
+  - Ledger-only item requiring evidence
+  - Amount or reference mismatch
+  - Possible duplicate
+=> Cross-check receivable and payable-related exceptions against [Receivables] and [Payables]
+=> Append every unresolved item to [Exceptions] with:
+  - Source
+  - Amount
+  - Date
+  - Reason
+
+[Prove]:
+=> Calculate the adjusted bank balance
+=> Calculate the adjusted ledger balance
+=> Require adjusted balances to agree exactly
+=> If they do not agree:
+  => Quantify the remaining difference
+  => Do not force a balancing entry
+  => Trace the difference back through unmatched and partially matched records
+
+[Close]:
+=> Document:
+  - Reconciliation summary
+  - Matched totals
+  - Outstanding timing items
+  - Correcting entries supported by evidence
+  - Unresolved exceptions
+  - Proof that adjusted balances agree or the exact unexplained difference
+=> Flag any exception for review when it suggests:
+  - Duplicate payment
+  - Unauthorized activity
+  - Control failure
+
+Task:
+1. Run [Reconcile]
+2. Run [Prove]
+3. Run [Close]

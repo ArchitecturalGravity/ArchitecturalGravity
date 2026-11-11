@@ -1,0 +1,263 @@
+{
+  "schema_id": "arcgrav.shared.schema.catalog",
+  "schema_version": "1.0.0",
+  "catalog_version": "3.0.0",
+  "entries": [
+    {
+      "schema_id": "arcgrav.shared.schema.execution-boundary",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:execution-boundary:1.0.0",
+      "file": "AgMark/shared/schemas/execution_boundary.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.golden-observation",
+      "schema_version": "2.0.0",
+      "urn": "urn:arcgrav:shared:schema:golden-observation:2.0.0",
+      "file": "AgMark/shared/schemas/golden_observation.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.metric-registration",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:metric-registration:1.0.0",
+      "file": "AgMark/shared/schemas/metric_registration.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.report-manifest",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:report-manifest:1.0.0",
+      "file": "AgMark/shared/schemas/report_manifest.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.registration",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:registration:1.0.0",
+      "file": "AgMark/shared/schemas/registration.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.report",
+      "schema_version": "3.0.0",
+      "urn": "urn:arcgrav:shared:schema:report:3.0.0",
+      "file": "AgMark/shared/schemas/report.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.runner-execution-evidence",
+      "schema_version": "2.0.0",
+      "urn": "urn:arcgrav:shared:schema:runner-execution-evidence:2.0.0",
+      "file": "AgMark/shared/schemas/runner_execution_evidence.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.run-outcome",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:run-outcome:1.0.0",
+      "file": "AgMark/shared/schemas/run_outcome.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.run-plan",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:run-plan:1.0.0",
+      "file": "AgMark/shared/schemas/run_plan.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.catalog",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:catalog:1.0.0",
+      "file": "AgMark/shared/schemas/schema_catalog.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.score-artifact",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:score-artifact:1.0.0",
+      "file": "AgMark/shared/schemas/score_artifact.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.treatment-observation",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:treatment-observation:1.0.0",
+      "file": "AgMark/shared/schemas/treatment_observation.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.validation-result",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:validation-result:1.0.0",
+      "file": "AgMark/shared/schemas/validation_result.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.attempt-measurements",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:attempt-measurements:1.0.0",
+      "file": "AgMark/shared/schemas/attempt_measurements.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.session-metrics",
+      "schema_version": "1.0.0",
+      "urn": "urn:arcgrav:shared:schema:session-metrics:1.0.0",
+      "file": "AgMark/shared/schemas/session_metrics.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.provider-request-cache-validation",
+      "schema_version": "2.0.0",
+      "urn": "urn:arcgrav:telemetry:provider-request-cache-validation:2.0.0",
+      "file": "AgMark/shared/schemas/provider_request_cache_validation.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    },
+    {
+      "schema_id": "arcgrav.shared.schema.provider-request-cache-treatment",
+      "schema_version": "2.0.0",
+      "urn": "urn:arcgrav:telemetry:provider-request-cache-treatment:2.0.0",
+      "file": "AgMark/shared/schemas/provider_request_cache_treatment.schema.json",
+      "extension_points": [
+        "/extensions"
+      ],
+      "extension_policy": {
+        "mode": "namespaced-additive",
+        "unknown_fields": "reject",
+        "preserve_unknown_extensions": true,
+        "shared_fields_overridable": false
+      }
+    }
+  ],
+  "extensions": {}
+}

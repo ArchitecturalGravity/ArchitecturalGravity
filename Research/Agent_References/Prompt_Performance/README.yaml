@@ -1,0 +1,31 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.overview
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/README.md
+  url: ../../Prompt_Performance/README.md
+  fingerprint: fnv1a32-b11fbb10
+sections:
+  paper-prompt-performance: |-
+    Prompt Performance examines observable task and output outcomes under declared evaluation conditions, synthesizing research distinctions and explanations from separately documented investigations.
+  abstract: |-
+    Prompt performance is assessed by how a response fulfills specified decisions, outputs, and delivery conditions, rather than by prompt wording alone. The parent research synthesizes evidence from the available studies.
+  research-object: |-
+    Distinguish specified task obligations, observed response behavior, and evaluative measurements; field correctness, coverage, and accepted delivery are not interchangeable. Performance analysis examines features of task specifications that affect these outcomes.
+  performance-dimensions: |-
+    Decision fidelity, output coverage, delivery, verification, utility, and resource cost are possible dimensions for research, not criteria a study must satisfy.
+  specification-and-evaluation-boundaries: |-
+    The research workflow relates task contracts, prompts under test, observed responses, and evidenced discrepancies to explanations for further testing. It does not describe hidden model reasoning or establish a cause for a prompt-version change without an isolating design.
+  research-distinctions-from-studies: |-
+    Study evidence motivates distinctions among evidence domains, output obligations, collection membership and content completeness, consumer binding, and verification coverage. These remain task-conditional hypotheses, not universal prompt-wording effects.
+  from-studies-to-research: |-
+    The Studies collection accommodates varied work without a prescribed design, format, method, or evaluation. The parent research develops synthesis from available sources while keeping their distinct evidential limits.
+  evidence-and-limits: |-
+    Specification interpretation, recorded model behavior, static checks, and causal or transfer claims have different evidential requirements. Adaptive multi-edit sequences do not isolate single-edit effects.
+  research-directions: |-
+    Research can explore prompt variation, transfer, correctness, utility, specification cost, and verification or other emerging questions; the Studies catalog does not limit future approaches.
+  study-evidence: |-
+    The studies catalog currently contains the ArcGrav Authority Resolution Benchmark prompt-refinement trial archive, with raw audit, ledger, and thematic analyses; its results retain their task-specific limits.
+  related-research: |-
+    Instructional Representation, Interpretive Efficiency, and Context Triad cover neighboring constructs without serving as independent confirmation of prompt-performance findings.

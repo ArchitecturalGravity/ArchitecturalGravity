@@ -1,0 +1,3 @@
+# AgStudio Python sources use LF on every checkout.
+# These rules apply only inside AgStudio; other projects own their attributes.
+*.py text eol=lf

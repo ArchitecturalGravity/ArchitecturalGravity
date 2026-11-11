@@ -1,0 +1,37 @@
+{
+  "schema_id": "arcgrav.shared.schema.registration",
+  "schema_version": "1.0.0",
+  "extensions": {
+    "arcgrav.shared.runtime.orchestration:scorer-entry-point": "AgMark.Authority_Resolution_Benchmark.evaluation.field_scorer:score_field_accuracy"
+  },
+  "registration_id": "arcgrav.authority-resolution.scorer.field-accuracy",
+  "registration_version": "1.0.0",
+  "registration_kind": "scorer",
+  "status": "active",
+  "contracts": [
+    {
+      "id": "arcgrav.shared.scorer-invocation",
+      "version": "1.0.0"
+    }
+  ],
+  "implementation_artifacts": [
+    {
+      "artifact_id": "arb-field-accuracy-scorer",
+      "sha256": "sha256:178696088476aa8473baff8a0e7f0955f8511016eb95e88da3b763796243dfd3",
+      "reference": "AgMark/Authority_Resolution_Benchmark/evaluation/field_scorer.py",
+      "availability": "retained"
+    }
+  ],
+  "capabilities": [
+    "case-level-granular-field-accuracy",
+    "exact-retained-golden-stdout",
+    "exact-retained-treatment-response",
+    "per-field-comparison-evidence",
+    "partial-credit-and-extra-output-penalties"
+  ],
+  "limitations": [
+    "Does not execute golden logic or treatment runners.",
+    "Does not establish benchmark activation without an accepted ARB benchmark registration.",
+    "Does not implement optional exact-stdout, telemetry, or exploratory metrics."
+  ]
+}

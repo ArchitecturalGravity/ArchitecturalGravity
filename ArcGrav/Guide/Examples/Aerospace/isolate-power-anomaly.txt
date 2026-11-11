@@ -1,0 +1,77 @@
+# Intent: Isolate the most likely cause of an intermittent spacecraft power-bus undervoltage after eclipse exit while preserving safe operating constraints and evidence provenance
+
+[ObservedEvents]:
+- E1: Undervoltage began 42 s after eclipse exit and recovered without a reset
+- E2: Undervoltage began 39 s after eclipse exit during a colder battery condition
+- E3: No undervoltage occurred after eclipse exit when battery temperature was within the nominal band
+
+[Hypotheses]:
+- `H1`: Battery internal resistance rises enough at low temperature to cause the transient
+- `H2`: Array-regulator transition behavior briefly reduces available bus power
+- `H3`: A harness or connector intermittency creates a transient voltage drop
+- `H4`: The event is a voltage-sensing or telemetry artifact rather than a true bus undervoltage
+
+[Evidence]:
+- ./power-telemetry.parquet
+- ./battery-temperature-history.csv
+- ./array-regulator-events.csv
+- ./fault-protection-log.txt
+- ./ground-test-battery-curves.csv
+- ./voltage-sensor-calibration.md
+
+[SafetyConstraints]:
+- Preserve flight fault-protection thresholds
+- Keep battery state of charge above the approved test minimum
+- Do not combine heater changes with regulator-mode changes in the same diagnostic step
+- Do not perform an intrusive test while command-link margin is below the approved threshold
+- Stop a diagnostic sequence if bus voltage approaches the flight-protection boundary
+
+[HypothesisState]: []
+
+[Investigate]:
+=> Align each item in [ObservedEvents] to a common timeline around eclipse exit
+=> For each event, extract:
+  - Battery temperature
+  - Battery current
+  - Array current
+  - Regulator state
+  - Bus voltage
+  - Reported voltage-sensor health
+=> For each item in [Hypotheses] ↳
+  => State the observation that hypothesis predicts before inspecting correlations
+  => Compare the prediction with [Evidence]
+  => Record evidence as:
+    - Supporting
+    - Contradicting
+    - Non-discriminating
+    - Missing
+  => Append the resulting assessment to [HypothesisState]
+=> Distinguish a shared timestamp from a causal dependency unless the evidence supports causation
+
+[DiscriminatingChecks]:
+=> Select hypotheses still plausible in [HypothesisState]
+=> If `H1` remains plausible, compare event severity against the ground-test battery curves at matched temperature and current
+=> If `H2` remains plausible, compare regulator transitions from event and non-event eclipse exits under similar load
+=> If `H3` remains plausible, identify whether independent voltage measurements show a localized drop consistent with the harness path
+=> If `H4` remains plausible, compare redundant voltage channels and sensor-health indicators during each event
+=> Prefer passive telemetry comparison before proposing any active diagnostic command under [SafetyConstraints]
+=> Append new discriminating evidence and unresolved gaps to [HypothesisState]
+
+[ClosureGate]:
+=> Assess [HypothesisState] against [ObservedEvents] and [Evidence]
+=> CONFIRMED only when one hypothesis explains all observed events and has discriminating evidence that materially weakens the alternatives
+=> PROVISIONAL when one hypothesis is best supported but decisive evidence is still missing
+=> UNRESOLVED when multiple hypotheses remain materially plausible
+=> For PROVISIONAL or UNRESOLVED, identify the safest next discriminating observation without relaxing [SafetyConstraints]
+
+Task:
+1. Run [Investigate]
+2. Run [DiscriminatingChecks]
+3. Run [ClosureGate]
+4. Report:
+  - Event comparison
+  - Hypothesis assessments
+  - Evidence provenance
+  - Leading explanation
+  - Remaining uncertainty
+  - Safest next discriminating observation

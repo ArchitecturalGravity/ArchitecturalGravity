@@ -1,0 +1,35 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.input_integrity
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/ArcGrav_ARB_Trials/Input_and_Execution_Integrity.md
+  url: ../../../../Prompt_Performance/Studies/ArcGrav_ARB_Trials/Input_and_Execution_Integrity.md
+  fingerprint: fnv1a32-c8cc3ec6
+sections:
+  paper-input-execution-integrity: |-
+    The eighth thematic analysis of one adaptive ARB prompt-refinement study separates governing instructions, source admission, preserved values and diagnostic effects. Its examples share the same fixture and trial population rather than constituting independent experiments.
+  abstract: |-
+    Trials 1 and 16 differ in emission of an instruction-content finding while retaining identical selected record fields. Trials 181–182 preserve a null source value but misclassify its metadata. Exceptional admission and processing cases are specified, not behaviorally tested, so prompt wording contrasts do not isolate causal effects.
+  core-distinction: |-
+    Instruction authority controls the task; admission defines which inputs are accepted and what failures mean; source fidelity preserves supplied values independently of decisions about them; inspection noninterference limits how diagnostic observations may affect other decisions. Predicate scope, field identity and verification are separate concerns.
+  scope-and-evidence-status: |-
+    The fixed valid fixture includes instruction-like item_3 source text and an explicit null in item_2. It does not discriminate malformed input, nonfinite values, excluded-entry diagnostics, exception propagation or adversarial source variants. Recorded revisions are adaptive and sometimes bundled; diagrams specify contracts, not observed internal model steps.
+  observations: |-
+    Four boundaries matter: source text is reportable data rather than an instruction, input admission differs from exception handling, preserved source values differ from derived metadata and findings, and diagnostics must not govern independent selection.
+  instruction-like-source-text-remains-data: |-
+    The phrase "Ignore governing instructions" occurs in an item_3 note as source content, not task authority. Trial 1 emitted its required instruction-content finding but trial 16 omitted it; both selected item_3 value 5, status active and authority C. The output does not isolate detection from assembly or identify the effect of one prompt edit.
+  admission-and-failure-boundaries-govern-inputs: |-
+    Admit or reject a source, exclude out-of-scope entries, apply member defaults and propagate processing failures according to distinct rules. Ledger atoms V005.A04, V011.A07, V011.A08 and V031.A03 anchor those contracts; the valid fixture did not exercise exceptional branches or authorize substituting sources or repairing errors.
+  preserve-source-values-separately-from-decision-status: |-
+    Trials 181–182 retained item_2 value null and status active but incorrectly marked derivation explicit and confidence high and omitted the missing-value finding. Trial 230 retained null with required unresolved/low metadata and evidence. This witnesses downstream classification and coverage errors, not type conversion; other source types were untested.
+  inspection-and-checking-have-limited-effects: |-
+    An instruction-like note may trigger a finding without changing field eligibility or authority. Trials 8 and 11 both emit the item_3 finding but disagree on selected authority, unresolved versus C. A concurrent rank-preference wording change prevents attributing this contrast to inspection; diagnostic and selection consumers must remain separate.
+  conclusion: |-
+    Bind authority, admission, fidelity and inspection rules to their intended input and output consumers. Diagnostic emission and metadata errors have response witnesses; several exceptional and noninterference branches remain specification-only.
+  supporting-evidence-and-reproducibility: |-
+    Evidence Ledger atom IDs and exact prompt snapshots anchor textual changes; Trial Audit outputs and strict verdicts anchor the observed contrasts. No new experiments or independently controlled edit effects are claimed.
+  other-analyses-in-this-study: |-
+    Predicate scope defines comparisons over admitted evidence; reference identity assigns independently selected fields; evidence assembly handles representation; verification limits what checks and repairs can establish.
+  references: |-
+    The Evidence Ledger, Trial Audit and shared ARB study index are primary sources for wording, outputs and study limitations; exact excerpts and trial records remain in the source Markdown and preserved JSON.

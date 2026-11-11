@@ -1,0 +1,73 @@
+# Agent-readable maintenance contract for Research-only Markdown references.
+schema_version: 2
+id: research.references.maintenance
+kind: maintenance_reference
+purpose: Keep a lazy-loading, source-anchored semantic reference for every Research Markdown document.
+index: ./research_agent_reference_index.yaml
+validator: ./validate_agent_references.py
+source_root: ..
+coverage:
+  source_glob: ../**/*.md
+  include: Curated Markdown documents in Research and all its child directories.
+  exclude: Agent_References itself; generated AgMark run reports under Prompt_Performance/Studies/AgMark_Runs/Data/ followed by a generation-prefixed 64-character hexadecimal run directory and report.md; non-Markdown files such as CSV, JSON, HTML, Python, PowerShell and JSONL.
+  correspondence: Exactly one YAML research_reference per included Research Markdown document. Generated benchmark reports remain authoritative run evidence but are not separately indexed as semantic research references.
+  subsection_policy: H1/H2 sections are mandatory; independently retrievable H3 concepts may be added when source-anchored, with no redundant copy of the H2 parent.
+  root_index_exception: Research/README.md maps to Agent_References/Overview/README.yaml.
+  other_paths: Mirror source Markdown paths beneath Agent_References, replacing .md with .yaml.
+source_contract:
+  path: Authoritative source Markdown repository-root path.
+  url: File-relative path from each reference YAML to its original Markdown source.
+  fingerprint: FNV-1a 32-bit over Unicode code points in the full UTF-8-decoded Markdown text.
+  sections: Compact, complete-at-their-level semantic descriptions under real source heading anchors.
+  selective_h3: Promote definitions, hypotheses, distinct findings, and experimental conditions when independently useful; avoid mechanically copying all H3 headings.
+  anchors: Prefer existing explicit HTML IDs immediately preceding headings; otherwise use GitHub-style heading slugs.
+  address: Resolve source.url, append # and the section key to open the original passage.
+  source_change: Any fingerprint difference requires semantic review and reference refresh.
+interpretation:
+  default: Resolve the index first, inspect a selected reference's anchor list, then load only the semantic section(s) needed; do not load the whole catalogue or Markdown by default.
+  summary_quality: Each loaded section must state its operative distinction and material caveat without an unfinished truncation; parent sections give a brief orientation rather than repeat all children.
+  lexical_semantics: >-
+    Name each construct by its defining responsibility and familiar semantic relationships. Identify relevant targets, competitors, sources, criteria, results, and directionality when these affect interpretation. Use the shortest unambiguous terms; do not create a new relation merely by naming one.
+  evidence_language: >-
+    Distinguish definitions, hypotheses, predictions, proposed methods, reported observations, independently verified outcomes, and causal conclusions. A positive-sounding result name or action verb does not establish successful completion or state.
+  compression_boundary: >-
+    Compress conventional explanations and repeated headings, not task-specific scope, identity, provenance, authority, comparisons, denominators, units, thresholds, controls, exceptions, unresolved states, or permissions. Provide complete relational prose rather than fragments of equations, lists, or stimuli.
+  detail_gate: Open anchored source Markdown only when exact evidence, formulas, experimental stimuli, citations, methods, or unresolved semantic ambiguity matters.
+  research_caution: Retain distinctions between postulates, predictions, observational associations, reported pilots, and replicated empirical evidence.
+  evidence: Exact numerical tables, equations, model settings, stimuli, quotations, caveats and citations remain authoritative in original Markdown.
+  link_resolution: Resolve reference links from the containing YAML; resolve links inside Markdown from the Markdown's directory.
+  permission: Reference material, examples and source links grant no permission for external operations.
+lazy_loading:
+  tool: ./load_agent_reference.py
+  index_only: "python3 Research/Agent_References/load_agent_reference.py --routes"
+  group_only: "python3 Research/Agent_References/load_agent_reference.py --group context_triad_theory"
+  anchor_list: "python3 Research/Agent_References/load_agent_reference.py --route semantic_weight"
+  section_only: "python3 Research/Agent_References/load_agent_reference.py --route semantic_weight --section semantic-weight-effective-influence"
+  opt_in_source: "python3 Research/Agent_References/load_agent_reference.py --route semantic_weight --section semantic-weight-effective-influence --markdown"
+  contract: Discovery reads only the index; selecting a reference reads YAML; source Markdown is read only by explicit opt-in.
+maintenance:
+  on_changed_source:
+    - Re-read the changed original section and verify that the summary preserves claims, conditions, exclusions, methods and evidence boundaries.
+    - Preserve source heading anchor identity when possible and update affected section keys if headings change.
+    - Refresh fingerprint only after semantic review.
+  on_reference_rewrite:
+    - Improve participant roles, causal or comparison direction, state qualifiers and evidence language without silently strengthening source claims.
+    - Replace repeated labels, source-format artifacts and unfinished mathematical or list fragments with complete descriptions.
+    - Keep exact evidence, formulas, stimuli and experimental outputs in authoritative Markdown; direct retrieval there when detail matters.
+    - Preserve section anchor keys, reference IDs, source URLs, fingerprints and routing compatibility unless source content itself changes.
+  on_added_markdown:
+    - For curated Research Markdown, create a same-path YAML reference, or Overview/README.yaml for Research/README.md.
+    - Do not generate per-run agent references for content-addressed AgMark data reports; retain those reports as primary run artifacts.
+    - Add each included reference ID, path and appropriate routing/group entries to the index.
+  on_removed_markdown:
+    - Remove orphan reference and associated index entries.
+  non_markdown: No per-file references are generated for data, executable code or other non-Markdown resources.
+validation:
+  command: python3 Research/Agent_References/validate_agent_references.py
+  structural_checks:
+    - Exactly one reference for each included Research Markdown document, excluding only the specified generated AgMark reports.
+    - Relative source path resolution, fingerprint freshness and mandatory H1/H2 plus optional verified H3 anchor integrity.
+    - Unique reference IDs, nonempty sections and index/group/routing integrity.
+    - Reference files must be smaller than their corresponding Markdown sources.
+    - Reject mechanical summary defects such as repeated heading labels, duplicated title-only meanings and trailing unfinished lead-ins.
+  semantic_review: Independently required; mechanical surface checks do not prove semantic completeness, scientific accuracy or interpretive reliability.

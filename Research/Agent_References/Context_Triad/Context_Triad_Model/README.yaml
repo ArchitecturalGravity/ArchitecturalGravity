@@ -1,0 +1,15 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.context_triad_model
+kind: research_reference
+source:
+  path: Research/Context_Triad/Context_Triad_Model/README.md
+  url: ../../../Context_Triad/Context_Triad_Model/README.md
+  fingerprint: fnv1a32-b7951e56
+sections:
+  paper-context-triad-model: |-
+    Navigation for an interactive illustration of Locality, Shadow, and Weight.
+  files-and-their-roles: |-
+    Open Context_Triad_Model.html locally in a browser. Its controls and final color mix illustrate interactions, not calibrated behavioral predictions.
+  related-papers: |-
+    The Triad covers shared claims and interactions; Locality covers placement and position response, Shadow covers history and current-state correctness, and Weight covers support proxies, competitive shares, and support response.

@@ -1,0 +1,44 @@
+# Intent: Revise a screenplay scene to increase dramatic tension and subtext while preserving the scene's required story function and production-relevant facts
+
+[Scene]: ./scene-27.txt
+
+[StoryFunction]:
+- Mara asks Elias for access to the observatory
+- Elias refuses without revealing that he has already lost access himself
+- Mara leaves believing the refusal is personal
+
+[Preserve]:
+- Location: Observatory service corridor
+- Characters present: Mara and Elias only
+- The broken access badge remains visible but unexplained
+- No new backstory is introduced
+- The revised scene should remain approximately the same length
+
+[RevisionAim]:
+- Move exposition into implication where possible
+- Give each character a distinct immediate objective
+- Let the power balance shift at least once
+- Make the final misunderstanding feel earned rather than arbitrary
+
+[Revise]:
+=> Read [Scene] for:
+  - Beats
+  - Spoken exposition
+  - Repeated information
+  - Moments where action can carry meaning
+=> Preserve every item in [StoryFunction] and [Preserve]
+=> Rewrite [Scene] under [RevisionAim] so dialogue expresses what the characters are trying to obtain or avoid rather than directly explaining their history
+=> Use the broken badge as observable behavior or business without explaining its significance
+=> Keep stage direction concise and filmable
+=> End on Mara's mistaken interpretation without stating that it is mistaken
+
+[Check]:
+=> Verify the revised scene still performs every item in [StoryFunction]
+=> Verify no constraint in [Preserve] was changed
+=> Remove dialogue that explains information already conveyed by action or context
+=> If stronger tension would require changing a preserved fact, keep the fact and revise around it instead
+
+Task:
+1. Run [Revise]
+2. Run [Check]
+3. Output only the revised screenplay scene

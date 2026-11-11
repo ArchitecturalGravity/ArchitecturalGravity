@@ -1,0 +1,115 @@
+# Intent: Allocate a constrained field-service team across customer installations while respecting required skills and fixed commitments without violating travel limits or consuming recovery capacity
+
+Scope:
+- Assign next-week field-service capacity to customer installations
+
+[PlanningWindow]: Monday through Friday next week
+
+[Team]:
+- Amina:
+  - Skills:
+    - Electrical commissioning
+    - Controls
+  - Available hours: 40
+- Ben:
+  - Skills:
+    - Mechanical installation
+    - Rigging
+  - Available hours: 32
+- Carla:
+  - Skills:
+    - Controls
+    - Customer training
+  - Available hours: 36
+- Devon:
+  - Skills:
+    - Mechanical installation
+    - Electrical commissioning
+  - Available hours: 40
+- Elise:
+  - Skills:
+    - Customer training
+    - Documentation
+  - Available hours: 24
+
+[Work]:
+- North Plant commissioning:
+  - Effort: 24 hours
+  - Required skills:
+    - Electrical commissioning
+    - Controls
+  - Deadline: Tuesday 17:00
+- East Warehouse installation:
+  - Effort: 32 hours
+  - Required skills:
+    - Mechanical installation
+    - Rigging
+  - Access: Wednesday through Friday only
+- South Lab acceptance:
+  - Effort: 16 hours
+  - Required skills:
+    - Controls
+    - Customer training
+  - Fixed customer session: Thursday 13:00
+- West Depot corrective work:
+  - Effort: 20 hours
+  - Required skills:
+    - Mechanical installation
+    - Electrical commissioning
+  - Deadline: Friday
+
+[Constraints]:
+- A person cannot be assigned to two sites at the same time
+- Each active work block must include the skills required for that work
+- Allow 2 hours for travel when a person changes sites during the planning window
+- Keep at least 8 team-hours unassigned as recovery capacity
+- Do not satisfy a fixed customer session by assuming overtime or remote attendance
+
+[Allocation]: []
+
+[Plan]:
+=> Schedule [Work] within [PlanningWindow] using [Team] under [Constraints]
+=> Place fixed-time and earliest-deadline work first
+=> For each work item in [Work] ↳
+  => Assign the minimum practical combination of people that covers required skills
+  => Account for travel before counting remaining capacity
+  => Avoid consuming a scarce skill on work that another qualified person can cover when a later task depends on that skill
+=> Reserve at least 8 team-hours before assigning discretionary capacity
+=> Append each assignment to [Allocation] ↳
+  - Work item
+  - Assigned people
+  - Timing:
+    - Start
+    - End
+  - Work hours per person
+  - Covered skills for each work block
+  - Travel hours per person
+
+[Check]:
+=> For each person in [Team] ↳
+  => Total assigned work hours and travel hours from [Allocation]
+  => Compare the total with available hours
+=> For each work item in [Work] ↳
+  => Verify required skills are present for the hours in which they are needed
+  => Verify deadlines and fixed sessions against [Allocation]
+=> Verify [Allocation] preserves recovery capacity under [Constraints]
+=> Identify any:
+  - Resource conflict
+  - Uncovered skill
+  - Assumption that makes the plan infeasible
+
+[Recover]:
+=> If [Check] finds an infeasible plan:
+  => Reassign within normal capacity before using recovery hours
+  => Use recovery hours only to absorb uncertainty or a small overrun rather than hide a known scheduling conflict
+  => If no feasible allocation exists, state the smallest constraint that would need to change and the affected commitment
+
+Task:
+1. Run [Plan]
+2. Run [Check]
+3. Run [Recover] if needed
+4. Provide:
+  - Weekly allocation by person and work item
+  - Remaining capacity
+  - Protected recovery hours
+  - Any unresolved constraint

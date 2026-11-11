@@ -1,0 +1,119 @@
+# Intent: Coordinate a time-critical cold-storage incident to protect people and inventory while assigning parallel response work and keeping decisions tied to verified operating conditions
+
+Scope:
+- Cold-storage incident response for temperature-sensitive food at an active distribution center
+
+[Incident]:
+- A distribution center cold room holding temperature-sensitive food is warming above its normal range
+- The refrigeration alarm began 18 minutes ago
+- Receiving and outbound loading are still active
+- Cause is unknown
+
+[Priorities]:
+P0. Protect people from:
+  - Unsafe equipment conditions
+  - Electrical hazards
+  - Refrigerant hazards
+P1. Preserve product that remains within safe handling limits
+P2. Prevent new inventory from entering the affected cold room
+P3. Restore controlled storage capacity
+P4. Preserve outbound commitments where this does not conflict with higher priorities
+
+[IncidentLead]:
+- Owns response priorities and consequential decisions including escalation
+
+[SafetyLead]:
+- Controls access and hazard response
+
+[InventoryLead]:
+- Identifies exposed product and disposition deadlines
+
+[FacilitiesLead]:
+- Verifies refrigeration condition and restoration options
+
+[LogisticsLead]:
+- Secures alternate storage and adjusts receiving or outbound flow
+
+[CommunicationsLead]:
+- Maintains the shared incident record and stakeholder updates
+
+[State]:
+- `verified`: []
+- `unverified`: []
+- `actions`: []
+- `decisions`: []
+- `blockers`: []
+
+[Coordinate]:
+=> Establish current conditions in [Incident] ↳
+  - Current room temperature
+  - Alarm history
+  - Affected zones
+  - Whether any immediate safety hazard exists
+=> Record sourced and timestamped observations under `verified` in [State]
+=> Record unconfirmed reports under `unverified` in [State]
+=> Stop inbound placement into affected storage until suitability is re-established
+=> Apply [Priorities] whenever response goals compete
+=> Assign [IncidentLead] accountability for the active response
+=> In parallel where safe:
+  => Have [SafetyLead] control access and identify hazards requiring evacuation or emergency services
+  => Have [InventoryLead] determine:
+    - Exposed lots
+    - Their time-temperature limits
+    - Latest safe transfer or disposition time
+  => Have [FacilitiesLead] assess whether cooling can be safely restored
+  => Have [FacilitiesLead] provide a bounded restoration estimate only when evidence supports it
+  => Have [LogisticsLead] identify:
+    - Available alternate cold storage
+    - Transfer capacity
+    - Transport constraints
+=> Record each assigned action with one owner and a next-check time under `actions` in [State]
+=> Record consequential choices and their evidence under `decisions` in [State]
+=> Record blocked actions under `blockers` in [State]
+=> Do not delay protective action while waiting for root-cause certainty
+
+[DecisionRules]:
+=> If a personnel hazard is confirmed:
+  => Clear the affected area and defer product recovery there until [SafetyLead] releases access
+=> If product will reach a handling limit before verified refrigeration recovery:
+  => Transfer it to qualified alternate storage in earliest-deadline order
+=> If alternate storage cannot protect all at-risk product:
+  => Prioritize product by:
+    - Safety window
+    - Quantity recoverable
+    - Downstream criticality
+  => Segregate anything whose safe condition cannot be established
+=> If restored cooling is confirmed stable:
+  => Resume storage only after the affected space is released for use
+
+[Updates]:
+=> Have [CommunicationsLead] report only material changes:
+  - Safety state
+  - Temperature trend
+  - Inventory at risk
+  - Recovery path
+  - Blocked actions
+  - Next decision point
+=> Distinguish verified facts from estimates and unresolved reports
+=> Do not publish a cause until evidence supports one
+
+[Close]:
+=> Confirm:
+  - People are safe
+  - Exposed inventory has a documented disposition
+  - Storage is stable or replaced
+  - Deferred operational work has an owner
+=> Preserve unresolved cause investigation as follow-up rather than keeping the active response open solely for retrospective analysis
+
+Task:
+1. Run [Coordinate]
+2. Apply [DecisionRules]
+3. Run [Updates]
+4. Run [Close] when closure conditions are met
+5. Provide:
+  - Current incident state
+  - Owned actions
+  - Decisions made
+  - Inventory exposure
+  - Stakeholder update
+  - Next decision points

@@ -1,0 +1,26 @@
+# Intent: Apply the cartography skill's YAML whitespace rules to array properties across agent documentation files
+
+Using:
+- $cartographic-agentic-contexting
+
+[Target]:
+- Repository:
+  - Root: C:\Programming\MyProject
+  - Scope: Repository-wide
+  - FilePatterns:
+    - AGENTS.md
+    - AGENTS.route.*.md
+    - AGENTS.map.*.md
+  - ArrayProperties:
+    - `children`
+    - `references`
+    - `route_steps`
+
+[Goal]:
+- Apply the skill's YAML whitespace rules to the listed array properties in [Target]
+
+Constraint:
+- Ignore git history
+
+Task:
+- Cartograph [Target] to meet [Goal]

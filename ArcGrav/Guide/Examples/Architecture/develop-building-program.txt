@@ -1,0 +1,102 @@
+# Intent: Translate stakeholder needs and site conditions into a coherent architectural building program with explicit spatial relationships and unresolved decisions
+
+Scope:
+- Project: New neighborhood learning and civic center
+- Building type: Public mixed-use community facility
+- Delivery stage: Pre-design programming
+
+[GrossAreaTarget]: 3,600 square meters
+
+[StakeholderNeeds]:
+- Community services:
+  - Provide flexible rooms for classes and meetings
+  - Support evening use without opening the entire building
+- Library services:
+  - Provide quiet reading areas
+  - Provide visible staff support near public collections
+- Youth programs:
+  - Provide supervised activity space
+  - Provide direct access to a secure outdoor area
+- Facilities operations:
+  - Separate public circulation from service deliveries where practical
+  - Concentrate high-maintenance spaces where access can be controlled
+
+[SiteConditions]:
+- North edge: Existing neighborhood street and primary pedestrian arrival
+- East edge: Public park with mature trees
+- South edge: Service lane suitable for deliveries
+- West edge: Adjacent residential properties with privacy sensitivity
+- Grade: Approximately 2.5 meters of fall from north to south
+- Solar exposure: Strong afternoon exposure on the west facade
+
+[ProgramRequirements]:
+- CommunityHall:
+  - Capacity: 180 seated occupants
+  - Relationships:
+    - Direct access to public lobby
+    - Near public restrooms
+  - Access: Independent after-hours access required
+- Library:
+  - Capacity: 120 occupants
+  - Relationships:
+    - Visible from primary public circulation
+    - Buffered from event noise
+- YouthStudio:
+  - Capacity: 36 occupants
+  - Relationships:
+    - Direct access to secure outdoor area
+    - Near staff workroom
+- StaffSuite:
+  - Capacity: 18 workstations
+  - Access: Controlled from public areas
+- Receiving:
+  - Relationships:
+    - Direct access to south service lane
+    - Service path to storage without crossing primary public gathering space
+
+[Authorities]:
+- Mandatory:
+  - Adopted building code requirements
+  - Applicable accessibility requirements
+  - Recorded site easements
+- Negotiable:
+  - Department area preferences within [GrossAreaTarget]
+  - Preferred room locations when equivalent relationships can be achieved another way
+
+[Evidence]:
+- Stakeholder workshop record: ./stakeholder-workshop.md
+- Existing site survey: ./site-survey.pdf
+- Space demand model: ./space-demand.xlsx
+- Accessibility criteria: ./accessibility-criteria.md
+- Operating model: ./operating-model.md
+
+[Program]: []
+
+[OpenDecisions]: []
+
+[Develop]:
+=> Establish the required spaces from [StakeholderNeeds] and [ProgramRequirements]
+=> For each required space establish its:
+  - Intended use
+  - Capacity
+  - Approximate net area
+  - Critical relationships
+  - Access condition
+  - Environmental need where material
+=> Reconcile the resulting net area with [GrossAreaTarget] using realistic allowances for circulation and building support
+=> Preserve mandatory requirements in [Authorities] when area pressure creates conflicts
+=> Use [SiteConditions] to identify program relationships that should influence later massing without prematurely fixing a design solution
+=> Check area and relationship assumptions against [Evidence] and record unsupported assumptions in [OpenDecisions]
+=> Append the coherent room and relationship schedule to [Program]
+
+[Check]:
+=> Verify that every stated stakeholder need is represented or explicitly deferred
+=> Verify that after-hours operation can be isolated as required
+=> Verify that public and service movement conflicts are exposed rather than hidden
+=> Verify that accessibility requirements are treated as program constraints rather than later decoration
+=> Verify that unresolved area or adjacency conflicts remain visible in [OpenDecisions]
+
+Task:
+1. Run [Develop]
+2. Run [Check]
+3. Present [Program] with the adjacency logic and [OpenDecisions]

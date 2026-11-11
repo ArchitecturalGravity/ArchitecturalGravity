@@ -1,0 +1,129 @@
+# Intent: Organize a lived-in home improvement project by:
+# - Sequencing dependent work
+# - Protecting household use of the space
+# - Replanning when materials or tasks slip
+
+Scope:
+- Bathroom improvement project planning
+
+[Project]:
+- Refresh a small bathroom without changing plumbing locations
+- Scope:
+  - Replace vanity
+  - Replace lighting
+  - Replace mirror
+  - Replace exhaust fan
+  - Replace flooring
+  - Paint
+  - Replace trim
+- Target completion: 2027-04-18
+- Maximum project spend: $8,500
+
+[Household]:
+- This is the home's only full bathroom
+- Toilet and shower may be unavailable together for no more than one night
+- No demolition or power-tool work before 08:00 or after 19:00
+- One adult can perform:
+  - Painting
+  - Trim
+  - Simple fixture installation
+- Licensed trades are required for new electrical connections and plumbing shutoff changes
+
+[Tasks]:
+- Confirm measurements and final fixture dimensions
+- Order long-lead materials:
+  - Vanity
+  - Flooring
+  - Lighting
+  - Fan
+  - Trim
+- Reserve electrician and plumber windows
+- Clear and protect the room and adjacent hallway
+- Remove the following as appropriate:
+  - Vanity
+  - Mirror
+  - Lighting
+  - Fan
+  - Flooring
+  - Trim
+- Repair wall and subfloor surfaces
+- Complete electrical and ventilation rough work
+- Install flooring
+- Paint walls and ceiling
+- Install vanity and reconnect plumbing
+- Install:
+  - Lighting
+  - Fan
+  - Mirror
+  - Trim
+- Complete final steps:
+  - Seal
+  - Cure
+  - Clean
+  - Inspect
+
+[DependencyRules]:
+- Do not remove a functioning fixture until its replacement is on site unless removal is required for verified preparatory work
+- Complete concealed repairs before finish surfaces cover them:
+  - Electrical
+  - Ventilation
+  - Wall
+  - Subfloor
+- Respect product cure times before installing or using dependent finishes
+- Group toilet/shower outages into the shortest feasible window
+- Protect completed finish work from later trade access
+
+[Schedule]: []
+
+[Organize]:
+=> Observe:
+  - [Project]
+  - [Household]
+  - [Tasks]
+  - [DependencyRules]
+=> For each task:
+  => Identify:
+    - Prerequisites
+    - Responsible person or trade
+    - Expected duration
+    - Required materials
+  => Flag tasks that can block multiple downstream tasks
+=> Build [Schedule] backward from the target completion date
+=> Place material-arrival and trade-confirmation gates before destructive work
+=> Keep a usable-bathroom state whenever [Household] permits
+=> Reserve time before final completion for:
+  - Cure periods
+  - Inspection
+  - One recovery day
+
+[Replan]:
+=> When one of the following slips:
+  - A material
+  - A trade
+  - A task
+  => Identify only downstream tasks actually blocked by the slip
+  => Pull forward independent work that will not create rework or violate [DependencyRules]
+  => Recalculate bathroom-outage windows and target-date risk
+  => If the target date or budget is threatened:
+    => Prefer deferring cosmetic scope over:
+      - Compressing cure times
+      - Skipping required trades
+      - Creating avoidable rework
+
+[Done]:
+- All installed items function as intended
+- Required trade work is complete
+- Finished surfaces are cured and undamaged
+- Bathroom is clean and fully usable
+- Actual spend and unresolved defects are recorded
+
+Task:
+1. Run [Organize]
+2. Apply [Replan] to one hypothetical three-day vanity delivery delay
+3. Provide:
+  - Dependency-aware schedule
+  - Procurement and trade gates
+  - Bathroom-outage plan
+  - Budget-risk notes
+  - Revised schedule after the delay
+  - Completion acceptance criteria from [Done]

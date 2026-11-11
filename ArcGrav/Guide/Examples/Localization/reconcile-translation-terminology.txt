@@ -1,0 +1,65 @@
+# Intent: Reconcile German product terminology across the termbase translation memory interface and support context without forcing unsupported consistency
+
+Locale: de-DE
+
+[References]:
+- Termbase: ./localization/terminology/product-termbase.de-DE.csv
+- Translation memory: ./localization/terminology/product-memory.de-DE.tmx
+- UI export: ./localization/terminology/current-ui.de-DE.json
+- Support corpus: ./localization/terminology/support-articles.de-DE/
+
+[Terms]:
+- Workspace:
+  - Source term: "Workspace"
+  - Termbase target: "Arbeitsbereich"
+  - Translation memory variants:
+    - "Arbeitsbereich"
+    - "Workspace"
+  - Product context: Shared area containing projects and members
+- Submission:
+  - Source term: "Submission"
+  - Termbase target: "Einreichung"
+  - Translation memory variants:
+    - "Einreichung"
+    - "Übermittlung"
+  - Product context: User-sent item entering a review queue
+- Owner:
+  - Source term: "Owner"
+  - Termbase target: "Verantwortliche Person"
+  - UI variant: "Besitzer"
+  - Product context: Role with administrative responsibility for a workspace
+
+[TerminologyDecisions]: []
+
+[OpenQueries]: []
+
+[PropagationScope]: []
+
+[Reconcile]:
+=> For each entry in [Terms] ↳
+  - Compare the termbase target with observed variants in [References]
+  - Evaluate the meaning in the stated product context
+  - Distinguish a true terminology conflict from a grammatically required inflection
+  - Check whether a variant represents a legacy product convention
+  - Check whether the candidate target creates ambiguity with another product concept
+=> Prefer an explicitly approved termbase entry when it fits the product context
+=> Do not override contextual evidence merely to maximize string-level consistency
+=> When one target is best supported:
+  - Append the source term and approved target to [TerminologyDecisions]
+  - Record the evidence basis
+  - Record deprecated variants only when they must be replaced
+  - Append the affected content surfaces to [PropagationScope]
+=> When the available references do not justify one target:
+  - Append the conflict to [OpenQueries]
+  - Preserve the competing candidates
+  - State what linguistic or product decision is needed
+
+[Validate]:
+=> Check [TerminologyDecisions] against representative UI and support contexts
+=> Confirm that each decision preserves the underlying product concept
+=> Leave context-sensitive exceptions explicit rather than treating them as failures
+
+Task:
+1. Run [Reconcile]
+2. Run [Validate]
+3. Present [TerminologyDecisions] with [PropagationScope] and [OpenQueries]

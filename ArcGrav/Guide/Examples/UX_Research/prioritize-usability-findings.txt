@@ -1,0 +1,145 @@
+# Intent: Prioritize usability findings for the next product iteration by combining user impact and evidence strength with observed frequency while accounting for implementation dependencies and current product constraints
+
+Scope: Harbor Team Workspace beta setup findings
+
+[ProductContext]:
+- Product area: Harbor Team Workspace setup
+- Release stage: Private beta
+- Near-term goal: Reduce preventable setup failure before expanding access
+- Available design capacity: One major flow revision and two small interaction revisions
+- Available engineering capacity: One setup-flow change and two isolated interface changes
+
+[F1]:
+- Finding: Workspace visibility is misread as edit permission
+- Impact: High because a wrong choice can expose a workspace more broadly than intended
+- Frequency: Observed in 2 of 6 sessions
+- Evidence strength: Moderate
+- Evidence:
+  - ./studies/setup-round-2/p02-notes.txt
+  - ./studies/setup-round-2/p04-notes.txt
+- Recovery: Both participants continued after reading help text
+
+[F2]:
+- Finding: Invitation timing is unclear after teammate details are entered
+- Impact: Medium because users may repeat an invite or wait for a state change that already occurred
+- Frequency: Observed in 3 of 6 sessions
+- Evidence strength: Moderate
+- Evidence:
+  - ./studies/setup-round-2/p03-notes.txt
+  - ./studies/setup-round-2/p05-notes.txt
+  - ./studies/setup-round-2/p06-notes.txt
+- Recovery: Participants reached setup completion without moderator assistance
+
+[F3]:
+- Finding: Optional workspace description appears required
+- Impact: Low because users can continue after entering placeholder text
+- Frequency: Observed in 4 of 6 sessions
+- Evidence strength: Strong
+- Evidence:
+  - ./studies/setup-round-2/p01-notes.txt
+  - ./studies/setup-round-2/p02-notes.txt
+  - ./studies/setup-round-2/p04-notes.txt
+  - ./studies/setup-round-2/p06-notes.txt
+- Recovery: All affected participants continued without assistance
+
+[F4]:
+- Finding: Setup success confirmation is easy to miss
+- Impact: Medium because users may question whether setup completed
+- Frequency: Observed in 2 of 6 sessions
+- Evidence strength: Moderate
+- Evidence:
+  - ./studies/setup-round-2/p01-notes.txt
+  - ./studies/setup-round-2/p05-notes.txt
+- Recovery: Both participants confirmed completion after navigating to the workspace
+
+[F5]:
+- Finding: Keyboard focus leaves the invite dialog after a validation error
+- Impact: High because keyboard-only completion may become impractical
+- Frequency: Observed in 1 of 2 keyboard-only sessions
+- Evidence strength: Limited but direct
+- Evidence:
+  - ./studies/accessibility-check/pk02-notes.txt
+- Recovery: Participant required moderator assistance to resume the task
+
+[Findings]:
+- [F1]
+- [F2]
+- [F3]
+- [F4]
+- [F5]
+
+[Dependencies]:
+- D1:
+  - Finding: [F1]
+  - Dependency: Final workspace visibility options must be confirmed before a major flow revision
+  - Status: Ready for copy exploration but not final interaction design
+- D2:
+  - Finding: [F2]
+  - Dependency: Invitation state model is under product review
+  - Status: Research can clarify expectations before the state model is finalized
+- D3:
+  - Finding: [F3]
+  - Dependency: None
+  - Status: Ready
+- D4:
+  - Finding: [F4]
+  - Dependency: None
+  - Status: Ready
+- D5:
+  - Finding: [F5]
+  - Dependency: None
+  - Status: Ready for reproduction and remediation if confirmed
+
+[PriorityFactors]:
+- User impact
+- Observed frequency
+- Evidence strength
+- Recovery difficulty
+- Dependency readiness
+- Fit with [ProductContext]
+
+[DecisionRules]:
+- Treat a credible task-blocking accessibility failure as higher priority than a more frequent cosmetic or low-impact problem
+- Do not convert weak evidence into high confidence by assigning a numerical score
+- Use frequency to distinguish findings with comparable impact and evidence strength
+- Prefer an independent ready fix when a higher-impact finding is temporarily blocked
+- Send a finding to further research when the main barrier is evidence quality rather than delivery capacity
+- Preserve blocked high-impact findings in the queue rather than downgrading their user impact
+
+[PriorityQueue]: []
+
+[ResearchQueue]: []
+
+[Deferred]: []
+
+[Assess]:
+=> For each finding in [Findings] ↳
+  - Evaluate every item in [PriorityFactors]
+  - Match the finding to its record in [Dependencies]
+  - Distinguish user impact from delivery readiness
+  - Distinguish evidence strength from observed frequency
+  - Record the smallest decision-relevant uncertainty
+
+[Prioritize]:
+=> Place findings with sufficient evidence and ready dependencies in [PriorityQueue]
+=> Order [PriorityQueue] using [DecisionRules]
+=> Place findings needing targeted confirmation in [ResearchQueue]
+=> Place lower-value ready work beyond current capacity in [Deferred]
+=> For any blocked high-impact finding:
+  - Keep its impact assessment unchanged
+  - Record the blocking dependency
+  - Identify any independent research or design work that can proceed
+
+[Validate]:
+=> Verify every priority decision cites evidence from [Findings]
+=> Verify frequency alone does not determine rank
+=> Verify a blocked finding is not presented as low impact solely because it cannot ship yet
+=> Verify limited evidence is not presented as population prevalence
+=> Verify the selected work fits the capacity in [ProductContext]
+
+Task:
+1. Run [Assess]
+2. Run [Prioritize]
+3. Run [Validate]
+4. Provide [PriorityQueue]
+5. Include [ResearchQueue] and [Deferred]

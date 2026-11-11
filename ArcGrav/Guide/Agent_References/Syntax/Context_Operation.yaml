@@ -1,0 +1,55 @@
+schema_version: 2
+id: arcgrav.syntax.context_operation
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Syntax/Context_Operation.md
+  url: ../../Syntax/Context_Operation.md
+  fingerprint: fnv1a32-1e01c7cc
+sections:
+  ag-context-operation: |-
+    A context operation is invoked using an `=>` arrow followed by defining the operation to tell the model how to transform child context. The model treats it accordingly as an operation and not a context item.
+    Context Operations define procedural manipulation of context, improving inference clarity and compactness without expanding prompt prose or requiring multiple prompts to accomplish the same thing.
+  ag-purpose: |-
+    Encodes a transformation applied to context; Separates context from operation
+    **Definition**
+    [Source]: - Input value one - Input value two
+    [Derived]: => Transform [Source] into [Shape]
+    **Nested Operations**
+    [Phrase]: => Repeat 3 times: => Concatenate without line break: - "Lorem ipsum dolor sit amet" - "consectetur adipiscing elit" - "sed do eiusmod tempor"
+    **Operation Composition**
+    [RawRecords]: - CSV attachment rows
+    [NormalizedRecords]: => Parse [RawRecords] => Convert headers to camelCase => Remove empty rows => Group by `accountId`
+  ag-rules: |-
+    **Nearest Context Binding** — operations apply to their context children; **One Operation Per Line** — keep each `=>` instruction singular and explicit; **Nested Order** — indent child operations under the parent operation; **No Sequencing** — do not combine `=>` with `-`, `1.`, or priority markers on the same line; **Child White Spacing** — add two spaces to children following operation instruction
+  ag-constraints: |-
+    Avoid using `=>` when a static list is sufficient; Use explicit operations over vague or subjective instructions
+  ag-context-operation-2: |-
+    Apply one explicit behavior to context.
+    [Parsed]: => Parse [Source]
+  ag-derived-anchor: |-
+    Define an anchor as the output of an operation.
+    [Normalized]: => Normalize [RawRecords]
+  ag-operation-chain: |-
+    Apply several singular transformations in sequence.
+    [NormalizedRecords]: => Parse [RawRecords] => Normalize field names => Remove empty rows => Group by `accountId`
+  ag-nested-operation: |-
+    Indent a child operation beneath the operation controlling it.
+    [Phrase]: => Repeat 3 times: => Concatenate without line break: - "Alpha" - "Beta"
+  ag-apply-to-invocation: |-
+    Apply a reusable operation, standard, schema, or gate to a named target.
+    [Finding]: => Apply [Validation] to [SourceExcerpt]
+  ag-conditional-gate: |-
+    Prevent an operation from proceeding unless its preconditions are satisfied.
+    [Generate]: => Apply [ContextGate] => If the gate passes, produce [Artifact]
+  ag-fail-fast-stop: |-
+    Terminate when later output would be structurally invalid or misleading.
+    [Parsed]: => Parse [Source] => Raise when required structure is invalid
+  ag-recursive-self-application: |-
+    Reapply an operation after making progress toward termination.
+    [Traverse]: => Process the current node => Add unvisited children to [Pending] => Select the next node => Apply [Traverse]
+  ag-independent-verification-operation: |-
+    Inspect an artifact without modifying it.
+    [Verify]: => Compare [Artifact] directly with [Source] => Report defects => Do not modify [Artifact]
+  ag-instrumented-operation: |-
+    Produce execution statistics alongside the operation's domain result.
+    [Finalize]: => Populate [ExecutionStats] => Return [Artifact] with [ExecutionStats]

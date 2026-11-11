@@ -1,0 +1,51 @@
+# Intent: Find a narrow brushed-nickel multi-globe pendant chandelier that most closely matches a supplied visual reference
+
+[Basis]:
+- Visual reference supplied with the task
+- Image-derived attributes are estimates until verified from product specifications
+
+[Target]:
+- Match [Basis] by:
+  - Overall silhouette
+  - Finish appearance
+  - Globe shape
+- Multiple globes
+- Brushed nickel or a documented visually equivalent finish
+- Vertical hanging form
+- Narrow and tall proportions
+- Single pendant fixture
+
+[EvidencePriority]:
+- Specifications:
+  P0. Manufacturer product specifications
+  P1. Retailer listings that reproduce manufacturer specifications
+- Appearance:
+  - Listing images for visual comparison
+
+[Candidates]: []
+
+[Uncertainty]: []
+
+[Search]:
+=> Search for products matching the structural attributes in [Target]
+=> Append plausible products to [Candidates] with source and product identifier
+
+[Compare]:
+=> Compare [Candidates] against [Target] and [Basis] using [EvidencePriority] ↳
+  - Listing images for visual similarity
+  - Product specifications for:
+    - Finish
+    - Dimensions
+    - Globe count
+    - Fixture form
+    - Hanging orientation
+=> Do not treat an image-derived finish or dimension as verified when specifications are absent
+=> Identify documented conflicts or missing evidence for required [Target] attributes
+=> Preserve meaningful differences between the reference and each candidate
+=> Append unresolved visual or specification ambiguity to [Uncertainty]
+=> Rank candidates by supported similarity rather than by unsupported claims of exact match
+
+Task:
+1. Run [Search]
+2. Run [Compare]
+3. Present [Candidates] ranked by supported similarity with [Uncertainty]

@@ -1,0 +1,85 @@
+# Intent: Verify that a rooftop equipment-support frame satisfies the following requirements using traceable calculations and drawings rather than treating design intent as proof of compliance
+# - Structural requirements
+# - Interface requirements
+# - Serviceability requirements
+# - Installation requirements
+
+[Requirements]:
+- `R1`: Support a 14 kN operating equipment load at the specified mounting points
+- `R2`: Support the governing maintenance live load defined in the project criteria
+- `R3`: Limit vertical deflection at equipment mounting points to 6 mm under service load
+- `R4`: Maintain the required clearance above the roof membrane and drainage paths
+- `R5`: Transfer all governing load combinations into the designated building attachment points without exceeding their stated capacities
+- `R6`: Fit within the roof access and assembly constraints defined by the installation plan
+- `R7`: Use the specified corrosion-protection system for all exposed steel
+
+[DesignBasis]:
+- ./design-criteria.md
+- ./equipment-loads.csv
+- ./frame-calculations.pdf
+- ./frame-drawings.pdf
+- ./attachment-capacities.md
+- ./installation-plan.md
+
+[StatusValues]:
+- "verified"
+- "failed"
+- "insufficient-evidence"
+- "not-applicable"
+
+[RequirementRecord]: []
+
+[Verify]:
+=> For each item in [Requirements] ↳
+  => Locate the governing statement in [DesignBasis]
+  => Identify the evidence intended to satisfy it from:
+    - Drawing detail
+    - Calculation
+    - Material specification
+    - Installation evidence
+  => Check consistency across sources for:
+    - Load magnitude
+    - Location
+    - Units
+    - Combinations
+    - Boundary conditions
+    - Acceptance limits
+  => Recompute or independently cross-check the decisive calculation where the provided information permits
+  => Assign one value from [StatusValues]
+  => Record:
+    - Evidence
+    - Calculation basis
+    - Margin if meaningful
+    - Any discrepancy
+  => Append the result to [RequirementRecord]
+
+[ConsistencyChecks]:
+=> Trace reactions from the supported equipment through frame members and connections to the designated building attachment points
+=> Check that drawing geometry matches the calculation model at:
+  - Supports
+  - Member sizes
+  - Connection locations
+  - Load application points
+=> Check that serviceability verification uses service-level loads rather than strength-only combinations
+=> Check installation sequencing for any temporary condition that is not covered by the permanent design analysis
+=> Treat missing or contradictory source information as insufficient-evidence rather than silently selecting the favorable interpretation
+
+[ReleaseGate]:
+=> Set release status to "PASS" only if every applicable requirement is verified and no unresolved source contradiction can change the conclusion
+=> Set release status to "HOLD" if any requirement is failed or insufficient-evidence
+=> For "HOLD", identify the smallest closure set needed to reach a determinate result from:
+  - Design revisions
+  - Calculations
+  - Measurements
+  - Source clarifications
+
+Task:
+1. Run [Verify]
+2. Run [ConsistencyChecks]
+3. Run [ReleaseGate]
+4. Document:
+  - Requirement traceability matrix
+  - Calculation and drawing inconsistencies
+  - Compliance margins where supported
+  - Release status
+  - Required closure actions

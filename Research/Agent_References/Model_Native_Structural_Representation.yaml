@@ -1,0 +1,115 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.model_native_structural_representation
+kind: research_reference
+source:
+  path: Research/Model_Native_Structural_Representation.md
+  url: ../Model_Native_Structural_Representation.md
+  fingerprint: fnv1a32-878594f5
+sections:
+  paper-mnsr: |-
+    Model-Native Structural Representation (MNSR) studies whether model-facing representations make task-relevant identities, scopes, priorities, references, dependencies, and constraints recoverable with less reconstruction. It proposes a general theory, not an ArcGrav-specific performance result.
+  abstract: |-
+    Language models must recover task identities, scopes, constraints, priorities, references, dependencies, state and execution criteria before or during reasoning. Although prompts are serialized, these task relationships are often non-sequential. MNSR hypothesizes that external representations preserving consequential relationships with model-familiar structural cues can reduce reconstruction burden. The central claims and comparative advantages are theoretical and require controlled testing; this is not a claim of guaranteed ArcGrav superiority.
+  introduction: |-
+    Before solving a task, a language model must recover scope, identities, constraints, references, dependencies, and control state from a serialized input. MNSR investigates how faithfully those relationships survive representation and how learned structural conventions can reduce reconstruction burden, without claiming any notation is universally optimal.
+  role-within-the-research-program: |-
+    MNSR supplies the general structural-representation theory for this research program. It studies how task-relevant relationships survive communication and how reliably a model can recover them. Instructional Representation describes one category of model-facing representations; ArcGrav Interpretive Efficiency and Representational Capacity Reclamation examine distinct proposed consequences.
+  mnsr-representation-problem: |-
+    An intended task contains objects, constraints, relations, states, and acceptance criteria; a serialized prompt represents but does not itself constitute that task. The model must recover consequential relationships before or during task execution. A compact encoding can still impose substantial reconstruction cost.
+  mnsr-relational-topology: |-
+    Represent intended task structure as a typed graph whose nodes include instructions, objects, states, evidence, and outputs, and whose edges encode scope, reference, precedence, dependence, and other consequential relations. This is an analytical representation; it does not assert literal internal graph storage.
+  mnsr-representation-vs-serialization: |-
+    Distinguish intended task graph G, external representation R, serialized input S, model activation Z, recovered usable structure Ĝ, and response or action A. Sequential token order is the communication channel; it does not determine whether the represented task is relationally simple.
+  the-mnsr-thesis: |-
+    The MNSR thesis rests on four related propositions: consequential relationships are part of task information; serializations differ in how well they preserve relational topology; broadly trained models learn associations between familiar cues and structural functions; and model-native fit is functional recoverability through those priors, not conformity to one syntax or one hidden vector. These propositions motivate controlled performance and reconstruction tests rather than asserting universal gains.
+  why-model-native-structure-matters: |-
+    An explicit but unfamiliar encoding can still require expensive semantic acquisition. Model-native fit is functional recoverability through learned associations, not geometric closeness to a hidden vector; it is task-, model-, and interface-dependent.
+  mnsr-representation-recovery-before-reasoning: |-
+    6. Representation Recovery Before Reasoning: MNSR distinguishes three functional stages: > Recover Task → Reason Over Task → Execute Task A structured representation does not enlarge the model, and it does not create new parameters, hidden dimensions, attention heads, or reasoning modules, instead it changes the representation upon which reasoning operates.
+  mnsr-representational-impedance: |-
+    Representational impedance is extra task-recovery burden created by how the task is communicated rather than its intrinsic requirements. Distinguish transformation effort, linearization cost, structural reconstruction, and round-trip fidelity.
+  mnsr-transformation-distance: |-
+    Functional work needed to turn an external representation into model-usable task relations, including role, scope, reference, priority, state, and control interpretation. A conceptual construct, not necessarily a measured activation distance.
+  mnsr-linearization-tax: |-
+    Burden of carrying nonsequential structure through a sequential channel; it is not equivalent to token count. Serial text can preserve graph topology explicitly, so the relevant failure is obscured consequential relations.
+  mnsr-structural-reconstruction-tax: |-
+    Avoidable reasoning and coordination used to recover unclear scope, identity, precedence, dependency, state, action, evidence, verification, or termination; it may cause downstream errors beyond initial parsing.
+  mnsr-round-trip-fidelity: |-
+    Compare intended task graph with functionally recovered graph using consequential relation differences. Better fidelity predicts but does not itself prove reliable downstream execution.
+  mnsr-representational-offloading: |-
+    Structural offloading expresses consequential task relations in the external representation so the model need not infer them from diffuse prose. ArcGrav is one candidate approach; whether external structure reduces computation or improves outcomes must be tested, not assumed.
+  mechanistic-plausibility: |-
+    Seven strands of prior model research make relational recoverability plausible, but none independently verifies the full MNSR thesis or identifies a unique ArcGrav mechanism.
+  learned-structural-priors: |-
+    Models encounter recurring textual cues for nesting, roles, reference, priority, and sequence during training. Learned familiarity may lower acquisition cost, but comparative benefits remain empirical.
+  mnsr-task-recognition: |-
+    In-context examples and instruction structure can support recognition of a known task pattern distinct from learning a new task mapping; both possibilities must be controlled in experiments.
+  mnsr-associative-retrieval: |-
+    Attention and associative-memory findings motivate recovery of contextually cued roles or references. Such connections are plausible explanations, not evidence that any one external notation is optimal.
+  mnsr-internal-semantic-task-structure: |-
+    Studies of model representations, task vectors, and semantic features make task-relation recovery plausible. MNSR does not require a one-to-one match between text structure and latent neural geometry.
+  mnsr-information-anchors-binding: |-
+    Labeled positions and repeated-pattern attention may help preserve identity and references across context. Explicit anchors are a hypothesized aid whose effect should be measured by reference accuracy.
+  mnsr-prompt-sensitivity: |-
+    Ordering, lexical choice, and formatting can change model behavior. This motivates controlled structural comparisons but by itself does not show why a specific representation succeeds.
+  mnsr-reduced-interpretive-branching: |-
+    Ambiguous instructions permit multiple plausible relational interpretations; clarifying roles, scope, binding, and targets may reduce behaviorally relevant ambiguity. No literal enumeration of task graphs is assumed.
+  mnsr-representation-frontier: |-
+    Model-native fit depends on representation, model, task, and communication context; no notation should be universally preferred. Evaluate relational clarity, learned prior fit, human effort, and system cost jointly.
+  mnsr-interface-continuum: |-
+    Natural prose, structured documents, instructional languages, schema/graph interfaces, and learned adapters provide different trade-offs. This continuum describes interface types, not a universal ranking; model-visible input can differ from UI appearance.
+  where-mnsr-should-matter-and-where-it-can-fail: |-
+    MNSR predicts greater benefits when tasks require repeated identity binding, nested scope, priority, mutable state, dependency order, tool coordination, verification, or long-context recovery. Benefits may be small on simple tasks and can fail if novel notation imposes greater interpretation overhead than the structure it exposes.
+  research-hypotheses: |-
+    Eight testable propositions, not confirmed effects. They distinguish topology recovery, complexity scaling, prior alignment, downstream fidelity, stateful coordination, representation fit, channel equivalence, and learned interfaces.
+  mnsr-structural-recovery-hypothesis: |-
+    H1: At matched task semantics, explicitly exposing consequential relations should reduce errors in identity, scope, precedence, dependency, state, control, and verification.
+  mnsr-complexity-scaling-hypothesis: |-
+    H2: Topology-preserving representations should gain more relative advantage as relational complexity grows than as raw prompt length grows.
+  mnsr-prior-alignment-hypothesis: |-
+    H3: At equivalent expressiveness and topology, familiar learned structural cues should require less representation-specific explanation than randomized isomorphic encodings.
+  mnsr-round-trip-performance-hypothesis: |-
+    H4: More faithful recovery of consequential task relationships should predict better downstream execution and verification.
+  mnsr-stateful-coordination-hypothesis: |-
+    H5: In longitudinal tool tasks, explicit state, control, and termination should reduce stale-state errors, repetition, premature termination, and corrective human turns.
+  mnsr-representation-frontier-hypothesis: |-
+    H6: No single notation should dominate all tasks; the best interface depends jointly on topology preservation, prior fit, human and communication cost, task fit, and model fit.
+  mnsr-channel-substitution-hypothesis: |-
+    H7: A supported structured channel may reduce relational errors versus diffuse prose; superficial interface differences should provide no intrinsic benefit when the model-visible input is equivalent.
+  mnsr-learned-interface-hypothesis: |-
+    H8: Learned structured-state interfaces may outperform manual serialization when they retain important task relations with lower overall representational impedance.
+  experimental-program: |-
+    Eight proposed study families test distinct theoretical claims. Comparisons should match task semantics, track relation-specific outcomes, and avoid treating theoretical predictions as established empirical results.
+  semantically-isomorphic-representation-benchmark: |-
+    Encode identical canonical tasks using optimized prose, Markdown, ArcGrav, YAML, JSON, XML, code-like syntax, and randomized DSLs. Compare task success and relation-specific failures with semantics held constant.
+  relational-complexity-ladder: |-
+    Independently vary nodes, edges, relation types, hierarchy, branching, reference distance, constraints, state, dependency depth, and termination while approximately holding domain difficulty fixed.
+  topology-preservation-benchmark: |-
+    Encode a canonical task graph in alternate representations, ask models to recover its consequential relations, measure graph-level differences, and test whether recovery fidelity predicts task success.
+  construct-ablation-and-prior-alignment-study: |-
+    Ablate labels, grouping, indentation, references, priorities, state, order, verification, or termination cues; compare learned conventions with structurally matched randomized cues and measure recovery and specification cost.
+  stateful-agent-benchmark: |-
+    Compare narrative control with explicit state-and-control structure on long tool workflows. Track omissions, repeated or stale work, premature termination, retries, corrective interaction, and accepted autonomous completion.
+  open-model-mechanistic-study: |-
+    Where activations are available, compare matched representations using similarity, role/reference probes, attention, patching, and task/function vectors. Test recoverability of task relations, not the existence of an ArcGrav-specific circuit.
+  channel-and-serialization-equivalence-study: |-
+    Compare prose, structured text, schema/graph-native inputs, and learned interfaces where supported. Include a control where distinct UIs deliver identical model-visible input to isolate actual channel effects.
+  humanmodel-cost-study: |-
+    Measure human authoring, editing, comprehension, repair, and review alongside model structural recovery, execution reliability, correction, and communication cost. Optimize combined burden, not token count alone.
+  relationship-to-the-other-research-layers: |-
+    MNSR addresses structural recoverability. Instructional Representation concerns model-facing instruction form; Syntax Efficiency counts encoding/reuse cost; Interpretive Efficiency studies grammar acquisition; RCR studies available task capacity; Reasoning–Interaction and Operational Leverage study completion and delegation economics; the Triad addresses contextual placement, order/history, and support. These claims must be evaluated separately.
+  scope-evidence-status-and-falsification-criteria: |-
+    MNSR supplies testable structural-recovery hypotheses, not proof of a universal neural mechanism. It does not require literal pointers, shared latent coordinates, minimum-token serialization, or ArcGrav superiority. Matched-task tests can challenge the theory if structural cues fail to improve recovery or performance at controlled complexity and cost.
+  practical-design-consequences: |-
+    Expose scope when scope errors matter, preserve identity for reused contexts, state authority when rules conflict, track mutable state, distinguish source evidence from operations, and make dependencies, verification, and stopping criteria explicit. Favor familiar conventions only when they communicate the intended relationship without adding ambiguity or unsupported guarantees.
+  conclusion: |-
+    Instruction quality depends partly on how readily a model can recover scopes, identities, dependencies, priorities, and states from a serialized representation. MNSR predicts that better-preserved task relationships reduce reconstruction burden; its model- and task-dependent benefits require controlled evaluation.
+  related-papers: |-
+    Related Papers: • Instructional Representation
+    • Representational Capacity Reclamation
+    • ArcGrav Interpretive Efficiency
+    • Context Triad
+  references: |-
+    References: • Chandra, A., & Krovi, R. (1999). Representational congruence and information retrieval: Towards an extended model of cognitive fit. Decision Support Systems. https://doi.org/10.1016/S0167-9236(99)00014-7
+    • Chatterjee, A., et al.

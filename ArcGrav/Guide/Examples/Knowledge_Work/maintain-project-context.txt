@@ -1,0 +1,61 @@
+# Intent: Maintain a compact current project context without letting superseded information masquerade as current state by reconciling:
+# - Changing notes
+# - Decisions
+# - Status records
+
+[Project]: Community portal migration
+
+[ContextSources]:
+- ./project-brief.md
+- ./decision-log.md
+- ./weekly-status/
+- ./open-questions.md
+
+[CurrentContext]:
+- Objective
+- Active constraints
+- Accepted decisions
+- Unresolved questions
+- Current risks
+- Near-term commitments
+- Important dependencies
+
+[StateRules]:
+- Prefer the most authoritative source for a fact
+- Prefer recency only when authority is otherwise comparable
+- A later status note does not silently replace an accepted decision unless it explicitly changes that decision
+- Preserve the relationship between a superseded item and the item that replaced it
+- Do not carry completed actions forward as open commitments
+- Keep uncertainty explicit when source records disagree or omit the basis for a change
+
+[Refresh]:
+=> Apply [StateRules] to the refresh process
+=> Read [ContextSources] for statements about [Project] material to [CurrentContext]
+=> Classify each statement as:
+  - Current
+  - Superseded
+  - Completed
+  - Unresolved
+  - Conflicting
+=> Reconcile statements that refer to the same:
+  - Decision
+  - Dependency
+  - Risk
+  - Commitment
+=> For every superseded statement retained for traceability:
+  => Link it to the current statement or decision that replaced it
+=> For every conflict that cannot be resolved from source authority or chronology:
+  => Keep both readings and identify what must be clarified
+=> Produce a refreshed [CurrentContext] containing only information needed to understand present project state and next obligations
+
+[ContinuityCheck]:
+=> Verify every accepted decision has either an active effect or an explicit supersession
+=> Verify every near-term commitment has an owner or is marked unassigned
+=> Verify closed risks and completed actions are not presented as active
+=> Verify unresolved conflicts remain visible
+
+Task:
+1. Run [Refresh]
+2. Run [ContinuityCheck]
+3. Present the refreshed project context first
+4. Present superseded links and unresolved conflicts as supporting traceability, not as current state

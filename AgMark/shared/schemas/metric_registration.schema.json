@@ -1,0 +1,428 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcgrav:shared:schema:metric-registration:1.0.0",
+  "schema_id": "arcgrav.shared.schema.metric-registration",
+  "schema_version": "1.0.0",
+  "title": "Metric Registration",
+  "description": "Pre-execution machine-readable registration for metric identity, scoring rules, state treatment, aggregation, and availability semantics.",
+  "x-arcgrav-extension-policy": {
+    "mode": "namespaced-additive",
+    "extension_points": [
+      "/extensions"
+    ],
+    "unknown_fields": "reject",
+    "preserve_unknown_extensions": true,
+    "shared_fields_overridable": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identityRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "schemaIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_id",
+        "schema_version"
+      ],
+      "properties": {
+        "schema_id": {
+          "type": "string",
+          "pattern": "^arcgrav\\.shared\\.schema\\.[a-z0-9._-]+$"
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "sha256"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availability": {
+          "type": "string",
+          "enum": [
+            "retained",
+            "not_produced",
+            "unavailable",
+            "invalid",
+            "excluded",
+            "missing",
+            "failed",
+            "completed_non_scorable",
+            "scored",
+            "not_applicable",
+            "non_comparable"
+          ]
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]*:[^\\s]+$"
+      },
+      "additionalProperties": true,
+      "description": "Opaque-preservable namespaced extension values. Consumers must preserve unknown entries and may not reinterpret shared fields."
+    },
+    "validationIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "source_id",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "json_pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        }
+      }
+    },
+    "stateRule": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "state",
+        "disposition"
+      ],
+      "properties": {
+        "state": {
+          "type": "string",
+          "enum": [
+            "completed",
+            "failed",
+            "missing",
+            "malformed",
+            "refused",
+            "unsupported",
+            "excluded",
+            "unavailable",
+            "non_comparable",
+            "completed_non_scorable"
+          ]
+        },
+        "disposition": {
+          "type": "string",
+          "enum": [
+            "score",
+            "zero",
+            "exclude",
+            "unavailable",
+            "not_applicable",
+            "non_comparable",
+            "fail"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "extensions",
+    "registration_id",
+    "registration_version",
+    "metric_id",
+    "metric_version",
+    "name",
+    "description",
+    "classification",
+    "comparison_track_id",
+    "is_primary_endpoint",
+    "formula_or_algorithm",
+    "required_inputs",
+    "unit",
+    "valid_range",
+    "directionality",
+    "numerator_denominator",
+    "repetition_aggregation",
+    "case_aggregation",
+    "state_treatment",
+    "normalization_and_equivalence",
+    "availability_and_noncomparability",
+    "required_companion_values",
+    "presentation_precision",
+    "scorer_or_annotation",
+    "contracts"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "arcgrav.shared.schema.metric-registration"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "extensions": {
+      "$ref": "#/$defs/extensions"
+    },
+    "registration_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "registration_version": {
+      "$ref": "#/$defs/semanticVersion"
+    },
+    "metric_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "metric_version": {
+      "$ref": "#/$defs/semanticVersion"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1
+    },
+    "classification": {
+      "type": "string",
+      "enum": [
+        "primary_correctness",
+        "correctness",
+        "completion",
+        "failure",
+        "diagnostic",
+        "prompt_construction",
+        "efficiency",
+        "portability",
+        "exploratory"
+      ]
+    },
+    "comparison_track_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "is_primary_endpoint": {
+      "type": "boolean"
+    },
+    "formula_or_algorithm": {
+      "type": "string",
+      "minLength": 1
+    },
+    "required_inputs": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "unit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "valid_range": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind"
+      ],
+      "properties": {
+        "kind": {
+          "type": "string",
+          "enum": [
+            "numeric",
+            "categorical",
+            "boolean",
+            "json"
+          ]
+        },
+        "minimum": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "maximum": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "allowed_values": {
+          "type": "array",
+          "items": true
+        }
+      }
+    },
+    "directionality": {
+      "type": "string",
+      "enum": [
+        "higher_is_better",
+        "lower_is_better",
+        "target",
+        "none"
+      ]
+    },
+    "numerator_denominator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "uses_rate",
+        "numerator_rule",
+        "denominator_rule"
+      ],
+      "properties": {
+        "uses_rate": {
+          "type": "boolean"
+        },
+        "numerator_rule": {
+          "type": "string",
+          "minLength": 1
+        },
+        "denominator_rule": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "repetition_aggregation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "case_aggregation": {
+      "type": "string",
+      "minLength": 1
+    },
+    "state_treatment": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/stateRule"
+      }
+    },
+    "normalization_and_equivalence": {
+      "type": "string",
+      "minLength": 1
+    },
+    "availability_and_noncomparability": {
+      "type": "string",
+      "minLength": 1
+    },
+    "required_companion_values": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "presentation_precision": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "scorer_or_annotation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "procedure_id",
+        "version",
+        "kind"
+      ],
+      "properties": {
+        "procedure_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "$ref": "#/$defs/semanticVersion"
+        },
+        "kind": {
+          "type": "string",
+          "enum": [
+            "scorer",
+            "parser_and_scorer",
+            "annotation",
+            "deterministic_rule"
+          ]
+        }
+      }
+    },
+    "contracts": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "$ref": "#/$defs/identityRef"
+      }
+    }
+  }
+}

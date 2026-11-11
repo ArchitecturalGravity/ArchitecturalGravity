@@ -1,0 +1,166 @@
+# Intent: Develop a branching quest whose objectives preserve prerequisite logic and state consequences through multiple endings when players choose different alliances
+
+[QuestContext]:
+- Title: Floodgate Accord
+- Setting: River district threatened by a failing flood-control station
+- Player role: Independent troubleshooter trusted by multiple local groups
+- Design goal: Let the player solve the immediate flood risk while determining who controls the repaired station afterward
+
+[InitialState]:
+- PumpStatus: Failing
+- DistrictEvacuated: False
+- EngineerTrust: Neutral
+- SmugglerTrust: Neutral
+- CouncilAuthority: Active
+- ControlPromise: Unresolved
+
+[QuestNodes]:
+- ReachStation:
+  - Prerequisite: Quest accepted
+  - Objective: Enter the flood-control station
+  - Completion: Player reaches the control room
+  - Unlocks:
+    - DiagnoseFailure
+- DiagnoseFailure:
+  - Prerequisite: ReachStation complete
+  - Objective: Determine why the main pumps are losing pressure
+  - Completion: Player inspects the intake gate and control manifold
+  - State change:
+    - PumpStatus: Diagnosed
+  - Unlocks:
+    - RecoverValveParts
+    - NegotiateBypass
+- RecoverValveParts:
+  - Prerequisite: DiagnoseFailure complete
+  - Objective: Retrieve replacement valve parts from the council depot
+  - Access paths:
+    - Authorized pickup:
+      - Requirement: CouncilAuthority remains Active
+      - Consequence: EngineerTrust increases
+    - Forced entry:
+      - Requirement: None
+      - Consequence: CouncilAuthority becomes Hostile
+  - Completion: Valve parts acquired
+  - Unlocks:
+    - RepairMainPumps
+- NegotiateBypass:
+  - Prerequisite: DiagnoseFailure complete
+  - Objective: Obtain access to the smugglers' hidden bypass channel
+  - Choices:
+    - Promise future station access:
+      - Consequences:
+        - SmugglerTrust increases
+        - ControlPromise becomes Smugglers
+    - Pay for temporary access:
+      - Consequences:
+        - SmugglerTrust remains Neutral
+        - ControlPromise remains Unresolved
+  - Completion: Bypass route opened
+  - Unlocks:
+    - StabilizeThroughBypass
+- RepairMainPumps:
+  - Prerequisite: RecoverValveParts complete
+  - Objective: Restore the main pumps
+  - Completion: Player installs the valve parts and restarts the system
+  - State change:
+    - PumpStatus: Stable
+  - Unlocks:
+    - DecideStationControl
+- StabilizeThroughBypass:
+  - Prerequisite: NegotiateBypass complete
+  - Objective: Divert river pressure through the hidden channel
+  - Completion: Player opens the bypass and confirms stable flow
+  - State change:
+    - PumpStatus: Stable
+  - Unlocks:
+    - DecideStationControl
+- DecideStationControl:
+  - Prerequisite: PumpStatus is Stable
+  - Objective: Determine who receives operational control
+  - Choices:
+    - Return control to council engineers:
+      - Requirement: CouncilAuthority is not Hostile
+      - Consequences:
+        - EngineerTrust increases
+        - ControlPromise becomes Council
+    - Honor smuggler access promise:
+      - Requirement: ControlPromise is Smugglers
+      - Consequences:
+        - SmugglerTrust increases
+        - CouncilAuthority becomes Hostile
+    - Establish shared control:
+      - Requirements:
+        - EngineerTrust is Positive
+        - SmugglerTrust is Positive
+      - Consequence: ControlPromise becomes Shared
+  - Completion: One valid control choice is committed
+  - Unlocks:
+    - ResolveDistrict
+- ResolveDistrict:
+  - Prerequisite: DecideStationControl complete
+  - Objective: Confirm the district outcome
+  - Completion: Ending state is generated from current quest state
+
+[FailureAndRecovery]:
+- Depot access lost:
+  - Trigger: CouncilAuthority becomes Hostile before valve parts are acquired
+  - Recovery: NegotiateBypass remains available
+- Smuggler negotiation abandoned:
+  - Trigger: Player refuses both bypass terms
+  - Recovery: RecoverValveParts remains available while depot access is possible
+- Both repair paths blocked:
+  - Trigger:
+    - CouncilAuthority is Hostile before valve parts are acquired
+    - NegotiateBypass was permanently refused
+  - Consequence: Evacuation branch becomes mandatory
+- Evacuation branch:
+  - Objective: Warn district residents and open the ridge shelter
+  - State change:
+    - DistrictEvacuated: True
+  - Ending effect: Flood damage occurs but civilian exposure is reduced
+
+[EndingRules]:
+- Restored public station:
+  - Requirements:
+    - PumpStatus is Stable
+    - ControlPromise is Council
+  - Result: Council engineers operate the station under restored authority
+- Smuggler-controlled access:
+  - Requirements:
+    - PumpStatus is Stable
+    - ControlPromise is Smugglers
+  - Result: District remains protected while illicit river access expands
+- Shared control:
+  - Requirements:
+    - PumpStatus is Stable
+    - ControlPromise is Shared
+  - Result: Engineers retain operations while smugglers receive negotiated access
+- Managed evacuation:
+  - Requirements:
+    - DistrictEvacuated is True
+    - PumpStatus is not Stable
+  - Result: The district survives the immediate emergency with major property loss
+
+[OpenIssues]: []
+
+[Develop]:
+=> Initialize the traced quest state from [InitialState]
+=> Trace every unlock from [QuestNodes] against its prerequisite
+=> Verify each player choice changes state only after the relevant objective is reachable
+=> Verify every mandatory failure condition in [FailureAndRecovery] has a reachable recovery or ending path
+=> Detect contradictory state combinations that could make an ending in [EndingRules] impossible to select
+=> Preserve alliance consequences across [QuestNodes] in accordance with [QuestContext]
+=> Record any unreachable node or ambiguous transition in [OpenIssues]
+
+[Validate]:
+=> Verify the quest can complete through the main-pump path
+=> Verify the quest can complete through the bypass path
+=> Verify a failed repair can still resolve through evacuation
+=> Verify shared control requires evidence of support from both groups
+=> Verify no ending claims a repaired station when PumpStatus is not Stable
+=> Verify mutually exclusive authority outcomes cannot be active at the same time
+
+Task:
+1. Run [Develop]
+2. Run [Validate]
+3. Present the reachable quest structure with [OpenIssues] and the ending conditions that remain valid

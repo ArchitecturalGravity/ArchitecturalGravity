@@ -1,0 +1,93 @@
+# Intent: Reconstruct an event timeline from conflicting historical sources while preserving provenance and chronological uncertainty
+
+[ResearchQuestion]:
+- Determine the best supported sequence of the harbor evacuation on 14 October 1907
+- Preserve material disagreement about timing and order
+
+[Sources]:
+- S1:
+  - Location: ./sources/harbor-master-log-1907-10-14.txt
+  - Source type: Operational log
+  - Creation context: Entries recorded during the shift
+  - Time basis: Harbor clock
+  - Provenance: Archive box 18 folder 4
+- S2:
+  - Location: ./sources/fire-brigade-register-1907-10-14.txt
+  - Source type: Station register
+  - Creation context: Entries copied from crew reports after return
+  - Time basis: Station clock
+  - Provenance: Municipal Fire Archive volume 7
+- S3:
+  - Location: ./sources/morning-gazette-1907-10-15.txt
+  - Source type: Newspaper report
+  - Creation context: Published the following morning
+  - Time basis: Reported witness times
+  - Provenance: City Library microfilm reel 112
+- S4:
+  - Location: ./sources/ellen-voss-diary-1907-10-14.txt
+  - Source type: Personal diary
+  - Creation context: Entry dated the night of the event
+  - Time basis: Approximate personal observation
+  - Provenance: Voss Family Papers series 2
+
+[EventClaims]: []
+
+[TimeContext]: []
+
+[EventGroups]: []
+
+[Timeline]: []
+
+[ChronologyConflicts]: []
+
+[ExtractClaims]:
+=> For each source in [Sources] ↳
+  - Extract each material event claim
+  - Retain the source reference
+  - Retain the reported time exactly as recorded
+  - Record whether the time is exact or approximate
+  - Record whether the claim was observed directly or reported by another person
+  - Record the creation context
+=> Append the results to [EventClaims]
+
+[NormalizeTimeContext]:
+=> For each claim in [EventClaims] ↳
+  - Compare its reported time with the source time bases in [Sources]
+  - Do not convert between clocks unless a documented offset exists
+  - When an offset is supported:
+    - Preserve the original reported time
+    - Record the derived comparable time separately
+    - Retain the evidence for the offset
+  - When no reliable offset exists:
+    - Preserve the claim as chronologically unresolved
+  - Append the claim with its time-basis assessment to [TimeContext]
+
+[Reconstruct]:
+=> Group claims in [TimeContext] by probable event identity for [ResearchQuestion] without merging distinct events solely because their descriptions are similar
+=> Append the resulting groups to [EventGroups]
+=> Determine the supported relative order of [EventGroups] without imposing an unjustified total sequence
+=> For each group in [EventGroups] ↳
+  => Append an entry to [Timeline] with:
+    - Event or unresolved event identity
+    - Supported time or time range
+    - Supporting source references
+    - Contradicting source references
+    - Confidence and remaining uncertainty
+=> Append material disagreements to [ChronologyConflicts] concerning:
+  - Event identity
+  - Event timing
+  - Event order
+=> Preserve parallel or partially ordered events in [Timeline] when a total sequence is not justified
+
+[Validation]:
+=> Confirm every entry in [Timeline] traces through [EventClaims] to at least one source in [Sources]
+=> Confirm every derived time in [TimeContext] retains its original reported time and offset evidence
+=> Confirm no entry resolves a conflict by source count alone
+=> Confirm every material unresolved chronology conflict appears in [ChronologyConflicts]
+
+Task:
+1. Run [ExtractClaims]
+2. Run [NormalizeTimeContext]
+3. Run [Reconstruct]
+4. Run [Validation]
+5. Present [Timeline] with [ChronologyConflicts]

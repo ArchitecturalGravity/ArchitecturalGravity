@@ -1,0 +1,82 @@
+# Intent: Build a multi-city trip around these conditions without overpacking the itinerary
+#   - Fixed arrival and departure points
+#   - Timed commitments
+#   - Transfer constraints
+#   - Traveler preferences
+
+[Trip]:
+- Two adults traveling for 10 nights
+- Arrive Rome Fiumicino on 2027-05-08 at 09:10
+- Depart Venice Marco Polo on 2027-05-18 at 12:20
+- Travel between cities by rail unless another mode materially improves reliability
+- Desired cities:
+  - Rome
+  - Florence
+  - Bologna
+  - Venice
+
+[FixedCommitments]:
+- Florence museum reservation: 2027-05-12 at 10:30
+- Bologna food tour: 2027-05-15 at 17:00
+- Final night must be in Venice
+
+[TravelPreferences]:
+- No scheduled sightseeing on arrival day before 15:00
+- Avoid changing hotels for a one-night stay unless it prevents a much longer transfer
+- Keep at least one unstructured half-day in each city with two or more nights
+- Prefer direct rail legs under 3 hours
+- Do not schedule a timed attraction within 2 hours of an intercity arrival
+- Limit each day to two major planned activities
+
+[Sources]:
+- Current rail timetables and reservation requirements
+- Official attraction opening hours and entry rules
+- Airport-to-city and city-to-airport transport options
+- Accommodation check-in and baggage-storage policies when relevant
+
+[Itinerary]: []
+
+[Route]:
+=> Place [FixedCommitments] on the timeline defined by [Trip] first
+=> Determine the minimum nights needed in each city to satisfy those commitments without violating [TravelPreferences] ↳
+  - Florence
+  - Bologna
+  - Venice
+=> Allocate remaining nights to reduce backtracking and excessive hotel changes
+=> For each city transition:
+  => Verify a feasible transport option from [Sources]
+  => Include station-to-lodging transfer time where it could affect a timed commitment
+  => Add recovery margin for ordinary delay
+  => Reject a transfer that leaves less than 2 hours before a fixed timed activity
+=> Append the resulting city sequence and night allocation to [Itinerary]
+
+[FillDays]:
+=> For each city in [Itinerary] ↳
+  => Preserve [FixedCommitments]
+  => Group optional activities by neighborhood or natural route
+  => Add no more than two major planned activities per day
+  => Preserve the required unstructured half-day where applicable
+  => Keep arrival and departure periods lighter than full sightseeing days
+=> Do not fill free time merely because capacity remains
+
+[Resilience]:
+=> Identify the intercity leg with the greatest consequence if delayed
+=> For that leg:
+  => Prefer an earlier departure when it materially protects a fixed commitment
+  => Record one fallback service or same-day alternative when available
+=> Verify the airport transfer for departure morning separately from ordinary city transport
+=> If a planned stop creates disproportionate transfer overhead or forces a one-night stay:
+  => Remove that stop before compressing recovery time elsewhere
+
+Task:
+1. Run [Route]
+2. Run [FillDays]
+3. Apply [Resilience]
+4. Present:
+  - Dated city-by-city itinerary
+  - Night allocation
+  - Major activities
+  - Rail legs
+  - Transfer buffers
+  - Free-time blocks
+  - Most important fallback option

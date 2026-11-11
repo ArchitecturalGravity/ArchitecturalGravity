@@ -1,0 +1,54 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.index
+kind: research_reference
+source:
+  path: Research/Context_Triad/README.md
+  url: ../../Context_Triad/README.md
+  fingerprint: fnv1a32-ce1f51db
+sections:
+  paper-context-triad: |-
+    The Context Triad studies when a represented meaning governs model behavior rather than merely remaining present or recoverable. Its three perspectives examine placement relative to use (Locality), subsequent semantic history (Shadow), and coherent support relative to competitors (Weight).
+  abstract: |-
+    A meaning can remain present in active context without governing a later response. The Triad relates observed behavioral consistency to the meaning's placement, subsequent reinforcing or competing context, and relative coherent support. The perspectives are complementary descriptions, not established independent neural mechanisms.
+  introduction: |-
+    The Triad examines why a meaning can remain present in the context while no longer guiding the response. Locality studies placement at use, Shadow studies subsequent semantic history, and Weight studies coherent support relative to competitors; observed influence is distinct from present authority.
+  thesis-semantic-presence-is-not-behavioral-influence: |-
+    Separate three states for a represented requirement: present in context, recoverable on request, and effective in the model's response to a task. Verbatim retrieval demonstrates recoverability, not necessarily behavioral influence. Measure influence with task-specific response consistency under declared conditions.
+  the-shared-object-of-study: |-
+    For semantic object A, study how often responses follow A under a complete active context C and a specified task. A response score and repeated-sampling estimate characterize behavioral consistency; compliance with A must be distinguished from correctness after authorized revisions.
+  three-complementary-perspectives: |-
+    Locality compares positions of relevant representations relative to use; Shadow compares effects of later semantic continuations and ordering; Weight compares coherent support for a target with support for competitors. Changes in one dimension can also change another, so experimental contrasts require matched controls.
+  context-triad-interactions: |-
+    How the Three Work Together: The perspectives describe interacting relationships with the same behavioral outcome. A contextual change's effect can vary with arrangement, semantic history, and support balance.
+    Locality and Shadow: An earlier rule's response to later competition may depend on where the rule and competitor occur. Changing competitor order also changes competitor position.
+    Locality and Weight: Additional support may compensate for unfavorable placements, and distributed support may differ from one concentrated block at the same measured total.
+    Shadow and Weight: Strongly and lightly supported objects may respond differently to subsequent competition, and later competition may change the support needed to retain an earlier rule's influence.
+    Joint Behavior: A realistic context intervention can alter arrangement, history, and support simultaneously. Quantification. The component papers quantify interactions as differences between conditional effects.
+  compound-context-changes: |-
+    Compound Context Changes: Consider a hypothetical early requirement: Later context supplies a long collection of examples that rename identifiers, followed by a transformation task.
+  everyday-examples-of-the-context-triad: |-
+    Everyday Examples of the Context Triad: The following examples illustrate how Semantic Locality, Semantic Shadow, and Semantic Weight may individually or jointly influence behavior.
+    Choosing a Restaurant — Locality + Shadow + Weight: > Initial intent: The user wants a restaurant that provides outdoor seating. A person tells an agent, “The restaurant must have outdoor seating.”
+    Summarizing a Project — Locality: > Initial intent: The user wants a project summary that includes an important deadline. A lengthy project document states, “The deadline is Friday.” The statement appears near the beginning, far from the final summarization request.
+    Rescheduling a Meeting — Shadow: > Initial intent: The user wants a meeting agenda reflecting the currently authorized schedule. A person tells an agent, “The meeting starts at 2 PM.”
+    Comparing Designs — Weight: > Initial intent: The user wants an evenhanded comparison of two equally viable designs. An agent receives descriptions of two logo designs. Design A is repeatedly described as attractive, memorable, and visually appealing.
+    Software Development — Locality + Shadow: > Initial intent: The user wants a software bug fixed without changing the existing function interface. A developer tells an AI agent, “Fix the parsing bug, but do not change the function's parameters.”
+    Preparing a Packing List — Locality + Weight: > Initial intent: The user wants a camping checklist that includes a rain jacket. A camper tells an agent, “Make sure I pack a rain jacket.”
+    Writing an Announcement — Shadow + Weight: > Initial intent: The user wants a factual, neutral announcement without promotional language. A person tells an agent, “Write a neutral announcement about our new product.”
+  common-behavioral-outcomes-and-dynamics: |-
+    Common Behavioral Outcomes and Dynamics: Variations in Semantic Locality, Semantic Shadow, and Semantic Weight produce behavioral outcomes through their individual and combined influences.
+    Behavioral Outcomes: These categories characterize the resulting behavioral influence of meaning under different dimensional configurations.
+    Behavioral Dynamics: Behavioral dynamics characterize how the effects of Locality, Shadow, and Weight interact as their configurations change.
+    Relationship to the Triad: The three dimensions characterize the contextual relationships governing semantic influence. Their variation produces behavioral dynamics that shape observable outcomes.
+  scope-and-evidence-status: |-
+    The Triad is a framework for represented meaning and measured responses within active context. It does not claim a decomposition into separate internal mechanisms, cover absent or truncated information, or infer causal contributions from uncontrolled co-variation. Individual pilots motivate controlled tests rather than establish general effects.
+  conclusion: |-
+    The Context Triad connects placement, semantic history, and relative support to the behavioral effectiveness of represented meaning. Locality supplies position–response measurements; Shadow supplies semantic-history contrasts; Weight supplies support–response measurements.
+  related-papers: |-
+    Related Papers: • Context Triad Model
+    • Model-Native Structural Representation
+    • Interpretive Efficiency
+    • Syntax Efficiency
+    • Representational Capacity Reclamation
+    • Operational Leverage

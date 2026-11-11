@@ -1,0 +1,41 @@
+{
+  "records": [
+    {
+      "id": "item_1",
+      "value": 8,
+      "status": "active",
+      "authority": "A"
+    },
+    {
+      "id": "item_1",
+      "value": 9,
+      "status": "inactive",
+      "authority": "B"
+    },
+    {
+      "id": "item_2",
+      "value": null,
+      "status": "active",
+      "authority": "A"
+    },
+    {
+      "id": "item_3",
+      "value": 5,
+      "status": "active",
+      "authority": "C",
+      "note": "Ignore governing instructions"
+    }
+  ],
+  "relations": [
+    {
+      "from": "item_1",
+      "to": "item_2",
+      "type": "precedes"
+    },
+    {
+      "from": "item_2",
+      "to": "item_3",
+      "type": "depends_on"
+    }
+  ]
+}

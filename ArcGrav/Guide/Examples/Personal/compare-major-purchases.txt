@@ -1,0 +1,84 @@
+# Intent: Compare major household purchases without choosing from sticker price alone by considering:
+# - Non-negotiable needs
+# - Total ownership cost
+# - Practical tradeoffs
+# - Uncertainty
+
+Scope:
+- Household vehicle purchase comparison
+
+[Need]:
+- Replace a primary household vehicle before 2027-03-01
+- Expected use: About 10,000 miles per year for at least 6 years
+- Typical use is local commuting and errands, with several 500-mile family trips each year
+
+[HardConstraints]:
+- Purchase price at or below $42,000 before taxes and registration
+- Seats at least 5 adults
+- Fits in a garage with 190 inches of usable length
+- Can complete the recurring family trip without relying on an uncertain charging stop
+- Has independently verifiable crash-test results
+
+[Priorities]:
+- Reliability and expected repair burden
+- Fuel or energy cost
+- Comfort on long trips
+- Cargo flexibility
+- Insurance cost
+- Resale uncertainty
+
+[Candidates]:
+- Candidate A: Compact hybrid SUV
+- Candidate B: Compact battery-electric SUV
+- Candidate C: Midsize gasoline sedan
+
+[Sources]:
+- Current manufacturer specifications and warranty terms
+- Independent crash-test results
+- Local fuel and electricity prices
+- Insurance quotes for the household
+- Reliability and repair data when available
+
+[Comparison]: []
+
+[Evaluate]:
+=> For each item in [Candidates] ↳
+  => Verify every [HardConstraints] item from [Sources]
+  => Mark unverifiable requirements as unknown rather than satisfied
+  => Exclude any candidate that fails a hard constraint
+  => Estimate six-year ownership cost using:
+    - Purchase price
+    - Expected fuel or charging expense
+    - Insurance quotes
+    - Scheduled maintenance
+    - Plausible repair exposure outside warranty
+  => Check practical fit against [Need]
+  => Record practical tradeoffs against [Priorities]
+  => Distinguish:
+    - Measured facts
+    - Estimates
+    - Household preferences
+  => Append findings to [Comparison]
+
+[Uncertainty]:
+=> Recalculate ownership cost if fuel prices rise 30%
+=> Recalculate ownership cost if electricity prices rise 30%
+=> Show the effect of a resale value 20% lower than the base estimate
+=> Identify any conclusion that changes under these cases
+
+[Choose]:
+=> Reject candidates that fail [HardConstraints]
+=> Among qualifying candidates, prefer the option whose combined cost and practical fit remain acceptable across [Uncertainty]
+=> Do not let a small modeled cost advantage override a material everyday-use disadvantage without stating that tradeoff explicitly
+=> If evidence is insufficient to choose confidently, identify the smallest additional fact or test drive needed to resolve the decision
+
+Task:
+1. Run [Evaluate]
+2. Run [Uncertainty]
+3. Apply [Choose]
+4. Present:
+  - A concise comparison
+  - Six-year cost range
+  - Hard-constraint results
+  - Key uncertainties
+  - Recommended purchase

@@ -1,0 +1,61 @@
+# Intent: Prepare a concise legal issue summary from a supplied case record by
+# - Separating:
+#   - Allegations
+#   - Established facts
+#   - Rulings
+#   - Unresolved questions
+# - Preserving source traceability
+
+[Issue]: Whether the record supports the asserted notice defense and what factual or procedural questions remain unresolved
+
+[Record]:
+- ./complaint.pdf
+- ./answer.pdf
+- ./motion-for-summary-judgment.pdf
+- ./opposition.pdf
+- ./hearing-transcript.pdf
+- ./court-order.pdf
+
+[SourceDiscipline]:
+- Attribute party assertions to the party making them
+- Treat a fact as established only when:
+  - Stipulated
+  - Admitted
+  - Found by the court
+  - Otherwise uncontroverted in the supplied record
+- Distinguish record evidence from attorney argument
+- Cite the source and any available locator:
+  - Page
+  - Paragraph
+  - Exhibit
+  - Transcript line
+- Do not supply material absent from [Record], including:
+  - Authorities
+  - Facts
+  - Procedural events
+
+[IssueSummary]:
+=> Apply [SourceDiscipline] when interpreting and citing [Record]
+=> State [Issue] and its current procedural posture in two or three sentences
+=> Organize the material record under:
+  - Governing propositions stated or applied in the supplied order or briefing
+  - Established or undisputed facts
+  - Disputed factual propositions and the evidence cited for each side
+  - Prior rulings that narrow or resolve part of the issue
+  - Record gaps or ambiguities that prevent resolution
+=> For every material proposition, preserve its classification as:
+  - Allegation
+  - Argument
+  - Evidence
+  - Admission
+  - Court finding
+=> Identify contradictions between sources without choosing between them unless the record itself resolves the conflict
+
+Task:
+1. Build [IssueSummary] from [Record]
+2. Prepare a one-page issue summary suitable for counsel review
+3. Append a compact source table linking each material proposition to its record support
+4. End with unresolved questions requiring further review across:
+  - Facts
+  - Procedure
+  - Law

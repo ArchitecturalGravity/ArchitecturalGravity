@@ -1,0 +1,72 @@
+# Intent: Develop an investigative brief that separates verified findings from unresolved leads while preserving source provenance and reporting boundaries
+
+[ReportingQuestion]:
+- Determine which claims about the subject merit further reporting
+- Identify what evidence would confirm or disconfirm each material claim
+
+[InterviewA]: ./reporting/interview-a.txt
+
+[InterviewB]: ./reporting/interview-b.txt
+
+[Records]: ./reporting/public-records/
+
+[LeadLog]: ./reporting/lead-log.csv
+
+[Sources]:
+- [InterviewA]
+- [InterviewB]
+- [Records]
+- [LeadLog]
+
+[SourceStatus]:
+- InterviewA:
+  - Source: [InterviewA]
+  - Access: On record
+  - Relationship: Firsthand witness
+  - Verification: Identity confirmed
+- InterviewB:
+  - Source: [InterviewB]
+  - Access: Confidential
+  - Relationship: Secondary knowledge
+  - Verification: Identity confirmed
+- Records:
+  - Source: [Records]
+  - Access: Public record
+  - Verification: Authenticity pending per item
+
+[Claims]: []
+
+[Brief]: []
+
+[AssessClaims]:
+=> For each material claim in [LeadLog] ↳
+  => Append a claim record to [Claims] with:
+    - Exact claim text
+    - Supporting evidence from [Sources]
+    - Contradicting evidence from [Sources]
+    - Source independence
+    - Source access and verification from [SourceStatus]
+    - Evidence gaps
+=> Classify each claim in [Claims] as one of:
+  - "Verified"
+  - "Partially verified"
+  - "Unverified"
+  - "Disputed"
+=> Preserve uncertainty when available evidence does not resolve the claim
+
+[DevelopBrief]:
+=> Build [Brief] from [Claims]
+=> Include:
+  - [ReportingQuestion]
+  - Verified findings with evidence references
+  - Disputed or uncertain claims with explicit status
+  - Evidence gaps
+  - Reporting directions
+  - Publication risks requiring editorial or legal review
+=> Exclude confidential source identities from publishable sections
+=> Do not present unverified or disputed allegations as established fact
+
+Task:
+1. Run [AssessClaims]
+2. Run [DevelopBrief]
+3. Provide [Brief] with source traceability and visible uncertainty

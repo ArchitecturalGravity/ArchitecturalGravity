@@ -1,0 +1,73 @@
+# Intent: Analyze a company's performance by
+# - Connecting reported financial results to operating drivers
+# - Separating measured change from explanation
+# - Identifying material questions for management
+
+[Period]: 2027 Q2
+
+[Sources]:
+- ./income-statement.xlsx
+- ./balance-sheet.xlsx
+- ./cash-flow-statement.xlsx
+- ./operating-kpis.csv
+- ./prior-year-results.xlsx
+- ./management-guidance.md
+
+[Materiality]:
+- Treat a year-over-year change greater than 8% as material
+- Surface smaller changes when they materially affect:
+  - Liquidity
+  - Margins
+  - Leverage
+  - Guidance
+- Distinguish reported results from management explanations and analyst inference
+- Do not infer causation from correlation alone
+
+[Findings]: []
+
+[Measure]:
+=> Observe:
+  - [Sources]
+  - [Period]
+=> Calculate and compare:
+  - Revenue growth
+  - Margins:
+    - Gross
+    - Operating
+  - Cash flows:
+    - Operating
+    - Free
+  - Working-capital movement
+  - Balance sheet:
+    - Debt
+    - Liquidity
+  - Operating KPIs materially connected to revenue or cost
+=> Compare each result with the prior-year period and available guidance
+=> Evaluate measured changes against [Materiality]
+=> Append qualifying changes to [Findings]
+
+[Explain]:
+=> For each material change in [Findings] ↳
+  => Identify evidence-supported operating drivers
+  => Separate recurring drivers from one-time effects
+  => Record conflicting evidence or unexplained variance
+  => Note whether the change strengthens or weakens the forward outlook
+
+[Assessment]:
+=> Synthesize [Findings] into:
+  - Performance strengths
+  - Performance weaknesses
+  - Cash and balance-sheet risks
+  - Guidance credibility considerations
+  - Unresolved management questions
+=> Cite the source basis for each conclusion
+=> Avoid converting the analysis into an investment recommendation such as:
+  - Buy
+  - Sell
+  - Hold
+
+Task:
+1. Run [Measure]
+2. Run [Explain]
+3. Run [Assessment]
+4. Provide a concise company-performance analysis with supporting evidence and unresolved questions

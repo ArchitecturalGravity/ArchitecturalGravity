@@ -1,0 +1,147 @@
+# Intent: Build a feasible multi-stop delivery plan that respects vehicle capacity stop windows service priorities route restrictions and return requirements
+
+[DispatchContext]:
+- Origin: Riverside distribution center
+- Dispatch date: 18 September 2026
+- Earliest departure: 06:30
+- Required return: 15:30
+- Loading complete: 06:20
+
+[Fleet]:
+- VanNorth:
+  - Payload capacity: 1200 kilograms
+  - Refrigerated tote capacity: 18 totes
+  - Driver shift end: 15:45
+  - Restrictions:
+    - No roads signed below 3.2 meters clearance
+- VanSouth:
+  - Payload capacity: 900 kilograms
+  - Refrigerated tote capacity: 10 totes
+  - Driver shift end: 15:30
+  - Restrictions:
+    - No unpaved roads
+
+[Stops]:
+- HarborClinic:
+  - Load weight: 320 kilograms
+  - Refrigerated totes: 8
+  - Service window:
+    - Opens: 08:00
+    - Closes: 09:15
+  - Service duration: 20 minutes
+  - Priority: Critical
+  - Access:
+    - Loading entrance: East service road
+    - Vehicle limit: One delivery vehicle at a time
+- NorthsideLab:
+  - Load weight: 180 kilograms
+  - Refrigerated totes: 6
+  - Service window:
+    - Opens: 07:30
+    - Closes: 11:00
+  - Service duration: 15 minutes
+  - Priority: High
+- MeadowCare:
+  - Load weight: 260 kilograms
+  - Refrigerated totes: 0
+  - Service window:
+    - Opens: 09:00
+    - Closes: 12:00
+  - Service duration: 25 minutes
+  - Priority: Standard
+- HillviewCenter:
+  - Load weight: 410 kilograms
+  - Refrigerated totes: 4
+  - Service window:
+    - Opens: 10:30
+    - Closes: 13:00
+  - Service duration: 30 minutes
+  - Priority: High
+  - Access:
+    - Approach restriction: West bridge clearance is 2.9 meters
+    - Required approach: Route through Cedar Avenue
+- LakesidePractice:
+  - Load weight: 290 kilograms
+  - Refrigerated totes: 3
+  - Service window:
+    - Opens: 11:30
+    - Closes: 14:30
+  - Service duration: 20 minutes
+  - Priority: Standard
+
+[TravelTimes]:
+- RiversideToHarbor: 55 minutes
+- RiversideToNorthside: 40 minutes
+- RiversideToMeadow: 50 minutes
+- RiversideToHillviewViaCedar: 75 minutes
+- RiversideToLakeside: 65 minutes
+- HarborToNorthside: 25 minutes
+- HarborToMeadow: 35 minutes
+- HarborToHillviewViaCedar: 60 minutes
+- HarborToLakeside: 45 minutes
+- NorthsideToMeadow: 25 minutes
+- NorthsideToHillviewViaCedar: 50 minutes
+- NorthsideToLakeside: 40 minutes
+- MeadowToHillviewViaCedar: 35 minutes
+- MeadowToLakeside: 30 minutes
+- HillviewToLakeside: 35 minutes
+- HarborToRiverside: 50 minutes
+- NorthsideToRiverside: 40 minutes
+- MeadowToRiverside: 45 minutes
+- HillviewToRiversideViaCedar: 70 minutes
+- LakesideToRiverside: 60 minutes
+
+[RouteConstraints]:
+- Temperature control:
+  - Refrigerated totes must remain assigned to a vehicle with available refrigerated capacity
+  - Refrigerated totes may not be transferred between vehicles after departure
+- Critical service:
+  - HarborClinic must be planned before any standard-priority stop assigned to the same vehicle
+- Vehicle fit:
+  - HillviewCenter may be assigned only to a route using Cedar Avenue
+- Capacity accounting:
+  - Each vehicle departs with the complete load for all stops assigned to that route
+  - Delivered weight reduces payload in transit but does not increase starting capacity
+- Return condition:
+  - Both vehicles must return to Riverside distribution center before the applicable driver shift end
+
+[DeliveryPlan]: []
+
+[ConstraintConflicts]: []
+
+[BuildRoutes]:
+=> Assign every stop in [Stops] to exactly one vehicle in [Fleet]
+=> Set departure and return boundaries from [DispatchContext]
+=> Reject assignments whose starting payload exceeds the assigned [Fleet] payload capacity
+=> Reject assignments whose refrigerated tote load exceeds the assigned [Fleet] tote capacity
+=> Order vehicle routes using [TravelTimes] so arrival and completed service fit assigned [Stops] windows
+=> Apply [RouteConstraints] before comparing travel times
+=> Record any unavailable travel leg or unverified road restriction in [ConstraintConflicts]
+=> Prefer schedules with more recovery margin around critical and high-priority stops when total travel is otherwise similar
+=> Append each route to [DeliveryPlan] with:
+  - Vehicle
+  - Departure time
+  - Ordered stops
+  - Arrival time for each stop
+  - Service completion time for each stop
+  - Return time
+  - Starting payload
+  - Starting refrigerated tote load
+
+[Validate]:
+=> Confirm every stop in [Stops] appears exactly once in [DeliveryPlan]
+=> Confirm [DeliveryPlan] starting loads respect [Fleet] payload and refrigerated tote capacities
+=> Confirm each stop begins service no earlier than its [Stops] window opens
+=> Confirm each stop completes service no later than its [Stops] window closes
+=> Confirm HillviewCenter uses the required approach in [Stops]
+=> Confirm HarborClinic priority ordering follows [RouteConstraints]
+=> Confirm both vehicles return by the required return time in [DispatchContext]
+=> Confirm both vehicles return before their respective [Fleet] driver shift ends
+=> Append every failed or unresolved requirement to [ConstraintConflicts] ↳
+  - Requirement
+  - Cause or missing evidence
+
+Task:
+1. Run [BuildRoutes]
+2. Run [Validate]
+3. Present [DeliveryPlan] with [ConstraintConflicts] and the total planned travel time for each vehicle

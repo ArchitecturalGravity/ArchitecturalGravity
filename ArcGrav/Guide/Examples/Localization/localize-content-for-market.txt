@@ -1,0 +1,53 @@
+# Intent: Adapt product launch content for Canadian French while preserving source intent and respecting locale audience and product constraints
+
+[SourceMaterial]:
+- Launch page: ./localization/source/launch-page.en-US.md
+- UI strings: ./localization/source/onboarding.en-US.json
+- Campaign brief: ./localization/source/campaign-brief.en-US.txt
+
+[Market]:
+- Locale: fr-CA
+- Audience: French-speaking small-business operators in Canada
+- Product: Northstar Billing
+
+[ProductConstraints]:
+- Preserve the product name Northstar Billing
+- Preserve variables exactly as authored in source strings
+- Preserve links and tracking parameters
+- Keep primary call-to-action labels within 24 characters where possible
+- Treat approved legal copy as fixed source content
+
+[LocaleNeeds]:
+- Use Canadian French rather than France French conventions
+- Format currency for Canadian dollars
+- Adapt dates and times to locale-appropriate presentation
+- Prefer natural market language over literal source syntax
+- Preserve the source claim strength without adding new marketing claims
+
+[LocalizedContent]: []
+
+[AdaptationNotes]: []
+
+[OpenIssues]: []
+
+[Localize]:
+=> Read [SourceMaterial] as a connected launch experience rather than translating files independently
+=> For each user-facing element:
+  - Identify its source intent
+  - Identify its product context
+  - Identify any [ProductConstraints] that apply
+  - Translate or adapt it for [Market] following [LocaleNeeds]
+  - Preserve variables and structural tokens exactly
+=> Where a source idiom or cultural reference does not transfer naturally:
+  - Preserve the communicative purpose
+  - Replace the expression with a natural Canadian French equivalent
+  - Record the adaptation in [AdaptationNotes]
+=> Where character limits conflict with meaning:
+  - Prefer meaning and required product terminology
+  - Propose a shorter alternative only if the intent remains intact
+=> Append any constraint conflict or unclear source meaning to [OpenIssues] rather than guessing
+=> Store the result in [LocalizedContent]
+
+Task:
+1. Run [Localize]
+2. Provide [LocalizedContent] with [AdaptationNotes] and [OpenIssues]

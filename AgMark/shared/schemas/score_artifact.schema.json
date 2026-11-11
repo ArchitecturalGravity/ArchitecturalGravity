@@ -1,0 +1,399 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcgrav:shared:schema:score-artifact:1.0.0",
+  "schema_id": "arcgrav.shared.schema.score-artifact",
+  "schema_version": "1.0.0",
+  "title": "Score Artifact",
+  "description": "Validated score evidence bound to exact accepted-generation inputs, registered metric/scorer authority, availability, and provenance.",
+  "x-arcgrav-extension-policy": {
+    "mode": "namespaced-additive",
+    "extension_points": [
+      "/extensions"
+    ],
+    "unknown_fields": "reject",
+    "preserve_unknown_extensions": true,
+    "shared_fields_overridable": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identityRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "schemaIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_id",
+        "schema_version"
+      ],
+      "properties": {
+        "schema_id": {
+          "type": "string",
+          "pattern": "^arcgrav\\.shared\\.schema\\.[a-z0-9._-]+$"
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "sha256"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availability": {
+          "type": "string",
+          "enum": [
+            "retained",
+            "not_produced",
+            "unavailable",
+            "invalid",
+            "excluded",
+            "missing",
+            "failed",
+            "completed_non_scorable",
+            "scored",
+            "not_applicable",
+            "non_comparable"
+          ]
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]*:[^\\s]+$"
+      },
+      "additionalProperties": true,
+      "description": "Opaque-preservable namespaced extension values. Consumers must preserve unknown entries and may not reinterpret shared fields."
+    },
+    "validationIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "source_id",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "json_pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        }
+      }
+    },
+    "companionValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": true,
+        "unit": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "extensions",
+    "score_artifact_id",
+    "accepted_generation_id",
+    "accepted_snapshot_id",
+    "execution_boundary_fingerprint",
+    "benchmark",
+    "case_set",
+    "treatment_set",
+    "case_id",
+    "treatment_id",
+    "repetition_ids",
+    "observation_ids",
+    "metric_registration",
+    "metric",
+    "scorer",
+    "scoring_grain",
+    "input_evidence",
+    "invocation_id",
+    "invocation_status",
+    "availability",
+    "unit",
+    "companion_values",
+    "rule_snapshot",
+    "failure_refs"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "arcgrav.shared.schema.score-artifact"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "extensions": {
+      "$ref": "#/$defs/extensions"
+    },
+    "score_artifact_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "accepted_generation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "accepted_snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_boundary_fingerprint": {
+      "$ref": "#/$defs/sha256"
+    },
+    "benchmark": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "case_set": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "treatment_set": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "case_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "treatment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repetition_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "observation_ids": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "metric_registration": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "metric": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "scorer": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "scoring_grain": {
+      "type": "string",
+      "enum": [
+        "repetition",
+        "case",
+        "treatment",
+        "run"
+      ]
+    },
+    "input_evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/artifactRef"
+      }
+    },
+    "invocation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "invocation_status": {
+      "type": "string",
+      "enum": [
+        "succeeded",
+        "not_invoked",
+        "failed",
+        "invalid_result"
+      ]
+    },
+    "availability": {
+      "type": "string",
+      "enum": [
+        "scored",
+        "unavailable",
+        "not_applicable",
+        "non_comparable",
+        "excluded",
+        "completed_non_scorable",
+        "failed",
+        "missing",
+        "invalid"
+      ]
+    },
+    "value": true,
+    "unit": {
+      "type": "string",
+      "minLength": 1
+    },
+    "companion_values": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/companionValue"
+      }
+    },
+    "rule_snapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "normalization_equivalence",
+        "denominator",
+        "failure_missing_exclusion_noncomparability"
+      ],
+      "properties": {
+        "normalization_equivalence": {
+          "type": "string",
+          "minLength": 1
+        },
+        "denominator": {
+          "type": "string",
+          "minLength": 1
+        },
+        "failure_missing_exclusion_noncomparability": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "failure_refs": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "availability": {
+            "const": "scored"
+          }
+        },
+        "required": [
+          "availability"
+        ]
+      },
+      "then": {
+        "required": [
+          "value"
+        ]
+      }
+    },
+    {
+      "if": {
+        "not": {
+          "properties": {
+            "availability": {
+              "const": "scored"
+            }
+          },
+          "required": [
+            "availability"
+          ]
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "value"
+          ]
+        }
+      }
+    }
+  ]
+}

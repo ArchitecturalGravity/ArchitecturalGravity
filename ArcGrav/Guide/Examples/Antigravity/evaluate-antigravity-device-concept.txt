@@ -1,0 +1,108 @@
+# Intent: Evaluate an antigravity-related device concept by testing whether its predicted observations can be distinguished from conventional forces, artifacts, and unsupported interpretation before any stronger claim is accepted
+
+[Concept]:
+- Supply a conceptual antigravity-related device architecture produced by a formation step
+
+[ClaimClasses]:
+- Apparent weight changes
+- Net force or acceleration
+- Inertial-response changes
+- Gravity-like field effects
+- Correlated environmental or sensor effects
+
+[AlternativeExplanations]:
+- Buoyancy
+- Convection
+- Aerodynamic effects
+- Ion-wind effects
+- Magnetic coupling
+- Electrostatic coupling
+- Acoustic coupling
+- Vibrational coupling
+- Thermal expansion
+- Thermal gradients
+- Mechanical preload
+- Support forces
+- Reaction forces through:
+  - Cables
+  - Hoses
+  - Fixtures
+- Measurement artifacts:
+  - Sensor drift
+  - Calibration error
+  - Saturation
+  - Aliasing
+  - Timing error
+- Data-selection artifacts
+- Analysis artifacts
+
+[EvidenceMatrix]: []
+
+[CriticalTests]: []
+
+[FailureInterpretations]: []
+
+[Verdict]: []
+
+[Evaluate]:
+=> Extract each material prediction from [Concept]
+=> For each prediction ↳
+  1. Define the observable without assuming its cause
+  2. Identify which [ClaimClasses] it could support
+  3. Enumerate plausible [AlternativeExplanations]
+  4. Define a control or comparison capable of separating the proposed mechanism from those alternatives
+  5. Define what result would support | weaken | leave unresolved the proposed mechanism
+  6. Record required:
+    - Provenance
+    - Uncertainty
+    - Repeatability conditions
+=> Append results to [EvidenceMatrix]
+
+[Prioritize]:
+=> Rank candidate tests by:
+  P0. Ability to distinguish the proposed mechanism from ordinary-force explanations
+  P1. Independence from the original measurement path
+  P2. Reproducibility
+  P3. Sensitivity to the predicted effect
+  P4. Simplicity of interpretation
+=> Append the smallest decisive test set to [CriticalTests]
+
+[Falsification]:
+=> For each [CriticalTests] item ↳
+  - State a null result
+  - State an artifact-consistent result
+  - State a mechanism-consistent result
+  - State conditions that would make the test inconclusive
+=> Append interpretation rules to [FailureInterpretations]
+
+[Resolution]:
+=> Assign one status to each material claim:
+  - Unsupported
+  - Not distinguished from conventional effects
+  - Anomalous but unresolved
+  - Consistent with the proposed mechanism
+  - Independently corroborated
+=> Require independent corroboration before describing an observation as evidence of gravitational modification
+=> Preserve unresolved results without promoting them to stronger claims
+=> Append the final assessment to [Verdict]
+
+Constraint:
+- Do not assume an anomalous force is gravitational in origin
+- Do not claim practical antigravity from a single apparatus or measurement channel
+- Do not discard null or contradictory results
+- Do not invent missing experimental evidence
+- Keep concept evaluation separate from construction or performance optimization
+- Exclude hazardous operating parameters or fabrication instructions
+
+Task:
+1. Observe [Concept]
+2. Run [Evaluate]
+3. Run [Prioritize]
+4. Run [Falsification]
+5. Run [Resolution]
+6. Return:
+  - Evidence matrix
+  - Critical tests
+  - Failure interpretations
+  - Claim-by-claim verdict
+  - Highest-value missing evidence

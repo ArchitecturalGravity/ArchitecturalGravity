@@ -1,0 +1,264 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcgrav:shared:schema:run-outcome:1.0.0",
+  "schema_id": "arcgrav.shared.schema.run-outcome",
+  "schema_version": "1.0.0",
+  "title": "Run Outcome",
+  "description": "Terminal accepted-or-blocked generation record preserving strict separation between accepted authority and blocked diagnostics.",
+  "x-arcgrav-extension-policy": {
+    "mode": "namespaced-additive",
+    "extension_points": [
+      "/extensions"
+    ],
+    "unknown_fields": "reject",
+    "preserve_unknown_extensions": true,
+    "shared_fields_overridable": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identityRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "schemaIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_id",
+        "schema_version"
+      ],
+      "properties": {
+        "schema_id": {
+          "type": "string",
+          "pattern": "^arcgrav\\.shared\\.schema\\.[a-z0-9._-]+$"
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "sha256"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availability": {
+          "type": "string",
+          "enum": [
+            "retained",
+            "not_produced",
+            "unavailable",
+            "invalid",
+            "excluded",
+            "missing",
+            "failed",
+            "completed_non_scorable",
+            "scored",
+            "not_applicable",
+            "non_comparable"
+          ]
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]*:[^\\s]+$"
+      },
+      "additionalProperties": true,
+      "description": "Opaque-preservable namespaced extension values. Consumers must preserve unknown entries and may not reinterpret shared fields."
+    },
+    "validationIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "source_id",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "json_pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "extensions",
+    "generation_id",
+    "accepted_snapshot_id",
+    "execution_boundary_fingerprint",
+    "status",
+    "run_plan",
+    "finalized_at"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "arcgrav.shared.schema.run-outcome"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "extensions": {
+      "$ref": "#/$defs/extensions"
+    },
+    "generation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "accepted_snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "execution_boundary_fingerprint": {
+      "$ref": "#/$defs/sha256"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "accepted",
+        "blocked"
+      ]
+    },
+    "run_plan": {
+      "$ref": "#/$defs/artifactRef"
+    },
+    "artifact_index": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/$defs/artifactRef"
+      }
+    },
+    "blocked_manifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "reason_code",
+        "diagnostics"
+      ],
+      "properties": {
+        "reason_code": {
+          "type": "string",
+          "minLength": 1
+        },
+        "diagnostics": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "retained_diagnostics": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifactRef"
+          }
+        }
+      }
+    },
+    "finalized_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  },
+  "oneOf": [
+    {
+      "properties": {
+        "status": {
+          "const": "accepted"
+        }
+      },
+      "required": [
+        "artifact_index"
+      ],
+      "not": {
+        "required": [
+          "blocked_manifest"
+        ]
+      }
+    },
+    {
+      "properties": {
+        "status": {
+          "const": "blocked"
+        }
+      },
+      "required": [
+        "blocked_manifest"
+      ],
+      "not": {
+        "required": [
+          "artifact_index"
+        ]
+      }
+    }
+  ]
+}

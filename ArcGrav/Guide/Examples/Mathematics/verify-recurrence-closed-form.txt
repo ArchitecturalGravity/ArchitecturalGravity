@@ -1,0 +1,58 @@
+# Intent: Verify a proposed closed form for a second-order recurrence using direct substitution and base cases rather than relying on pattern matching
+
+[Recurrence]:
+- a_0 = 2
+- a_1 = 5
+- a_n = 3a_(n-1) - 2a_(n-2) for n >= 2
+
+[Candidate]:
+- a_n = 3 * 2^n - 1 for n >= 0
+
+[Obligations]:
+- The candidate matches every required initial value
+- Substitution into the recurrence reduces to an identity
+- The verification covers every integer n in the stated domain
+
+[Checks]: []
+
+[BaseCases]:
+=> Substitute n = 0 into [Candidate]
+=> Compare the result with a_0
+=> Substitute n = 1 into [Candidate]
+=> Compare the result with a_1
+=> Append both equality checks to [Checks]
+
+[RecurrenceCheck]:
+=> Assume the candidate expressions for indices n - 1 and n - 2
+=> Substitute those expressions into 3a_(n-1) - 2a_(n-2)
+=> Simplify symbolically without evaluating a specific n
+=> Compare the simplified expression with [Candidate] for a_n
+=> Append the resulting identity or mismatch to [Checks]
+
+[ScopeCheck]:
+=> Confirm [Recurrence] is invoked only for n >= 2
+=> Confirm the two base cases cover all earlier indices in [Candidate]
+=> Evaluate [Checks] against [Obligations]
+=> If any obligation in [Obligations] fails:
+  => Mark the candidate unverified
+  => Report the first failed obligation
+  => Do not silently alter the proposed formula
+=> If every obligation succeeds:
+  => Mark the candidate verified for all n >= 0
+
+[IndependentCheck]:
+=> Generate the first six terms directly from [Recurrence]
+=> Generate the same indices from [Candidate]
+=> Compare the sequences as a verification aid rather than as the proof itself
+
+Task:
+1. Run [BaseCases]
+2. Run [RecurrenceCheck]
+3. Run [ScopeCheck]
+4. Run [IndependentCheck]
+5. Provide:
+  - Base-case checks
+  - Symbolic recurrence verification
+  - Domain coverage
+  - Independent term comparison
+  - Verification status

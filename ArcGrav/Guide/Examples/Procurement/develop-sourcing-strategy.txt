@@ -1,0 +1,114 @@
+# Intent: Develop a sourcing strategy that connects demand profile supply market conditions qualification dependencies commercial levers and continuity objectives
+
+[SourcingContext]:
+- Scope: Food-grade stainless pump assemblies
+- Planning horizon: 36 months
+- Current state: One approved production source
+- Current agreement: Expires 2027-03-31
+
+[Objectives]:
+- Protect production continuity during demand growth
+- Reduce exposure to single-source interruption
+- Maintain validated product performance
+- Improve commercial transparency before contract renewal
+- Avoid qualification activity that cannot complete before the renewal decision
+
+[DemandPortfolio]:
+- CoreProduction:
+  - Forecast share: 82 percent
+  - Demand pattern: Stable monthly consumption
+  - Service consequence: Line stop if unavailable
+- GrowthProgram:
+  - Forecast share: 13 percent
+  - Demand pattern: Ramp begins in 2027 Q3
+  - Service consequence: Launch delay if unavailable
+- EngineeringUse:
+  - Forecast share: 5 percent
+  - Demand pattern: Irregular small lots
+  - Service consequence: Development delay if unavailable
+
+[SupplyMarket]:
+- QualifiedIncumbent:
+  - Status: Approved for all production use
+  - Constraint: Limited surge capacity during regional peak season
+- CandidateRegionalSource:
+  - Status: Commercially capable
+  - Dependency: Product validation required before production award
+- CandidateOffshoreSource:
+  - Status: Technical screening complete
+  - Dependencies:
+    - Import lead time validation required
+    - Traceability audit required
+- MarketCondition:
+  - Raw material pricing follows published nickel index
+  - Machining capacity is available from multiple suppliers
+  - Specialized sanitary welding capacity is concentrated
+
+[Dependencies]:
+- Dependency:
+  - Dependent: Alternate source production award
+  - Requires: Successful product validation
+- Dependency:
+  - Dependent: Successful product validation
+  - Requires: Approved pilot units
+- Dependency:
+  - Dependent: Approved pilot units
+  - Requires: Final drawing package
+- Dependency:
+  - Dependent: Split award at renewal
+  - Requires: Alternate source approval before 2027-03-31
+
+[StrategyOptions]:
+- RenewSingleSource:
+  - Structure: Renew incumbent for full production demand
+  - Advantage: No qualification transition
+  - Exposure: Single-source continuity risk remains
+- QualifyRegionalDualSource:
+  - Structure: Retain incumbent and qualify regional alternate
+  - Advantage: Creates recoverable alternate capacity
+  - Exposure: Validation must finish before split award
+- QualifyOffshoreDualSource:
+  - Structure: Retain incumbent and qualify offshore alternate
+  - Advantage: Expands commercial competition
+  - Exposure: Longer replenishment path increases inventory dependency
+
+[CommercialLevers]:
+- Indexed raw material adjustment with defined reference
+- Open-book treatment for extraordinary expedite cost
+- Capacity reservation tied to forecast bands
+- Tooling ownership and maintenance responsibility
+- Volume allocation ranges rather than guaranteed fixed share
+
+[DecisionCriteria]:
+- Continuity resilience
+- Qualification feasibility
+- Total landed cost behavior
+- Capacity scalability
+- Inventory consequence
+- Negotiating leverage
+
+[Strategy]: []
+
+[Actions]: []
+
+[Assess]:
+=> For each option in [StrategyOptions] ↳
+  => Trace required conditions through [Dependencies]
+  => Check timing constraints against [SourcingContext]
+  => Evaluate fit to each segment in [DemandPortfolio]
+  => Test assumptions against [SupplyMarket]
+  => Identify risks that cannot be mitigated by contract terms alone
+  => Identify useful levers from [CommercialLevers] only when the option remains viable
+
+[Choose]:
+=> Compare viable options against [Objectives] and [DecisionCriteria]
+=> Prefer an option only when its qualification path can support the renewal decision
+=> Do not treat lower quoted piece price as lower total cost without considering inventory and transition effects
+=> Preserve unresolved market assumptions that require supplier engagement
+=> Append the selected direction and decision rationale to [Strategy]
+=> Append only actions required to establish or execute [Strategy] to [Actions]
+
+Task:
+1. Run [Assess]
+2. Run [Choose]
+3. Present [Strategy] and [Actions]

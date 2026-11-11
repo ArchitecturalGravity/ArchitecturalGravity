@@ -1,0 +1,51 @@
+# Intent: Reconcile conflicting source accounts without hiding attribution contradictions or unresolved facts
+
+[InterviewA]: ./reporting/interview-a.txt
+
+[InterviewB]: ./reporting/interview-b.txt
+
+[DispatchLog]: ./reporting/dispatch-log.csv
+
+[CameraIndex]: ./reporting/camera-index.csv
+
+[AccountA]:
+- Source: [InterviewA]
+- Access: On record
+- Observation: Firsthand
+
+[AccountB]:
+- Source: [InterviewB]
+- Access: Background
+- Observation: Partial firsthand
+
+[ConflictTable]: []
+
+[ReconciledFindings]: []
+
+[MapConflicts]:
+=> Extract each material assertion from [AccountA] and [AccountB]
+=> Compare each assertion across:
+  - Event sequence
+  - Timing
+  - Direct observation
+  - Attribution
+  - Independent corroboration
+=> Append each material disagreement to [ConflictTable] with:
+  - Exact assertion from each account
+  - Source reference
+  - Supporting evidence
+  - Contradicting evidence
+  - Verification status
+
+[Reconcile]:
+=> Use [DispatchLog] and [CameraIndex] only where they bear directly on a conflict in [ConflictTable]
+=> Prefer independently corroborated evidence over repetition from a shared origin
+=> Distinguish a resolved conflict from a best supported account
+=> Append supported conclusions to [ReconciledFindings] with their evidence basis
+=> Preserve any conflict that available evidence does not resolve
+=> Do not convert source confidence into factual certainty
+
+Task:
+1. Run [MapConflicts]
+2. Run [Reconcile]
+3. Provide [ReconciledFindings] and every remaining entry in [ConflictTable]

@@ -1,0 +1,58 @@
+# Per-document source-anchored ArcGrav reference routing (not executable).
+schema_version: 2
+id: arcgrav.references
+kind: reference_directory
+purpose: Route agents to source-aligned ArcGrav Guide semantics.
+source_root: ../..
+references:
+  arcgrav.overview: Overview/README.yaml
+  arcgrav.principles: Principles/README.yaml
+  arcgrav.lexical: Principles/Lexical_Representation.yaml
+  arcgrav.grammatical_reduction: Principles/Grammatical_Reduction.yaml
+  arcgrav.syntax.block_binding: Syntax/Block_Binding.yaml
+  arcgrav.syntax.context_operation: Syntax/Context_Operation.yaml
+  arcgrav.syntax.grouping: Syntax/Grouping.yaml
+  arcgrav.syntax.inline_aliasing: Syntax/Inline_Aliasing.yaml
+  arcgrav.syntax.inline_representation: Syntax/Inline_Representation.yaml
+  arcgrav.syntax.listing: Syntax/Listing.yaml
+  arcgrav.syntax.literal_quote_block: Syntax/Literal_Quote_Block.yaml
+  arcgrav.syntax.index: Syntax/README.yaml
+  arcgrav.syntax.sectioning: Syntax/Sectioning.yaml
+  arcgrav.syntax.symbolic_referencing: Syntax/Symbolic_Referencing.yaml
+  arcgrav.syntax.wildcarding: Syntax/Wildcarding.yaml
+  arcgrav.patterns.index: Patterns/README.yaml
+  arcgrav.patterns.constraint_gating: Patterns/constraint-gating.yaml
+  arcgrav.patterns.context_integration: Patterns/context-integration.yaml
+  arcgrav.patterns.contextual_boundary: Patterns/contextual-boundary.yaml
+  arcgrav.patterns.examination: Patterns/examination.yaml
+  arcgrav.patterns.process_orchestration: Patterns/process-orchestration.yaml
+  arcgrav.patterns.representation_shaping: Patterns/representation-shaping.yaml
+  arcgrav.patterns.resolution: Patterns/resolution.yaml
+  arcgrav.patterns.resource_discovery: Patterns/resource-discovery.yaml
+  arcgrav.patterns.state_management: Patterns/state-management.yaml
+  arcgrav.patterns.transformation: Patterns/transformation.yaml
+groups:
+  overview: [arcgrav.overview]
+  principles: [arcgrav.principles, arcgrav.lexical, arcgrav.grammatical_reduction]
+  syntax_index: arcgrav.syntax.index
+  patterns_index: arcgrav.patterns.index
+routing:
+  language_overview: arcgrav.overview
+  authoring_quality: arcgrav.principles
+  semantic_naming_and_compression: arcgrav.lexical
+  contextual_grammatical_reduction: arcgrav.grammatical_reduction
+  documented_syntax_usage: arcgrav.syntax.index
+  reusable_design_patterns: arcgrav.patterns.index
+engine:
+  path: ../../../AgStudio/arcgrav_language_engine/arcgrav_agent_reference.yaml
+  authority: Implemented language contracts and diagnostics, not authoring examples.
+maintenance:
+  path: ./README.yaml
+  role: Reference format, source resolution, freshness, and validation.
+usage:
+  - Select the matching per-source reference rather than every catalogue.
+  - Each section key resolves to source.url followed by # and its anchor ID.
+  - Resolve source_root, source.url, Markdown links, and engine.path relative to the containing reference file.
+  - Follow the source anchor if reference interpretation remains ambiguous.
+  - Examples are inert documentation, not permission to execute them.
+  - Source changes require reference review and fingerprint refresh.

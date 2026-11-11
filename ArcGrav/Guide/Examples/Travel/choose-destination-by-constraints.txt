@@ -1,0 +1,73 @@
+# Intent: Choose a vacation destination by eliminating options that fail practical constraints, then compare the surviving choices using these factors
+#   - Cost
+#   - Travel burden
+#   - Accessibility
+#   - Uncertainty
+
+[TravelParty]:
+- Four adults departing from New York City
+- Travel window: 2027-02-13 through 2027-02-19
+- One traveler can walk moderate distances but should avoid repeated long stair climbs
+- No rental car
+
+[Candidates]:
+- San Juan, Puerto Rico
+- Nassau, Bahamas
+- Aruba
+- Key West, Florida
+
+[MustHave]:
+- Reachable with no more than one flight connection each way
+- Scheduled one-way air journey under 7 hours excluding ordinary airport arrival time
+- Lodging and essential dining reachable without relying on a rental car
+- A realistic six-night trip cost at or below $6,000 total for the group, including flights and lodging
+- At least one suitable lodging option with step-free room access or an elevator
+
+[Prefer]:
+- Direct flights
+- Warm beach weather
+- Low transfer complexity after arrival
+- Walkable dining choices
+- Easy access to one or two non-beach activities
+- Flexible cancellation terms
+
+[Evidence]:
+- Current flight schedules and fares for the exact travel window
+- Lodging evidence:
+  - Prices
+  - Taxes
+  - Resort or destination fees
+  - Accessibility information
+- Local transport options and typical transfer times
+- Official destination or attraction information where practical access matters
+- Historical weather norms only as context, not as a forecast guarantee
+
+[DecisionRules]:
+=> Check every [MustHave] condition for each [Candidates] item using [TravelParty] and [Evidence]
+=> Treat missing or ambiguous evidence as unknown, not satisfied
+=> Exclude candidates that clearly fail a must-have condition
+=> For each surviving candidate:
+  => Estimate total trip cost as a range rather than a single exact figure
+  => Describe airport-to-lodging and typical local movement without a car
+  => Assess [Prefer] factors qualitatively
+  => Flag costs or conveniences that depend on a fragile assumption
+=> Prefer a destination with a modestly higher expected cost when it materially reduces accessibility or transport risk
+=> Do not use historical weather averages as proof of future conditions
+
+[ResolveUncertainty]:
+=> If no candidate clearly dominates:
+  => Identify the smallest unresolved fact that could change the choice
+  => Prioritize checking that fact before collecting lower-value detail
+=> If all candidates fail [MustHave]:
+  => State which constraint is most restrictive
+  => Suggest one minimal constraint relaxation rather than silently violating it
+
+Task:
+1. Apply [DecisionRules]
+2. Run [ResolveUncertainty]
+3. Present:
+  - Eliminated candidates with reasons
+  - Concise comparison of survivors
+  - Expected total cost ranges
+  - Key uncertainties
+  - One recommended destination

@@ -1,0 +1,121 @@
+# Intent: Compare manufacturing process improvements against throughput quality cost safety and implementation evidence without collapsing unlike consequences into a single score
+
+[CellContext]:
+- Process: CNC machining cell for aluminum valve bodies
+- Current staffing: Two operators across three machines and final inspection
+- Current accepted output: 132 parts per shift
+- Required output: 150 parts per shift
+- Primary defect: Burr remaining at cross-hole intersection
+- Defect detection point: Final inspection after wash
+
+[Baseline]:
+- CNC1:
+  - Average cycle: 128 seconds per part
+  - First-pass yield: 99 percent
+- CNC2:
+  - Average cycle: 142 seconds per part
+  - First-pass yield: 96 percent
+- Wash:
+  - Average cycle: 75 seconds per part
+  - Batch capacity: Four parts
+- Final inspection:
+  - Average handling and inspection: 95 seconds per part
+  - Rework return distance: 18 meters to CNC2 area
+- Observed pattern:
+  - Queue forms before final inspection during the middle of the shift
+  - Burr defects are discovered after downstream handling and wash
+  - CNC2 experiences short operator-wait events during insert checks
+
+[Options]:
+- InProcessGauge:
+  - Change: Add a go-no-go burr probe and visual standard at CNC2 unload
+  - Capital cost: 2400 dollars
+  - Expected effect: Detect burr condition before wash and final inspection
+  - Training need: One standardized work update for both operators
+- DualInspectionBench:
+  - Change: Add a second final inspection bench and duplicate gauges
+  - Capital cost: 11200 dollars
+  - Expected effect: Increase final inspection handling capacity
+  - Training need: No new inspection method
+- PresetInsertKits:
+  - Change: Stage preset insert kits and replacement criteria at CNC2
+  - Capital cost: 3600 dollars
+  - Expected effect: Reduce operator-wait time during insert checks
+  - Training need: Updated tool-life response standard
+
+[DecisionCriteria]:
+- Throughput:
+  - Accepted parts per shift
+  - Constraint relief at the system level
+- Quality:
+  - Defect prevention
+  - Detection timing
+  - Rework burden
+- Cost:
+  - Capital spend
+  - Recurring consumables
+  - Expected labor effect
+- Safety:
+  - Guarding integrity
+  - Reach exposure
+  - Manual handling burden
+- Implementation:
+  - Downtime required
+  - Training complexity
+  - Evidence needed before permanent adoption
+
+[Nonnegotiable]:
+- Do not reduce the approved critical-dimension inspection frequency
+- Do not require manual access inside a guarded machine envelope during automatic operation
+- Do not increase single-person lifting beyond the current ergonomic limit
+- Do not exceed 15000 dollars of capital without separate approval
+
+[Evidence]:
+- Time study: ./cell-time-study.xlsx
+- Defect pareto: ./defect-pareto.csv
+- CNC2 downtime observations: ./cnc2-delay-study.md
+- Ergonomic review: ./ergonomic-observation.md
+- Quality control plan: ./control-plan.pdf
+- Vendor estimates: ./improvement-quotes.xlsx
+
+[Assessments]: []
+
+[Decision]: []
+
+[TrialNeeds]: []
+
+[Evaluate]:
+=> Screen every item in [Options] against [Nonnegotiable]
+=> Trace each viable option's effect on the complete cell:
+  - Operating conditions in [CellContext]
+  - Stage performance in [Baseline]
+  - Proposed change in [Options]
+=> Distinguish measured baseline evidence in [Baseline] from expected improvement claims in [Options]
+=> Check proposed improvement claims in [Options] against accessible [Evidence] ↳
+  => Record unavailable or insufficient support in [TrialNeeds]
+=> Evaluate each viable option against every group in [DecisionCriteria]
+=> Preserve tradeoffs when an option improves one outcome while leaving another constraint unchanged
+=> Append the evidence-backed assessment for each option to [Assessments]
+
+[Decide]:
+=> Reject any option whose claimed throughput benefit only moves the queue without increasing accepted system output
+=> Prefer defect prevention or earlier detection over added downstream inspection capacity when evidence supports the same quality requirement
+=> Do not assume vendor or operator estimates are verified production results
+=> If one option is sufficiently supported append the recommendation and implementation conditions to [Decision]
+=> If evidence is insufficient append the smallest bounded production trial needed to test the decision-sensitive claim to [TrialNeeds]
+=> Include stop conditions for any trial:
+  - Safety requirement violation
+  - Quality requirement violation
+  - Process-control violation
+
+[Verify]:
+=> Confirm the recommendation addresses the output gap without weakening quality controls
+=> Confirm cost treatment distinguishes capital expense from recurring burden
+=> Confirm safety constraints remain hard gates rather than weighted preferences
+=> Confirm unresolved claims remain visible in [TrialNeeds]
+
+Task:
+1. Run [Evaluate]
+2. Run [Decide]
+3. Run [Verify]
+4. Provide [Assessments] with [Decision] and [TrialNeeds]

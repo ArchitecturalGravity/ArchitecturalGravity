@@ -1,0 +1,17 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.operational_leverage.index
+kind: research_reference
+source:
+  path: Research/Operational_Leverage/README.md
+  url: ../../Operational_Leverage/README.md
+  fingerprint: fnv1a32-3676d440
+sections:
+  paper-operational-leverage: |-
+    Operational Leverage separates agent activity per human specification effort from useful, independently accepted work per human effort. Tool calls and activity depth describe process, not productivity; current linked Codex studies report observational associations rather than causal ArcGrav effects.
+  study-index: |-
+    The longitudinal Codex study compares specification-normalized activity over sustained ArcGrav use; the single-workstream study compares one engineering workstream with a separate SWE-rebench baseline. Both report operating profiles, not matched accepted-work productivity.
+  ol-evidence-hierarchy: |-
+    Distinguish recorded agent activity, completed output, and independently validated useful work. Tool calls, delegation depth, and activity-per-character ratios establish none of the later states without task identity, outcome verification, and an appropriate denominator.
+  external-reference: |-
+    The representation-neutral SWE-rebench Operational Baseline supplies tool-depth, specification, and outcome scales for comparison. Its separate tasks, models, and instrumentation limit like-for-like inference; use the linked source to resolve exact cohort definitions.

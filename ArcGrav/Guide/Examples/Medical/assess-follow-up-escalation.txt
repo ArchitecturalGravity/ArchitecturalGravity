@@ -1,0 +1,72 @@
+# Intent: Assess whether new follow-up information requires clinician escalation without replacing clinical judgment
+
+Context:
+- Record identifier: Example patient B
+- Care setting: Post-visit follow-up
+- Decision authority: Licensed clinician
+- Goal: Separate routine follow-up information from findings requiring timely review
+
+[ExpectedCourse]:
+- Symptoms should remain stable or improve
+- Previously documented limitations may persist during the expected recovery interval
+- New or materially worsening findings require reassessment
+
+[ReportedChanges]:
+- C1:
+  - Finding: Symptoms are less frequent than at the prior visit
+  - Status: Improved
+- C2:
+  - Finding: A new symptom was reported after the visit
+  - Status: New
+- C3:
+  - Finding: Daily activity remains more limited than expected
+  - Status: Persistent
+- C4:
+  - Finding: No new objective measurement is available
+  - Status: Missing evidence
+
+[KnownConstraints]:
+- This example does not establish a diagnosis
+- This example does not determine treatment
+- Urgency must not be reduced because supporting evidence is incomplete
+- Any predefined emergency pathway in the care setting remains authoritative
+
+[Assessment]: []
+
+[Escalation]: []
+
+[Unknown]: []
+
+[Classify]:
+=> Apply [KnownConstraints]
+=> For each item in [ReportedChanges] ↳
+  => Compare it with [ExpectedCourse]
+  => Classify it as:
+    - Improving
+    - Stable
+    - Unexpected
+    - Insufficiently characterized
+  => Record the evidence supporting the classification in [Assessment]
+=> Do not infer severity from absence of a measurement
+=> Append missing information that could change interpretation to [Unknown]
+
+[EscalationGate]:
+=> Apply [KnownConstraints]
+=> Escalate for clinician review when:
+  - A new finding is outside the documented expected course
+  - A persistent finding may alter the current clinical assessment
+  - Available evidence is insufficient to determine whether a concerning change is present
+=> Preserve any existing emergency or urgent-care instruction without modification
+=> Do not generate a treatment recommendation
+=> Do not downgrade escalation solely because the record is incomplete
+=> Append required review actions to [Escalation]
+
+Task:
+1. Run [Classify]
+2. Run [EscalationGate]
+3. Report:
+  - Change classification
+  - Supporting evidence
+  - Missing information
+  - Clinician-review items
+  - Escalation status

@@ -1,0 +1,32 @@
+schema_version: 2
+id: arcgrav.grammatical_reduction
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Principles/Grammatical_Reduction.md
+  url: ../../Principles/Grammatical_Reduction.md
+  fingerprint: fnv1a32-49a465c8
+sections:
+  ag-grammatical-reduction: |-
+    Contextual grammatical reduction omits or simplifies grammatical material only where its contribution is recoverable from the remaining words, explicit references, and governing context. It is not stop-word deletion. Target the shortest sufficiently unambiguous instruction, not minimum words at any cost. This guidance introduces no ArcGrav syntax, reserved vocabulary, or performance guarantee; notation, exact values, and contracts take precedence.
+  ag-purpose: |-
+    Remove nonessential linguistic scaffolding while preserving operation, participants, relationships, scope, conditions, and output. ArcGrav's structure may make references recoverable. Reductions must remain interpretable and reversible when ambiguity appears. Omissibility is contextual, not a property guaranteed by a grammatical class.
+  ag-linguistic-basis: |-
+    Function words express grammatical distinctions, including articles, determiners, prepositions, conjunctions, and auxiliaries; they are not necessarily semantically empty. Ellipsis omits recoverable material, while telegraphic style uses abbreviated expression. Stop-word lists used in NLP cannot establish safe deletion from instructions. Grammaticality and readability alone do not prove meaning preservation.
+  ag-contextual-omissibility: |-
+    A word is a candidate only if its contribution is already supplied by remaining wording or authoritative context. With a declared [Report] artifact, "Return the [Report]" can become "Return [Report]" without changing the selected artifact. "Review a contract" and "Review the contract" normally differ in specificity, unless independent context resolves identity. Remove only recoverable meaning, not merely common words.
+  ag-reduction-mechanisms: |-
+    Candidates include article omission before an identified symbol; simplifying "each of the files" to "each file" while retaining the quantifier; dropping optional complementizer "that" if the clause remains clear; shortening purposive "in order to" to "to" if no requirement is lost; and replacing copular status statements with explicit label-value form where appropriate. Structural substitution is rewriting, not simply deleting an auxiliary. Preserve tense, status, voice, and modality. Token savings depend on the tokenizer.
+  ag-function-word-categories: |-
+    Articles/determiners may be omitted only when identity or reference is fixed; complementizer "that" only where the clause remains clear; auxiliaries and copulas may encode tense, aspect, voice, or obligation; prepositions such as "from", "into", and "against" may determine roles; conjunctions and conditionals express logic; modals and quantifiers establish permissions, obligations, and coverage. Never treat any category as a universal deletion allowlist.
+  ag-semantic-preservation: |-
+    Stop reducing where omission alters meaning or model interpretation becomes unreliable. Preserve participant identities and exact IDs; direction, comparisons, and standards; negation, exceptions, quantifiers, scope, ordering, dependencies, modality, authorization, state, uncertainty, and failures; syntax and literal values. "Merge [Patch] into [Baseline]" requires "into" to preserve direction; "Validate [Records] against [Schema]" requires its standard relation. [Symbolic Referencing](../../Syntax/Symbolic_Referencing.md), [Context Operation](../../Syntax/Context_Operation.md), and [Inline Representation](../../Syntax/Inline_Representation.md) remain authoritative. Never rewrite quoted text, exact keys, paths, or fixed output only to save words.
+  ag-arcgrav-applications: |-
+    Explicit [Records], [Schema], and [ValidationResult] references can support "Validate all records in [Records] against [Schema]" in place of "Validate all of the records in [Records] against the [Schema]"; "Return [ValidationResult]" can replace "Return the [ValidationResult]". Preserve "all", "in", "against", references, declarations, and operations. Reduction does not imply validation success or license removal of structural notation and contracts.
+  ag-safe-and-unsafe-examples: |-
+    Safe in the stated context: "Return the [Report]" -> "Return [Report]" when declared and unique; "Summarize each of the files in [Documents]" -> "Summarize each file in [Documents]"; optional "that" where the clause stays clear. Unsafe: dropping "into" from a merge loses direction; deleting "not" reverses a prohibition; deleting "only" widens scope; deleting "each" may lose per-file behavior; removing "approved" or "the" can lose artifact identity or approval requirements. Safety depends on task and context.
+  ag-reduction-guidance: |-
+    1. Identify the operation, participants, relationships, scope, modality, constraints, and output contract. 2. Locate scaffolding recoverable from explicit context. 3. Remove the smallest candidate span. 4. Recheck every material distinction, including exact text. 5. Restore wording when ambiguity or divergent behavior appears. 6. Measure target tokenizer savings and test representative inputs. This is authoring guidance, not required prompt boilerplate.
+  ag-evaluation-and-limitations: |-
+    Evaluate semantic reliability separately from token economy. Compare original and reduced instructions over normal, ambiguous, and failure cases, checking behavior, output selection, permissions, conditions, side effects, and failure reporting. Count tokens with the target tokenizer. A material regression overrides any savings. Results vary by model, language, domain, context, and examples; there is no universally safe deletion list or guaranteed compression ratio.
+  ag-relationship-to-other-principles: |-
+    [Lexical Representation](../../Principles/Lexical_Representation.md) increases meaning carried by naming and conventional procedural words; Grammatical Reduction omits recoverable linguistic overhead without altering the operational contract; [Symbolic Referencing](../../Syntax/Symbolic_Referencing.md) avoids repeating context; [Sectioning](../../Syntax/Sectioning.md) and [Context Operation](../../Syntax/Context_Operation.md) express roles and operations that make some wording unnecessary. None licenses omission of necessary information.

@@ -1,0 +1,54 @@
+# Intent: Synthesize a mixed source packet into an answer that distinguishes:
+# - Supported conclusions
+# - Source-specific perspective
+# - Unresolved disagreement
+
+[Question]: What factors are most responsible for the decline in first-year member retention, and which explanations are strong enough to guide a response
+
+[Sources]:
+- Survey: ./member-exit-survey.md
+- Interviews: ./member-interviews.md
+- Usage: ./first-year-usage-summary.csv
+- Support: ./support-theme-review.md
+
+[EvidenceRules]:
+- Preserve the distinction among:
+  - Reported experience
+  - Observed behavior
+  - Analyst interpretation
+- Weight evidence by relevance and directness, not by how often a claim is repeated across derivative sources
+- Do not treat absence of evidence as evidence of absence
+- Trace each material conclusion to the source or sources that support it
+- Keep contradictory evidence visible when the supplied material does not resolve it
+
+[Claims]: []
+
+[Conflicts]: []
+
+[Extract]:
+=> Apply [EvidenceRules] during evidence extraction
+=> Read each item in [Sources] for evidence relevant to [Question]
+=> Convert material evidence into concise claims that record:
+  - What the source supports
+  - Source identity
+  - Population or scope
+  - Strength or limitation
+=> Append supported claims to [Claims]
+=> When sources support materially different explanations for the same observation:
+  => Append the disagreement and its source basis to [Conflicts]
+
+[Synthesize]:
+=> Apply [EvidenceRules] when drawing conclusions from [Claims] and [Conflicts]
+=> Group [Claims] by explanatory factor rather than by source
+=> For each factor:
+  => Distinguish converging evidence from single-source evidence
+  => State important scope limits or alternative explanations
+  => Link any unresolved contradiction from [Conflicts]
+=> Rank factors only when the evidence supports a meaningful ordering
+=> Separate findings that can guide action now from questions requiring more evidence
+
+Task:
+1. Run [Extract]
+2. Run [Synthesize]
+3. Present a source-traceable synthesis answering [Question]
+4. List unresolved conflicts and evidence gaps separately

@@ -1,0 +1,60 @@
+# Intent: Edit an existing document for a specific audience while preserving:
+#   - Its substantive meaning
+#   - Its commitments
+#   - Its evidentiary boundaries
+
+[Draft]: ./service-transition-plan.md
+
+[Audience]:
+  Role: Department managers affected by the transition
+  Needs:
+    - Understand what changes for their teams
+    - Know which decisions they must make and by when
+    - Recognize operational risks that require escalation
+  Context:
+    - They know the current service but not the implementation details
+    - They will read the document asynchronously
+    - Most have limited time for technical background
+
+[MustRemainTrue]:
+- Dates
+- Owners
+- Dependencies
+- Approved commitments
+- The distinction between confirmed decisions and proposed actions
+- Risks and limitations stated in [Draft]
+- Technical detail when it is necessary to make or justify an audience decision
+
+[EditingDirection]:
+- Prefer consequence before mechanism
+- Use audience language where a specialist term is unnecessary
+- Turn buried required actions into explicit:
+  - Decisions
+  - Actions
+  - Deadlines
+- Compress implementation detail that does not change what this audience should understand or do
+- Do not make the plan exceed [Draft] in:
+  - Certainty
+  - Completeness
+  - Approval status
+
+[EditForAudience]:
+=> Read [Draft] from the perspective of [Audience]
+=> Apply [EditingDirection] when revising [Draft] for [Audience]
+=> Reorder material when doing so makes the following easier to find:
+  - Decisions
+  - Effects
+  - Dependencies
+=> Rewrite specialist explanations in accessible terms without changing their technical meaning
+=> Keep a specialist term when replacing it would reduce precision:
+  - Explain it at first use if the audience needs the explanation
+=> Make required audience actions scannable and connect each one to its reason or consequence
+=> Preserve qualifications that limit:
+  - A claim
+  - A commitment
+  - A date
+  - A forecast
+=> Delete repetition and background that no longer serves [Audience]
+=> Compare the edited document against [MustRemainTrue] before finalizing it
+
+Task: Run [EditForAudience] and output the revised document only

@@ -1,0 +1,75 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.syntax_efficiency
+kind: research_reference
+source:
+  path: Research/ArcGrav_Syntax_Efficiency.md
+  url: ../ArcGrav_Syntax_Efficiency.md
+  fingerprint: fnv1a32-f894458d
+sections:
+  paper-syntax-efficiency: |-
+    Syntax Efficiency compares token cost of matched instruction encodings and amortized reuse through symbols. Serialization length is distinct from interpretive reliability and downstream task success.
+  abstract: |-
+    Character compactness is not token minimality, and local token counts do not include amortization from references. In one matched o200k_base comparison, ArcGrav used 93 tokens versus Python-like compact syntax 81, YAML 89, Markdown 97 and XML 142. The paper tests construct-level overhead and reference reuse and recommends hybrid handling where compact control structures and data representations suit different roles. ArcGrav is not universally token-minimal; results do not establish superior interpretation or agent performance.
+  introduction: |-
+    Compare matched control instructions in compact Python-like syntax, YAML, ArcGrav, Markdown, and XML. Token costs depend on actual tokenizer behavior; compositional references can lower repeated-definition cost even when one invocation is longer.
+  role-within-the-research-program: |-
+    This paper measures the representation's token cost and savings from compositional reuse. It complements Interpretive Efficiency, which tests how much explanation models need to interpret the notation, and Operational Leverage, which measures downstream agent activity.
+  syntax-token-minimality: |-
+    Characters and tokens are different units; punctuation, spacing, vocabulary, and model tokenizer all affect cost. A shortest-looking notation can tokenize poorly. Compare actual tokenizer counts for matched semantics, not visual length.
+  controlled-syntax-comparison: |-
+    A controlled benchmark serialized a matched conceptual prompt in Python-like compact syntax, YAML, ArcGrav, Markdown, and XML, including constraints, ordered operations, and references. It compares that workload's tokens, not universal model comprehension or downstream success.
+  comparative-format-profiles: |-
+    The controlled comparison illustrates syntax costs and expressiveness trade-offs, not universal model-performance rankings. Format choice depends on semantics, scale, and human interpretation.
+  python-like-compact-syntax: |-
+    Lowest tokens in the controlled benchmark; compact arrays, variables, and operation-like expressions. May misleadingly imply execution, typing, or mutation and require escaping natural text.
+  yaml: |-
+    Concise nested, human-readable mappings; slightly fewer tokens than ArcGrav in the controlled benchmark. Whitespace matters, list markers repeat, and aliases have explicit syntax cost.
+  arcgrav: |-
+    Compact model-interpreted sections, priority/operation markers, and reusable symbols with little natural-language escaping; below Markdown and XML in tested serialization cost, but not always minimum.
+  markdown: |-
+    Highly readable familiar headings and lists; presentation markers cost tokens and exact references or transformations may require additional conventions.
+  xml: |-
+    Explicit nested boundaries, attributes, and parser/schema ecosystems; repeated tags were comparatively verbose in the controlled benchmark.
+  construct-level-trade-offs: |-
+    Nine constructs have different local token costs and downstream reuse or interpretation effects. A construct that costs more once may reduce total tokens when its structural meaning or reuse matters.
+  section-headers: |-
+    ArcGrav's `Key:` style resembles YAML section labels and is generally lighter than Markdown headings; it supplies readable scope but is not uniquely minimal.
+  unordered-lists: |-
+    `-` bullets suit small or heterogeneous instructions. Large homogeneous collections can serialize more compactly as arrays or other embedded structured data; repeated XML elements add overhead.
+  ordered-lists: |-
+    Numbered steps cost more than bullets but communicate execution order and stable step identity. Use them when sequence is operationally consequential.
+  priority-markers: |-
+    `P0.`/`P1.` encode precedence compactly, though not at minimum token cost. For critical conflicts, specify explicit override semantics rather than trusting shorthand alone.
+  syntax-symbolic-reference: |-
+    Bracketed symbolic references add local tokens but amortize costs when a defined context is reused. Their benefit depends on repeated reference and consistent binding, not brackets alone.
+  context-operations: |-
+    `=>` is a compact model-interpreted operation cue compared with function, YAML-key, Markdown-label, or XML-element alternatives. Token cost and reliable interpretation require separate evaluation.
+  inline-aliasing: |-
+    `AS [Alias]` creates a short reusable name for preceding context; alternative formats use assignments, mapping keys, or IDs. Comparative interpretability is not established by short syntax alone.
+  literal-blocks: |-
+    Triple quotes cheaply bound literal multiline text; alternatives include fenced Markdown, YAML scalars, and XML/CDATA. They do not create a security or execution boundary.
+  wildcards: |-
+    `*` is highly compact but has multiple meanings across common notations. Define its local matching scope when ambiguous; token economy cannot replace unambiguous semantics.
+  syntax-reference-amortization: |-
+    Let D denote the tokens needed to repeat a definition, R the tokens for one symbolic reference, H the one-time declaration overhead, and n the number of uses. Repetition costs n×D; declaration plus reuse costs H+n×R. Reuse saves tokens only when the latter is smaller, assuming equivalent meaning.
+  scaling-for-homogeneous-collections: |-
+    Repeated bullet or element markers can dominate large homogeneous data collections. Use readable ArcGrav control lists for small or heterogeneous instructions, but choose a compact domain-appropriate data encoding for bulk records. Keep control semantics separate from data serialization.
+  syntax-control-plane-data-plane: |-
+    Use ArcGrav's model-interpreted structure to identify control policies, constraints, operations, and references; encode large homogeneous records in the most suitable data format, such as JSON when appropriate. Keep instructions governing data distinct from the data payload. A compact control plane does not guarantee more accurate interpretation or permission to modify records.
+  syntax-optimization-rules: |-
+    Avoid one-off symbols, needless restatement, and syntax chosen solely for character count; use short stable names, grouping, and reusable references when they amortize cost. Prefer compact specialized data formats for large homogeneous collections and avoid indentation ambiguity.
+  scope-and-evidence-status: |-
+    The controlled comparison measures tokenizer-specific serialization and reference-amortization costs after matched semantics are assumed. It does not measure model comprehension, reliable execution, or accepted-task efficiency; one format's lower token count is not a universal performance ranking.
+  conclusion: |-
+    In the documented five-format token comparison, compact Python-like syntax was cheapest, YAML slightly below ArcGrav, and ArcGrav below conventional Markdown and XML. ArcGrav's value hypothesis centers on composing and reusing understandable instruction structure, not punctuation minimality or guaranteed performance.
+  related-papers: |-
+    Related Papers: • ArcGrav Research
+    • ArcGrav & Interpretive Efficiency
+    • Semantic Locality
+    • Semantic Shadow
+    • Semantic Weight
+    • ArcGrav Operational Leverage
+  references: |-
+    References: • He, J., et al. (2024). Does Prompt Formatting Have Any Impact on LLM Performance?. arXiv preprint. https://arxiv.org/abs/2411.10541
+    • Liu, Y., et al. (2025).

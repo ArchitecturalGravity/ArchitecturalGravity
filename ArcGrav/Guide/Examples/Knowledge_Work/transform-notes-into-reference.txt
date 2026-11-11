@@ -1,0 +1,53 @@
+# Intent: Transform fragmented working notes into a durable reference that:
+# - Preserves provenance
+# - Removes repetition
+# - Does not invent missing facts
+
+[Notes]: ./workshop-notes.md
+
+[Audience]: Teammates who did not attend the workshop but need to apply its agreed process later
+
+[ReferenceShape]:
+- Purpose and scope
+- Agreed terminology
+- Process steps
+- Decision rules
+- Exceptions
+- Examples
+- Unresolved questions
+- Source pointers
+
+[TransformRules]:
+- Consolidate repeated notes when they express the same meaning
+- Preserve meaningful:
+  - Qualifications
+  - Exceptions
+  - Disagreements
+- Distinguish an agreed statement from a:
+  - Proposal
+  - Question
+  - Individual observation
+- Keep names only when one of these matters to using the reference:
+  - Ownership
+  - Authority
+  - Provenance
+- Do not fill gaps from general knowledge or imply agreement that the notes do not establish
+- Prefer concise operational wording over chronological meeting narration
+
+[Transform]:
+=> Apply [TransformRules] to the transformation
+=> Read [Notes] and identify material statements for [ReferenceShape]
+=> Merge duplicates without losing stronger qualifications from any occurrence
+=> Rewrite shorthand into complete statements only when the intended meaning is recoverable from context
+=> Place proposals and unresolved points under unresolved questions unless the notes record a decision
+=> Add source pointers where a reader may need to inspect the original note for nuance or provenance
+=> Omit material that does not affect the reference:
+  - Side conversation
+  - Scheduling chatter
+  - Repetition
+=> Tailor the reference to [Audience]
+
+Task:
+1. Run [Transform]
+2. Provide the reference organized by [ReferenceShape]
+3. End with a short list of ambiguities that could not be resolved from [Notes]

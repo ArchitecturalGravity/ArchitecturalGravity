@@ -1,0 +1,147 @@
+# Intent: Reconcile competing requirements for a nonprofit awards dinner without silently relaxing
+# - Safety constraints
+# - Accessibility constraints
+# - Contract constraints
+# - Budget constraints
+
+[DecisionContext]:
+- Event: Annual community impact awards dinner
+- Attendance: 310 confirmed guests
+- Venue: Riverfront Hall
+- EventDate: Friday 18 September
+- GuestWindow: 18:00 to 22:30
+- BudgetCeiling: $78,000
+
+[Requirements]:
+- Safety:
+  - SeatedOccupancyLimit: 320 guests
+  - MainEgressAisles: Must remain clear at their approved width
+  - StageAccess: Must not project into the required egress path
+- Accessibility:
+  - StepFreeGuestRoute: Required from entrance through dinner seating
+  - CompanionSeating: Required beside each designated wheelchair location
+  - LiveCaptioning: Required for all stage remarks
+- Program:
+  - DinnerServiceStart: 19:00
+  - AwardsStart: 20:00
+  - AwardsDuration: 75 minutes
+  - HonoreeStageAccess: Step-free route required
+- AttendeeExperience:
+  - ConfirmedGuests: 310
+  - HouseholdSeatingRequests: Preserve when feasible
+  - DietaryMeals: 42 identified meals
+- Sponsor:
+  - RecognitionWall: Required in the guest arrival area
+  - TablePlacards: Required on 24 sponsored tables
+- Venue:
+  - RoomAccessStart: 15:00
+  - GuestEntryStart: 18:00
+  - AmplifiedSoundStart: 18:00
+  - HardClose: 23:00
+- Vendors:
+  - BandSoundcheckNeed: 45 minutes
+  - BandContractedStart: 21:20
+  - CatererServiceSetupNeed: 120 minutes
+  - CaptionerConnectionTestNeed: 30 minutes before guest entry
+
+[RequestedLayout]:
+- GuestTables: 31 tables with 10 seats each
+- StageExtension: 3 meters beyond the house stage
+- BandFloorArea: 24 square meters beside the stage
+- SponsorWallArea: 10 square meters near the entrance
+
+[ObservedEffects]:
+- FullStageExtension:
+  - RemainingSeatedCapacity: 300 guests
+  - EgressEffect: Approved aisle width is preserved
+- ReducedStageExtension:
+  - RemainingSeatedCapacity: 312 guests
+  - EgressEffect: Approved aisle width is preserved
+- BandAtRequestedFloorArea:
+  - RemainingSeatedCapacity: 304 guests when combined with ReducedStageExtension
+- BandOnHouseStageAfterAwards:
+  - ChangeoverNeed: 20 minutes
+  - RemainingSeatedCapacity: 312 guests during dinner
+- SoundcheckAtRequestedDuration:
+  - EarliestStart: 17:15
+  - VenueConflict: Amplified sound is prohibited before 18:00
+- CurrentRequestedPackage:
+  - ProjectedCost: $83,400
+  - BudgetVariance: $5,400 over ceiling
+
+[AuthorityOrder]:
+P0. Safety requirements
+P1. Accessibility requirements
+P2. Confirmed attendance commitments
+P3. Venue contract requirements
+P4. Signed vendor commitments
+P5. Published program commitments
+P6. Sponsor preferences
+P7. Presentation preferences
+
+[CostOptions]:
+- FloralUpgradeRemoval:
+  - Savings: $2,600
+  - RequirementEffect: No mandatory requirement affected
+- PrintedProgramReduction:
+  - Savings: $1,400
+  - RequirementEffect: Digital program remains available
+- PremiumDessertRemoval:
+  - Savings: $1,900
+  - RequirementEffect: Standard dessert remains in the catering package
+- BandSetReduction:
+  - Savings: $2,200
+  - RequirementEffect: Requires vendor approval because signed performance scope changes
+
+[Evidence]:
+- VenueFloorPlan: ./riverfront-approved-layout.pdf
+- VenueContract: ./riverfront-contract.pdf
+- AccessibilityReview: ./accessibility-review.md
+- GuestRoster: ./confirmed-guest-roster.csv
+- VendorAgreements: ./signed-vendor-agreements/
+- BudgetWorkbook: ./awards-budget.xlsx
+
+[Conflicts]: []
+
+[Resolutions]: []
+
+[Unresolved]: []
+
+[DetectConflicts]:
+=> Compare [RequestedLayout] and [ObservedEffects] with [Requirements]
+=> Compare vendor and program timing in [Requirements] with soundcheck and changeover constraints in [ObservedEffects]
+=> Compare `ProjectedCost` in `CurrentRequestedPackage` under [ObservedEffects] with `BudgetCeiling` in [DecisionContext]
+=> For each conflict append its involved requirements and available [Evidence] to [Conflicts]
+
+[Reconcile]:
+=> Resolve each conflict according to [AuthorityOrder]
+=> Reject any layout that cannot seat `ConfirmedGuests` in [Requirements] while preserving mandatory safety and accessibility requirements
+=> Prefer a change that preserves a higher-authority commitment over a lower-authority preference
+=> Do not change a signed vendor commitment unless the required approval is obtained
+=> Do not treat an unapproved timing exception as available capacity
+=> Append justified decisions to [Resolutions]
+=> Append any decision that still requires external authority to [Unresolved]
+
+[CheckBudget]:
+=> Begin with `ProjectedCost` in `CurrentRequestedPackage` under [ObservedEffects]
+=> Apply only [CostOptions] that do not violate a retained requirement or require unavailable approval
+=> Keep a running total of accepted savings
+=> If the ceiling cannot be reached without an approval then record the smallest remaining approval need in [Unresolved]
+
+[Validate]:
+=> Verify final seated capacity covers `ConfirmedGuests` in [Requirements]
+=> Verify egress and step-free routes remain compliant with stated requirements
+=> Verify the captioning test can occur before guest entry
+=> Verify the proposed soundcheck respects the venue contract or remains explicitly unresolved
+=> Verify the post-awards changeover can meet `BandContractedStart` in [Requirements] or remains in [Unresolved]
+=> Verify accepted cost changes bring projected cost to or below `BudgetCeiling` in [DecisionContext]
+=> Verify no lower-authority preference displaced a higher-authority requirement
+
+Task:
+1. Run [DetectConflicts]
+2. Run [Reconcile]
+3. Run [CheckBudget]
+4. Run [Validate]
+5. Provide [Resolutions] with:
+  - [Unresolved]
+  - Resulting budget position

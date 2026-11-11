@@ -1,0 +1,60 @@
+# Intent: Design a staged interview process that collects decision relevant evidence for explicit role competencies with clear responsibilities and decision points
+
+[RoleProfile]: ./hiring/role-profile.txt
+
+[HiringConstraints]: ./hiring/process-constraints.txt
+
+[ProcessPrinciples]:
+- Assess only job relevant competencies
+- Collect comparable evidence across candidates
+- Use the least burdensome stage that can produce the needed evidence
+- Keep accommodation needs separate from candidate evaluation
+- Require interviewers to record evidence before group deliberation
+
+[Competencies]: []
+
+[InterviewStages]: []
+
+[DecisionPoints]: []
+
+[MapEvidenceNeeds]:
+=> Read [RoleProfile]
+=> Read [HiringConstraints]
+=> Append each explicit competency to [Competencies] ↳
+  - Competency
+  - Importance
+  - Observable evidence
+  - Evidence that would be insufficient
+=> Identify any requirement that cannot be reliably assessed through interviewing
+=> Route non interview evidence needs to the appropriate verification step
+
+[DesignStages]:
+=> Build [InterviewStages] around distinct evidence needs using [ProcessPrinciples] and [HiringConstraints]
+=> For each stage define:
+  - Purpose
+  - Competencies assessed
+  - Method
+  - Interviewer responsibility
+  - Candidate preparation required
+  - Evidence to record
+  - Time constraint
+  - Dependencies on prior stages
+=> Avoid reassessing the same competency without a distinct evidence purpose
+=> Preserve flexibility for reasonable process accommodations without changing evaluation standards
+
+[DesignDecisions]:
+=> Place [DecisionPoints] only where the available evidence can support a meaningful decision
+=> For each decision point define:
+  - Evidence required
+  - Who owns the decision
+  - Conditions to advance
+  - Conditions to stop
+  - Conditions requiring more evidence
+=> Prevent group debrief from replacing independent evidence capture
+=> Prevent preferred qualifications from becoming undocumented elimination gates
+
+Task:
+1. Run [MapEvidenceNeeds]
+2. Run [DesignStages]
+3. Run [DesignDecisions]
+4. Provide [InterviewStages] and [DecisionPoints] with competency coverage and responsibility traceability

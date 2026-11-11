@@ -1,0 +1,105 @@
+# Intent: Diagnose a plant problem by separating observed evidence from competing causes and preserving unresolved uncertainty
+
+[Plant]:
+- Crop: Tomato
+- Identifier: T-4
+- Growth stage: Early fruiting
+- Bed: South vegetable bed
+
+[ObservedEvidence]:
+- Leaf symptoms:
+  - Lower leaves yellowing
+  - Several brown lesions with concentric rings
+  - Upper new growth mostly unaffected
+- Distribution:
+  - Affected plants: 2 of 6 tomatoes
+  - Neighboring basil: Unaffected
+- Root zone:
+  - Soil moisture at 5 cm: Damp
+  - Standing water: Not observed
+- Recent conditions:
+  - Rainfall pattern: Four wet days during the previous week
+  - Irrigation change: None reported
+- Treatment history:
+  - Fertilizer change: None reported
+  - Pesticide application: None reported
+
+[H1]:
+- Hypothesis: Fungal leaf disease
+- Expected evidence:
+  - Lesion pattern consistent across older leaves
+  - Symptom increase after extended leaf wetness
+- Contradicting evidence:
+  - New growth may remain healthy early in progression
+
+[H2]:
+- Hypothesis: Nutrient deficiency
+- Expected evidence:
+  - Repeatable discoloration pattern across comparable leaves
+  - Possible growth effects beyond discrete lesions
+- Contradicting evidence:
+  - Concentric lesions are not explained by deficiency alone
+
+[H3]:
+- Hypothesis: Root-zone water stress
+- Expected evidence:
+  - Moisture extremes or poor drainage
+  - Wilting or generalized growth stress
+- Contradicting evidence:
+  - Standing water is not observed
+
+[CandidateCauses]:
+- [H1]
+- [H2]
+- [H3]
+
+[EvidenceStatus]:
+- Observed: Facts directly recorded in [ObservedEvidence]
+- Inferred: Relationships suggested by a candidate cause
+- Unknown: Evidence not yet collected
+
+[Assessment]: []
+
+[NextChecks]: []
+
+[Unresolved]: []
+
+[CompareHypotheses]:
+=> For each hypothesis in [CandidateCauses] for [Plant] ↳
+  - Match its expected evidence against [ObservedEvidence]
+  - Record supporting observations as observed evidence
+  - Record contradicting observations as observed evidence
+  - Mark missing diagnostic information as unknown
+  - Classify each item using [EvidenceStatus]
+  - Do not convert a correlation into an observed fact
+=> Append the comparison to [Assessment]
+
+[ChooseChecks]:
+=> Identify checks that can distinguish the highest-support candidate causes
+=> Prefer low-risk checks before treatment
+=> If [H1] remains plausible:
+  - Inspect additional older leaves for the same lesion pattern
+  - Record whether lesions expanded after another wet period
+=> If [H2] remains plausible:
+  - Compare symptom distribution across old and new growth
+  - Review available soil or tissue test evidence before adding nutrients
+=> If [H3] remains plausible:
+  - Check moisture at multiple root-zone locations
+  - Check drainage after irrigation or rain
+=> Append required observations to [NextChecks]
+
+[Conclude]:
+=> Rank candidate causes by current evidence support
+=> Label each ranked cause as supported possible or weakly supported
+=> If evidence is insufficient to distinguish leading causes:
+  - Preserve them in [Unresolved]
+  - Recommend the relevant [NextChecks]
+=> If symptoms progress rapidly or the plant declines despite reversible corrections:
+  - Recommend review by a local plant diagnostic service
+=> Do not recommend a cause-specific treatment as certain unless the evidence justifies that level of confidence
+
+Task:
+1. Run [CompareHypotheses]
+2. Run [ChooseChecks]
+3. Run [Conclude]
+4. Present [Assessment] with [NextChecks] and [Unresolved]

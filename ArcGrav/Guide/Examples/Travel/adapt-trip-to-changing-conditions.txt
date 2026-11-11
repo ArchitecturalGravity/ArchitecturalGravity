@@ -1,0 +1,88 @@
+# Intent: Replan an in-progress trip as changing conditions affect the route while protecting the commitments that are hardest to recover
+#   - Transport conditions
+#   - Weather conditions
+#   - Attraction conditions
+
+[CurrentTrip]:
+- Current location: Lyon
+- Today: 2027-09-15
+- Hotel in Annecy booked for nights of 2027-09-16 and 2027-09-17
+- Hotel in Geneva booked for 2027-09-18
+- Flight departs Geneva on 2027-09-19 at 11:10
+- Original plan:
+  - Regional rail from Lyon to Annecy
+  - Coach from Annecy to Geneva
+
+[Priorities]:
+P0. Do not miss the Geneva departure flight
+P1. Avoid unsafe travel or outdoor plans
+P2. Preserve prepaid lodging when practical
+P3. Preserve at least one meaningful activity in each remaining destination
+P4. Minimize additional cost after higher priorities are protected
+
+[NewInformation]:
+- Regional rail disruption on 2027-09-16:
+  - Announced
+  - Exact service reductions not yet confirmed
+- Heavy rain is forecast around Annecy for 2027-09-17
+- The outdoor mountain excursion planned for 2027-09-17 may suspend operations in severe weather
+
+[AuthoritativeChecks]:
+- Operating transport providers for service status and reservation rules
+- Official weather service for current warnings and forecast timing
+- Excursion operator for cancellation or weather policy
+- Lodging providers for change and cancellation terms
+- Airline and airport transport sources for departure-day requirements
+
+[State]:
+- `confirmed`: []
+- `uncertain`: []
+- `invalidated`: []
+- `protected`:
+  - Geneva departure flight
+
+[RefreshState]:
+=> Verify each item in [NewInformation] against [AuthoritativeChecks]
+=> Put confirmed disruptions or closures in [State].`confirmed`
+=> Put plausible but unresolved changes in [State].`uncertain`
+=> Identify original itinerary assumptions in [CurrentTrip] contradicted by confirmed information
+=> Append those assumptions to [State].`invalidated`
+=> Do not replan around rumor when a near-term authoritative check can resolve it
+
+[Replan]:
+=> Apply [Priorities] by precedence
+=> Preserve commitments in [State].`protected`
+=> For each item in [State].`invalidated` ↳
+  => Identify the smallest itinerary change that restores feasibility
+  => Compare at least one fallback that keeps the existing destination with one that changes destination timing when both are practical
+=> Keep an uncertain activity as provisional only if losing it does not threaten a higher-priority commitment
+=> Move toward Geneva early if later transport uncertainty could consume the departure-day safety margin
+=> Do not preserve prepaid cost by accepting unsafe conditions or a material risk of missing the flight
+
+[Triggers]:
+=> If Lyon-to-Annecy transport for 2027-09-16 is confirmed unavailable:
+  => Select a verified alternate mode or shift the Annecy arrival date
+=> If severe-weather warnings cover the excursion period:
+  => Cancel the outdoor excursion and substitute an indoor or low-exposure activity
+=> If Annecy-to-Geneva transport becomes unreliable on 2027-09-18:
+  => Leave Annecy earlier or transfer to Geneva on 2027-09-17
+=> If none of these triggers occurs:
+  => Retain the original route and update only affected activities
+
+[NextCheck]:
+=> For every unresolved item that could change the plan:
+  => Record the latest useful time to verify it
+  => Record what decision that check controls
+=> Stop monitoring an item once its decision window has passed or its dependent plan has been replaced
+
+Task:
+1. Run [RefreshState]
+2. Run [Replan]
+3. Apply [Triggers]
+4. Run [NextCheck]
+5. Present:
+  - Revised remaining itinerary
+  - What changed and why
+  - Confirmed versus provisional elements
+  - Added cost or cancellation exposure
+  - Next decision checkpoints

@@ -1,0 +1,116 @@
+# Intent: Evaluate supplier proposals for a constrained production sourcing event while preserving awardability commercial comparability capacity risk and evidence gaps
+
+[SourcingEvent]:
+- Item: Machined aluminum actuator housing
+- Annual demand: 48000 units
+- Ramp start: 2027-04-01
+- Award model: Single supplier or split award
+- Buyer objective: Secure qualified capacity at sustainable total cost without hiding continuity risk
+
+[Demand]:
+- Launch:
+  - Period: April through June
+  - Required rate: 2500 units per month
+- SteadyState:
+  - Period: July onward
+  - Required rate: 4500 units per month
+- Surge:
+  - Notice: 30 days
+  - Required rate: 5500 units per month
+
+[AwardRequirements]:
+- Technical:
+  - Material specification: AL-6061-T6
+  - Drawing revision: H
+  - Critical process: Five-axis machining
+- Quality:
+  - Production part approval required before launch shipment
+  - Lot traceability required to raw material heat
+  - Supplier quality system certification required
+- Delivery:
+  - Production lead time no greater than 28 calendar days
+  - Launch allocation must cover [Demand].Launch
+- Commercial:
+  - Quote validity through 2026-12-31
+  - Tooling ownership transfers to buyer after payment
+  - Payment terms no shorter than net 45
+
+[ProposalSet]:
+- AlderPrecision:
+  - Proposal: ./alder-precision-proposal.pdf
+  - CapacityEvidence: ./alder-capacity-plan.xlsx
+  - QualityEvidence: ./alder-quality-package.pdf
+- BeaconMachining:
+  - Proposal: ./beacon-machining-proposal.pdf
+  - CapacityEvidence: ./beacon-capacity-plan.xlsx
+  - QualityEvidence: ./beacon-quality-package.pdf
+- CrestWorks:
+  - Proposal: ./crest-works-proposal.pdf
+  - CapacityEvidence: ./crest-capacity-plan.xlsx
+  - QualityEvidence: ./crest-quality-package.pdf
+
+[CommercialBasis]:
+- Piece price
+- One-time tooling
+- Freight responsibility
+- Packaging charges
+- Material surcharge mechanism
+- Minimum order quantity
+- Payment terms
+
+[RiskFactors]:
+- Capacity headroom
+- Qualification maturity
+- Subtier concentration
+- Raw material dependency
+- Geographic concentration
+- Recovery lead time
+
+[Eligibility]: []
+
+[ComparableOffers]: []
+
+[AwardOptions]: []
+
+[Recommendation]: []
+
+[Qualify]:
+=> For each supplier in [ProposalSet] ↳
+  => Trace each item in [AwardRequirements] to proposal evidence
+  => Assign each requirement one evidence state:
+    - Confirmed
+    - Unconfirmed
+    - NotMet
+  => Append the supplier and evidence state to [Eligibility]
+  => Do not infer compliance from silence or general capability statements
+
+[Normalize]:
+=> For each supplier not marked NotMet in [Eligibility] ↳
+  => Convert terms in [CommercialBasis] to the common annual demand basis in [SourcingEvent]
+  => Separate recurring cost from one-time cost
+  => Preserve conditional surcharges instead of inventing a fixed value
+  => Identify exclusions that prevent commercial comparison
+  => Append the normalized commercial view to [ComparableOffers]
+
+[ConstructAwards]:
+=> Build viable single-source and split-award options from [Eligibility] and [ComparableOffers]
+=> For each split-award option:
+  => Verify each supplier allocation is supportable by stated capacity
+  => Verify combined launch capacity covers [Demand].Launch
+  => Identify duplicated tooling or qualification cost
+  => Identify continuity benefit created by qualified alternate capacity
+=> Append viable structures to [AwardOptions]
+
+[Select]:
+=> Compare [AwardOptions] using total commercial exposure and [RiskFactors]
+=> Do not rank an option as preferred when a required evidence gap could change awardability
+=> Preserve tradeoffs between lower cost and stronger continuity
+=> If one option is supportable append it with rationale to [Recommendation]
+=> If no option is supportable append the smallest supplier clarifications or negotiations needed to reach an awardable position to [Recommendation]
+
+Task:
+1. Run [Qualify]
+2. Run [Normalize]
+3. Run [ConstructAwards]
+4. Run [Select]
+5. Report [Eligibility] [ComparableOffers] [AwardOptions] and [Recommendation]

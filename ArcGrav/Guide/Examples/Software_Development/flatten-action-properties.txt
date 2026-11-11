@@ -1,0 +1,28 @@
+# Intent: Flatten an action connector's API inputs and outputs into friendly typed properties while preserving raw output
+
+Directory:
+- C:\Programming\Repo\CRM\Efficio\Crm.UtilityScheduled
+- C:\Programming\Repo\CRM\Efficio\EfficioSolution-Development-Feature
+- C:\Programming\Repo\Skills\appmixer-skills\connectors\crm\core
+
+[Action]:
+- Connector: `Action_SearchOpportunity`
+- Request:
+  - Method: GET
+  - Endpoint: https://crm-api.Website.com/api/v1/Pending
+  - Input: Array of `GetPendingRequest`
+- Response:
+  - Output: Array of `PendingResponse`
+
+Modify:
+- Expose each [Action] request input as an individual flat action property
+- Expose each [Action] response output as an individual flat action property
+- Include a separate raw output property
+- Remove unnecessary legacy properties and logic
+- Use friendly property names
+- Indicate the value type on each property
+- Apply defaults where defined by [Action] request inputs
+- Include `optional` and `default` information in property tooltips where defined by [Action] request inputs
+
+OnComplete:
+- Update related agents files to reference `GetPendingRequest` and `PendingResponse`

@@ -1,0 +1,68 @@
+# Intent: Trace contractual obligations so each surviving duty can be followed from source through conditions and superseding language across:
+# - The controlling agreement
+# - Amendments
+# - Transaction documents
+
+[DocumentSet]:
+- Master Services Agreement: ./msa.pdf
+- Amendment 1: ./amendment-1.pdf
+- Data Processing Addendum: ./dpa.pdf
+- Order Form 24-017: ./order-form-24-017.pdf
+
+[Authority]:
+- Use an express order-of-precedence clause when the documents provide one
+- Treat an amendment as modifying an earlier provision only to the extent its text does so
+- Do not resolve conflicts by assumed drafting intent
+- Preserve competing readings when any of the following is unclear:
+  - Precedence
+  - Incorporation
+  - Scope
+
+[ObligationRecord]:
+- Obligated party
+- Required or prohibited conduct
+- Triggering condition
+- Timing or deadline
+- Beneficiary or counterparty
+- Source provision
+- Incorporated dependency
+- Later modification or supersession
+- Current status (one of):
+  - "active"
+  - "modified"
+  - "displaced"
+  - "unresolved"
+
+[Trace]:
+=> Extract provisions that affect duties by:
+  - Imposing them
+  - Conditioning them
+  - Modifying them
+  - Excusing them
+  - Terminating them
+=> Normalize each into [ObligationRecord] without dropping qualifications or exceptions
+=> Link obligations that depend on:
+  - Definitions
+  - Schedules
+  - Incorporated policies
+  - Another document
+=> Follow later language that changes:
+  - Actor
+  - Scope
+  - Trigger
+  - Deadline
+  - Remedy
+  - Duration
+=> Where two provisions cannot both be applied as written:
+  => Apply [Authority]
+  => Record the competing provisions and the basis for any precedence determination
+  => Mark the obligation unresolved when the supplied documents do not establish a controlling result
+
+Task:
+1. Run [Trace] across [DocumentSet]
+2. Present an obligation ledger grouped by obligated party
+3. Provide a source-to-supersession trace for every modified or displaced obligation
+4. List unresolved questions separately concerning:
+  - Incorporation
+  - Precedence
+  - Interpretation

@@ -1,0 +1,31 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.principles
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Prompt_Construction_Principles.md
+  url: ../../Prompt_Performance/Prompt_Construction_Principles.md
+  fingerprint: fnv1a32-b5cb2d1b
+sections:
+  prompt-construction-principles: |-
+    Derived principles seek minimum sufficient semantic specification: preserve distinctions, dependencies, obligations and permissions that change intended outcomes while leaving other choices open. They are interpretations synthesized from prompt-refinement observations, not independently demonstrated laws of performance.
+  abstract: |-
+    The synthesis applies to many kinds of prompts without assuming one mandatory structure or procedure. Clarity concerns consequential meaning and allowable freedom, not prompt length or a guaranteed performance improvement.
+  purpose: |-
+    Express what must be explicit, what may safely remain implicit, and what is intentionally left to the model or conversation. Add constraints only when they protect the meaning of the requested interaction.
+  interpretive-conventions: |-
+    Obligations require preservation or action; preferences guide choices without universally excluding alternatives; latitude is intentionally unconstrained. Subjects locate instructions, domains bound decision populations, dependencies link requirements and consequences, and consequential distinctions can change meaning, permissions or results.
+  input-and-execution-integrity: |-
+    Distinguish controlling task instructions from source material supplied for analysis. State consequential admission, exclusion, default and failure contracts; preserve supplied values, types and absence states unless transformation is authorized. Inspection or diagnostics must not silently change unrelated decisions. Many cited boundaries are specification analyses rather than tested exceptional-input effects.
+  scope-integrity: |-
+    Attach instructions to their proper subjects and keep genuinely independent decisions separate. Specify eligibility domains, comparison operands and equivalence before applying labels; missing source support is not the same as unresolved output. State which selected evidence contributes to aggregation.
+  dependency-conservation: |-
+    Connect each requirement to the decisions and output consumers it governs; bind shared rules to all intended applications. Specify whether stage contributions persist, replace previous members or reconcile with them rather than letting later empty results silently erase earlier work.
+  representational-completeness: |-
+    Where consequential, identify source and output units, count populations and repeat policies before ordering. Distinguish mandatory content from defaults and preferences, collection membership from internal member coverage, and provenance from unqualified paraphrase. Preserve expressive latitude when the task permits it.
+  abstraction-fidelity: |-
+    Share invariant rules while specifying actual exceptions and their subjects. Compress redundancy without removing decision domains, source bindings, precedence or protected differences. Placement can clarify scope but cannot substitute for required relationships.
+  verification-boundedness: |-
+    Delegated review requires an authoritative standard, identified material and bounded assurance claim. Check static conformance separately from behavioral success; a claimed validation flag is not proof of a completed check. Distinguish permission to review, revise, recommend and execute, preserving facts and genuine unknowns.
+  construction-sufficiency-criterion: |-
+    A prompt is sufficiently specified when consequential distinctions, dependencies, required content and permissions are clear, while irrelevant details remain open. More detail is justified only by a necessary constraint or a consequential ambiguity.

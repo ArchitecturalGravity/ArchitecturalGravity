@@ -1,0 +1,40 @@
+# Intent: Optimize code order structure for better agentic reasoning
+
+Scope:
+- Windows file system:
+  - C:\Programming\MyProject
+
+[Target]: C:\Programming\MyProject\TargetCode.js
+
+[Goal]:
+- Reorganize the file into this order:
+  1. Imports
+  2. Module-scope declarations:
+    - Constants
+    - Variables
+    - Fields
+    - Properties
+  3. Functions:
+    - Put the primary entry-point functions first
+    - Place helper functions below the functions that use them
+    - Order sibling helpers by first use / call flow
+    - Keep function-local declarations near their first meaningful use:
+      - Constants
+      - Variables
+      - Fields
+      - Properties
+  4. Exports:
+    - Keep export order aligned with source declaration order
+    - List primary entry points first
+
+[Constraints]:
+- Preserve existing behavior
+- Make structural changes only
+
+Task:
+1. Ignore:
+  - Git history
+  - Test files
+  - *.md files
+2. Observe [Target]
+3. Apply [Goal] to [Target] under [Constraints]

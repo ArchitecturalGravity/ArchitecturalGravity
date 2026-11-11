@@ -1,0 +1,64 @@
+# Intent: Develop a coherent fictional world from a speculative premise by tracing how its rules shape
+# - Institutions
+# - Daily life
+# - Conflict
+# - Story possibilities
+
+[Premise]:
+- A chain of inhabited islands drifts continuously across a planet-wide ocean
+- Islands periodically converge into temporary archipelagos before separating again
+- Long-distance navigation is reliable, but no island can permanently anchor itself
+
+[WorldRules]:
+- Preserve the physical premise rather than explaining it away
+- Treat movement as an ordinary fact of life for inhabitants
+- Let geography create both opportunities and costs
+- Prefer consequences that can generate stories over decorative lore
+
+[World]: []
+
+[Develop]:
+=> Establish the practical consequences of [Premise] for:
+  - Settlement and architecture
+  - Food supply
+  - Water supply
+  - Material supply
+  - Travel and communication
+  - Government and jurisdiction
+  - Trade and currency
+  - Family
+  - Identity
+  - Belonging
+=> For each consequence:
+  => Trace at least one second-order effect
+  => Identify who benefits and who bears the cost
+  => Add the resulting world element to [World]
+
+[PressurePoints]:
+=> Observe [World]
+=> Identify tensions created when islands converge or separate
+=> Prefer tensions that arise naturally from:
+  - Incompatible needs
+  - Timing
+  - Scarcity
+  - Law
+  - Relationships
+=> Derive three recurring conflicts that could support stories at different scales:
+  - Personal
+  - Community
+  - Regional
+
+[ConsistencyCheck]:
+=> Test each major element in [World] against [Premise] and [WorldRules]
+=> Remove assumptions that depend on fixed geography unless the world supplies a plausible substitute
+=> Keep unresolved mysteries unresolved when an answer is not necessary for coherence
+
+Task:
+1. Run [Develop]
+2. Run [PressurePoints]
+3. Run [ConsistencyCheck]
+4. Present a concise world brief containing:
+  - Governing rules
+  - Major institutions
+  - Everyday consequences
+  - Story-generating tensions

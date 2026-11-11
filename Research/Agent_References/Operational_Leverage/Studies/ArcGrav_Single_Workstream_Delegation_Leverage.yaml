@@ -1,0 +1,56 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.operational_leverage.single_workstream
+kind: research_reference
+source:
+  path: Research/Operational_Leverage/Studies/ArcGrav_Single_Workstream_Delegation_Leverage.md
+  url: ../../../Operational_Leverage/Studies/ArcGrav_Single_Workstream_Delegation_Leverage.md
+  fingerprint: fnv1a32-c710e4dd
+sections:
+  paper-operational-single-workstream: |-
+    An observational ArcGrav-guided feature-development workstream (25 August–4 September 2026) is compared with external July 2026 SWE-rebench Codex episodes. The study measures specification burden, steering, and tool activity, not controlled task outcomes or ArcGrav causation.
+  abstract: |-
+    This observational study characterizes the operating regime of one continuous ArcGrav software feature-development workstream from August 25 through September 4, 2026. It compares 193 GPT-5.4/xhigh Codex sessions and 272 user prompts with 555 standardized delegation episodes from SWE-rebench July 2026. Sessions are treated as observational work-packet proxies, and the human-text denominator includes later steering prompts.
+  introduction: |-
+    The study observes one persistent ArcGrav feature-development effort, including implementation, integration, validation, refactoring and rework. Its primary comparison concerns downstream execution and steering per human-authored specification relative to an external Codex reference; within-workstream temporal variation is secondary. Sessions are work-packet proxies, not necessarily benchmark tasks or accepted outcomes.
+  role-within-the-research-program: |-
+    This study characterizes tool-execution depth and human-text-normalized activity in one persistent ArcGrav software-development workstream. The External Operational Baseline provides a non-ArcGrav reference distribution, while the longitudinal study examines changes across sustained use.
+  research-scope-and-comparison-unit: |-
+    Asks how much downstream tool activity one continuous workstream induced per human-authored task specification relative to an external Codex reference. A delegation episode is one objective and its autonomous work; interactive sessions/work packets need explicit mapping to that unit. Sparse follow-up prompts indicate recorded steering density, not independent accepted completion.
+  dataset-and-methods: |-
+    Pairs standardized July 2026 SWE-rebench Codex episodes with telemetry from a single August–September feature-development workstream; reported views include full cohort and secondary within-workstream endpoint comparisons. Match normalized tool definitions and denominators, but preserve differences in task difficulty, session boundaries, model settings, and observation design.
+  measurements-and-comparability: |-
+    Delegation depth counts tool work per episode; specification-normalized activity counts tools per 1,000 authored characters; steering density counts human prompts per episode. Workstream sessions approximate but need not equal externally bounded benchmark tasks. Keep denominators, model settings, event taxonomies, and outcomes separate.
+  ol-single-workstream-observations: |-
+    Seven reported comparisons describe one engineering workstream against a separately collected coding-agent baseline. Differences in task mix, repository persistence, model, and episode boundaries prevent interpreting activity ratios as matched productivity or a causal ArcGrav effect.
+  direct-comparison-with-the-external-codex-reference: |-
+    Compares 193 workstream sessions with 555 external Codex episodes on common operational measures; matched metric definitions do not guarantee matched task difficulty, acceptance, or causal comparability.
+  specification-normalized-tool-activity: |-
+    Normalizes recorded tool activity by user-authored specification characters and compares it with the external reference (9.5157 calls per 1,000 characters). This measures activity per text, not successful work per token.
+  steering-density-and-the-single-prompt-subset: |-
+    Of 193 sessions, 153 (79.3%) used one human prompt, 27 used two, and 13 used three or more; mean 1.41 prompts per session. Single-prompt sessions need not imply independent accepted tasks.
+  active-day-sensitivity: |-
+    An active-day cluster bootstrap with 20,000 replicates tests sensitivity to day-level dependence. The directly comparable tool-call leverage remains above the external baseline across the reported interval; observational limitations persist.
+  whole-workstream-operating-profile: |-
+    Across 193 sessions and 272 prompts, reports tool and computation intensity per episode, per prompt, and per 1,000 user characters. Keep those denominators distinct when interpreting depth versus steering burden.
+  secondary-within-workstream-variation: |-
+    Equal four-active-day endpoint windows describe within-workstream heterogeneity in specification and activity; they do not supply a randomized ArcGrav/no-ArcGrav contrast.
+  recorded-non-success-and-aborted-turns: |-
+    The cohort records about 7.53% tool non-success and 0.195 aborted turns per prompt. Tool outcomes and aborted turns are separate from independently verified task acceptance.
+  interpretation: |-
+    The workstream shows sparse recorded steering and greater normalized tool activity than the separate benchmark. Long-lived engineering objectives and persistent context may change what a session represents; accepted outcomes and human supervision time were not measured comparably.
+  scope-and-evidence-status: |-
+    Observed workstream tool depth and calls per estimated human character exceed the SWE-rebench reference, but the cohorts use different models (GPT-5.4/xhigh versus gpt-5.6-sol), tasks, episode boundaries, and instrumentation. The comparison is descriptive, not controlled evidence of an ArcGrav productivity advantage.
+  conclusion: |-
+    The workstream records 3.44× the external tool depth and 5.34× specification-normalized tool activity. These ratios describe observed process depth, not 3.44× or 5.34× more independently accepted work.
+  data-and-reproducibility: |-
+    Data and Reproducibility: • Observational telemetry: ArcGrav Single-Workstream Codex Telemetry CSV — SHA-256 e4c5252709c7d92acc67b9b1ceb1a889e53672ae559efb1c7f3a844497309d83
+    • External baseline: Agentic Software Engineering Operational Baseline
+    • Extraction plan: CSV Compatibility Plan
+    • Generator: generatecodexoperationalbaseline.ps1
+    • Generated reference: codexoperationalbaseline.csv
+  related-papers: |-
+    Related Papers: • External Operational Baseline
+    • Longitudinal Operational Leverage
+    • Model-Native Structural Representation
+    • Reasoning–Interaction Substitution

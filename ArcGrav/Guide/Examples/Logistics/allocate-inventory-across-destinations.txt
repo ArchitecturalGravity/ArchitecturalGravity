@@ -1,0 +1,123 @@
+# Intent: Allocate limited inventory across destinations while respecting demand service commitments shipment pack sizes lane capacity and priority rules
+
+[Supply]:
+- Product: Replacement actuator module AM-42
+- Available inventory: 760 units
+- Shipping origin: Central parts distribution center
+- Allocation horizon: Next 48 hours
+- Reserve policy:
+  - Emergency reserve: 80 units
+  - Reserve release authority: Network operations manager
+
+[Destinations]:
+- WestPlant:
+  - Demand: 310 units
+  - Minimum protected quantity: 240 units
+  - Priority: Critical
+  - Stockout consequence: Assembly line stoppage
+  - Shipment pack size: 10 units
+  - Receiving deadline: 18:00 tomorrow
+- NorthDepot:
+  - Demand: 220 units
+  - Minimum protected quantity: 120 units
+  - Priority: High
+  - Stockout consequence: Field repair backlog
+  - Shipment pack size: 20 units
+  - Receiving deadline: 12:00 day after tomorrow
+- CoastalDepot:
+  - Demand: 190 units
+  - Minimum protected quantity: 80 units
+  - Priority: High
+  - Stockout consequence: Reduced same-day service coverage
+  - Shipment pack size: 10 units
+  - Receiving deadline: 16:00 day after tomorrow
+- MetroDepot:
+  - Demand: 260 units
+  - Minimum protected quantity: 60 units
+  - Priority: Standard
+  - Stockout consequence: Deferred replenishment orders
+  - Shipment pack size: 20 units
+  - Receiving deadline: 20:00 day after tomorrow
+
+[Lanes]:
+- WestPlantLane:
+  - Maximum shipment: 300 units
+  - Earliest departure: 06:00 tomorrow
+  - Expected arrival: 15:30 tomorrow
+  - Reliability: High
+- NorthDepotLane:
+  - Maximum shipment: 180 units
+  - Earliest departure: 20:00 today
+  - Expected arrival: 09:30 day after tomorrow
+  - Reliability: High
+- CoastalDepotLane:
+  - Maximum shipment: 140 units
+  - Earliest departure: 08:00 tomorrow
+  - Expected arrival: 14:00 day after tomorrow
+  - Reliability: Moderate
+- MetroDepotLane:
+  - Maximum shipment: 220 units
+  - Earliest departure: 10:00 tomorrow
+  - Expected arrival: 18:30 day after tomorrow
+  - Reliability: High
+
+[AllocationPolicy]:
+- Available-to-allocate quantity:
+  - Keep the emergency reserve intact unless authorized for release
+  - Allocate only whole shipment packs
+- Protected service:
+  - Satisfy critical minimum protected quantities before high-priority minimums
+  - Satisfy high-priority minimum protected quantities before standard-priority minimums
+- Lane feasibility:
+  - Do not allocate more to a destination than its lane can carry within the horizon
+  - Do not count a shipment toward protected quantity if expected arrival misses the receiving deadline
+- Remaining supply:
+  - After protected quantities are satisfied distribute remaining allocatable inventory against unmet demand
+  - Prefer higher priority before lower priority
+  - Within the same priority prefer the destination with the larger proportional shortfall
+- Demand boundary:
+  - Never allocate above stated destination demand
+
+[Allocation]: []
+
+[Shortfalls]: []
+
+[ReserveDecision]: []
+
+[Allocate]:
+=> Calculate allocatable inventory from [Supply] after retaining the emergency reserve
+=> Determine maximum timely quantities using [Lanes] and the deadlines in [Destinations]
+=> Allocate protected quantities from [Destinations] according to [AllocationPolicy]
+=> Allocate remaining allocatable supply against unmet demand in [Destinations] within shipment pack sizes and [Lanes] capacities
+=> Append one record for each destination in [Destinations] to [Allocation] with:
+  - Destination
+  - Demand
+  - Allocated quantity
+  - Protected quantity achieved
+  - Lane utilization
+  - Projected arrival
+  - Unmet demand
+
+[AssessReserve]:
+=> Identify protected quantities unmet in [Allocation] after normal allocation
+=> For each unmet protected quantity determine whether releasing reserve inventory could improve service without violating lane capacity or pack size
+=> Do not release reserve inventory automatically
+=> Append any useful reserve-release option to [ReserveDecision] with:
+  - Destination
+  - Additional quantity
+  - Service consequence avoided
+  - Authority required
+
+[Verify]:
+=> Confirm total allocated inventory plus retained reserve does not exceed the available inventory in [Supply]
+=> Confirm every allocation in [Allocation] uses whole shipment packs from [Destinations]
+=> Confirm each allocation in [Allocation] does not exceed the matching demand in [Destinations]
+=> Confirm each allocation in [Allocation] respects its matching [Lanes] maximum shipment
+=> Confirm protected quantities respect [AllocationPolicy] priority ordering
+=> Append every unmet demand or protected-service gap to [Shortfalls]
+
+Task:
+1. Run [Allocate]
+2. Run [AssessReserve]
+3. Run [Verify]
+4. Present [Allocation] with [Shortfalls] and [ReserveDecision]

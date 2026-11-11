@@ -1,0 +1,51 @@
+# Intent: Evaluate a student's explanation of why Earth has seasons by
+# - Separating correct reasoning from misconceptions
+# - Applying a bounded rubric
+# - Producing revision-focused feedback
+
+[Question]:
+"""
+Why does the Northern Hemisphere experience summer and winter? Explain the physical cause and why the seasons repeat each year.
+"""
+
+[Rubric]:
+- 2 points: Identifies Earth's axial tilt as the primary cause
+- 2 points: Connects tilt to changing sunlight angle and/or day length during Earth's orbit
+- 1 point: Explains that the yearly orbit produces the repeating seasonal cycle
+- 1 point: Does not attribute seasons primarily to changing Earth-Sun distance
+
+[StudentResponse]:
+"""
+Earth has summer when it gets closer to the Sun and winter when it gets farther away. The Earth is also tilted, so the half tilted toward the Sun gets more direct sunlight. As Earth goes around the Sun, which half is tilted toward it changes and that makes the seasons switch.
+"""
+
+[Evaluation]: []
+
+[Assess]:
+=> Observe:
+  - [Question]
+  - [Rubric]
+  - [StudentResponse]
+=> For each criterion in [Rubric]:
+  => Identify the student's relevant claim
+  => Classify it as:
+    - Correct
+    - Partially correct
+    - Incorrect
+    - Absent
+  => Award only the points supported by the response
+  => Append the judgment and evidence to [Evaluation]
+=> Distinguish coexistence of a correct idea and a misconception rather than collapsing the response into a single label
+
+[Feedback]:
+=> Observe [Evaluation]
+=> Preserve the strongest correct idea in the student's own reasoning
+=> Identify the highest-priority misconception to revise
+=> Explain the correction without replacing the student's whole answer
+=> Ask one follow-up question that requires the student to repair the causal explanation
+
+Task:
+1. Run [Assess]
+2. Report the score out of 6 with criterion-level reasoning
+3. Run [Feedback]
+4. Provide concise feedback suitable for the student

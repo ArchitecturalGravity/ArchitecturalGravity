@@ -1,0 +1,57 @@
+# Intent: Find towel sets whose listing images most closely match a target RGB color while keeping image-derived color separate from verified fabric color
+
+[TargetProduct]:
+- Towel set suitable for:
+  - Towel ring
+  - Towel bar
+
+[TargetChroma]: RGB approximately (112, 148, 112)
+
+[MeasurementScope]:
+- Compare color represented in listing images
+- Do not claim listing-image RGB proves the in-person fabric color
+- Exclude the following from color sampling:
+  - Background
+  - Packaging
+  - Text
+  - Deep shadow
+  - Strong highlight regions
+- Prefer listing images with broad evenly lit towel surfaces
+
+[Candidates]: []
+
+[Measurements]: []
+
+[Uncertainty]: []
+
+[FindCandidates]:
+=> Search for [TargetProduct]
+=> Append each candidate with listing source and product identifier to [Candidates]
+
+[Measure]:
+=> For each item in [Candidates] select representative towel regions from available listing images under [MeasurementScope]
+=> Derive one representative RGB value using the same sampling method for every candidate
+=> Append a record for each measurable candidate to [Measurements] ↳
+  - Candidate identifier
+  - Source image
+  - Sampling basis
+  - Representative RGB value
+=> Append candidate-specific uncertainty to [Uncertainty] when any of the following materially affects the measurement:
+  - Lighting
+  - White balance
+  - Compression
+  - Limited image area
+=> Append an uncertainty record for each candidate lacking usable listing images to [Uncertainty]
+=> Do not assign RGB values without a measurable towel region
+
+[Rank]:
+=> Compare each item in [Measurements] to [TargetChroma] using one consistent RGB distance method
+=> Rank by image-derived color similarity
+=> Keep visual measurement uncertainty visible in the ranking
+=> Do not convert image similarity into a claim about verified physical fabric color
+
+Task:
+1. Run [FindCandidates]
+2. Run [Measure]
+3. Run [Rank]
+4. Report ranked candidates with [Measurements] and [Uncertainty]

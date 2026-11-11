@@ -1,0 +1,51 @@
+# Intent: Refute the conjecture that every real matrix satisfying A^2 = I must be diagonal by constructing and verifying a minimal counterexample
+
+[Conjecture]:
+- For every real square matrix A the relation A^2 = I implies that A is diagonal
+
+[CounterexampleRequirements]:
+- Entries are real
+- Matrix is square
+- Matrix is not diagonal
+- Matrix satisfies A^2 = I exactly
+- Dimension is as small as possible
+
+[Search]:
+=> Check dimension one against [CounterexampleRequirements]
+=> Conclude whether a one-dimensional counterexample can exist
+=> In dimension two consider an upper-triangular form with diagonal entries 1 and -1
+=> Let the off-diagonal entry be a nonzero real parameter t
+=> Square the symbolic matrix before assigning a numerical value to t
+=> Determine whether the off-diagonal terms cancel for every nonzero t
+
+[Candidate]: []
+
+[Construct]:
+=> If the symbolic family satisfies A^2 = I:
+  => Choose t = 1 for a concrete representative
+  => Append the resulting matrix to [Candidate]
+=> Otherwise continue the search without weakening [CounterexampleRequirements]
+
+[Verify]:
+=> Multiply [Candidate] by itself entry by entry
+=> Confirm the product equals the identity matrix
+=> Identify the nonzero off-diagonal entry that proves the candidate is not diagonal
+=> Confirm dimension one cannot satisfy [CounterexampleRequirements]
+=> Separate refutation of [Conjecture] from any stronger statement about diagonalizability
+
+[Repair]:
+=> Identify a nearby true statement suggested by the counterexample
+=> State any additional assumptions needed for that repaired statement
+=> Do not claim the repaired statement is proved unless its proof is supplied
+
+Task:
+1. Run [Search]
+2. Run [Construct]
+3. Run [Verify]
+4. Run [Repair]
+5. Provide:
+  - Minimal counterexample
+  - Exact multiplication check
+  - Minimality argument
+  - Refuted conjecture
+  - Candidate repaired statement

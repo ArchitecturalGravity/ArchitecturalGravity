@@ -1,0 +1,405 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcgrav:shared:schema:report:3.0.0",
+  "schema_id": "arcgrav.shared.schema.report",
+  "schema_version": "3.0.0",
+  "title": "Benchmark Report",
+  "description": "Canonical machine-readable report projection from finalized accepted evidence with explicit section availability and source identity.",
+  "x-arcgrav-extension-policy": {
+    "mode": "namespaced-additive",
+    "extension_points": [
+      "/extensions"
+    ],
+    "unknown_fields": "reject",
+    "preserve_unknown_extensions": true,
+    "shared_fields_overridable": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identityRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "schemaIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_id",
+        "schema_version"
+      ],
+      "properties": {
+        "schema_id": {
+          "type": "string",
+          "pattern": "^arcgrav\\.shared\\.schema\\.[a-z0-9._-]+$"
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "sha256"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availability": {
+          "type": "string",
+          "enum": [
+            "retained",
+            "not_produced",
+            "unavailable",
+            "invalid",
+            "excluded",
+            "missing",
+            "failed",
+            "completed_non_scorable",
+            "scored",
+            "not_applicable",
+            "non_comparable"
+          ]
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]*:[^\\s]+$"
+      },
+      "additionalProperties": true,
+      "description": "Opaque-preservable namespaced extension values. Consumers must preserve unknown entries and may not reinterpret shared fields."
+    },
+    "validationIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "source_id",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "json_pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        }
+      }
+    },
+    "reportSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability"
+      ],
+      "properties": {
+        "availability": {
+          "type": "string",
+          "enum": [
+            "available",
+            "unavailable",
+            "not_applicable",
+            "non_comparable"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        },
+        "artifact_refs": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/artifactRef"
+          }
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "enum": [
+                  "unavailable",
+                  "not_applicable",
+                  "non_comparable"
+                ]
+              }
+            },
+            "required": [
+              "availability"
+            ]
+          },
+          "then": {
+            "required": [
+              "reason"
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "extensions",
+    "report_id",
+    "report_version",
+    "accepted_generation_id",
+    "status",
+    "benchmark",
+    "case_set",
+    "treatment_set",
+    "execution_boundary",
+    "primary_endpoint",
+    "comparison_track_id",
+    "observation_counts",
+    "sections",
+    "report_manifest_id",
+    "generated_at"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "arcgrav.shared.schema.report"
+    },
+    "schema_version": {
+      "const": "3.0.0"
+    },
+    "extensions": {
+      "$ref": "#/$defs/extensions"
+    },
+    "report_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "report_version": {
+      "$ref": "#/$defs/semanticVersion"
+    },
+    "accepted_generation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "complete",
+        "complete_with_deviations",
+        "incomplete",
+        "invalid",
+        "dry_run"
+      ]
+    },
+    "benchmark": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "case_set": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "treatment_set": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "execution_boundary": {
+      "$ref": "#/$defs/artifactRef"
+    },
+    "primary_endpoint": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "comparison_track_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "observation_counts": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "planned",
+        "finalized",
+        "completed",
+        "scored",
+        "failed",
+        "missing",
+        "excluded",
+        "non_scorable"
+      ],
+      "properties": {
+        "planned": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "finalized": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "completed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "scored": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "failed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "missing": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "excluded": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "non_scorable": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "sections": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "executive_summary",
+        "identity_execution_boundary",
+        "registered_metrics_scoring_rules",
+        "treatment_summary",
+        "observation_matrix",
+        "case_level_result_matrix",
+        "paired_treatment_comparisons",
+        "failure_class_summary",
+        "repetition_consistency_summary",
+        "case_category_summary",
+        "prompt_construction_summary",
+        "telemetry_efficiency_summary",
+        "measurement_availability",
+        "missing_excluded_deviation_record",
+        "statistical_summary",
+        "machine_readable_evidence",
+        "scope_bounded_conclusion"
+      ],
+      "properties": {
+        "executive_summary": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "identity_execution_boundary": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "registered_metrics_scoring_rules": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "treatment_summary": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "observation_matrix": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "case_level_result_matrix": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "paired_treatment_comparisons": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "failure_class_summary": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "repetition_consistency_summary": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "case_category_summary": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "prompt_construction_summary": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "telemetry_efficiency_summary": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "measurement_availability": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "missing_excluded_deviation_record": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "statistical_summary": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "machine_readable_evidence": {
+          "$ref": "#/$defs/reportSection"
+        },
+        "scope_bounded_conclusion": {
+          "$ref": "#/$defs/reportSection"
+        }
+      }
+    },
+    "report_manifest_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generated_at": {
+      "type": "string",
+      "format": "date-time"
+    }
+  }
+}

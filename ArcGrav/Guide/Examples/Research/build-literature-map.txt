@@ -1,0 +1,83 @@
+# Intent: Build a literature map of urban-heat mitigation research without flattening the field into a single narrative summary by exposing:
+#   - Major intervention families
+#   - Methods
+#   - Claim dependencies
+#   - Evidence gaps
+
+[Scope]:
+- Question: How do neighborhood-scale interventions reduce outdoor heat exposure, and where is the evidence strong enough to generalize
+- Include: Empirical studies of the following interventions:
+  - Tree canopy
+  - Shade structures
+  - Cool roofs
+  - Cool pavements
+  - Combined interventions
+- Exclude: Purely indoor cooling interventions and papers without a measured or modeled outdoor thermal outcome
+- Period: 2010-present
+
+[Corpus]:
+- ./bibliography.ris
+- ./papers/
+- ./screening-notes.csv
+
+[MapDimensions]:
+- Intervention family
+- Climate and urban form
+- Study design
+- Spatial scale
+- Thermal outcome measured
+- Exposure or equity outcome measured
+- Causal versus descriptive claim
+- Replication or direct contradiction
+
+[Clusters]: []
+
+[Relations]: []
+
+[Gaps]: []
+
+[Classify]:
+=> Screen [Corpus] against [Scope]
+=> For each included study:
+  => Record the study against [MapDimensions], including:
+    - Primary intervention
+    - Setting
+    - Design
+    - Outcome
+    - Strongest supported claim
+  => Assign it to one or more coherent [Clusters] derived from the literature rather than a predetermined taxonomy when necessary
+
+[Connect]:
+=> Within and across [Clusters] ↳
+  => Record when one study materially:
+    - Replicates another study's claim
+    - Extends another study's claim
+    - Qualifies another study's claim
+    - Contradicts another study's claim
+  => Record when a later result depends on an inherited:
+    - Measurement method
+    - Model
+    - Dataset
+    - Assumption
+  => Append these relationships to [Relations]
+=> Do not infer intellectual influence from chronology alone when citation or methodological dependence is absent
+
+[MapGaps]:
+=> Identify claims supported mainly by one:
+  - Climate
+  - City type
+  - Method
+  - Research group
+=> Identify intervention comparisons that are commonly discussed but rarely tested head-to-head
+=> Identify population or equity outcomes that are asserted more often than measured
+=> Separate true evidence gaps from topics excluded by [Scope]
+=> Append the resulting gaps to [Gaps]
+
+Task:
+1. Run [Classify]
+2. Run [Connect]
+3. Run [MapGaps]
+4. Present:
+  - Literature map organized by clusters and relations
+  - Most consequential evidence gaps
+  - Scope limits of the map

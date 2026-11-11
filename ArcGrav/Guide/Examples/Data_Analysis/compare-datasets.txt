@@ -1,0 +1,77 @@
+# Intent: Compare two datasets intended to represent the same customer population by aligning their meaning and grain before measuring coverage and value differences
+
+Purpose: Determine whether the warehouse customer dimension can replace the current CRM export for downstream reporting without losing required customer attributes
+
+[CRM]: ./crm-customer-export.csv
+
+[Warehouse]: ./warehouse-customer-dimension.parquet
+
+[RequiredFields]:
+- Customer identifier
+- Account status
+- Created date
+- Country
+- Segment
+- Account owner
+
+ComparisonRules:
+- Establish each dataset's row grain before joining records
+- Require customer identifiers to be unique at the comparison grain or explain why they are not
+- Align fields by business meaning, not column-name similarity alone
+- Normalize only differences that are representational, such as:
+  - Case
+  - Whitespace
+  - Documented code mappings
+- Preserve meaningful differences rather than normalizing them away
+- Treat null and absent as distinct when the source semantics distinguish them
+
+[Alignment]: []
+
+[Differences]: []
+
+[Align]:
+=> Determine for [CRM] and [Warehouse] ↳
+  - Row grain
+  - Key fields
+  - Duplicate-key behavior
+  - Refresh timestamp
+=> Build a field mapping for [RequiredFields]
+=> For each mapping:
+  => Record source fields and transformations needed for a like-for-like comparison
+  => Mark the field incomparable if semantics cannot be reconciled safely
+=> Append the mapping and any grain limitations to [Alignment]
+
+[Compare]:
+=> Using [Alignment] ↳
+  => Measure customer coverage:
+    - Present in both datasets
+    - CRM only
+    - Warehouse only
+  => For matched customers, compare each aligned required field
+  => Summarize mismatch count and rate by field
+  => Segment material mismatches when useful by:
+    - Account status
+    - Country
+    - Source refresh timing
+=> Investigate duplicate keys separately from ordinary value mismatches
+=> Append each material discrepancy class to [Differences] with example records and its affected population
+
+[Assess]:
+=> Distinguish:
+  - Expected timing differences
+  - Representational differences resolved by documented normalization
+  - Source-system coverage gaps
+  - Transformation defects
+  - Unresolved semantic mismatches
+=> State whether [Warehouse] is fit to replace [CRM] for the stated reporting purpose
+=> If not, identify the smallest set of discrepancies that block replacement
+=> Present:
+  - Coverage statistics
+  - Field-level comparison results
+  - Material examples
+  - Replacement decision
+
+Task:
+1. Run [Align]
+2. Run [Compare]
+3. Run [Assess]

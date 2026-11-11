@@ -1,0 +1,51 @@
+# Intent: Find a compatible replacement garage door spring from documented identification evidence without inferring compatibility from approximate dimensions alone
+
+[Door]:
+- Height: 7 ft
+- Width: 9 ft
+- Weight: 72 lbs
+
+[ObservedMechanism]:
+- Manufacturer: Wayne Dalton
+- System: TorqueMaster
+- Existing spring or part number: TorqueMaster #314953
+- Spring count: Two
+- Steel TorqueMaster tube length: Approximately 9 ft 6 in
+
+[EvidencePriority]:
+P0. Manufacturer parts documentation
+P1. Manufacturer supersession or compatibility documentation
+P2. Authorized parts documentation that cites manufacturer compatibility data
+P3. Seller listings only as discovery leads when stronger compatibility evidence is absent
+
+[Candidates]: []
+
+[OpenQuestions]: []
+
+[FindCandidates]:
+=> Search [EvidencePriority] for exact part number TorqueMaster #314953 and documented supersessions
+=> For each candidate append to [Candidates] ↳
+  - Product or replacement identifier
+  - Source
+  - Whether the candidate is exact superseding or only potentially compatible
+  - Compatibility evidence stated by the source
+=> Preserve source disagreements rather than selecting between them without evidence
+
+[VerifyCompatibility]:
+=> Compare each item in [Candidates] to [Door] and [ObservedMechanism]
+=> Require explicit evidence linking a replacement to the TorqueMaster system and existing part number or a documented supersession
+=> Treat the following as cross-checks rather than proof of compatibility:
+  - Door dimensions
+  - Spring count
+  - Approximate tube length
+=> Do not infer the following from observed dimensions alone:
+  - Spring wind
+  - Torque rating
+  - Installation procedure
+=> Append missing compatibility facts or unresolved conflicts to [OpenQuestions]
+=> Remove candidates whose documented compatibility conflicts with [ObservedMechanism]
+
+Task:
+1. Run [FindCandidates]
+2. Run [VerifyCompatibility]
+3. Report [Candidates] with source-backed compatibility status and [OpenQuestions]

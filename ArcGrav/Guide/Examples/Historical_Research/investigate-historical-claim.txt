@@ -1,0 +1,84 @@
+# Intent: Investigate a historical claim through primary and secondary evidence without collapsing uncertainty
+
+[Claim]:
+- Statement: The 1911 North Wharf closure was ordered in response to the dockworkers strike
+- Current source: ./exhibit-labels/north-wharf-panel.txt
+
+[PrimaryEvidence]:
+- P1:
+  - Source: ./sources/port-authority-orders-1911.txt
+  - Source type: Primary administrative record
+  - Expected contribution: Identify formal closure orders and stated reasons
+- P2:
+  - Source: ./sources/council-minutes-1911.txt
+  - Source type: Primary deliberative record
+  - Expected contribution: Identify public discussion of the closure
+- P3:
+  - Source: ./sources/dockworkers-union-circulars-1911.txt
+  - Source type: Primary organizational record
+  - Expected contribution: Identify union interpretation and strike chronology
+
+[SecondaryEvidence]:
+- S1:
+  - Source: ./secondary/harbor-history-1968.txt
+  - Source type: Secondary narrative
+  - Expected contribution: Trace an earlier published version of the claim
+- S2:
+  - Source: ./secondary/industrial-waterfront-study-2008.txt
+  - Source type: Secondary analysis
+  - Expected contribution: Compare later scholarship and citations
+
+[ClaimLineage]: []
+
+[EvidenceFindings]: []
+
+[Assessment]: []
+
+[TraceClaim]:
+=> Begin with [Claim]
+=> Identify every cited or implied source used to support [Claim]
+=> Follow citations from [SecondaryEvidence] back toward the earliest available evidence, including [PrimaryEvidence]
+=> For each link in the chain:
+  - Record the source reference
+  - Record the version of the claim present in that source
+  - Record whether the source cites earlier evidence
+  - Record whether the wording strengthens or narrows the earlier claim
+=> Append the chain to [ClaimLineage]
+
+[ExamineEvidence]:
+=> Inspect [PrimaryEvidence] for evidence bearing directly on:
+  - Whether a closure order existed
+  - When the closure was ordered
+  - What reason was stated at the time
+  - Whether the strike predated the decision
+  - Whether alternative reasons were documented
+=> For each material finding:
+  - Preserve the source reference
+  - Distinguish direct evidence from contextual evidence
+  - Record evidence that supports [Claim]
+  - Record evidence that contradicts [Claim]
+  - Record evidence that leaves the causal relationship unclear
+=> Append the results to [EvidenceFindings]
+
+[AssessClaim]:
+=> Determine separately whether [EvidenceFindings] and [ClaimLineage] support [Claim] regarding:
+  - The occurrence of the closure
+  - The timing relationship between the strike and closure
+  - The claimed causal relationship
+=> Do not infer causation from temporal sequence alone
+=> Do not treat repetition across secondary sources as independent corroboration when they share a source chain
+=> If the primary record states multiple reasons:
+  - Preserve each material reason
+  - Do not reduce them to a single cause without supporting evidence
+=> Append a conclusion to [Assessment] with:
+  - Support status
+  - Supporting evidence
+  - Contradicting evidence
+  - Remaining uncertainty
+  - Additional evidence needed
+
+Task:
+1. Run [TraceClaim]
+2. Run [ExamineEvidence]
+3. Run [AssessClaim]
+4. Present [Assessment] with [ClaimLineage] and [EvidenceFindings]

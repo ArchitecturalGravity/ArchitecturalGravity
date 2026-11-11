@@ -1,0 +1,25 @@
+# Intent: Reclaim disk space by removing safe-to-delete Windows cache and temporary files
+
+[Directory]:
+- C:\Windows
+
+State:
+- Running low on disk space
+
+[Candidates]:
+- Recognized cache files
+- Recognized temporary files
+
+[Preserve]:
+- Files required for system operation
+- Files required for application operation
+- User data files
+
+[Constraint]:
+- [Candidates] must be files Windows or installed applications can regenerate
+- Skip files if safe removal cannot be verified
+
+Task:
+1. Identify [Candidates] under [Directory]
+2. Exclude [Preserve]
+3. Remove only remaining [Candidates] that satisfy [Constraint]

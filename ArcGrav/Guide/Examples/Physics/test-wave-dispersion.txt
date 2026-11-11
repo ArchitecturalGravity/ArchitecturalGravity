@@ -1,0 +1,61 @@
+# Intent: Test whether measured wave packets follow a nondispersive or quadratic dispersive relation using phase data and uncertainty-aware predictions
+
+[CandidateModels]:
+- Nondispersive: omega(k) = c k
+- Quadratic dispersion: omega(k) = a k^2 + b
+
+[Measurements]:
+- ./wavefield-samples.csv
+- ./sampling-calibration.md
+- ./phase-uncertainty.md
+
+[Observables]:
+- Supported spatial wave numbers
+- Temporal frequencies for the same resolved components
+- Phase uncertainty for each component
+- Group-delay measurements for selected packets
+
+[Assumptions]:
+- The medium is stationary during each acquisition
+- Reflections outside the analysis window are negligible at stated uncertainty
+- Mode assignments remain unchanged between paired spatial and temporal measurements
+
+[Predictions]: []
+
+[Assessment]: []
+
+[Derive]:
+=> For each item in [CandidateModels] ↳
+  => Fit model parameters using the same supported spectral components from [Observables] under [Assumptions]
+  => Predict frequencies for held-out wave numbers
+  => Predict the sign and scale of group-delay variation across the measured band
+  => Append predictions and parameter uncertainty to [Predictions]
+
+[Compare]:
+=> Compare held-out frequency predictions in [Predictions] with [Measurements]
+=> Compare predicted group-delay behavior in [Predictions] with packet measurements in [Observables]
+=> Inspect residuals for structure across wave number
+=> For each candidate classify the evidence as:
+  - Supporting
+  - Contradicting
+  - Non-discriminating
+  - Unresolved
+=> Append the evidence basis to [Assessment]
+
+[Decision]:
+=> Prefer a model only when [Assessment] supports its discriminating predictions outperforming the alternative beyond measurement uncertainty
+=> Do not reward the quadratic model solely for having more adjustable parameters
+=> If both models remain viable:
+  => Identify the wave-number region where their predictions diverge most
+  => Specify the measurement precision needed to distinguish them there
+
+Task:
+1. Run [Derive]
+2. Run [Compare]
+3. Run [Decision]
+4. Report:
+  - Fitted parameters
+  - Held-out prediction comparison
+  - Group-delay comparison
+  - Model support status
+  - Next discriminating measurement

@@ -1,0 +1,102 @@
+# Intent: Reconcile stakeholder purchase requirements before sourcing so suppliers receive one authoritative requirement set with conflicts assumptions and unresolved constraints exposed
+
+[Purchase]:
+- Item: Environmental test chamber
+- Quantity: Two units
+- Intended use: Qualification testing for electromechanical assemblies
+- Target installation: 2027 Q2
+
+[StakeholderInputs]:
+- Engineering:
+  - Source: ./engineering-requirements.md
+  - Authority: Defines test performance needs
+- Facilities:
+  - Source: ./site-constraints.md
+  - Authority: Defines building interface constraints
+- Quality:
+  - Source: ./quality-requirements.md
+  - Authority: Defines calibration and traceability needs
+- Operations:
+  - Source: ./operations-needs.md
+  - Authority: Defines workflow and serviceability needs
+- Finance:
+  - Source: ./capital-approval.md
+  - Authority: Defines approved capital boundary
+- Procurement:
+  - Source: ./commercial-policy.md
+  - Authority: Defines sourcing and commercial requirements
+
+[RequirementClasses]:
+- Mandatory:
+  - Failure prevents intended use or violates an authoritative constraint
+- Preference:
+  - Value is desirable but can be traded against other outcomes
+- Assumption:
+  - Input is being treated as true but lacks sufficient verification
+- Conflict:
+  - Two applicable inputs cannot both be satisfied as written
+
+[Register]: []
+
+[Conflicts]: []
+
+[Clarifications]: []
+
+[ReleasedRequirements]: []
+
+[Extract]:
+=> For each stakeholder in [StakeholderInputs] ↳
+  => Extract purchase requirements for [Purchase] from the stated source
+  => Record the responsible stakeholder and source location
+  => Preserve measurable limits and triggering conditions
+  => Separate compound requirement sets into individual child elements
+  => Do not elevate examples or background narrative into requirements
+  => Append each requirement to [Register]
+
+[Classify]:
+=> For each requirement in [Register] ↳
+  => Assign one class from [RequirementClasses]
+  => Preserve the stated authority when classifying
+  => Mark missing units thresholds or verification methods as clarification needs
+  => Append unresolved clarification needs to [Clarifications]
+
+[Reconcile]:
+=> Group requirements that govern the same purchase attribute
+=> For each group:
+  => Merge duplicates only when meaning and authority are equivalent
+  => Keep a stricter requirement when the same authority clearly supersedes a weaker value
+  => Append incompatible requirements from different authorities to [Conflicts]
+  => Do not resolve a conflict by averaging limits or choosing the easier requirement
+=> Check cross-attribute dependencies:
+  - Chamber internal volume:
+    - Affects: Required floor loading
+  - Cooling method:
+    - Affects: Facility water connection
+  - Door opening:
+    - Affects: Installation access path
+  - Calibration interval:
+    - Affects: Planned maintenance workload
+
+[Resolve]:
+=> For each item in [Conflicts] ↳
+  => Identify the stakeholders with authority to resolve it
+  => State the decision needed without selecting an unsupported answer
+  => Append the required decision to [Clarifications]
+=> Exclude unresolved conflicts from [ReleasedRequirements]
+=> Append reconciled mandatory requirements and clearly labeled preferences to [ReleasedRequirements]
+=> Keep assumptions visible until their owners verify or replace them
+
+[ReleaseGate]:
+=> Do not release the sourcing package if:
+  - Any Mandatory requirement lacks a verification method where verification is material
+  - Any Conflict can change supplier eligibility
+  - Any facility dependency can make installation infeasible
+  - The approved capital boundary is absent or ambiguous
+
+Task:
+1. Run [Extract]
+2. Run [Classify]
+3. Run [Reconcile]
+4. Run [Resolve]
+5. Run [ReleaseGate]
+6. Provide [ReleasedRequirements] [Conflicts] and [Clarifications]

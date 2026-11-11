@@ -1,0 +1,89 @@
+# Intent: Prepare property acquisition due diligence by separating received evidence required verification unresolved questions and decision-relevant risk
+
+[Transaction]:
+- Property: Occupied light industrial facility
+- Buyer objective: Confirm acquisition readiness before the diligence deadline
+- Decision gate: Proceed to closing only when mandatory diligence is resolved or explicitly accepted by authorized decision makers
+
+[EvidenceRegister]:
+- TitleCommitment:
+  - Source: ./diligence/title-commitment.pdf
+  - Status: Received
+  - Authority: Title company
+- Survey:
+  - Source: ./diligence/alta-survey.pdf
+  - Status: Received
+  - Authority: Licensed surveyor
+- EnvironmentalReport:
+  - Source: ./diligence/phase-one-environmental.pdf
+  - Status: Received
+  - Authority: Environmental consultant
+- LeaseAbstracts:
+  - Source: ./diligence/lease-abstracts.xlsx
+  - Status: Draft
+  - Authority: Buyer counsel
+- PropertyConditionReport:
+  - Source: ./diligence/property-condition-report.pdf
+  - Status: Pending
+  - Authority: Building consultant
+
+[DiligenceTracks]:
+- Title:
+  - Confirm exceptions that survive closing
+  - Verify access rights serving the parcel
+  - Reconcile survey matters with recorded documents
+- Environmental:
+  - Review recognized environmental conditions
+  - Determine whether additional investigation is recommended
+  - Preserve consultant limitations and reliance conditions
+- Physical condition:
+  - Verify major building system condition
+  - Identify deferred maintenance with material near-term cost
+  - Distinguish observed defects from uninspected conditions
+- Occupancy:
+  - Reconcile lease obligations with seller representations
+  - Identify landlord obligations that transfer at closing
+  - Verify material tenant notices or defaults
+
+[RequiredVerification]: []
+
+[OpenQuestions]: []
+
+[RiskRegister]: []
+
+[DecisionReadiness]: []
+
+[ReviewEvidence]:
+=> For each track in [DiligenceTracks] ↳
+  => Link each conclusion to the controlling item in [EvidenceRegister]
+  => Append missing or draft evidence needed for a conclusion to [RequiredVerification]
+  => Append contradictions or material ambiguities to [OpenQuestions]
+  => Preserve source limitations when they restrict reliance
+  => Do not infer a clean condition from the absence of reported evidence
+
+[AssessRisk]:
+=> For each unresolved item determine whether it can affect:
+  - Legal ownership or access
+  - Permitted use
+  - Closing obligations
+  - Near-term capital cost
+  - Continuing occupancy obligations
+=> Append decision-relevant items to [RiskRegister] with:
+  - Evidence basis
+  - Current uncertainty
+  - Required resolver
+  - Decision consequence
+=> Do not mark a risk resolved until the required evidence or authorized acceptance is documented
+
+[GateDecision]:
+=> Apply the closing gate in [Transaction]
+=> If mandatory diligence remains unresolved append the blocking items to [DecisionReadiness]
+=> If a material risk is accepted append the accepting authority and acceptance scope to [DecisionReadiness]
+=> If all mandatory diligence is resolved or explicitly accepted append Proceed to closing review to [DecisionReadiness]
+=> Preserve nonblocking open questions separately from closing blockers
+
+Task:
+1. Run [ReviewEvidence]
+2. Run [AssessRisk]
+3. Run [GateDecision]
+4. Present [RequiredVerification] with [OpenQuestions] [RiskRegister] and [DecisionReadiness]

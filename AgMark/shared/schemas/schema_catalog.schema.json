@@ -1,0 +1,239 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcgrav:shared:schema:catalog:1.0.0",
+  "schema_id": "arcgrav.shared.schema.catalog",
+  "schema_version": "1.0.0",
+  "title": "Shared Schema Catalog",
+  "description": "Machine-readable catalog binding published shared schema identities and versions to exact files, stable URNs, and extension points.",
+  "x-arcgrav-extension-policy": {
+    "mode": "namespaced-additive",
+    "extension_points": [
+      "/extensions"
+    ],
+    "unknown_fields": "reject",
+    "preserve_unknown_extensions": true,
+    "shared_fields_overridable": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identityRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "schemaIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_id",
+        "schema_version"
+      ],
+      "properties": {
+        "schema_id": {
+          "type": "string",
+          "pattern": "^arcgrav\\.shared\\.schema\\.[a-z0-9._-]+$"
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "sha256"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availability": {
+          "type": "string",
+          "enum": [
+            "retained",
+            "not_produced",
+            "unavailable",
+            "invalid",
+            "excluded",
+            "missing",
+            "failed",
+            "completed_non_scorable",
+            "scored",
+            "not_applicable",
+            "non_comparable"
+          ]
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]*:[^\\s]+$"
+      },
+      "additionalProperties": true,
+      "description": "Opaque-preservable namespaced extension values. Consumers must preserve unknown entries and may not reinterpret shared fields."
+    },
+    "validationIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "source_id",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "json_pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "extensions",
+    "catalog_version",
+    "entries"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "arcgrav.shared.schema.catalog"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "extensions": {
+      "$ref": "#/$defs/extensions"
+    },
+    "catalog_version": {
+      "$ref": "#/$defs/semanticVersion"
+    },
+    "entries": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "schema_id",
+          "schema_version",
+          "urn",
+          "file",
+          "extension_points",
+          "extension_policy"
+        ],
+        "properties": {
+          "schema_id": {
+            "type": "string",
+            "pattern": "^arcgrav\\.shared\\.schema\\.[a-z0-9._-]+$"
+          },
+          "schema_version": {
+            "$ref": "#/$defs/semanticVersion"
+          },
+          "urn": {
+            "type": "string",
+            "pattern": "^urn:arcgrav:[a-z0-9][a-z0-9:._-]*$"
+          },
+          "file": {
+            "type": "string",
+            "pattern": "^AgMark/shared/schemas/[A-Za-z0-9._-]+\\.schema\\.json$"
+          },
+          "extension_points": {
+            "type": "array",
+            "minItems": 1,
+            "uniqueItems": true,
+            "items": {
+              "type": "string",
+              "pattern": "^/"
+            }
+          },
+          "extension_policy": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "mode",
+              "unknown_fields",
+              "preserve_unknown_extensions",
+              "shared_fields_overridable"
+            ],
+            "properties": {
+              "mode": {
+                "const": "namespaced-additive"
+              },
+              "unknown_fields": {
+                "const": "reject"
+              },
+              "preserve_unknown_extensions": {
+                "const": true
+              },
+              "shared_fields_overridable": {
+                "const": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

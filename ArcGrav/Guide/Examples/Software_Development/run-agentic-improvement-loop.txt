@@ -1,0 +1,46 @@
+# Intent: Run a self-contained agentic loop to:
+# - Capture and derive structure from a 'context' file set
+# - Realign a target file set based on the derived structure
+# - Reduce the file set instructions to strictly machine readable
+# - Update the file set based on changes
+
+# Paths are relative to this example file.
+Scope: ../../..
+
+[Context]:
+- ../../../README.md
+- ../..
+
+[Files]:
+- ../../Agent_References/Overview/README.yaml
+- ../../Agent_References/arcgrav_agent_reference_index.yaml
+- ../../Agent_References/README.yaml
+
+[Derived]: []
+
+[Derive]:
+=> Observe [Context] down to each nested file
+=> Derive structure
+=> Reduce structure:
+  => Minimize to basic laconic reasoning
+=> Append to [Derived]
+
+[Changes]: []
+
+[AgentSpec]:
+=> Observe [Derived]
+=> Observe [Files]
+=> Form realignment changes to [Files] ↳
+  - Goal:
+    - Enable agents to read the instructions and build valid ArcGrav prompts
+    => Apply [Derived] where missing
+  - Formatting:
+    - Optimize for strictly machine-readable agent instructions
+    - Do not prioritize human readability
+=> Append to [Changes]
+
+Task:
+1. Ignore git history
+2. Run [Derive]
+3. Run [AgentSpec]
+4. Apply [Changes] to [Files]

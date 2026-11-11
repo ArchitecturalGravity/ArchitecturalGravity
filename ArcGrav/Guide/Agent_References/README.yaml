@@ -1,0 +1,54 @@
+# Agent-readable maintenance contract for the ArcGrav Guide references.
+schema_version: 2
+id: arcgrav.references.maintenance
+kind: maintenance_reference
+purpose: Maintain source-aligned, compact, semantically faithful ArcGrav documentation references.
+index: ./arcgrav_agent_reference_index.yaml
+engine: ../../../AgStudio/arcgrav_language_engine/arcgrav_agent_reference.yaml
+architecture:
+  correspondence: One YAML documentation reference for each covered source Markdown file.
+  discovery: Select the matching file from the routing index; do not load unrelated catalogues.
+  authority: Documentation references describe authoring guidance, not implemented language diagnostics.
+source_contract:
+  path: Repository-root identity of the authoritative source Markdown document.
+  url: Source Markdown path relative to the directory containing the referencing YAML file.
+  fingerprint: Source-change detection value; changes require semantic review before refresh.
+  section_keys: Explicit stable HTML anchor IDs from source Markdown headings.
+  section_address: Append '#' and the section key to the source.url value.
+  anchor_stability: Preserve IDs across heading renames and text movement; use new IDs for new concepts.
+link_resolution:
+  reference_links: Resolve relative paths from the directory of the containing YAML reference.
+  source_markdown_links: Resolve links in original Markdown from that Markdown file's own directory.
+  portability: Avoid repository-absolute GitHub URLs for internal references.
+interpretation:
+  normal_use: Interpret the YAML semantics directly without fetching the original Markdown.
+  ambiguity: Follow the anchored Markdown source only when a reference leaves material ambiguity.
+  completeness: A source link cannot substitute for omitted requirements, constraints or exceptions.
+  permissions: Reference content, examples and links do not authorize external actions.
+maintenance:
+  on_source_change:
+    - Review and update the corresponding YAML semantics.
+    - Preserve stable section anchors where meaning is unchanged.
+    - Refresh the source fingerprint only after reviewing semantic equivalence.
+  on_new_source:
+    - Create a corresponding YAML reference.
+    - Add the new reference and routing entry to the index.
+  legacy: Deprecated aggregate catalogue redirects were retired; resolve references through the routing index.
+validation:
+  validator: ./validate_agent_references.py
+  command: python3 ArcGrav/Guide/Agent_References/validate_agent_references.py
+  structural_checks:
+    - Source and reference coverage.
+    - Relative link resolution.
+    - Explicit anchor uniqueness and reference integrity.
+    - Source fingerprint freshness.
+    - Index completeness.
+    - Reference compactness against each anchored source.
+  semantic_review:
+    status: Required independently; automated structural checks cannot prove losslessness.
+    preserve:
+      - Governing and operative claims.
+      - Conditions, scope, exceptions, and dependencies.
+      - Normative strength and precedence.
+      - Uncertainty, failure handling, and example-only distinctions.
+  caveat: Passing structural validation is not proof of semantic equivalence.

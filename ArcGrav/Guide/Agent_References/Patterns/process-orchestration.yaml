@@ -1,0 +1,150 @@
+schema_version: 2
+id: arcgrav.patterns.process_orchestration
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Patterns/process-orchestration.md
+  url: ../../Patterns/process-orchestration.md
+  fingerprint: fnv1a32-e04e3d14
+sections:
+  ag-process-orchestration: |-
+    Coordinates execution structure by decomposing work, assigning responsibilities, ordering dependencies, routing operations, managing parallel or iterative work, limiting retries, handling recovery, defining termination conditions, etc. It determines when and in what order operations occur, not their internal semantics.
+  ag-workflow-management-phase-oriented-workflow: |-
+    Organize work into named phases with explicit entry and exit conditions.
+    [Workflow]:
+    1. Discover
+    2. Derive
+    3. Render
+    4. Validate
+    5. Publish
+  ag-task-decomposition-atomic-task-split: |-
+    Decompose goals into independently verifiable tasks.
+    [Tasks]:
+    - Resolve current source files
+    - Extract reusable mechanisms
+    - Classify patterns
+    - Create category files
+    - Verify coverage
+  ag-recursive-traversal-hierarchy-walk: |-
+    Traverse nested resources while preserving parent-child context.
+    [Files]:
+    => Recursively traverse /Patterns/
+    => Include Markdown files
+    => Exclude generated directories
+  ag-worklists-and-queues-explicit-pending-set: |-
+    Maintain a visible queue for scalable or interruptible work.
+    [Queue]:
+    - unresolved resources
+    - unclassified patterns
+    - unrendered categories
+  ag-dependency-ordering-topological-work-order: |-
+    Order tasks from prerequisites to dependents.
+    [Order]:
+    => Build dependency graph for [Tasks]
+    => Execute ready nodes first
+  ag-routing-and-dispatch-capability-based-routing: |-
+    Send work to the tool or reasoning path that satisfies its requirements.
+    [Route]:
+    - Repository reads:
+    => File retrieval
+    - Repository writes:
+    => Create or update operation
+    - Semantic grouping:
+    => Model reasoning
+  ag-conditional-execution-branch-on-evidence: |-
+    State conditions and actions explicitly.
+    Task:
+    - IF target file exists: update it
+    - ELSE: create it
+  ag-conditional-dispatch-condition-based-selection: |-
+    Select an operation by mapping conditions directly to their corresponding actions.
+    [Switch]:
+    - Condition 1:
+    => Do thing 1
+    - Condition 2:
+    => Do thing 2
+    - Condition 3:
+    => Do thing 3
+    Use when execution should be routed according to mutually exclusive or otherwise explicitly defined conditions.
+    When selection precedence matters, use an ordered list:
+    [Switch]:
+    1. Condition 1:
+    => Do thing 1
+    2. Condition 2:
+    => Do thing 2
+    3. Condition 3:
+    => Do thing 3
+    When utilizing symbolic references:
+    [Switch]:
+    - [Value] is positive:
+    => Run [Positive]
+    - [Value] is neutral:
+    => Output "Value was Neutral"
+    - [Value] is negative:
+    => Run [Negative]
+  ag-sequential-execution-dependency-sequence: |-
+    Use ordered lists when each step depends on the prior result.
+    Task:
+    1. Resolve [Files]
+    2. Parse [Files] AS [Parsed]
+    3. Classify [Parsed] AS [Derived]
+    4. Render [Derived]
+  ag-parallel-execution-independent-work-set: |-
+    Run independent tasks concurrently while isolating their outputs.
+    [Parallel]:
+    - Render contextual-boundary.md
+    - Render transformation.md
+    - Render examination.md
+  ag-iteration-bounded-refinement-loop: |-
+    Repeat an operation with an explicit bound and progress condition.
+    [Refinement]:
+    => Repeat up to 3 times:
+    => Validate [Draft]
+    => Correct failed assertions only
+    => Stop when all assertions pass
+  ag-retry-and-recovery-bounded-retry: |-
+    Retry only transient or independent failures and preserve completed work.
+    [Recovery]:
+    - Retry a failed write once after refreshing target state
+    - Do not replay successful writes
+    - Record persistent failures
+  ag-replay-plans-deterministic-re-execution: |-
+    Record sufficient inputs and ordering to reproduce a workflow.
+    [ReplayPlan]:
+    - Source paths
+    - Category taxonomy
+    - Transformation chain
+    - Output paths
+    - Validation assertions
+  ag-termination-conditions-explicit-stop-contract: |-
+    Define completion and non-progress stopping rules.
+    [Terminate]:
+    - Stop successfully when all postconditions pass
+    - Stop with partial result when no ready work remains
+    - Never loop without changed state
+  ag-maintenance-convergence-minimal-idempotent-update: |-
+    Apply only the changes required to reach the desired state and verify that repeating the same operation produces no additional changes.
+    [Maintenance]:
+    1. Inspect the current artifact
+    2. Identify the smallest required changes
+    3. Preserve valid existing content
+    4. Apply changes deterministically
+    5. Verify the result
+    6. Repeat against the updated result
+    7. Confirm no additional changes are produced
+  ag-workflow-extension-replaceable-strategy-pipeline: |-
+    Route workflow responsibilities through stable stages whose implementations may be replaced without changing unrelated stages.
+    [Workflow]:
+    1. Apply [DiscoveryStrategy]
+    2. Apply [TransformationStrategy]
+    3. Apply [ValidationStrategy]
+    4. Apply [PublicationStrategy]
+  ag-composite-pattern-orchestrated-work-graph: |-
+    Turns a broad task into a visible, recoverable execution system rather than an implicit chain of guesses.
+    [Plan]:
+    => Decompose [Goal]
+    => Build dependencies
+    => Dispatch independent ready tasks in parallel
+    => Execute dependent tasks sequentially
+    => Retry bounded transient failures
+    => Validate after each phase
+    => Terminate on [Postconditions] or no-progress condition

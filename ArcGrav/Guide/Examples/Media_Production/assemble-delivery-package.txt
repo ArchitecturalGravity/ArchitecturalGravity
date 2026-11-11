@@ -1,0 +1,85 @@
+# Intent: Assemble a release-ready media delivery package from approved masters while preserving version alignment quality checks and unresolved delivery blockers
+
+DeliveryContext:
+  - Project: Short documentary
+  - Destination: Festival submission portal
+  - Delivery deadline: 18:00 local time
+  - Goal: Produce one internally consistent package from approved assets
+
+[RequiredAssets]:
+  - Picture master
+  - Stereo audio master
+  - Caption file
+  - Poster image
+  - Credit list
+
+[CurrentAssets]:
+  - Picture master: `picture-lock-v09`
+  - Stereo audio master: `mix-v04-for-picture-v09`
+  - Caption file: `captions-v05-for-picture-v08`
+  - Poster image: `poster-v03-approved`
+  - Credit list: `credits-v06-approved`
+
+[DeliveryRules]:
+  - Every time-based asset must match the approved picture version
+  - Artwork and credit assets require verified approval
+  - Preserve the required destination file-naming pattern
+  - Record checksums after final packaging
+  - Do not mark delivery complete when any required asset is:
+    - Missing
+    - Unapproved
+    - Unverified
+    - Version-misaligned
+
+[Package]: []
+
+[Blockers]: []
+
+[Assemble]:
+  => For each item in [RequiredAssets] ↳
+    => Locate the matching source in [CurrentAssets]
+    => Record source details:
+      - Asset identifier
+      - Version
+      - Documented approval status
+    => Validate the source against [DeliveryRules] ↳
+      - Presence
+      - Verified approval
+      - Picture-version alignment when time-based
+    => Append failed or unverifiable checks to [Blockers] with reasons
+  => If the destination file-naming specification is unavailable:
+    => Append the missing specification to [Blockers]
+  => If [Blockers] is empty:
+    => Create package copies using the destination file-naming specification
+    => Generate checksums from final packaged copies
+    => Append manifest entries to [Package] containing:
+      - Packaged file name
+      - Source identifier and version
+      - Approval evidence
+      - Checksum
+
+[QualityGate]:
+  => PASS only when all:
+    - Every asset in [RequiredAssets] is present in [Package]
+    - All required approvals and version alignments are verified
+    - All packaged names match the destination specification
+    - Every packaged file has a recorded checksum
+    - [Blockers] is empty
+  => Otherwise HOLD:
+    - Report the unresolved [Blockers]
+    - Identify the smallest necessary closure actions from:
+      - Replacement
+      - Verification
+      - Approval
+  => Do not substitute an older asset solely to meet the deadline
+
+Task:
+  1. Run [Assemble]
+  2. Run [QualityGate]
+  3. Provide:
+    - Delivery manifest or state why none was generated
+    - Source-to-package version mapping or unresolved mappings
+    - Quality checks
+    - Blockers
+    - Smallest closure set
+    - Gate result

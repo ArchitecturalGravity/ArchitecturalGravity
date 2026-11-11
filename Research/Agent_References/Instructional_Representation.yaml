@@ -1,0 +1,37 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.instructional_representation
+kind: research_reference
+source:
+  path: Research/Instructional_Representation.md
+  url: ../Instructional_Representation.md
+  fingerprint: fnv1a32-ce0a38e7
+sections:
+  paper-instructional-representation: |-
+    Instructional representation exposes scope, priority, authority, identity, evidence, and dependency relations for direct model interpretation without implying executable program semantics. ArcGrav is one candidate representation, not a new runtime or proof of superior interpretation.
+  abstract: |-
+    Language-model instructions often encode relationships such as scope, priority, reference identity, authority, and evidence that do not require executable program semantics. This paper defines instructional representation as a directly model-interpreted form that makes these relationships explicit while retaining natural-language meaning. It distinguishes instruction structure from program structure and situates instructional representation between structured documents and pseudocode.
+  introduction: |-
+    Language models can understand prose, markup, code, and pseudocode through the same natural-language interface. The question is which representation preserves instruction relationships with manageable interpretation overhead. MNSR is the broader relational-recovery framework; instructional representation is one application of it.
+  role-within-the-research-program: |-
+    Instructional representation is the model-interpreted, non-executable category within MNSR. This paper defines its boundaries and explains why explicit instruction structure need not become executable program structure.
+  structure-is-not-synonymous-with-programming: |-
+    Explicit instruction relationships do not require functions, variables, loops, or executable control flow. Use code for genuinely algorithmic tasks; use model-interpreted structure when the primary need is to bind instructions, constraints, references, and authority. Syntax resemblance to code is not evidence of execution.
+  ir-instructional-representation: |-
+    An instructional representation gives natural-language directions explicit scope, priority, reference, authority, and dependency relationships without converting them into an externally executed program. It belongs between unstructured prose and formal code; no notation alone enforces behavior.
+  ir-model-native-instructional-representation: |-
+    Model-native instructional representation uses model-familiar markers for hierarchy, scope, priority, identities, constraints, and reuse. Symbols bind documented contexts while instructions retain natural-language semantics. Model recognition is a design hypothesis; execution guarantees require external enforcement.
+  ir-semantic-function-matching: |-
+    Match notation to the relationship being expressed. Familiar code suits loops, deterministic state transitions, and numerical procedures; documentary structure suits instructions, priorities, constraints, and references. Neither pseudocode nor ArcGrav is universally preferable.
+  ir-arcgrav-as-instructional-representation: |-
+    5. ArcGrav as Instructional Representation: ArcGrav is one implementation of this approach. ArcGrav retains ordinary linguistic content while adding a small set of structural mechanisms for relationships that otherwise have to remain implicit: [Constraint]:
+    P0. Preserve unresolved conflicts
+    P1. Do not infer missing values
+  scope-and-evidence-status: |-
+    This paper defines a model-interpreted, non-executable representation category and its boundaries. Comparative interpretation accuracy and task completion are evaluated by other research strands; they are not established by the category definition.
+  conclusion: |-
+    Instruction structure and program structure serve different semantic functions. ArcGrav illustrates how a model can receive explicit scope, priority, references, and transformation roles while the substantive instruction remains natural language. The preferred representation matches the relationship being expressed rather than maximizing its resemblance to code.
+  related-papers: |-
+    Related Papers: • Model-Native Structural Representation
+    • ArcGrav Interpretive Efficiency
+    • ArcGrav Syntax Efficiency

@@ -1,0 +1,36 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.studies.fox_leopard
+kind: research_reference
+source:
+  path: Research/Context_Triad/Studies/Fox_Leopard_Displacement.md
+  url: ../../../Context_Triad/Studies/Fox_Leopard_Displacement.md
+  fingerprint: fnv1a32-4815d0c0
+sections:
+  paper-fox-leopard-answer-displacement: |-
+    This Semantic Weight pilot tests whether expanding a competing animal description displaces an implicit fox–dog pangram inference. Two supplied verbatim GPT-6 Instant responses differ, but competing length and task-relevant jumping cues change together.
+  a-gpt-6-instant-pilot-observation-of-the-context-triad----24-october-2026: |-
+    Observation date: 24 October 2026. GPT-6 Instant supplied two prompt conditions, one verbatim response per condition, and a reported three runs per condition. The evidence is a pilot record, not an independently replicated experiment.
+  abstract: |-
+    Both prompts retained the distributed cues quick/brown/fox, lazy/dog, and the question about jumping over the dog. Expanding a preceding leopard description from three to fifty attributes changed the supplied answer from Fox to Leopard. The contrast documents answer displacement, not whether length or added jumping-specific support caused it.
+  role-within-the-context-triad: |-
+    This pilot documents answer displacement when a competing animal description expands while the implicit pangram cue remains present. It is a motivating observation for the Semantic Weight study and its proposed controls, not itself a controlled test of the proposed Semantic Weight mechanism.
+  1-the-intended-inferential-correlation: |-
+    1. The Intended Inferential Correlation: The famous English pangram, used in typing and font demonstrations because it contains every letter of the alphabet, is: > The quick brown fox jumps over the lazy dog.
+  2-two-prompts-one-unchanged-implicit-cue: |-
+    2. Two Prompts; One Unchanged Implicit Cue: Both inputs are ordered [Animal3] → [Animal1] → [Animal2] → Question. Exact full stimuli and reported responses appear in Appendix A.
+    Response evidence: Prompt 1 — verbatim: > Animal1 (the quick brown fox) jumps over Animal2 (the lazy dog).
+  3-central-observation-answer-displacement-under-increased-competing-context: |-
+    The implicit pangram cues and final relation stayed unchanged as a preceding Leopard block expanded. The supplied answer shifted from Animal1 (Fox) to Animal3 (Leopard). The longer competing description also introduced relevant jumping cues; the observation does not identify a unique mechanism.
+  4-relation-to-the-context-triad: |-
+    This pilot illustrates answer displacement: the implicit Fox–Dog association remains present but no longer governs the response once the competing Leopard description expands. In Semantic Weight terms, three Leopard attributes became fifty, increasing context volume while also adding task-relevant jumping cues. Their individual effects remain unisolated.
+  5-proposed-tests-of-the-semantic-weight-hypothesis: |-
+    Proposed P0–P6 conditions test the short baseline, size-only expansion, jumping-cue addition, full expansion, jumping-cue ablation, pangram-cue ablation, and separate recognition. Keep the five Fox–Dog descriptor cues and original question fixed in the main expansion comparisons; use matched neutral material, counterbalancing, and repeated responses. These are proposed follow-up tests, not completed results.
+  6-scope-and-evidence-status: |-
+    This 24 October 2026 pilot provides two prompts and one supplied verbatim GPT-6 Instant response per condition, with three runs per condition reported. It documents a paired answer contrast but does not independently isolate support volume, jumping-specific cues, or generalizable frequency. The proposed factorial controls have not been executed in this record.
+  7-conclusion: |-
+    Expanded competing Leopard context coincided with displacement of the implicitly cued Fox answer. Controlled size-only and jumping-cue comparisons are needed before attributing the shift to any particular Semantic Weight mechanism.
+  related-papers: |-
+    The Context Triad distinguishes contextual presence from realized behavioral influence. Semantic Weight develops coherent and competing support, measured proxies, and response experiments that this pilot motivates. Controlled follow-up trials require counterbalancing and matched controls; the reported pilot alone cannot isolate those effects.
+  appendix-a--reported-stimuli-and-responses: |-
+    The source appendix contains both complete prompts and the supplied verbatim GPT-6 Instant answers from 24 October 2026. It preserves the short and expanded Leopard descriptions, unchanged Fox/Dog cues and question, and the reported three-run context. Retrieve the anchored Markdown for exact stimulus or response text; this reference does not reproduce partial stimuli.

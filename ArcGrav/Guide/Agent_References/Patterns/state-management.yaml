@@ -1,0 +1,70 @@
+schema_version: 2
+id: arcgrav.patterns.state_management
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Patterns/state-management.md
+  url: ../../Patterns/state-management.md
+  fingerprint: fnv1a32-1d0a2c12
+sections:
+  ag-state-management: |-
+    Tracks named values, decisions, dependencies, progress, checkpoints, blockers, temporary context, etc. that may change during execution. It defines state ownership, lifecycle, validity, transitions, invalidation, cleanup, etc. without determining the workflow sequence itself.
+  ag-session-state-session-bounded-configuration: |-
+    Store settings that apply throughout the task but should not be treated as permanent facts.
+    [SessionState]:
+    - Repository: ArcGrav
+    - Branch: main
+    - Target: Guide/Patterns
+  ag-conversation-state-turn-state-summary: |-
+    Compress the current interaction into decisions, open items, and active constraints.
+    [ConversationState]:
+    - Decided: One file per category
+    - Active Constraint: ignore git history
+    - Open: Populate target directory
+  ag-working-variables-named-mutable-values: |-
+    Use symbolic references for values that change during execution.
+    [PendingFiles]:
+    - contextual-boundary.md
+    - resolution.md
+    **Rule:** update the named value rather than creating competing aliases.
+  ag-mutable-state-explicit-transition: |-
+    Describe state changes as operations with before-and-after conditions.
+    [Remaining]:
+    => Subtract [Completed] from [Requested]
+  ag-dependency-state-readiness-map: |-
+    Track which tasks are blocked, ready, running, or complete.
+    [DependencyState]:
+    - Resolve source files: "complete"
+    - Derive patterns: "complete"
+    - Render category files: "ready"
+    - Publish index: "blocked by file creation"
+  ag-state-lifecycle-initialize-use-retire: |-
+    Give each state object a clear lifecycle.
+    [Lifecycle]:
+    1. Initialize [Derived]
+    2. Append categorized patterns
+    3. Publish files
+    4. Clear temporary extraction notes
+  ag-checkpoints-recoverable-snapshot: |-
+    Record a compact snapshot after a meaningful stage.
+    [Checkpoint]:
+    - Resources resolved
+    - Category mapping complete
+    - Writes not yet started
+  ag-cleanup-and-reset-behavior-explicit-disposal: |-
+    Define what must be removed or reset after completion or failure.
+    [Cleanup]:
+    - Remove temporary aliases
+    - Do not delete source files
+    - Preserve published outputs and provenance
+  ag-composite-pattern-stateful-work-ledger: |-
+    Avoids hidden state, accidental rework, stale assumptions, and ambiguous recovery behavior.
+    [State]:
+    - `phase`: "discover"
+    - `completed`: []
+    - `pending`: ["derive", "render", "publish"]
+    - `blockers`: []
+    Task:
+    1. Execute the next ready item from [State].pending
+    2. Append it to [State].completed
+    3. Update `phase` and `blockers`
+    4. Create [Checkpoint] after each publication stage

@@ -1,0 +1,237 @@
+{
+  "schema_id": "arcgrav.shared.schema.registration",
+  "schema_version": "1.0.0",
+  "registration_id": "arcgrav.mock-model.runner",
+  "registration_version": "1.0.0",
+  "registration_kind": "runner",
+  "status": "active",
+  "contracts": [
+    {
+      "id": "arcgrav.shared.runner-invocation",
+      "version": "2.0.0"
+    }
+  ],
+  "extensions": {
+    "arcgrav.adapters:entry_point": "AgMark.shared.adapters.Mock_Model:MockRunner",
+    "arcgrav.adapters:supported_controls": [
+      {
+        "name": "model_id",
+        "kind": "choice",
+        "required": true,
+        "comparison_relevant": true,
+        "mapping": "/model/model_id"
+      },
+      {
+        "name": "request_timeout_ms",
+        "kind": "integer",
+        "required": true,
+        "default": 120000,
+        "minimum": 1,
+        "comparison_relevant": true,
+        "mapping": "/timeout_policy/request_timeout_ms"
+      },
+      {
+        "name": "maximum_attempts",
+        "kind": "integer",
+        "required": true,
+        "default": 1,
+        "values": [
+          1
+        ],
+        "comparison_relevant": true,
+        "mapping": "/retry_policy/maximum_attempts"
+      }
+    ],
+    "arcgrav.adapters:fixed_controls": [
+      {
+        "name": "memory_policy",
+        "value": "disabled"
+      },
+      {
+        "name": "request_framing",
+        "value": "mock_json_v1"
+      },
+      {
+        "name": "sampling_mode",
+        "value": "deterministic"
+      },
+      {
+        "name": "tool_policy",
+        "value": "none"
+      }
+    ],
+    "arcgrav.adapters:access_methods": [
+      {
+        "type": "local_process",
+        "transport": "subprocess",
+        "client_name": "agmark-mock-worker",
+        "authentication_class": "not_applicable"
+      }
+    ],
+    "arcgrav.adapters:planning_probe": {
+      "entry_point": "AgMark.shared.adapters.Mock_Model.catalog:probe_planning_identity",
+      "implementation_artifact_id": "AgMark/shared/adapters/Mock_Model/catalog.py"
+    },
+    "arcgrav.adapters:model_discovery": {
+      "entry_point": "AgMark.shared.adapters.Mock_Model.catalog:probe_model_discovery",
+      "implementation_artifact_id": "AgMark/shared/adapters/Mock_Model/catalog.py",
+      "determining_controls": [],
+      "surface": {
+        "kind": "bundled_mock_catalog",
+        "provider_submission": false
+      },
+      "choice_projection": {
+        "default_first": true,
+        "canonical_value": "model_id",
+        "display_value": "label",
+        "selection_modes": [
+          "explicit"
+        ],
+        "normal_path_free_text": false
+      },
+      "scenario_projection": {
+        "source": "scenario",
+        "required": true,
+        "runner_control": "model_id",
+        "canonical_identity": "scenario_id",
+        "display_value": "label",
+        "applicable_model": "base_model_id",
+        "canonical_model_mapping": "model_id",
+        "default": "is_default"
+      }
+    },
+    "arcgrav.adapters:runner_test": {
+      "supported": true
+    },
+    "arcgrav.adapters:validation_replay": {
+      "profile": "unsupported"
+    },
+    "arcgrav.adapters:evidence_class": "provider-free-mock-model-execution",
+    "arcgrav.adapters:target_composition": {
+      "target_class": "mock-model",
+      "external_provider_submission": false,
+      "runtime_provider": "AgMark Mock Model",
+      "authentication_source": null
+    },
+    "arcgrav.adapters:request_framing": {
+      "mode": "mock_json_v1",
+      "serialization": "canonical UTF-8 JSON with separate base64 prompt and input",
+      "prompt_input_preservation": "exact",
+      "accepted_content_representations": [
+        "bytes",
+        "utf-8-text"
+      ]
+    },
+    "arcgrav.adapters:response_retention": {
+      "mode": "stdout_inline_extension",
+      "hash": "sha256",
+      "normalization": "none"
+    },
+    "arcgrav.adapters:telemetry_behavior": {
+      "provider_reported_usage": false,
+      "runner_measured_bytes": true,
+      "stdout_stderr_hashes": true,
+      "attempt_timing": true,
+      "persisted_session": false
+    },
+    "arcgrav.adapters:visible_controls": [
+      "request_timeout_ms"
+    ]
+  },
+  "implementation_artifacts": [
+    {
+      "artifact_id": "AgMark/shared/adapters/Mock_Model/__init__.py",
+      "reference": "AgMark/shared/adapters/Mock_Model/__init__.py",
+      "sha256": "sha256:a91d9333e90d7f7ac5960ede29856ca5a0752dae0d7e91f562f2a8590fedece9"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Mock_Model/catalog.py",
+      "reference": "AgMark/shared/adapters/Mock_Model/catalog.py",
+      "sha256": "sha256:b93d3c0589d3e85827d157d1516d07ef20418cc5138fff22e551802a546a0dd7"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Mock_Model/runner.py",
+      "reference": "AgMark/shared/adapters/Mock_Model/runner.py",
+      "sha256": "sha256:a24156cf61ecdcb9a2c951d650396f53607a3a91eef28e5b976b160f3b0fed97"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Mock_Model/worker.py",
+      "reference": "AgMark/shared/adapters/Mock_Model/worker.py",
+      "sha256": "sha256:0073342b918a21d9a915b2ba44548b45e6f4fd0c971e8e9f2d0757479a6d7e46"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/_contract.py",
+      "reference": "AgMark/shared/adapters/_contract.py",
+      "sha256": "sha256:dce57a805225b5c5708580ca705bbd5c0d8ec5d470959f15513aaabfc25cac58"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/execution/__init__.py",
+      "reference": "AgMark/shared/adapters/execution/__init__.py",
+      "sha256": "sha256:80f3a71c257608165e7a409624492c37bfbe646bb1e4a9e89c8e4f223d37beae"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/execution/emission.py",
+      "reference": "AgMark/shared/adapters/execution/emission.py",
+      "sha256": "sha256:3694bf37b6c3cd6a65d9db55c03071e9a2b48afbda3e5f3592f7b456381bcaf4"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/execution/live_view.py",
+      "reference": "AgMark/shared/adapters/execution/live_view.py",
+      "sha256": "sha256:6878530d4595ea6025c285fb7e0e21483bea0361eda85c7e609ad5984febbbdd"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/execution/orchestration.py",
+      "reference": "AgMark/shared/adapters/execution/orchestration.py",
+      "sha256": "sha256:4c14da6d2bad1393a13555ed85885d1b6005fcf89d1564a7b245ebbda409147c"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/execution/target.py",
+      "reference": "AgMark/shared/adapters/execution/target.py",
+      "sha256": "sha256:b5d263ebe81ffdf4d83110dc5b34ec3fc57cf3cdd2bb10ac3eb453e34bf2a594"
+    },
+    {
+      "artifact_id": "AgMark/shared/mock_model/protocol/__init__.py",
+      "reference": "AgMark/shared/mock_model/protocol/__init__.py",
+      "sha256": "sha256:b9f7b3d4a74c9b628bb89a22014d4c4562db1f3299d44e39ea8bf341cbc95938"
+    },
+    {
+      "artifact_id": "AgMark/shared/mock_model/protocol/runtime.py",
+      "reference": "AgMark/shared/mock_model/protocol/runtime.py",
+      "sha256": "sha256:f109523fe868d72705bc2129b40d16d8804210082ed4268a0aa20e23c8d072d9"
+    },
+    {
+      "artifact_id": "AgMark/shared/mock_model/scenarios/__init__.py",
+      "reference": "AgMark/shared/mock_model/scenarios/__init__.py",
+      "sha256": "sha256:25cfe3934175d2349045459d371aed5e6911de1a63a76aee3bc6708dfb022c37"
+    },
+    {
+      "artifact_id": "AgMark/shared/mock_model/scenarios/runtime.py",
+      "reference": "AgMark/shared/mock_model/scenarios/runtime.py",
+      "sha256": "sha256:6d25513f164b97d0d76ab47c69f8ec7a790facab2f7f2d68c838f7d0e3c6521c"
+    },
+    {
+      "artifact_id": "AgMark/shared/evaluation/telemetry/source.py",
+      "reference": "AgMark/shared/evaluation/telemetry/source.py",
+      "sha256": "sha256:739dc0be74d850e277247f48302948fb05978acfe5f45557ebe2162b0dfb8afc"
+    },
+    {
+      "artifact_id": "AgMark/shared/runtime/identity/runtime_version.py",
+      "reference": "AgMark/shared/runtime/identity/runtime_version.py",
+      "sha256": "sha256:ce491eb99a7e397d7bffae0aacf33bb903fae6dd149e89fa6034ce531f9949b0"
+    }
+  ],
+  "capabilities": [
+    "provider-free",
+    "non-interactive",
+    "isolated-observation-state",
+    "exact-prompt-input-framing",
+    "mixed-process-transcript-retention",
+    "byte-telemetry",
+    "cancellation"
+  ],
+  "limitations": [
+    "Deterministic synthetic model for integration diagnostics, not comparative model capability evidence.",
+    "Native packaged worker only. No provider credentials, provider sessions, token usage, cost, tools or replay telemetry are synthesized.",
+    "Each observation uses a fresh Python process and temporary directory; maximum_attempts is one."
+  ]
+}

@@ -1,0 +1,88 @@
+schema_version: 2
+id: arcgrav.syntax.listing
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Syntax/Listing.md
+  url: ../../Syntax/Listing.md
+  fingerprint: fnv1a32-9e5a2437
+sections:
+  ag-listing: |-
+    Listing uses line prefixes to express membership, sequence, or precedence within a section. The selected prefix tells the model whether child items are independent values, ordered steps, or ranked priorities.
+    Listing encodes membership, sequence, and precedence directly into prompt structure, reducing prose while preserving deterministic interpretation.
+  ag-purpose: |-
+    Represent multiple values compactly; Distinguish unordered context from ordered execution; Encode priority without explanatory prose; Preserve item-level scope and readability
+    **Unordered List**
+    Use `-` when items are members of the same context and order does not control interpretation.
+    Files: - package.json - tsconfig.json - README.md
+    **Ordered List**
+    Use `1.` numbering when items must be performed or interpreted in sequence.
+    Task: 1. Read [Files] 2. Identify inconsistencies 3. Apply corrections 4. Summarize changes
+    **Priority List**
+    Use `P0.`, `P1.`, and subsequent levels when items compete and precedence matters more than order of execution.
+    Constraint: P0. Preserve public behavior P1. Minimize changed files P2. Improve naming where obvious
+    Lower priority numbers represent stronger precedence. Items at the same priority level are co-equal unless another operation defines their order.
+    **Mixed Roles Across Sections**
+    Scope: - src/*.ts - test/*.ts
+    Constraint: P0. Do not change the public API P1. Avoid unrelated refactors
+    Task: 1. Inspect [Scope] 2. Fix confirmed defects 3. Run relevant tests
+  ag-rules: |-
+    **Dash for Membership** — use `-` for unordered values or parallel instructions; **Number for Sequence** — use `1.` numbering only when order is meaningful; **Priority for Precedence** — use `P0.` upward when conflicts must be resolved predictably; **One Item Per Line** — keep each list item semantically singular; **Atomic Ideas** — when an element contains a comma-separated set of distinct ideas:; Keep the shared statement as the parent; Move each idea into an indented bullet; **Element Form** — begin each element with a capital letter and omit trailing punctuation unless exact form is semantically required by a:; Literal; Identifier; Path; Code fragment; Executable syntax; **Local Consistency** — use one list type for one purpose within a list; **Child Binding** — indented content belongs to the immediately preceding list item
+  ag-constraints: |-
+    Do not number items solely for decoration; Do not use priority notation where ordinary order is sufficient; Avoid combining `-`, numeric ordering, and priority notation on the same line; Keep priority levels sparse; introduce only distinctions that affect behavior; State dependencies explicitly rather than assuming adjacency implies them
+  ag-unordered-membership: |-
+    Represent members whose relative position does not affect meaning.
+    [Files]: - architecture.md - testing.md - ownership.md
+  ag-constraint-set: |-
+    Represent independent requirements without implying precedence.
+    [Constraint]: - Preserve existing behavior - Minimize file changes - Use friendly names
+  ag-schema-field-list: |-
+    Declare the fields belonging to a model.
+    [FindingSchema]: - `id` - `category` - `evidence` - `resolution`
+  ag-import-set: |-
+    Declare independently required symbolic dependencies.
+    Import: - [Standard] - [FindingSchema] - [Validation]
+  ag-scoped-validator: |-
+    State what a validator does and does not cover.
+    [SchemaValidator]: - Confirm required fields - Confirm recognized types - Do not validate semantic correctness
+  ag-composite-membership: |-
+    Represent one conceptual component as a collection of reusable members.
+    [ArtifactSystem]: - [Tree] - [Map] - [Route] - [Registry]
+  ag-ordered-sequence: |-
+    Represent steps whose order affects execution or interpretation.
+    Task: 1. Read [Source] 2. Extract [Candidates] 3. Validate [Candidates] 4. Render the result
+  ag-resolve-before-use: |-
+    Resolve a file-backed reference before treating it as loaded context.
+    Task: 1. Resolve [Validator] 2. Apply [Validator] to [Artifact]
+  ag-lifecycle-bracketing: |-
+    Initialize or clear mutable state before work and consume or discard it afterward.
+    Task: 1. Clear [Results] 2. Populate [Results] 3. Validate [Results] 4. Render [Results] 5. Discard temporary state
+  ag-validator-chain: |-
+    Run focused validation passes in prerequisite order.
+    Validation: 1. Run [SchemaValidation] 2. Run [ReferenceValidation] 3. Run [SemanticValidation] 4. Run [ConsistencyValidation]
+  ag-direct-source-verification: |-
+    Verify generated output against its authoritative source.
+    Verify: 1. Read [Source] 2. Compare [Artifact] directly with [Source] 3. Report differences
+  ag-postcondition-check: |-
+    Run a final focused check before returning or publishing.
+    Task: 1. Generate [Artifact] 2. Validate [Artifact] 3. Apply [Postcheck] 4. Return [Artifact]
+  ag-idempotence-check: |-
+    Run maintenance twice and confirm the second run makes no further changes.
+    [Verify]: 1. Run [Maintenance] 2. Run [Maintenance] again 3. Confirm no additional changes
+  ag-conditional-continuation: |-
+    Evaluate a condition before performing dependent work.
+    Task: 1. Determine feasibility AS [Fulfillable] 2. If [Fulfillable] is true, proceed with [Goal]
+  ag-priority-sequence: |-
+    Rank items by authority, severity, urgency, or preference.
+    [Constraint]: P0. Do not change the public API P1. Minimize file edits P2. Improve naming
+  ag-authority-ranking: |-
+    Prefer evidence from higher-authority sources.
+    [Authority]: P0. Authoritative source P1. Maintained secondary source P2. Inferred evidence
+  ag-severity-ranking: |-
+    Order findings by impact rather than discovery order.
+    [Severity]: P0. Blocking P1. Major P2. Minor P3. Informational
+  ag-stable-ordering-specification: |-
+    Define ranking keys and tie-breaking behavior explicitly.
+    [Ordering]: P0. Category rank P1. Identifier P2. Original position
+  ag-dependency-aware-priority: |-
+    Separate urgency from prerequisite order before combining them.
+    [Repair]: P0. Blocking prerequisites P1. Blocking dependents P2. Major findings P3. Minor findings

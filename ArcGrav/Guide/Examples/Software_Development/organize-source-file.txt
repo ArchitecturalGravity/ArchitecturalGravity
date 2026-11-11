@@ -1,0 +1,18 @@
+# Intent: Organize a source file into a clearer declaration order while preserving behavior
+
+[Target]: ./src/processor.js
+
+[Goal]:
+- Imports first
+- Module-scope declarations next
+- Primary functions before their helpers
+- Exports last and aligned with declaration order
+
+[Constraints]:
+- Preserve runtime behavior
+- Make structural changes only
+
+Task:
+1. Observe [Target]
+2. Apply [Goal] to [Target]
+3. Verify [Constraints]

@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://swe-rebench.com/schemas/normalized-trajectory-1.1.0.json",
+  "title": "SWE-rebench normalized trajectory without patch",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "trajectory_id",
+    "instance_id",
+    "language",
+    "repository",
+    "participant",
+    "run",
+    "prompts",
+    "events",
+    "usage",
+    "evaluation",
+    "normalization"
+  ],
+  "properties": {
+    "schema_version": {"const": "1.1.0"},
+    "trajectory_id": {"type": "string", "minLength": 1},
+    "instance_id": {"type": "string", "minLength": 1},
+    "language": {"enum": ["go", "java", "python", "rust", "typescript"]},
+    "repository": {"type": ["string", "null"]},
+    "participant": {
+      "type": "object",
+      "required": ["key", "type", "scaffold", "model", "reasoning_effort"],
+      "properties": {
+        "key": {"type": "string"},
+        "type": {
+          "enum": ["common_scaffold_model", "agentic_system"]
+        },
+        "scaffold": {"type": "string"},
+        "model": {"type": "string"},
+        "reasoning_effort": {"type": ["string", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "run": {
+      "type": "object",
+      "required": ["index", "attempt", "retry_number"],
+      "properties": {
+        "index": {"type": "integer", "minimum": 0, "maximum": 4},
+        "attempt": {"const": "canonical"},
+        "retry_number": {"type": ["integer", "number", "null"]}
+      },
+      "additionalProperties": false
+    },
+    "prompts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["role", "content", "status"],
+        "properties": {
+          "role": {"enum": ["system", "developer", "user"]},
+          "content": {"type": ["string", "null"]},
+          "status": {
+            "enum": [
+              "exact",
+              "exact_task_input",
+              "exact_rendered",
+              "exact_cli_append",
+              "exact_cli_config",
+              "template_not_rendered",
+              "not_available_in_source_trace"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["seq", "type"],
+        "properties": {
+          "seq": {"type": "integer", "minimum": 0},
+          "type": {
+            "enum": [
+              "assistant_message",
+              "assistant_analysis",
+              "prompt",
+              "tool_call",
+              "tool_result",
+              "file_change",
+              "agent_step",
+              "final_message"
+            ]
+          },
+          "content": {},
+          "visibility": {"type": "string"},
+          "tool_call_id": {"type": "string"},
+          "tool": {"type": "string"},
+          "input": {},
+          "status": {"type": ["string", "null"]},
+          "exit_code": {"type": ["integer", "null"]},
+          "duration_ms": {"type": ["number", "null"]},
+          "elapsed_ms": {"type": ["number", "null"]},
+          "error": {},
+          "changes": {},
+          "name": {"type": "string"},
+          "messages": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["role", "content", "status"],
+              "properties": {
+                "role": {"enum": ["system", "developer", "user"]},
+                "content": {"type": ["string", "null"]},
+                "status": {
+                  "enum": [
+                    "exact",
+                    "exact_task_input",
+                    "exact_rendered",
+                    "exact_cli_append",
+                    "exact_cli_config",
+                    "template_not_rendered",
+                    "not_available_in_source_trace"
+                  ]
+                }
+              },
+              "additionalProperties": false
+            }
+          },
+          "invocation": {"type": "object"},
+          "completeness": {"enum": ["exact", "partial"]},
+          "unavailable": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "content_sha256": {"type": "string"},
+          "content_bytes_original": {"type": "integer", "minimum": 0},
+          "content_format": {"enum": ["text", "json"]},
+          "truncated": {"type": "boolean"},
+          "omitted_reason": {"enum": ["size_limit", "generated_cache"]}
+        },
+        "additionalProperties": false
+      }
+    },
+    "usage": {"type": "object"},
+    "evaluation": {
+      "type": "object",
+      "required": [
+        "resolved",
+        "status",
+        "agent_exit_status",
+        "evaluation_matches_selected"
+      ],
+      "properties": {
+        "resolved": {"type": "boolean"},
+        "status": {"type": "string"},
+        "agent_exit_status": {"type": ["string", "null"]},
+        "evaluation_matches_selected": {"type": "boolean"}
+      },
+      "additionalProperties": false
+    },
+    "normalization": {
+      "type": "object",
+      "required": [
+        "tool_result_limit_bytes",
+        "truncated_tool_results",
+        "cache_tool_results_omitted",
+        "infrastructure_redactions"
+      ],
+      "properties": {
+        "tool_result_limit_bytes": {"type": "integer", "minimum": 1},
+        "truncated_tool_results": {"type": "integer", "minimum": 0},
+        "cache_tool_results_omitted": {"type": "integer", "minimum": 0},
+        "infrastructure_redactions": {"type": "object"}
+      },
+      "additionalProperties": false
+    }
+  },
+  "not": {
+    "anyOf": [
+      {"required": ["patch"]},
+      {"required": ["output"]},
+      {"required": ["model_patch"]}
+    ]
+  },
+  "additionalProperties": false
+}

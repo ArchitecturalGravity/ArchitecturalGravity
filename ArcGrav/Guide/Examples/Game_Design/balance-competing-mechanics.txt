@@ -1,0 +1,117 @@
+# Intent: Rebalance a duel-arena ruleset where evasive mobility and a high-impact charged weapon compete for control without erasing their intended counterplay
+
+[BalanceContext]:
+- Mode: One-versus-one arena duel
+- Round target: 90 to 150 seconds
+- Skill focus: Positioning and timing
+- Problem: High-level play favors repeated dash disengagement until HeavyCannon charge is safe
+
+[CurrentRules]:
+- Dash:
+  - Charges: 2
+  - Recharge time: 3.0 seconds per charge
+  - Distance: 6 meters
+  - Invulnerability window: 0.18 seconds
+  - Recovery: 0.20 seconds
+- HeavyCannon:
+  - Charge time: 1.25 seconds
+  - Projectile speed: 34 meters per second
+  - Direct-hit damage: 70
+  - Splash damage: 35
+  - Movement while charging: 55 percent normal speed
+  - Cancel cost: Charge progress is lost
+- PrimaryAttack:
+  - Damage: 18
+  - Recovery: 0.28 seconds
+  - Purpose: Reliable pressure at close and medium range
+
+[ObservedEvidence]:
+- Playtest set A:
+  - Skill band: Advanced internal testers
+  - Matches: 48
+  - HeavyCannon users won 67 percent of rounds
+  - HeavyCannon hits occurring within 1.0 seconds after the opponent spent the second Dash charge: 61 percent
+- Playtest set B:
+  - Skill band: Intermediate internal testers
+  - Matches: 52
+  - HeavyCannon users won 54 percent of rounds
+  - Players reported difficulty knowing when both Dash charges were unavailable
+- Review note:
+  - Source: ./arena-balance-review.md
+  - Finding: Long disengagement chains reduce PrimaryAttack relevance
+
+[BalanceIntent]:
+- Dash should remain the strongest immediate repositioning tool
+- Spending both Dash charges should create a temporary vulnerability window
+- HeavyCannon should reward prediction and commitment
+- HeavyCannon should not become a guaranteed punish for every exhausted Dash state
+- PrimaryAttack should remain the dependable way to maintain pressure
+- Counterplay should become more readable before raw damage is reduced
+
+[ProtectedRelationships]:
+- Dash beats committed short-range pressure when a charge is available
+- HeavyCannon threatens predictable exits from Dash
+- PrimaryAttack pressures opponents who wait indefinitely for ideal HeavyCannon timing
+- A player who spends both Dash charges accepts more positional risk than a player who preserves one
+- HeavyCannon retains meaningful commitment because canceling loses charge progress
+
+[AdjustmentKnobs]:
+- Dash:
+  - Recharge time
+  - Distance
+  - Recovery
+  - Charge visibility
+- HeavyCannon:
+  - Charge time
+  - Projectile speed
+  - Damage
+  - Movement while charging
+- PrimaryAttack:
+  - Damage
+  - Recovery
+
+[CandidateChanges]: []
+
+[RejectedChanges]: []
+
+[Balance]:
+=> Identify which [CurrentRules] most directly explain [ObservedEvidence] under [BalanceContext]
+=> Prefer changes that expose the existing vulnerability window before changes that remove the window
+=> Build the smallest coupled adjustment set from [AdjustmentKnobs] that preserves [ProtectedRelationships]
+=> For each proposed adjustment record:
+  - Target rule
+  - Current value
+  - Proposed value
+  - Expected interaction effect
+  - Evidence motivating the change
+  - Risk to another protected relationship
+=> Reject any adjustment that makes one mechanic strictly superior across the same situations
+=> Append viable adjustments to [CandidateChanges]
+=> Append considered changes that violate [BalanceIntent] or [ProtectedRelationships] to [RejectedChanges]
+
+[TestMatrix]:
+- One Dash charge available against HeavyCannon charge start
+- Zero Dash charges available against HeavyCannon charge start
+- Two Dash charges available against PrimaryAttack pressure
+- HeavyCannon cancel during opponent approach
+- Long-range neutral state with both players at full resources
+- Corner pressure with defender holding one Dash charge
+
+[Acceptance]:
+- Dash remains a credible escape from a committed attack when at least one charge is preserved
+- Exhausting both Dash charges creates a readable punish window
+- HeavyCannon requires prediction or positional advantage for reliable conversion
+- PrimaryAttack remains useful during neutral pressure
+- No accepted adjustment removes the commitment cost of HeavyCannon
+- Each accepted adjustment is traceable to observed evidence or a protected relationship
+
+[Review]:
+=> Apply [CandidateChanges] conceptually across [TestMatrix]
+=> Record any scenario where the adjustment creates a new dominant loop
+=> Record any condition in [Acceptance] that cannot be evaluated from available evidence
+=> Preserve unresolved balance questions for another playtest rather than inventing confidence
+
+Task:
+1. Run [Balance]
+2. Run [Review]
+3. Present [CandidateChanges] and [RejectedChanges] with unresolved evidence needs

@@ -1,0 +1,104 @@
+# Intent: Form a non-operational conceptual antigravity-related device from a previously derived mechanism while preserving assumptions, observables, falsification conditions, and ordinary-force alternatives
+
+[DerivedMechanism]:
+- Supply one candidate mechanism that passed a prior derivation and formation gate
+
+[DeviceObjective]:
+- Produce a measurable effect relevant to:
+  - Apparent weight
+  - Inertial response
+  - A gravity-like field
+- Make the effect distinguishable from conventional forces and measurement artifacts
+- Preserve a direct trace from every subsystem to the mechanism it is intended to test
+
+[ConceptModel]:
+- Mechanism
+- Input domain
+- Expected observable
+- Control condition
+- Competing ordinary explanation
+- Discriminating measurement
+- Failure interpretation
+- Confidence
+
+[Subsystems]: []
+
+[SignalPath]: []
+
+[Controls]: []
+
+[Observables]: []
+
+[FailureModes]: []
+
+[Concept]: []
+
+[Form]:
+=> Align the conceptual architecture with [DeviceObjective]
+=> Map [DerivedMechanism] into [ConceptModel]
+=> Derive only the minimum conceptual subsystems required to:
+  - Excite or represent the proposed mechanism
+  - Isolate the target observable
+  - Measure the expected effect
+  - Compare against control conditions
+=> Append each derived subsystem to [Subsystems]
+=> For each [Subsystems] item ↳
+  - State its functional responsibility
+  - State which part of [DerivedMechanism] requires it
+  - State the observable it contributes to
+  - State at least one conventional explanation that could imitate its contribution
+=> Append subsystem relationships to [SignalPath]
+=> Append controls to [Controls] for these categories:
+  - Negative
+  - Sham
+  - Baseline
+  - Environmental
+=> Append measurable outcomes to [Observables]
+=> Append ways the concept could fail without implying the mechanism is false to [FailureModes]
+=> Compose the resulting architecture into [Concept]
+
+Constraint:
+- Treat the output as a conceptual research architecture, not a validated machine
+- Do not invent missing:
+  - Physical laws
+  - Constants
+  - Materials
+  - Efficiencies
+  - Performance values
+- Do not supply hazardous operating or fabrication parameters:
+  - Voltages
+  - Field strengths
+  - Energies
+  - Pressures
+  - Rotational speeds
+  - Fabrication tolerances
+- Do not supply step-by-step construction instructions
+- Do not use unexplained thrust or scale readings as sufficient evidence of gravitational modification
+- Prefer designs that maximize discriminating evidence rather than claimed performance
+- Keep these functions separate from the hypothesized effect generator:
+  - Measurement
+  - Control
+  - Interpretation
+
+[Traceability]:
+=> For every element in [Concept] verify:
+  1. Verify that it maps to:
+    - [DerivedMechanism]
+    - A control
+    - A measurement requirement
+  2. Its contribution is distinct
+  3. Removing it would either reduce discriminating power or remove a necessary conceptual function
+=> Remove elements that fail [Traceability]
+
+Task:
+1. Observe [DerivedMechanism]
+2. Run [Form]
+3. Run [Traceability]
+4. Return:
+  - Conceptual device architecture
+  - Subsystem responsibilities
+  - Signal path
+  - Controls
+  - Observables
+  - Failure modes
+  - Assumptions and unresolved dependencies

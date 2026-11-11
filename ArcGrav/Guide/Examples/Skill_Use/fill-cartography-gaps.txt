@@ -1,0 +1,7 @@
+# Intent: Use the cartography skill to populate missing repository context within a target directory
+
+Using: $cartographic-agentic-contexting
+
+[Target]: C:\Programming\MyProject\Pricing
+
+Task: Populate within [Target] where cartography is lacking

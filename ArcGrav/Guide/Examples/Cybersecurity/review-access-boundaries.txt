@@ -1,0 +1,127 @@
+# Intent: Review identities privileges trust boundaries and authorization requirements to identify defensive access risks and required corrections
+
+[System]:
+- Service: Hosted reporting platform
+- Scope:
+  - Production application
+  - Administrative console
+  - Deployment pipeline
+  - Customer data store
+  - Support tooling
+
+[SupportAnalyst]:
+- Type: Human workforce role
+- Purpose: Investigate customer support cases
+
+[PlatformEngineer]:
+- Type: Human workforce role
+- Purpose: Operate production infrastructure
+
+[DeploymentService]:
+- Type: Service identity
+- Purpose: Deploy approved application releases
+
+[ReportingService]:
+- Type: Service identity
+- Purpose: Read customer data required for report generation
+
+[Identities]:
+- [SupportAnalyst]
+- [PlatformEngineer]
+- [DeploymentService]
+- [ReportingService]
+
+[SupportToProduction]:
+- From: [SupportAnalyst]
+- To: Production support tooling
+- TrustChange: Workforce identity enters production support context
+
+[EngineerToAdministration]:
+- From: [PlatformEngineer]
+- To: Administrative console
+- TrustChange: Workforce identity gains privileged production control
+
+[PipelineToProduction]:
+- From: [DeploymentService]
+- To: Production application
+- TrustChange: Automated release process changes production state
+
+[ApplicationToData]:
+- From: [ReportingService]
+- To: Customer data store
+- TrustChange: Application identity crosses into protected customer data
+
+[Boundaries]:
+- [SupportToProduction]
+- [EngineerToAdministration]
+- [PipelineToProduction]
+- [ApplicationToData]
+
+[AuthorizationRequirements]:
+- `AR-01`:
+  - Boundary: [SupportToProduction]
+  - Requirement: Support access must be case-scoped and time-bounded
+  - Source: ./access-policy.md
+- `AR-02`:
+  - Boundary: [EngineerToAdministration]
+  - Requirement: Administrative access requires strong authentication and recorded approval
+  - Source: ./privileged-access-standard.md
+- `AR-03`:
+  - Boundary: [PipelineToProduction]
+  - Requirement: Deployment identity may change application artifacts but may not administer workforce identities
+  - Source: ./service-identity-policy.md
+- `AR-04`:
+  - Boundary: [ApplicationToData]
+  - Requirement: Reporting service receives read access only to data required for report generation
+  - Source: ./data-access-policy.md
+
+[Evidence]:
+- Role assignments: ./evidence/role-assignments.csv
+- Support access grants: ./evidence/support-grants.csv
+- Privileged approvals: ./evidence/admin-approvals.csv
+- Service identity permissions: ./evidence/service-permissions.json
+- Data policy bindings: ./evidence/data-bindings.json
+- Authentication policy: ./evidence/auth-policy.json
+
+[BoundaryReviews]: []
+
+[Exceptions]: []
+
+[RequiredChanges]: []
+
+[ReviewBoundaries]:
+=> Limit review to [System]
+=> For each item in [Boundaries] ↳
+  => Identify the identities in [Identities] allowed to cross the boundary
+  => Map applicable requirements from [AuthorizationRequirements]
+  => Compare assigned privileges with the minimum capability needed for the stated purpose
+  => Verify enforcement using [Evidence]
+  => Record whether access is:
+    - Required
+    - Authorized
+    - Appropriately scoped
+    - Time-bounded where required
+    - Auditable where required
+  => Append the result to [BoundaryReviews]
+
+[EvaluateExceptions]:
+=> When observed access exceeds an applicable requirement:
+  => Determine whether a documented exception exists
+  => Preserve exception authority and expiry when present
+  => Append undocumented expired or overbroad access to [Exceptions]
+=> Do not infer legitimate need from historical use alone
+=> Do not treat service identity automation as justification for unrestricted privilege
+
+[DeriveChanges]:
+=> For each material issue in [BoundaryReviews] and [Exceptions] ↳
+  => Identify the smallest access correction that restores the requirement
+  => Preserve operational dependencies needed for safe sequencing
+  => Prefer reducing privilege or duration over broad access removal when narrower correction fully satisfies the requirement
+  => Append the required correction and verification condition to [RequiredChanges]
+=> Keep unresolved ownership or business-need questions explicit rather than approving access by assumption
+
+Task:
+1. Run [ReviewBoundaries]
+2. Run [EvaluateExceptions]
+3. Run [DeriveChanges]
+4. Report [BoundaryReviews] [Exceptions] and [RequiredChanges] with requirement and evidence traceability

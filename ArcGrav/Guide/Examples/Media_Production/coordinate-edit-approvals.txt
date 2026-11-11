@@ -1,0 +1,72 @@
+# Intent: Coordinate an editorial revision cycle so each requested change remains linked to its review source affected asset and approval state
+
+EditContext:
+  - Project: Short documentary
+  - Current cut: `v07`
+  - Target state: Approved picture lock
+  - Downstream dependency: Final mix begins after picture lock
+
+[ReviewNotes]:
+  - `N1`:
+    - Source: Director review
+    - Request: Shorten the opening montage
+    - Affected asset: Picture sequence
+    - Approval owner: Director
+  - `N2`:
+    - Source: Producer review
+    - Request: Extend the closing title card
+    - Affected asset: Graphics package
+    - Approval owner: Producer
+  - `N3`:
+    - Source: Caption review
+    - Request: Hold two graphics longer for readable caption timing
+    - Affected asset: Picture sequence
+    - Approval owner: Caption reviewer
+
+[Assets]:
+  - Picture sequence: `edit-v07`
+  - Graphics package: `graphics-r6`
+  - Captions: `captions-r2`
+
+[RevisionState]: []
+
+[ApprovalState]: []
+
+[Coordinate]:
+  => For each note in [ReviewNotes] ↳
+    => Preserve note details in [RevisionState] ↳
+      - Note identifier and review source
+      - Requested change
+      - Affected asset and current version from [Assets]
+      - Approval owner
+    => Mark implementation as pending until verified
+  => Compare notes using verified timeline intervals
+  => If timeline intervals are unavailable:
+    => Record overlap status as unresolved in [RevisionState]
+  => If two notes cannot both be satisfied:
+    => Record the conflict in [RevisionState]
+    => Route it to the affected approval owners
+  => For each verified completed revision:
+    => Record its resulting asset version in [RevisionState]
+    => Append an approval request to [ApprovalState]
+  => Update [ApprovalState] only from explicit owner approval or waiver
+  => Preserve unresolved notes rather than treating implementation as approval
+
+[LockGate]:
+  => READY only when all:
+    - Every required note in [ReviewNotes] is approved or explicitly waived by its owner
+    - Every changed asset in [RevisionState] has a recorded version and approval in [ApprovalState]
+    - All conflicts are resolved or explicitly waived by their affected owners
+  => Otherwise BLOCKED
+  => Do not begin the downstream final mix until READY
+
+Task:
+  1. Run [Coordinate]
+  2. Run [LockGate]
+  3. Provide:
+    - Revision state
+    - Note provenance
+    - Asset versions
+    - Conflicting or potentially overlapping notes
+    - Approval state
+    - Picture-lock readiness

@@ -1,0 +1,25 @@
+# Intent: Diagnose the cause of a JavaScript interop error within one scoped file using the supplied error verbatim
+
+Scope: C:\Programming\MyProject\Pricing\Web.Client\wwwroot\js\sbspinner.js
+
+[Error]:
+"""
+Error: Microsoft.JSInterop.JSException: Cannot read properties of undefined (reading 'match')
+TypeError: Cannot read properties of undefined (reading 'match')
+    at Module.removeRelativePositionFromParent (https://localhost:44314/js/sbSpinner.js?v=2026.7.8.1:26:38)
+    at https://localhost:44314/_framework/blazor.server.js:1:3047
+    at new Promise (<anonymous>)
+    at y.beginInvokeJSFromDotNet (https://localhost:44314/_framework/blazor.server.js:1:3004)
+    at Xt._invokeClientMethod (https://localhost:44314/_framework/blazor.server.js:1:60890)
+    at Xt._processIncomingData (https://localhost:44314/_framework/blazor.server.js:1:58279)
+    at Xt.connection.onreceive (https://localhost:44314/_framework/blazor.server.js:1:51920)
+    at s.onmessage (https://localhost:44314/_framework/blazor.server.js:1:80026)
+   at Microsoft.JSInterop.JSRuntime.InvokeAsync[TValue](Int64 targetInstanceId, String identifier, Object[] args)
+   at Microsoft.JSInterop.JSObjectReferenceExtensions.InvokeVoidAsync(IJSObjectReference jsObjectReference, String identifier, Object[] args)
+   at Web.Client.Services.JSSpinnerService.RemoveRelativePositionFromParent(ElementReference spinnerRef, Int32 spinnerId)
+   at Web.Client.Components.SbSpinner.PrepParentElement(Boolean setRelative)
+   at Web.Client.Components.SbSpinner.System.IAsyncDisposable.DisposeAsync()
+   at Microsoft.AspNetCore.Components.RenderTree.Renderer.<ProcessDisposalQueueInExistingBatch>g__GetHandledAsynchronousDisposalErrorsTask|79_0(Task result)
+"""
+
+Task: Identify cause of [Error]

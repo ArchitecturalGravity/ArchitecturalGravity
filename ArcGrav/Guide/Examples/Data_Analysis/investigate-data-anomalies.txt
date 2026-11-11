@@ -1,0 +1,78 @@
+# Intent: Investigate an unexpected change in a business metric by distinguishing these possible sources before assigning a cause
+#   - Source-data defects
+#   - Pipeline effects
+#   - Population shifts
+#   - Genuine real-world behavior
+
+[ObservedAnomaly]:
+- Daily completed orders increased 38% on 2027-04-12
+- Revenue increased only 9% on the same day
+- The dashboard refresh completed without a reported pipeline failure
+
+[OrdersRaw]: ./orders-raw-2027-04.csv
+
+[OrdersModeled]: ./orders-modeled-2027-04.csv
+
+[DashboardExtract]: ./orders-dashboard-extract.csv
+
+[PipelineLog]: ./orders-pipeline-log.txt
+
+[ReleaseCalendar]: ./commerce-release-calendar.csv
+
+[ExpectedBehavior]:
+- One modeled order per source order after documented exclusions
+- Completed-order counts should agree between the modeled table and dashboard extract for the same refresh boundary
+- Order value should remain positive for completed orders
+- Ordinary day-to-day order-count movement is usually within 12% absent one of:
+  - Promotion
+  - Release
+  - Operational event
+
+[Findings]: []
+
+[Localize]:
+=> Recalculate daily order count and revenue independently from each source:
+  - [OrdersRaw]
+  - [OrdersModeled]
+  - [DashboardExtract]
+=> Identify the earliest layer where the change in [ObservedAnomaly] appears
+=> Around the anomalous date, compare:
+  - Record counts
+  - Unique order identifiers
+  - Duplicate rates
+  - Null rates
+  - Exclusion rates
+=> Test the comparisons against [ExpectedBehavior]
+=> Append material differences to [Findings] with the source and measurement that exposes them
+
+[Explain]:
+=> For each finding, test whether it is consistent with one or more of:
+  - Duplicate or replayed records
+  - Changed filtering or transformation logic
+  - Late-arriving or backfilled data
+  - Changed mix:
+    - Customer
+    - Channel
+    - Geography
+    - Product
+  - Genuine increase in low-value orders
+  - Unknown cause
+=> Check [PipelineLog] and [ReleaseCalendar] only for events whose timing could produce the observed pattern
+=> Quantify how much of the 38% order-count increase each supported explanation accounts for
+=> Do not treat temporal coincidence as causal evidence by itself
+
+[Conclude]:
+=> Prefer the narrowest explanation supported across independent evidence
+=> If multiple causes contribute, separate their estimated effects rather than forcing one root cause
+=> If the anomaly cannot be explained from available evidence, state what remains unexplained and which additional source would resolve it
+=> Report:
+  - Where the anomaly first enters the data flow
+  - Confirmed data-quality or transformation defects
+  - Confirmed population or behavior changes
+  - Quantified contribution of each supported cause
+  - Unresolved questions and next checks
+
+Task:
+1. Run [Localize]
+2. Run [Explain]
+3. Run [Conclude]

@@ -1,0 +1,81 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.interpretive_efficiency
+kind: research_reference
+source:
+  path: Research/ArcGrav_Interpretive_Efficiency.md
+  url: ../ArcGrav_Interpretive_Efficiency.md
+  fingerprint: fnv1a32-bcc6bed8
+sections:
+  paper-interpretive-efficiency: |-
+    Interpretive Efficiency measures the representation-specific explanation, acquisition, maintenance, and repair needed before a model reliably recovers intended instruction semantics. It is distinct from serialization token count and downstream task performance.
+  abstract: |-
+    Different prompt representations impose different recognition, explanation, acquisition, maintenance and remapping costs even when they encode comparable tasks. ArcGrav hypothesizes lower representation-specific acquisition/repair burden through familiar natural-language and technical structural cues rather than private grammar mappings. The paper proposes zero-specification probes, specification-dose comparisons, cue ablations, randomized isomorphic controls and cross-model tests. Zero-spec examples motivate, but do not establish, general superiority or portability.
+  introduction: |-
+    Short syntax does not necessarily mean low interpretive cost: models may need local instructions to recover scope, priorities, references, and operations encoded by unfamiliar conventions. The paper compares acquisition and reuse costs while separating semantic interpretation from task success.
+  role-within-the-research-program: |-
+    This paper studies the additional explanation needed for a model to interpret structured instructions correctly. The general prior-alignment hypothesis comes from MNSR while Syntax Efficiency evaluates encoding cost separately. This paper owns zero-specification interpretation, specification-dose curves, acquisition, maintenance, and repair.
+  the-missing-cost-in-structured-prompting: |-
+    Token length and final task accuracy omit the representation-specific information required to interpret a format. An unfamiliar compact notation may need a separate grammar or examples; the cost must include that specification before comparing it with familiar conventions.
+  interpretive-interpretive-efficiency: |-
+    Interpretive efficiency concerns how little representation-specific teaching, correction, and remapping a model needs to recover intended scope, priority, and other operational relationships at a stated reliability level. Equal end accuracy does not imply equal acquisition cost.
+  interpretive-representation-recognition: |-
+    Distinguish recognition of learned structural cues from acquiring a conversation-local grammar. Measure whether models interpret a representation without added syntax explanation, then vary specification dose to separate native recognition from taught mapping.
+  interpretive-zero-specification-interpretability: |-
+    Zero-specification interpretability tests whether models recover intended sectioning, priority, hierarchy, reference, and operation semantics without a format-specific grammar or examples. Probe structural interpretation directly, separately from task success; baseline and scoring must be matched.
+  interpretive-acquisition-maintenance-repair: |-
+    Representation-specific lifecycle cost includes initial tokens or examples used to acquire notation semantics, later restatement or normalization of those semantics, and correction after interpretation failures. Evaluate cost over the declared conversation horizon and number of uses, adding per-use syntax costs. A short expression need not be cheap after its acquisition and repair burden.
+  interpretive-cold-start: |-
+    5. Lifecycle Amortization: A representation with high acquisition cost can become economical after enough reuse. If a DSL requires 300 tokens of grammar but saves 20 tokens per later use, then ignoring maintenance and repair its serialization break-even occurs after approximately 15 uses. Interpretive-efficiency studies should therefore report cost curves over N, not only one-shot totals.
+  interpretive-arcgrav-design-hypothesis: |-
+    7. The ArcGrav Design Hypothesis: ArcGrav uses model-interpreted structural cues rather than parser-enforced grammar rules: [Policy]:
+    P0. Preserve public API
+    P1. Minimize changes [Normalized]:
+    => Normalize [Records]
+  research-hypotheses: |-
+    Four falsifiable hypotheses distinguish representation-specific teaching costs at equal semantics, advantages of familiar prior-aligned cues over randomized mappings, ArcGrav's possible performance against strong familiar alternatives, and whether reduced teaching cost preserves downstream execution. Evaluate semantic recovery and task outcome separately.
+  zero-specification-probes: |-
+    Use small, directly scorable examples to isolate recovery of context names, operations, priority, hierarchy, references, and policy application before testing full tasks. Score intended relationships directly rather than inferring correct interpretation from an acceptable-looking answer.
+  comparison-representations: |-
+    A fair cold-start benchmark includes optimized prose, familiar structured formats, ArcGrav without local instructions, and multiple isomorphic randomized DSLs with or without grammar. Count the cost of supplying any required grammar from zero.
+  familiar-baselines-and-the-pseudocode-boundary: |-
+    Python-like pseudocode is a strong comparison format because learned code conventions offer variables, hierarchy, references, sequencing, and compact operation forms. Do not compare ArcGrav against deliberately weak narrative prose and infer format-specific superiority.
+  interpretive-randomized-isomorphic-representations: |-
+    Randomized isomorphic DSL conditions preserve the same task relations as familiar representations while varying the symbol–meaning mapping. Compare multiple independent random mappings with and without an explicit grammar, rather than treating one arbitrary encoding as representative.
+  interpretive-specification-requirement: |-
+    Measure interpretation accuracy A_R(s) for a representation R after s representation-specific specification tokens; S_tau(R) is the smallest teaching budget attaining a preregistered accuracy threshold. Report zero-specification accuracy, specification-dose curves, threshold attainment, and downstream correctness separately.
+  interpretive-specification-dose: |-
+    Gradually increase grammar instruction at controlled budgets for each representation and measure interpretation acquisition curves; preregister how to determine the specification budget required for fixed accuracy thresholds.
+  outcomes-and-scoring-boundaries: |-
+    Track specification tokens, zero-specification accuracy, dose needed for 90%/95% accuracy, construct-level and downstream correctness, reference/precedence/hierarchy/operation recovery, repairs, retries, and total accepted-task cost.
+  ablations-and-remapping: |-
+    Compare ArcGrav with and without explicit grammar, remove individual structural cues while preserving task semantics, and invert familiar conventions to test remappability. Measure acquisition burden, construct-level recovery, and repair instead of presuming familiar cues are always helpful.
+  interpretive-specification-ablation: |-
+    Compare the same ArcGrav task with no locally supplied notation explanation against a condition with an explicit ArcGrav specification. Measure interpretation reliability and additional specification tokens separately; higher accuracy after teaching does not establish zero-specification interpretation.
+  interpretive-semantic-cue-ablation: |-
+    Remove or replace familiar structural and lexical cues one at a time while preserving the intended task and relational meaning. Compare interpretation accuracy, acquisition, and repair cost against the unmodified form to identify which cues support recognition rather than attributing every outcome to the notation as a whole.
+  interpretive-prior-conflict-remapping: |-
+    Familiar structural associations can hinder interpretation when a local specification deliberately assigns contrary meanings. Compare convention-aligned and convention-conflicting mappings, with and without explicit grammar, under matched task and representation structure. Measure correction and remapping cost rather than assuming prior familiarity always helps.
+  controls-for-fair-comparison: |-
+    Hold canonical task semantics, available features, tools, models, and evaluation standards constant. Give competing formats equally strong authoring and optimization, randomize multiple arbitrary encodings, report uncertainty, and separately score structural interpretation, downstream execution, and output-format compliance.
+  benchmark-program: |-
+    The proposed benchmark combines cold-start interpretation, specification-dose curves, semantically matched format comparisons, randomized DSL controls, and single-construct ablations. Separate decoding of the intended structure from downstream task execution and report model-specific uncertainty.
+  falsification-conditions: |-
+    The general theory weakens if semantically matched formats require indistinguishable teaching budgets; prior alignment weakens if unfamiliar arbitrary cues perform as well at zero specification; ArcGrav-specific claims weaken if strong familiar baselines match or exceed it or feature-matched tests eliminate its benefit. Test historical-state effects separately.
+  implications-for-dsl-comparison-and-design: |-
+    Parser-backed DSLs can provide deterministic execution, validation, types, and schema guarantees that model-interpreted ArcGrav does not. Prefer compact familiar cues only where testing shows they recover needed relationships reliably and lifecycle benefits exceed acquisition and repair costs.
+  scope-and-evidence-status: |-
+    Zero-specification examples motivate rather than prove a prior-alignment advantage. Cross-model portability, acquisition cost, and task-level benefit require matched controls and replication. ArcGrav notation supplies no parser, type-system, or runtime guarantees.
+  conclusion: |-
+    Semantically matched representations may require different amounts of representation-specific instruction to become reliably interpretable. ArcGrav's proposed advantage depends on recoverable familiar conventions and remains a comparative, falsifiable hypothesis.
+  related-papers: |-
+    Related Papers: • ArcGrav Research
+    • Model-Native Structural Representation
+    • Instructional Representation & the Prose–Program Boundary
+    • ArcGrav Syntax Efficiency
+    • Semantic Locality
+    • Semantic Shadow
+    • Semantic Weight
+  references: |-
+    References: • Honovich, O., et al. (2022). Instruction Induction: From Few Examples to Natural Language Task Descriptions. arXiv preprint. https://arxiv.org/abs/2205.10782
+    • Hua, A., et al. (2025).

@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "arcgrav-language-engine"
+version = "0.2.0"
+description = "Standalone, source-exact static analysis for the ArcGrav language"
+readme = {text = "Standalone, source-exact ArcGrav static analysis with executable local contracts.", content-type = "text/plain"}
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+spelling = ["chunspell==2.0.5"]
+
+[tool.setuptools]
+include-package-data = false
+packages = ["arcgrav_language_engine", "arcgrav_language_engine.diagnostics", "arcgrav_language_engine.document", "arcgrav_language_engine.lint", "arcgrav_language_engine.lint.rule_units", "arcgrav_language_engine.recognition"]
+py-modules = []
+package-dir = {arcgrav_language_engine = "."}
+
+[tool.setuptools.package-data]
+arcgrav_language_engine = ["arcgrav_agent_reference.yaml"]
+"arcgrav_language_engine.lint" = ["dictionaries/*.aff", "dictionaries/*.dic", "dictionaries/*.txt", "dictionaries/*.md", "dictionaries/SHA256SUMS", "dictionaries/licenses/*"]

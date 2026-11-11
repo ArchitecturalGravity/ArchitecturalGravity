@@ -1,0 +1,45 @@
+schema_version: 2
+id: arcgrav.syntax.wildcarding
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Syntax/Wildcarding.md
+  url: ../../Syntax/Wildcarding.md
+  fingerprint: fnv1a32-81d5d0a9
+sections:
+  ag-wildcarding: |-
+    Wildcarding uses `*` to represent any matching value within a named path, filename, pattern, or context set. A wildcard expands the target scope without requiring every matching item to be written explicitly.
+    Wildcarding compresses predictable sets into pattern-based targets, reducing enumeration while retaining explicit selection criteria.
+  ag-purpose: |-
+    Compactly select multiple related targets; Express pattern-based scope; Avoid enumerating predictable values; Preserve flexibility as matching items change
+    **Definition**
+    Scope: - Data_*.txt
+    This refers to all matching files whose names begin with `Data_` and end with `.txt`.
+    **Path Wildcarding**
+    Scope: - Guide/Syntax/*.md - src/*/index.ts
+    **Symbolic Composition**
+    [Files]: - Guide/Syntax/*.md
+    Task: - Review [Files]
+    **Broad Context Wildcarding**
+    Scope: - All *_test.py files under tests/*
+    Natural-language qualifiers may be used when the wildcard alone cannot express recursion or another matching rule clearly.
+  ag-rules: |-
+    **Asterisk Means Any Match** — `*` stands for any sequence of matching characters or values in the stated context; **Pattern Preservation** — treat literal text surrounding `*` as required match criteria; **Scoped Expansion** — resolve matches only within the enclosing section or explicitly named location; **Explicit Recursion** — state recursive scope in words when directory depth is not unambiguous; **Post-Expansion Consistency** — apply the same instruction to every resolved match unless exceptions are defined
+  ag-constraints: |-
+    Avoid an unqualified `*` when it could select an unsafe or excessively broad scope; Do not assume shell-specific wildcard behavior unless the environment is named; State exclusions explicitly; Prefer symbolic references when the same wildcarded set is reused; Use literal quote blocks when `*` is source text rather than a selector
+  ag-wildcard-selection: |-
+    Identify a family of matching resources compactly.
+    Files: - src/**/component.json - tests/*Service.test.ts
+  ag-extension-family: |-
+    Select all resources sharing a file extension.
+    Files: - **/*.json
+  ag-name-pattern-family: |-
+    Select resources matching a naming convention.
+    [Files]: - AGENTS.route.*.md - AGENTS.map.*.md
+  ag-bounded-wildcard: |-
+    Pair a wildcard with an explicit root or traversal boundary.
+    Directory: - src/services
+    Files: - **/*.component.json
+  ag-wildcard-with-exclusions: |-
+    State exclusions when a broad wildcard could match unintended resources.
+    Files: - **/*.json
+    Exclude: - node_modules/** - generated/**

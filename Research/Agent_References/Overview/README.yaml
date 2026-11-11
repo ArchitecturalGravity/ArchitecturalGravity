@@ -1,0 +1,47 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.program
+kind: research_reference
+source:
+  path: Research/README.md
+  url: ../../README.md
+  fingerprint: fnv1a32-6f9ebd0b
+sections:
+  research-index: |-
+    Architectural Gravity Research investigates how model-facing representations preserve task relationships and how ArcGrav may affect interpretation and agent performance. Model familiarity, portability, and efficiency are research questions, not established advantages.
+  research-program: |-
+    Eight strands divide conceptual ownership: MNSR—structural recovery; Instructional Representation—model-interpreted instruction relationships; RCR—accessible task capacity; Syntax Efficiency—encoding and reuse cost; Interpretive Efficiency—representation-specific specification cost; Reasoning–Interaction Substitution—accepted-task cost; Operational Leverage—activity versus useful work; Context Triad—placement, history, and competing support.
+  shared-operational-baseline: |-
+    Shared Operational Baseline: [External Operational Baseline for Agentic Software Engineering](./Agentic_Software_Engineering_Operational_Baseline.md#paper-operational-baseline): This representation-neutral baseline uses standardized SWE-rebench software-engineering trajectories to establish external operating references for Codex and other complete coding-agent systems.
+  efficiency-dimensions: |-
+    Keep five outcomes distinct: serialization efficiency measures tokens used to encode an expression; compositional efficiency captures reuse savings; interpretive efficiency measures representation-specific acquisition and repair; operational leverage relates autonomous activity or validated work to human specification; task-completion efficiency measures total resources to accepted completion. A gain in one is not evidence of gains in the others.
+  related-representation-and-context-concepts: |-
+    Signal density measures execution-relevant structure per unit of representation. Semantic locality concerns instruction placement relative to context and use; shadow concerns newer context changing earlier influence; weight concerns relative representation against competing semantic structures.
+  research-boundaries: |-
+    MNSR proposes general structural-recovery mechanisms; ArcGrav-specific comparisons and observational coding-agent studies ask different questions. Keep theoretical predictions, pilot responses, observed associations, controlled outcomes, and replications separate. Familiar structural cues do not establish ArcGrav as the optimal representation.
+  core-terminology: |-
+    Model-native denotes familiarity with learned structural conventions, not a universal latent geometry. Cross-model is a portability objective, not identical performance. Distinguish intended task structure, serialization, recovered relationships, acquisition cost, model/tool activity, and independently accepted work.
+  canonical-concept-index: |-
+    Route each construct to its owning paper for definitions and methods. The following sections identify conceptual scope and relationships; original source Markdown remains authoritative for formal notation, exact observations, and citations.
+  foundations--scope: |-
+    Distinguishes model-native conventions, cross-model design aims, instruction and task structure, and the theory's boundaries. Model familiarity and portability are research hypotheses, not guarantees. Start with MNSR and Instructional Representation.
+  representation-structure-dimensionality--alignment: |-
+    Separates task topology from serialization and latent representation; covers how roles, scopes, precedence, dependencies, and references can be made recoverable. Primary source: Model-Native Structural Representation.
+  representational-cost-loss--offloading: |-
+    Covers impedance, transformation distance, linearization tax, structural reconstruction tax, round-trip loss, and what part of reconstruction a representation can offload. Primary source: MNSR.
+  model-recovery-mechanisms: |-
+    Groups learned structural priors, task recognition, associative retrieval, reference binding, prompt sensitivity, and interpretive branching as plausible mechanisms; none alone proves ArcGrav superiority. Primary source: MNSR.
+  instructional--compositional-structure: |-
+    Explains structured instructions, explicit relationships, composition, reference and reuse, and the difference between model-interpreted control language and externally executed programs. Primary source: Instructional Representation.
+  interpretation-lifecycle--context-triad: |-
+    Distinguishes recoverable semantics from model response behavior; locality concerns position, shadow concerns history/order effects, and weight concerns competing semantic support. See Interpretive Efficiency and the Triad's dedicated references.
+  capacity-complexity--performance-frontier: |-
+    Distinguishes intrinsic model capability from accessible task capacity and its proposed breadth, depth, relational load, and acceptance frontier. Primary source: Representational Capacity Reclamation.
+  operational-leverage--delegation: |-
+    Distinguishes autonomous useful completion and human specification burden from raw agent activity; observational telemetry, cohorts, and limitations remain essential. See Operational Leverage and its studies.
+  task-completion-economics: |-
+    Accounts for total task trajectories, reasoning cost, repeated state acquisition, correction, cache processing, redundant execution, and human time rather than optimizing one cheap inference call. Primary source: Reasoning–Interaction Substitution.
+  hypotheses--experimental-constructs: |-
+    Indexes falsifiable predictions, matched-semantics comparisons, ablation designs, acceptance thresholds, and experimental controls. Treat pilots and observational findings separately from planned or replicated tests; load the appropriate study reference.
+  editorial-conventions: |-
+    Editorial conventions: All substantive papers follow the Research Manuscript Style Guide: standalone construct definitions, concise evidence-status statements, consistent section roles, and author–year references. External scholarly sources are indexed in the reference catalog. Experimental records and software documentation retain task-appropriate structures.

@@ -1,0 +1,601 @@
+{
+  "schema_id": "arcgrav.shared.schema.registration",
+  "schema_version": "1.0.0",
+  "extensions": {
+    "arcgrav.adapters:launch_environment": {
+      "supported_modes": [
+        "native",
+        "wsl"
+      ],
+      "default_mode_policy": {
+        "windows": "wsl",
+        "non_windows": "native_if_supported_else_unsupported"
+      },
+      "selectors": {
+        "launch_mode": {
+          "comparison_relevant": true,
+          "required_before_planning": true
+        },
+        "codex_binary": {
+          "comparison_relevant": true,
+          "resolution": "selected_launch_environment"
+        },
+        "wsl_distribution": {
+          "comparison_relevant": true,
+          "wsl_only": true,
+          "required_before_planning": true
+        }
+      },
+      "native": {
+        "codex_binary_default": "codex",
+        "codex_binary_resolution": "launch_environment_path",
+        "executable_default": "codex"
+      },
+      "wsl": {
+        "host_platform": "windows",
+        "launcher_default": "C:\\Windows\\System32\\wsl.exe",
+        "distribution_default": "Ubuntu",
+        "codex_binary_default": "codex",
+        "codex_binary_resolution": "selected_distribution",
+        "workdir_policy": "wsl_native_mktemp",
+        "authentication_policy": "selected_wsl_user_codex_session",
+        "executable_default": "codex"
+      },
+      "model_identity": {
+        "selection": "discovery_backed_explicit",
+        "control": "model_id",
+        "concrete_identity_required": true,
+        "catalog_surface": "model/list"
+      },
+      "executable_control": "codex_binary"
+    },
+    "arcgrav.adapters:supported_controls": [
+      {
+        "name": "launch_mode",
+        "kind": "choice",
+        "required": true,
+        "values": [
+          "native",
+          "wsl"
+        ],
+        "comparison_relevant": true,
+        "mapping": "/extensions/openai.codex_cli:launch_environment/launch_mode"
+      },
+      {
+        "name": "wsl_distribution",
+        "kind": "text",
+        "required": true,
+        "comparison_relevant": true,
+        "mapping": "/extensions/openai.codex_cli:launch_environment/wsl_distribution"
+      },
+      {
+        "name": "codex_binary",
+        "kind": "text",
+        "required": true,
+        "comparison_relevant": true,
+        "mapping": "/access_method/client_name"
+      },
+      {
+        "name": "model_id",
+        "kind": "choice",
+        "required": true,
+        "comparison_relevant": true,
+        "mapping": "/model/model_id"
+      },
+      {
+        "name": "reasoning_effort",
+        "kind": "choice",
+        "required": true,
+        "comparison_relevant": true,
+        "mapping": "/extensions/openai.codex_cli:reasoning_effort"
+      },
+      {
+        "name": "model_selection_mode",
+        "kind": "choice",
+        "required": true,
+        "values": [
+          "explicit"
+        ],
+        "default": "explicit",
+        "comparison_relevant": false,
+        "mapping": "/extensions/openai.codex_cli:model_selection_mode"
+      },
+      {
+        "name": "approval_mode",
+        "kind": "choice",
+        "required": true,
+        "values": [
+          "full_auto"
+        ],
+        "comparison_relevant": true,
+        "mapping": "/tools/policy"
+      },
+      {
+        "name": "request_timeout_ms",
+        "kind": "integer",
+        "required": true,
+        "default": 120000,
+        "minimum": 1,
+        "comparison_relevant": true,
+        "mapping": "/timeout_policy/request_timeout_ms"
+      },
+      {
+        "name": "maximum_attempts",
+        "kind": "integer",
+        "required": true,
+        "default": 1,
+        "values": [
+          1
+        ],
+        "comparison_relevant": true,
+        "mapping": "/retry_policy/maximum_attempts"
+      },
+      {
+        "name": "capture_mode",
+        "kind": "choice",
+        "required": false,
+        "values": [
+          "session",
+          "telemetry",
+          "deep_telemetry"
+        ],
+        "default": "session",
+        "comparison_relevant": true,
+        "mapping": "/extensions/agmark.telemetry:profile/capture_mode"
+      },
+      {
+        "name": "diagnostic_privacy_acknowledged",
+        "kind": "choice",
+        "required": false,
+        "values": [
+          "not_acknowledged",
+          "acknowledged:agmark.original-diagnostics.stock-rollout@2.0.0"
+        ],
+        "default": "not_acknowledged",
+        "comparison_relevant": true,
+        "mapping": "/extensions/agmark.telemetry:profile/diagnostic_privacy_acknowledged"
+      }
+    ],
+    "arcgrav.adapters:fixed_controls": [
+      {
+        "name": "memory_policy",
+        "value": "disabled"
+      },
+      {
+        "name": "request_framing",
+        "value": "codex_cli"
+      },
+      {
+        "name": "sampling_mode",
+        "value": "provider_default"
+      },
+      {
+        "name": "tool_policy",
+        "value": "workspace_write"
+      }
+    ],
+    "arcgrav.adapters:access_methods": [
+      {
+        "type": "cli",
+        "transport": "subprocess",
+        "client_name": "codex",
+        "authentication_class": "codex_session"
+      }
+    ],
+    "arcgrav.adapters:request_framing": {
+      "mode": "codex_cli",
+      "serialization": "prompt bytes, two LF bytes, input bytes",
+      "prompt_input_preservation": "exact",
+      "accepted_content_representations": [
+        "bytes",
+        "utf-8-text"
+      ]
+    },
+    "arcgrav.adapters:telemetry_behavior": {
+      "provider_reported_usage": false,
+      "runner_measured_bytes": true,
+      "stdout_stderr_hashes": false,
+      "runtime_token_counters": true,
+      "billing_components": "source-defined runtime usage; no billing authority",
+      "tool_trace": "Exact-thread persisted rollout call items and outcomes",
+      "attempt_timing": true,
+      "measurement_schema": {
+        "id": "arcgrav.shared.schema.attempt-measurements",
+        "version": "1.0.0"
+      }
+    },
+    "arcgrav.adapters:response_retention": {
+      "mode": "last-completed-agent-message-utf8-inline-extension-base64",
+      "hash": "sha256",
+      "normalization": "none",
+      "final_response_channel": {
+        "kind": "stdout",
+        "exact_bytes": true
+      },
+      "mixed_process_output": {
+        "retention": "excluded",
+        "channels": [
+          "stdout",
+          "stderr"
+        ],
+        "extraction_rules": [
+          "Retain only allowlisted measurement-source/1 facts; process bytes and their hashes are excluded."
+        ]
+      }
+    },
+    "arcgrav.adapters:evidence_class": "live-provider-execution",
+    "arcgrav.adapters:entry_point": "AgMark.shared.adapters.Codex_CLI:CodexCliRunner",
+    "arcgrav.adapters:planning_probe": {
+      "entry_point": "AgMark.shared.adapters.Codex_CLI.runner:probe_planning_identity",
+      "implementation_artifact_id": "AgMark/shared/adapters/Codex_CLI/runner.py"
+    },
+    "arcgrav.adapters:model_discovery": {
+      "entry_point": "AgMark.shared.adapters.Codex_CLI.model_discovery:probe_model_discovery",
+      "implementation_artifact_id": "AgMark/shared/adapters/Codex_CLI/model_discovery.py",
+      "determining_controls": [
+        "launch_mode",
+        "codex_binary",
+        "wsl_distribution"
+      ],
+      "surface": {
+        "kind": "codex_app_server_jsonrpc",
+        "command": [
+          "app-server",
+          "--listen",
+          "stdio://"
+        ],
+        "method": "model/list",
+        "include_hidden": false,
+        "provider_submission": false
+      },
+      "choice_projection": {
+        "default_first": true,
+        "canonical_value": "model",
+        "display_value": "displayName",
+        "selection_modes": [
+          "explicit"
+        ],
+        "normal_path_free_text": false
+      },
+      "reasoning_effort_control": "reasoning_effort"
+    },
+    "arcgrav.adapters:resolved_configuration": {
+      "source": "model_discovery",
+      "result_field": "resolved_configuration",
+      "fields": [
+        {
+          "name": "wsl_user",
+          "label": "WSL User",
+          "launch_modes": [
+            "wsl"
+          ]
+        },
+        {
+          "name": "codex_home",
+          "label": "Codex Home",
+          "launch_modes": [
+            "native",
+            "wsl"
+          ]
+        }
+      ]
+    },
+    "arcgrav.adapters:target_composition": {
+      "target_class": "live-provider",
+      "external_provider_submission": true,
+      "compatibility_profile": null,
+      "runtime_provider": "OpenAI",
+      "authentication_source": "selected-user-codex-home",
+      "runner_implementation_artifact_ids": [
+        "AgMark/shared/adapters/_contract.py",
+        "AgMark/shared/adapters/Codex_CLI/runner.py",
+        "AgMark/shared/adapters/Codex_CLI/__init__.py",
+        "AgMark/shared/adapters/Codex_CLI/model_discovery.py",
+        "AgMark/shared/adapters/execution/__init__.py",
+        "AgMark/shared/adapters/execution/target.py",
+        "AgMark/shared/adapters/execution/orchestration.py",
+        "AgMark/shared/adapters/execution/emission.py",
+        "AgMark/shared/adapters/Codex_CLI/events.py",
+        "AgMark/shared/adapters/Codex_CLI/session.py",
+        "AgMark/shared/adapters/Codex_CLI/session_capture.py",
+        "AgMark/shared/adapters/Codex_CLI/session_facts.py",
+        "AgMark/shared/adapters/Codex_CLI/session_record.py",
+        "AgMark/shared/adapters/Codex_CLI/session_values.py",
+        "AgMark/shared/adapters/Codex_CLI/token_usage.py",
+        "AgMark/shared/adapters/Codex_CLI/cache_policy.py",
+        "AgMark/shared/adapters/Codex_CLI/tool_telemetry.py",
+        "AgMark/shared/adapters/Codex_CLI/session_timing.py",
+        "AgMark/shared/adapters/Codex_CLI/measurements.py",
+        "AgMark/shared/adapters/Codex_CLI/validation.py",
+        "AgMark/shared/adapters/execution/live_view.py",
+        "AgMark/shared/telemetry/evidence.py",
+        "AgMark/shared/telemetry/privacy.py",
+        "AgMark/shared/telemetry/profile.py",
+        "AgMark/shared/telemetry/collector.py",
+        "AgMark/shared/telemetry/normalization.py",
+        "AgMark/shared/telemetry/__init__.py",
+        "AgMark/shared/telemetry/capture.py",
+        "AgMark/shared/telemetry/projection.py",
+        "AgMark/shared/telemetry/wsl.py",
+        "AgMark/shared/telemetry/wsl_process.py",
+        "AgMark/shared/telemetry/wsl_worker.py",
+        "AgMark/shared/telemetry/comparison.py",
+        "AgMark/shared/adapters/Codex_CLI/source_projection.py",
+        "AgMark/shared/evaluation/telemetry/source.py",
+        "AgMark/shared/runtime/identity/runtime_version.py"
+      ]
+    },
+    "arcgrav.adapters:treatment_measurements": {
+      "contract_id": "arcgrav.shared.treatment-measurements",
+      "contract_version": "1.0.0",
+      "schema_id": "arcgrav.shared.schema.attempt-measurements",
+      "schema_version": "1.0.0",
+      "surface": "Invocation-scoped allowlisted measurement-source/1 projection from transient matched rollout and process lifecycle",
+      "tool_trace": "Complete only after observed process termination and valid matched session capture",
+      "billing_components": "runtime counters; cost requires separate billing and pricing evidence",
+      "extraction_version": "4.0.0",
+      "session_metrics_schema": {
+        "id": "arcgrav.shared.schema.session-metrics",
+        "version": "1.0.0"
+      },
+      "session_persistence": "Invocation-local identity aliases; minimal reconstructable source records and source integrity hash; no raw rollout",
+      "cache_diagnostics": {
+        "surface": "Retained session record and session-metrics capture extension",
+        "key_provenance": "Inferred only for matched fresh exec root metadata at audited Codex 0.159.0; unavailable for unaudited runtimes",
+        "snapshots": "Allowlisted token counters, source positions and signed changes; no raw info or unrelated fields",
+        "cumulative_policy": "Final total_token_usage snapshot remains authoritative",
+        "cache_mode": "Audited Codex 0.159.0 schema uses implicit caching; explicit-only mode is unavailable"
+      }
+    },
+    "agmark.telemetry:profile": {
+      "protocol_version": "agmark.original-telemetry.v2",
+      "control": "capture_mode",
+      "absent_control": "session",
+      "original_authority": "agmark.telemetry:capture",
+      "normalization": "agmark.telemetry:normalized",
+      "diagnostics": "explicit_profile_and_privacy_acknowledgement_required",
+      "diagnostic_consent": {
+        "scope": "agmark.original-diagnostics.stock-rollout",
+        "version": "2.0.0",
+        "acknowledgement_control_value": "acknowledged:agmark.original-diagnostics.stock-rollout@2.0.0"
+      },
+      "capability_audit": {
+        "runtime_version": "0.159.0",
+        "stock_commit": "687a119f0fcaace47e1f1abcc77cec6c813fd6da"
+      },
+      "comparison_policy": "equal_capture_profile_and_scope_required",
+      "replay_policy": "separate_post_finalization_execution_never_original_backfill"
+    },
+    "agmark.telemetry:capture-capability-update": {
+      "revision": "runtime-neutral-capture-v1",
+      "reference_runtime_version": "0.166.0"
+    },
+    "arcgrav.adapters:visible_controls": [
+      "capture_mode",
+      "diagnostic_privacy_acknowledged"
+    ],
+    "arcgrav.adapters:validation_replay": {
+      "profile": "codex_cli_cache_v1"
+    },
+    "arcgrav.adapters:runner_test": {
+      "supported": true
+    }
+  },
+  "registration_id": "openai.codex-cli",
+  "registration_version": "2.0.0",
+  "registration_kind": "runner",
+  "status": "active",
+  "contracts": [
+    {
+      "id": "arcgrav.shared.runner-invocation",
+      "version": "2.0.0"
+    }
+  ],
+  "implementation_artifacts": [
+    {
+      "artifact_id": "AgMark/shared/adapters/_contract.py",
+      "sha256": "sha256:dce57a805225b5c5708580ca705bbd5c0d8ec5d470959f15513aaabfc25cac58",
+      "reference": "AgMark/shared/adapters/_contract.py"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/runner.py",
+      "sha256": "sha256:049abce03ffb83b0e9b2a0f4e45124d73f61c8d3bd36866d8ca7af0d85ca092f",
+      "reference": "AgMark/shared/adapters/Codex_CLI/runner.py"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/__init__.py",
+      "sha256": "sha256:9f07bb38cea9b947b5ca3cd0930ac984166cf89c7c2b43d98edf1e5b7ce2faae",
+      "reference": "AgMark/shared/adapters/Codex_CLI/__init__.py"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/model_discovery.py",
+      "sha256": "sha256:9ac8625035ddccf0743ab4660ca956a54dfac25c60ef9a85baa34d7c0487a390",
+      "reference": "AgMark/shared/adapters/Codex_CLI/model_discovery.py"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/execution/__init__.py",
+      "reference": "AgMark/shared/adapters/execution/__init__.py",
+      "sha256": "sha256:80f3a71c257608165e7a409624492c37bfbe646bb1e4a9e89c8e4f223d37beae"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/execution/target.py",
+      "reference": "AgMark/shared/adapters/execution/target.py",
+      "sha256": "sha256:b5d263ebe81ffdf4d83110dc5b34ec3fc57cf3cdd2bb10ac3eb453e34bf2a594"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/execution/orchestration.py",
+      "reference": "AgMark/shared/adapters/execution/orchestration.py",
+      "sha256": "sha256:4c14da6d2bad1393a13555ed85885d1b6005fcf89d1564a7b245ebbda409147c"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/execution/emission.py",
+      "reference": "AgMark/shared/adapters/execution/emission.py",
+      "sha256": "sha256:3694bf37b6c3cd6a65d9db55c03071e9a2b48afbda3e5f3592f7b456381bcaf4"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/events.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/events.py",
+      "sha256": "sha256:61fcf1be2a0048c278fb4a8d8f7703b380cd56d6470205d6c04f0e1fd9ac671c"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/session.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/session.py",
+      "sha256": "sha256:55fffa82e9e4251c951f8411b1de9f42eb2c66f1759cad9d26aaa81b3c95f135"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/session_capture.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/session_capture.py",
+      "sha256": "sha256:0540a3ad01b084b8296a8ad098256901826e97dcf1fceb0140caaba49349df92"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/session_facts.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/session_facts.py",
+      "sha256": "sha256:944fa91bc670c725bc27395f0831880be845410388beeefb92693c527d22e629"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/session_record.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/session_record.py",
+      "sha256": "sha256:f9b8cc90e5b7b0029a032da89aa27a73c3cb2cd8c0b266ce90b18f5be18ccb03"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/session_values.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/session_values.py",
+      "sha256": "sha256:0678f641cb948eec6fe21651e32b0d9e5333fcfe42fabf6968c1c4fb36a1fd85"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/token_usage.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/token_usage.py",
+      "sha256": "sha256:ed5b3f222d48f03f2bbd33436f080a2fe62b44fa78f14494b6b4246c972fbec5"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/cache_policy.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/cache_policy.py",
+      "sha256": "sha256:3782f8b88c2994ca1ff2911493df171a6e181a808908dfd0936d2aa1bd6211a3"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/tool_telemetry.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/tool_telemetry.py",
+      "sha256": "sha256:f7e56ab2105c689b854b6aeec812325ee22cc2ebe8b0f9961b36b697942433a5"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/session_timing.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/session_timing.py",
+      "sha256": "sha256:67faaf406acb00fd9855c1f0c3e74c6865fc9dccde713269a9ff1eea3eaddcce"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/measurements.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/measurements.py",
+      "sha256": "sha256:0cd88131be98bd7682ad49b3d45641f7fc6ca58a5e65d342d1bbcd2fbf4b7526"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/validation.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/validation.py",
+      "sha256": "sha256:d021875be1eaf205972e7b16b7076672aa0bed09b0532f7f4e4fb5af0c7c1f07"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/execution/live_view.py",
+      "sha256": "sha256:6878530d4595ea6025c285fb7e0e21483bea0361eda85c7e609ad5984febbbdd",
+      "reference": "AgMark/shared/adapters/execution/live_view.py"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/evidence.py",
+      "reference": "AgMark/shared/telemetry/evidence.py",
+      "sha256": "sha256:43325b517c551da870a808ea632789de6b5f6fa75a996afa65e078d8f50b0c62"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/privacy.py",
+      "reference": "AgMark/shared/telemetry/privacy.py",
+      "sha256": "sha256:a4692db400a25919e52aae0593902710d6ab9e7011ab791ad507d9e8d093fb80"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/profile.py",
+      "reference": "AgMark/shared/telemetry/profile.py",
+      "sha256": "sha256:13c8b04fbf944ff7dd416be465637511d50803a6583dfc4b0b2ac5396caddf71"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/collector.py",
+      "reference": "AgMark/shared/telemetry/collector.py",
+      "sha256": "sha256:24d956b0e8d771b8bb105ed33df41b5895e21a182a754491ba44c3d05de15e5b"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/normalization.py",
+      "reference": "AgMark/shared/telemetry/normalization.py",
+      "sha256": "sha256:913a814467ad0e161cc8088bdebc75c32f3143f2e46a2a256c1519414e7f9ed8"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/__init__.py",
+      "reference": "AgMark/shared/telemetry/__init__.py",
+      "sha256": "sha256:2d9757cf06ed53fb06a88db1118706ffef4e57e1ec8dbe95d91892e2656f62d2"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/capture.py",
+      "reference": "AgMark/shared/telemetry/capture.py",
+      "sha256": "sha256:a0c6a4430cf9b2c011adca2fff7e3013d9ed37ab61f5a8d6499a578475736617"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/projection.py",
+      "reference": "AgMark/shared/telemetry/projection.py",
+      "sha256": "sha256:0433909d78f7b50a40c48cf690ddd92fab949cc710a7d0fb60e73dc739ea9c5f"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/wsl.py",
+      "reference": "AgMark/shared/telemetry/wsl.py",
+      "sha256": "sha256:d6aaef5a13b9b79120050183e9fc7367d6ab07a17013d7eb066e7f879b2c036e"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/wsl_process.py",
+      "reference": "AgMark/shared/telemetry/wsl_process.py",
+      "sha256": "sha256:dc8710252667f150e25689c70b378bae1091a42fb0113129f402dcf07dea3b21"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/wsl_worker.py",
+      "reference": "AgMark/shared/telemetry/wsl_worker.py",
+      "sha256": "sha256:ef0c8e671ed3925d107caefef8fdbad974611f79cee6837c1d8e8187a5ca4b9e"
+    },
+    {
+      "artifact_id": "AgMark/shared/telemetry/comparison.py",
+      "reference": "AgMark/shared/telemetry/comparison.py",
+      "sha256": "sha256:390c03914c11b4b346a6bcf4b21ad2790c0e843926d206caf0b762eb8821c859"
+    },
+    {
+      "artifact_id": "AgMark/shared/adapters/Codex_CLI/source_projection.py",
+      "reference": "AgMark/shared/adapters/Codex_CLI/source_projection.py",
+      "sha256": "sha256:2c927e527c3fbdfc3bbd3313317c4e67ca65442185cb932841b3e066c6d11fb0"
+    },
+    {
+      "artifact_id": "AgMark/shared/evaluation/telemetry/source.py",
+      "reference": "AgMark/shared/evaluation/telemetry/source.py",
+      "sha256": "sha256:739dc0be74d850e277247f48302948fb05978acfe5f45557ebe2162b0dfb8afc"
+    },
+    {
+      "artifact_id": "AgMark/shared/runtime/identity/runtime_version.py",
+      "reference": "AgMark/shared/runtime/identity/runtime_version.py",
+      "sha256": "sha256:ce491eb99a7e397d7bffae0aacf33bb903fae6dd149e89fa6034ce531f9949b0"
+    }
+  ],
+  "capabilities": [
+    "provider-cli",
+    "non-interactive",
+    "isolated-observation-state",
+    "exact-prompt-input-framing",
+    "jsonl-agent-message-response-retention",
+    "mixed-process-transcript-retention",
+    "byte-telemetry",
+    "logged-in-codex-session-reuse",
+    "wsl-native-workdir",
+    "codex-model-discovery",
+    "resolved-session-projection",
+    "runtime-token-counter-telemetry",
+    "structured-token-components",
+    "tool-invocation-lifecycle-telemetry"
+  ],
+  "limitations": [
+    "Adapter version 2.0.0 supports approval_mode=full_auto and maximum_attempts=1 only.",
+    "Accepted benchmark runs require an explicit model_id and invoke Codex with --model; the adapter does not discover or infer a provider default model.",
+    "Authentication is owned by the selected Codex CLI environment. Native execution reuses the selected native user's Codex session; WSL execution reuses the selected WSL user's normal ~/.codex session without credential copying or projection.",
+    "WSL observation working directories are created inside the selected distribution with mktemp and removed after each invocation.",
+    "Provider token usage is not synthesized when Codex CLI does not expose it on the registered exec surface.",
+    "Model discovery uses the selected Codex CLI app-server model/list surface without model inference; the selected explicit model_id remains canonical execution authority.",
+    "The exact-thread persisted rollout retains independent token counters, call items, outcomes and session statistics. Counters are runtime usage rather than provider billing. Unknown or incomplete event evidence remains partial/unavailable; cost requires separate applicable billing and pricing evidence."
+  ]
+}

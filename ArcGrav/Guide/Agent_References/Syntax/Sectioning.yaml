@@ -1,0 +1,59 @@
+schema_version: 2
+id: arcgrav.syntax.sectioning
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Syntax/Sectioning.md
+  url: ../../Syntax/Sectioning.md
+  fingerprint: fnv1a32-0871eaba
+sections:
+  ag-sectioning: |-
+    Sectioning uses a `Key:` header followed by child values to define a bounded context with an explicit semantic role. A section groups related information so the model can distinguish retrieval, framing, refinement, and execution context without relying on prose transitions.
+    Sectioning establishes explicit semantic boundaries, allowing the model to resolve prompt context by role, scope, and hierarchy with minimal inference.
+  ag-purpose: |-
+    Separate context by responsibility; Establish clear scope and hierarchy; Reduce ambiguity between data and instruction; Make prompts easier to compose and scan
+  ag-section-verbiage: |-
+    These section headers are examples, not reserved terms. Any single-word header is valid if its role is clear.
+  ag-retrieval: |-
+    `Scope` `Boundary` `Focus` `Target` `Directory` `URL` `Attachment`
+  ag-framing: |-
+    `Context` `Observation` `Behavior` `Example` `Specification` `State` `Fact` `Error`
+  ag-refinement-optional: |-
+    `Consideration` `Constraint` `Ambiguity` `Unknown` `Assumption` `Note` `Mode` `Limit` `Caution`
+  ag-execution: |-
+    `Task` `Action` `Question` `Evaluate` `Review` `Compare` `Explain` `Generate` `Simulate` `Modify` `Diagnose`
+    **Definition**
+    Key: - Value one - Value two
+    **Common Section Roles**
+    Scope: - Guide/Syntax
+    Context: - Existing pages define compact ArcGrav syntax
+    Constraint: - Preserve the established documentation style
+    Task: - Populate all empty syntax pages
+    Section names are descriptive rather than reserved. A section header should communicate how its children are meant to be interpreted.
+    **Nested Sections**
+    Scope: - Guide: - Syntax - Examples - Research: - ArcGrav_Research.md
+  ag-rules: |-
+    **Header Binding** — child context belongs to the nearest preceding `Key:` header at its indentation level; **Single Responsibility** — each section should represent one clear semantic role; **Explicit Children** — place section values on following lines rather than hiding them in the header; **Consistent Indentation** — indent nested section children by two spaces; **Clear Verbiage** — use concise headers whose role can be inferred directly; **Operational Separation** — keep source context, constraints, and requested actions in distinct sections when practical
+  ag-constraints: |-
+    Avoid decorative or redundant sections; Avoid vague headers such as `Stuff:` or `Other:`; Do not overload one section with unrelated context types; Prefer a single-word header when it remains clear; Empty sections should be omitted
+  ag-role-ordered-frame: |-
+    Place grounding before interpretation, and interpretation before execution.
+    1. `Scope`; 2. `Context`; 3. `Refinement`; 4. `Constraint`; 5. `Task`
+    Typical order:
+    1. Retrieval; 2. Framing and refinement; 3. Execution
+  ag-sectioned-context: |-
+    Give one bounded concern a descriptive name.
+    Constraint: - Preserve the public API - Hide secret keys
+    Headers describe roles; they are not reserved keywords.
+  ag-scalar-section: |-
+    Bind a section directly to one value when membership is unnecessary.
+    Scope: C:\Project
+  ag-capability-invocation: |-
+    Declare the skill, tool, or capability governing the task.
+    Using: - $cartographic-agentic-contexting - $browser-skill - http://www.webpage.com/instructions.txt
+  ag-completion-hook: |-
+    Separate follow-up work that occurs after the primary task.
+    OnComplete: 1. Update related references 2. Run [Orchestration]
+  ag-phase-labeled-work: |-
+    Use descriptive sections to separate kinds of work.
+    ModifyComponentContext: - Update the component - Delete stale logic
+    VerifyComponentContext: - Confirm the output shape - Update the report

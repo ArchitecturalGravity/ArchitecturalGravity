@@ -1,0 +1,694 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcgrav:shared:schema:golden-observation:2.0.0",
+  "schema_id": "arcgrav.shared.schema.golden-observation",
+  "schema_version": "2.0.0",
+  "title": "Golden Observation",
+  "description": "Retained benchmark-neutral evidence for golden execution and admission.",
+  "x-arcgrav-extension-policy": {
+    "mode": "namespaced-additive",
+    "extension_points": [
+      "/extensions"
+    ],
+    "unknown_fields": "reject",
+    "preserve_unknown_extensions": true,
+    "shared_fields_overridable": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identityRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*\\\\)(?!.*:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        }
+      }
+    },
+    "schemaIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_id",
+        "schema_version"
+      ],
+      "properties": {
+        "schema_id": {
+          "type": "string",
+          "pattern": "^arcgrav\\.shared\\.schema\\.[a-z0-9._-]+$"
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "sha256"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availability": {
+          "type": "string",
+          "enum": [
+            "retained",
+            "not_produced",
+            "unavailable",
+            "invalid",
+            "excluded",
+            "missing",
+            "failed",
+            "completed_non_scorable",
+            "scored",
+            "not_applicable",
+            "non_comparable"
+          ]
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "arcgrav.shared.golden:evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "case_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "input": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "transport": {
+                  "enum": [
+                    "stdin",
+                    "registered_file",
+                    "unsupported"
+                  ]
+                },
+                "sha256": {
+                  "$ref": "#/$defs/sha256"
+                },
+                "byte_length": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "artifact_id": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "relative_path": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^(?!/)(?!.*\\\\)(?!.*:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+                }
+              },
+              "required": [
+                "transport",
+                "sha256",
+                "byte_length"
+              ]
+            },
+            "declared": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "entry_artifact_id": {
+                  "type": "string",
+                  "minLength": 1,
+                  "pattern": "^(?!/)(?!.*\\\\)(?!.*:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+                },
+                "implementation_artifact_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "^(?!/)(?!.*\\\\)(?!.*:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+                  }
+                },
+                "environment_family": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "environment_family_control": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "runtime_executable_control": {
+                  "const": "golden.runtime_sha256"
+                },
+                "runtime": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "id",
+                    "version",
+                    "sha256",
+                    "reference"
+                  ],
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "version": {
+                      "type": "string",
+                      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+                    },
+                    "sha256": {
+                      "type": "string",
+                      "pattern": "^sha256:[0-9a-f]{64}$"
+                    },
+                    "reference": {
+                      "enum": [
+                        "runtime/python",
+                        "runtime/executable"
+                      ]
+                    }
+                  }
+                },
+                "require_nonempty_output": {
+                  "type": "boolean"
+                },
+                "timeout_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "max_stdout_bytes": {
+                  "type": "integer",
+                  "minimum": 0
+                },
+                "max_stderr_bytes": {
+                  "type": "integer",
+                  "minimum": 0
+                }
+              },
+              "required": [
+                "entry_artifact_id",
+                "implementation_artifact_ids",
+                "environment_family",
+                "environment_family_control",
+                "runtime_executable_control",
+                "runtime",
+                "require_nonempty_output",
+                "timeout_seconds",
+                "max_stdout_bytes",
+                "max_stderr_bytes"
+              ]
+            },
+            "artifact_integrity": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "artifact_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "relative_path": {
+                    "type": "string",
+                    "minLength": 1,
+                    "pattern": "^(?!/)(?!.*\\\\)(?!.*:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+                  },
+                  "expected_sha256": {
+                    "$ref": "#/$defs/sha256"
+                  },
+                  "observed_sha256": {
+                    "$ref": "#/$defs/sha256"
+                  },
+                  "verified": {
+                    "const": true
+                  }
+                },
+                "required": [
+                  "artifact_id",
+                  "relative_path",
+                  "expected_sha256",
+                  "observed_sha256",
+                  "verified"
+                ]
+              }
+            },
+            "observed": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "preflight": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "runtime_reference": {
+                      "enum": [
+                        "runtime/python",
+                        "runtime/executable"
+                      ]
+                    },
+                    "arguments": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "returncode": {
+                      "type": "integer"
+                    },
+                    "stdout_sha256": {
+                      "$ref": "#/$defs/sha256"
+                    },
+                    "stdout_byte_length": {
+                      "type": "integer",
+                      "minimum": 0
+                    },
+                    "stderr_byte_length": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "runtime_reference",
+                    "arguments",
+                    "returncode",
+                    "stdout_sha256",
+                    "stdout_byte_length",
+                    "stderr_byte_length"
+                  ]
+                },
+                "environment_family": {
+                  "const": "native"
+                },
+                "runtime_reference": {
+                  "enum": [
+                    "runtime/python",
+                    "runtime/executable"
+                  ]
+                },
+                "runtime_sha256": {
+                  "$ref": "#/$defs/sha256"
+                },
+                "command": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "runtime": {
+                      "enum": [
+                        "runtime/python",
+                        "runtime/executable"
+                      ]
+                    },
+                    "entry": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "^(?!/)(?!.*\\\\)(?!.*:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+                    },
+                    "arguments": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  },
+                  "required": [
+                    "runtime",
+                    "entry",
+                    "arguments"
+                  ]
+                },
+                "process_started_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "process_completed_at": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "wall_seconds": {
+                  "type": "number",
+                  "minimum": 0
+                },
+                "returncode": {
+                  "type": [
+                    "integer",
+                    "null"
+                  ]
+                },
+                "stdout": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "sha256": {
+                      "$ref": "#/$defs/sha256"
+                    },
+                    "byte_length": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "sha256",
+                    "byte_length"
+                  ]
+                },
+                "stderr": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "byte_length": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "byte_length"
+                  ]
+                },
+                "input_file_snapshot": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "artifact_id": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "relative_path": {
+                      "type": "string",
+                      "minLength": 1,
+                      "pattern": "^(?!/)(?!.*\\\\)(?!.*:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+                    },
+                    "sha256": {
+                      "$ref": "#/$defs/sha256"
+                    },
+                    "byte_length": {
+                      "type": "integer",
+                      "minimum": 0
+                    }
+                  },
+                  "required": [
+                    "artifact_id",
+                    "relative_path",
+                    "sha256",
+                    "byte_length"
+                  ]
+                }
+              },
+              "required": []
+            }
+          },
+          "required": [
+            "case_id",
+            "input",
+            "declared",
+            "artifact_integrity",
+            "observed"
+          ]
+        }
+      },
+      "required": [
+        "arcgrav.shared.golden:evidence"
+      ]
+    },
+    "validationIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "source_id",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "json_pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "extensions",
+    "golden_observation_id",
+    "accepted_generation_id",
+    "benchmark",
+    "golden_implementation",
+    "runtime_identity",
+    "execution_boundary_fingerprint",
+    "contract",
+    "status",
+    "admission_state",
+    "output"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "arcgrav.shared.schema.golden-observation"
+    },
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "extensions": {
+      "$ref": "#/$defs/extensions"
+    },
+    "golden_observation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "accepted_generation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "benchmark": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "golden_implementation": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "runtime_identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version",
+        "sha256",
+        "reference"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "reference": {
+          "enum": [
+            "runtime/python",
+            "runtime/executable"
+          ]
+        }
+      }
+    },
+    "execution_boundary_fingerprint": {
+      "$ref": "#/$defs/sha256"
+    },
+    "contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "const": "arcgrav.shared.golden-execution"
+        },
+        "version": {
+          "const": "2.0.0"
+        }
+      },
+      "required": [
+        "id",
+        "version"
+      ]
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "completed",
+        "failed",
+        "timed_out",
+        "cancelled",
+        "unsupported",
+        "unavailable"
+      ]
+    },
+    "admission_state": {
+      "type": "string",
+      "enum": [
+        "admitted",
+        "blocked"
+      ]
+    },
+    "output": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability"
+      ],
+      "properties": {
+        "availability": {
+          "type": "string",
+          "enum": [
+            "retained",
+            "unavailable",
+            "not_produced",
+            "invalid"
+          ]
+        },
+        "sha256": {
+          "$ref": "#/$defs/sha256"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1,
+          "pattern": "^(?!/)(?!.*\\\\)(?!.*:)(?!.*(?:^|/)\\.\\.(?:/|$)).+$"
+        },
+        "byte_length": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "const": "retained"
+              }
+            },
+            "required": [
+              "availability"
+            ]
+          },
+          "then": {
+            "required": [
+              "sha256"
+            ]
+          }
+        }
+      ]
+    },
+    "started_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "completed_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date-time"
+    },
+    "diagnostics": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^GOLDEN_[A-Z_]+$"
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "admission_state": {
+            "const": "admitted"
+          }
+        },
+        "required": [
+          "admission_state"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "completed"
+          },
+          "output": {
+            "properties": {
+              "availability": {
+                "const": "retained"
+              }
+            }
+          }
+        }
+      }
+    }
+  ]
+}

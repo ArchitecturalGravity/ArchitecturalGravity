@@ -1,0 +1,60 @@
+# Intent: Compare competing capital-investment scenarios to support a defensible allocation decision by making explicit
+# - Financial assumptions
+# - Uncertainty
+# - Funding constraints
+
+[Decision]:
+- Allocate up to $12,000,000 of expansion capital for 2027
+- Planning horizon: 5 years
+- Minimum acceptable project IRR: 14%
+- Preserve at least $4,000,000 of unrestricted cash after funding
+
+[Scenarios]:
+- Expansion A: Add capacity at the existing facility
+- Expansion B: Open a smaller second facility
+- Expansion C: Defer expansion for one year and use contract manufacturing meanwhile
+
+[Inputs]:
+- ./scenario-costs.xlsx
+- ./demand-forecast.csv
+- ./financing-terms.md
+- ./capacity-assumptions.md
+
+[DemandCases]:
+- Base
+- Downside
+- Upside
+
+[Assumptions]:
+- Model demand using [DemandCases]
+- Use after-tax cash flows
+- Include working-capital requirements and terminal effects when material
+- Treat financing terms separately from project operating economics
+- Do not hide missing inputs inside point estimates
+
+[Compare]:
+=> For each scenario in [Scenarios] ↳
+  => Build annual incremental cash flows from [Inputs] under [Assumptions]
+  => Calculate:
+    - NPV at 12%
+    - IRR
+    - Payback period
+    - Peak cash requirement
+  => Recalculate each result under [DemandCases]
+  => Identify the assumptions with the greatest effect on value
+  => Record any case that violates [Decision] constraints
+
+[DecisionRule]:
+=> Exclude scenarios that cannot satisfy liquidity constraints without an explicitly modeled funding change
+=> Prefer scenarios that exceed the minimum IRR across a broader range of plausible assumptions
+=> When value is similar, favor lower irreversibility and lower downside cash exposure
+=> Do not present model precision as certainty
+
+Task:
+1. Run [Compare]
+2. Apply [DecisionRule]
+3. Present:
+  - Scenario table
+  - Sensitivity summary
+  - Constraint breaches
+  - Recommended capital-allocation choice with the assumptions that could change it

@@ -1,0 +1,32 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.locality
+kind: research_reference
+source:
+  path: Research/Context_Triad/Semantic_Locality.md
+  url: ../../Context_Triad/Semantic_Locality.md
+  fingerprint: fnv1a32-7f297329
+sections:
+  paper-semantic-locality: |-
+    Semantic Locality describes where representations of a semantic object appear relative to the operation that needs them. It studies whether placement, distribution, and input-sequence geometry affect observed consistency, without equating distance with influence.
+  abstract: |-
+    Semantic Locality treats a representation's position and distribution relative to its point of use as potential predictors of response consistency. It defines geometry under a declared serialization and compares positional response profiles under controlled layouts. Position alone does not establish a universal behavioral effect.
+  introduction: |-
+    An instruction may be available in context but used inconsistently depending on its placement relative to the operation that needs it. This paper defines input-sequence geometry, structural neighborhood, and position–response contrasts without assuming physical distance alone determines semantic influence.
+  role-within-the-context-triad: |-
+    The Context Triad develops the shared thesis that semantic presence is insufficient to explain behavioral influence. Locality supplies its account of placement relative to use. This paper defines positional geometry, describes its behavioral effects and interactions, and presents ways to quantify them.
+  construct-definition-and-boundaries: |-
+    Locality is the relative placement of an instruction, constraint, or relevant fact and the task operation that uses it. Record representation boundaries and point of use within the actual input sequence. Its descriptive geometry differs from observed compliance and from semantic support or history.
+  behavioral-effects: |-
+    Prior long-context and instruction-placement findings motivate position-sensitive hypotheses. Evaluate the same semantic requirement across controlled locations while preserving task, authority, competing support, and relevant input-format and layout features. External correlations do not prove a unique locality mechanism.
+  interactions-with-the-other-dimensions: |-
+    Interactions with the Other Dimensions: Locality and Weight: Refresh and Distribution: Additional support may compensate for unfavorable placements, and distributed support may differ from one concentrated block at the same measured total.
+    Locality and Shadow: Placement and Semantic History: An earlier rule's response to later competition may depend on where the rule and competitor occur. Changing competitor order also changes competitor position.
+  scope-and-evidence-status: |-
+    The paper defines model- and task-specific placement measures and proposes response comparisons within declared active contexts. Existing position-sensitivity literature motivates the construct; the described experiments do not establish a universal locality function or isolate it from altered support and order.
+  conclusion: |-
+    Semantic Locality supplies the geometry and position–response measurements needed to characterize contextual placement. Placement, distribution, and structural surroundings describe where representations are available for use; response contrasts describe their behavioral effects and interactions with semantic history and relative support.
+  related-papers: |-
+    Semantic Shadow examines semantic history and ordering; Semantic Weight examines relative coherent support.
+  references: |-
+    References: • Agrawal, D., Gao, S., & Gajek, M. (2024).

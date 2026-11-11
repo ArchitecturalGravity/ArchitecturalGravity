@@ -1,0 +1,52 @@
+{
+    "schema":  "arcgrav.frontend.windows-operability/v1",
+    "generated_at_utc":  "2026-10-04T20:55:35.3868141Z",
+    "repository_root":  "C:\\Programming\\AI\\ArchitecturalGravity",
+    "windows_version":  "Microsoft Windows NT 10.0.19045.0",
+    "powershell_version":  "5.1.19041.6328",
+    "python_version":  "3.14.3",
+    "pyside6_version":  "6.11.2",
+    "source_sha256":  {
+                          "AgMark\\VERSION":  "e9dd8507f4bf0c6f42458e41aea833ad0bd3f6127272335eee9bf4d58541ed67",
+                          "AgMark\\gui\\requirements.txt":  "cb85be34e40ae658a51506fb1ceba29af31de38f402e0cc88ebb43a3de18155f",
+                          "AgMark\\gui\\setup.bat":  "ac888a6cd80ef2e19973e7db9fbc936efd2ac7e8ba16a4e239d3b1bd0df85920",
+                          "AgMark\\gui\\run_gui.bat":  "e2d2e4375a7f812efbd4c8e246cb6aba2ed1483d0be88f14976430f652fc5c6d",
+                          "AgMark\\gui\\run_gui.pyw":  "28bc4336593c380eab30226df4af84e3fc9319ca612f04f4e5b492b1f3197ca5",
+                          "AgMark\\gui\\startup.py":  "ae84dca56b3ec95a805071032b8aa865bdc373cd25269f9b7b041e026aa7e86a",
+                          "AgMark\\gui\\__main__.py":  "3f62799db9051b6ba72c82a8f4e0eea411ceeac64fe0ef33c84f1a18a9f23744"
+                      },
+    "checks":  [
+                   {
+                       "name":  "setup.bat",
+                       "passed":  true,
+                       "details":  "Isolated GUI runtime ready with Python 3.14.3 and PySide6 6.11.2."
+                   },
+                   {
+                       "name":  "python -m AgMark.gui",
+                       "passed":  true,
+                       "details":  "Visible production window reached through python -m AgMark.gui; window process id 6844."
+                   },
+                   {
+                       "name":  "run_gui.bat",
+                       "passed":  true,
+                       "details":  "Visible production window reached through run_gui.bat; window process id 10992."
+                   },
+                   {
+                       "name":  "run_gui.pyw",
+                       "passed":  true,
+                       "details":  "Visible production window reached through run_gui.pyw; window process id 14812."
+                   },
+                   {
+                       "name":  "run_gui.bat missing-environment failure",
+                       "passed":  true,
+                       "details":  "Console launcher failed visibly and actionably with exit code 1."
+                   },
+                   {
+                       "name":  "run_gui.pyw missing-environment failure",
+                       "passed":  true,
+                       "details":  "No-console launcher surfaced the native startup error dialog; process id 15356."
+                   }
+               ],
+    "passed":  true,
+    "failure":  null
+}

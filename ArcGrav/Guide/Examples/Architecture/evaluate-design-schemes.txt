@@ -1,0 +1,87 @@
+# Intent: Compare architectural design schemes against functional context environmental performance and project constraints without hiding material tradeoffs
+
+Scope:
+- Building: Municipal branch library and learning center
+- Site: Constrained urban infill parcel
+- Stage: Concept design selection
+
+[Schemes]:
+- CourtyardScheme:
+  - Form: Two-story perimeter bar around a protected courtyard
+  - Primary entry: North street frontage
+  - Reading rooms: East and south edges
+- AtriumScheme:
+  - Form: Compact three-story volume around a central atrium
+  - Primary entry: Northwest corner
+  - Reading rooms: Upper levels around atrium perimeter
+- PavilionScheme:
+  - Form: Two connected low-rise wings
+  - Primary entry: Between wings
+  - Reading rooms: Distributed along both wings
+
+[Nonnegotiable]:
+- Preserve the required public program area
+- Maintain an accessible route to every public level
+- Keep construction cost within the approved concept budget
+- Avoid permanent encroachment into the recorded utility easement
+- Provide a code-compliant means of egress strategy
+
+[Context]:
+- North frontage: Highest pedestrian activity
+- East boundary: Existing public plaza
+- South boundary: Service access and loading
+- West boundary: Six-story residential building at close setback
+- Climate concern: Summer solar gain and glare
+- Community concern: Strong visual connection between interior public space and the plaza
+
+[DecisionCriteria]:
+- Functional fit:
+  - Adjacency quality
+  - Wayfinding clarity
+  - After-hours zoning
+- Site response:
+  - Plaza relationship
+  - Service access
+  - Neighbor privacy
+- Environmental performance:
+  - Daylight opportunity
+  - Glare exposure
+  - Envelope efficiency
+- Delivery risk:
+  - Structural complexity
+  - Construction phasing
+  - Cost uncertainty
+
+[Evidence]:
+- Program brief: ./program-brief.md
+- Concept area schedules: ./scheme-areas.xlsx
+- Daylight study: ./daylight-study.pdf
+- Preliminary cost model: ./concept-costs.xlsx
+- Code review notes: ./code-review.md
+- Site constraints plan: ./site-constraints.dwg
+
+[Assessments]: []
+
+[Decision]: []
+
+[Evaluate]:
+=> For each item in [Schemes] ↳
+  => Check [Nonnegotiable] against [Evidence] before applying preference criteria
+  => Trace major program relationships through the proposed organization
+  => Evaluate the scheme in [Context] against each group in [DecisionCriteria]
+  => Distinguish demonstrated evidence from design assumptions
+  => Identify material risks that require further study
+  => Append the scheme assessment to [Assessments]
+
+[Compare]:
+=> Compare only schemes that remain viable after the nonnegotiable screen
+=> Preserve tradeoffs when one scheme performs better in one criterion and worse in another
+=> Do not collapse unlike architectural consequences into a single unexplained score
+=> Identify the decision-sensitive assumptions that could change the preferred scheme
+=> If evidence supports a preference append the preferred scheme and rationale to [Decision]
+=> If evidence does not support a preference append the smallest next studies needed to resolve the choice to [Decision]
+
+Task:
+1. Run [Evaluate]
+2. Run [Compare]
+3. Present the constraint screen with [Assessments] and [Decision]

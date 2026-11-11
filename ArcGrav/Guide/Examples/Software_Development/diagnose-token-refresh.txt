@@ -1,0 +1,29 @@
+# Intent: Diagnose the root cause of a Python API token-refresh failure from:
+# - Code
+# - Documentation
+# - Runtime context
+
+Scope: Python API authentication
+
+[Documentation]: https://www.webpage.com/authentication/documentation
+
+[Target]: C:\Python\auth.py
+
+Context:
+- Authorization token refresh issue
+- Error upon user refresh
+- Error: "error 123"
+- Python API authentication version: 4.5.6
+- Environment: Windows 10 22H2
+
+Constraint:
+- Be concise
+- Specific explanation
+
+Mode:
+- Stepwise reasoning
+
+Task:
+1. Locate refresh logic in [Target] using [Documentation]
+2. Identify failure condition
+3. Determine root cause

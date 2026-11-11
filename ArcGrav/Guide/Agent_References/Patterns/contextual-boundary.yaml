@@ -1,0 +1,68 @@
+schema_version: 2
+id: arcgrav.patterns.contextual_boundary
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Patterns/contextual-boundary.md
+  url: ../../Patterns/contextual-boundary.md
+  fingerprint: fnv1a32-bf9bec37
+sections:
+  ag-contextual-boundary: |-
+    Defines the operating contract: scope, objectives, assumptions, audience, authority, permissions, exclusions, verifiable success criteria, etc. It establishes what the model is expected and allowed to address but does not enforce those conditions during execution.
+  ag-scope-enumerated-scope-fence: |-
+    The general operating scope that defines the *initial* context to work within by filtering infinite contextual possibility to a finite, *bounded* focus before any other instructions are defined.
+    Scope:
+    - src/auth/*
+    - tests/auth/*
+    - Exclude deployment configuration
+    **Invariant:** work outside `Scope` is not performed unless the prompt explicitly expands it.
+  ag-authority-and-precedence-ranked-instruction-sources: |-
+    Resolve competing instructions with a priority list.
+    [Authority]:
+    P0. Safety and repository policy
+    P1. Explicit task constraints
+    P2. Local conventions
+    P3. General best practices
+    **Rule:** lower-priority guidance may refine, but never override, a higher-priority instruction.
+  ag-objectives-named-objective-set: |-
+    Separate desired outcomes from execution steps so that alternative plans can still be evaluated against the same goal.
+    [Objectives]:
+    - Preserve public behavior
+    - Remove duplicated validation
+    - Improve failure diagnostics
+  ag-audience-and-consumers-consumer-specific-output-boundary: |-
+    Name the intended consumer and the decisions they must make from the output.
+    [Audience]:
+    - Maintainers reviewing a pull request
+    - Decisions:
+    - Need risks
+    - Changed behavior
+    - Test evidence
+  ag-assumptions-visible-assumption-ledger: |-
+    State assumptions that materially affect the answer. Keep them revisable and distinguish them from known facts.
+    [Assumptions]:
+    - Input files are UTF-8
+    - Missing fields are invalid, not optional
+  ag-success-criteria-verifiable-completion-contract: |-
+    Define observable conditions rather than subjective quality claims.
+    [Success]:
+    - Existing tests pass
+    - New invalid-input cases are covered
+    - No public API signature changes
+  ag-composite-pattern-boundary-contract: |-
+    Reduces implicit inference by making permission, purpose, and completion independently addressable.
+    [Target]:
+    - Package manifests
+    - Lockfiles
+    - Migration tests
+    [Objectives]:
+    - Complete the migration without changing runtime behavior
+    [Assumptions]:
+    - The target version is already approved
+    [Success]:
+    - Dependency resolves
+    - Tests pass
+    - No unrelated edits
+    [Authority]:
+    P0. Repository instructions
+    P1. [Target] and [Success]
+    P2. Existing style

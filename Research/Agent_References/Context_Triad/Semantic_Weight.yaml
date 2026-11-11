@@ -1,0 +1,50 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.weight
+kind: research_reference
+source:
+  path: Research/Context_Triad/Semantic_Weight.md
+  url: ../../Context_Triad/Semantic_Weight.md
+  fingerprint: fnv1a32-fb57e909
+sections:
+  paper-semantic-weight: |-
+    Semantic Weight characterizes coherent represented support for one semantic object relative to declared competitors. It separates support amounts and ratios from response consistency, instruction authority, and raw context length.
+  abstract: |-
+    Semantic Weight compares coherent support for relevant meanings, using declared token spans or preconstructed support units as proxies. Competitive shares, ratios, absolute totals, and proposed support–response experiments test whether reinforcement or competing support changes behavior. Proxy counts do not directly measure a universal latent semantic mass.
+  introduction: |-
+    A context may contain multiple competing meanings with unequal coherent support. Semantic Weight distinguishes relative represented support from response behavior and instruction authority, then proposes controlled support–response comparisons and interactions with placement and semantic history.
+  role-within-the-context-triad: |-
+    The Context Triad develops the shared thesis and conceptual interactions. Weight supplies its theory of relative coherent support. This paper defines represented support, describes its behavioral effects and interactions, and presents ways to quantify them.
+  construct-definition-and-boundaries: |-
+    Semantic Weight characterizes coherent contextual support for a semantic object relative to declared competitors. Represented support is distinct from behavioral compliance, normative authority, raw token volume, and unrelated filler density.
+  support-is-not-its-behavioral-effect: |-
+    Classify repetitions, paraphrases, examples, and elaborations by the semantic object they support before observing the model's response. Contradictions, irrelevant material, and authority must be distinguished from support. Increased text volume does not necessarily increase support for the same meaning.
+  semantic-weight-semantic-mass: |-
+    Theoretical semantic mass denotes the amount of coherent support represented for an object. It is latent, not directly observed. Operational token-span or matched-unit proxies must be declared; different representation families require calibration before their values can be treated as comparable.
+  semantic-weight-operational-proxies: |-
+    Measure a declared object's support by tokens in annotated supporting spans or by counts of preconstructed approximately matched support units. State tokenizer, span boundaries, semantic classification, and any overlap rule. Equal proxy counts across paraphrase, repetition, and examples need not represent equal support.
+  semantic-weight-relative-semantic-weight: |-
+    Compare support for object A with a declared relevant competitor set G. Competitive share measures A's proportion of represented support; pairwise ratios compare A with B. Record absolute support separately. Adding a competitor changes the comparison set and denominator; zero denominators require separate handling.
+  semantic-weight-global-weight: |-
+    Global support density compares support to total context size; unrelated filler can reduce density without changing support shares, while also changing placement and overall length.
+  behavioral-effects: |-
+    Four separable effects distinguish prior observations, support–response behavior, arithmetic shifts in competitive share, and absolute-scale effects. Represented support never determines instruction authority by itself.
+  relation-to-prior-work: |-
+    Research on contradictory long context and in-context demonstration frequency and order motivates these tests, but existing findings do not establish one monotonic weight-to-compliance law.
+  semantic-weight-effective-influence: |-
+    Increasing support for A relative to B may increase behavioral consistency with A, but responses can saturate, reverse, or remain unchanged. Measured support and actual behavioral dominance are different variables.
+  semantic-weight-reinforcement: |-
+    Increasing A's support with B fixed raises A's measured share under a nonnegative proxy; increasing B lowers it. Whether behavior responds is an empirical contrast using coherent versus neutral expansion.
+  semantic-weight-scale-invariance: |-
+    Proportional scaling leaves normalized support ratios unchanged, not necessarily model behavior. Restoring a ratio at a larger total can change placement, absolute volume, and response.
+  interactions-with-the-other-dimensions: |-
+    Interactions with the Other Dimensions: Weight and Locality: Adding support changes the distribution of supporting representations even when outer slot boundaries remain fixed. Quantification. A placement-dependent support effect is:
+    Weight and Shadow: Support supplied after an earlier object changes semantic history as well as represented balance. Quantification. A history-dependent support effect compares the same ratio contrast across matched semantic-history conditions.
+  scope-and-evidence-status: |-
+    The paper defines a theoretical support construct, operational proxies, and proposed support–response tests. Support measures are model-, task-, representation-, and competitor-dependent; their ratios do not themselves establish compliance, causal influence, or a universal semantic-mass scale.
+  conclusion: |-
+    Semantic Weight describes coherent support relative to the objects relevant to a decision. Support proxies, competitive shares and ratios, and support–response measurements distinguish represented balance from behavioral consistency and quantify its interactions with placement and semantic history.
+  related-papers: |-
+    Semantic Locality examines placement; Semantic Shadow examines order-dependent semantic history.
+  references: |-
+    References: • Hu, J., Liu, W., & Du, M. (2024).

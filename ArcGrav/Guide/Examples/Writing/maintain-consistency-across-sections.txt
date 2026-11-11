@@ -1,0 +1,66 @@
+# Intent: Reconcile a multi-author document so the following remain consistent across sections without concealing unresolved source conflicts:
+#   - Terminology
+#   - Facts
+#   - Units
+#   - Chronology
+#   - Cross-references
+
+[Sections]:
+  1. Overview: ./draft/overview.md
+  2. Method: ./draft/method.md
+  3. Findings: ./draft/findings.md
+  4. Recommendations: ./draft/recommendations.md
+  5. Appendix: ./draft/appendix.md
+
+[Authorities]:
+- Defined terms: ./editorial/terms.md
+- Current figures and dates: ./editorial/fact-sheet.md
+- Required section names: ./editorial/outline.md
+
+[Consistency]: []
+
+[Unresolved]: []
+
+[Audit]:
+=> Compare [Sections] against one another and against [Authorities]
+=> Add to [Consistency] each material mismatch involving:
+  - Names
+  - Defined terms
+  - Quantities
+  - Units
+  - Dates
+  - Versions
+  - Chronology
+  - Causal sequence
+  - Claims repeated with different scope or certainty
+  - Section names
+  - Cross-references
+  - Recommendations that rely on facts stated differently elsewhere
+=> Ignore harmless stylistic variation unless it changes meaning or makes a reference ambiguous
+
+[Reconcile]:
+=> For each item in [Consistency] ↳
+  => If an [Authorities] source resolves it, align the affected sections to that source
+  => Else if the sections express the same fact with compatible wording, normalize only enough to remove ambiguity
+  => Else if one section clearly contains a stale cross-reference or editorial mismatch, repair it locally
+  => Else:
+    - Preserve the competing statements
+    - Append to [Unresolved]:
+      - The conflict
+      - Affected sections
+      - Needed decision
+=> After repairs, rerun [Audit] on the revised sections
+=> When no authority establishes which is correct, do not silently choose among competing:
+  - Facts
+  - Policies
+  - Interpretations
+
+[Deliver]:
+=> Provide the revised section files in their original order
+=> Follow them with [Unresolved] only when unresolved conflicts remain
+=> Do not include a change log for purely editorial normalizations
+
+Task:
+1. Run [Audit]
+2. Run [Reconcile]
+3. Run [Deliver]

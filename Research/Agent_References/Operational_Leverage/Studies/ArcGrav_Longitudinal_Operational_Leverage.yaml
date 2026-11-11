@@ -1,0 +1,68 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.operational_leverage.longitudinal
+kind: research_reference
+source:
+  path: Research/Operational_Leverage/Studies/ArcGrav_Longitudinal_Operational_Leverage.md
+  url: ../../../Operational_Leverage/Studies/ArcGrav_Longitudinal_Operational_Leverage.md
+  fingerprint: fnv1a32-7f9c11ac
+sections:
+  paper-operational-longitudinal: |-
+    Longitudinal observational Codex telemetry compares downstream agent activity with human-authored specification burden during the development and use of ArcGrav. It reports activity associations, not independently accepted work or a causal notation effect.
+  abstract: |-
+    This observational study measures changes in downstream agent activity per unit of human-authored specification during sustained ArcGrav use. Session-level Codex telemetry from February 26 through August 17, 2026 includes 1,164 sessions and 6,038 user prompts, spanning pre-ArcGrav operation through notation development and mature use. The primary comparison fixes model (GPT-5.4) and reasoning setting (xhigh) and contrasts the first and last 15 active days in that cohort.
+  introduction: |-
+    The longitudinal study asks whether sustained, evolving ArcGrav usage coincides with less human-authored specification for comparable downstream Codex activity. Distinguish recorded model and tool processing from independently verified accepted work. The observational time series cannot isolate notation from experience, changing tasks or service conditions.
+  role-within-the-research-program: |-
+    This paper measures longitudinal activity leverage during sustained ArcGrav usage. It complements the single-workstream comparison and uses the external operational baseline for broader context. Its primary contribution is the measured change in activity per unit of human-authored text.
+  study-scope-and-operational-leverage: |-
+    Observational longitudinal study of human-authored specification burden relative to subsequent Codex model/tool activity during sustained ArcGrav use, including a fixed-model/reasoning comparison. Distinguish activity per prompt, specification-normalized activity, steering density, and successfully accepted work; activity cannot stand in for task outcomes. Representation theory, contextual influence, and causal mechanisms are separate research questions.
+  dataset-and-methods: |-
+    Uses the committed longitudinal Codex telemetry and repository chronology to describe exposure to developing ArcGrav notation. The analysis distinguishes prompt-valid data, model/reasoning strata, and a fixed GPT-5.4/xhigh cohort with matched endpoint active-day windows; sessions with no user prompt or unknown model/reasoning require documented exclusions. The observational design cannot isolate ArcGrav from changes in user fluency, task mix, or environment.
+  measurements: |-
+    Estimate human-authored specification characters for each session as prompt count multiplied by average characters per prompt. Separately track cached and uncached input, model output, tool activity, steering, and recorded non-success. Report denominators explicitly; estimated characters and token-processing totals are not interchangeable.
+  results: |-
+    In a fixed GPT-5.4/xhigh cohort, endpoint comparisons show shorter authored prompts with broadly preserved downstream activity. The approximately fourfold rise in activity per authored character is an association; task acceptance and isolated ArcGrav effects were not measured.
+  human-specification-burden-fell-743: |-
+    In fixed GPT-5.4/xhigh endpoint windows, average user-authored characters per prompt fell from 2,259 to 581 (74.3%). This records human specification burden, not task success or experimental causality.
+  downstream-computational-activity-was-preserved-per-prompt: |-
+    Despite shorter prompts, the same fixed-cohort comparison retained substantial model/tool activity: tools per prompt rose from about 16.67 to 18.56, inference calls from 7.77 to 8.87, while uncached input remained near 46–48k.
+  ol-specification-compression: |-
+    Specification-normalized agent activity increased about fourfold in the fixed cohort as human-authored prompts shortened. This is activity per estimated character, not fourfold accepted-task throughput, task complexity, or useful-work productivity.
+  general-purpose-arcgrav-notation-was-substantially-mature-by-the-late-window: |-
+    Repository chronology indicates that section/group notation, symbolic reference, aliasing, priorities, wildcarding, and related general-purpose constructs were substantially in place by the late measurement window; chronology is not a randomized intervention.
+  reasoning-effort-is-associated-with-deeper-computational-activity: |-
+    Observed reasoning settings track different inference, token, and tool-use profiles. Reasoning policy also changed over time, so uncontrolled cross-window comparisons confound model policy with authoring practice.
+  recorded-conversational-steering-declined: |-
+    Recorded prompts per session fell from 3.66 to 2.88 (21.3%) across fixed-cohort endpoint windows; a session is not necessarily one accepted task and this is not a direct task-level correction rate.
+  active-day-bootstrap-sensitivity: |-
+    A 20,000-replicate active-day cluster bootstrap checks whether endpoint results are driven by a few days. It supports within-sample stability of specification shortening and activity normalization, not causal attribution.
+  supporting-result--cached-context-dominates-input-processing: |-
+    Across the complete dataset, 2.708B input tokens included 2.482B cached and 226.0M uncached (91.65% cached). Cache share describes processed model context, not human-authored specification length.
+  supporting-result--recorded-non-success-and-aborted-turns: |-
+    Across endpoint windows, aborted turns per prompt fell roughly 0.120 to 0.101 while failed tools per tool call rose 4.14% to 6.71%; activity depth alone must not be mistaken for successful completion.
+  supporting-result--session-span-and-continuation: |-
+    Mean recorded session span fell approximately 75.2 to 43.1 minutes, but outliers and potential idle intervals constrain inference; session duration and continuation are not reliable direct measures of task completion.
+  interpretation: |-
+    Shorter, increasingly compositional prompts coincided with preserved downstream model/tool activity, suggesting specification compression rather than suppressed agent execution. Repository chronology indicates mature grouping, reference, aliasing, priority, wildcard, and literal-block usage by the late window. Authoring fluency, general Codex skill, evolving tasks, model/reasoning policy, and temporal confounding remain alternative explanations; independent task-acceptance and controlled comparisons are still needed.
+  scope-and-evidence-status: |-
+    In matched GPT-5.4/xhigh endpoint windows, recorded user characters per prompt fell 74.3%, while activity per estimated human character rose 4.07×–4.44×. Session telemetry lacks prompt-level ArcGrav usage labels, accepted-task outcomes, and human supervision time. Changes in task mix, skill, repository familiarity, or service behavior remain confounders; the findings are observational.
+  conclusion: |-
+    In a fixed-model, fixed-reasoning longitudinal cohort, shorter human-authored prompts coincided with broadly comparable downstream activity, producing a 4.07×–4.44× increase in measured activity per unit of user text. Notation maturity suggests authoring fluency for direct evaluation but does not demonstrate causation.
+  appendix-cached-context-and-cost-normalization: |-
+    Input cost depends on uncached, cached, and output token shares and applicable prices, not raw processed tokens alone. The dataset's input is 91.65% cached, so large nominal processing volume must not be interpreted as equally expensive uncached inference. Normalize costs at consistent model/pricing settings and keep human-authored specification text separate from model context.
+  data-and-reproducibility: |-
+    Data and Reproducibility: • Longitudinal Codex telemetry CSV — SHA-256 8204a4e09da5929c839395b26dd9dd2966397ee1b6b141172cb3f5a4d0110769.
+    • Single-workstream operational study — complementary observational design.
+    • External SWE-rebench operating reference — independent benchmark scale.
+  related-papers: |-
+    Related Papers: • Model-Native Structural Representation
+    • ArcGrav Syntax Efficiency
+    • ArcGrav Interpretive Efficiency
+    • Single-Workstream Delegation Leverage
+    • Reasoning–Interaction Substitution
+  other-sources: |-
+    Other Sources: • OpenAI Codex rate card — rate-card-normalized cost discussion.
+    • Public 118.16M-token usage report — illustrative reported workload.
+    • OpenAI Codex issue #38367 — reported context-processing workload.
+    • OpenAI Codex issue #34971 — reported long-context/tool-loop workload.

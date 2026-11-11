@@ -1,0 +1,62 @@
+# Intent: Review Arabic checkout localization for meaning terminology rendering and locale behavior before release
+
+[SourceStrings]: ./localization/review/checkout.en-US.json
+
+[LocalizedStrings]: ./localization/review/checkout.ar-SA.json
+
+[ScreenshotManifest]: ./localization/review/checkout-ar-SA-screenshots.csv
+
+[Termbase]: ./localization/review/product-termbase.ar-SA.csv
+
+Locale: ar-SA
+
+[CriticalFlows]:
+- Cart review
+- Shipping address
+- Payment
+- Order confirmation
+
+[ReviewChecks]:
+- Semantic fidelity to the source
+- Approved product terminology
+- Placeholder and markup integrity
+- Right-to-left layout direction
+- Directional mirroring where the interface meaning requires it
+- Arabic plural behavior for item counts
+- Saudi riyal formatting
+- Locale-appropriate address presentation
+- Truncation clipping and overlap
+- Mixed-script readability for product names and identifiers
+
+[Findings]: []
+
+[BlockedChecks]: []
+
+[ReleaseAssessment]: []
+
+[Review]:
+=> Traverse [CriticalFlows] using [ScreenshotManifest] as rendering evidence
+=> For each relevant string or screen:
+  - Compare [LocalizedStrings] against [SourceStrings]
+  - Check applicable items in [ReviewChecks]
+  - Use [Termbase] to verify product terminology
+  - Record the exact string key or screen reference for any finding
+=> Classify each finding by:
+  - User impact
+  - Reproducibility
+  - Affected flow
+  - Whether the defect is linguistic or functional
+=> Preserve a distinction between translation defects and product defects
+=> Append any check that cannot be evaluated from the available evidence to [BlockedChecks]
+
+[Gate]:
+=> Block release for a finding that changes transaction meaning or prevents completion of a [CriticalFlows] step
+=> Block release for broken placeholders or markup that corrupts user-visible content
+=> Do not block release solely for a stylistic preference without an approved terminology or style requirement
+=> Store the supported release recommendation and its evidence in [ReleaseAssessment]
+=> Keep unresolved evidence gaps explicit
+
+Task:
+1. Run [Review]
+2. Run [Gate]
+3. Report [ReleaseAssessment] with [Findings] and [BlockedChecks]

@@ -1,0 +1,123 @@
+# Intent: Reconcile interacting room adjacency circulation capacity and accessibility requirements into a coordinated spatial requirement set without silently relaxing hard constraints
+
+Scope:
+- Facility: Outpatient rehabilitation clinic
+- Planning level: Schematic space coordination
+- Objective: Produce a consistent requirement set before test fitting
+
+[Rooms]:
+- Reception:
+  - Capacity: 4 staff positions
+  - Public waiting connection: Required
+- Waiting:
+  - Capacity: 28 seats
+  - Accessible seating locations: Required within the general seating layout
+- TreatmentGym:
+  - Capacity: 16 concurrent patients
+  - Direct equipment storage connection: Required
+- EquipmentStorage:
+  - Function: Store treatment gym equipment
+- PrivateTreatment:
+  - Quantity: 8 rooms
+  - Acoustic privacy: Required
+- StaffWork:
+  - Capacity: 12 work positions
+  - Public access: Controlled
+- CleanStorage:
+  - Public access: Prohibited
+- SoiledHolding:
+  - Public access: Prohibited
+
+[RelationshipRules]:
+- VisualOversight:
+  - From: Reception
+  - To: Waiting
+  - Requirement: Direct visual oversight required
+- Proximity:
+  - WaitingAndTreatmentGym:
+    - Between:
+      - Waiting
+      - TreatmentGym
+    - Requirement: Short accessible route preferred
+  - PrivateTreatmentAndStaffWork:
+    - Between:
+      - PrivateTreatment
+      - StaffWork
+    - Requirement: Near relationship preferred
+- Adjacency:
+  - Between:
+    - TreatmentGym
+    - EquipmentStorage
+  - Requirement: Direct adjacency required
+- Separation:
+  - Between:
+    - SoiledHolding
+    - Waiting
+  - Requirement: Separation required
+- Exclusion:
+  - Between:
+    - CleanStorage
+    - SoiledHolding
+  - Requirement: Shared room prohibited
+
+[CirculationRules]:
+- Public circulation must not pass through staff-only work areas
+- Patient routes must remain accessible
+- Service movement from soiled holding must avoid the primary waiting area
+- Egress paths must remain independent of furniture assumptions
+
+[AreaEnvelope]:
+- Department gross area limit: 1,850 square meters
+- Fixed building core area: 310 square meters
+- Available planning area: 1,540 square meters
+
+[AuthorityOrder]:
+P0. Life safety and accessibility requirements
+P1. Infection control requirements
+P2. Approved clinical capacity
+P3. Operational adjacency preferences
+P4. Convenience preferences
+
+[Inputs]:
+- Clinical program: ./clinical-program.md
+- Room data sheets: ./room-data-sheets.xlsx
+- Accessibility review: ./accessibility-review.md
+- Infection control criteria: ./infection-control.md
+- Existing floor plate: ./existing-floor-plate.dwg
+
+[Conflicts]: []
+
+[CoordinatedRequirements]: []
+
+[DetectConflicts]:
+=> Compare [Rooms] against [RelationshipRules]
+=> Compare the resulting relationships against [CirculationRules]
+=> Check whether room quantities and planning allowances can fit inside [AreaEnvelope]
+=> For each conflict record its:
+  - Involved requirements
+  - Authority level
+  - Spatial consequence
+  - Evidence source
+  - Resolution status
+=> Append every unresolved conflict to [Conflicts]
+
+[Reconcile]:
+=> Resolve conflicts using [AuthorityOrder]
+=> Preserve both requirements when a spatial arrangement can satisfy both
+=> Relax a preference only when a higher-authority requirement prevents simultaneous satisfaction
+=> Never relax a mandatory requirement without explicit authority in [Inputs]
+=> Convert each resolved relationship into a clear coordinated requirement
+=> Append coordinated room requirements to [CoordinatedRequirements]
+
+[Validate]:
+=> Verify that each required adjacency has a corresponding coordinated requirement
+=> Verify that prohibited relationships remain prohibited
+=> Verify that accessible circulation is not dependent on unresolved assumptions
+=> Verify that capacity remains consistent with the approved clinical program
+=> Verify that unresolved conflicts remain in [Conflicts]
+
+Task:
+1. Run [DetectConflicts]
+2. Run [Reconcile]
+3. Run [Validate]
+4. Present [CoordinatedRequirements] with [Conflicts]

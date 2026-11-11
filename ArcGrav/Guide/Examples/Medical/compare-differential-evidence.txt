@@ -1,0 +1,77 @@
+# Intent: Compare evidence across clinician-provided differential considerations while preserving uncertainty and avoiding unsupported diagnosis
+
+Context:
+- Record identifier: Example patient C
+- Presenting problem: Persistent nonspecific symptom pattern
+- Decision authority: Licensed clinician
+- Purpose: Organize evidence for differential review
+
+[DifferentialConsiderations]:
+- D1:
+  - Label: Consideration A
+  - Proposed by: Treating clinician
+- D2:
+  - Label: Consideration B
+  - Proposed by: Treating clinician
+- D3:
+  - Label: Consideration C
+  - Proposed by: Treating clinician
+
+[ObservedEvidence]:
+- O1:
+  - Finding: Symptom pattern varies with activity
+  - Provenance: Patient history
+- O2:
+  - Finding: Physical examination finding documented as normal
+  - Provenance: Current examination
+- O3:
+  - Finding: One laboratory value is outside its reference interval
+  - Provenance: Laboratory report
+- O4:
+  - Finding: Prior imaging report does not describe the suspected structural finding
+  - Provenance: Imaging report
+- O5:
+  - Finding: Relevant family history is unknown
+  - Provenance: Current record
+
+[EvidenceMap]: []
+
+[DiscriminatingEvidence]: []
+
+[Unresolved]: []
+
+[Compare]:
+=> For each item in [DifferentialConsiderations] ↳
+  => Evaluate each item in [ObservedEvidence] only against relationships explicitly supplied by the clinician or an authoritative clinical reference
+  => Classify evidence as:
+    - Supporting
+    - Contradicting
+    - Non-discriminating
+    - Unknown
+  => Preserve provenance for every classification
+  => Append the result to [EvidenceMap]
+=> Do not convert association into diagnosis
+=> Do not treat a single abnormal result as independently decisive unless the governing clinical criteria establish that meaning
+
+[IdentifyGaps]:
+=> Identify evidence that would materially distinguish the remaining considerations
+=> Append those evidence gaps to [DiscriminatingEvidence]
+=> Preserve unresolved considerations in [Unresolved]
+=> Do not invent missing clinical findings
+=> Do not rank considerations beyond what the available evidence supports
+
+[DecisionBoundary]:
+=> The output supports clinician review rather than autonomous diagnosis
+=> Any diagnostic conclusion remains outside this example unless explicitly entered by the responsible clinician
+=> Any treatment decision remains outside this example
+
+Task:
+1. Run [Compare]
+2. Run [IdentifyGaps]
+3. Run [DecisionBoundary]
+4. Present:
+  - Evidence map by differential consideration
+  - Evidence provenance
+  - Discriminating evidence gaps
+  - Unresolved considerations
+  - Decision boundary

@@ -1,0 +1,37 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.collections
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/ArcGrav_ARB_Trials/Collection_Membership_Multiplicity_and_Order.md
+  url: ../../../../Prompt_Performance/Studies/ArcGrav_ARB_Trials/Collection_Membership_Multiplicity_and_Order.md
+  fingerprint: fnv1a32-9406cc51
+sections:
+  paper-collection-semantics: |-
+    Required membership, contribution lifetime, counting population, emission unit and ordering impose separate relationships. A correct container or count cannot substitute for the source-to-output correspondence.
+  abstract: |-
+    Collection instructions specify more than a container. They determine which information contributes, how many occurrences survive, at what stage a count is taken, and how members are ordered. Observed outputs distinguish these responsibilities: information can be present in a finding but absent from its summary collection, grouped entities can replace source occurrences in a count, and one required member can be missing from an otherwise orderly result. The implications concern explicit relationships between producers and collections.
+  core-distinction: |-
+    Membership determines what belongs; multiplicity determines how many occurrences belong; order determines their sequence. An array-of-strings declaration does not identify the required contributions or their task-specific occurrence and ordering rules. This category owns whole members and their lifecycle; evidence assembly owns the components inside a member.
+  scope: |-
+    The single-fixture, adaptive prompt trial series supplies descriptive observations and does not independently test all comparison domains, model mechanisms or prompt edits.
+  observations: |-
+    Required membership, contribution lifetime, counting population, emission unit and ordering impose separate relationships. A correct container or count cannot substitute for the source-to-output correspondence.
+  1-type-does-not-establish-membership: |-
+    A collection type does not specify required members; connect each contributing producer and its inclusion condition to the collection, allowing emptiness when no contribution is warranted.
+  2-final-collections-combine-stage-contributions: |-
+    Distinguish an empty later contribution from an empty accumulated result; specify append, replacement or reconciliation according to the intended lifetime of earlier members.
+  3-counts-attach-to-a-population-and-stage: |-
+    Name the population, stage and repeat policy of each count; source occurrences, grouped entities and successful results can have different cardinalities.
+  4-emission-units-differ-from-their-components: |-
+    Specify one output per intended source unit, then define the components within it; correct cardinality and complete internal coverage are separate obligations.
+  5-order-operates-on-retained-occurrences: |-
+    Choose members and multiplicity before ordering; stable sorting cannot create missing members or decide whether repeated identities represent required occurrences.
+  conclusion: |-
+    Define a collection through its contributors and occurrence rules before relying on its count or order. The type and name of a container cannot substitute for those relationships.
+  supporting-evidence: |-
+    Exact prompt lines and decoded output witnesses substantiate the observations through ledger atom IDs, snapshot line ranges and audit trial IDs, with contrary cases and branch coverage.
+  other-analyses-in-this-study: |-
+    Inheritance, defaults and output obligations owns required fields within each producer; Evidence ownership, assembly and rendering owns component coverage within a retained member.
+  references: |-
+    The Evidence Ledger supplies original formulations, annotations and historical lint reports; the Trial Audit supplies raw responses and strict output verdicts. Neither reference converts a semantic edit into an independently tested intervention.

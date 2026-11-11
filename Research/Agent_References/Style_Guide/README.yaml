@@ -1,0 +1,27 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.style_guide
+kind: research_reference
+source:
+  path: Research/Style_Guide/README.md
+  url: ../../Style_Guide/README.md
+  fingerprint: fnv1a32-5fde6c5e
+sections:
+  architectural-gravity-research--manuscript-style-guide: |-
+    The manuscript guide establishes direct explanation, clearly owned constructs, explicit evidence boundaries, accurate measurements, and restrained claims. Editorial changes must preserve technical meanings, stable source anchors, citation metadata, and links.
+  editorial-principles: |-
+    Define each construct plainly before formalization, designate a canonical owning paper, and link rather than duplicate imported definitions. Keep observed evidence separate from proposed mechanisms in a dedicated status section. Use one distinct argument per section and choose prose, tables, formulas, or examples according to their semantic role.
+  front-matter-and-abstracts: |-
+    Front matter and abstracts: Research papers begin with existing title then ## Abstract, one or two continuous paragraphs, without statistic lists or separate thesis pull quotes. Theory/method papers: about 100–160 words describing problem, contribution, approach, prediction/boundary. Empirical papers: about 140–200 words covering data/design, key quantitative finding, interpretation and decisive evidence boundary. Do not invent version, author or date metadata.
+  composition-theoretical-and-methodological-papers: |-
+    Composition: theoretical and methodological papers: Typical roles: Role Within the Research Program; Construct Definition and Boundaries; theory/mechanism/examples; hypotheses and quantification; experiments/interactions; concise Scope and Evidence Status; brief Conclusion; Related Papers; References. Retain meaningful existing headings, combine stages where warranted; never create empty placeholders or renumber solely for uniformity.
+  composition-empirical-papers: |-
+    Composition: empirical papers: Preferred progression: Abstract; research question/scope; dataset and methods; measurements; results; interpretation; Scope and Evidence Status; conclusion; data/reproducibility; related papers; references. Keep primary analyses in the body and move extended sensitivity tables or incidental background to appendices. Software READMEs, manifests and stimuli may follow documentation layouts.
+  central-construct-definition-pattern: |-
+    At first substantive use, identify the construct in plain language, provide its technical definition with scope and units, distinguish it from nearby concepts and outcomes, and state its measurement procedure or canonical owner. Do not invent notation or headings merely to satisfy a template.
+  visual-notation-and-copy-style: |-
+    Use sentence-case headings, stable terminology, consistent symbols, explicit units and denominators, and labels for substantive figures and tables. Preserve existing HTML anchors, experimental stimuli, quoted model outputs, and measured values. Emphasize first definitions and principal findings rather than routine qualifiers.
+  citation-and-bibliography-conventions: |-
+    Citation and bibliography conventions: Use author–year in prose for external scholarly evidence and linked first substantive citations when appropriate. End manuscripts with References alphabetized by first author (or title when author unknown), using verified publication metadata and stable links; never invent author, venue or guessed author-year. Cite canonical internal papers with relative links and Related Papers as one link per Markdown bullet; internal cross-links are not independent evidence. Empirical Data and Reproducibility contains data, transcripts, scripts, hashes and extraction instructions; other public sources/rate cards belong under Other Sources. Deduplicate; preserve external URLs; validate with Style_Guide/validate_references.py.
+  review-checklist: |-
+    Review independent comprehension, canonical construct ownership, abstract progression, coherent section roles, non-duplicated conclusions, observed-versus-proposed distinctions, source fidelity, units, citations, and resolvable relative and permanent links.

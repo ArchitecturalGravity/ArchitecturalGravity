@@ -1,0 +1,74 @@
+# Intent: Synthesize independent interview feedback into a hiring decision record while preserving evidence disagreements and uncertainty
+
+[RoleProfile]: ./hiring/role-profile.txt
+
+[FeedbackSources]:
+- Screen scorecard: ./hiring/feedback/screen.txt
+- Work sample scorecard: ./hiring/feedback/work-sample.txt
+- Technical interview scorecard: ./hiring/feedback/technical-interview.txt
+- Collaboration interview scorecard: ./hiring/feedback/collaboration-interview.txt
+
+[SynthesisBoundaries]:
+- Use only job relevant evidence
+- Preserve each interviewer assessment before reconciliation
+- Separate evidence from interpretation
+- Do not average away material disagreement
+- Do not introduce criteria that are absent from [RoleProfile]
+- Exclude from evaluation:
+  - Protected characteristics
+  - Accommodation information
+
+[RequirementEvidence]: []
+
+[Disagreements]: []
+
+[DecisionRecord]: []
+
+[IntegrateFeedback]:
+=> Read [RoleProfile]
+=> Apply [SynthesisBoundaries] to all synthesis stages
+=> For each explicit requirement in [RoleProfile] ↳
+  => Gather relevant evidence from [FeedbackSources]
+  => Append to [RequirementEvidence] ↳
+    - Requirement
+    - Supporting observations with source attribution
+    - Contradicting observations with source attribution
+    - Missing evidence
+    - Evidence strength
+=> Keep repeated observations from a shared exercise distinct from independent corroboration
+
+[ResolveDisagreements]:
+=> Identify material differences across interviewer assessments
+=> For each material difference append to [Disagreements] ↳
+  - Requirement or competency in dispute
+  - Each assessment with source attribution
+  - Evidence cited by each assessment
+  - Difference category:
+    - Facts
+    - Interpretation
+    - Evaluation standards
+  - Additional evidence that could resolve the difference
+=> Resolve a disagreement only when the available evidence supports resolution
+=> Preserve unresolved differences in [Disagreements]
+
+[BuildDecisionRecord]:
+=> Build [DecisionRecord] from [RequirementEvidence] and [Disagreements]
+=> Include in [DecisionRecord] ↳
+  - Mandatory requirements demonstrated
+  - Mandatory requirements not demonstrated
+  - Preferred criteria demonstrated
+  - Material evidence gaps
+  - Unresolved disagreements
+  - Decision rationale tied to explicit role criteria
+=> Distinguish not demonstrated from demonstrated absence
+=> Prevent substitutions for evidence:
+  - Seniority
+  - Confidence
+  - Group consensus
+=> Record a need for additional evidence when the current record cannot support a defensible decision
+
+Task:
+1. Run [IntegrateFeedback]
+2. Run [ResolveDisagreements]
+3. Run [BuildDecisionRecord]
+4. Provide [DecisionRecord] and any unresolved [Disagreements] with source traceability

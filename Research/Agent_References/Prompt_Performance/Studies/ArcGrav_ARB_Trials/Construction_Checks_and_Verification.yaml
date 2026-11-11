@@ -1,0 +1,35 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.checks
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/ArcGrav_ARB_Trials/Construction_Checks_and_Verification.md
+  url: ../../../../Prompt_Performance/Studies/ArcGrav_ARB_Trials/Construction_Checks_and_Verification.md
+  fingerprint: fnv1a32-f2f390ea
+sections:
+  paper-construction-verification: |-
+    Requested review, validator coverage, consistency of reported success and repair authority are distinct. Covered violations and uncovered errors require different interpretations of the same validation flag.
+  abstract: |-
+    A check is defined by its reference, its tested conditions and its authority to change a result. Those properties differ from the model's statement that checking succeeded. The observations here separate requested review from observed execution, coverage gaps from failures to apply covered checks, and authorized correction from alteration of legitimate outcomes. A wrong aggregate can lie outside a validator's tests, while a missing required key can contradict the very checks the response reports as passed. These distinctions make verification claims useful: they identify what success would establish, what the returned evidence actually shows, and what a repair is allowed to change.
+  the-construction-distinction: |-
+    Construction review compares a proposed result with its source and rules. Prescribed validation applies a specified set of tests. External acceptance evaluates the delivered answer. Each has a different object and scope; one result cannot silently stand for all three.
+  observations-and-construction-implications: |-
+    Requested review, validator coverage, consistency of reported success and repair authority are distinct. Covered violations and uncovered errors require different interpretations of the same validation flag.
+  a-requested-recheck-specifies-obligations-not-observed-execution: |-
+    A source-based recheck specifies a reference and coverage; the observed outputs include covered errors under detailed review instructions. Assess the returned source-to-output correspondence.
+  a-passing-validator-establishes-only-its-covered-properties: |-
+    Validation success is bounded by its actual predicates; source-support checks do not automatically certify an aggregate label or the complete answer.
+  a-reported-pass-can-contradict-a-covered-requirement: |-
+    A returned validation flag can contradict covered conditions. Compare the delivered object with the claimed tests; the inconsistency is observable while its execution sequence is undetermined.
+  repair-must-preserve-source-legitimate-outcomes: |-
+    Repair generated mistakes within stated authority while preserving legitimate unresolved data and source-implied multiplicity; passing validation is not permission to alter the task.
+  scope-and-evidence-status: |-
+    The single-fixture, adaptive prompt trial series supplies descriptive observations and does not independently test all comparison domains, model mechanisms or prompt edits.
+  conclusion: |-
+    Useful verification separates the reference, coverage, execution evidence and correction authority of a check. A success label becomes informative only within those boundaries.
+  supporting-evidence-and-reproducibility: |-
+    Exact prompt lines and decoded output witnesses substantiate the observations through ledger atom IDs, snapshot line ranges and audit trial IDs, with contrary cases and branch coverage.
+  other-analyses-in-this-study: |-
+    Reference identity and independent decisions owns verified static repairs and aggregate operands; Inheritance, defaults and output obligations owns covered key and metadata requirements; Evidence ownership, assembly and rendering owns whole-response acceptance versus payload diagnosis.
+  references: |-
+    The Evidence Ledger supplies original formulations, annotations and historical lint reports; the Trial Audit supplies raw responses and strict output verdicts. Neither reference converts a semantic edit into an independently tested intervention.

@@ -1,0 +1,90 @@
+# Intent: Diagnose the production stage most likely constraining output by reconciling observed flow effective capacity and quality losses without treating visible queues as proof
+
+[ProductionContext]:
+- Line: Metering pump final assembly
+- Shift: Eight hours including two planned fifteen-minute breaks
+- Demand: 480 finished units per shift
+- Current average output: 356 accepted units per shift
+- Product mix:
+  - Standard pump: 70 percent
+  - High-flow pump: 30 percent
+
+[Flow]:
+- S10HousingLoad:
+  - Function: Load housing and seal
+  - Nominal cycle: 42 seconds per unit
+  - Parallel capacity: One station
+- S20SpringPress:
+  - Function: Install spring and press retainer
+  - Standard pump cycle: 50 seconds per unit
+  - High-flow pump cycle: 68 seconds per unit
+  - Parallel capacity: One station
+- S30LeakTest:
+  - Function: Pressure decay test
+  - Nominal cycle: 96 seconds per unit
+  - Parallel capacity: Two fixtures
+- S40FinalPack:
+  - Function: Inspect label and pack finished unit
+  - Nominal cycle: 45 seconds per unit
+  - Parallel capacity: One station
+
+[ObservedEvidence]:
+- Work in process:
+  - Before S20SpringPress: Median 44 units
+  - After S20SpringPress: Median 7 units
+  - Before S30LeakTest: Median 9 units
+- Downtime:
+  - S10HousingLoad: 12 unplanned minutes per shift
+  - S20SpringPress: 47 unplanned minutes per shift
+  - S30LeakTest: 18 unplanned minutes across both fixtures
+  - S40FinalPack: 9 unplanned minutes per shift
+- Flow behavior:
+  - S10HousingLoad: Repeated blocking when the S20 input buffer is full
+  - S30LeakTest: Repeated starvation during S20 stops
+  - S40FinalPack: No sustained queue observed
+- Quality losses:
+  - S20SpringPress first-pass yield: 94 percent
+  - S30LeakTest first-pass yield: 98 percent
+  - Final pack rejection: Less than 1 percent
+
+[Sources]:
+- Cycle study: ./cycle-study.xlsx
+- Shift output history: ./mes-output.csv
+- Downtime log: ./downtime-log.csv
+- Buffer observations: ./wip-observations.md
+- Quality summary: ./first-pass-yield.csv
+
+[CandidateConstraints]: []
+
+[EvidenceGaps]: []
+
+[Finding]: []
+
+[Diagnose]:
+=> Resolve accessible [Sources] and record unavailable material in [EvidenceGaps]
+=> Calculate effective shift capacity for every stage in [Flow] ↳
+  - Shift time and product mix in [ProductionContext]
+  - Stage cycle times and parallel capacity in [Flow]
+  - Observed downtime in [ObservedEvidence]
+=> Adjust capacity reasoning for first-pass yield in [ObservedEvidence] where defects consume constrained process time
+=> Trace work accumulation and downstream starvation in [ObservedEvidence]
+=> Distinguish a local utilization symptom from a stage that constrains accepted line output
+=> For each credible candidate append to [CandidateConstraints] ↳
+  - Stage
+  - Capacity evidence
+  - Flow evidence
+  - Quality effect
+  - Confidence
+=> Record missing evidence that could reverse the diagnosis in [EvidenceGaps]
+
+[Challenge]:
+=> Test whether the observed output could instead be explained by another stage or by demand release behavior
+=> Do not identify a bottleneck solely because a station has a visible queue
+=> Do not treat nominal cycle time as achieved capacity when downtime or product mix materially changes available output
+=> Preserve uncertainty when the available observations do not distinguish a persistent constraint from a temporary disruption
+=> Append the best-supported conclusion and its limiting assumptions to [Finding]
+
+Task:
+1. Run [Diagnose]
+2. Run [Challenge]
+3. Provide [CandidateConstraints] with [EvidenceGaps] and [Finding]

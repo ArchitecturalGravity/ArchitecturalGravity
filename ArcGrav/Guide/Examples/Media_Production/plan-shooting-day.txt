@@ -1,0 +1,105 @@
+# Intent: Build a feasible shooting-day plan that preserves creative priorities while respecting location windows cast availability setup dependencies and production constraints
+
+ProductionContext:
+  - Project: Short documentary sequence
+  - Unit: Main camera unit
+  - Shooting day: Day 3
+  - Goal: Capture the required story beats without creating an infeasible company move
+
+[Scenes]:
+  - `S1`:
+    - Story beat: Opening interview with workshop owner
+    - Location: Interior workshop
+    - Priority: Required
+    - Estimated camera time: 70 min
+    - Dependencies:
+      - Interview lighting setup complete
+      - Workshop machinery quiet
+  - `S2`:
+    - Story beat: Exterior arrival sequence
+    - Location: Workshop street entrance
+    - Priority: Required
+    - Estimated camera time: 35 min
+    - Dependencies:
+      - Lead participant present
+      - Soft morning light window
+  - `S3`:
+    - Story beat: Detail coverage of restoration work
+    - Location: Interior workshop
+    - Priority: High
+    - Estimated camera time: 50 min
+    - Dependencies:
+      - Macro lens package available
+      - Workbench cleared for camera access
+  - `S4`:
+    - Story beat: Closing portrait
+    - Location: Courtyard
+    - Priority: Optional
+    - Estimated camera time: 25 min
+    - Dependencies:
+      - Lead participant present
+      - Courtyard access open
+
+[Availability]:
+  - Lead participant: 08:00 to 12:00
+  - Workshop quiet window: 09:00 to 10:45
+  - Street permit window: 07:30 to 09:15
+  - Courtyard access: 10:30 to 12:30
+
+[ProductionConstraints]:
+  - Crew call cannot be earlier than 07:00
+  - Interior interview lighting requires 35 min setup
+  - Interior camera reset between `S1` and `S3` requires 15 min
+  - Company move between street and workshop requires 20 min
+  - Required meal break must begin no later than 6 hours after crew call
+  - Do not schedule simultaneous use of the single primary camera package
+
+[Schedule]: []
+
+[Uncaptured]: []
+
+[BuildDay]:
+  => Identify the hard timing windows in [Availability]
+  => For each scene in [Scenes] ↳
+    => Verify dependencies against available evidence
+    => Treat missing dependency evidence as an unresolved scheduling constraint
+    => Account for:
+      - Required setups
+      - Camera resets
+      - Company moves
+    => Reject placements that violate [ProductionConstraints]
+  => Prioritize scenes:
+    1. Required
+    2. High
+    3. Optional
+  => Prefer orderings that reduce setup changes without sacrificing required timing windows
+  => Include a timely meal break if the crew remains on duty through the meal deadline
+  => Append only feasible time-ordered placements to [Schedule]
+  => Append displaced or unverifiable scenes to [Uncaptured] with their governing constraint
+
+[VerifyDay]:
+  => Replay [Schedule] in time order
+  => Check scheduled scenes against [Availability] ↳
+    - All required windows are satisfied
+    - Every dependency is verified before camera time
+  => Validate [Schedule] against [ProductionConstraints] ↳
+    - Crew call
+    - Production transition periods:
+      - Setups
+      - Resets
+      - Company moves
+    - Meal timing
+    - Single-camera exclusivity
+  => If a required scene is infeasible:
+    => Report its blocking dependency or missing evidence
+  => Preserve unresolved conditions in [Uncaptured] rather than claiming a fully feasible day
+
+Task:
+  1. Run [BuildDay]
+  2. Run [VerifyDay]
+  3. Provide:
+    - Shooting schedule
+    - Setup and move periods
+    - Scene coverage
+    - Uncaptured scenes
+    - Blocking constraints

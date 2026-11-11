@@ -1,0 +1,126 @@
+"""Production validation primitives for shared benchmark authority."""
+
+from .catalog import (
+    CATALOG_SCHEMA,
+    CatalogEntry,
+    resolve_catalog_entry,
+    validate_cataloged_schema_document,
+    validate_exact_schema_identity,
+    validate_schema_catalog,
+)
+from .core import (
+    SchemaIdentity,
+    SourceArtifact,
+    ValidationIssue,
+    ValidationResult,
+    sha256_bytes,
+)
+from .evidence import (
+    EvidenceSetValidationOutcome,
+    RetainedArtifactSource,
+    validate_artifact_reference,
+    validate_evidence_set,
+    validate_evidence_set_outcome,
+)
+from .extensions import (
+    RegisteredValidationExtensionAuthority,
+    ValidationExtensionDeclaration,
+    validate_registered_logic,
+    validate_registered_supplemental_schema,
+    validate_registered_validation_extension,
+    validate_registered_validation_extension_outcome,
+)
+from .run_archive import RunArchiveValidation, validate_run_archive, import_run_archive
+from .lifecycle import (
+    GOLDEN_OBSERVATION_SCHEMA,
+    RUN_OUTCOME_SCHEMA,
+    RUN_PLAN_SCHEMA,
+    SCORE_ARTIFACT_SCHEMA,
+    TREATMENT_OBSERVATION_SCHEMA,
+    LifecycleValidationOutcome,
+    validate_lifecycle_evidence,
+    validate_lifecycle_evidence_outcome,
+)
+from .publication import (
+    validate_reporting_handoff,
+)
+from .registration import (
+    REGISTRATION_SCHEMA,
+    ArtifactSource,
+    ContractRequirement,
+    RegistrationDocumentClassification,
+    RegistrationValidationOutcome,
+    classify_registration_document,
+    implementation_artifact_sha256,
+    registration_document_inspection_issues,
+    validate_registration_document_schema,
+    validate_registration_binding,
+    validate_registration_binding_outcome,
+)
+from .repository import (
+    BenchmarkDiscoveryCandidate,
+    RepositoryOwnedPath,
+    RepositoryPythonSource,
+    validate_benchmark_discovery,
+    validate_repository_dependencies,
+    validate_repository_ownership,
+)
+from .structure import (
+    validate_cataloged_document,
+    validate_json_schema_structure,
+)
+
+__all__ = [
+    "CATALOG_SCHEMA",
+    "GOLDEN_OBSERVATION_SCHEMA",
+    "REGISTRATION_SCHEMA",
+    "RUN_OUTCOME_SCHEMA",
+    "RUN_PLAN_SCHEMA",
+    "SCORE_ARTIFACT_SCHEMA",
+    "TREATMENT_OBSERVATION_SCHEMA",
+    "ArtifactSource",
+    "BenchmarkDiscoveryCandidate",
+    "CatalogEntry",
+    "ContractRequirement",
+    "EvidenceSetValidationOutcome",
+    "LifecycleValidationOutcome",
+    "RunArchiveValidation",
+    "RegistrationDocumentClassification",
+    "RegistrationValidationOutcome",
+    "RegisteredValidationExtensionAuthority",
+    "RepositoryOwnedPath",
+    "RepositoryPythonSource",
+    "RetainedArtifactSource",
+    "SchemaIdentity",
+    "SourceArtifact",
+    "ValidationExtensionDeclaration",
+    "ValidationIssue",
+    "ValidationResult",
+    "classify_registration_document",
+    "implementation_artifact_sha256",
+    "registration_document_inspection_issues",
+    "resolve_catalog_entry",
+    "validate_registration_document_schema",
+    "sha256_bytes",
+    "validate_artifact_reference",
+    "validate_benchmark_discovery",
+    "validate_cataloged_document",
+    "validate_cataloged_schema_document",
+    "validate_evidence_set",
+    "validate_evidence_set_outcome",
+    "validate_exact_schema_identity",
+    "validate_json_schema_structure",
+    "validate_run_archive",
+    "validate_lifecycle_evidence",
+    "validate_lifecycle_evidence_outcome",
+    "validate_registered_logic",
+    "validate_registered_supplemental_schema",
+    "validate_registered_validation_extension",
+    "validate_registered_validation_extension_outcome",
+    "validate_registration_binding",
+    "validate_registration_binding_outcome",
+    "validate_reporting_handoff",
+    "validate_repository_dependencies",
+    "validate_repository_ownership",
+    "validate_schema_catalog",
+]

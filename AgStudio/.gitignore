@@ -1,0 +1,16 @@
+# All generated setup/runtime files are local to this checkout.
+/Runtime/
+
+# Legacy environments and caches created by direct developer commands.
+.venv/
+__pycache__/
+
+# Local standalone language-engine package builds.
+build/
+dist/
+*.egg-info/
+
+# Opt-in unexpected-exit reports
+/error.log
+/error.*.log
+/.error-*.tmp

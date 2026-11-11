@@ -1,0 +1,174 @@
+# Intent: Produce an executable run of show for a two-day public innovation summit with connected stages and protected recovery paths
+
+[Event]:
+- Format: Two-day regional innovation summit
+- Attendance: 420 registered participants
+- Venue: Harbor Civic Center
+- DoorsOpen: Tuesday 08:00
+- EventClose: Wednesday 18:30
+
+[Spaces]:
+- Auditorium:
+  - Capacity: 450 seated
+  - PrimaryUse: Plenary program
+- WorkshopEast:
+  - Capacity: 120 classroom seats
+  - PrimaryUse: Facilitated sessions
+- WorkshopWest:
+  - Capacity: 120 classroom seats
+  - PrimaryUse: Facilitated sessions
+- ExpoHall:
+  - Capacity: 300 standing attendees
+  - PrimaryUse: Demonstration showcase
+- GreenRoom:
+  - Capacity: 18 people
+  - PrimaryUse: Speaker preparation
+- LoadingDock:
+  - TuesdayAccessWindow: Tuesday 05:30 to 07:15
+  - WednesdayAccessWindow: Wednesday 06:30 to 07:30
+
+[Stages]:
+- VenueSetup:
+  - Window: Tuesday 05:30 to 07:30
+  - CompleteWhen:
+    - Registration is operational
+    - Plenary audiovisual system is checked
+    - Accessible routes are clear
+- Arrival:
+  - Window: Tuesday 08:00 to 09:00
+  - RequiredFlow: Registration into Auditorium
+- OpeningPlenary:
+  - Window: Tuesday 09:00 to 10:15
+  - Space: Auditorium
+- BreakoutCycle:
+  - Window: Tuesday 10:45 to 16:30
+  - Spaces:
+    - WorkshopEast
+    - WorkshopWest
+- DemonstrationShowcase:
+  - Window: Tuesday 16:45 to 18:15
+  - Space: ExpoHall
+- DayTwoProgram:
+  - Window: Wednesday 08:30 to 16:45
+  - Spaces:
+    - Auditorium
+    - WorkshopEast
+    - WorkshopWest
+- ClosingPlenary:
+  - Window: Wednesday 17:00 to 18:00
+  - Space: Auditorium
+- GuestDeparture:
+  - Window: Wednesday 18:00 to 18:30
+
+[SharedResources]:
+- CaptioningKits:
+  - Quantity: 2
+  - RequiredFor:
+    - OpeningPlenary
+    - ClosingPlenary
+- AVTechnicians:
+  - Quantity: 4
+  - MinimumAuditoriumCoverage: 2 technicians during plenary sessions
+  - MinimumWorkshopCoverage: 1 technician for each active workshop changeover
+- EventStaff:
+  - Quantity: 14
+  - MinimumRegistrationCoverage: 4 staff during Arrival
+  - MinimumExpoCoverage: 5 staff during DemonstrationShowcase
+- MobileWayfindingSigns:
+  - Quantity: 8
+  - RelocationTime: 15 minutes before each major attendee movement
+
+[FixedCommitments]:
+- FireMarshalWalkthrough: Tuesday 07:20 in Auditorium
+- KeynoteArrival: Tuesday 08:20 at GreenRoom
+- LunchDelivery: Tuesday 11:30 at LoadingDock
+- ExpoVendorLoadInComplete: Tuesday 15:45
+- DayTwoSpeakerBriefing: Wednesday 08:00 in GreenRoom
+- ClosingTransitDeparture: Wednesday 18:20 from main entrance
+
+[Dependencies]:
+- Dependency:
+  - Predecessor: VenueSetup
+  - Successor: FireMarshalWalkthrough
+  - Condition: Auditorium must be inspection ready
+- Dependency:
+  - Predecessor: FireMarshalWalkthrough
+  - Successor: DoorsOpen
+  - Condition: Approval must be recorded before public entry
+- Dependency:
+  - Predecessor: ExpoVendorLoadInComplete
+  - Successor: DemonstrationShowcase
+  - Condition: Vendor setup must finish before attendee access
+- Dependency:
+  - Predecessor: BreakoutCycle
+  - Successor: DemonstrationShowcase
+  - Condition: Attendee movement requires a 15 minute transfer window
+- Dependency:
+  - Predecessor: DayTwoSpeakerBriefing
+  - Successor: DayTwoProgram
+  - Condition: Speakers must receive current timing before their sessions
+- Dependency:
+  - Predecessor: DayTwoProgram
+  - Successor: ClosingPlenary
+  - Condition: Auditorium reset requires 15 minutes after the last day session
+
+[ContingencyRules]:
+- KeynoteDelay:
+  - Trigger: Keynote is not in GreenRoom by 08:40 Tuesday
+  - Protect: OpeningPlenary end time
+  - Response: Advance the moderator welcome and first local speaker segment
+- ExpoLoadInDelay:
+  - Trigger: Vendor setup is incomplete at 15:45 Tuesday
+  - Protect: Accessible attendee routes
+  - Response: Hold unopened booths behind the vendor boundary until cleared
+- WorkshopOverrun:
+  - Trigger: A workshop reaches its scheduled end with active participant work
+  - Protect: Shared room reset and attendee transfer time
+  - Response: Move optional discussion to the published follow-up channel
+
+[RunOfShow]: []
+
+[ResourceAssignments]: []
+
+[RecoveryWindows]: []
+
+[Unresolved]: []
+
+[BuildRunOfShow]:
+=> Place [FixedCommitments] on the two-day timeline in [Event]
+=> Insert every [Stages] window into feasible [Spaces] without violating [Dependencies]
+=> Plan attendee flow so concurrent occupancy does not exceed capacities in [Spaces]
+=> Check [FixedCommitments] against access windows in [Spaces] and append infeasible commitments to [Unresolved]
+=> For each transition include its required movement or reset interval
+=> Append the resulting sequence to [RunOfShow]
+
+[AllocateResources]:
+=> Assign [SharedResources] only where their stated coverage is required
+=> Prevent one resource unit from covering simultaneous locations
+=> Reserve practical handoff time when a mobile resource changes rooms
+=> Append each assignment to [ResourceAssignments]
+
+[ProtectRecovery]:
+=> Identify intervals that can absorb a delayed start without breaking a later fixed commitment
+=> Preserve at least one recovery window on each day
+=> Do not create recovery by deleting an accessibility requirement or fixed commitment
+=> Append protected intervals to [RecoveryWindows]
+
+[Validate]:
+=> Verify that every stage has a space and a feasible time window in [Spaces]
+=> Verify that space occupancy stays within [Spaces] capacities
+=> Verify that every dependency is satisfied in sequence
+=> Verify that shared resource quantities are never exceeded
+=> Verify that fixed commitments remain reachable from preceding activities and access windows
+=> Do not represent [RunOfShow] as executable while blocking conflicts remain in [Unresolved]
+=> Verify that each response in [ContingencyRules] preserves its stated protected condition
+
+Task:
+1. Run [BuildRunOfShow]
+2. Run [AllocateResources]
+3. Run [ProtectRecovery]
+4. Run [Validate]
+5. Provide [RunOfShow] with:
+  - [ResourceAssignments]
+  - [RecoveryWindows]
+  - [Unresolved]

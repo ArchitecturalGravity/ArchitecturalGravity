@@ -1,0 +1,35 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.index
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/ArcGrav_ARB_Trials/README.md
+  url: ../../../../Prompt_Performance/Studies/ArcGrav_ARB_Trials/README.md
+  fingerprint: fnv1a32-eaef6ffd
+sections:
+  paper-prompt-formation-performance: |-
+    A single fixed-fixture ArcGrav Authority Resolution Benchmark study reports adaptive prompt-refinement trials through eight complementary thematic analyses, not eight independent experiments.
+  abstract: |-
+    The archive records 407 strict exact-response trial verdicts, 236 passes and 171 failures; observed discrepancies motivate task-conditional distinctions without isolating effects of individual edits.
+  study-question-and-scope: |-
+    The study examines which source, decision and output obligations must stay explicit in an authority-resolution task. Exact acceptance and selected discrepancies are measured; general utility and efficiency are not.
+  fixed-benchmark-fixture-and-scoring-context: |-
+    The historical fixed fixture groups four source occurrences under three IDs, requires five findings and one uncertainty, and uses exact-response scoring distinct from the registered ARB field-accuracy metric.
+  the-construction-path: |-
+    A dependency diagram connects source evidence, field selection, findings, collections, rendering and verification as specified relationships rather than observed internal model steps.
+  eight-analyses-within-one-study: |-
+    Eight thematic analyses examine input integrity, reference identity, predicate scope, materialization, collections, evidence rendering, rule reuse and verification using the same adaptive trial series.
+  a-cross-layer-example: |-
+    The partly unresolved item_2 illustrates independent field decisions, selected-authority aggregation, uncertainty membership and check coverage through distinct trial witnesses.
+  what-the-observations-support: |-
+    Specification analysis, observed response behavior and verified static lint effects are separate evidence classes. Associations do not establish isolated edit causation.
+  scope-and-evidence-status: |-
+    One adaptive sequential fixture and non-independent revisions limit causal and transfer claims. Strict complete-response acceptance is distinct from diagnostic extracted JSON or a self-reported validation flag.
+  data-and-reproducibility: |-
+    The unchanged Trial Audit has 407 verdicts and the Evidence Ledger anchors 57 tested prompt hashes, 56 transitions and reviewed semantic units to recorded texts and responses.
+  implications-and-transfer-limits: |-
+    Construction implications identify producer, consumer, comparison, contribution and check obligations; they require task-specific adaptation and fresh evaluation before generalization.
+  related-research: |-
+    Instructional Representation, Interpretive Efficiency and Semantic Locality address related questions but are not independent experimental validations of these ARB prompt trials.
+  references: |-
+    External prompt-optimization and sequential-inference literature supplies context, not experimental evidence for any individual contrast in the archived ARB trials.

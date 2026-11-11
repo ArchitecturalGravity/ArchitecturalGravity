@@ -1,0 +1,22 @@
+# Intent: Scan user JSON files and report records with missing or malformed email addresses
+
+[Directory]:
+- /app/users
+
+[Files]:
+- All user.json files under [Directory]
+
+[Field]:
+- `email`
+
+[Invalid]:
+- Missing [Field]
+- [Field] does not contain "@"
+
+[Affected]:
+- Records in [Files] where [Field] satisfies any [Invalid] condition
+
+Task:
+1. Scan [Files]
+2. Identify [Affected]
+3. List [Affected] grouped by source file name

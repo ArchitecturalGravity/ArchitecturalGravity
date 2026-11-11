@@ -1,0 +1,83 @@
+# Intent: Schedule an Earth-observation imaging sequence that maximizes useful coverage while respecting spacecraft resource and geometry constraints
+
+[Requests]:
+- `R1`:
+  - Target: Flooded river corridor
+  - Priority: 1
+  - Minimum useful coverage: 70 percent
+  - Maximum acceptable cloud forecast: 35 percent
+- `R2`:
+  - Target: Coastal algal bloom region
+  - Priority: 2
+  - Minimum useful coverage: 60 percent
+  - Maximum acceptable cloud forecast: 25 percent
+- `R3`:
+  - Target: Agricultural drought survey area
+  - Priority: 3
+  - Minimum useful coverage: 50 percent
+  - Maximum acceptable cloud forecast: 40 percent
+
+[CandidateWindows]:
+- W1: `R1` from 10:14 to 10:19 UTC
+- W2: `R2` from 10:27 to 10:31 UTC
+- W3: `R3` from 10:43 to 10:49 UTC
+- W4: `R1` from 11:52 to 11:57 UTC
+
+[Resources]:
+- Imaging energy allocation: 420 Wh
+- Free payload storage: 38 GB
+- Confirmed downlink capacity before the next planning cycle: 24 GB
+- Maximum continuous imaging interval: 6 min
+
+[GeometryRules]:
+- Use only windows with acceptable illumination geometry for the requested product
+- Reject any window that violates the approved off-nadir pointing limit
+- Include attitude-settle time before imaging begins
+- Include recovery time before a conflicting maneuver or downlink begins
+- Do not schedule imaging through a protected Sun-exclusion condition
+
+[ResourceModel]:
+- Record predicted energy use per candidate window
+- Record predicted payload data volume per candidate window
+- Track storage as a time-ordered balance rather than only as a final total
+- Reserve the required energy contingency before allocating discretionary imaging
+
+[Schedule]: []
+
+[BuildSchedule]:
+=> For each item in [CandidateWindows] ↳
+  => Associate the window with its request in [Requests]
+  => Reject the window if forecast cloud exceeds the request limit
+  => Reject the window if [GeometryRules] cannot be satisfied
+  => Estimate:
+    - Usable target coverage
+    - Imaging energy using [ResourceModel]
+    - Payload data volume using [ResourceModel]
+    - Slew and settle time
+  => Record the result as feasible or infeasible with the governing reason
+=> Rank feasible windows by:
+  - Request priority
+  - Useful coverage gained
+  - Resource cost
+  - Availability of an alternate window
+=> Select a time-ordered set that stays within [Resources]
+=> Append the selected sequence and rejected alternatives to [Schedule]
+
+[VerifySchedule]:
+=> Replay [Schedule] in time order under [ResourceModel]
+=> Confirm attitude transitions do not overlap imaging or protected geometry intervals
+=> Confirm cumulative energy use remains below the imaging allocation after contingency reservation
+=> Confirm storage never exceeds available capacity before the scheduled downlink
+=> Confirm each selected request meets its minimum useful coverage or is explicitly reported as partially satisfied
+=> If any check fails, revise [Schedule] through [BuildSchedule] using the failing constraint rather than silently reducing a margin
+
+Task:
+1. Run [BuildSchedule]
+2. Run [VerifySchedule]
+3. Provide:
+  - Selected imaging sequence
+  - Coverage by request
+  - Energy timeline
+  - Storage timeline
+  - Rejected windows with reasons
+  - Unserved requests

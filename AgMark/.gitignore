@@ -1,0 +1,15 @@
+# Python bytecode/cache
+**/__pycache__/
+/run_evidence/
+# Prevent accidental disclosure of pre-migration data; no legacy readers remain.
+**/evidence/
+/gui/.linux-pyside6/
+**/.venv
+
+# Disposable AgMark setup, environment, caches, temporary files and diagnostics
+/Runtime/
+
+# Opt-in unexpected-exit reports
+/error.log
+/error.*.log
+/.error-*.tmp

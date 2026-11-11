@@ -1,0 +1,113 @@
+# Intent: Triage a defensive security incident by preserving evidence bounding affected assets and coordinating containment without overstating cause
+
+[Incident]:
+- Trigger: Identity monitoring reported an unfamiliar privileged sign-in
+- Status: Active investigation
+- InitialConcern: Possible compromise of a workforce identity with access to finance systems
+
+[ObservedEvidence]:
+- SignInAlert:
+  - Source: ./evidence/sign-in-alert.json
+  - Observation: Successful privileged sign-in from an unfamiliar device
+  - Confidence: High
+- MailboxChange:
+  - Source: ./evidence/mailbox-audit.jsonl
+  - Observation: New forwarding configuration created after the alerted sign-in
+  - Confidence: High
+- FinanceAccess:
+  - Source: ./evidence/finance-access.jsonl
+  - Observation: Finance application session established during the same investigation window
+  - Confidence: Medium
+
+[WorkforceIdentity]:
+- Type: Human identity
+- Criticality: High
+- Access:
+  - Corporate email
+  - Finance application
+  - Shared document repository
+
+[Mailbox]:
+- Type: Communication asset
+- Criticality: High
+- DependsOn: [WorkforceIdentity]
+
+[FinanceApplication]:
+- Type: Business application
+- Criticality: High
+- DependsOn:
+  - [WorkforceIdentity]
+  - Federated identity provider
+
+[DocumentRepository]:
+- Type: Collaboration service
+- Criticality: Medium
+- DependsOn: [WorkforceIdentity]
+
+[Assets]:
+- [WorkforceIdentity]
+- [Mailbox]
+- [FinanceApplication]
+- [DocumentRepository]
+
+[KnownUnknowns]:
+- Whether the sign-in was performed by the authorized user
+- Whether any session token was reused after containment
+- Whether sensitive information was accessed or transferred
+- Whether the mailbox change and finance access share one cause
+
+[ContainmentDependencies]:
+- Preserve identity and application audit records before changing account state
+- Maintain an authorized path for business continuity after identity containment
+- Avoid deleting suspicious artifacts before evidence capture
+- Coordinate any finance application lock with its service owner
+
+[TriageState]:
+- `Confirmed`: []
+- `Suspected`: []
+- `AffectedAssets`: []
+- `Actions`: []
+- `Blockers`: []
+- `Questions`: []
+
+[EstablishScope]:
+=> Use [Incident] to bound the initial scope without treating its concern as confirmed
+=> Place each observation from [ObservedEvidence] into [TriageState].`Confirmed` only when its source directly supports the observation
+=> Build the smallest affected-asset graph supported by:
+  - Authentication evidence
+  - Audit evidence
+  - Explicit access relationships in [Assets]
+=> Place plausible but unverified exposure in [TriageState].`Suspected`
+=> Do not infer compromise of every reachable asset from identity permissions alone
+=> Append unresolved scope questions to [TriageState].`Questions`
+
+[Contain]:
+=> Respect [ContainmentDependencies] when selecting and sequencing actions
+=> Preserve relevant audit records before destructive or access-changing actions where feasible
+=> If unauthorized use of [WorkforceIdentity] is confirmed or strongly supported:
+  => Revoke active sessions
+  => Disable or restrict the affected identity according to incident authority
+  => Remove unauthorized mailbox forwarding after preserving its configuration as evidence
+  => Coordinate application-specific containment with affected service owners
+=> If authorization remains uncertain:
+  => Use the least disruptive reversible containment that materially reduces risk
+  => Escalate the identity verification question to the authorized incident owner
+=> Give each containment action an owner and verification condition
+=> Record blocked containment dependencies in [TriageState].`Blockers`
+
+[Investigate]:
+=> Correlate events by timestamp source identity and asset
+=> Distinguish temporal proximity from demonstrated causation
+=> Identify the next evidence needed to resolve each material item in [KnownUnknowns]
+=> Prioritize evidence that can change:
+  - Containment scope
+  - User impact
+  - Regulatory or contractual escalation
+  - Recovery decisions
+=> Preserve unresolved cause when evidence does not justify a conclusion
+
+Task:
+1. Run [EstablishScope]
+2. Run [Contain]
+3. Run [Investigate]
+4. Report [TriageState] with evidence provenance containment status and next investigation priorities

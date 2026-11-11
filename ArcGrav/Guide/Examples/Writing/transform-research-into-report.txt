@@ -1,0 +1,59 @@
+# Intent: Transform research from several source types into a decision-useful report that distinguishes:
+#   - Evidence
+#   - Interpretation
+#   - Uncertainty
+
+[Research]:
+- ./customer-interviews.md
+- ./usage-analysis.md
+- ./market-review.md
+- ./source-notes.md
+
+[ReportBrief]:
+- Audience: Product and business leaders deciding whether to expand the pilot
+- Decision question: What does the available research support doing next
+- Length: 5-7 pages excluding source notes
+- Required sections:
+  - Executive summary
+  - Findings
+  - Implications
+  - Risks and uncertainties
+  - Recommendation
+  - Evidence notes
+- Tone: Concise and analytical while remaining readable without access to the source material
+
+[EvidenceRules]:
+- Attribute material factual claims to the source or sources that support them
+- Separate direct observations from interpretations and recommendations
+- Preserve meaningful disagreement between sources instead of averaging it away
+- State important evidence gaps where they affect confidence in a conclusion
+- Do not introduce facts that are not supported by [Research]
+- Prefer the strength of evidence over the number of times a point appears
+
+[Transform]:
+=> Read [Research] and identify evidence relevant to the decision question in [ReportBrief]
+=> Apply [EvidenceRules] throughout report synthesis
+=> Group related evidence into findings without preserving the source-by-source order
+=> For each major finding, distinguish:
+  - What is observed
+  - What is inferred
+  - How confident the inference is
+=> Surface the following near the conclusions they qualify:
+  - Contradictions
+  - Limitations
+  - Missing evidence
+=> Derive implications only where the evidence supports them
+=> Form a recommendation that answers the decision question and makes its dependencies explicit
+=> Write the executive summary after the report body so it reflects the report's actual conclusions
+=> Add compact evidence notes that let a reader trace consequential claims back to [Research]
+
+[Review]:
+=> Verify every required section in [ReportBrief] is present
+=> Verify no recommendation is presented as a research finding
+=> Verify uncertainty is not hidden by confident wording
+=> Remove detail that does not materially affect the decision or the reader's confidence
+
+Task:
+1. Run [Transform]
+2. Run [Review]
+3. Present the finished report

@@ -1,0 +1,51 @@
+# Intent: Prove that a finite undirected graph is bipartite exactly when it contains no odd cycle while making each proof dependency explicit
+
+[Claim]:
+- A finite undirected graph G is bipartite if and only if G contains no cycle of odd length
+
+[Definitions]:
+- Bipartite: The vertex set can be partitioned into two sets so every edge has one endpoint in each set
+- Path parity: The parity of a path length is whether its edge count is even or odd
+- Connected component: A maximal set of vertices joined by paths
+
+[PermittedResults]:
+- Every finite connected graph has a spanning tree
+- A tree has a unique simple path between any two vertices
+
+[ProofState]: []
+
+[ForwardDirection]:
+=> Assume G is bipartite as defined in [Definitions]
+=> Let C be any cycle in G
+=> Follow C from an arbitrary starting vertex and track which partition contains each successive vertex
+=> Show that each traversed edge switches partitions
+=> Conclude that returning to the starting partition requires an even number of edges
+=> Append the completed direction and its used definitions to [ProofState]
+
+[ReverseDirection]:
+=> Assume G contains no odd cycle
+=> For each connected component of G:
+  => Choose a root vertex
+  => Use [PermittedResults] to obtain a spanning tree
+  => Classify vertices by the parity of their unique tree-path distance from the root
+  => Suppose an edge joins two vertices with the same parity
+  => Combine their tree paths with that edge and isolate the resulting odd cycle
+  => Use the contradiction to show every edge joins opposite parity classes
+=> Combine the parity classes across components into two global vertex sets
+=> Append the completed direction and its used results to [ProofState]
+
+[Verify]:
+=> Check that isolated vertices are covered by the construction
+=> Check that disconnected graphs are covered component by component
+=> Confirm that the contradiction step constructs a simple odd cycle rather than only a closed walk
+=> Confirm both directions prove [Claim] without strengthening its assumptions
+
+Task:
+1. Run [ForwardDirection]
+2. Run [ReverseDirection]
+3. Run [Verify]
+4. Present:
+  - Proof in both directions
+  - Dependency map from [ProofState]
+  - Edge-case checks
+  - Final theorem statement

@@ -1,0 +1,67 @@
+# Intent: Design a distinctive brand concept from a product brief by
+# - Exploring meaningfully different creative territories
+# - Selecting one against the brief
+# - Translating it into usable verbal and visual direction
+
+[Brief]:
+- Product: Neighborhood tool-lending membership
+- Audience: Apartment dwellers and first-time homeowners who need tools occasionally
+- Promise: Access to the right tool without:
+  - Buying it
+  - Storing it
+  - Maintaining it
+- Personality:
+  - Capable
+  - Neighborly
+  - Practical
+  - Optimistic
+- Launch context: One dense urban neighborhood before wider expansion
+
+[Avoid]:
+- Construction-industry toughness
+- Rustic workshop nostalgia
+- Sustainability claims that cannot be substantiated
+- Language that implies tools or membership are free
+
+[Territories]: []
+
+[Explore]:
+=> Create three concept territories that interpret [Brief] from substantially different angles
+=> For each territory, define:
+  - Central idea
+  - Emotional benefit
+  - Naming direction
+  - Voice characteristics
+  - Visual principles
+  - One risk or likely failure mode
+=> Reject territories that depend on an item in [Avoid]
+=> Append the viable territories to [Territories]
+
+[Choose]:
+=> Compare [Territories] for:
+  - Distinctiveness
+  - Clarity of the product promise
+  - Fit with the audience
+  - Ability to scale beyond the launch neighborhood
+=> Prefer a concept that can be expressed without explaining the business model in every message
+=> Select one territory and state why it is stronger than the alternatives
+
+[ConceptSystem]:
+- Brand idea
+- Positioning statement
+- Naming principles with 5 candidate names
+- Voice: 3 traits with do/don't guidance
+- Visual direction:
+  - Typography principles
+  - Shape principles
+  - Imagery principles
+  - Composition principles
+- Homepage headline and subhead
+- Membership call to action
+- Three example messages for common member moments
+
+Task:
+1. Run [Explore]
+2. Run [Choose]
+3. Develop [ConceptSystem] from the selected territory
+4. Present the selected concept and enough rationale to show how it follows [Brief]

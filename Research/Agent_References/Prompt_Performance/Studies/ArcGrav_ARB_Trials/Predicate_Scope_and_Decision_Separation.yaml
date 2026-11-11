@@ -1,0 +1,35 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.predicates
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/ArcGrav_ARB_Trials/Predicate_Scope_and_Decision_Separation.md
+  url: ../../../../Prompt_Performance/Studies/ArcGrav_ARB_Trials/Predicate_Scope_and_Decision_Separation.md
+  fingerprint: fnv1a32-21b60d54
+sections:
+  paper-predicate-scope: |-
+    Disagreement, preference, reporting and missing support require explicit comparison domains. A condition over all observations cannot silently replace one over the best tier or one over source presence.
+  abstract: |-
+    A predicate determines whether a condition holds over a particular domain. Familiar terms such as disagreement, missing or unresolved do not identify that domain by themselves. The observations here separate admissibility from preference, reporting from selection, and the absence of source evidence from the state of an output. These distinctions explain how an answer can contain correct evidence and still receive the wrong classification. The construction implication is to bind each consequential label to the comparison that justifies it.
+  core-distinction: |-
+    Predicate scope is the set of observations and qualifications over which a decision is made. Two rules can use the same word while asking different questions. This category owns those comparison domains; output obligations owns whether the resulting field is actually emitted.
+  scope: |-
+    The single-fixture, adaptive prompt trial series supplies descriptive observations and does not independently test all comparison domains, model mechanisms or prompt edits.
+  observations: |-
+    Disagreement, preference, reporting and missing support require explicit comparison domains. A condition over all observations cannot silently replace one over the best tier or one over source presence.
+  1-cross-rank-disagreement-is-not-a-best-tier-tie: |-
+    A tie must be defined within the comparison domain that blocks selection; broader reportable disagreement need not trigger the same classification, and task-defined confidence is not a universal certainty scale.
+  2-preference-rank-does-not-determine-eligibility: |-
+    Eligibility admits candidates; preference ranks admitted candidates. Define fallback by its real trigger, without treating weaker recognized evidence as absent.
+  3-selection-and-disagreement-reporting-use-different-domains: |-
+    Selection and reporting may require different evidence domains; scope each consequence separately and do not infer complete assembly from a correct predicate definition.
+  4-unresolved-selection-does-not-establish-missing-source-evidence: |-
+    Test a source-absence claim against the source property itself; an unresolved output may have several causes and is not generally an equivalent predicate.
+  conclusion: |-
+    A useful predicate names both the condition and its domain. Preserve different domains when reporting, selection and classification have different consequences.
+  supporting-evidence: |-
+    Exact prompt lines and decoded output witnesses substantiate the observations through ledger atom IDs, snapshot line ranges and audit trial IDs, with contrary cases and branch coverage.
+  other-analyses-in-this-study: |-
+    Inheritance, defaults and output obligations owns key presence versus label classification; Evidence ownership, assembly and rendering owns turning included observations into complete text.
+  references: |-
+    The Evidence Ledger supplies original formulations, annotations and historical lint reports; the Trial Audit supplies raw responses and strict output verdicts. Neither reference converts a semantic edit into an independently tested intervention.

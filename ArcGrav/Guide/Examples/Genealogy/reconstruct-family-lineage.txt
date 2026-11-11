@@ -1,0 +1,102 @@
+# Intent: Reconstruct a family lineage from correlated records while preserving:
+#   - Identity uncertainty
+#   - Relationship evidence
+#   - Source provenance
+
+ResearchQuestion:
+- Trace the documented lineage from Margaret Byrne to her grandchildren
+- Distinguish proven relationships from plausible but unresolved connections
+
+[BirthRegister]: ./records/birth-register-transcriptions.csv
+
+[MarriageRegister]: ./records/marriage-register-images/
+
+[Census1901]: ./records/census-1901-households.csv
+
+[Census1911]: ./records/census-1911-households.csv
+
+[Sources]:
+- [BirthRegister]
+- [MarriageRegister]
+- [Census1901]
+- [Census1911]
+- FamilyLetters: ./private/family-letters/
+
+[Evidence]:
+- E1:
+  - Source: [BirthRegister]
+  - Record: Entry 417
+  - Subject: Eleanor Byrne
+  - Event: Birth
+  - Date: 12 May 1892
+  - Mother: Margaret Byrne
+  - Father: Thomas Byrne
+- E2:
+  - Source: [Census1901]
+  - Record: Household 73
+  - Subject: Nellie Byrne
+  - Reported age: 8
+  - Mother: Margaret Byrne
+  - Father: Thomas Byrne
+- E3:
+  - Source: [MarriageRegister]
+  - Record: Entry 118
+  - Subject: Eleanor Byrne
+  - Event: Marriage
+  - Father: Thomas Byrne
+  - Spouse: Patrick Doyle
+- E4:
+  - Source: [Census1911]
+  - Record: Household 214
+  - Subject: Eleanor Doyle
+  - Spouse: Patrick Doyle
+  - Children:
+    - Nora Doyle
+    - Michael Doyle
+
+[IdentityClusters]: []
+
+[Relationships]: []
+
+[Lineage]: []
+
+[Unresolved]: []
+
+[CorrelateIdentities]:
+=> Compare records from [Sources] across:
+  - Name variants
+  - Event timing
+  - Residence
+  - Household members
+  - Named relatives
+  - Informants
+=> Group records into [IdentityClusters] only when the combined evidence supports a shared person
+=> For each cluster record:
+  - Included evidence references
+  - Supporting correlations
+  - Contradictions
+  - Confidence
+=> Preserve competing clusters when the evidence does not justify a merge
+
+[EstablishRelationships]:
+=> For each proposed parent child or spousal relationship:
+  - Link the supporting evidence from [Evidence]
+  - Distinguish direct statements from inferred connections
+  - Record any contradicting evidence
+  - Record missing evidence that would materially change the conclusion
+=> Append supported relationships to [Relationships]
+=> Append plausible but unresolved relationships to [Unresolved]
+=> Do not treat repeated unsourced family statements as independent corroboration
+
+[BuildLineage]:
+=> Build [Lineage] from [IdentityClusters] and [Relationships]
+=> Preserve each person using the best supported display name without discarding documented name variants
+=> Attach evidence references to every material relationship
+=> Mark any relationship dependent on an unresolved identity as unresolved
+=> Do not fill missing generations or parents by assumption
+
+Task:
+1. Run [CorrelateIdentities]
+2. Run [EstablishRelationships]
+3. Run [BuildLineage]
+4. Present [Lineage] with [Unresolved] and source traceability

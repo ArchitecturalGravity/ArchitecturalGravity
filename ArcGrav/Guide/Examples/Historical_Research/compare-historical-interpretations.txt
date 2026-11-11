@@ -1,0 +1,80 @@
+# Intent: Compare competing historical interpretations while keeping source evidence separate from interpretive assumptions
+
+[Question]:
+- Explain why the 1893 River Commission reversed its canal recommendation
+
+[EvidenceBase]:
+- E1:
+  - Source: ./sources/commission-minutes-1893-03.txt
+  - Source type: Official minutes
+  - Relevance: Records motions and recorded reasons
+- E2:
+  - Source: ./sources/engineer-correspondence-1893.txt
+  - Source type: Private correspondence
+  - Relevance: Records technical concerns discussed outside formal sessions
+- E3:
+  - Source: ./sources/merchant-petitions-1893.txt
+  - Source type: Petition collection
+  - Relevance: Records organized commercial pressure
+- E4:
+  - Source: ./sources/appropriation-ledger-1892-1894.csv
+  - Source type: Financial record
+  - Relevance: Records available funding and approved expenditure
+
+[Interpretations]:
+- I1:
+  - Source: ./historiography/alden-1978.txt
+  - Thesis: The reversal was primarily a fiscal decision
+- I2:
+  - Source: ./historiography/chen-2004.txt
+  - Thesis: The reversal reflected a shift in engineering risk assessment
+- I3:
+  - Source: ./historiography/ortiz-2019.txt
+  - Thesis: Commercial lobbying changed the political cost of the original recommendation
+
+[InterpretationRecords]: []
+
+[Comparison]: []
+
+[UnresolvedQuestions]: []
+
+[DecomposeInterpretations]:
+=> For each interpretation in [Interpretations] ↳
+  - Record its central thesis
+  - Record each source from [EvidenceBase] it uses
+  - Record any additional cited evidence
+  - Separate direct source claims from the historian's inference
+  - Identify assumptions required for the inference
+  - Identify material evidence the interpretation does not address
+=> Append the result to [InterpretationRecords]
+
+[Compare]:
+=> Compare [InterpretationRecords] to answer [Question] across:
+  - Explanatory scope
+  - Fit with contemporaneous evidence
+  - Treatment of contradictory evidence
+  - Dependence on unstated assumptions
+  - Sensitivity to missing evidence
+=> For each material point of agreement or disagreement:
+  - Identify the competing interpretive claims
+  - Link each claim to its evidence basis
+  - Distinguish evidence conflict from different inference drawn from shared evidence
+  - State whether the difference can be resolved from [EvidenceBase]
+=> Append each comparison result to [Comparison]
+
+[Evaluate]:
+=> Do not treat a later interpretation as stronger solely because it is newer
+=> Do not treat an official source as a complete account solely because it is official
+=> Prefer an interpretation only where its evidentiary fit and explanatory reach are better supported
+=> When multiple interpretations remain plausible:
+  - Preserve each plausible interpretation
+  - State the evidence supporting it
+  - State the assumptions it requires
+  - Append the missing evidence needed for further resolution to [UnresolvedQuestions]
+=> Append the evidentiary assessments to [Comparison]
+
+Task:
+1. Run [DecomposeInterpretations]
+2. Run [Compare]
+3. Run [Evaluate]
+4. Present [Comparison] with [UnresolvedQuestions]

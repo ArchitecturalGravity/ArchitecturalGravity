@@ -1,0 +1,78 @@
+# Intent: Design a greenhouse experiment that distinguishes osmotic stress from sodium-specific toxicity in tomato seedlings while controlling
+# - Treatment dose
+# - Position effects
+# - Measurement bias
+
+[Question]: Does sodium chloride reduce seedling growth beyond the effect expected from reduced water potential alone
+
+[Hypotheses]:
+- Osmotic: Growth reduction is explained primarily by water-potential stress
+- SodiumSpecific: Sodium chloride causes additional injury beyond a water-potential-matched nonionic treatment
+- Underdetermined: The available design cannot separate the mechanisms cleanly
+
+[Resources]:
+- 120 genetically similar seedlings from the same planting cohort
+- 4 greenhouse benches with measurable light and temperature gradients
+- Experimental resources:
+  - Irrigation solutions
+  - Balance
+  - Leaf-area imaging
+  - Chlorophyll fluorometer
+  - Tissue ion assay
+- 21 days after treatment begins
+
+[DesignRules]:
+- Establish treatment water potentials from measured solutions rather than nominal solute concentration alone
+- Include an untreated control and at least two matched stress levels for sodium chloride and a validated nonionic osmotic control
+- Randomize plants within blocks defined by bench position
+- Balance baseline plant size across treatments before randomization
+- Predefine one primary growth endpoint and treat other measurements as secondary or mechanistic
+- Blind image-based growth measurements to treatment identity where practical
+- Record missing plants and protocol deviations rather than silently replacing them
+
+[Design]: []
+
+[Construct]:
+=> Define treatment groups and replicate counts without exceeding 120 seedlings using:
+  - [Question]
+  - [Hypotheses]
+  - [Resources]
+  - [DesignRules]
+=> Specify how solution water potential will be matched and verified
+=> Define measurements:
+  - Primary endpoint
+  - Secondary measurements
+  - Tissue sodium measurement
+=> Establish measurement times:
+  - Baseline
+  - Interim
+  - Final
+=> Define procedures:
+  - Randomization
+  - Blocking
+  - Labeling
+  - Blinding
+=> Identify likely confounders:
+  - Bench effects
+  - Evaporative concentration
+  - Unequal starting size
+  - Osmotic-control side effects
+=> Append the resulting protocol to [Design]
+
+[InferencePlan]:
+=> Compare each sodium-chloride treatment in [Design] with its water-potential-matched osmotic control
+=> Estimate treatment effects with uncertainty while accounting for greenhouse blocks
+=> Check whether tissue sodium tracks effects that remain after osmotic matching
+=> Treat a difference as mechanism-discriminating only when treatment matching and measurement quality are adequate
+=> If the osmotic control introduces its own material biological effect, report the mechanism comparison as limited rather than forcing a conclusion
+
+Task:
+1. Run [Construct]
+2. Run [InferencePlan] against the resulting design
+3. Report:
+  - Treatment allocation
+  - Protocol
+  - Measurement schedule
+  - Planned analysis
+  - Confounders
+  - Observations that would distinguish [Hypotheses]

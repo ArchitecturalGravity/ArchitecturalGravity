@@ -1,0 +1,33 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.binding
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/ArcGrav_ARB_Trials/Reference_Binding_and_Independent_Decisions.md
+  url: ../../../../Prompt_Performance/Studies/ArcGrav_ARB_Trials/Reference_Binding_and_Independent_Decisions.md
+  fingerprint: fnv1a32-c4bb1916
+sections:
+  paper-reference-binding: |-
+    Identity must survive from a field decision through its consumers and later aggregates. Storage, selected-result provenance and formal binding validity answer different questions, with static diagnostic effects distinguished from output correctness.
+  abstract: |-
+    Reference identity determines which subject, evidence or result an instruction denotes. Independent decisions require that identity to survive copying, diagnosis and aggregation. The observations here distinguish a field from its containing object, a result from its storage representation, and selected inputs from the summary built from them. They explain why a legitimate partial result can be lost even when the prompt says to preserve it. Construction implications concern the dependencies a prompt must expose; historical lint repairs provide separate, narrower evidence about static reference validity.
+  the-construction-distinction: |-
+    A reference is a connection between a phrase and the particular thing it denotes. Its granularity matters: an object, a property, an observation and a selected result are not interchangeable subjects. This category owns identity and authorized dependencies; predicate scope owns the evidence considered by a decision.
+  observations-and-construction-implications: |-
+    Identity must survive from a field decision through its consumers and later aggregates. Storage, selected-result provenance and formal binding validity answer different questions, with static diagnostic effects distinguished from output correctness.
+  an-unresolved-field-does-not-erase-a-supported-sibling: |-
+    An unresolved property does not authorize erasing a separately supported sibling; bind each consumer to its own field result when decisions are independent, while retaining legitimate joint constraints.
+  storage-identity-and-consumer-binding-are-different-contracts: |-
+    Separate storage does not itself establish correct use; identify the subject, producer and consumer of each result, with map keys or choice inputs as appropriate.
+  aggregate-authority-needs-selected-operands-and-a-rule: |-
+    An aggregate must name whether it summarizes source observations or selected results and distinguish absent, equal and different operands without mutating them.
+  static-reference-repairs-require-separate-behavioral-checks: |-
+    Declared membership and valid binding syntax have directly checkable static effects under the recorded tool; removing those diagnostics does not certify task behavior.
+  conclusion: |-
+    Identity is useful when it survives the path from evidence to decision to output. Preserve partial results at their actual scope and define any later aggregate separately.
+  data-and-reproducibility: |-
+    Exact prompt lines and decoded output witnesses substantiate the observations through ledger atom IDs, snapshot line ranges and audit trial IDs, with contrary cases and branch coverage.
+  other-analyses-in-this-study: |-
+    Predicate and comparison scope owns which observations a decision compares; Compression, reuse and instruction locality owns the coordination costs of stored and shared results.
+  references: |-
+    The Evidence Ledger supplies original formulations, annotations and historical lint reports; the Trial Audit supplies raw responses and strict output verdicts. Neither reference converts a semantic edit into an independently tested intervention.

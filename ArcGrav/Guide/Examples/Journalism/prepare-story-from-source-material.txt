@@ -1,0 +1,46 @@
+# Intent: Prepare a story from source material while keeping attribution evidence boundaries and unresolved questions visible
+
+[VerificationLog]: ./reporting/verification-log.csv
+
+[SourceMaterial]:
+- InterviewTranscript: ./reporting/interview-transcript.txt
+- DocumentSet: ./reporting/documents/
+- ReportingNotes: ./reporting/notes.md
+- VerificationLog: [VerificationLog]
+
+[PublicationRules]:
+- On record statements may be attributed by name
+- Background material requires publication safe attribution
+- Off record material cannot support a publishable claim
+- Documents with pending authenticity remain provisional
+
+[StoryClaims]: []
+
+[StoryStructure]: []
+
+[BuildClaims]:
+=> For each material claim in [SourceMaterial] ↳
+  => Append a claim record to [StoryClaims] with:
+    - Exact claim text
+    - Supporting interview passage or document location in [SourceMaterial]
+    - Attribution mode under [PublicationRules]
+    - Verification status from [VerificationLog]
+    - Contradicting evidence when present
+=> Keep unverified claims in [StoryClaims] with explicit status
+=> Do not promote unverified claims into established story facts
+
+[PrepareStory]:
+=> Organize verified and attributable material from [StoryClaims] into [StoryStructure] under [PublicationRules]
+=> Separate:
+  - Established facts
+  - Attributed statements
+  - Context supported by documents
+  - Unresolved questions
+=> Preserve source references for every material story element
+=> Flag any section that depends on provisional documents
+=> Prepare a coherent story plan without filling evidence gaps by inference
+
+Task:
+1. Run [BuildClaims]
+2. Run [PrepareStory]
+3. Provide [StoryStructure] with its source references and unresolved questions

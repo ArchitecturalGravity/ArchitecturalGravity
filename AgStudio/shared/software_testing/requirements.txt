@@ -1,0 +1,6 @@
+# Build-only tools for the isolated standalone-engine wheel test.
+# Runtime dependencies remain in AgStudio/shared/requirements.txt.
+setuptools>=68
+wheel
+# Development-only parser for validating the shipped agent reference.
+PyYAML>=6,<7

@@ -1,0 +1,20 @@
+# Intent: Add activity trigger record mappings based on an existing contact mapping and a CSV-defined output shape
+
+Scope:
+- C:\Programming\Repo\Appmixer\MyProject\connectors\crm\core
+- Triggers:
+  - `Trigger_ActivityCreated`
+  - `Trigger_ActivityUpdated`
+
+[OutputShape]: Attached CSV file
+
+[ReferenceMapping]:
+- `Trigger_ContactCreated.js`:
+  - Function: `mapContactCreatedRecords`
+
+Constraint:
+- Do not retain backward compatibility
+
+Task:
+1. Add output record mappings for both scoped triggers using [ReferenceMapping] and [OutputShape]
+2. Update each trigger's `component.json` to match [OutputShape]

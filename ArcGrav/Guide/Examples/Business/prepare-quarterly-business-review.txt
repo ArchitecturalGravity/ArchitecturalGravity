@@ -1,0 +1,61 @@
+# Intent: Prepare a quarterly business review that reconciles planned targets with actual performance while explaining material variance from evidence and focusing leadership on forward decisions
+
+[ReviewPeriod]: 2027 Q2
+
+[Audience]:
+- Executive leadership
+- Business-unit owners
+
+[Sources]:
+- ./q2-operating-plan.xlsx
+- ./q2-financial-results.xlsx
+- ./q2-sales-performance.csv
+- ./q2-customer-health.csv
+- ./q2-initiative-status.md
+
+[Materiality]:
+- Surface a variance when it exceeds 10% of target
+- Surface any smaller variance that changes the full-year outlook or requires a leadership decision
+- Separate measured results from forecasts and assumptions
+- Do not assign a cause unless supported by the source material
+
+[Review]: []
+
+[Synthesize]:
+=> Compare actual results in [Sources] with the targets for [ReviewPeriod]
+=> Apply [Materiality] when selecting variances and distinguishing evidence from inference
+=> For each material variance:
+  => Record:
+    - Target
+    - Actual result
+    - Variance
+  => Identify evidence-supported drivers
+  => Record unresolved explanations as open questions
+=> Identify material trends affecting the next quarter across:
+  - Customer
+  - Pipeline
+  - Financial
+  - Initiative
+=> Distinguish completed outcomes from in-progress work and forecast outcomes
+=> Append the resulting findings to [Review]
+
+[QBRSections]:
+- Executive summary
+- Performance against plan
+- Material drivers and exceptions
+- Customer and commercial signals
+- Strategic initiative status
+- Full-year outlook
+- Decisions and actions for next quarter
+
+[Prepare]:
+=> Populate [QBRSections] from [Review]
+=> Prioritize material changes over routine status reporting
+=> Tie each conclusion to supporting evidence from [Sources]
+=> Make requested decisions explicit, including owner and decision deadline when known
+=> Tailor the presentation of [QBRSections] to [Audience]
+=> Present the completed quarterly business review
+
+Task:
+1. Run [Synthesize]
+2. Run [Prepare]

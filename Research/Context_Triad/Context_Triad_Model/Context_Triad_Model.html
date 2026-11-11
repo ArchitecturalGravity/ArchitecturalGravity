@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Context Triad Model — Interactive Playground</title>
+<style>
+:root{
+  color-scheme:light dark;
+  --bg:#f7f8fa;--panel:#fff;--text:#16181d;--muted:#667085;--border:#d0d5dd;
+  --accent:#0f766e;--shadow:#6b7280
+}
+@media(prefers-color-scheme:dark){
+  :root{--bg:#111318;--panel:#191c22;--text:#f2f4f7;--muted:#a8b0bd;--border:#39404b;--accent:#62c8bd;--shadow:#9ca3af}
+}
+*{box-sizing:border-box}
+body{margin:0;font:15px/1.45 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
+main{max-width:1180px;margin:0 auto;padding:24px}
+.title{margin:0 0 4px;font-size:clamp(24px,4vw,38px)}
+.sub{margin:0 0 20px;color:var(--muted)}
+.grid{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(290px,.8fr);gap:16px}
+.panel{background:var(--panel);border:1px solid var(--border);border-radius:14px;padding:16px}
+.stack{display:grid;gap:16px}
+.head{display:flex;gap:12px;align-items:flex-start;justify-content:space-between;flex-wrap:wrap}
+.head h2{font-size:17px;margin:0}
+.head p{margin:3px 0 0;color:var(--muted);font-size:13px}
+.badge{border:1px solid var(--border);border-radius:999px;padding:5px 10px;font-weight:650;white-space:nowrap}
+svg{width:100%;height:auto;display:block}
+.controls{display:grid;gap:12px}
+.weight-card{border:1px solid var(--border);border-radius:12px;padding:12px;display:grid;gap:11px}
+.weight-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.weight-name{display:flex;align-items:center;gap:8px;font-weight:750}
+.swatch{width:12px;height:12px;border-radius:50%;display:inline-block;box-shadow:0 0 0 1px color-mix(in srgb,currentColor 28%,transparent)}
+.remove{padding:5px 8px;font-size:12px}
+.control label{display:flex;justify-content:space-between;gap:8px;font-size:13px}
+.control input[type=range]{width:100%;margin-top:6px;accent-color:var(--accent)}
+button{font:inherit;color:inherit;background:var(--panel);border:1px solid var(--border);border-radius:8px;padding:8px 10px}
+button:hover{border-color:color-mix(in srgb,var(--accent) 65%,var(--border));cursor:pointer}
+.actions{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.primary{font-weight:700;border-color:color-mix(in srgb,var(--accent) 65%,var(--border))}
+.note{color:var(--muted);font-size:13px;margin:10px 0 0}
+.legend{display:flex;flex-wrap:wrap;gap:12px;color:var(--muted);font-size:12px;margin-top:12px}
+.legend-item{display:inline-flex;align-items:center;gap:5px}
+.dot{display:inline-block;width:9px;height:9px;border-radius:50%}
+.shadow-chip{display:inline-block;width:16px;height:9px;border-radius:3px;background:var(--shadow);opacity:.5}
+.rules{margin:0;padding-left:18px;color:var(--muted);font-size:13px}
+.rules li+li{margin-top:7px}
+.empty{color:var(--muted);font-size:13px;padding:10px 0 2px}
+@media(max-width:800px){main{padding:14px}.grid{grid-template-columns:1fr}.panel{padding:12px}}
+</style>
+</head>
+<body>
+<main>
+<h1 class="title">Context Triad Model</h1>
+<p class="sub">Interactive 1D illustration of independently weighted context sources, their backward shadows, and their forward weight influence.</p>
+
+<div class="grid">
+  <div class="stack">
+    <section class="panel">
+      <div class="head">
+        <div>
+          <h2>Directed context plane — weights, backward shadows, and forward influence</h2>
+          <p>Earlier context is left and later context is right. Each letter marks a weight peak; later weights cast gray shadows backward, weakening the surviving colored influence that earlier weights carry forward into the final mix.</p>
+        </div>
+        <div id="weightCount" class="badge">1 weight</div>
+      </div>
+      <svg id="chart" viewBox="0 0 860 390" role="img" aria-label="Directed context plane with weight peaks, backward shadows, forward weight influence, and a final mix color bar"></svg>
+      <div id="legend" class="legend"></div>
+    </section>
+  </div>
+
+  <aside class="stack">
+    <section class="panel">
+      <div class="head" style="margin-bottom:14px">
+        <div><h2>Weights</h2><p>Add, remove, and tune each letter independently.</p></div>
+      </div>
+      <div id="weightControls" class="controls"></div>
+      <div class="actions" style="margin-top:12px">
+        <button id="addWeight" class="primary" type="button">Add weight</button>
+        <button id="reset" type="button">Reset</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2 style="font-size:17px;margin:0 0 12px">Model rules</h2>
+      <ul class="rules">
+        <li><strong>Weight</strong> sets the height of that letter's peak.</li>
+        <li><strong>Position</strong> moves the peak along the context axis from 0 to 1.</li>
+        <li><strong>Shadow intensity</strong> is automatic: each weight is normalized against the strongest current weight.</li>
+        <li>A shadow extends horizontally left from the peak, preserving the full height of that weight back to the start of context.</li>
+        <li>Weight influence extends horizontally right from the peak to the end of context, preserving the same full height in the weight's color.</li>
+        <li>Later shadows weaken earlier forward influence. The amount of weakening depends on both shadow opacity and how much of the earlier weight's height the later shadow covers, using a saturating curve so one equal-strength follower weakens rather than erases it.</li>
+        <li>Multiple later shadows compound, so heavily shadowed weights contribute less color to the rightmost context mix.</li>
+        <li>Forward influence stays translucent even at maximum strength, and its alpha is reduced linearly by distance from the right end of context: weights nearer 0 are more transparent, while weights nearer 1 retain more alpha.</li>
+        <li>Where translucent regions overlap, their layers compound.</li>
+        <li><strong>Final Mix</strong> averages the alpha-composited surviving color along the full right edge of the graph.</li>
+      </ul>
+    </section>
+  </aside>
+</div>
+
+<p class="note">This playground is an illustrative behavioral model, not an empirical fit or a claim about model internals.</p>
+</main>
+
+<script>
+(()=>{
+const el=id=>document.getElementById(id);
+const clamp=(v,min,max)=>Math.max(min,Math.min(max,v));
+const fmtWeight=v=>Number(v).toFixed(2);
+const fmtPos=v=>Number(v).toFixed(2);
+const MAX_INFLUENCE_ALPHA=.62;
+
+let nextIndex=0;
+let weights=[];
+
+function letterFor(index){
+  let n=index+1,s='';
+  while(n>0){n--;s=String.fromCharCode(65+(n%26))+s;n=Math.floor(n/26)}
+  return s;
+}
+
+function randomHue(){
+  const used=weights.map(w=>w.hue);
+  for(let tries=0;tries<30;tries++){
+    const hue=Math.floor(Math.random()*360);
+    if(used.every(h=>Math.min(Math.abs(h-hue),360-Math.abs(h-hue))>=32)) return hue;
+  }
+  return Math.floor(Math.random()*360);
+}
+
+function makeWeight(position=.68,config={}){
+  const hue=config.hue??randomHue();
+  const label=config.label??letterFor(nextIndex);
+  nextIndex++;
+  return{
+    id:'w'+Date.now().toString(36)+Math.random().toString(36).slice(2,8),
+    label,
+    weight:config.weight??1,
+    position:clamp(config.position??position,0,1),
+    hue,
+    color:config.color??('hsl('+hue+' 68% 52%)')
+  };
+}
+
+function resetModel(){
+  nextIndex=0;
+  weights=[
+    makeWeight(1/6,{label:'A',weight:3,color:'#ef4444',hue:0}),
+    makeWeight(3/6,{label:'B',weight:2,color:'#22c55e',hue:120}),
+    makeWeight(5/6,{label:'C',weight:1,color:'#3b82f6',hue:220})
+  ];
+  rebuildControls();
+  render();
+}
+
+function addWeight(){
+  if(weights.length>=26)return;
+  const position=clamp(.2+(weights.length%6)*.13,0.08,.92);
+  weights.push(makeWeight(position));
+  rebuildControls();
+  render();
+}
+
+function removeWeight(id){
+  weights=weights.filter(w=>w.id!==id);
+  rebuildControls();
+  render();
+}
+
+function controlMarkup(w){
+  return '<div class="weight-card" data-id="'+w.id+'">'+
+    '<div class="weight-head">'+
+      '<div class="weight-name"><span class="swatch" style="background:'+w.color+'"></span><span>Weight '+w.label+'</span></div>'+
+      '<button class="remove" type="button" data-remove="'+w.id+'" aria-label="Remove weight '+w.label+'">Remove</button>'+
+    '</div>'+
+    '<div class="control"><label><span>Weight</span><output data-out="weight">'+fmtWeight(w.weight)+'</output></label><input data-key="weight" type="range" min="0" max="3" step=".05" value="'+w.weight+'"></div>'+
+    '<div class="control"><label><span>Position</span><output data-out="position">'+fmtPos(w.position)+'</output></label><input data-key="position" type="range" min="0" max="1" step=".01" value="'+w.position+'"></div>'+
+  '</div>';
+}
+
+function rebuildControls(){
+  const host=el('weightControls');
+  host.innerHTML=weights.length?weights.map(controlMarkup).join(''):'<div class="empty">No weights. Add one to place a new letter on the model.</div>';
+
+  host.querySelectorAll('input[data-key]').forEach(input=>{
+    input.addEventListener('input',()=>{
+      const card=input.closest('.weight-card');
+      const w=weights.find(item=>item.id===card.dataset.id);
+      if(!w)return;
+      const key=input.dataset.key;
+      w[key]=Number(input.value);
+      const out=card.querySelector('[data-out="'+key+'"]');
+      out.textContent=key==='weight'?fmtWeight(w[key]):fmtPos(w[key]);
+      render();
+    });
+  });
+
+  host.querySelectorAll('[data-remove]').forEach(button=>{
+    button.addEventListener('click',()=>removeWeight(button.dataset.remove));
+  });
+
+  el('addWeight').disabled=weights.length>=26;
+}
+
+function shadowIntensity(w){
+  const strongest=Math.max(0,...weights.map(item=>item.weight));
+  return strongest>0?clamp(w.weight/strongest,0,1):0;
+}
+
+function forwardInfluence(w){
+  const base=shadowIntensity(w);
+  if(base<=0 || w.weight<=0)return 0;
+
+  // A later weight shadows the portion of this weight's vertical height
+  // that its own shadow reaches. Multiple shadows compound by alpha.
+  let surviving=1;
+  weights.forEach(later=>{
+    if(later===w || later.position<=w.position || later.weight<=0)return;
+    const coverage=clamp(Math.min(w.weight,later.weight)/w.weight,0,1);
+    const cast=shadowIntensity(later)*coverage;
+
+    // Convert shadow strength into saturating attenuation rather than
+    // literal erasure. A full equal-strength shadow removes half of the
+    // remaining influence; stronger/multiple later shadows compound.
+    const attenuation=cast/(1+cast);
+    surviving*=1-attenuation;
+  });
+  return clamp(base*surviving,0,1);
+}
+
+function forwardAlpha(w){
+  // Distance from the right edge is (1 - position), so the surviving
+  // alpha fraction is position itself: 0 at the far left, 1 at the right.
+  const recency=clamp(w.position,0,1);
+  return forwardInfluence(w)*MAX_INFLUENCE_ALPHA*recency;
+}
+
+const colorProbe=document.createElement('canvas');
+colorProbe.width=colorProbe.height=1;
+const colorProbeCtx=colorProbe.getContext('2d',{willReadFrequently:true});
+
+function colorToRgb(color){
+  colorProbeCtx.clearRect(0,0,1,1);
+  colorProbeCtx.fillStyle='#000';
+  colorProbeCtx.fillStyle=color;
+  colorProbeCtx.fillRect(0,0,1,1);
+  const data=colorProbeCtx.getImageData(0,0,1,1).data;
+  return [data[0],data[1],data[2]];
+}
+
+function finalMixColor(maxWeight,ordered){
+  const samples=160;
+  let totalR=0,totalG=0,totalB=0,totalA=0;
+
+  for(let i=0;i<samples;i++){
+    const level=maxWeight*(1-(i+.5)/samples);
+    let pr=0,pg=0,pb=0,a=0;
+
+    ordered.forEach(w=>{
+      if(w.weight<=0 || w.weight<level)return;
+      const alpha=forwardAlpha(w);
+      if(alpha<=0)return;
+
+      const [r,g,b]=colorToRgb(w.color);
+
+      pr=r*alpha+pr*(1-alpha);
+      pg=g*alpha+pg*(1-alpha);
+      pb=b*alpha+pb*(1-alpha);
+      a=alpha+a*(1-alpha);
+    });
+
+    totalR+=pr;
+    totalG+=pg;
+    totalB+=pb;
+    totalA+=a;
+  }
+
+  if(totalA<=0)return 'transparent';
+  return 'rgb('+Math.round(totalR/totalA)+' '+Math.round(totalG/totalA)+' '+Math.round(totalB/totalA)+')';
+}
+
+function chart(){
+  const svg=el('chart'),W=860,H=390,l=58,r=98,t=24,b=52;
+  const css=getComputedStyle(document.documentElement);
+  const border=css.getPropertyValue('--border').trim();
+  const muted=css.getPropertyValue('--muted').trim();
+  const shadow=css.getPropertyValue('--shadow').trim();
+  const maxWeight=Math.max(1,...weights.map(w=>w.weight))*1.18;
+  const xs=x=>l+(W-l-r)*x;
+  const ys=v=>t+(H-t-b)*(1-v/maxWeight);
+
+  let h='<defs><marker id="contextArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="'+border+'"/></marker></defs>';
+  for(let i=0;i<=4;i++){
+    const x=i/4;
+    h+='<line x1="'+xs(x)+'" y1="'+t+'" x2="'+xs(x)+'" y2="'+(H-b)+'" stroke="'+border+'" opacity=".55"/>'+
+       '<text x="'+xs(x)+'" y="'+(H-27)+'" text-anchor="middle" fill="'+muted+'" font-size="11">'+x.toFixed(2)+'</text>';
+  }
+  for(let i=0;i<=4;i++){
+    const v=maxWeight*i/4;
+    h+='<line x1="'+l+'" y1="'+ys(v)+'" x2="'+(W-r)+'" y2="'+ys(v)+'" stroke="'+border+'" opacity="'+(i===0?'.8':'.35')+'"/>'+
+       '<text x="'+(l-8)+'" y="'+(ys(v)+4)+'" text-anchor="end" fill="'+muted+'" font-size="10">'+v.toFixed(1)+'</text>';
+  }
+  h+='<line x1="'+l+'" y1="'+ys(0)+'" x2="'+(W-r)+'" y2="'+ys(0)+'" stroke="'+border+'" stroke-width="2" marker-end="url(#contextArrow)"/>'+
+     '<text x="'+l+'" y="15" fill="'+muted+'" font-size="11">weight</text>'+
+     '<text x="'+l+'" y="'+(H-8)+'" fill="'+muted+'" font-size="11">0 · earliest context</text>'+
+     '<text x="'+(W-r)+'" y="'+(H-8)+'" text-anchor="end" fill="'+muted+'" font-size="11">1 · latest context</text>';
+
+  // Render translucent regions first in semantic order. SVG paint order is
+  // the effective Z axis, so boundaries are drawn in dedicated overlay passes
+  // afterward to keep every dashed edge visible above overlapping fills.
+  const ordered=[...weights].sort((a,b)=>a.position-b.position);
+  const mixColor=finalMixColor(maxWeight,ordered);
+  const mixX=W-r+28,mixW=42;
+
+  // Full-height summary of the alpha-composited color at the right edge.
+  h+='<text x="'+(mixX+mixW/2)+'" y="15" text-anchor="middle" fill="'+muted+'" font-size="11" font-weight="700">Final Mix</text>'+
+     '<rect x="'+mixX+'" y="'+t+'" width="'+mixW+'" height="'+(H-t-b)+'" rx="4" fill="'+mixColor+'" stroke="'+border+'" stroke-width="1.5"/>';
+
+  ordered.forEach(w=>{
+    const intensity=shadowIntensity(w);
+    const influence=forwardInfluence(w);
+    if(intensity<=0 || w.weight<=0)return;
+    const peakX=xs(w.position),peakY=ys(w.weight),baseY=ys(0),startX=xs(0),endX=xs(1);
+    if(w.position>0){
+      h+='<rect x="'+startX+'" y="'+peakY+'" width="'+(peakX-startX)+'" height="'+(baseY-peakY)+'" fill="'+shadow+'" opacity="'+intensity.toFixed(2)+'"/>';
+    }
+    if(w.position<1 && influence>0){
+      // Keep even the strongest forward layer translucent, then reduce its
+      // alpha further by distance from the right edge of the context.
+      const influenceAlpha=forwardAlpha(w);
+      h+='<rect x="'+peakX+'" y="'+peakY+'" width="'+(endX-peakX)+'" height="'+(baseY-peakY)+'" fill="'+w.color+'" opacity="'+influenceAlpha.toFixed(2)+'"/>';
+    }
+  });
+
+  // Forward borders sit above all fills.
+  ordered.forEach(w=>{
+    const influence=forwardInfluence(w);
+    if(influence<=0 || w.weight<=0 || w.position>=1)return;
+    const peakX=xs(w.position),peakY=ys(w.weight),endX=xs(1);
+    h+='<line x1="'+peakX+'" y1="'+peakY+'" x2="'+endX+'" y2="'+peakY+'" stroke="'+w.color+'" stroke-width="1.5" stroke-dasharray="1 4" stroke-linecap="round" opacity="1"/>';
+  });
+
+  // Shadow borders get the highest boundary Z so no overlapping forward fill
+  // or forward border can obscure their black dashed reference lines.
+  ordered.forEach(w=>{
+    const intensity=shadowIntensity(w);
+    if(intensity<=0 || w.weight<=0 || w.position<=0)return;
+    const peakX=xs(w.position),peakY=ys(w.weight),startX=xs(0);
+    h+='<line x1="'+startX+'" y1="'+peakY+'" x2="'+peakX+'" y2="'+peakY+'" stroke="#000" stroke-width="1.5" stroke-dasharray="1 4" stroke-linecap="round" opacity="1"/>';
+  });
+
+  // Peaks stay independent of the translucent context influence.
+  weights.forEach(w=>{
+    const x=xs(w.position),peakY=ys(w.weight),baseY=ys(0);
+    h+='<line x1="'+x+'" y1="'+baseY+'" x2="'+x+'" y2="'+peakY+'" stroke="'+w.color+'" stroke-width="4"/>'+
+       '<circle cx="'+x+'" cy="'+peakY+'" r="6" fill="'+w.color+'"/>'+
+       '<text x="'+x+'" y="'+Math.max(16,peakY-10)+'" text-anchor="middle" fill="'+w.color+'" font-size="13" font-weight="750">'+w.label+'</text>';
+  });
+
+  if(!weights.length){
+    h+='<text x="390" y="185" text-anchor="middle" fill="'+muted+'" font-size="13">Add a weight to begin</text>';
+  }
+  svg.innerHTML=h;
+}
+
+function legend(){
+  const host=el('legend');
+  const items=weights.map(w=>'<span class="legend-item"><i class="dot" style="background:'+w.color+'"></i>'+w.label+' peak</span>');
+  items.push('<span class="legend-item"><i class="shadow-chip"></i>backward shadow</span>');
+  items.push('<span class="legend-item">weight color = surviving forward influence × right-edge proximity</span>');
+  host.innerHTML=items.join('');
+}
+
+function render(){
+  el('weightCount').textContent=weights.length+' '+(weights.length===1?'weight':'weights');
+  chart();
+  legend();
+}
+
+el('addWeight').addEventListener('click',addWeight);
+el('reset').addEventListener('click',resetModel);
+resetModel();
+})();
+</script>
+</body>
+</html>

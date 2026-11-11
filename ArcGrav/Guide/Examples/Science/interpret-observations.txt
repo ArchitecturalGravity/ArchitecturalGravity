@@ -1,0 +1,70 @@
+# Intent: Interpret a variable-star observing run by
+# - Separating direct measurements from derived effects
+# - Testing repeatability across instruments
+# - Preserving uncertainty when several explanations remain plausible
+
+[Observations]:
+- ./photometry-night-1.csv
+- ./photometry-night-2.csv
+- ./spectra-night-1.fits
+- ./spectra-night-2.fits
+- ./comparison-stars.csv
+- ./weather-log.md
+- ./calibration-log.md
+
+[CandidateExplanations]:
+- Intrinsic stellar variability
+- Atmospheric extinction or transparency changes
+- Wavelength-calibration drift
+- Detector or reduction artifact
+- Contamination from an unresolved nearby source
+
+[InterpretationRules]:
+- Keep raw observations distinct from calibrated or model-derived quantities
+- Treat agreement between independent measurement channels as stronger evidence than repetition within one reduction path
+- Compare the target with comparison stars before attributing brightness changes to the target
+- Check calibration and weather records at the time of each anomaly
+- Distinguish absent evidence from missing or low-quality data
+- Do not collapse multiple plausible explanations into one cause without a discriminating observation
+
+[Claims]: []
+
+[Interpret]:
+=> Apply [InterpretationRules] when analyzing [Observations]
+=> Align [Observations] by observation time:
+  - Photometric records
+  - Spectral records
+  - Comparison-star records
+  - Weather records
+  - Calibration records
+=> Identify anomalies that exceed their stated measurement uncertainty
+=> For each anomaly:
+  => Record the directly observed change
+  => Determine whether it repeats across nights or independent channels
+  => Check for a corresponding change in:
+    - Comparison stars
+    - Calibration references
+    - Environmental conditions
+  => Evaluate each item in [CandidateExplanations] against the available evidence
+  => Append the strongest justified claim to [Claims] with:
+    - Confidence
+    - Supporting evidence
+    - Contradictory evidence
+    - Unresolved alternatives
+
+[Discriminate]:
+=> Observe [Claims]
+=> For every claim with more than one viable explanation:
+  => Identify the single additional observation or calibration check with the greatest ability to distinguish the alternatives
+=> If the supplied evidence cannot determine whether an anomaly is astrophysical or instrumental:
+  => Preserve that uncertainty explicitly
+
+Task:
+1. Run [Interpret] over [Observations]
+2. Run [Discriminate]
+3. Report:
+  - Evidence table
+  - Supported interpretations
+  - Rejected explanations with reasons
+  - Unresolved alternatives
+  - Highest-value follow-up observations

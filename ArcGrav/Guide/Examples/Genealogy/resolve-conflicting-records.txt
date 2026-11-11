@@ -1,0 +1,91 @@
+# Intent: Resolve conflicting genealogical records by weighing evidence context without converting ambiguity into unsupported certainty
+
+Subject:
+- Working identity: Samuel Mercer
+- Research focus: Establish the best supported birth details and parentage
+
+[Records]:
+- R1:
+  - Source: ./records/baptism-register-image.jpg
+  - Record type: Baptism register
+  - Recorded name: Samuel Mercer
+  - Recorded birth date: 3 February 1864
+  - Recorded parents:
+    - Mother: Anne Mercer
+    - Father: William Mercer
+  - Informant context: Clerical entry near the event
+- R2:
+  - Source: ./records/census-1871-household.csv
+  - Record type: Census household
+  - Recorded name: Samuel Mercer
+  - Reported age: 8
+  - Reported birthplace: Westbridge
+  - Household parents:
+    - Mother: Ann Mercer
+    - Father: William Mercer
+- R3:
+  - Source: ./records/death-certificate-image.jpg
+  - Record type: Death certificate
+  - Recorded name: Samuel J Mercer
+  - Reported birth date: 8 February 1865
+  - Reported father: William Mercer
+  - Informant context: Adult daughter reporting decades after birth
+- R4:
+  - Source: ./records/family-bible-transcription.txt
+  - Record type: Family Bible
+  - Recorded name: Samuel James Mercer
+  - Recorded birth date: 8 February 1865
+  - Recorded mother: Anne Mercer
+  - Provenance status: Original inscription date unknown
+
+[ConflictDimensions]:
+- Identity
+- Birth date
+- Birthplace
+- Parentage
+
+[AssessmentFactors]:
+- Temporal proximity to the event
+- Whether the informant had direct knowledge
+- Whether the record is original or derivative
+- Independence from other sources
+- Internal consistency
+- Agreement with independently established relatives
+- Provenance completeness
+
+[ConflictMatrix]: []
+
+[ResolvedProfile]: []
+
+[UnresolvedConflicts]: []
+
+[Assess]:
+=> For each dimension in [ConflictDimensions] ↳
+  - Extract every relevant claim from [Records]
+  - Preserve the exact source reference for each claim
+  - Evaluate each claim against [AssessmentFactors]
+  - Identify whether matching claims are independent or share a likely origin
+  - Record evidence supporting each competing value
+  - Record evidence contradicting each competing value
+  => Append the comparison to [ConflictMatrix]
+
+[Resolve]:
+=> Select a value only when the evidence weight materially favors it
+=> Treat earlier records as stronger only when their informant context and provenance support that preference
+=> Do not resolve a conflict solely by majority count
+=> Do not merge similar names into one identity unless independent correlation supports the merge
+=> For each comparison in [ConflictMatrix] ↳
+  => If a value is supported by the evidence:
+    - Record the selected value
+    - Record supporting source references
+    - Record why competing evidence was not selected
+    - Record confidence
+    => Append the supported value to [ResolvedProfile]
+  => If a material conflict remains balanced or poorly provenanced:
+    - State what additional evidence could resolve it
+    => Append the conflict to [UnresolvedConflicts]
+
+Task:
+1. Run [Assess]
+2. Run [Resolve]
+3. Report [ResolvedProfile] with [ConflictMatrix] and [UnresolvedConflicts]

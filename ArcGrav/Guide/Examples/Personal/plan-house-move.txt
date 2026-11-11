@@ -1,0 +1,124 @@
+# Intent: Plan a household move so the current home is ready to leave and the new home is usable on arrival by coordinating:
+# - Fixed dates
+# - Dependent preparations
+# - Limited moving-day capacity
+
+Scope:
+- Household move planning
+
+[Move]:
+- Current home must be vacated by 2027-06-30 at 17:00
+- New-home keys available 2027-06-28 at 09:00
+- Moving truck booked for 2027-06-29 from 08:00 to 16:00
+- Two adults are available throughout the move
+- One helper is available only on moving day
+
+[Constraints]:
+- Keep the following usable until the final night:
+  - One bedroom
+  - One bathroom
+  - Basic cookware
+  - Medications
+  - Work equipment
+  - Pet supplies
+- Do not disconnect internet before the last workday in the current home
+- Refrigerated food must remain cold during transport
+- Building elevator reservations are required at both homes
+- Cleaning and key return cannot begin until loading is complete
+
+[Workstreams]:
+- Belongings:
+  - Sort
+  - Donate
+  - Pack
+  - Label
+  - Protect valuables
+- Addresses:
+  - Utilities
+  - Mail
+  - Insurance
+  - Financial accounts
+  - Subscriptions
+- Logistics:
+  - Movers
+  - Truck access
+  - Elevators
+  - Parking
+  - Keys
+- Current home:
+  - Repairs
+  - Meter readings
+  - Cleaning
+  - Handoff
+- New home:
+  - Utilities
+  - Safety check
+  - Sleeping setup
+  - Essential-room setup
+
+[Plan]: []
+
+[BuildPlan]:
+=> Observe:
+  - [Move]
+  - [Constraints]
+  - [Workstreams]
+=> Identify tasks whose dates are externally fixed or whose completion unlocks other work
+=> Work backward from the vacate deadline and moving-truck window
+=> For each workstream:
+  => Sequence tasks by dependency rather than by convenience
+  => Assign a latest safe completion point
+  => Preserve the final-night essentials required by [Constraints]
+  => Add the resulting tasks to [Plan]
+=> Separate tasks into:
+  - Before key access
+  - Key-access day
+  - Moving day
+  - Final handoff
+  - First 24 hours in the new home
+
+[ReadinessGates]:
+=> Before moving day verify:
+  - Both elevator reservations are confirmed
+  - Utilities needed on arrival are active
+  - All nonessential belongings are packed and labeled by destination room
+  - Keep the following separated from truck cargo:
+    - Valuables
+    - Documents
+    - Medications
+    - Pet supplies
+    - Work equipment
+  - Cleaning supplies and handoff materials remain accessible at the current home
+=> If any gate is not met:
+  => Reorder optional setup work to protect the truck window and vacate deadline
+  => Escalate only tasks that can block:
+    - Access
+    - Transport
+    - Utilities
+    - Handoff
+
+[MoveDay]:
+=> Load items in an order that preserves cold-chain items and unload-first essentials
+=> Record meter readings and visible condition before leaving each property
+=> After unloading:
+  => Set up the following before unpacking discretionary rooms:
+    - Sleeping
+    - Bathroom
+    - Medications
+    - Pet needs
+    - Refrigeration
+    - Basic food preparation
+=> Return to the current home only after loading is complete to:
+  - Clean
+  - Complete final walkthrough
+  - Hand off keys
+
+Task:
+1. Run [BuildPlan]
+2. Apply [ReadinessGates]
+3. Prepare:
+  - Dated move plan with dependencies
+  - Latest-safe dates
+  - Owner assignments
+  - Moving-day sequence informed by [MoveDay]
+  - Compact essentials checklist

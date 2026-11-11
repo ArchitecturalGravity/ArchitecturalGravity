@@ -1,0 +1,119 @@
+# Intent: Arrange a companion planting layout that respects crop compatibility spatial competition site conditions and garden objectives
+
+[GardenObjective]:
+- Primary: Support reliable vegetable production
+- Secondary:
+  - Improve pollinator access
+  - Reduce bare soil
+  - Preserve harvest access
+
+[Site]:
+- Bed: 1.2 m × 3.6 m raised bed
+- Hemisphere: Northern
+- Orientation: Long axis east to west
+- Sun exposure:
+  - South edge: Full sun
+  - North edge: Full sun with late afternoon fence shade
+- Irrigation: Two drip lines running east to west
+- Access: Reach from both long edges must remain open
+
+[Plants]:
+- Tomato:
+  - Quantity: 2
+  - Mature spacing: 60 cm
+  - Light need: Full sun
+  - Root competition: High
+  - Support: Trellis required
+- BushBean:
+  - Quantity: 6
+  - Mature spacing: 20 cm
+  - Light need: Full sun
+  - Root competition: Moderate
+- Lettuce:
+  - Quantity: 8
+  - Mature spacing: 20 cm
+  - Light need: Tolerates partial shade
+  - Root competition: Low
+- Basil:
+  - Quantity: 4
+  - Mature spacing: 25 cm
+  - Light need: Full sun
+  - Root competition: Low
+- Calendula:
+  - Quantity: 3
+  - Mature spacing: 30 cm
+  - Objective role: Pollinator support
+
+[CompatibilityRules]:
+- Source: ./crop-compatibility-notes.md
+- Pairing:
+  - Between:
+    - Tomato
+    - Basil
+  - Rule: Preferred nearby pairing
+- Pairing:
+  - Between:
+    - Tomato
+    - Lettuce
+  - Rule: Allowed outside the tomato root-dense zone
+- Pairing:
+  - Between:
+    - Tomato
+    - BushBean
+  - Rule: Allowed when mature spacing is preserved
+- Pairing:
+  - Between:
+    - Calendula
+    - VegetableCrops
+  - Rule: Place within the bed without blocking harvest access
+- GeneralRule:
+  - Applies to: AnyPair
+  - Rule: Override a preferred pairing when required spacing or light access would be violated
+
+[SpatialRules]:
+- Trellised tomatoes: Place on the north side to reduce shading of shorter crops
+- Drip access: Every plant must be reachable by a drip line or emitter
+- Harvest access: No mature canopy may require crossing the center of the bed for routine harvest
+- Edge clearance: Keep 15 cm clear from the bed frame unless a plant is intentionally edge-planted
+
+[CandidatePositions]: []
+
+[Conflicts]: []
+
+[Layout]: []
+
+[MapConstraints]:
+=> Divide [Site] into plantable zones around the two drip lines
+=> Reserve tomato spacing and trellis clearance before assigning smaller crops
+=> Mark areas where tomato shade is expected to increase later in the season
+=> Mark reachable harvest zones from both long edges
+=> Append the result to [CandidatePositions]
+
+[PlaceCompanions]:
+=> Place tomato anchors first under [SpatialRules]
+=> For each remaining plant in [Plants] ↳
+  - Find positions that satisfy its mature spacing
+  - Check the position against [CompatibilityRules]
+  - Check light need against expected shade
+  - Check irrigation access
+  - Prefer positions that advance [GardenObjective] secondary goals without violating hard constraints
+  - If no valid position exists:
+    - Append an unplaced record with the plant and blocking constraints to [Conflicts]
+=> If a preferred companion relationship conflicts with spacing light or access:
+  - Preserve the hard constraint
+  - Record the rejected relationship in [Conflicts]
+=> Append accepted positions to [Layout]
+
+[ValidateLayout]:
+=> Verify every plant in [Plants] has the requested quantity or an explicit unplaced record
+=> Verify no pair violates mature spacing
+=> Verify every position has compatible light and irrigation access
+=> Verify the tomato trellis does not create an avoidable shade conflict for full-sun crops
+=> Verify routine harvest access remains open
+=> Preserve every unresolved placement conflict in [Conflicts]
+
+Task:
+1. Run [MapConstraints]
+2. Run [PlaceCompanions]
+3. Run [ValidateLayout]
+4. Present [Layout] with [Conflicts]

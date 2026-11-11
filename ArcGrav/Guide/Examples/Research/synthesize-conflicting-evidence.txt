@@ -1,0 +1,82 @@
+# Intent: Synthesize conflicting evidence about whether four-day workweeks improve organizational outcomes without averaging unlike results by reconciling differences in:
+#   - Study design
+#   - Implementation
+#   - Outcome definition
+
+[Question]: Under what conditions does a four-day workweek lead to:
+  - Improved organizational performance and employee well-being
+  - Preserved organizational performance and employee well-being
+  - Reduced organizational performance and employee well-being
+
+[Sources]:
+- ./controlled-trials/
+- ./pilot-evaluations/
+- ./observational-studies/
+- ./systematic-reviews/
+- ./study-characteristics.csv
+
+[ConflictFrame]:
+- Intervention:
+  - Reduced hours with unchanged pay
+  - Compressed hours
+  - Ambiguous
+- Comparator:
+  - Prior schedule
+  - Concurrent control
+  - External benchmark
+- Duration:
+  - Short pilot
+  - Medium term
+  - Long term
+- Outcome:
+  - Output
+  - Revenue
+  - Service quality
+  - Absence
+  - Retention
+  - Self-reported well-being
+- Implementation:
+  - Workload reduced
+  - Workload unchanged
+  - Process redesigned
+  - Not reported
+
+[Findings]: []
+
+[Synthesize]:
+=> Extract each material finding from [Sources] relevant to [Question] ↳
+  - Study design
+  - Sample
+  - Intervention form
+  - Comparator
+  - Duration
+  - Outcome definition
+=> Group apparently conflicting findings by the part of [ConflictFrame] that could explain the disagreement
+=> Distinguish conflicts in measured results from conflicts created by different definitions of "four-day workweek" or "performance"
+=> Give greater inferential weight to designs that better address the claim being evaluated, while preserving relevant external-validity limits
+=> Append to [Findings] ↳
+  - Conclusion supported
+  - Evidence basis
+  - Conditions under which it holds
+  - Contradictory evidence that remains material
+  - Confidence and principal limitation
+
+[Reconcile]:
+=> Identify disagreements that are substantially resolved by differences in:
+  - Intervention type
+  - Sector
+  - Time horizon
+  - Outcome definition
+=> Identify disagreements that remain after those differences are accounted for
+=> Do not treat self-reported well-being as a proxy for organizational performance or vice versa
+=> Do not generalize from voluntary pilots to mandatory organization-wide adoption without noting selection effects
+=> State where the evidence supports conditional conclusions rather than a universal effect
+
+Task:
+1. Run [Synthesize]
+2. Run [Reconcile]
+3. Present:
+  - Conditional findings
+  - Reconciled disagreements
+  - Genuinely unresolved conflicts
+  - Study characteristics most important for interpreting future evidence

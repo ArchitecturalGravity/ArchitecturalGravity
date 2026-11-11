@@ -1,0 +1,56 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.reasoning_interaction_substitution
+kind: research_reference
+source:
+  path: Research/ArcGrav_Reasoning_Interaction_Substitution.md
+  url: ../ArcGrav_Reasoning_Interaction_Substitution.md
+  fingerprint: fnv1a32-79f6861f
+sections:
+  paper-reasoning-interaction: |-
+    Reasoning–interaction substitution is the hypothesis that additional model reasoning can reduce total accepted-task cost when it avoids enough correction, repeated state acquisition, redundant execution, retries, and human steering. Per-inference cost alone does not establish task efficiency.
+  abstract: |-
+    Per-inference compute and completed-task cost are different quantities. A low-reasoning trajectory can consume more total resources than a high-reasoning one if it causes repeated steering, repository inspection, state reconstruction, tool calls, correction or new conversations. The hypothesis is that marginal reasoning cost may be outweighed by avoided downstream interaction and repeated work, especially after a refined ArcGrav specification makes objective, scope, references, constraints and completion criteria clearer. Compare full trajectories to accepted task completion, not the cheapest single model call.
+  introduction: |-
+    A coding task often continues through repository inspection, edits, tests, retries, and human interventions long after its initial inference. Reasoning–interaction substitution asks whether extra model reasoning prevents enough later reconstruction, correction, and redundant execution to lower the total cost of accepted completion.
+  role-within-the-research-program: |-
+    This paper examines the cost of reaching accepted task completion, rather than the cost of one model call. It connects the Operational Leverage telemetry to a task-level accounting framework and relates to RCR through the predicted effect of clearer task representation on reasoning and execution.
+  construct-definition-and-boundaries: |-
+    Define reasoning–interaction substitution (RIS) over a whole assigned task, not a single inference or chat session. Track task identity, acceptance or defined termination, reasoning effort, human interaction, and four potentially overlapping categories of wasted work; diagnostic descriptions must not double-count billed events.
+  task-boundaries-and-acceptance: |-
+    A trajectory spans all model calls, tools, context processing, and human interventions until accepted completion or a stated termination point, even across conversations. Acceptance uses preregistered criteria and a follow-up window; single-specification completion still permits autonomous tool work, retries, and validation.
+  reasoning-effort-and-human-interaction: |-
+    Reasoning effort selects model-side computation and influences planning, tool exploration, and autonomous recovery. Interaction burden includes human observation, diagnosis, redirection, correction, clarification, and state resupply; count initial specification and refinement time separately.
+  four-forms-of-overhead: |-
+    Distinguish state reconstruction of previously acquired knowledge (SRO), correction triggered by failures (CO), redundant or discarded execution (REO), and context accumulation (CAO). These diagnostic labels can overlap, so assign each token, tool charge, and unit of human time only once in the cost ledger.
+  ris-task-completion-cost: |-
+    Account for inference, uncached and cached input, output, tools, restarts, correction, and human effort across the task-to-acceptance trajectory. Use consistent units and include unsuccessful attempts rather than optimizing the cheapest individual call.
+  the-break-even-condition: |-
+    Additional reasoning breaks even only if its marginal cost is lower than the expected downstream cost it avoids through fewer retries, corrections, repeated context reads, redundant work, and human interventions. The threshold depends on task complexity and failure behavior.
+  cache-reuse-conversation-boundaries-and-state-compression: |-
+    Cached input is cheaper than uncached input but not free, and a high cached percentage need not mean a low absolute workload. Fresh sessions risk repeated repository/decision reconstruction; continuing indefinitely incurs growing context-processing cost. Preserve compact decision-relevant state and restart when accumulation exceeds reacquisition cost.
+  arcgrav-and-the-allocation-of-reasoning: |-
+    ArcGrav seeks to compress the external control plane—objectives, authority, scope, references, operations, and acceptance—while higher reasoning expands autonomous planning, exploration, verification, and recovery. A precise specification can improve the return on reasoning; more reasoning applied to an ambiguous task can instead explore the wrong objective. Their complementarity is a testable design hypothesis.
+  expected-routing-and-agent-design: |-
+    Optimize accepted task completion rather than the cheapest inference; count human interventions as expensive events; scale reasoning with failure amplification; preserve compact decision state instead of full conversation history; refine ambiguous specifications before spending additional compute. These are design implications, not proven universal rules.
+  motivation-from-existing-codex-telemetry: |-
+    Codex observational telemetry shows higher reasoning settings associated with deeper inference/tool activity per prompt, while mature ArcGrav usage coincided with much shorter human prompts and preserved agent activity. The fixed GPT-5.4/xhigh endpoint window changed user text from 2,259 to 581 characters per prompt, with roughly stable uncached input and rising tool calls. Session telemetry does not identify task acceptance, corrections, or repeated state acquisition, so it motivates rather than proves task-cost substitution.
+  predictions-and-experimental-program: |-
+    Test reasoning policies and specification refinement against expected full cost per assigned task at fixed acceptance criteria, while reporting success rates and cost conditional on acceptance. Seven predictions span complexity thresholds, reduced steering and aggregate input, cache-share pitfalls, intermediate cost optima, and human-time savings; preserve linked trajectory and task IDs.
+  predictions-and-observable-tests: |-
+    Seven predictions concern difficulty-dependent reasoning break-even, specification-refinement interactions, fewer human corrections, lower aggregate uncached input despite higher per-prompt work, cache-share paradoxes, an interior reasoning-cost optimum, and human-time savings. Proposed tests use full task trajectories and fixed acceptance rules.
+  appendix-technical-accounting-and-simplified-models: |-
+    The technical appendix defines priced uncached input, cached input, output, tools, and human effort across whole task trajectories. It separates diagnostic overhead labels from nonoverlapping accounting charges and specifies accepted-task, break-even, retry, and reasoning-by-specification cost comparisons.
+  scope-and-evidence-status: |-
+    Existing Codex telemetry records sessions rather than linked trajectories through independently accepted completion, so it cannot directly establish reasoning–interaction substitution. The proposed test requires task identity across sessions, acceptance criteria, corrections, continuations, tool and token costs, and measured human time.
+  conclusion: |-
+    Minimizing one inference's reasoning tokens may increase corrections, retries, renewed state acquisition, and total cost over a task. Additional reasoning is economically preferable only when its marginal cost is outweighed by reduced downstream model, tool, and human effort at matched accepted completion.
+  related-papers: |-
+    Related Papers: • Model-Native Structural Representation
+    • Representational Capacity Reclamation
+    • ArcGrav Operational Leverage
+  other-sources: |-
+    Other Sources: • OpenAI usage rate information — token-price discussion in Section 4.1.
+  references: |-
+    References: • De Sabbata, C. N., et al. (2024). Rational Metareasoning for Large Language Models. arXiv preprint. https://arxiv.org/abs/2410.05563
+    • Lieder, F., & Griffiths, T.

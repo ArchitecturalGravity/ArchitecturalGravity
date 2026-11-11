@@ -1,0 +1,139 @@
+# Intent: Design a cooperative stealth gameplay system whose alert economy creates readable escalation while forcing meaningful resource choices across progression without removing recovery opportunities
+
+[GameContext]:
+- Mode: Two-player cooperative infiltration
+- Session target: 25 to 35 minutes
+- Player fantasy: Skilled infiltrators adapting under pressure
+- Failure model: Escalating opposition before mission failure
+
+[DesignGoals]:
+- Reward observation before commitment
+- Make noisy shortcuts useful without making stealth irrelevant
+- Let partners recover from small mistakes through coordinated play
+- Make higher alert states change decisions rather than only increase enemy health
+- Keep progression focused on new options rather than permanent numerical dominance
+
+[CoreLoop]:
+1. Scout patrols and security devices
+2. Choose a route or create an opening
+3. Spend limited tools to control risk
+4. Complete an objective action
+5. Respond to resulting alert changes
+6. Reach extraction before alert pressure becomes unmanageable
+
+[Resources]:
+- Focus:
+  - Each player starts with 3 charges
+  - One charge refreshes after completing a mission objective without raising alert
+  - Maximum capacity is 4 charges
+  - Uses:
+    - Mark one patrol route for both players
+    - Perform a silent synchronized takedown
+    - Accelerate a partner recovery action
+- BreachCharge:
+  - Team starts with 2 charges
+  - Opens reinforced shortcuts
+  - Always adds 2 alert
+  - Cannot be replenished during a mission
+- CoverIdentity:
+  - Each player starts with 1 use
+  - Cancels the first suspicion event while alert is Quiet or Suspicious
+  - Fails automatically during Lockdown
+
+[AlertState]:
+- Quiet:
+  - Alert range: 0 to 1
+  - Guards follow normal patrols
+  - Cameras use standard sweep speed
+- Suspicious:
+  - Alert range: 2 to 3
+  - Guards investigate recent disturbance locations
+  - Cameras pause longer on detected movement
+  - CoverIdentity remains usable
+- Searching:
+  - Alert range: 4 to 5
+  - Reinforcement patrols enter from security posts
+  - Objective interactions take 25 percent longer unless both players cooperate
+  - CoverIdentity is disabled
+- Lockdown:
+  - Alert range: 6
+  - Extraction route changes to the emergency exit
+  - Reinforcement patrols continue until alert is reduced
+  - Mission timer loses 90 seconds when Lockdown begins
+
+[AlertRules]:
+- Raising alert:
+  - Unsuppressed weapon fire adds 2
+  - A confirmed player sighting adds 2
+  - A BreachCharge adds 2
+  - A disabled camera discovered by a guard adds 1
+- Reducing alert:
+  - Completing a cooperative concealment action removes 1
+  - Reaching a safe room while no player is pursued removes 1
+  - Alert cannot fall below Suspicious after Lockdown has occurred
+- Bounds:
+  - Alert cannot exceed 6
+  - Alert changes resolve after the triggering action completes
+
+[InteractionRules]:
+- A BreachCharge may shorten the route while increasing the chance of entering Searching
+- Spending Focus on scouting may reveal a longer route with fewer alert triggers
+- Saving Focus improves recovery capacity after an unexpected detection
+- Entering Lockdown converts route knowledge into time pressure because extraction changes
+- Cooperative objective interactions trade positional safety for faster completion during Searching
+
+[Progression]:
+- Mission success grants 1 upgrade token
+- Upgrade categories:
+  - Recon:
+    - Reveal one additional patrol segment when Focus is spent on marking
+  - Coordination:
+    - Reduce synchronized takedown Focus cost for one player once per mission
+  - Recovery:
+    - Restore one CoverIdentity use after completing the second mission objective
+- Progression limits:
+  - No upgrade increases weapon damage
+  - No upgrade removes alert generation from noisy actions
+  - No upgrade bypasses Lockdown extraction rules
+
+[Scenarios]:
+- Clean infiltration:
+  - Players scout before moving
+  - Players complete two objectives without confirmed sightings
+  - Expected pressure: Focus partially refreshes while alert remains recoverable
+- Fast breach:
+  - Players spend both BreachCharge uses to shorten traversal
+  - Expected pressure: Route time decreases while alert approaches Searching or Lockdown
+- Recovery after detection:
+  - One player is confirmed by a guard at alert 2
+  - Expected pressure: Alert reaches Searching and the team must choose between concealment or continued objective pressure
+- Late Lockdown:
+  - Lockdown begins after the final objective
+  - Expected pressure: Extraction reroutes and the reduced timer makes stored route knowledge valuable
+
+[DesignReview]: []
+
+[Evaluate]:
+=> Trace [Scenarios] through [CoreLoop] using:
+  - [GameContext]
+  - [Resources]
+  - [AlertState]
+  - [AlertRules]
+  - [InteractionRules]
+=> Record any dominant strategy that removes a meaningful route or resource decision
+=> Record any state transition that lacks a player-readable consequence
+=> Check whether [Progression] expands decisions without invalidating the base alert economy
+=> Preserve tensions that support [DesignGoals] instead of flattening every option to equal value
+=> Append required rule adjustments and unresolved design questions to [DesignReview]
+
+[Validate]:
+=> Verify every resource in [Resources] has a meaningful scarcity or opportunity cost
+=> Verify every state in [AlertState] changes player-facing decisions
+=> Verify at least one recovery path remains after ordinary detection
+=> Verify Lockdown is materially different from lower alert states
+=> Verify progression cannot permanently erase the consequences of noisy play
+
+Task:
+1. Run [Evaluate]
+2. Run [Validate]
+3. Present [DesignReview] with the interaction or state relationship that justifies each proposed adjustment

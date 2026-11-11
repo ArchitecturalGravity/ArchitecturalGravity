@@ -1,0 +1,87 @@
+# Intent: Analyze a development site through spatial conditions constraints opportunities dependencies and unresolved diligence without converting assumptions into facts
+
+[Project]:
+- Program: Mixed-use neighborhood center
+- Stage: Pre-acquisition feasibility
+- Site: Former commercial parcel at a transit corridor
+
+[SiteGeometry]:
+- North edge:
+  - Condition: Signalized arterial frontage
+  - Relationship: Primary public access candidate
+- East edge:
+  - Condition: Existing multifamily property
+  - Relationship: Sensitive shared boundary
+- South edge:
+  - Condition: Public alley
+  - Relationship: Service access candidate
+- West edge:
+  - Condition: Transit station entrance
+  - Relationship: Highest pedestrian connection
+
+[KnownConditions]:
+- Parcel area: 2.6 acres
+- Existing improvement: Vacant one-story retail building
+- Recorded easement: Utility corridor along the south edge
+- Topography: Approximately twelve feet of grade change from north to south
+- Stormwater: Existing system capacity not established
+- Utility service: Available at the street with project capacity not established
+
+[Constraints]:
+- C1: Maintain required access to the recorded utility easement
+- C2: Resolve allowable building height under current zoning before fixing massing assumptions
+- C3: Protect required fire access through any parking or service concept
+- C4: Treat environmental condition as unknown until documented assessment is reviewed
+- C5: Do not assume off-site infrastructure capacity from visible service connections
+
+[Opportunities]:
+- O1: Concentrate active frontage toward the transit station
+- O2: Use the grade change to separate public arrival from service movement
+- O3: Place lower building mass near the east boundary if program capacity remains viable
+- O4: Reuse existing curb access where transportation review supports it
+
+[ConceptProgram]: ./development-program.md
+
+[Sources]:
+- Survey: ./site-boundary-survey.pdf
+- ZoningMap: ./zoning-map.pdf
+- TitleExceptionPlan: ./title-exception-plan.pdf
+- UtilityMap: ./utility-map.pdf
+- TransitPlan: ./station-area-plan.pdf
+- ConceptProgram: [ConceptProgram]
+
+[DiligenceQuestions]: []
+
+[DependencyMap]: []
+
+[SiteAssessment]: []
+
+[MapDependencies]:
+=> Trace each item in [Constraints] and [Opportunities] to supporting context:
+  - [SiteGeometry]
+  - [KnownConditions]
+  - [Sources]
+=> For each development choice that depends on an unresolved fact append a dependency to [DependencyMap]
+=> Represent each dependency with:
+  - Decision affected
+  - Required evidence
+  - Resolving authority
+  - Consequence if unresolved
+=> Preserve independent questions as independent dependencies
+
+[Analyze]:
+=> Test [ConceptProgram] for [Project] against [SiteGeometry] and verified [KnownConditions]
+=> Identify physical relationships that create material conflicts or synergies
+=> Distinguish a documented constraint from a planning assumption
+=> Append unanswered decision-relevant questions to [DiligenceQuestions]
+=> Do not convert [Opportunities] into project commitments
+=> Append to [SiteAssessment] ↳
+  - Viable site characteristics supported by evidence
+  - Material constraints
+  - Development opportunities that remain conditional
+  - Dependencies that control the next feasibility decisions
+
+Task:
+1. Run [MapDependencies]
+2. Run [Analyze]
+3. Present [SiteAssessment] with [DependencyMap] and [DiligenceQuestions]

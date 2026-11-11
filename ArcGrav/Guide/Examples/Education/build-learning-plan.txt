@@ -1,0 +1,59 @@
+# Intent: Build a six-week learning plan by
+# - Moving a learner from spreadsheet familiarity to independently interpreting basic statistical inference
+# - Adapting practice when checkpoints expose gaps
+
+[Outcome]:
+- Analyze a small dataset in a spreadsheet
+- Explain sampling variability in plain language
+- Construct and interpret a confidence interval
+- Distinguish a one-sample comparison from a two-sample comparison
+- Explain what a p-value does and does not establish
+
+[Learner]:
+- Comfortable with:
+  - Percentages
+  - Averages
+  - Spreadsheet formulas
+- No calculus background
+- Learns best from a worked example followed by independent practice
+
+[Constraints]:
+- 6 weeks
+- Maximum 4 hours per week
+- Use spreadsheet tools rather than programming
+- Final task must require both calculation and written interpretation
+
+[Plan]: []
+
+[Build]:
+=> Order [Outcome] concepts by prerequisite relationship
+=> Adapt instruction to [Learner]
+=> For each week:
+  => Set one primary learning objective
+  => Include:
+    - A short explanation or reading
+    - One worked example
+    - Independent practice using a small dataset
+    - A retrieval exercise from earlier weeks
+  => Keep total work within [Constraints]
+  => Append the week to [Plan]
+=> Reserve week 6 for an integrated analysis task
+
+[Checkpoints]:
+=> After weeks 2 and 4:
+  => Test conceptual understanding without copying the worked example
+  => Identify errors as either:
+    - Missing prerequisite
+    - Procedure error
+    - Interpretation error
+  => If a prerequisite is missing:
+    => Replace the next optional practice block with targeted review
+  => If procedure is weak but interpretation is sound:
+    => Add another calculation example without delaying progression
+  => If interpretation is weak:
+    => Add explanation practice before introducing the next inference concept
+
+Task:
+1. Run [Build]
+2. Present the six-week [Plan] with estimated time per activity
+3. Include the week 2 and week 4 checkpoint prompts and the adaptation rules from [Checkpoints]

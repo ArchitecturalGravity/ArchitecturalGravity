@@ -1,0 +1,94 @@
+# Intent: Evaluate defensive security controls against requirements observed implementation evidence and material gaps
+
+[AssessmentScope]:
+- Environment: Customer analytics platform
+- Objective: Determine whether selected preventive detective and recovery controls satisfy stated security requirements
+- Boundary:
+  - Production application
+  - Administrative access
+  - Central logging
+  - Backup recovery
+
+[Requirements]:
+- `REQ-01`:
+  - Source: ./security-standard.md
+  - Authority: Organizational security standard
+  - Requirement: Administrative access requires phishing-resistant multifactor authentication
+- `REQ-02`:
+  - Source: ./security-standard.md
+  - Authority: Organizational security standard
+  - Requirement: Privileged actions must produce centrally retained audit events
+- `REQ-03`:
+  - Source: ./service-recovery-policy.md
+  - Authority: Service recovery policy
+  - Requirement: Production data must be restorable within the approved recovery objective
+
+[Controls]:
+- `IAM-01`:
+  - Purpose: Restrict privileged access
+  - DocumentedDesign: Hardware-backed authentication is required for production administrator roles
+  - Owner: Identity team
+- `LOG-02`:
+  - Purpose: Preserve evidence of privileged activity
+  - DocumentedDesign: Administrative events are forwarded to the central security log store
+  - Owner: Security operations
+- `REC-03`:
+  - Purpose: Restore production data after destructive loss
+  - DocumentedDesign: Encrypted backups are isolated from production credentials and tested on a recurring schedule
+  - Owner: Platform reliability
+
+[EvidenceSources]:
+- Identity configuration export: ./evidence/identity-config.json
+- Privileged role membership: ./evidence/privileged-members.csv
+- Authentication sample: ./evidence/admin-auth-events.jsonl
+- Logging route configuration: ./evidence/log-routing.yaml
+- Audit event sample: ./evidence/admin-audit-events.jsonl
+- Backup policy export: ./evidence/backup-policy.json
+- Restore exercise record: ./evidence/restore-test.md
+
+[Assessments]: []
+
+[Gaps]: []
+
+[DecisionRules]:
+=> Do not mark a control effective solely because configuration documentation says it should be effective
+=> Do not treat absence of evidence as proof that a control failed
+=> Prefer direct configuration or event evidence over unsupported summary claims
+=> Preserve requirement authority when controls conflict with convenience or local preference
+
+[AssessControls]:
+=> Evaluate controls within [AssessmentScope] under [DecisionRules]
+=> For each item in [Requirements] ↳
+  => Identify the control or controls in [Controls] intended to satisfy the requirement
+  => Separate documented control design from observed implementation
+  => Trace every implementation claim to evidence in [EvidenceSources]
+  => Determine whether the evidence demonstrates:
+    - Coverage
+    - Enforcement
+    - Operation
+    - Recovery capability where applicable
+  => Record uncertainty when evidence is missing stale or insufficient
+  => Append an assessment to [Assessments] with:
+    - Requirement reference
+    - Relevant control reference
+    - Design assessment
+    - Implementation assessment
+    - Evidence basis
+    - Confidence
+
+[IdentifyGaps]:
+=> Classify gaps under [DecisionRules]
+=> For each assessment in [Assessments] ↳
+  => Append a gap to [Gaps] when:
+    - A requirement lacks a mapped control
+    - Documented design does not satisfy the requirement
+    - Observed implementation differs materially from documented design
+    - Evidence cannot establish effective operation
+  => State the security consequence without inventing an exploit path
+  => Distinguish confirmed weakness from evidence deficiency
+  => Identify the smallest evidence or remediation need that would resolve the gap
+
+Task:
+1. Run [AssessControls]
+2. Run [IdentifyGaps]
+3. Report [Assessments] and [Gaps] with evidence provenance and unresolved uncertainty

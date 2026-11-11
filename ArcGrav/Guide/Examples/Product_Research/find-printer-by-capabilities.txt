@@ -1,0 +1,48 @@
+# Intent: Find discontinued or older monochrome laser printers that meet the required capabilities with documented evidence
+
+[Product]:
+- Required:
+  - Monochrome laser printer
+  - Integrated scanner
+  - Introduced in 2019 or earlier
+- Permitted:
+  - Discontinued models
+
+[Capability]:
+- Required:
+  - Print from USB drive
+  - Scan to USB drive
+  - Full duplex printing
+- Permitted:
+  - Single-sided scanning
+- Not a selection criterion:
+  - Print speed
+
+[EvidencePriority]:
+P0. Manufacturer user manuals
+P1. Manufacturer specification sheets
+P2. Archived manufacturer product pages
+P3. Secondary product sources for discovery only when primary documentation is unavailable
+
+[FoundProducts]: []
+
+[Confirmed]: []
+
+[EvidenceGaps]: []
+
+[Search]:
+=> Search for [Product]
+=> Append candidate models and discovery sources to [FoundProducts]
+
+[ReviewConfirmation]:
+=> Observe [FoundProducts]
+=> For each candidate verify all required entries in [Product] and [Capability] against [EvidencePriority]
+=> Distinguish the presence of a USB port from documented print from USB drive and scan to USB drive support
+=> Treat unavailable or conflicting product or capability evidence as unverified
+=> Append candidates with every required entry verified to [Confirmed]
+=> Append missing or conflicting evidence to [EvidenceGaps]
+
+Task:
+1. Run [Search]
+2. Run [ReviewConfirmation]
+3. Provide [Confirmed] with product and capability evidence and [EvidenceGaps]

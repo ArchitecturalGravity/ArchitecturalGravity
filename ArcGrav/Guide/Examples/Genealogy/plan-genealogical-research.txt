@@ -1,0 +1,83 @@
+# Intent: Build a genealogical research plan that targets the most decision relevant evidence gaps before expanding into lower value searches
+
+ResearchGoal:
+- Identify the parents of Clara Whitmore who married Daniel Price in 1887
+
+[Established]:
+- Marriage:
+  - Source: ./records/marriage-register-1887.jpg
+  - Person: Clara Whitmore
+  - Spouse: Daniel Price
+  - Event place: Northfield
+  - Father field: Blank
+- Census1891:
+  - Source: ./records/census-1891-household.csv
+  - Person: Clara Price
+  - Spouse: Daniel Price
+  - Reported age: 27
+  - Reported birthplace: Easton
+- Obituary:
+  - Source: ./newspapers/clara-price-obituary.txt
+  - Person: Clara Price
+  - Named sibling: Henry Whitmore
+  - Parent names: Not stated
+
+[EvidenceGaps]:
+P0. Establish whether Clara Whitmore and Clara Price are the same person
+P1. Identify a record created near Clara's birth that names at least one parent
+P2. Correlate Henry Whitmore to Clara through an independent household or vital record
+P3. Determine whether multiple Clara Whitmore candidates were present in Easton during the relevant period
+P4. Extend earlier generations only after Clara's parentage is sufficiently supported
+
+[Repositories]:
+- CivilRegistration:
+  - Coverage: Birth and marriage records
+  - Access: Local archive index and images
+- ParishArchive:
+  - Coverage: Baptism and marriage registers
+  - Access: Parish microfilm collection
+- CensusCollection:
+  - Coverage: Household returns
+  - Access: Digital images
+- NewspaperArchive:
+  - Coverage: Obituaries and local notices
+  - Access: Searchable digital archive
+
+[ResearchPlan]: []
+
+[NegativeFindings]: []
+
+[OpenQuestions]: []
+
+[Prioritize]:
+=> For each entry in [EvidenceGaps] ↳
+  - Compare the gap with [Established]
+  - Identify the record type most likely to bear directly on the gap
+  - Identify the relevant [Repositories]
+  - Define the person
+  - Define the place
+  - Define the time window
+  - Define the expected relationship or identity evidence
+  - Define what result would change the current hypothesis
+=> Prefer searches that can resolve a higher priority gap or eliminate multiple competing identities
+=> Defer broad ancestry searches that depend on unproven parentage
+=> Append ordered searches to [ResearchPlan]
+
+[ExecutePlan]:
+=> Work through [ResearchPlan] in priority order
+=> For each search:
+  - Record the repository and collection searched
+  - Record the search scope
+  - Preserve positive record references
+  - Append meaningful no result searches to [NegativeFindings]
+  - Reassess [EvidenceGaps] before expanding the search
+=> When new evidence creates a conflict:
+  - Preserve the competing claims
+  - Add the resolving question to [OpenQuestions]
+  - Reprioritize [ResearchPlan]
+=> Stop extending the lineage when the next step depends on an unresolved identity or relationship
+
+Task:
+1. Run [Prioritize]
+2. Run [ExecutePlan]
+3. Provide [ResearchPlan] with [NegativeFindings] and [OpenQuestions]

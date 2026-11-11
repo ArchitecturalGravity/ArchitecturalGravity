@@ -1,0 +1,36 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.studies.planetary_chain
+kind: research_reference
+source:
+  path: Research/Context_Triad/Studies/Planetary_Chain_Activation.md
+  url: ../../../Context_Triad/Studies/Planetary_Chain_Activation.md
+  fingerprint: fnv1a32-b9da2239
+sections:
+  paper-planetary-chain-activation: |-
+    This Semantic Locality pilot presents the same eight mythological associations in three orders and examines spontaneous recovery of an unstated planetary sequence. Only the canonical-order condition elicited the reported association; ordering effects have not been isolated by controls.
+  a-gpt-6-instant-pilot-observation-of-the-context-triad----26-october-2026: |-
+    Observation date: 26 October 2026. Three GPT-6 Instant ArcGrav prompt variants and categorical results are reported; exact model replies were not supplied. This is a pilot comparison, not a replicated controlled estimate.
+  abstract: |-
+    Eight symbolic references each carry a mythological clue to a planet. Three presentations preserve all clue bodies and the final question while changing reference order; the canonical sequence elicited the planetary correlation, whereas reverse and scattered conditions did not in the reported GPT-6 Instant pilot. Definition position and final chain order remain coupled.
+  role-within-the-context-triad: |-
+    This pilot documents how presenting the same mythological associations in different sequences changes spontaneous identification of an unstated planetary pattern. It motivates the Semantic Locality study, especially independent manipulation of definition placement and reference order.
+  1-the-intended-inferential-correlation: |-
+    1. The Intended Inferential Correlation: The familiar planetary sequence is: > Mercury → Venus → Earth → Mars → Jupiter → Saturn → Uranus → Neptune
+  2-three-prompts-and-one-preserved-set-of-iai-units: |-
+    All three conditions preserve eight symbolic-reference bodies and the final question. Their Chain lists references in the order of first appearance, so definition order and final chain order vary together. Compare original stimuli before attributing effects to either ordering factor.
+  3-central-observation-contextual-ordering-and-associative-activation: |-
+    Only the canonical ordering elicited the planetary association in the reported categorical outcomes. Because clue identities and the question were preserved but two ordering features changed together, the pilot motivates a factorial test rather than establishing an isolated locality effect.
+  4-relation-to-the-context-triad: |-
+    4. Relation to the Context Triad: This case belongs in the Triad because the presence of semantic information does not ensure that its intended inferred relation will govern the final response. • Semantic Locality: The eight references occupy different positions in the input sequence relative to each other and the final question. Their invocation through [Chain] is near the question, but their substantive descriptions occupy distributed earlier positions.
+  5-proposed-tests-of-the-associative-locality-hypothesis: |-
+    5. Proposed Tests of the Associative Locality Hypothesis: These proposed controls separate placement, canonical-sequence activation, and individual clue recognizability. The highest-priority control independently crosses definition order and chain order. Record each definition's actual token span, relative position, and distance from the question while keeping model settings, stimulus wording, and content support matched.
+  6-scope-and-evidence-status: |-
+    The study records three ArcGrav prompts and categorical GPT-6 Instant outcomes dated 26 October 2026, with three simultaneous runs reported. Exact model replies were not supplied. Independent replication and controls crossing definition placement with final Chain order remain proposed.
+  7-conclusion: |-
+    Canonical presentation coincided with planetary-sequence recognition; reverse and scattered presentations did not elicit the association in the reported pilot. Independent crossing of definition and Chain order is needed to identify their respective contributions.
+  related-papers: |-
+    Related Papers: • Context Triad — semantic presence and behavioral influence
+    • Semantic Locality — placement geometry, distribution, and points of use
+  appendix-a--reported-stimuli-and-outcomes: |-
+    The source appendix records the complete canonical, reverse, and scattered ArcGrav prompt conditions, their reference ordering, and supplied categorical GPT-6 Instant outcomes from 26 October 2026. It also identifies the researcher-only expected planetary association; this evaluation key was not included in the prompts. Retrieve the anchored Markdown for exact stimuli; verbatim model replies were not supplied.

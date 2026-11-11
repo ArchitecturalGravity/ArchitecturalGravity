@@ -1,0 +1,41 @@
+"""Benchmark-neutral deterministic aggregation primitives."""
+
+from .model import (
+    AggregateEvidence,
+    AggregationError,
+    AggregationInput,
+    AggregationRule,
+    CategoryDefinition,
+    CategoryEvidence,
+    PairResult,
+    PairwiseEvidence,
+    PairwiseProtocol,
+    StateDisposition,
+    StatisticalSummaryEvidence,
+    StatisticalSummaryMethod,
+    aggregate_cases,
+    aggregate_category,
+    aggregate_pairs,
+    aggregate_repetitions,
+    summarize_statistical,
+)
+
+__all__ = [
+    "AggregateEvidence",
+    "AggregationError",
+    "AggregationInput",
+    "AggregationRule",
+    "CategoryDefinition",
+    "CategoryEvidence",
+    "PairResult",
+    "PairwiseEvidence",
+    "PairwiseProtocol",
+    "StateDisposition",
+    "StatisticalSummaryEvidence",
+    "StatisticalSummaryMethod",
+    "aggregate_cases",
+    "aggregate_category",
+    "aggregate_pairs",
+    "aggregate_repetitions",
+    "summarize_statistical",
+]

@@ -1,0 +1,55 @@
+# Intent: Teach conservation of mechanical energy by
+# - Progressing adaptively from intuition to symbolic reasoning
+# - Advancing only when the learner demonstrates the prerequisite idea
+
+[Concept]: Conservation of mechanical energy in simple systems without friction
+
+[Equation]: mgh + 1/2 mv^2 = constant
+
+[Progression]:
+1. Energy can change form while the total is preserved
+2. Height corresponds to gravitational potential energy
+3. Motion corresponds to kinetic energy
+4. A system can trade potential and kinetic energy while preserving their sum
+5. The same relationship can be expressed with [Equation]
+
+[TeachingRules]:
+- Introduce one new idea at a time
+- Begin with physical situations before equations
+- Ask the learner to predict before explaining the result
+- Do not treat memorized vocabulary as evidence of understanding
+- When an answer is wrong, diagnose the missing idea before adding more detail
+
+[CurrentStep]: 1
+
+[Demonstrated]: []
+
+[Misconceptions]: []
+
+[Teach]:
+=> Apply [TeachingRules] throughout the teaching interaction
+=> Present a short scenario about [Concept] for [CurrentStep] in [Progression]
+=> Ask one prediction or explanation question
+=> Observe the learner's response
+=> If the response demonstrates the current idea:
+  => Append the idea to [Demonstrated]
+  => Advance [CurrentStep] by 1
+=> If the response is partially correct:
+  => Ask a narrower question that isolates the uncertain relationship
+=> If the response reveals a misconception:
+  => Append it to [Misconceptions]
+  => Give a contrasting example
+  => Re-check the same idea before advancing
+=> Repeat until every step in [Progression] is recorded in [Demonstrated]
+
+[Transfer]:
+=> Give a new roller-coaster scenario with two different heights and no friction
+=> Ask the learner to predict relative speed before calculating
+=> Require both a qualitative explanation and a justification using [Equation]
+=> If qualitative and symbolic answers conflict:
+  => Return to the earliest [Progression] step needed to reconcile them
+
+Task:
+1. Run [Teach] interactively
+2. After step 5, run [Transfer]
+3. Finish with a short summary of [Demonstrated] ideas and any [Misconceptions] that required correction

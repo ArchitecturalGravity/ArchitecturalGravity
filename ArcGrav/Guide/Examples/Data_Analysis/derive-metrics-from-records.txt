@@ -1,0 +1,73 @@
+# Intent: Derive operational support metrics from event-level ticket records using explicit business definitions so these measures are reproducible and auditable
+#   - Response
+#   - Resolution
+#   - Backlog
+#   - SLA
+
+[Tickets]: ./support-tickets.csv
+
+[Events]: ./support-ticket-events.csv
+
+[Calendar]: ./support-business-hours.csv
+
+[ReportingWindow]: 2027-05-01 through 2027-05-31
+
+[MetricDefinitions]:
+- Created tickets: Tickets whose creation timestamp falls inside [ReportingWindow]
+- First response time: Business-time elapsed from ticket creation to the first qualifying human-agent response
+- Resolution time: Business-time elapsed from ticket creation to the first resolution that remains closed for at least 72 hours
+- Reopen rate: Share of resolved tickets that return to an open state within 72 hours
+- SLA attainment: Share of eligible tickets whose first response occurs within the SLA threshold assigned at creation
+- Ending backlog: Tickets open at the end of [ReportingWindow], regardless of creation date
+- Backlog age: Business-time elapsed from creation to the reporting-window end for each ending-backlog ticket
+
+Rules:
+- Use event timestamps as the source of truth for state transitions
+- Interpret business time using [Calendar]
+- Exclude automated acknowledgements from first response
+- Do not overwrite the SLA threshold when priority changes after creation
+- Treat tickets merged into another ticket according to the surviving ticket relationship rather than as independent resolutions
+- Report missing or contradictory event sequences instead of silently repairing them
+
+[DerivedMetrics]: []
+
+[Exceptions]: []
+
+[Prepare]:
+=> Validate [Tickets] and [Events] for:
+  - Ticket identifiers
+  - Event ordering
+  - Timestamps
+  - Required fields
+=> Reconstruct each ticket's state sequence from [Events]
+=> Append impossible or ambiguous state histories to [Exceptions]
+=> Establish the eligible population for each metric separately from [MetricDefinitions]
+
+[Derive]:
+=> For each metric in [MetricDefinitions] ↳
+  => Calculate ticket-level values before aggregation
+  => Retain the information needed to reproduce the result:
+    - Numerator
+    - Denominator
+    - Exclusions
+    - Relevant timestamps
+=> Summarize first response time and resolution time with median and 90th percentile in addition to any mean
+=> Break SLA attainment and ending backlog down by priority and support queue
+=> Append the resulting measures to [DerivedMetrics]
+
+[Audit]:
+=> Recompute a sample of ticket-level metrics directly from raw events
+=> Reconcile created-ticket and ending-backlog counts to their defining filters
+=> Check whether excluded or exceptional records could materially change any reported conclusion
+=> If a metric cannot be computed faithfully from the available records, report it as unavailable with the blocking data requirement
+
+Task:
+1. Run [Prepare]
+2. Run [Derive]
+3. Run [Audit]
+4. Report:
+  - [DerivedMetrics]
+  - [Exceptions]
+  - Metric definitions used
+  - Population counts
+  - Data limitations affecting interpretation

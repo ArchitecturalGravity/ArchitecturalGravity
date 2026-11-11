@@ -1,0 +1,17 @@
+# Intent: Evaluate whether a dependency-injection registration change would break function activation
+
+Scope: C:\Programming\MyProject\Pricing
+
+[Target]:
+- Web.Functions/Program.cs:
+  - Lines 90–91
+
+[Observation]:
+"""
+This replaces the existing IAggregatedContextDomainGateway and IAggregatedContextWorkflowService registrations instead of adding the new storage services alongside them.
+
+The aggregated context function classes still constructor-inject IAggregatedContextWorkflowService (for example AggregateContextFunction, InterpolateContextFunction, SavePricingContextFunction, SaveCrmContextFunction, SaveThresholdFunction, and cleanup),
+so invoking any of those endpoints after this change will fail activation with an unresolved service rather than running the existing workflow.
+"""
+
+Evaluate: [Observation] pertaining to [Target]

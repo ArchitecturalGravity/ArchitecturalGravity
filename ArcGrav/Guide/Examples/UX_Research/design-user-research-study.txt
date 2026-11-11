@@ -1,0 +1,129 @@
+# Intent: Design a moderated user research study that produces decision-ready evidence about whether first-time workspace setup is understandable without leading participants or collecting unnecessary personal data
+
+Scope: Harbor Team Workspace pre-release usability study
+
+[StudyContext]:
+- Product: Harbor Team Workspace
+- Product stage: Pre-release prototype
+- Decision: Determine whether the setup flow is ready for a broader beta
+- Study window: Two weeks
+- Session format: Remote moderated usability study
+
+[Q1]: Can first-time users explain what a workspace represents before creating one
+
+[Q2]: Can first-time users complete setup without moderator assistance
+
+[Q3]: Which labels or decisions create hesitation during setup
+
+[Q4]: Do users understand what will be shared with invited teammates
+
+[ResearchQuestions]:
+- [Q1]
+- [Q2]
+- [Q3]
+- [Q4]
+
+[ParticipantCriteria]:
+- Required:
+  - Uses collaborative software at least weekly
+  - Has joined or created a shared digital workspace within the last year
+  - Is comfortable sharing a screen during a remote session
+- Mix:
+  - Individual contributors
+  - People who coordinate small teams
+  - People with prior experience configuring collaboration tools
+  - People without prior experience configuring collaboration tools
+- Exclude:
+  - Current Harbor employees or contractors
+  - Participants involved in designing the prototype
+  - Participants who cannot use the prototype without accessibility support the prototype does not yet provide
+
+[Recruitment]:
+- Target: 8 completed sessions
+- Reserve: 2 backup participants
+- Compensation: Fixed study incentive communicated before scheduling
+- Screening rule: Collect only information needed to evaluate [ParticipantCriteria]
+
+[Method]:
+- Opening:
+  - Explain that the product is being evaluated rather than the participant
+  - Obtain consent for note taking and session recording
+  - Confirm that the participant may stop at any time
+- Scenario:
+  - Ask the participant to imagine joining a new cross-functional project
+  - Ask the participant to create a workspace for that project
+  - Ask the participant to invite two teammates using provided test accounts
+- Moderator conduct:
+  - Ask neutral follow-up questions after observable hesitation
+  - Do not explain interface labels before the participant interprets them
+  - Do not rescue a failed task until the failure state is recorded
+  - Do not ask for personal credentials or real contact information
+- Closing:
+  - Ask the participant to describe what they believe teammates can see
+  - Ask which setup decision felt least clear
+  - Ask what they would expect to happen next
+
+[EvidencePlan]:
+- Question [Q1] ↳
+  - Primary evidence: Participant explanation before workspace creation
+  - Supporting evidence: First navigation choice
+- Question [Q2] ↳
+  - Primary evidence: Task completion without moderator assistance
+  - Supporting evidence:
+    - Recovery from wrong turns
+    - Time spent at blocking decisions
+- Question [Q3] ↳
+  - Primary evidence:
+    - Observable hesitation
+    - Repeated reading
+    - Backtracking
+  - Supporting evidence: Participant explanation after the task
+- Question [Q4] ↳
+  - Primary evidence: Participant description of teammate visibility
+  - Supporting evidence: Invite configuration choices
+
+[SessionRecord]:
+- Participant code
+- Screening attributes relevant to [ParticipantCriteria]
+- Task outcome
+- Moderator assistance events
+- Observation notes with timestamps
+- Participant statements with timestamps
+- Recording reference when consent exists
+- Researcher interpretation kept separate from direct observation
+
+[StudyConstraints]:
+- Use test accounts only
+- Do not collect protected personal characteristics unless independently required for the research decision
+- Do not treat completion time alone as evidence of understanding
+- Preserve failed attempts and confusion rather than editing them out of the record
+- Report accessibility barriers observed during the study without generalizing beyond the tested conditions
+
+[StudyPlan]: []
+
+[OpenQuestions]: []
+
+[Assemble]:
+=> Map each item in [ResearchQuestions] to observable evidence in [EvidencePlan]
+=> Verify [Recruitment] matches [ParticipantCriteria] and [StudyContext]
+=> Verify [Method] can produce that evidence without leading the participant
+=> Verify [ParticipantCriteria] are necessary for the product decision rather than convenient demographic proxies
+=> Verify [SessionRecord] preserves observation provenance and separates interpretation
+=> Record any question that cannot be answered under [StudyConstraints] in [OpenQuestions]
+=> Append to [StudyPlan] ↳
+  - Recruitment logic
+  - Session sequence
+  - Evidence capture plan
+  - Analysis commitments
+
+[Validate]:
+=> Verify every research question has at least one primary evidence source
+=> Verify every participant criterion has a study-relevant justification
+=> Verify the method includes a defined point for recording failure before assistance
+=> Verify the study can be run without real credentials or unnecessary personal data
+=> Verify unanswerable questions remain explicit rather than being reframed as findings
+
+Task:
+1. Run [Assemble]
+2. Run [Validate]
+3. Provide [StudyPlan] with [OpenQuestions]

@@ -1,0 +1,64 @@
+# Intent: Compare nucleation-and-growth and spinodal-decomposition models for phase separation in an alloy by testing their discriminating predictions against microscopy and scattering evidence rather than choosing the model with the most flexible fit
+
+[Models]:
+- NucleationGrowth: A metastable parent phase crosses a free-energy barrier, producing discrete nuclei that subsequently grow and coarsen
+- SpinodalDecomposition: An unstable parent phase develops continuous composition fluctuations that amplify and coarsen without a nucleation barrier
+
+[Evidence]:
+- ./time-resolved-microscopy/
+- ./small-angle-scattering.csv
+- ./temperature-history.csv
+- ./composition-measurements.csv
+- ./measurement-uncertainty.md
+
+[Discriminators]:
+- Presence or absence of an induction period
+- Discrete early domains versus continuous composition modulation
+- Evolution of a characteristic spatial wavelength
+- Early-time domain-size distribution
+- Scattering-peak emergence and movement
+- Sensitivity of onset behavior to quench depth
+
+[ComparisonRules]:
+- Derive predictions from each model before inspecting which one matches best
+- Compare both models against the same time windows and uncertainty treatment
+- Separate genuinely discriminating predictions from features both models can reproduce after parameter adjustment
+- Record parameter choices that are estimated from the same evidence being tested
+- Prefer an underdetermined result to a forced winner when the observations do not distinguish the models
+- Introduce a mixed or hybrid explanation only when neither model alone can account for a well-supported feature
+
+[ModelAssessment]: []
+
+[Compare]:
+=> For each item in [Discriminators] ↳
+  => Derive the expected qualitative or quantitative behavior for each model in [Models] under [ComparisonRules]
+  => Extract the corresponding observation from [Evidence]
+  => Compare prediction and observation with measurement uncertainty
+  => Classify the discriminator as:
+    - Favors NucleationGrowth
+    - Favors SpinodalDecomposition
+    - Neutral
+    - Unresolved
+  => Append the reasoning and evidence basis to [ModelAssessment]
+
+[Resolve]:
+=> Under [ComparisonRules], weigh discriminators by independence and diagnostic value rather than simple vote count
+=> Identify any result that depends materially on:
+  - A fitted parameter
+  - A preprocessing choice
+  - Uncertain temperature or composition history
+=> Determine the support status:
+  - One model is better supported
+  - Both models remain viable
+  - The evidence contradicts both in a material way
+=> Name the next measurement that would most reduce the remaining model uncertainty
+
+Task:
+1. Run [Compare]
+2. Run [Resolve]
+3. Report:
+  - Prediction-versus-evidence matrix
+  - Model assessment
+  - Sensitivity to uncertain assumptions
+  - Final support status
+  - Most discriminating next measurement

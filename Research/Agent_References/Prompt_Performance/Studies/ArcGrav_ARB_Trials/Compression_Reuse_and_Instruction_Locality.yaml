@@ -1,0 +1,35 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.composition
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/ArcGrav_ARB_Trials/Compression_Reuse_and_Instruction_Locality.md
+  url: ../../../../Prompt_Performance/Studies/ArcGrav_ARB_Trials/Compression_Reuse_and_Instruction_Locality.md
+  fingerprint: fnv1a32-60240a06
+sections:
+  paper-prompt-composition: |-
+    Composition preserves parameter binding, case distinctions, predicate consumers and qualifications across reuse, compression and movement. The bundled comparisons do not rank forms or prompt length.
+  abstract: |-
+    Reuse, compression and placement shift different dependencies. Tested bundles show failures under multiple forms and no observed pass-rate improvement for unchanged-text relocation.
+  the-construction-distinction: |-
+    Composition connects definitions, decisions and output obligations; reuse shares rules, compression shortens expression and locality positions definitions relative to consumers.
+  scope-and-evidence-status: |-
+    The adaptive multi-edit trials use one fixture. Exact-pass fractions are descriptive, character counts do not measure model costs, and diagrams depict specified relationships rather than model internals.
+  observations-and-construction-implications: |-
+    Four observations separate bound application inputs, retained branch distinctions, named-predicate consumers and unchanged-definition placement.
+  a-reusable-procedure-still-needs-an-explicit-subject-at-each-application: |-
+    Shared selectors require explicit group/field arguments and per-pair result ownership; specialized rules still require independent field outputs. Bundled V10–V12 results do not rank forms.
+  shorter-wording-and-fewer-consequential-distinctions-are-different-changes: |-
+    Compression should preserve absent, single, equal and differing inputs and each output contribution. V8/V34 failures do not identify a length threshold.
+  naming-a-predicate-moves-its-definition-but-does-not-complete-its-consumers: |-
+    A shared predicate needs independently bound output consumers. V56 trial 348 omits required status evidence, without revealing whether flag evaluation or assembly failed.
+  moving-a-definition-does-not-add-a-semantic-qualification: |-
+    V51 and V52 move an unchanged Status declaration at equal character length; observed pass fractions match, without establishing equivalence or a locality benefit.
+  conclusion: |-
+    Reuse, compression and locality redistribute input binding, case distinctions, consumer obligations and qualification; test the output dependencies rather than infer performance from form.
+  data-and-reproducibility: |-
+    The Evidence Ledger preserves exact prompt excerpts and the Trial Audit preserves trial outputs. Supporting notes give atom IDs, snapshot lines, counts and scope limits.
+  other-analyses-in-this-study: |-
+    Reference identity and independent decisions owns result identity and intermediate storage; Inheritance, defaults and output obligations owns shared definitions at output producers; Evidence ownership, assembly and rendering owns component consumers of shared predicates.
+  references: |-
+    The Evidence Ledger supplies original formulations, annotations and historical lint reports; the Trial Audit supplies raw responses and strict output verdicts. Neither reference converts a semantic edit into an independently tested intervention.

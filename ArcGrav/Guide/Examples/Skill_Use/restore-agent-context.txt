@@ -1,0 +1,22 @@
+# Intent: Restore missing context in regenerated AGENTS.md files by comparing them with a prior commit
+
+Using: $cartographic-agentic-contexting
+
+[Target]: C:\Programming\MyProject\Pricing
+
+Recency:
+- All AGENTS.md files were regenerated
+- The bottom portion now contains a "Node Orientation" section
+
+[PriorCommit]: https://github.com/SomeUser/MyProject/tree/670247afcce13b61837dc9123c53772dca1ef726
+
+[Derived]: []
+
+[Objective]:
+1. Compare current AGENTS.md files in [Target] with their versions at [PriorCommit]
+2. Identify important context present at [PriorCommit] but missing from current files
+3. Append file-specific missing context to [Derived]
+
+Task:
+1. Run [Objective]
+2. Restore [Derived] to the corresponding current AGENTS.md files in [Target]

@@ -1,0 +1,21 @@
+# AgMark-controlled text is canonical LF on every platform.
+* text=auto eol=lf
+
+# Python source is always checked out as LF text.
+*.py text eol=lf
+
+# Binary artifacts remain byte-exact and bypass text conversion.
+*.png -text
+*.pyc -text
+*.exe -text
+*.dll -text
+*.pyd -text
+*.so -text
+*.dylib -text
+*.zip -text
+*.pdf -text
+*.ico -text
+*.jpg -text
+*.jpeg -text
+*.gif -text
+*.webp -text

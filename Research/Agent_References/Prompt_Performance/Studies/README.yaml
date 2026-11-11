@@ -1,0 +1,17 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.studies.index
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/README.md
+  url: ../../../Prompt_Performance/Studies/README.md
+  fingerprint: fnv1a32-9cc1ccfa
+sections:
+  prompt-performance-studies: |-
+    An open-ended catalog of prompt-performance investigations with differing questions, approaches, evidence and presentation formats; no common study design is required. It lists the historical authority-resolution refinement series and a five-run AgMark representation comparison.
+  study-index: |-
+    The historical ArcGrav Authority Resolution Benchmark adaptive prompt-refinement series retains 407 strict exact-response trials plus trial audit and evidence ledger. The AgMark comparison evaluates ArcGrav, prose, Markdown, XML and YAML with 250 scored observations on one case, reporting field accuracy, exact-result agreement, tokens and timing proxies; its archives and inline score-reproduction example are available without a standalone summary script. The two studies use distinct endpoints and neither isolates single-edit or syntax effects.
+  scope-and-organization: |-
+    Entries may be standalone documents or multi-file study directories with their own scope, methods, materials and maturity. The index points to evidence without prescribing a shared design or scoring method.
+  relationship-to-research: |-
+    Individual studies inform the broader Prompt Performance research program but need not be directly comparable. Preserve each investigation's evidential scope, outcome measures and limitations before using it in research synthesis.

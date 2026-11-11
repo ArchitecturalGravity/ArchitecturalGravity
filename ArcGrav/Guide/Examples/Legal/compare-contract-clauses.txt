@@ -1,0 +1,61 @@
+# Intent: Compare corresponding contract clauses across two drafts by
+# - Identifying legally material wording changes
+# - Producing a source-grounded comparison for counsel review without inventing legal conclusions
+
+[Documents]:
+- ./draft-v3.docx
+- ./counterparty-redline.docx
+
+[Scope]:
+- Limitation of liability
+- Indemnification
+- Termination
+- Confidentiality
+- Assignment
+
+[ComparisonRules]:
+- Compare:
+  - Operative language
+  - Defined terms
+  - Exceptions
+  - Thresholds
+  - Time periods
+  - Remedies
+  - Cross-references
+- Treat moved or renumbered language as unchanged when its operative meaning is preserved
+- Distinguish:
+  - Additions
+  - Deletions
+  - Changes in effect
+- Quote only the minimum language needed to identify a difference
+- Cite the source and any available locator:
+  - Document
+  - Section
+  - Page or paragraph
+- Do not infer governing-law consequences that are not established by the supplied materials
+
+[Compare]:
+=> Apply [ComparisonRules] to every clause comparison
+=> Match corresponding clauses in [Documents] by subject and function, not section number alone
+=> For each item in [Scope] ↳
+  => State the baseline position in draft-v3
+  => State the counterparty position
+  => Identify material wording changes and any changed defined-term dependencies
+  => Explain the practical allocation created by the difference across:
+    - Rights
+    - Duties
+    - Discretion
+    - Risk
+  => Flag any:
+    - Ambiguity
+    - Internal inconsistency
+    - Missing cross-reference that prevents a confident comparison
+=> Separate stylistic edits from changes that may alter legal effect
+
+Task:
+1. Run [Compare]
+2. Present a clause-by-clause comparison table
+3. Follow with a short list covering:
+  - Most material shifts
+  - Unresolved ambiguities
+  - Questions requiring counsel judgment

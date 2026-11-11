@@ -1,0 +1,125 @@
+schema_version: 2
+id: arcgrav.patterns.examination
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Patterns/examination.md
+  url: ../../Patterns/examination.md
+  fingerprint: fnv1a32-cac1f6ba
+sections:
+  ag-examination: |-
+    Inspects evidence, intermediate results, structures, candidate outputs, etc. against explicit criteria. It identifies errors, omissions, inconsistencies, unsupported claims, broken references, failed assertions, counterexamples, acceptance-test failures, etc. but does not determine how unresolved conflicts should ultimately be settled.
+  ag-observation-fact-only-observation: |-
+    Record what is directly present before explaining or judging it.
+    [Observations]:
+    => List in [Source] ↳
+    - Visible headings
+    - Rferences
+    - Operations
+    - Constraints
+    => Do not infer intent yet
+  ag-inspection-targeted-inspection: |-
+    Inspect a bounded object for a declared class of defects.
+    [Inspection]:
+    => Inspect [Files] for:
+    - Broken links
+    - Duplicate headings
+    - Empty sections
+  ag-structural-validation-structure-contract-check: |-
+    Validate required sections, ordering, and nesting.
+    [StructureCheck]:
+    - Exactly one H1
+    - Pattern entries use H2
+    - Examples use fenced blocks
+  ag-schema-validation-field-level-validation: |-
+    Confirm records conform to the declared schema.
+    [SchemaCheck]:
+    => Validate every [Pattern] against [PatternSchema]
+  ag-semantic-validation-meaning-check: |-
+    Confirm the content expresses the intended mechanism and does not contradict its example.
+    [SemanticCheck]:
+    => Compare each:
+    - Pattern intent
+    - Procedure
+    - Example
+    => Flag mismatched semantics
+  ag-referential-validation-reference-integrity-check: |-
+    Verify that every symbolic reference or link resolves uniquely.
+    [ReferenceCheck]:
+    => Resolve every bracketed symbol and repository-relative link
+    => Reject undefined or multiply defined references
+  ag-consistency-and-completeness-cross-artifact-check: |-
+    Check terminology, coverage, and required content across all outputs.
+    [Coverage]:
+    => Confirm every [Category] has one file
+    => Confirm every requested subcategory appears
+  ag-evidence-verification-claim-to-evidence-check: |-
+    Require support for factual or derived claims.
+    [EvidenceCheck]:
+    => Map each derived pattern to one or more source mechanisms
+    => Preserve source locations where available
+  ag-assertion-checking-explicit-assertion-set: |-
+    Convert requirements into pass/fail assertions.
+    [Assertions]:
+    - count(category files) = 10
+    - empty(category files) = 0
+    - missing(index links) = 0
+  ag-execution-instrumentation-structured-workflow-metrics: |-
+    Publish stable execution measurements alongside the domain result when completeness, coverage, skipped work, unresolved work, or validation status must be observable.
+    [ExecutionMetrics]:
+    - `resources_requested`: 0
+    - `resources_resolved`: 0
+    - `records_processed`: 0
+    - `records_accepted`: 0
+    - `records_rejected`: 0
+    - `unresolved_items`: 0
+    - `validation_failures`: 0
+    - `postconditions_passed`: false
+    [Assessment]:
+    => Populate [ExecutionMetrics]
+    => Include [ExecutionMetrics] with [Result]
+    **Invariant:** metric meanings remain stable, values derive from observable workflow events, and completeness is claimed only when coverage can be demonstrated.
+  ag-instrumentation-validation-independent-metrics-check: |-
+    Verify execution measurements against source inventories, workflow state, and published results before using them as evidence of completeness or correctness.
+    [MetricsCheck]:
+    => Compare processed counts with [SourceInventory]
+    => Confirm accepted, rejected, and unresolved totals reconcile
+    => Confirm unresolved records appear in [Result]
+    => Reject unsupported completeness claims
+  ag-cross-validation-independent-check-path: |-
+    Validate important conclusions through a second method or representation.
+    [CrossCheck]:
+    => Compare rendered file inventory with [Categories]
+    => Independently compare index links with actual paths
+  ag-evaluation-criteria-based-evaluation: |-
+    Judge an artifact against named criteria.
+    [Evaluation]:
+    => Evaluate [Candidate] against:
+    - Precision
+    - Completeness
+    - Reuse
+    - Token cost
+  ag-candidate-ranking-dimensioned-ranking: |-
+    Rank candidates using weighted or ordered criteria and retain tradeoffs.
+    [Ranking]:
+    P0. Satisfies constraints
+    P1. Preserves source semantics
+    P2. Improves clarity
+    P3. Minimizes complexity
+  ag-quality-assessment-and-confidence-calibrated-assessment: |-
+    Separate quality judgment from certainty about that judgment.
+    [Assessment]:
+    - `quality`: "acceptable"
+    - `confidence`: 0.86
+    - `uncertainty`: "source directory inventory was partially constrained"
+  ag-acceptance-testing-consumer-level-test: |-
+    Test the output as its intended consumer would use it.
+    [Acceptance]:
+    - A reader can locate each category from the index
+    - A pattern can be copied without missing context
+    - Examples conform to ArcGrav syntax
+  ag-pass-fail-determination-explicit-verdict: |-
+    Publish a verdict only after assertions and acceptance tests complete.
+    Separates observation, validation, ranking, and acceptance so that confidence is earned rather than implied.
+    [Verdict]:
+    => PASS only when all P0 assertions pass
+    => Otherwise FAIL with exact unmet assertions

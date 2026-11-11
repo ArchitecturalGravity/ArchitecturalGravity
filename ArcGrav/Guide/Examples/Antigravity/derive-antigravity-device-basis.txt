@@ -1,0 +1,97 @@
+# Intent: Derive the strongest defensible conceptual basis for an antigravity-related device by separating established physics from speculative mechanisms and identifying what evidence would be required before device formation
+
+[Question]:
+- What physically meaningful mechanism, if any, could support formation of a device intended to:
+  - Reduce apparent weight
+  - Alter inertial response
+  - Produce a gravity-like effect
+
+[SourceClasses]:
+P0. Highest-authority sources:
+  - Peer-reviewed experimental results
+  - Established physical theory
+P1. Reproducible laboratory observations with documented controls
+P2. Credible theoretical proposals with explicit assumptions and testable predictions
+P3. Lower-confidence source classes:
+  - Unreplicated claims
+  - Anecdotal reports
+  - Speculative interpretations
+
+[Phenomena]:
+- Apparent weight reduction
+- Sustained force without conventional reaction mass
+- Inertial modification
+- Spacetime or gravitational-field manipulation
+- Ordinary effects that can imitate gravitational anomalies:
+  - Electromagnetic
+  - Acoustic
+  - Fluid
+  - Mechanical
+  - Measurement
+
+[KnownAlternatives]:
+- Buoyancy
+- Aerodynamic lift
+- Magnetic force
+- Electrostatic force
+- Acoustic radiation pressure
+- Mechanical vibration
+- Thermal gradients
+- Ion wind
+- Sensor drift
+- Center-of-mass shift
+- Ordinary reaction forces transmitted through:
+  - Supports
+  - Wiring
+
+[DerivedBasis]: []
+
+[RejectedClaims]: []
+
+[Unresolved]: []
+
+[RequiredEvidence]: []
+
+[Derive]:
+=> For each candidate mechanism found in [SourceClasses] ↳
+  1. Identify the governing claim
+  2. Identify the targeted effects in [Phenomena]
+  3. Classify the claim as established | supported | speculative | unsupported
+  4. Record the physical quantities the mechanism predicts should change
+  5. Compare the predicted observation against [KnownAlternatives]
+  6. Identify assumptions required for the mechanism to produce a device-scale effect
+  7. Preserve source provenance and uncertainty
+=> Append mechanisms with defensible, testable structure to [DerivedBasis]
+=> Append contradicted or evidentially unsupported mechanisms to [RejectedClaims]
+=> Append unresolved mechanisms to [Unresolved]
+=> For each unresolved or speculative mechanism, append the minimum discriminating evidence to [RequiredEvidence]
+
+Constraint:
+- Do not treat the existence of practical antigravity as established
+- Do not convert unexplained force measurements into gravitational effects without excluding ordinary forces
+- Do not infer engineering feasibility from theoretical possibility alone
+- Keep these categories explicitly separated:
+  - Established physics
+  - Speculative theory
+  - Experimental anomaly claims
+- Preserve null results and contradictory evidence
+- Exclude hazardous fabrication parameters or construction instructions
+
+[FormationGate]:
+=> A mechanism may proceed to conceptual device formation only when it has:
+  - A clearly defined effect
+  - A measurable input-output relation or qualitative prediction
+  - At least one discriminating test against ordinary-force explanations
+  - Explicit assumptions
+  - Known failure interpretations
+
+Task:
+1. Resolve current authoritative sources relevant to [Question]
+2. Run [Derive]
+3. Apply [FormationGate] to [DerivedBasis]
+4. Return:
+  - Derived candidate mechanisms
+  - Rejected claims and why they fail
+  - Unresolved mechanisms
+  - Required evidence
+  - Which mechanisms, if any, are suitable for conceptual device formation

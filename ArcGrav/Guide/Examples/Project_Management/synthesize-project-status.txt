@@ -1,0 +1,117 @@
+# Intent: Synthesize a current project view from workstream evidence blockers risks dependencies and milestone proof without converting uncertain or stale reports into facts
+
+Project: Regional office consolidation into the Harbor Center location
+
+[ReportingCutoff]: Thursday 3 September at 16:00
+
+[MilestoneModel]:
+- M1 Space ready:
+  - Planned date: Friday 4 September
+  - Evidence required:
+    - Facilities punch list closed for occupied areas
+    - Life-safety acceptance recorded
+- M2 Technology ready:
+  - Planned date: Tuesday 8 September
+  - Evidence required:
+    - Core network acceptance complete
+    - Meeting-room validation complete
+    - Service desk relocation rehearsal complete
+- M3 Move authorized:
+  - Planned date: Thursday 10 September
+  - Evidence required:
+    - M1 Space ready
+    - M2 Technology ready
+    - Department move rosters approved
+    - Move vendor readiness confirmed
+- M4 Staff operating from Harbor Center:
+  - Planned date: Monday 14 September
+  - Evidence required:
+    - Move authorized
+    - Priority teams seated
+    - Critical business services verified
+
+[SourceRegister]:
+- Facilities report:
+  - Location: ./status/facilities-2026-09-03.md
+  - Timestamp: Thursday 3 September at 14:20
+  - Authority: Facilities workstream lead
+- Technology acceptance log:
+  - Location: ./evidence/technology-acceptance.csv
+  - Timestamp: Thursday 3 September at 15:05
+  - Authority: Infrastructure program manager
+- Department readiness tracker:
+  - Location: ./status/department-readiness.xlsx
+  - Timestamp: Wednesday 2 September at 17:30
+  - Authority: Change management lead
+- Move vendor confirmation:
+  - Location: ./evidence/vendor-readiness-email.txt
+  - Timestamp: Thursday 3 September at 12:10
+  - Authority: Contracted move vendor
+- Program risk register:
+  - Location: ./risks/program-risk-register.xlsx
+  - Timestamp: Thursday 3 September at 13:00
+  - Authority: Program manager
+
+[WorkstreamEvidence]:
+- Facilities:
+  - Reported state: Punch list has two open items outside occupied work areas
+  - Evidence state: Life-safety acceptance attached to the facilities report
+  - Blocker: None reported for M1
+  - Dependency: Furniture installers require access through the loading area Friday morning
+- Technology:
+  - Reported state: Core network acceptance passed
+  - Evidence state: Meeting-room validation shows 18 of 20 rooms passed
+  - Blocker: Two rooms fail camera control validation
+  - Dependency: Replacement control units are expected Friday 4 September
+  - Uncertainty: Supplier delivery confirmation is not attached
+- Department readiness:
+  - Reported state:
+    - Nine department rosters approved
+    - Draft department rosters:
+      - Finance
+      - Legal
+  - Freshness concern: Tracker predates the reporting cutoff by nearly one day
+- Move vendor:
+  - Reported state:
+    - Confirmed resources:
+      - Crews
+      - Vehicles
+      - Packing materials
+  - Dependency: Final floor access sequence due Monday 7 September
+- Program risks:
+  - Active risk: Replacement control units may arrive after the planned technology validation window
+  - Active risk: Draft department rosters could delay move authorization
+  - Response owner: Program manager coordinates cross-workstream escalation
+
+[CurrentView]: []
+
+[EvidenceGaps]: []
+
+[Synthesize]:
+=> Evaluate each milestone in [MilestoneModel] against evidence available by [ReportingCutoff]
+=> For each workstream in [WorkstreamEvidence], distinguish reported state from completion evidence
+=> Connect blockers and risks to only the milestones or workstreams they can affect
+=> Treat stale evidence as stale rather than assuming no change
+=> Treat expected deliveries without confirmation as uncertain
+=> Append the integrated project state to [CurrentView]
+=> Append missing or insufficient proof that could change the project view to [EvidenceGaps]
+
+[StatusRules]:
+- Complete: Required evidence is present and supports completion
+- On track: Remaining work has a credible dependency-respecting path to the milestone date
+- At risk: A known uncertainty or blocker can consume available margin or prevent required evidence
+- Blocked: A required dependency is unmet and no current path supports the milestone date
+- Unknown: Available evidence is too stale or incomplete to justify another state
+
+[Report]:
+=> Summarize milestone state using [StatusRules]
+=> Identify the controlling blocker or uncertainty for each milestone not complete
+=> Name the evidence source in [SourceRegister] supporting each material status claim
+=> Preserve disagreements between sources until an authority or stronger evidence resolves them
+=> Highlight cross-workstream dependencies that can change more than one milestone
+=> Do not infer percentage completion when the evidence describes discrete readiness conditions
+
+Task:
+1. Run [Synthesize]
+2. Run [Report]
+3. Provide [CurrentView] by milestone and workstream with [EvidenceGaps] the most consequential blockers and the next evidence needed

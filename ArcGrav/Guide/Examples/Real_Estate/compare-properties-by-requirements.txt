@@ -1,0 +1,73 @@
+# Intent: Compare candidate commercial properties against mandatory requirements and documented preferences while preserving evidence gaps and material tradeoffs
+
+[Acquisition]:
+- Use: Regional distribution and staff training facility
+- Decision horizon: Select one property for detailed offer preparation
+- Budget ceiling: $4.8 million acquisition price
+
+[Candidates]:
+- NorthYard:
+  - Asking price: $4.35 million
+  - Building area: 22,400 square feet
+  - Loading: Four dock doors
+  - Training space: Existing second-floor rooms
+- RiverWorks:
+  - Asking price: $3.95 million
+  - Building area: 25,100 square feet
+  - Loading: Two dock doors
+  - Training space: Requires interior conversion
+- CommercePark:
+  - Asking price: $4.7 million
+  - Building area: 19,600 square feet
+  - Loading: Three dock doors
+  - Training space: Existing ground-floor rooms
+
+[Requirements]:
+- Mandatory:
+  - Permitted use supports warehouse operations and staff training
+  - At least 18,000 square feet of usable building area
+  - At least two functional dock-height loading positions
+  - Acquisition price does not exceed the budget ceiling
+  - No known title condition prevents the intended use
+- Preferences:
+  - Existing training rooms require limited construction
+  - Truck circulation does not cross primary staff parking
+  - Utility capacity supports planned equipment without a service upgrade
+  - Roof condition is expected to avoid major replacement within five years
+
+[Evidence]:
+- Listings: ./property-listings.pdf
+- ZoningLetters: ./zoning-confirmations/
+- TitleSummaries: ./title-summaries.md
+- FacilitySurvey: ./facility-survey.xlsx
+- RoofReports: ./roof-reports/
+- UtilityResponses: ./utility-capacity-responses.pdf
+
+[ConstraintScreen]: []
+
+[Tradeoffs]: []
+
+[Recommendation]: []
+
+[Assess]:
+=> For each property in [Candidates] ↳
+  => Test every mandatory item in [Requirements] using [Acquisition] before applying preferences
+  => Cite the supporting item in [Evidence] for each satisfied or failed requirement
+  => Mark a requirement Unverified when available evidence does not establish compliance
+  => Do not treat an unverified mandatory requirement as satisfied
+  => Append the property result to [ConstraintScreen]
+
+[Compare]:
+=> Compare only properties with every mandatory requirement verified as satisfied
+=> For each remaining property:
+  => Evaluate each preference against available evidence
+  => Append material advantages and disadvantages to [Tradeoffs]
+  => Preserve cost differences separately from operational consequences
+  => Identify evidence gaps that could change the ranking
+=> If one property is supportably preferred append it with rationale to [Recommendation]
+=> If no property is supportably preferred append the smallest next verification needed to [Recommendation]
+
+Task:
+1. Run [Assess]
+2. Run [Compare]
+3. Present [ConstraintScreen] with [Tradeoffs] and [Recommendation]

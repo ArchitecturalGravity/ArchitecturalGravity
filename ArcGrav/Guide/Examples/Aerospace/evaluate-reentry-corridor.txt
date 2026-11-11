@@ -1,0 +1,76 @@
+# Intent: Evaluate whether a proposed atmospheric reentry corridor has adequate verified margin without treating model output as flight approval
+
+Scope:
+- Thermal constraints
+- Structural-load constraints
+- Communications constraints
+- Landing constraints
+
+[MissionContext]:
+- Uncrewed capsule returning research samples from low Earth orbit
+- Navigation provides a bounded entry-interface state rather than a single exact trajectory
+- Flight approval requires independent engineering review outside this example
+
+[CandidateCorridor]:
+- Entry flight-path angle: -6.2 deg to -5.4 deg
+- Entry-interface speed: 7.63 km/s nominal
+- State uncertainty: use the covariance from the approved navigation solution
+
+[AcceptanceLimits]:
+- Peak heat flux <= 1.20 MW/m^2 after uncertainty margin
+- Peak deceleration <= 6.0 g after uncertainty margin
+- Communications blackout <= 8 min at the 95th percentile
+- Landing ellipse major axis <= 32 km at the 95th percentile
+- No evaluated state may leave the validated aerodynamic or thermal-model envelope
+
+[Evidence]:
+- ./navigation-solution.json
+- ./aerodynamic-model-validation.md
+- ./thermal-model-validation.md
+- ./atmosphere-ensemble.csv
+- ./landing-site-constraints.md
+- ./communications-link-model.md
+
+[Result]: []
+
+[Assess]:
+=> Confirm every model version used by the analysis is represented in [Evidence]
+=> Confirm the validation envelope covers every state that will be evaluated
+=> Generate a bounded set of entry cases from [CandidateCorridor] under [MissionContext] spanning:
+  - Navigation uncertainty
+  - Atmospheric variation
+  - Aerodynamic uncertainty
+  - Mass-property uncertainty
+=> For each entry case:
+  => Propagate the trajectory through the validated analysis chain
+  => Record:
+    - Peak heat flux
+    - Peak deceleration
+    - Communications blackout duration
+    - Landing point
+    - Any excursion outside a validated model envelope
+=> Aggregate the cases without discarding unfavorable outliers solely because they reduce margin
+=> Append the evaluated margins and evidence gaps to [Result]
+
+[DecisionGate]:
+=> Evaluate [Result] against [AcceptanceLimits]
+=> PASS only if every [AcceptanceLimits] item is satisfied with the required uncertainty treatment and no evaluated state leaves a validated model envelope
+=> HOLD if any limit is exceeded or if model validation does not cover the candidate corridor
+=> For HOLD, identify the smallest closure set from:
+  - Corridor revision
+  - Model validation
+  - Additional navigation evidence
+  - Updated landing constraints
+  - Independent engineering review
+=> Never convert an unresolved model or evidence gap into a favorable assumption
+
+Task:
+1. Run [Assess]
+2. Run [DecisionGate]
+3. Report:
+  - Evaluated corridor
+  - Limiting constraint
+  - Margin by acceptance limit
+  - Validation-envelope coverage
+  - Unresolved uncertainty
+  - Gate result

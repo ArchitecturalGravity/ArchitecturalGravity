@@ -1,0 +1,105 @@
+schema_version: 2
+id: arcgrav.patterns.transformation
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Patterns/transformation.md
+  url: ../../Patterns/transformation.md
+  fingerprint: fnv1a32-84c69986
+sections:
+  ag-transformation: |-
+    Derives new semantic content from supplied context through declared operations such as parsing, extraction, classification, normalization, comparison, analysis, synthesis, planning, translation, candidate generation, etc. It changes or derives meaning but does not retrieve sources, integrate independent results, validate correctness, etc.
+  ag-parsing-structure-recovery: |-
+    Recover explicit units from raw input before interpreting them.
+    [Parsed]:
+    => Parse [Source] into:
+    - Headings
+    - Lists
+    - References
+    - Operations
+  ag-extraction-relevant-field-extraction: |-
+    Select only facts required by the current objective while retaining source identity.
+    [Extracted]:
+    => Extract pattern from [Source] ↳
+    - Name
+    - Intent
+    - Mechanics
+    - Constraints
+    - Example
+  ag-filtering-relevance-filter: |-
+    Remove items that do not satisfy explicit inclusion criteria.
+    [Filtered]:
+    => Keep reusable prompt-operation patterns
+    => Exclude repository history and incidental prose
+  ag-normalization-surface-normalization: |-
+    Standardize spelling, headings, identifiers, and list structure without changing meaning.
+    [Normalized]:
+    => Normalize category names to canonical title case
+    => Normalize file names to kebab-case
+  ag-canonicalization-semantic-equivalence-collapse: |-
+    Merge equivalent variants into one canonical pattern.
+    [Canonical]:
+    => Merge patterns with equivalent intent and mechanics
+    => Retain the clearest example and all unique constraints
+  ag-classification-primary-category-assignment: |-
+    Assign each item to the category that best describes its dominant function.
+    [Classified]:
+    => Classify [Extracted] by [Categories]
+    => Preserve secondary-category tags when useful
+  ag-aggregation-category-aggregation: |-
+    Combine normalized records into category collections.
+    [Grouped]:
+    => Group [Canonical] by primary category
+    => Sort by conceptual dependency
+  ag-analysis-mechanism-analysis: |-
+    Explain why a pattern works by relating syntax to model interpretation.
+    [Analysis]:
+    => Identify:
+    - Cue
+    - Binding rule
+    - Expected behavior
+    - Failure mode
+  ag-synthesis-evidence-bounded-synthesis: |-
+    Combine multiple source observations into a reusable abstraction without inventing unsupported mechanics.
+    [Pattern]:
+    => Synthesize [Evidence] into:
+    - Intent
+    - Procedure
+    - Invariant
+    - Example
+  ag-candidate-generation-bounded-candidate-set: |-
+    Generate multiple options against the same contract, then pass them to examination.
+    [Candidates]:
+    => Generate 3 distinct implementations satisfying [Constraints]
+    => Preserve tradeoffs for ranking
+  ag-comparison-dimensioned-comparison: |-
+    Compare candidates using declared dimensions rather than a general preference.
+    [Comparison]:
+    => Compare [Candidates] by:
+    - Precision
+    - Reuse
+    - Token cost
+    - Failure risk
+  ag-planning-dependency-aware-plan: |-
+    Transform objectives and constraints into ordered executable work.
+    [Plan]:
+    => Decompose [Goal]
+    => Order steps by dependency
+    => Mark validation and termination conditions
+  ag-translation-meaning-preserving-translation: |-
+    Translate content while preserving references, hierarchy, literals, and operational semantics.
+    [Translated]:
+    => Translate prose in [Source]
+    => Preserve symbols literally:
+    - Paths
+    - Code
+    - Schema keys
+  ag-composite-pattern-transformation-chain: |-
+    Makes each semantic change visible and prevents extraction, interpretation, and publication from collapsing into one opaque step.
+    [Derived]:
+    => Parse [Existing]
+    => Extract reusable mechanisms
+    => Normalize terminology
+    => Canonicalize equivalents
+    => Classify by [Categories]
+    => Aggregate into category collections
+    => Synthesize publishable pattern entries

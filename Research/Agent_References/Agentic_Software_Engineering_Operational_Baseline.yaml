@@ -1,0 +1,62 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.operational_baseline
+kind: research_reference
+source:
+  path: Research/Agentic_Software_Engineering_Operational_Baseline.md
+  url: ../Agentic_Software_Engineering_Operational_Baseline.md
+  fingerprint: fnv1a32-ba79305a
+sections:
+  paper-operational-baseline: |-
+    July 2026 SWE-rebench coding-agent trajectories provide an external, representation-neutral reference for delegation depth, specification-normalized tool activity, and resolved task outcomes. This cohort is not an ArcGrav treatment or a matched causal control.
+  abstract: |-
+    The external Codex cohort covers 555 standardized delegation episodes over 111 SWE-rebench tasks and five runs. The compatibility extraction records exact externally supplied task text for all 555 episodes (1,183,515 characters; mean 2,132.46 per episode) and 11,262 normalized tool_call events (20.29 per episode), giving 9.52 tool calls per 1,000 specification characters from aggregate totals. Distinguish these agent-activity measures from resolved outcomes, quality, and causal productivity effects. Comparisons must align episode boundaries, event definitions and denominator coverage.
+  introduction: |-
+    A single engineering task request can initiate a lengthy agent trajectory of repository inspection, tool operations, edits, testing, and recovery. Comparable external operational measurements require a standardized delegation episode and compatible specification, activity, steering, and acceptance boundaries; greater activity alone is not greater productivity.
+  role-within-the-research-program: |-
+    This representation-neutral reference establishes comparison quantities for the observational Operational Leverage papers. It defines matched delegation, tool-call, specification, and outcome measures from a standardized coding-agent dataset.
+  purpose-and-reference-design: |-
+    Treat one externally assigned engineering objective and its autonomous trajectory as a delegation episode. Compare its exact task specification, normalized tool events, steering, and independent resolution; avoid equating a benchmark episode with an arbitrary observed chat session.
+  external-dataset: |-
+    Uses July 2026 SWE-rebench standardized trajectories, including 555 Codex episodes representing 111 tasks repeated five times. Compatibility extraction normalizes tool and trajectory events; the Codex cohort records model identity in the source. Treat benchmark episodes and interactive sessions as distinct unless explicitly mapped.
+  comparison-protocol-for-observational-workstreams: |-
+    Map workstream sessions or work packets to comparable delegation episodes before normalizing activity. Report tool calls per episode against 20.29 and per 1,000 specification characters against 9.52, together with steering, event definitions, task mix, and outcomes. Ratios describe operating profiles, not a causal ArcGrav advantage.
+  baseline-external-codex-reference: |-
+    Five repeated Codex runs on 111 SWE-rebench tasks supply 555 standardized delegation episodes. The baseline combines exact supplied task text, normalized tool-call depth, broader event depth, and independently evaluated resolution; these are distinct measurements.
+  aggregate-operating-profile: |-
+    Mean external task specification is about 2.13k characters and the Codex cohort averages roughly 20.29 normalized tool calls per episode; these are workload-specific operating reference values, not model guarantees.
+  repeated-run-stability: |-
+    Five runs share 111 task inputs and 236,703 total specification characters per run. Compare run-to-run tool/event distributions rather than treating repeated tasks as independent task types.
+  specification-burden-and-steering-structure: |-
+    Each benchmark episode begins with one supplied exact user task, averaging 2,132 specification characters. Benchmark initiation is not comparable to an interactive system's sequence of corrective or steering prompts without episode mapping.
+  baseline-normalized-trajectory-depth: |-
+    The Codex cohort records 29,020 normalized trajectory events, a broader activity denominator than tool calls. Event normalization supports compatible comparisons but does not make activity an acceptance or output-quality measure.
+  outcome-scale: |-
+    Codex resolves 322 of 555 recorded episodes (58.0%) under the benchmark criterion. Report resolution independently from token, tool, and event depth to avoid confusing effort with success.
+  baseline-external-coding-agent-reference: |-
+    Four complete coding-agent systems on the same workload supply an external scale of execution depth. Cross-agent trajectory activity and accepted outcome must be evaluated as separate axes.
+  cross-agent-execution-depth-scale: |-
+    Observed agent systems occupy more than a threefold span of normalized event depth on the workload. Greater depth can reflect distinct execution strategies and does not by itself imply better results.
+  repeated-run-event-depth-range: |-
+    Report five-run ranges, not just pooled means. The Codex sample has a stable tool-depth reference near 20 calls/episode and a separate normalized event-depth distribution.
+  depth-and-outcome-are-separate-axes: |-
+    Codex has the lowest normalized event depth among the four complete systems in this comparison, while success rankings need not match depth; evaluate outcome independently of activity.
+  reusable-baseline-profile: |-
+    Reuse standardized cohort, episode, exact user specification, tool-call depth, event-depth, steering, and outcome definitions together. Report baseline version and normalization, preserve repeat-run clustering, and avoid equating activity depth or specification leverage with successful task completion.
+  scope-and-evidence-status: |-
+    This extraction supplies external operating references, not controlled ArcGrav versus non-ArcGrav effects. Interpret direct comparisons only after matching delegation boundaries, tool categories, task-specification denominators, and outcome standards; tool depth does not establish task success.
+  conclusion: |-
+    The external Codex cohort averages 20.29 normalized tool calls per delegation episode and 9.52 per 1,000 supplied task characters. Treat these as reference-scale activity measures; compare task resolution, cohort boundaries, and event categories separately.
+  data-and-reproducibility: |-
+    Data and Reproducibility: • SWE-rebench July 2026 Trajectories: https://huggingface.co/datasets/ibragim-bad/swerebench072026trajectories
+    • SWE-rebench trajectory index: https://huggingface.co/datasets/ibragim-bad/swerebench072026trajectories/blob/main/index.jsonl
+    • SWE-rebench normalized trajectory schema: https://huggingface.co/datasets/ibragim-bad/swerebench072026trajectories/blob/main/schema.json
+    • SWE-rebench methodology and leaderboard: https://swe-rebench.com/
+    • Local compatibility plan: CSVcompatibilityplan.md
+    • Reproducible generator: generatecodexoperationalbaseline.ps1
+    • Generated comparison dataset: codexoperationalbaseline.csv
+  related-papers: |-
+    Related Papers: • Longitudinal Operational Leverage
+    • Single-Workstream Delegation Leverage
+  references: |-
+    The underlying sources are the SWE-rebench July 2026 Trajectories dataset and the SWE-rebench methodology and leaderboard. Refer to the source manuscript for canonical dataset and methodology links, and to Data and Reproducibility for the local extraction artifacts.

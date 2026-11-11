@@ -1,0 +1,83 @@
+# Intent: Evaluate competing vendor proposals against mandatory requirements and weighted business priorities while accounting for delivery risk to recommend a preferred vendor
+
+[DecisionContext]:
+- Replace the customer-support platform
+- Contract term: 3 years
+- Maximum first-year spend: $250,000
+
+[MandatoryRequirements]:
+- SAML single sign-on
+- United States data residency
+- Full customer-data export without vendor assistance
+- Production go-live by 2027-02-01
+
+[WeightedCriteria]:
+- Total cost of ownership: 30%
+- Functional fit: 30%
+- Implementation approach: 20%
+- Security and compliance: 15%
+- Customer references: 5%
+
+[Proposals]:
+- ./vendor-a-proposal.pdf
+- ./vendor-b-proposal.pdf
+- ./vendor-c-proposal.pdf
+
+[Evaluation]: []
+
+[Scorecard]: []
+
+[Review]:
+=> Observe:
+  - [Proposals]
+  - [MandatoryRequirements]
+  - [DecisionContext]
+=> For each proposal:
+  => Cite available evidence for each mandatory requirement and applicable [DecisionContext] constraint
+  => Record missing or ambiguous evidence explicitly
+  => Mark each requirement and constraint as:
+    - "Met"
+    - "Not met"
+    - "Unclear"
+  => Record eligibility:
+    - "Disqualified" if any requirement or constraint is "Not met"
+    - "Pending" if none is "Not met" and any is "Unclear"
+    - "Qualified" only if every requirement and constraint is "Met"
+  => Append evidence and eligibility to [Evaluation]
+
+[Score]:
+=> Observe:
+  - [Evaluation]
+  - [WeightedCriteria]
+=> For each "Qualified" proposal in [Evaluation]:
+  => Score each criterion from 1 to 5 using proposal evidence
+  => Calculate weighted percentage as the sum of each criterion weight multiplied by its score divided by 5
+  => Record:
+    - Criterion scores and supporting evidence
+    - Weighted total
+    - Material assumptions
+    - Unresolved gaps
+    - Delivery risks
+  => Append the score record to [Scorecard]
+
+[Recommend]:
+=> Observe:
+  - [Evaluation]
+  - [Scorecard]
+=> Rank [Scorecard] entries by weighted percentage
+=> If the leading scores are within 5 percentage points:
+  => Prefer the lower-risk proposal only when evidence supports the comparison
+  => Otherwise preserve the tie and identify the missing evidence
+=> If [Scorecard] is empty, report that no preferred vendor is supported
+=> Do not treat absent or ambiguous claims as vendor commitments
+=> Output:
+  - Preferred vendor and rationale, or why none can be recommended
+  - Disqualified and pending vendors with reasons
+  - Weighted scorecard
+  - Material risks
+  - Due-diligence questions
+
+Task:
+1. Run [Review]
+2. Run [Score]
+3. Run [Recommend]

@@ -1,0 +1,80 @@
+# Intent: Reconcile operational requirements across executed contract documents into a traceable obligation register that makes requirement relationships visible and exposes accountability and timing before delivery begins
+
+[AgreementSet]:
+- ./master-services-agreement.pdf
+- ./statement-of-work.pdf
+- ./service-level-agreement.pdf
+- ./security-addendum.pdf
+
+[OperationalOwners]:
+- Delivery
+- Security
+- Finance
+- Support
+- Customer success
+
+[RequirementRegister]: []
+
+[Conflicts]: []
+
+[Extract]:
+=> For each document in [AgreementSet] ↳
+  => Identify explicit contract terms covering:
+    - Obligations
+    - Deliverables
+    - Service levels
+    - Notice requirements
+    - Acceptance conditions
+    - Dependencies
+    - Deadlines
+  => Record the exact source document and section for each requirement
+  => Preserve triggering conditions and qualifiers that affect when the requirement applies
+  => Do not convert descriptive or aspirational language into a binding requirement
+  => Append each extracted requirement to [RequirementRegister]
+
+[Reconcile]:
+=> Group entries in [RequirementRegister] that govern the same subject
+=> For each group:
+  => Merge duplicate entries only when their obligations are materially equivalent
+  => Retain every originating source document and section when entries are merged
+  => Preserve requirements separately when:
+    - One obligation is stricter
+    - One obligation is narrower
+    - Their triggering conditions differ
+  => Flag incompatible requirements or unclear document precedence in [Conflicts]
+=> Assign an operational owner from [OperationalOwners] only when supported by available context
+=> Mark the owner as unassigned when responsibility cannot be established
+=> Do not imply that an operational assignment changes contractual responsibility
+=> Derive calendar deadlines only when the source supplies enough information
+=> When the source lacks enough information, preserve the triggering condition verbatim
+
+[InterpretationGate]:
+=> If [Conflicts] requires legal interpretation:
+  => Preserve each conflicting source position
+  => Mark counsel review required
+  => Do not choose controlling language or invent precedence
+
+[RegisterFields]:
+- Requirement
+- Source and section
+- Trigger or effective date
+- Due date or service level
+- Operational owner
+- Dependency
+- Status
+- Conflict or ambiguity
+
+[Deliver]:
+=> Format [RequirementRegister] using [RegisterFields]
+=> Include [Conflicts] as a separate exception list
+=> Highlight requirements with:
+  - Missing owners
+  - Unresolved triggers
+  - Near-term deadlines
+=> Provide the reconciled contract requirement register
+
+Task:
+1. Run [Extract]
+2. Run [Reconcile]
+3. Run [InterpretationGate]
+4. Run [Deliver]

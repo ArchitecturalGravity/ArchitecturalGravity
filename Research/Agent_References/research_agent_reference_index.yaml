@@ -1,0 +1,104 @@
+# Small, non-executable routing index for Research Markdown agent references.
+schema_version: 2
+id: research.references
+kind: reference_directory
+purpose: Route constructs, methods, measurements and evidence states to compact, source-anchored meanings before opening source Markdown.
+source_root: ..
+references:
+  research.program: Overview/README.yaml
+  research.model_native_structural_representation: Model_Native_Structural_Representation.yaml
+  research.instructional_representation: Instructional_Representation.yaml
+  research.prompt_performance.overview: Prompt_Performance/README.yaml
+  research.prompt_performance.principles: Prompt_Performance/Prompt_Construction_Principles.yaml
+  research.prompt_performance.studies.index: Prompt_Performance/Studies/README.yaml
+  research.prompt_performance.agmark_runs: Prompt_Performance/Studies/AgMark_Runs/AgMark_Prompt_Performance.yaml
+  research.prompt_performance.index: Prompt_Performance/Studies/ArcGrav_ARB_Trials/README.yaml
+  research.representational_capacity_reclamation: Representational_Capacity_Reclamation.yaml
+  research.syntax_efficiency: ArcGrav_Syntax_Efficiency.yaml
+  research.interpretive_efficiency: ArcGrav_Interpretive_Efficiency.yaml
+  research.reasoning_interaction_substitution: ArcGrav_Reasoning_Interaction_Substitution.yaml
+  research.operational_baseline: Agentic_Software_Engineering_Operational_Baseline.yaml
+  research.operational_leverage.index: Operational_Leverage/README.yaml
+  research.operational_leverage.longitudinal: Operational_Leverage/Studies/ArcGrav_Longitudinal_Operational_Leverage.yaml
+  research.operational_leverage.single_workstream: Operational_Leverage/Studies/ArcGrav_Single_Workstream_Delegation_Leverage.yaml
+  research.context_triad.index: Context_Triad/README.yaml
+  research.context_triad.locality: Context_Triad/Semantic_Locality.yaml
+  research.context_triad.shadow: Context_Triad/Semantic_Shadow.yaml
+  research.context_triad.weight: Context_Triad/Semantic_Weight.yaml
+  research.context_triad.context_triad_model: Context_Triad/Context_Triad_Model/README.yaml
+  research.context_triad.studies.index: Context_Triad/Studies/README.yaml
+  research.context_triad.studies.fox_leopard: Context_Triad/Studies/Fox_Leopard_Displacement.yaml
+  research.context_triad.studies.planetary_chain: Context_Triad/Studies/Planetary_Chain_Activation.yaml
+  research.style_guide: Style_Guide/README.yaml
+  research.swe_rebench_csv_compatibility_plan: swe_rebench_07_2026_trajectories/CSV_compatibility_plan.yaml
+  research.prompt_performance.input_integrity: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Input_and_Execution_Integrity.yaml
+  research.prompt_performance.binding: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Reference_Binding_and_Independent_Decisions.yaml
+  research.prompt_performance.predicates: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Predicate_Scope_and_Decision_Separation.yaml
+  research.prompt_performance.construction: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Inheritance_Defaults_and_Output_Construction.yaml
+  research.prompt_performance.collections: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Collection_Membership_Multiplicity_and_Order.yaml
+  research.prompt_performance.rendering: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Evidence_Assembly_and_Exact_Rendering.yaml
+  research.prompt_performance.composition: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Compression_Reuse_and_Instruction_Locality.yaml
+  research.prompt_performance.checks: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Construction_Checks_and_Verification.yaml
+groups:
+  foundations: [research.program, research.model_native_structural_representation, research.instructional_representation]
+  representation_efficiency: [research.representational_capacity_reclamation, research.syntax_efficiency, research.interpretive_efficiency]
+  task_completion: [research.reasoning_interaction_substitution]
+  operational_evidence: [research.operational_baseline, research.operational_leverage.index, research.operational_leverage.longitudinal, research.operational_leverage.single_workstream]
+  context_triad_theory: [research.context_triad.index, research.context_triad.locality, research.context_triad.shadow, research.context_triad.weight, research.context_triad.context_triad_model]
+  context_triad_studies: [research.context_triad.studies.index, research.context_triad.studies.fox_leopard, research.context_triad.studies.planetary_chain]
+  methodology_and_style: [research.style_guide, research.prompt_performance.principles, research.prompt_performance.index, research.swe_rebench_csv_compatibility_plan]
+  prompt_performance: [research.prompt_performance.overview, research.prompt_performance.principles, research.prompt_performance.studies.index, research.prompt_performance.agmark_runs, research.prompt_performance.index, research.prompt_performance.input_integrity, research.prompt_performance.binding, research.prompt_performance.predicates, research.prompt_performance.construction, research.prompt_performance.collections, research.prompt_performance.rendering, research.prompt_performance.composition, research.prompt_performance.checks]
+routing:
+  research_program_and_concept_ownership: research.program
+  representation_theory_and_relational_recovery: research.model_native_structural_representation
+  instruction_structure_vs_program_structure: research.instructional_representation
+  prompt_performance_research: research.prompt_performance.overview
+  prompt_construction_principles: research.prompt_performance.principles
+  prompt_performance_studies: research.prompt_performance.studies.index
+  agmark_five_representation_prompt_comparison: research.prompt_performance.agmark_runs
+  arb_authority_resolution_prompt_refinement_trials: research.prompt_performance.index
+  prompt_input_execution_integrity: research.prompt_performance.input_integrity
+  prompt_elements_relationships_and_performance: research.prompt_performance.overview
+  task_capacity_and_complexity_frontier: research.representational_capacity_reclamation
+  serialization_tokens_and_symbol_reuse: research.syntax_efficiency
+  specification_cost_and_zero_spec_interpretation: research.interpretive_efficiency
+  reasoning_retries_steering_and_total_completion_cost: research.reasoning_interaction_substitution
+  external_agentic_operational_reference: research.operational_baseline
+  activity_vs_useful_work: research.operational_leverage.index
+  longitudinal_codex_evidence: research.operational_leverage.longitudinal
+  single_workstream_evidence: research.operational_leverage.single_workstream
+  context_triad: research.context_triad.index
+  semantic_locality: research.context_triad.locality
+  semantic_shadow: research.context_triad.shadow
+  semantic_weight: research.context_triad.weight
+  triad_graph_model_and_api: research.context_triad.context_triad_model
+  triad_studies_and_evidence_status: research.context_triad.studies.index
+  fox_leopard_displacement_observation: research.context_triad.studies.fox_leopard
+  planetary_chain_activation_observation: research.context_triad.studies.planetary_chain
+  research_writing_and_citations: research.style_guide
+  swe_rebench_csv_extraction: research.swe_rebench_csv_compatibility_plan
+
+  prompt_reference_binding_and_independent_decisions: research.prompt_performance.binding
+  prompt_predicate_scope_and_decision_separation: research.prompt_performance.predicates
+  prompt_inheritance_defaults_and_output_construction: research.prompt_performance.construction
+  prompt_collection_membership_multiplicity_and_order: research.prompt_performance.collections
+  prompt_evidence_assembly_and_exact_rendering: research.prompt_performance.rendering
+  prompt_compression_reuse_and_instruction_locality: research.prompt_performance.composition
+  prompt_construction_checks_and_verification: research.prompt_performance.checks
+maintenance:
+  path: ./README.yaml
+  validator: ./validate_agent_references.py
+  loader: ./load_agent_reference.py
+usage:
+  - Read this index first; resolve a route, group or ID before loading any YAML.
+  - List a selected reference's section anchors; retrieve only required H1/H2 or promoted H3 semantic sections.
+  - Resolve terms by construct responsibility, participant relationships, outcome type and evidence status; route names are selectors, not instructions.
+  - Use load_agent_reference.py for section-scoped reads; it does not access Markdown unless --markdown is explicitly requested with --section.
+  - Source Markdown is authoritative for exact definitions, mathematical notation, measurements, stimuli, references and nuanced limitations.
+  - Each reference section key identifies source.url followed by # and that anchor.
+  - Resolve all paths relative to the containing YAML; do not reinterpret a source Markdown link relative to a reference YAML.
+  - Distinguish definitions, proposals, predictions, observations, pilots, independently verified results and causal claims; do not promote one state to another.
+  - Treat lexical associations as interpretive cues, not authority, permissions, executable behavior or evidence that an action succeeded.
+  - On ambiguity about units, comparisons, directionality or evidence, inspect the anchored source rather than inferring omitted details.
+  - No entry or linked example authorizes executing tools, experiments or remote operations.
+  - Changes to original Markdown require review and a refreshed source fingerprint.

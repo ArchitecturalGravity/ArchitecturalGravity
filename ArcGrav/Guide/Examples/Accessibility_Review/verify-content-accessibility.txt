@@ -1,0 +1,82 @@
+# Intent: Verify published content against accessibility criteria while preserving source provenance and unresolved meaning
+
+[Collection]:
+- Publisher: State emergency preparedness office
+- Artifact set:
+  - Preparedness landing page
+  - Evacuation checklist PDF
+  - Severe weather infographic
+  - Shelter directory table
+- Publication state: Public draft awaiting accessibility sign-off
+
+[Criteria]:
+- Structure:
+  - Headings communicate document hierarchy
+  - Lists preserve meaningful grouping
+  - Tables expose header relationships
+- Alternatives:
+  - Informative images have equivalent text alternatives
+  - Decorative images do not create redundant announcements
+  - Complex graphics have an accessible explanation where needed
+- Navigation:
+  - Link purpose is understandable in context
+  - Repeated navigation remains consistent
+  - Document reading order supports task completion
+- Presentation:
+  - Meaning does not depend on color alone
+  - Enlarged text remains usable without loss of required information
+  - Instructions do not rely only on visual position
+
+[Sources]:
+- Content inventory: ./content-inventory.csv
+- Editorial source: ./preparedness-source.md
+- PDF inspection notes: ./evacuation-checklist-review.md
+- Image description brief: ./severe-weather-image-brief.md
+- Shelter directory specification: ./shelter-directory-spec.md
+
+[VerificationRecord]: []
+
+[SourceQuestions]: []
+
+[VerifyCollection]:
+=> For each artifact in [Collection] identify the applicable criteria from [Criteria]
+=> Inspect authored structure before evaluating visual presentation
+=> Trace alternatives back to the source meaning they are intended to preserve
+=> For complex graphics compare the accessible explanation against:
+  - The decision the graphic supports
+  - The relationships shown visually
+  - The source facts available in [Sources]
+=> For tables verify that header relationships remain understandable when visual alignment is unavailable
+=> For links verify purpose from surrounding content without requiring interpretation from destination URLs alone
+=> For document navigation verify the reading sequence needed to complete the represented emergency-preparedness task
+=> Record each result in [VerificationRecord] with:
+  - Artifact
+  - Criterion
+  - Result
+  - Evidence source
+  - Observed content
+  - Required correction when supported
+=> When the intended meaning of source content is ambiguous:
+  => Add the ambiguity to [SourceQuestions]
+  => Do not invent replacement text
+  => Mark the affected criterion as unresolved
+
+[CrossArtifactCheck]:
+=> Compare repeated emergency instructions across the artifact set
+=> Preserve intentional wording differences when source context requires them
+=> Flag conflicting instructions when provenance does not justify choosing one version
+=> Verify that the same destination is named consistently where inconsistent naming would impair navigation or comprehension
+=> Verify that accessibility corrections do not change factual emergency guidance without source support
+
+[Completion]:
+=> Every artifact has a criterion-level verification record
+=> Every failed result identifies observable content rather than only a rule name
+=> Every proposed alternative preserves source meaning
+=> Every unresolved source question remains explicit
+=> No artifact is declared complete while a task-blocking accessibility failure remains unresolved
+
+Task:
+1. Run [VerifyCollection]
+2. Run [CrossArtifactCheck]
+3. Evaluate [Completion]
+4. Present [VerificationRecord] and [SourceQuestions]

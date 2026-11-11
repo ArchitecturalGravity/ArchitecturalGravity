@@ -1,0 +1,1088 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcgrav:telemetry:provider-request-cache-validation:2.0.0",
+  "schema_id": "arcgrav.shared.schema.provider-request-cache-validation",
+  "schema_version": "2.0.0",
+  "$defs": {
+    "field": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "availability",
+        "source",
+        "method",
+        "reason",
+        "evidence_references"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean",
+            "null"
+          ]
+        },
+        "availability": {
+          "enum": [
+            "available",
+            "partial",
+            "unavailable",
+            "inferred",
+            "non_comparable"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "evidence_references": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "availability": {
+                "enum": [
+                  "unavailable",
+                  "non_comparable"
+                ]
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "value": {
+                "type": "null"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "else": {
+            "properties": {
+              "value": {
+                "type": [
+                  "string",
+                  "number",
+                  "boolean"
+                ],
+                "minLength": 1
+              }
+            }
+          }
+        }
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "expected",
+        "observed",
+        "matched_fields",
+        "unavailable_fields",
+        "mismatch_reasons"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "comparable",
+            "non_comparable",
+            "partial",
+            "unavailable"
+          ]
+        },
+        "expected": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "execution_boundary_fingerprint",
+            "prompt_sha256",
+            "input_sha256",
+            "runtime_id",
+            "runtime_version",
+            "runtime_binary_sha256",
+            "runner_registration_sha256",
+            "provider",
+            "model",
+            "service_tier",
+            "launch_mode",
+            "workspace_state_id",
+            "relevant_controls",
+            "tools_sha256",
+            "ambient_configuration_equal",
+            "features_sha256",
+            "environment_sha256",
+            "permissions_sha256",
+            "repository_state_id"
+          ],
+          "properties": {
+            "execution_boundary_fingerprint": {
+              "$ref": "#/$defs/field"
+            },
+            "prompt_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "input_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "runtime_id": {
+              "$ref": "#/$defs/field"
+            },
+            "runtime_version": {
+              "$ref": "#/$defs/field"
+            },
+            "runtime_binary_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "runner_registration_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "provider": {
+              "$ref": "#/$defs/field"
+            },
+            "model": {
+              "$ref": "#/$defs/field"
+            },
+            "service_tier": {
+              "$ref": "#/$defs/field"
+            },
+            "launch_mode": {
+              "$ref": "#/$defs/field"
+            },
+            "workspace_state_id": {
+              "$ref": "#/$defs/field"
+            },
+            "relevant_controls": {
+              "$ref": "#/$defs/field"
+            },
+            "tools_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "ambient_configuration_equal": {
+              "$ref": "#/$defs/field",
+              "properties": {
+                "value": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "features_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "environment_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "permissions_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "repository_state_id": {
+              "$ref": "#/$defs/field"
+            }
+          }
+        },
+        "observed": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "execution_boundary_fingerprint",
+            "prompt_sha256",
+            "input_sha256",
+            "runtime_id",
+            "runtime_version",
+            "runtime_binary_sha256",
+            "runner_registration_sha256",
+            "provider",
+            "model",
+            "service_tier",
+            "launch_mode",
+            "workspace_state_id",
+            "relevant_controls",
+            "tools_sha256",
+            "ambient_configuration_equal",
+            "features_sha256",
+            "environment_sha256",
+            "permissions_sha256",
+            "repository_state_id"
+          ],
+          "properties": {
+            "execution_boundary_fingerprint": {
+              "$ref": "#/$defs/field"
+            },
+            "prompt_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "input_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "runtime_id": {
+              "$ref": "#/$defs/field"
+            },
+            "runtime_version": {
+              "$ref": "#/$defs/field"
+            },
+            "runtime_binary_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "runner_registration_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "provider": {
+              "$ref": "#/$defs/field"
+            },
+            "model": {
+              "$ref": "#/$defs/field"
+            },
+            "service_tier": {
+              "$ref": "#/$defs/field"
+            },
+            "launch_mode": {
+              "$ref": "#/$defs/field"
+            },
+            "workspace_state_id": {
+              "$ref": "#/$defs/field"
+            },
+            "relevant_controls": {
+              "$ref": "#/$defs/field"
+            },
+            "tools_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "ambient_configuration_equal": {
+              "$ref": "#/$defs/field",
+              "properties": {
+                "value": {
+                  "type": [
+                    "boolean",
+                    "null"
+                  ]
+                }
+              }
+            },
+            "features_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "environment_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "permissions_sha256": {
+              "$ref": "#/$defs/field"
+            },
+            "repository_state_id": {
+              "$ref": "#/$defs/field"
+            }
+          }
+        },
+        "matched_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "unavailable_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "mismatch_reasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "stock_binary_sha256",
+        "observed_binary_sha256",
+        "runtime_version",
+        "patch_sha256",
+        "instrumentation",
+        "demonstrated_scope",
+        "evidence_references",
+        "reasons"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "exact_stock",
+            "instrumented_equivalent",
+            "non_comparable",
+            "unavailable"
+          ]
+        },
+        "stock_binary_sha256": {
+          "$ref": "#/$defs/field"
+        },
+        "observed_binary_sha256": {
+          "$ref": "#/$defs/field"
+        },
+        "runtime_version": {
+          "$ref": "#/$defs/field"
+        },
+        "patch_sha256": {
+          "$ref": "#/$defs/field"
+        },
+        "instrumentation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "demonstrated_scope": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "evidence_references": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "reasons": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "capability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "method",
+        "evidence_references",
+        "limitation"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "supported",
+            "partial",
+            "unsupported",
+            "unavailable"
+          ]
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_references": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "limitation": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      }
+    },
+    "capabilities": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "fields"
+      ],
+      "properties": {
+        "fields": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "validation_id",
+            "request_boundaries",
+            "request_kind",
+            "completion_correlation",
+            "input_tokens",
+            "cached_input_tokens",
+            "cache_write_input_tokens",
+            "output_tokens",
+            "reasoning_tokens",
+            "response_identity",
+            "continuation_identity",
+            "transport",
+            "retry",
+            "reconnect",
+            "request_duration_ms",
+            "cache_key"
+          ],
+          "properties": {
+            "validation_id": {
+              "$ref": "#/$defs/capability"
+            },
+            "request_boundaries": {
+              "$ref": "#/$defs/capability"
+            },
+            "request_kind": {
+              "$ref": "#/$defs/capability"
+            },
+            "completion_correlation": {
+              "$ref": "#/$defs/capability"
+            },
+            "input_tokens": {
+              "$ref": "#/$defs/capability"
+            },
+            "cached_input_tokens": {
+              "$ref": "#/$defs/capability"
+            },
+            "cache_write_input_tokens": {
+              "$ref": "#/$defs/capability"
+            },
+            "output_tokens": {
+              "$ref": "#/$defs/capability"
+            },
+            "reasoning_tokens": {
+              "$ref": "#/$defs/capability"
+            },
+            "response_identity": {
+              "$ref": "#/$defs/capability"
+            },
+            "continuation_identity": {
+              "$ref": "#/$defs/capability"
+            },
+            "transport": {
+              "$ref": "#/$defs/capability"
+            },
+            "retry": {
+              "$ref": "#/$defs/capability"
+            },
+            "reconnect": {
+              "$ref": "#/$defs/capability"
+            },
+            "request_duration_ms": {
+              "$ref": "#/$defs/capability"
+            },
+            "cache_key": {
+              "$ref": "#/$defs/capability"
+            }
+          }
+        }
+      }
+    },
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "field",
+        "contributors",
+        "eligible",
+        "statistic"
+      ],
+      "properties": {
+        "field": {
+          "$ref": "#/$defs/field"
+        },
+        "contributors": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "eligible": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "statistic": {
+          "enum": [
+            "count",
+            "sum",
+            "first",
+            "ratio",
+            "mean",
+            "median",
+            "min",
+            "max"
+          ]
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "request_id",
+        "request_ordinal",
+        "request_kind",
+        "transport",
+        "continuation_mode",
+        "fields",
+        "correlation_method",
+        "lifecycle_id",
+        "warmup_request_id",
+        "missing_fields",
+        "limitations",
+        "evidence_references"
+      ],
+      "properties": {
+        "request_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "request_ordinal": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "request_kind": {
+          "enum": [
+            "warmup",
+            "generation",
+            "helper_internal",
+            "unknown"
+          ]
+        },
+        "transport": {
+          "enum": [
+            "websocket",
+            "http",
+            "unknown"
+          ]
+        },
+        "continuation_mode": {
+          "enum": [
+            "full",
+            "incremental",
+            "unknown"
+          ]
+        },
+        "fields": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "input_tokens",
+            "cached_input_tokens",
+            "cache_write_input_tokens",
+            "uncached_input_tokens",
+            "output_tokens",
+            "reasoning_tokens",
+            "request_duration_ms",
+            "cache_read_fraction",
+            "after_prewarm",
+            "generate",
+            "previous_response_id",
+            "response_id",
+            "retry",
+            "reconnect",
+            "thread_id",
+            "context_type",
+            "cache_key_value",
+            "cache_key_provenance",
+            "cache_key_observed"
+          ],
+          "properties": {
+            "input_tokens": {
+              "$ref": "#/$defs/field"
+            },
+            "cached_input_tokens": {
+              "$ref": "#/$defs/field"
+            },
+            "cache_write_input_tokens": {
+              "$ref": "#/$defs/field"
+            },
+            "uncached_input_tokens": {
+              "$ref": "#/$defs/field"
+            },
+            "output_tokens": {
+              "$ref": "#/$defs/field"
+            },
+            "reasoning_tokens": {
+              "$ref": "#/$defs/field"
+            },
+            "request_duration_ms": {
+              "$ref": "#/$defs/field"
+            },
+            "cache_read_fraction": {
+              "$ref": "#/$defs/field"
+            },
+            "after_prewarm": {
+              "$ref": "#/$defs/field"
+            },
+            "generate": {
+              "$ref": "#/$defs/field"
+            },
+            "previous_response_id": {
+              "$ref": "#/$defs/field"
+            },
+            "response_id": {
+              "$ref": "#/$defs/field"
+            },
+            "retry": {
+              "$ref": "#/$defs/field"
+            },
+            "reconnect": {
+              "$ref": "#/$defs/field"
+            },
+            "thread_id": {
+              "$ref": "#/$defs/field"
+            },
+            "context_type": {
+              "$ref": "#/$defs/field"
+            },
+            "cache_key_value": {
+              "$ref": "#/$defs/field"
+            },
+            "cache_key_provenance": {
+              "$ref": "#/$defs/field"
+            },
+            "cache_key_observed": {
+              "$ref": "#/$defs/field"
+            }
+          }
+        },
+        "correlation_method": {
+          "enum": [
+            "span_ancestry",
+            "lifecycle_id",
+            "request_response_id"
+          ]
+        },
+        "lifecycle_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "warmup_request_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        },
+        "missing_fields": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "evidence_references": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "replay_summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "validation_id",
+        "validates_observation_id",
+        "treatment_id",
+        "repetition_id",
+        "configuration_match_status",
+        "runtime_equivalence",
+        "metrics",
+        "first_request_kind",
+        "first_generation_ordinal",
+        "limitations"
+      ],
+      "properties": {
+        "validation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validates_observation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "treatment_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repetition_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "configuration_match_status": {
+          "enum": [
+            "comparable",
+            "non_comparable",
+            "partial",
+            "unavailable"
+          ]
+        },
+        "runtime_equivalence": {
+          "enum": [
+            "exact_stock",
+            "instrumented_equivalent",
+            "non_comparable",
+            "unavailable"
+          ]
+        },
+        "metrics": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/$defs/measurement"
+          }
+        },
+        "first_request_kind": {
+          "$ref": "#/$defs/field"
+        },
+        "first_generation_ordinal": {
+          "$ref": "#/$defs/field"
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "coverage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scored_observation_count",
+        "validation_replays_planned",
+        "validation_replays_attempted",
+        "validation_replays_completed",
+        "validation_replays_comparable",
+        "request_lifecycle_available",
+        "token_usage_available",
+        "comparable_coverage"
+      ],
+      "properties": {
+        "scored_observation_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "validation_replays_planned": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "validation_replays_attempted": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "validation_replays_completed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "validation_replays_comparable": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "request_lifecycle_available": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "token_usage_available": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "comparable_coverage": {
+          "$ref": "#/$defs/field"
+        }
+      }
+    },
+    "replay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_id",
+        "schema_version",
+        "validation_id",
+        "validates_observation_id",
+        "treatment_id",
+        "repetition_id",
+        "generation_id",
+        "validation_scope",
+        "separate_invocation",
+        "included_in_score",
+        "status",
+        "configuration_match",
+        "runtime_equivalence",
+        "capabilities",
+        "replay_summary",
+        "requests",
+        "provenance",
+        "evidence_references",
+        "limitations",
+        "extensions"
+      ],
+      "properties": {
+        "schema_id": {
+          "const": "arcgrav.shared.schema.provider-request-cache-validation"
+        },
+        "schema_version": {
+          "const": "2.0.0"
+        },
+        "validation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validates_observation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "treatment_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "repetition_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "generation_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "validation_scope": {
+          "const": "configuration_equivalent_replay"
+        },
+        "separate_invocation": {
+          "const": true
+        },
+        "included_in_score": {
+          "const": false
+        },
+        "status": {
+          "enum": [
+            "planned",
+            "unavailable",
+            "failed",
+            "completed"
+          ]
+        },
+        "configuration_match": {
+          "$ref": "#/$defs/configuration"
+        },
+        "runtime_equivalence": {
+          "$ref": "#/$defs/runtime"
+        },
+        "capabilities": {
+          "$ref": "#/$defs/capabilities"
+        },
+        "replay_summary": {
+          "$ref": "#/$defs/replay_summary"
+        },
+        "requests": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/request"
+          }
+        },
+        "provenance": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_references": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "limitations": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "extensions": {
+          "type": "object",
+          "propertyNames": {
+            "pattern": "^[A-Za-z][A-Za-z0-9._-]*:[^\\s]+$"
+          },
+          "additionalProperties": {
+            "$ref": "#/$defs/field"
+          }
+        }
+      }
+    }
+  },
+  "x-arcgrav-extension-policy": {
+    "extension_points": [
+      "/extensions"
+    ],
+    "mode": "namespaced-additive",
+    "unknown_fields": "reject",
+    "preserve_unknown_extensions": true,
+    "shared_fields_overridable": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "validation_id",
+    "validates_observation_id",
+    "treatment_id",
+    "repetition_id",
+    "generation_id",
+    "validation_scope",
+    "separate_invocation",
+    "included_in_score",
+    "status",
+    "configuration_match",
+    "runtime_equivalence",
+    "capabilities",
+    "replay_summary",
+    "requests",
+    "provenance",
+    "evidence_references",
+    "limitations",
+    "extensions"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "arcgrav.shared.schema.provider-request-cache-validation"
+    },
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "validation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "validates_observation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "treatment_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "repetition_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "generation_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "validation_scope": {
+      "const": "configuration_equivalent_replay"
+    },
+    "separate_invocation": {
+      "const": true
+    },
+    "included_in_score": {
+      "const": false
+    },
+    "status": {
+      "enum": [
+        "planned",
+        "unavailable",
+        "failed",
+        "completed"
+      ]
+    },
+    "configuration_match": {
+      "$ref": "#/$defs/configuration"
+    },
+    "runtime_equivalence": {
+      "$ref": "#/$defs/runtime"
+    },
+    "capabilities": {
+      "$ref": "#/$defs/capabilities"
+    },
+    "replay_summary": {
+      "$ref": "#/$defs/replay_summary"
+    },
+    "requests": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/request"
+      }
+    },
+    "provenance": {
+      "type": "string",
+      "minLength": 1
+    },
+    "evidence_references": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "limitations": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]*:[^\\s]+$"
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/field"
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+# Intent: Replan the remaining work of a museum exhibition after a delayed dependency while preserving completed work fixed obligations and evidence-backed constraints
+
+Project: Exhibition installation for the River and City gallery
+
+[FixedOutcome]:
+- Public opening: Saturday 21 November at 10:00
+- Required condition:
+  - Objects installed
+  - Lighting ready
+  - Labels installed
+  - Barriers installed
+  - Visitor route released for public access
+
+[BaselineSequence]:
+- Gallery preparation:
+  - Owner: Exhibition production lead
+  - Finish: Monday 9 November
+  - Enables:
+    - Case placement
+    - Graphic installation
+    - Lighting focus
+- Display case delivery:
+  - Owner: Fabrication vendor
+  - Baseline arrival: Tuesday 10 November
+  - Enables: Case placement
+- Case placement:
+  - Owner: Installation contractor
+  - Baseline finish: Wednesday 11 November
+  - Enables:
+    - Object installation
+    - Case environmental stabilization
+- Case environmental stabilization:
+  - Minimum duration: 48 hours after final case closure
+  - Enables: Conservation release
+- Object installation:
+  - Owner: Collections installation team
+  - Baseline finish: Friday 13 November
+  - Requires:
+    - Case placement complete
+    - Conservator present
+- Conservation release:
+  - Owner: Conservator
+  - Baseline finish: Monday 16 November
+  - Requires:
+    - Object installation complete
+    - Case environmental stabilization complete
+  - Enables: Final gallery inspection
+- Final gallery inspection:
+  - Owner: Museum operations manager
+  - Baseline date: Wednesday 18 November
+  - Enables: Public opening
+
+[ObservedChange]:
+- Dependency: Display case delivery
+- Evidence: Vendor shipment notice issued Monday 9 November
+- Revised earliest arrival: Friday 13 November
+- Confidence: Medium because carrier handoff is not yet confirmed
+- Direct effect: Case placement cannot begin on the baseline date
+
+[ProtectedState]:
+- Gallery preparation completed and accepted
+- Graphic installation may proceed independently of display cases
+- Lighting rough focus may proceed before cases arrive
+- Public opening remains fixed unless the museum director approves a change
+- Forty-eight-hour case environmental stabilization may not be compressed
+- Object installation requires the conservator to be present
+- Completed accepted work should not be repeated solely because another dependency moved
+
+[RemainingCapacity]:
+- Installation contractor: Available Friday 13 November through Tuesday 17 November
+- Collections installation team: Available Saturday 14 November through Wednesday 18 November
+- Conservator: Available Saturday 14 November and Monday 16 November through Wednesday 18 November
+- Lighting team: Available Tuesday 10 November through Thursday 19 November
+- Operations manager: Available for final inspection Wednesday 18 November or Thursday 19 November
+
+[ImpactAssessment]: []
+
+[RevisedPlan]: []
+
+[DecisionNeeds]: []
+
+[TraceImpact]:
+=> Start with [ObservedChange]
+=> Follow only downstream prerequisites in [BaselineSequence]
+=> Separate affected work from independent work that can continue
+=> Preserve completed items in [ProtectedState]
+=> Record the affected milestone path and available float in [ImpactAssessment]
+=> Preserve uncertainty around the revised arrival until stronger evidence exists
+
+[Restructure]:
+=> Pull forward independent work when doing so reduces later contention without creating rework
+=> Reorder affected work only when all task prerequisites remain satisfied
+=> Use parallel execution only when owners and physical work areas can support it
+=> Keep the environmental stabilization duration intact
+=> Keep conservator presence as a hard prerequisite for object installation
+=> Append the earliest dependency-respecting sequence to [RevisedPlan]
+=> If the fixed opening cannot be supported append the smallest decision options and their consequences to [DecisionNeeds]
+
+[Gate]:
+=> Confirm [RevisedPlan] reuses accepted completed work
+=> Confirm [RevisedPlan] preserves the public-opening obligations in [FixedOutcome]
+=> Confirm each moved activity has an available owner in [RemainingCapacity]
+=> Confirm no revised activity begins before its prerequisite evidence exists
+=> Confirm final gallery inspection has enough evidence to authorize public access
+=> Do not present the vendor arrival as certain while [ObservedChange] confidence remains medium
+
+Task:
+1. Run [TraceImpact]
+2. Run [Restructure]
+3. Run [Gate]
+4. Present [ImpactAssessment] and [RevisedPlan] with [DecisionNeeds] and the opening-date confidence

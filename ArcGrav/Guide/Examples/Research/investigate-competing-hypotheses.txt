@@ -1,0 +1,67 @@
+# Intent: Investigate why weekday bus ridership recovered unevenly across routes after a shift toward hybrid work by testing competing explanations against route-level evidence without treating correlation as causation
+
+[Question]: What best explains why some commuter-oriented bus routes remain far below their pre-change ridership while otherwise similar routes recovered
+
+[Hypotheses]:
+- WorkPattern: Recovery is primarily explained by changes in commute frequency and workplace attendance
+- ServiceSupply: Reduced service provision suppressed demand on the lagging routes through changes in:
+  - Frequency
+  - Span
+  - Reliability
+- FareAccess: Changes in the following altered the relative cost of using transit:
+  - Passes
+  - Transfer rules
+  - Employer subsidies
+- NeighborhoodChange: Changes in the following altered the potential rider base:
+  - Population
+  - Employment
+  - Destination mix
+
+[Evidence]:
+- Ridership: ./route-ridership-monthly.csv
+- Service: ./scheduled-and-delivered-service.csv
+- Reliability: ./route-reliability.csv
+- Workplace: ./workplace-attendance-by-district.csv
+- FarePolicy: ./fare-policy-timeline.md
+- Neighborhood: ./population-employment-change.csv
+
+[Tests]:
+- Compare recovery among routes with similar pre-change ridership but different workplace-attendance shifts
+- Check whether ridership changes follow service cuts or precede them
+- Compare routes exposed and unexposed to material fare-policy changes
+- Test whether lagging recovery remains after accounting for population and employment change near major stops
+- Look for cases that contradict each hypothesis, not only cases that fit it
+
+[EvidenceLedger]: []
+
+[Investigate]:
+=> For each item in [Tests] addressing [Question] ↳
+  => Identify which [Hypotheses] make materially different predictions
+  => Extract the relevant observations from [Evidence]
+  => Record:
+    - Timing
+    - Geographic scope
+    - Uncertainty
+    - Obvious confounders
+  => Append one assessment per affected hypothesis to [EvidenceLedger] with a status chosen from:
+    - "supports"
+    - "weakens"
+    - "neutral"
+    - "unresolved"
+
+[Adjudicate]:
+=> Distinguish evidence about sequence and mechanism from simple cross-sectional association
+=> Identify hypotheses that remain observationally equivalent with the available evidence
+=> Prefer a multi-cause explanation when independent evidence supports different mechanisms across route groups
+=> Do not infer that a service reduction caused lower ridership when the reduction plausibly responded to earlier demand loss
+=> Name the additional evidence that would most reduce uncertainty between the leading explanations
+
+Task:
+1. Run [Investigate]
+2. Run [Adjudicate]
+3. Report:
+  - Evidence ledger
+  - Strongest and weakest explanations
+  - Unresolved alternatives
+  - Important confounders
+  - Highest-value next evidence to collect

@@ -1,0 +1,42 @@
+{
+  "schema_id": "arcgrav.shared.schema.registration",
+  "schema_version": "1.0.0",
+  "registration_id": "arcgrav.custom.benchmark.core",
+  "registration_version": "1.0.0",
+  "registration_kind": "benchmark",
+  "status": "active",
+  "extensions": {
+    "arcgrav.benchmark:prompt-folder": {
+      "entry_point": "AgMark.Custom_Benchmark.source:load_prompts",
+      "artifact_id": "custom-prompt-source"
+    }
+  },
+  "contracts": [
+    {
+      "id": "arcgrav.shared.runner-invocation",
+      "version": "2.0.0"
+    },
+    {
+      "id": "arcgrav.shared.run-lifecycle",
+      "version": "1.0.0"
+    },
+    {
+      "id": "arcgrav.shared.evidence-validation",
+      "version": "1.0.0"
+    }
+  ],
+  "implementation_artifacts": [
+    {
+      "artifact_id": "custom-prompt-source",
+      "sha256": "sha256:15abd979998d1839c94f95509750caf8c40034836abc718e57ebff17af9d0cbc",
+      "reference": "AgMark/Custom_Benchmark/source.py",
+      "availability": "retained"
+    }
+  ],
+  "capabilities": [
+    "unscored-prompt-folder"
+  ],
+  "limitations": [
+    "Execution and resource measurements only; no correctness scoring, reconstruction verification or reports."
+  ]
+}

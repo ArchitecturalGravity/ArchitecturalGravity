@@ -1,0 +1,344 @@
+{
+  "version": 1,
+  "name": "Default",
+  "colors": {
+    "editor": {
+      "foreground": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "background": [
+        0,
+        0,
+        0,
+        255
+      ]
+    },
+    "selection": {
+      "foreground": [
+        0,
+        251,
+        255,
+        255
+      ],
+      "background": [
+        0,
+        65,
+        65,
+        255
+      ]
+    },
+    "active_row": {
+      "foreground": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "background": [
+        255,
+        255,
+        255,
+        66
+      ]
+    },
+    "gutter": {
+      "foreground": [
+        80,
+        90,
+        100,
+        255
+      ],
+      "background": [
+        12,
+        15,
+        18,
+        255
+      ]
+    },
+    "symbol": {
+      "foreground": [
+        255,
+        194,
+        73,
+        255
+      ],
+      "background": [
+        255,
+        194,
+        73,
+        44
+      ]
+    },
+    "symbol_body": {
+      "foreground": [
+        255,
+        194,
+        73,
+        255
+      ],
+      "background": [
+        255,
+        194,
+        73,
+        44
+      ]
+    },
+    "operation": {
+      "foreground": [
+        255,
+        157,
+        0,
+        255
+      ],
+      "background": [
+        255,
+        85,
+        0,
+        44
+      ]
+    },
+    "alias": {
+      "foreground": [
+        255,
+        170,
+        0,
+        255
+      ],
+      "background": [
+        255,
+        170,
+        0,
+        44
+      ]
+    },
+    "priority": {
+      "foreground": [
+        255,
+        157,
+        0,
+        255
+      ],
+      "background": [
+        255,
+        85,
+        0,
+        44
+      ]
+    },
+    "sequence": {
+      "foreground": [
+        255,
+        157,
+        0,
+        255
+      ],
+      "background": [
+        255,
+        85,
+        0,
+        44
+      ]
+    },
+    "bullet": {
+      "foreground": [
+        255,
+        157,
+        0,
+        255
+      ],
+      "background": [
+        255,
+        85,
+        0,
+        44
+      ]
+    },
+    "delimiter": {
+      "foreground": [
+        182,
+        169,
+        121,
+        255
+      ],
+      "background": [
+        182,
+        169,
+        121,
+        44
+      ]
+    },
+    "literal": {
+      "foreground": [
+        182,
+        169,
+        121,
+        255
+      ],
+      "background": [
+        182,
+        169,
+        121,
+        0
+      ]
+    },
+    "backtick": {
+      "foreground": [
+        170,
+        170,
+        255,
+        255
+      ],
+      "background": [
+        170,
+        170,
+        255,
+        44
+      ]
+    },
+    "backtick_content": {
+      "foreground": [
+        170,
+        170,
+        255,
+        255
+      ],
+      "background": [
+        170,
+        170,
+        255,
+        44
+      ]
+    },
+    "colon": {
+      "foreground": [
+        255,
+        255,
+        0,
+        255
+      ],
+      "background": [
+        255,
+        255,
+        0,
+        44
+      ]
+    },
+    "wildcard": {
+      "foreground": [
+        255,
+        255,
+        0,
+        255
+      ],
+      "background": [
+        255,
+        255,
+        0,
+        44
+      ]
+    },
+    "binder": {
+      "foreground": [
+        255,
+        170,
+        0,
+        255
+      ],
+      "background": [
+        255,
+        170,
+        0,
+        44
+      ]
+    },
+    "correlation_pulse": {
+      "foreground": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "background": [
+        255,
+        255,
+        255,
+        66
+      ]
+    },
+    "double_quote": {
+      "foreground": [
+        182,
+        169,
+        121,
+        255
+      ],
+      "background": [
+        182,
+        169,
+        121,
+        44
+      ]
+    },
+    "double_quote_content": {
+      "foreground": [
+        182,
+        169,
+        121,
+        255
+      ],
+      "background": [
+        182,
+        169,
+        121,
+        44
+      ]
+    },
+    "section": {
+      "foreground": [
+        255,
+        255,
+        0,
+        255
+      ],
+      "background": [
+        255,
+        255,
+        0,
+        44
+      ]
+    },
+    "spelling_underline": {
+      "foreground": [
+        255,
+        0,
+        0,
+        255
+      ],
+      "background": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "map_viewport": {
+      "foreground": [
+        100,
+        100,
+        100,
+        105
+      ],
+      "background": [
+        128,
+        128,
+        128,
+        88
+      ]
+    },
+    "deepest_child_opacity": 57,
+    "pulse_cycles_per_minute": 100
+  }
+}

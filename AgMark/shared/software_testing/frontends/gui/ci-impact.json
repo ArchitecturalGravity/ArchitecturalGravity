@@ -1,0 +1,14 @@
+{
+  "rules": [
+    {
+      "changed": [
+        "windows_operability_evidence.json"
+      ],
+      "run": [
+        "test_*.py",
+        "AgMark/shared/software_testing/architecture/test_*.py"
+      ],
+      "covers": true
+    }
+  ]
+}

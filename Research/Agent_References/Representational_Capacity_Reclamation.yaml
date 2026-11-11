@@ -1,0 +1,126 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.representational_capacity_reclamation
+kind: research_reference
+source:
+  path: Research/Representational_Capacity_Reclamation.md
+  url: ../Representational_Capacity_Reclamation.md
+  fingerprint: fnv1a32-217cf8c5
+sections:
+  paper-rcr: |-
+    Representational Capacity Reclamation (RCR) hypothesizes that clearer task relationships reduce reconstruction overhead, allowing a fixed model and execution budget to handle greater task complexity. It distinguishes intrinsic model capability from accessible task capacity.
+  abstract: |-
+    Language-model capability is commonly treated as a property of the model: architecture, parameters, context capacity, reasoning policy, inference compute, and tool access determine what tasks it can successfully complete. This view is incomplete.
+  introduction: |-
+    Successful task completion depends on both fixed model resources and the clarity with which the intended task is represented. This paper proposes that reducing structure-recovery burden can free a fixed execution budget for useful reasoning, verification, and action; the resulting frontier shift remains a testable hypothesis, not an observed multiplier.
+  role-within-the-research-program: |-
+    RCR asks whether clearer task representation changes the maximum complexity a fixed model can complete successfully under a fixed budget. It develops a performance-frontier hypothesis from the MNSR account of structural recovery.
+  the-capacity-problem: |-
+    A model acts on a representation of the intended task, not the task itself. Recovering identity, scope, precedence, exclusions, dependencies, and completion conditions consumes reasoning effort; successful performance must be measured at fixed model and resource budgets to isolate representational effects.
+  intrinsic-and-accessible-capacity: |-
+    2. Intrinsic and Accessible Capacity: 2.1 Intrinsic Capacity: Intrinsic capacity refers to the computational and behavioral capability supplied by the model and execution environment. It includes factors such as:
+    2.2 Accessible Task Capacity: Accessible task capacity is the portion of model capability that can be successfully directed toward the intended task through a particular representation.
+  rcr-representational-capacity-reclamation: |-
+    RCR is the proposed recovery of usable task-solving capacity when a clearer representation reduces reconstruction, disambiguation, and repair. It does not change model weights or available compute; its measurable prediction is a higher accepted-task complexity frontier under controlled resources.
+  why-capacity-reclamation-can-be-large: |-
+    As a task grows, the model must recover more scopes, references, dependencies, constraints, and interactions. Misrecovered relations can propagate into later steps, while pairwise and higher-order coordination raises reconstruction burden. These mechanisms motivate a possible complexity-dependent representation effect; they do not establish its magnitude.
+  breadth-depth-and-active-relational-load: |-
+    5. Breadth, Depth, and Active Relational Load: Reclaimed capacity does not have one mandatory use.
+    5.1 Breadth: Breadth refers to the number of distinct task dimensions handled successfully. • More requirements
+    • More stakeholders
+    • More constraints
+    • More files
+    • More entities
+    • More alternatives
+    • More subproblems
+    5.2 Depth: Depth concerns how far reasoning proceeds through dependency chains. as the maximum dependency depth supported above threshold.
+    5.3 Active Relational Load: Active Relational Load (ARL) concerns the number of consequential relationships that must be simultaneously maintained across task elements.
+  rcr-effective-capacity-frontier: |-
+    The effective capacity frontier is the greatest task complexity at which the fixed model, reasoning settings, tools, budget, and acceptance standard sustain required success. Compare matched representations by frontier displacement, not by activity ratios or prompt length.
+  central-hypotheses: |-
+    Six proposed predictions separate recoverable task capacity, the acceptable complexity frontier, relational amplification, avoidance of cascading errors, and fixed-budget breadth versus depth.
+  rcr-capacity-reclamation-hypothesis: |-
+    H1: At fixed intrinsic compute, lowering representation-recovery burden should leave more capacity for actual reasoning, verification, and execution; it does not create new compute.
+  rcr-effective-capacity-frontier-hypothesis: |-
+    H2: Lower-impedance representations should maintain accepted execution at higher task complexity under otherwise fixed model, tool, reasoning, and evaluation conditions.
+  rcr-complexity-amplification: |-
+    H3: Representation-related performance differences should widen as relational complexity rises; for trivial tasks the reconstruction cost may be negligible.
+  rcr-cascading-reclamation: |-
+    H4: Exposing structure may prevent wrong recovered relationships from causing downstream plan, action, correction, and verification costs; savings can exceed direct reconstruction savings.
+  rcr-fixed-budget-breadth: |-
+    H5: With model-side resources fixed, lower-impedance representations should satisfy more independent and interacting task requirements simultaneously.
+  rcr-fixed-budget-depth: |-
+    H6: With breadth fixed, lower-impedance representations should sustain deeper dependency traversal, verification, and reasoning before task quality falls.
+  new-metrics: |-
+    8. New Metrics: 8.1 Frontier Multiplier: Details and controls at the source subsection.
+    8.2 Residual Frontier Headroom: For a task of complexity K:
+    8.3 Capacity Reclamation Ratio: For a fourfold frontier: This describes how much of A's supported frontier lies beyond the baseline saturation point.
+    8.4 Useful Work Per Budget: This measures capacity efficiency directly.
+  the-fourfold-case: |-
+    9. The Fourfold Case: Longitudinal ArcGrav operational telemetry has identified an approximately fourfold increase in downstream model and agent activity per unit of human specification in a fixed-model, fixed-reasoning comparison. A separate single-workstream study relative to an external Codex baseline provides complementary evidence of elevated specification-normalized operational leverage. That result motivates, but does not define, a corresponding frontier hypothesis.
+  expected-regimes: |-
+    10. Expected Regimes: RCR predicts at least four operating regimes.
+    Regime I — Trivial Tasks: Task complexity is low. Representation makes little difference because reconstruction cost is negligible.
+    Regime II — Emerging Representation Cost: Task structure becomes sufficiently complex that poorly represented relationships begin consuming noticeable capacity. Structured representations begin outperforming prose.
+    Regime III — Capacity Divergence: Baseline representation approaches saturation while lower-impedance representation retains headroom. This is the regime where frontier displacement becomes most visible.
+    Regime IV — Intrinsic Saturation: Both representations eventually approach the underlying model's intrinsic limits.
+  experimental-design: |-
+    Controlled complexity-frontier comparison. Fix model resources and task semantics, vary representation format, increase relational complexity, and evaluate accepted execution rather than nominal concision.
+  objective: |-
+    Estimate the highest task complexity a fixed model and execution regime can successfully handle under each representation.
+  fixed-variables: |-
+    Hold model/version, reasoning setting, tools, sampling when controllable, time, retries, interaction allowance, evaluation, and task semantics constant across representation conditions.
+  independent-variable: |-
+    Vary the representation format, including semantically matched natural, structured, code-like, ArcGrav, and control encodings; avoid changing the intended task.
+  complexity-ladder: |-
+    Increase constraints, references, precedence, verification requirements, dependency depth, and active relational interactions along controlled task families.
+  success-threshold: |-
+    Define an explicit acceptance function and threshold for each complexity level; compare frontiers only where acceptance criteria and available resources are equivalent.
+  measurements: |-
+    Record maximum accepted complexity and frontier multiplier, plus requirement coverage, relational correctness, state transitions, precedence adherence, and completion accuracy.
+  frontier-curves: |-
+    Compare accepted-completion rates against increasing relational task complexity for matched representations at fixed model and execution budget. The hypothesized frontiers may diverge nonlinearly near capacity limits; evaluate their observed shapes and acceptance thresholds rather than assuming linear gains.
+  research-program: |-
+    Five sequential investigation phases first locate any frontier shift, then distinguish capacity dimensions and causes, and finally test model and representation generality.
+  phase-1--establish-frontier-displacement: |-
+    Compare semantically equivalent formats along a controlled relational-complexity ladder to establish whether the acceptance frontier moves.
+  phase-2--separate-breadth-and-depth: |-
+    Measure independent requirements, dependency depth, and active relational load separately, rather than treating one complexity score as sufficient.
+  phase-3--measure-resource-redistribution: |-
+    Test whether lower reconstruction burden correlates with less correction, repeated reasoning, or redundant tool activity and more productive task work.
+  phase-4--test-scaling-interaction: |-
+    Vary model capacity, reasoning effort, context length, and tool access to test where reclamation strengthens or weakens.
+  phase-5--compare-representation-families: |-
+    Compare optimized prose, ArcGrav, Markdown, YAML, code-like and randomized isomorphic grammars, and graph-native inputs where supported; do not presume one winner.
+  capacity-reclamation-versus-model-scaling: |-
+    Model scaling changes available model or execution resources, such as capacity, context, reasoning compute, or tools. Representation improvement instead aims to reduce the resources needed to recover a fixed task's relationships, potentially leaving more of the existing budget for useful work. The effects may interact but must be measured separately.
+  reasoning-effort-and-capacity-reclamation: |-
+    15. Reasoning Effort and Capacity Reclamation: Additional reasoning is useful only when directed toward the correct recovered task. represent reasoning effort.
+  single-specification-completion: |-
+    A sufficiently explicit initial task specification may reduce later clarification and steering during a long-running agentic task. Evaluate whether it reaches independently accepted completion within budget; fewer human prompts or more autonomous steps alone do not establish reclaimed task capacity.
+  implications-for-apparent-model-capability: |-
+    17. Implications for Apparent Model Capability: If representation can substantially move the effective capacity frontier, then some observed model limitations are not purely model limitations. They are model–representation system limitations.
+  implications-for-model-evaluation: |-
+    Prompt-only benchmarks can confound task-solving capacity with the ability to recover task structure from a particular encoding. Evaluate fixed-model tasks under matched semantics and resource budgets across representations, reporting relational complexity and accepted completion rather than attributing every performance difference to intrinsic model capability.
+  implications-for-prompt-engineering: |-
+    19. Implications for Prompt Engineering: Prompt engineering is often framed as: > Find wording that makes the model respond better.
+  arcgrav-as-a-capacity-reclamation-hypothesis: |-
+    20. ArcGrav as a Capacity-Reclamation Hypothesis: ArcGrav uses structural cues such as: nested lists, named sections, ordered tasks, and reusable symbolic references.
+  relationship-to-existing-arcgrav-research: |-
+    21. Relationship to Existing ArcGrav Research: Model-Native Structural Representation: MNSR supplies the theoretical basis: > consequential task relationships can be preserved in model-recoverable representations, reducing structural reconstruction.
+    Interpretive Efficiency: Interpretive Efficiency measures how much representation-specific information is needed to recover representation semantics. RCR extends from:
+    Semantic Locality, Shadow, and Weight: Semantic Locality concerns instruction placement within context relative to surrounding information and points of use. Semantic Shadow concerns how newer context changes the influence or active status of earlier context.
+    Reasoning–Interaction Substitution: Reasoning–Interaction Substitution models how stronger initial specification and model-side reasoning can reduce human correction, reconstruction, and repeated execution.
+    Operational Leverage: Operational Leverage measures model and agent activity generated per unit of human specification. This converts an operational observation into a capability-level hypothesis.
+  scope-and-evidence-status: |-
+    RCR proposes a testable model–representation frontier effect, not an established increase in intrinsic capacity. Observed fourfold specification-normalized activity motivates testing but is not evidence of a fourfold task-complexity frontier.
+  conclusion: |-
+    A representation may make more of a fixed model's resources available for solving the intended task by reducing relational reconstruction. RCR predicts measurable frontier displacement; controlled success measurements must distinguish that effect from shorter prompts or greater tool activity.
+  related-papers: |-
+    Related Papers: • Model-Native Structural Representation
+    • Instructional Representation
+    • ArcGrav Interpretive Efficiency
+    • Operational Leverage
+    • Reasoning–Interaction Substitution
+  references: |-
+    References: • Halford, G. S., Wilson, W.

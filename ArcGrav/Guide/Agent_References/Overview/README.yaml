@@ -1,0 +1,42 @@
+schema_version: 2
+id: arcgrav.overview
+kind: documentation_reference
+source:
+  path: ArcGrav/README.md
+  url: ../../../README.md
+  fingerprint: fnv1a32-312d86fb
+sections:
+  ag-architectural-gravity-arcgrav: |-
+    ArcGrav (Architectural Gravity) is a cross-model Agent Control Language for defining, composing, referencing, and operating on structured context inside natural-language prompts. It aims to maximize signal density, token/cost efficiency, explicit interpretation, output consistency, retention, and throughput. Applicability ranges from small prompts to modular agent systems; benefits are project claims.
+  ag-what-differentiates-arcgrav: |-
+    Uses the model's existing understanding of natural-language and common technical structure, with DSL-like sections, references, and operations. Requires no ArcGrav runtime, compiler, parser, schema, package, integration, or specialized infrastructure. Intended to be framework/vendor/interface independent and usable across compatible models; portability/performance are design claims.
+  ag-agent-control-language-vs-agent-framework: |-
+    Frameworks externally execute/control the LLM through runtime state, routing, retries, persistence and termination. ArcGrav asks the LLM to interpret declarative semantic workflow instructions. Hard guarantees for permissions, transactions, persistence, resources and external side effects still belong to a surrounding runtime.
+  ag-agent-framework-langgraph-crewai-microsoft-agent-framework-etc: |-
+    Agent Framework: Program Executes the LLM. Runtime mechanically enforces external workflow control, state, routing, iteration, retries, persistence and termination.
+  ag-agent-control-language-arcgrav: |-
+    Agent Control Language: LLM Executes the Program. The model interprets context to coordinate retrieval, framing, orchestration, refinement, validation and execution; externally enforced guarantees remain outside the model.
+  ag-guide: |-
+    Guide documentation covers design principles, detailed syntax, reusable patterns and examples.
+  ag-fundamentals: |-
+    Distinguish retrieval, framing, optional refinement, and execution responsibilities.
+  ag-section-types: |-
+    Retrieval grounds inputs; Framing governs interpretation; optional Refinement shapes output; Execution selects actions.
+  ag-retrieval-input-grounding: |-
+    Represents tangible inputs and the target area of responsibility.
+  ag-framing-interpretation-layer: |-
+    Instructions shaping how the model interprets and reasons about the input.
+  ag-refinement-output-control-optional: |-
+    Optional special/output instructions that do not fit other sections.
+  ag-execution-operator-selection: |-
+    Specifies actions/operators for the model to perform.
+  ag-section-ordering: |-
+    Recommended order: Retrieval; Framing and optional Refinement; Execution.
+  ag-contract: |-
+    Prefer at least one Retrieval, Framing and Execution section. Additional Framing sections may specialize interpretation. Any number of Retrieval, Framing, or Refinement sections is allowed; usually use only one Execution section.
+  ag-syntax: |-
+    Sectioning: `Key:` with child values; unordered `-` items, ordered `1.` steps, priority `P0.`/`P1.`; indentation for hierarchy; bare content interpreted contextually, backticks for exact structural names, double quotes for exact textual values; triple quotes for bounded literal blocks; `[Name]` declares/recalls anchored context after definition; `=>` expresses operations rather than membership; trailing `↳` binds indented children to the preceding complete expression when colon grouping is ambiguous; `*` matches within a scope; `AS [Alias]` creates an inline symbolic alias for the immediately preceding context.
+  ag-why-this-works: |-
+    ArcGrav combines common corpus-familiar conventions: headings suggest scope, lists membership or sequence, indentation hierarchy, brackets reference, arrows transformation. The project hypothesizes model-learned structural priors can reduce interpretive burden and improve portability and precision; this is explanatory design rationale, not independently verified universal performance.
+  ag-research: |-
+    Research material motivates the representation through prompt sensitivity, in-context task recognition, associative retrieval, contextual anchoring, structured representations and prompt compression.

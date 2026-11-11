@@ -1,0 +1,74 @@
+# Intent: Compare alternative thermal-management concepts for a sealed outdoor electronics enclosure and recommend the design that best satisfies
+# - Heat-removal constraints
+# - Environmental constraints
+# - Maintenance constraints
+# - Power constraints
+
+[Need]:
+- Reject 180 W of continuous internal heat at 45 C ambient
+- Keep the hottest component case at or below 85 C
+- Enclosure must remain sealed against dust and wind-driven rain
+- Available auxiliary power: 35 W maximum
+- Intended unattended service interval: 24 months
+
+[Candidates]:
+- `PassiveHeatSink`: External finned heat sink coupled to the internal chassis through a conduction plate
+- `HeatPipe`: Internal heat spreader and sealed heat pipes transferring heat to an external fin stack
+- `ClosedLoopAir`: Internal and external air circuits separated by an air-to-air heat exchanger
+
+[Evidence]:
+- ./thermal-loads.csv
+- ./component-limits.md
+- ./candidate-test-results.csv
+- ./enclosure-envelope.dxf
+- ./fan-reliability.md
+- ./cost-estimates.csv
+
+[HardConstraints]:
+- No candidate may rely on exchanging enclosure air with the environment
+- Peak auxiliary electrical load must not exceed 35 W
+- Thermal compliance must include measurement uncertainty and the stated 45 C ambient condition
+- Any required service interval shorter than 24 months is a constraint failure, not merely a scoring penalty
+
+[TradeSpace]:
+- Thermal margin
+- Reliability and single-point failures
+- Auxiliary power
+- Environmental sealing impact
+- Manufacturability
+- Service burden
+- Mass and envelope impact
+- Lifecycle cost
+
+[Assessment]: []
+
+[Evaluate]:
+=> For each item in [Candidates] ↳
+  => Establish the heat-transfer path and the assumptions required for it to work
+  => Check [HardConstraints] before applying preference criteria
+  => Use [Evidence] to estimate thermal margin against [Need] at the design condition
+  => Identify relevant sensitivity to:
+    - Fouling
+    - Orientation
+    - Fan degradation
+    - Interface resistance
+    - Manufacturing tolerance
+  => Record unsupported assumptions and missing evidence separately from demonstrated weaknesses
+  => Append the result to [Assessment]
+
+[Select]:
+=> Exclude candidates that fail any [HardConstraints]
+=> Compare the remaining candidates across [TradeSpace] without collapsing unlike engineering risks into a single unexplained score
+=> Prefer the candidate with adequate thermal margin and the fewest consequential lifecycle failure modes
+=> If no candidate demonstrates compliance, recommend the smallest next test or design change needed to resolve the decision rather than selecting a nominal winner
+
+Task:
+1. Run [Evaluate]
+2. Run [Select]
+3. Present:
+  - Constraint screen
+  - Engineering trade matrix
+  - Key sensitivities
+  - Unresolved evidence gaps
+  - Preferred concept if supportable
+  - Verification work required before design freeze

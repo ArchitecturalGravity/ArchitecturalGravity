@@ -1,0 +1,72 @@
+# Intent: Evaluate candidate evidence against explicit role requirements without turning preferences into requirements or using non job relevant characteristics
+
+[RoleProfile]: ./hiring/role-profile.txt
+
+[CandidateEvidence]:
+- Candidate A: ./hiring/candidate-a/
+- Candidate B: ./hiring/candidate-b/
+- Candidate C: ./hiring/candidate-c/
+
+[AssessmentBoundaries]:
+- Use only job relevant evidence
+- Treat mandatory requirements as mandatory only when explicitly stated in [RoleProfile]
+- Treat preferences as preferences rather than hidden requirements
+- Do not infer missing evidence from:
+  - School
+  - Employer
+  - Location
+  - Name
+  - Appearance
+  - Family status
+  - Age
+  - Disability
+  - Race
+  - Religion
+  - Sex
+  - Gender
+  - Other protected characteristics
+- Record missing evidence as missing rather than negative
+
+[Requirements]: []
+
+[CandidateAssessments]: []
+
+[ExtractRequirements]:
+=> Read [RoleProfile]
+=> Append each explicit requirement to [Requirements] ↳
+  - Requirement
+  - Classification:
+    - Mandatory
+    - Preferred
+  - Evidence needed
+  - Decision relevance
+=> Preserve any ambiguity in the role profile as an open requirement question
+
+[AssessCandidates]:
+=> Apply [AssessmentBoundaries] to each candidate assessment
+=> For each candidate in [CandidateEvidence] ↳
+  => For each entry in [Requirements] ↳
+    - Link relevant candidate evidence
+    - Record evidence status:
+      - Demonstrated
+      - Partially demonstrated
+      - Not demonstrated
+      - Not assessable from available evidence
+    - Record material contradictions
+    - Record evidence gaps
+  => Append a candidate assessment to [CandidateAssessments]
+=> Keep preferred criteria separate from mandatory criteria
+=> Do not convert lack of evidence into a claim that a candidate lacks a capability
+=> Do not add evaluation criteria that are absent from [RoleProfile]
+
+[DecisionSupport]:
+=> Compare candidates only on explicit job relevant criteria under [AssessmentBoundaries]
+=> Surface mandatory requirement gaps separately from preference tradeoffs
+=> Preserve uncertainty where evidence is insufficient
+=> Flag any role requirement that cannot be applied consistently across candidates
+
+Task:
+1. Run [ExtractRequirements]
+2. Run [AssessCandidates]
+3. Run [DecisionSupport]
+4. Provide [CandidateAssessments] with requirement traceability and visible evidence gaps

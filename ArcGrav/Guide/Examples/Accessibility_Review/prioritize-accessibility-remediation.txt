@@ -1,0 +1,101 @@
+# Intent: Prioritize accessibility remediation by weighing user impact against delivery dependencies and release constraints
+
+[ReleaseContext]:
+- Product: University course registration portal
+- Release window: Six weeks
+- Constraint: Registration launch date cannot move
+- Constraint: Changes to shared authentication require platform-team approval
+- Constraint: Content-only changes may ship independently
+
+[BarrierRegister]:
+- B1:
+  - Barrier: Keyboard focus is not visible on course search filters
+  - Impact: Keyboard users can lose their current interaction position
+  - Scope: Shared filter component
+  - Evidence: ./findings/B1.md
+- B2:
+  - Barrier: Registration errors are announced only after focus moves away from the form
+  - Impact: Screen reader users may miss blocking validation feedback
+  - Scope: Registration form validation
+  - Evidence: ./findings/B2.md
+- B3:
+  - Barrier: Session timeout dialog does not move focus into the dialog
+  - Impact: Keyboard and screen reader users may not encounter the warning before logout
+  - Scope: Shared authentication shell
+  - Evidence: ./findings/B3.md
+- B4:
+  - Barrier: Several instructional images lack meaningful text alternatives
+  - Impact: Nonvisual users miss procedural information
+  - Scope: Registration help content
+  - Evidence: ./findings/B4.md
+- B5:
+  - Barrier: Course seat-status changes are not programmatically announced
+  - Impact: Screen reader users may act on stale status after live updates
+  - Scope: Course result row
+  - Evidence: ./findings/B5.md
+
+[Dependencies]:
+- B3:
+  - Requires: Platform authentication approval
+- B2:
+  - Requires: Registration validation refactor
+- B5:
+  - Requires: Result-row live-region design
+- B1:
+  - Requires: Shared filter component release
+- B4:
+  - Requires: Content owner review
+
+[Coupling]:
+- B2:
+  - Coupled with: Registration form regression testing
+- B5:
+  - Coupled with: Course result refresh behavior
+- B1:
+  - Coupled with: All portal surfaces using shared filters
+- B3:
+  - Coupled with: Session management behavior outside registration
+
+[DecisionFactors]:
+- User impact
+- Task criticality
+- Evidence confidence
+- Dependency readiness
+- Remediation scope
+- Regression risk
+- Release timing
+
+[PrioritizedWork]: []
+
+[Deferred]: []
+
+[Escalations]: []
+
+[Prioritize]:
+=> Apply release timing and approval constraints from [ReleaseContext] to remediation sequencing
+=> For each barrier establish the supported user impact and task consequence from [BarrierRegister]
+=> Map each barrier to its dependencies in [Dependencies] and coupled behavior in [Coupling]
+=> Distinguish blockers from sequencing preferences
+=> Prefer work that removes a severe task barrier when its dependencies are ready
+=> Do not rank a broad shared fix below a narrow local fix solely because the shared fix is larger
+=> Do not treat implementation effort as a proxy for user impact
+=> When a high-impact barrier is blocked by another team:
+  => Add the required dependency action to [Escalations]
+  => Preserve the barrier as active rather than silently deferring it
+=> When remediation cannot safely complete within the release window:
+  => Record the reason in [Deferred]
+  => Identify any bounded mitigation that reduces impact without obscuring the remaining barrier
+=> Group remediation that shares a material implementation or validation dependency
+=> Append an ordered remediation sequence with rationale to [PrioritizedWork]
+
+[Gate]:
+=> Every priority decision must cite at least one factor from [DecisionFactors]
+=> Every dependency-sensitive item must name the dependency that changes its sequencing
+=> Every deferred item must preserve its original user impact
+=> Every mitigation must remain distinguishable from full remediation
+=> Shared-component changes must include the coupled surfaces requiring regression validation
+
+Task:
+1. Run [Prioritize]
+2. Run [Gate]
+3. Present [PrioritizedWork] with [Escalations] and [Deferred]

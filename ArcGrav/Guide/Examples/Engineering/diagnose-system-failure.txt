@@ -1,0 +1,77 @@
+# Intent: Diagnose intermittent loss of pressure in a hydraulic test stand before authorizing component replacement by separating
+# - Symptoms
+# - Causal evidence
+# - Operating-condition dependencies
+
+[ObservedFailure]:
+- Commanded pressure is 210 bar
+- Pressure sometimes decays to 155-175 bar after 20-40 minutes of operation
+- Returning the stand to idle for several minutes can temporarily restore normal pressure
+- No external fluid leak has been reported
+
+[System]:
+- Variable-displacement pump
+- Proportional pressure-control valve
+- Accumulator
+- Oil cooler
+- Reservoir and return filter
+- Pressure and temperature instrumentation
+
+[Records]:
+- ./pressure-temperature-log.csv
+- ./valve-command-log.csv
+- ./maintenance-records.md
+- ./hydraulic-schematic.pdf
+- ./filter-differential-pressure.csv
+
+[CandidateCauses]:
+- Pump efficiency loss as oil temperature rises
+- Pressure-control valve drifting or sticking when warm
+- Suction restriction or aeration
+- Accumulator precharge loss
+- Sensor or acquisition error
+
+[DiagnosisState]:
+- `Confirmed`: []
+- `RuledOut`: []
+- `Unresolved`: [CandidateCauses]
+
+[EvidenceRules]:
+- Do not infer a failed component from temporal correlation alone
+- Distinguish true pressure loss from measurement error before replacing hydraulic hardware
+- Treat measurements taken downstream of a suspected restriction according to their location in the schematic
+- Compare normal and failed operating windows at similar commanded load where possible
+- Record evidence that contradicts a candidate cause, not only evidence that supports it
+
+[Investigate]:
+=> Locate [System] components and sensors in the hydraulic schematic from [Records]
+=> Align [Records] by timestamp and identify transitions into and out of the pressure-loss condition in [ObservedFailure]
+=> Apply [EvidenceRules] throughout cause evaluation
+=> Compare around each transition:
+  - Pressure
+  - Oil temperature
+  - Valve command
+  - Filter differential pressure
+  - Any available pump or motor indicators
+=> For each item in [CandidateCauses] ↳
+  => State the observations that should be present if the cause is active
+  => State observations that would materially weaken it
+  => Update [DiagnosisState] by classifying the cause according to evidence
+  => Retain the cause in `Unresolved` where the evidence does not confirm or rule it out
+=> Identify whether more than one cause can explain the same evidence or whether interacting causes remain plausible
+
+[NextChecks]:
+=> Rank unresolved causes by diagnostic value, not replacement cost or ease of access
+=> Specify the minimum safe check that would best discriminate the top remaining causes
+=> Prefer non-destructive measurements and controlled reproductions before disassembly
+=> Do not recommend replacing a component unless the accumulated evidence identifies it as the likely failure source or replacement is itself the justified diagnostic test
+
+Task:
+1. Run [Investigate]
+2. Run [NextChecks]
+3. Report:
+  - Failure timeline
+  - Cause-by-cause evidence table
+  - Current diagnosis state
+  - Confidence limits
+  - Ordered next diagnostic checks

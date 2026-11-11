@@ -1,0 +1,93 @@
+# Intent: Evaluate an interface against accessibility requirements while preserving evidence boundaries and unresolved observations
+
+[ReviewContext]:
+- Product: Regional transit trip-planning website
+- Surface: Desktop and responsive web journey planner
+- Review stage: Pre-release acceptance review
+- Primary outcome: Requirement-level accessibility findings with observable evidence
+
+[Authorities]:
+- Required:
+  - Applicable organizational accessibility standard
+  - Contractual accessibility acceptance criteria
+  - Documented keyboard interaction requirements
+- Advisory:
+  - Product design system accessibility guidance
+  - Internal usability research relevant to disabled users
+
+[EvidenceSources]:
+- Acceptance criteria: ./accessibility-acceptance.md
+- Interaction specification: ./journey-planner-interactions.md
+- Design system guidance: ./design-system-accessibility.md
+- Browser test record: ./browser-observations.md
+- Assistive technology test record: ./screen-reader-observations.md
+- Known limitation register: ./known-limitations.md
+
+[TestSurfaces]:
+- Origin and destination entry:
+  - Keyboard entry
+  - Autocomplete suggestions
+  - Validation feedback
+- Trip results:
+  - Result headings
+  - Route detail expansion
+  - Service alert disclosure
+- Preferences dialog:
+  - Dialog entry
+  - Focus containment
+  - Dialog exit
+- Responsive navigation:
+  - Menu activation
+  - Current location indication
+  - Focus order
+
+[FindingStates]:
+- Confirmed pass
+- Confirmed failure
+- Not testable from available evidence
+- Conflicting evidence
+
+[Findings]: []
+
+[Unresolved]: []
+
+[Review]:
+=> Establish review parameters from [ReviewContext] ↳
+  - Review scope
+  - Review stage
+  - Finding objective
+=> Resolve [EvidenceSources] before establishing criteria or findings
+=> Record unavailable evidence sources in [Unresolved]
+=> Establish testable criteria from [Authorities]
+=> For each criterion establish:
+  - Requirement source
+  - Observable behavior
+  - Relevant [TestSurfaces]
+  - Evidence needed for a conclusion
+=> Evaluate available observations against each criterion
+=> For each finding preserve:
+  - Finding state from [FindingStates]
+  - Requirement being evaluated
+  - Observed behavior
+  - Evidence source
+  - Affected interaction path
+  - User impact when supported by evidence
+=> Do not infer a pass from missing evidence
+=> Do not convert advisory guidance into a mandatory requirement
+=> When browser and assistive technology observations conflict:
+  => Preserve both observations
+  => Record the conflict in [Unresolved]
+  => Identify the additional observation needed to resolve it
+=> Append requirement-level results to [Findings]
+
+[Check]:
+=> Verify every failure names both the governing requirement and the observed behavior
+=> Verify every pass has affirmative evidence rather than absence of a reported problem
+=> Verify keyboard-only paths are evaluated independently from pointer interaction
+=> Verify focus behavior is evaluated across the full focus-scope lifecycle
+=> Verify unresolved evidence remains visible rather than being assigned a convenient conclusion
+
+Task:
+1. Run [Review]
+2. Run [Check]
+3. Present [Findings] grouped by [FindingStates] with [Unresolved]

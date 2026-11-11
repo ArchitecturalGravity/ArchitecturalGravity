@@ -1,0 +1,170 @@
+# Intent: Synthesize user research observations into evidence-backed themes while preserving participant differences and contradictory cases without losing source provenance or unresolved uncertainty
+
+Scope: Six moderated Harbor Team Workspace setup sessions
+
+[ResearchContext]:
+- Product area: Harbor Team Workspace setup
+- Study type: Moderated prototype sessions
+- Analysis goal: Identify patterns that should inform the next design iteration
+- Evidence boundary: Six completed sessions from the same study round
+
+[P01]: Individual contributor with prior workspace administration experience
+
+[P02]: Individual contributor without workspace administration experience
+
+[P03]: Small-team coordinator with prior workspace administration experience
+
+[P04]: Small-team coordinator without workspace administration experience
+
+[P05]: Project lead with prior workspace administration experience
+
+[P06]: Project lead without workspace administration experience
+
+[Participants]:
+- [P01]
+- [P02]
+- [P03]
+- [P04]
+- [P05]
+- [P06]
+
+[E01]:
+- Participant: [P01]
+- Source: ./sessions/p01-notes.txt
+- Observation: Participant paused at the workspace visibility choice before selecting Team Only
+- Timestamp: 00:11:42
+
+[E02]:
+- Participant: [P02]
+- Source: ./sessions/p02-notes.txt
+- Observation: Participant interpreted workspace visibility as a setting for who could edit
+- Timestamp: 00:09:18
+
+[E03]:
+- Participant: [P03]
+- Source: ./sessions/p03-notes.txt
+- Observation: Participant completed visibility selection without hesitation and correctly explained who could see the workspace
+- Timestamp: 00:10:03
+
+[E04]:
+- Participant: [P04]
+- Source: ./sessions/p04-notes.txt
+- Observation: Participant reopened the visibility help text twice before continuing
+- Timestamp: 00:12:27
+
+[E05]:
+- Participant: [P05]
+- Source: ./sessions/p05-notes.txt
+- Observation: Participant expected invited teammates to see the workspace immediately after entering their test accounts
+- Timestamp: 00:16:51
+
+[E06]:
+- Participant: [P06]
+- Source: ./sessions/p06-notes.txt
+- Observation: Participant expected invitations to remain pending until the workspace was published
+- Timestamp: 00:15:39
+
+[E07]:
+- Participant: [P02]
+- Source: ./sessions/p02-notes.txt
+- Observation: Participant recovered from the visibility misinterpretation after reading the help text
+- Timestamp: 00:10:06
+
+[E08]:
+- Participant: [P04]
+- Source: ./sessions/p04-notes.txt
+- Observation: Participant correctly explained teammate visibility at the end of the session
+- Timestamp: 00:22:14
+
+[E09]:
+- Participant: [P03]
+- Source: ./sessions/p03-notes.txt
+- Observation: Participant expected teammates to receive an invitation immediately
+- Timestamp: 00:17:08
+
+[Evidence]:
+- [E01]
+- [E02]
+- [E03]
+- [E04]
+- [E05]
+- [E06]
+- [E07]
+- [E08]
+- [E09]
+
+[T1]: Visibility language may be confused with editing permissions
+
+[T2]: Help text may support recovery after initial visibility confusion
+
+[T3]: Invitation timing expectations may not match prototype behavior
+
+[CandidateThemes]:
+- [T1]
+- [T2]
+- [T3]
+
+[SupportStates]:
+- Strongly supported
+- Provisionally supported
+- Weakly supported
+- Unsupported
+
+[EvidenceStandards]:
+- Pattern strength depends on independent participant evidence rather than observation count alone
+- A theme must cite every supporting evidence reference used to justify it
+- Contradictory evidence must remain attached to the theme it challenges
+- A single participant can contribute multiple observations without becoming multiple independent participants
+- Researcher interpretation must not be restated as direct participant evidence
+- Absence of an observed problem is not proof that the problem does not exist
+
+[ThemeAssessments]: []
+
+[Exceptions]: []
+
+[Unresolved]: []
+
+[Synthesis]: []
+
+[AssessThemes]:
+=> Assess [CandidateThemes] against [EvidenceStandards]
+=> For each candidate in [CandidateThemes] ↳
+  - Gather supporting items from [Evidence]
+  - Gather contradictory or limiting items from [Evidence]
+  - Count independent participants represented on each side
+  - Compare the pattern across relevant participant context in [Participants]
+  - Record the candidate state from [SupportStates]
+  - Preserve every evidence reference used in the assessment
+=> Append each result to [ThemeAssessments]
+
+[HandleExceptions]:
+=> For each supported or provisionally supported theme:
+  - Identify participants whose evidence does not fit the pattern
+  - Record the evidence reference and participant context in [Exceptions]
+  - Determine whether the exception narrows the theme or challenges it materially
+  - Do not remove an exception solely to make the theme more uniform
+
+[Synthesize]:
+=> Convert supported patterns into findings that state the observed scope
+=> Keep causal explanations in [Unresolved] unless the evidence directly supports them
+=> Keep differences by participant experience in [Unresolved] when the sample is too small to attribute the difference reliably
+=> Attach supporting evidence references to every finding
+=> Attach material exceptions to the finding they limit
+=> Append final findings to [Synthesis]
+
+[Validate]:
+=> Verify every finding can be traced to [Evidence]
+=> Verify no theme uses repeated observations from one participant as independent replication
+=> Verify contradictory cases remain visible
+=> Verify uncertainty is preserved where the study round cannot resolve cause or population prevalence
+=> Verify the synthesis does not generalize beyond the evidence boundary in [ResearchContext]
+
+Task:
+1. Run [AssessThemes]
+2. Run [HandleExceptions]
+3. Run [Synthesize]
+4. Run [Validate]
+5. Provide [Synthesis]
+6. Include [ThemeAssessments]
+7. Include [Exceptions]
+8. Include [Unresolved]

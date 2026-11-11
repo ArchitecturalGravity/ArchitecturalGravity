@@ -1,0 +1,649 @@
+{
+  "description": "Canonical scholarly references used across the Architectural Gravity research corpus. Alternate URLs identify other cited editions of the same work.",
+  "references": [
+    {
+      "id": "agrawal2024cantrememberdetails",
+      "authors": "Agrawal, D., Gao, S., & Gajek, M.",
+      "year": 2024,
+      "title": "Can’t Remember Details in Long Documents? You Need Some R&R",
+      "venue": "Findings of EMNLP 2024",
+      "url": "https://aclanthology.org/2024.findings-emnlp.742/"
+    },
+    {
+      "id": "bajaj2026beyondsemanticshow",
+      "authors": "Bajaj, A., et al.",
+      "year": 2026,
+      "title": "Beyond Semantics: How Temporal Biases Shapes Retrieval in Transformer and State-Space Models",
+      "venue": "ACL Anthology",
+      "url": "https://aclanthology.org/2026.eacl-long.355/"
+    },
+    {
+      "id": "chandra1999",
+      "authors": "Chandra, A., & Krovi, R.",
+      "year": 1999,
+      "title": "Representational congruence and information retrieval: Towards an extended model of cognitive fit",
+      "venue": "Decision Support Systems",
+      "url": "https://doi.org/10.1016/S0167-9236(99)00014-7"
+    },
+    {
+      "id": "chatterjee2024",
+      "authors": "Chatterjee, A., et al.",
+      "year": 2024,
+      "title": "POSIX: A Prompt Sensitivity Index For Large Language Models",
+      "venue": "Findings of EMNLP",
+      "url": "https://aclanthology.org/2024.findings-emnlp.852/"
+    },
+    {
+      "id": "chiang2021",
+      "authors": "Chiang, J. N., et al.",
+      "year": 2021,
+      "title": "Distributed Code for Semantic Relations Predicts Neural Similarity during Analogical Reasoning",
+      "venue": "Journal of Cognitive Neuroscience",
+      "url": "https://doi.org/10.1162/jocn_a_01620"
+    },
+    {
+      "id": "desabbata2024",
+      "authors": "De Sabbata, C. N., et al.",
+      "year": 2024,
+      "title": "Rational Metareasoning for Large Language Models",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2410.05563"
+    },
+    {
+      "id": "deshpande2025multichallengearealistic",
+      "authors": "Deshpande, K., et al.",
+      "year": 2025,
+      "title": "MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs",
+      "venue": "ACL Anthology",
+      "url": "https://aclanthology.org/2025.findings-acl.958/"
+    },
+    {
+      "id": "elhage2022",
+      "authors": "Elhage, N., et al.",
+      "year": 2022,
+      "title": "Toy Models of Superposition",
+      "venue": "Transformer Circuits",
+      "url": "https://transformer-circuits.pub/2022/toy_model/index.html"
+    },
+    {
+      "id": "epstein2024mmmtifachallenging",
+      "authors": "Epstein, E. L., et al.",
+      "year": 2024,
+      "title": "MMMT-IF: A Challenging Multimodal Multi-Turn Instruction Following Benchmark",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2409.18216"
+    },
+    {
+      "id": "gibson1998",
+      "authors": "Gibson, E.",
+      "year": 1998,
+      "title": "Linguistic complexity: locality of syntactic dependencies",
+      "venue": "Cognition",
+      "url": "https://doi.org/10.1016/S0010-0277(98)00034-1"
+    },
+    {
+      "id": "gonen2023",
+      "authors": "Gonen, H., et al.",
+      "year": 2023,
+      "title": "Demystifying Prompts in Language Models via Perplexity Estimation",
+      "venue": "Findings of EMNLP",
+      "url": "https://aclanthology.org/2023.findings-emnlp.679/"
+    },
+    {
+      "id": "halford1998",
+      "authors": "Halford, G. S., Wilson, W. H., & Phillips, S.",
+      "year": 1998,
+      "title": "Processing capacity defined by relational complexity: Implications for comparative, developmental, and cognitive psychology",
+      "venue": "Behavioral and Brain Sciences",
+      "url": "https://doi.org/10.1017/S0140525X98001769"
+    },
+    {
+      "id": "han2025canlanguagemodels",
+      "authors": "Han, C., et al.",
+      "year": 2025,
+      "title": "Can Language Models Follow Multiple Turns of Entangled Instructions?",
+      "venue": "Findings of EMNLP 2025",
+      "url": "https://aclanthology.org/2025.findings-emnlp.1387/"
+    },
+    {
+      "id": "he2024",
+      "authors": "He, J., et al.",
+      "year": 2024,
+      "title": "Does Prompt Formatting Have Any Impact on LLM Performance?",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2411.10541"
+    },
+    {
+      "id": "hendel2023",
+      "authors": "Hendel, R., et al.",
+      "year": 2023,
+      "title": "In-Context Learning Creates Task Vectors",
+      "venue": "Findings of EMNLP / arXiv",
+      "url": "https://arxiv.org/abs/2310.15916"
+    },
+    {
+      "id": "hogarth1992ordereffectsin",
+      "authors": "Hogarth, R. M., & Einhorn, H. J.",
+      "year": 1992,
+      "title": "Order effects in belief updating: The belief-adjustment model",
+      "venue": "Cognitive Psychology",
+      "url": "https://doi.org/10.1016/0010-0285(92)90002-J"
+    },
+    {
+      "id": "holyoak2021",
+      "authors": "Holyoak, K. J., & Monti, M. M.",
+      "year": 2021,
+      "title": "Relational Integration in the Human Brain: A Review and Synthesis",
+      "venue": "Journal of Cognitive Neuroscience",
+      "url": "https://doi.org/10.1162/jocn_a_01619"
+    },
+    {
+      "id": "honovich2022",
+      "authors": "Honovich, O., et al.",
+      "year": 2022,
+      "title": "Instruction Induction: From Few Examples to Natural Language Task Descriptions",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2205.10782"
+    },
+    {
+      "id": "hsieh2024rulerwhatsthe",
+      "authors": "Hsieh, C.-P., et al.",
+      "year": 2024,
+      "title": "RULER: What's the Real Context Size of Your Long-Context Language Models?",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2404.06654"
+    },
+    {
+      "id": "hsieh2024foundinthe",
+      "authors": "Hsieh, C.-Y., et al.",
+      "year": 2024,
+      "title": "Found in the Middle: Calibrating Positional Attention Bias Improves Long Context Utilization",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2406.16008",
+      "yearSuffix": "b"
+    },
+    {
+      "id": "hu2024strategicdemonstrationselection",
+      "authors": "Hu, J., Liu, W., & Du, M.",
+      "year": 2024,
+      "title": "Strategic Demonstration Selection for Improved Fairness in LLM In-Context Learning",
+      "venue": "EMNLP 2024",
+      "url": "https://aclanthology.org/2024.emnlp-main.425/"
+    },
+    {
+      "id": "hua2025",
+      "authors": "Hua, A., et al.",
+      "year": 2025,
+      "title": "Flaw or Artifact? Rethinking Prompt Sensitivity in Evaluating LLMs",
+      "venue": "EMNLP",
+      "url": "https://aclanthology.org/2025.emnlp-main.1006/"
+    },
+    {
+      "id": "huh2024",
+      "authors": "Huh, M., et al.",
+      "year": 2024,
+      "title": "Position: The Platonic Representation Hypothesis",
+      "venue": "ICML / PMLR",
+      "url": "https://proceedings.mlr.press/v235/huh24a.html"
+    },
+    {
+      "id": "jaroslawicz2025",
+      "authors": "Jaroslawicz, D., et al.",
+      "year": 2025,
+      "title": "How Many Instructions Can LLMs Follow at Once?",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2507.11538"
+    },
+    {
+      "id": "jeoung2026",
+      "authors": "Jeoung, S., et al.",
+      "year": 2026,
+      "title": "PromptPrism: A Linguistically-Inspired Taxonomy for Prompts",
+      "venue": "Findings of EACL",
+      "url": "https://aclanthology.org/2026.findings-eacl.61/"
+    },
+    {
+      "id": "jia2026onebattleafter",
+      "authors": "Jia, Q., et al.",
+      "year": 2026,
+      "title": "One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework",
+      "venue": "ACL 2026",
+      "url": "https://aclanthology.org/2026.acl-long.433/"
+    },
+    {
+      "id": "jiang2023llmlinguacompressingprompts",
+      "authors": "Jiang, H., et al.",
+      "year": 2023,
+      "title": "LLMLingua: Compressing Prompts for Accelerated Inference of Large Language Models",
+      "venue": "ACL Anthology",
+      "url": "https://aclanthology.org/2023.emnlp-main.825/"
+    },
+    {
+      "id": "jiang2024",
+      "authors": "Jiang, Y., et al.",
+      "year": 2024,
+      "title": "On the Origins of Linear Representations in Large Language Models",
+      "venue": "ICML / PMLR",
+      "url": "https://proceedings.mlr.press/v235/jiang24d.html"
+    },
+    {
+      "id": "khot2022",
+      "authors": "Khot, T., et al.",
+      "year": 2022,
+      "title": "Decomposed Prompting: A Modular Approach for Solving Complex Tasks",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2210.02406"
+    },
+    {
+      "id": "kirsh2010",
+      "authors": "Kirsh, D.",
+      "year": 2010,
+      "title": "Thinking with external representations",
+      "venue": "AI & Society",
+      "url": "https://doi.org/10.1007/s00146-010-0272-8"
+    },
+    {
+      "id": "kurfali2025conflictingneedlesin",
+      "authors": "Kurfali, M., & Östling, R.",
+      "year": 2025,
+      "title": "Conflicting Needles in a Haystack: How LLMs behave when faced with contradictory information",
+      "venue": "ACL Anthology",
+      "url": "https://aclanthology.org/2025.emnlp-main.1742/"
+    },
+    {
+      "id": "lewis2005anactivationbasedmodel",
+      "authors": "Lewis, R. L., & Vasishth, S.",
+      "year": 2005,
+      "title": "An activation-based model of sentence processing as skilled memory retrieval",
+      "venue": "Cognitive Science",
+      "url": "https://doi.org/10.1207/s15516709cog0000_25"
+    },
+    {
+      "id": "li2025structflowbenchastructured",
+      "authors": "Li, J., Li, J., Wang, Y., Chang, Y., & Wu, Y.",
+      "year": 2025,
+      "title": "StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following",
+      "venue": "Findings of ACL 2025",
+      "url": "https://aclanthology.org/2025.findings-acl.486/"
+    },
+    {
+      "id": "li2024measuringandcontrolling",
+      "authors": "Li, K., et al.",
+      "year": 2024,
+      "title": "Measuring and Controlling Instruction (In)Stability in Language Model Dialogs",
+      "venue": "COLM 2024",
+      "url": "https://openreview.net/forum?id=60a1SAtH4e"
+    },
+    {
+      "id": "lieder2017",
+      "authors": "Lieder, F., & Griffiths, T. L.",
+      "year": 2017,
+      "title": "Strategy selection as rational metareasoning",
+      "venue": "Psychological Review",
+      "url": "https://doi.org/10.1037/rev0000075"
+    },
+    {
+      "id": "lieder2019",
+      "authors": "Lieder, F., & Griffiths, T. L.",
+      "year": 2019,
+      "title": "Resource-rational analysis: Understanding human cognition as the optimal use of limited computational resources",
+      "venue": "Behavioral and Brain Sciences",
+      "url": "https://doi.org/10.1017/S0140525X1900061X"
+    },
+    {
+      "id": "liu2024lostmiddle",
+      "authors": "Liu, N. F., et al.",
+      "year": 2024,
+      "title": "Lost in the Middle: How Language Models Use Long Contexts",
+      "venue": "Transactions of the Association for Computational Linguistics",
+      "url": "https://aclanthology.org/2024.tacl-1.9/"
+    },
+    {
+      "id": "liu2023vectors",
+      "authors": "Liu, S., et al.",
+      "year": 2023,
+      "title": "In-context Vectors: Making In Context Learning More Effective and Controllable Through Latent Space Steering",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2311.06668"
+    },
+    {
+      "id": "liuchu2026",
+      "authors": "Liu, Y., & Chu, C.",
+      "year": 2026,
+      "title": "Understanding the Prompt Sensitivity",
+      "venue": "ACL",
+      "url": "https://aclanthology.org/2026.acl-long.2053/"
+    },
+    {
+      "id": "liu2025cfpo",
+      "authors": "Liu, Y., et al.",
+      "year": 2025,
+      "title": "Beyond Prompt Content: Enhancing LLM Performance via Content-Format Integrated Prompt Optimization",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2502.04295"
+    },
+    {
+      "id": "liu2024instructionpositionmatters",
+      "authors": "Liu, Y., Zeng, X., Shao, C., Meng, F., & Zhou, J.",
+      "year": 2024,
+      "title": "Instruction Position Matters in Sequence Generation with Large Language Models",
+      "venue": "Findings of ACL 2024",
+      "url": "https://aclanthology.org/2024.findings-acl.693/"
+    },
+    {
+      "id": "lu2022",
+      "authors": "Lu, Y., et al.",
+      "year": 2022,
+      "title": "Fantastically Ordered Prompts and Where to Find Them: Overcoming Few-Shot Prompt Order Sensitivity",
+      "venue": "ACL / arXiv",
+      "url": "https://arxiv.org/abs/2104.08786",
+      "alternate_urls": [
+        "https://aclanthology.org/2022.acl-long.556/"
+      ]
+    },
+    {
+      "id": "min2022",
+      "authors": "Min, S., et al.",
+      "year": 2022,
+      "title": "Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?",
+      "venue": "EMNLP",
+      "url": "https://aclanthology.org/2022.emnlp-main.759/"
+    },
+    {
+      "id": "mishra2023",
+      "authors": "Mishra, M., et al.",
+      "year": 2023,
+      "title": "Prompting with Pseudo-Code Instructions",
+      "venue": "EMNLP",
+      "url": "https://aclanthology.org/2023.emnlp-main.939/"
+    },
+    {
+      "id": "modarressi2025nolimalongcontextevaluation",
+      "authors": "Modarressi, A., et al.",
+      "year": 2025,
+      "title": "NoLiMa: Long-Context Evaluation Beyond Literal Matching",
+      "venue": "ICML 2025",
+      "url": "https://proceedings.mlr.press/v267/modarressi25a.html"
+    },
+    {
+      "id": "olsson2022",
+      "authors": "Olsson, C., et al.",
+      "year": 2022,
+      "title": "In-context Learning and Induction Heads",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2209.11895"
+    },
+    {
+      "id": "packer2023memgpttowardsllms",
+      "authors": "Packer, C., et al.",
+      "year": 2023,
+      "title": "MemGPT: Towards LLMs as Operating Systems",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2310.08560"
+    },
+    {
+      "id": "pan2023",
+      "authors": "Pan, J., et al.",
+      "year": 2023,
+      "title": "What In-Context Learning Learns In-Context: Disentangling Task Recognition and Task Learning",
+      "venue": "Findings of ACL",
+      "url": "https://aclanthology.org/2023.findings-acl.527/"
+    },
+    {
+      "id": "pan2024llmlingua2datadistillation",
+      "authors": "Pan, Z., et al.",
+      "year": 2024,
+      "title": "LLMLingua-2: Data Distillation for Efficient and Faithful Task-Agnostic Prompt Compression",
+      "venue": "ACL Anthology",
+      "url": "https://aclanthology.org/2024.findings-acl.57/"
+    },
+    {
+      "id": "park2024",
+      "authors": "Park, K., et al.",
+      "year": 2024,
+      "title": "The Linear Representation Hypothesis and the Geometry of Large Language Models",
+      "venue": "ICML / PMLR",
+      "url": "https://proceedings.mlr.press/v235/park24c.html"
+    },
+    {
+      "id": "puerto2024",
+      "authors": "Puerto, H., et al.",
+      "year": 2024,
+      "title": "Code Prompting Elicits Conditional Reasoning Abilities in Text+Code LLMs",
+      "venue": "EMNLP",
+      "url": "https://aclanthology.org/2024.emnlp-main.629/"
+    },
+    {
+      "id": "ramsauer2020",
+      "authors": "Ramsauer, H., et al.",
+      "year": 2020,
+      "title": "Hopfield Networks Is All You Need",
+      "venue": "arXiv / OpenReview",
+      "url": "https://openreview.net/forum?id=tL89RnzIiCd"
+    },
+    {
+      "id": "risko2016",
+      "authors": "Risko, E. F., & Gilbert, S. J.",
+      "year": 2016,
+      "title": "Cognitive Offloading",
+      "venue": "Trends in Cognitive Sciences",
+      "url": "https://doi.org/10.1016/j.tics.2016.07.002"
+    },
+    {
+      "id": "shi2023largelanguagemodels",
+      "authors": "Shi, F., et al.",
+      "year": 2023,
+      "title": "Large Language Models Can Be Easily Distracted by Irrelevant Context",
+      "venue": "ICML 2023",
+      "url": "https://proceedings.mlr.press/v202/shi23a.html"
+    },
+    {
+      "id": "tam2024",
+      "authors": "Tam, Z. R., et al.",
+      "year": 2024,
+      "title": "Let Me Speak Freely? A Study On The Impact Of Format Restrictions On Large Language Model Performance",
+      "venue": "EMNLP Industry",
+      "url": "https://aclanthology.org/2024.emnlp-industry.91/"
+    },
+    {
+      "id": "tian2025distancebetweenrelevant",
+      "authors": "Tian, R., et al.",
+      "year": 2025,
+      "title": "Distance between Relevant Information Pieces Causes Bias in Long-Context LLMs",
+      "venue": "Findings of ACL 2025",
+      "url": "https://aclanthology.org/2025.findings-acl.28/"
+    },
+    {
+      "id": "todd2023",
+      "authors": "Todd, E., et al.",
+      "year": 2023,
+      "title": "Function Vectors in Large Language Models",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2310.15213"
+    },
+    {
+      "id": "vasileva2026",
+      "authors": "Vasileva, M. I.",
+      "year": 2026,
+      "title": "Large Language Models Can Follow Instructions, But Not Many at Once: Phase Transitions in Compositional Constraint Satisfaction",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2608.12426"
+    },
+    {
+      "id": "vessey1991",
+      "authors": "Vessey, I.",
+      "year": 1991,
+      "title": "Cognitive Fit: A Theory-Based Analysis of the Graphs Versus Tables Literature",
+      "venue": "Decision Sciences",
+      "url": "https://doi.org/10.1111/j.1540-5915.1991.tb00344.x"
+    },
+    {
+      "id": "voita2020",
+      "authors": "Voita, E., & Titov, I.",
+      "year": 2020,
+      "title": "Information-Theoretic Probing with Minimum Description Length",
+      "venue": "EMNLP",
+      "url": "https://aclanthology.org/2020.emnlp-main.14/"
+    },
+    {
+      "id": "oswald2022",
+      "authors": "von Oswald, J., et al.",
+      "year": 2022,
+      "title": "Transformers Learn In-Context by Gradient Descent",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2212.07677"
+    },
+    {
+      "id": "wallace2024",
+      "authors": "Wallace, E., et al.",
+      "year": 2024,
+      "title": "The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2404.13208"
+    },
+    {
+      "id": "wang2023grammar",
+      "authors": "Wang, B., et al.",
+      "year": 2023,
+      "title": "Grammar Prompting for Domain-Specific Language Generation with Large Language Models",
+      "venue": "NeurIPS",
+      "url": "https://proceedings.neurips.cc/paper_files/paper/2023/hash/cd40d0d65bfebb894ccc9ea822b47fa8-Abstract-Conference.html"
+    },
+    {
+      "id": "wang2023label",
+      "authors": "Wang, L., et al.",
+      "year": 2023,
+      "title": "Label Words are Anchors: An Information Flow Perspective for Understanding In-Context Learning",
+      "venue": "EMNLP",
+      "url": "https://aclanthology.org/2023.emnlp-main.609/"
+    },
+    {
+      "id": "webson2022",
+      "authors": "Webson, A., & Pavlick, E.",
+      "year": 2022,
+      "title": "Do Prompt-Based Models Really Understand the Meaning of Their Prompts?",
+      "venue": "NAACL",
+      "url": "https://aclanthology.org/2022.naacl-main.167/"
+    },
+    {
+      "id": "wei2022cot",
+      "authors": "Wei, J., et al.",
+      "year": 2022,
+      "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "venue": "NeurIPS",
+      "url": "https://proceedings.neurips.cc/paper/2022/hash/9d5609613524ecf4f15af0f7b31abca4-Abstract-Conference.html"
+    },
+    {
+      "id": "wei2023larger",
+      "authors": "Wei, J., et al.",
+      "year": 2023,
+      "title": "Larger language models do in-context learning differently",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2303.03846"
+    },
+    {
+      "id": "wei2023symbol",
+      "authors": "Wei, J., et al.",
+      "year": 2023,
+      "title": "Symbol tuning improves in-context learning in language models",
+      "venue": "EMNLP",
+      "url": "https://aclanthology.org/2023.emnlp-main.61/"
+    },
+    {
+      "id": "wen2024",
+      "authors": "Wen, B., et al.",
+      "year": 2024,
+      "title": "Benchmarking Complex Instruction-Following with Multiple Constraints Composition",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2407.03978"
+    },
+    {
+      "id": "wu2025longmemevalbenchmarkingchat",
+      "authors": "Wu, D., et al.",
+      "year": 2025,
+      "title": "LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2410.10813"
+    },
+    {
+      "id": "xie2026",
+      "authors": "Xie, Q., et al.",
+      "year": 2026,
+      "title": "Beyond Prompt Engineering: A Systematic Analysis of Prompt Lexical Sensitivity and Its Impacts on Quality",
+      "venue": "Findings of ACL",
+      "url": "https://aclanthology.org/2026.findings-acl.2084/"
+    },
+    {
+      "id": "xie2022",
+      "authors": "Xie, S. M., et al.",
+      "year": 2022,
+      "title": "An Explanation of In-context Learning as Implicit Bayesian Inference",
+      "venue": "ICLR / arXiv",
+      "url": "https://arxiv.org/abs/2111.02080"
+    },
+    {
+      "id": "yang2026",
+      "authors": "Yang, C., et al.",
+      "year": 2026,
+      "title": "What Prompts Don’t Say: Understanding and Managing Underspecification in LLM Prompts",
+      "venue": "Findings of ACL",
+      "url": "https://aclanthology.org/2026.findings-acl.441/"
+    },
+    {
+      "id": "yu2024howdolarge",
+      "authors": "Yu, Z., & Ananiadou, S.",
+      "year": 2024,
+      "title": "How do Large Language Models Learn In-Context? Query and Key Matrices of In-Context Heads are Two Towers for Metric Learning",
+      "venue": "EMNLP 2024",
+      "url": "https://aclanthology.org/2024.emnlp-main.192/"
+    },
+    {
+      "id": "zhang2024canweinstruct",
+      "authors": "Zhang, M., Meng, Z., & Collier, N.",
+      "year": 2024,
+      "title": "Can We Instruct LLMs to Compensate for Position Bias?",
+      "venue": "Findings of EMNLP 2024",
+      "url": "https://aclanthology.org/2024.findings-emnlp.732/"
+    },
+    {
+      "id": "zhang2025moreisnot",
+      "authors": "Zhang, X., et al.",
+      "year": 2025,
+      "title": "More is not always better? Enhancing Many-Shot In-Context Learning with Differentiated and Reweighting Objectives",
+      "venue": "ACL 2025",
+      "url": "https://aclanthology.org/2025.acl-long.1475/"
+    },
+    {
+      "id": "zhao2021calibratebeforeuse",
+      "authors": "Zhao, Z., et al.",
+      "year": 2021,
+      "title": "Calibrate Before Use: Improving Few-shot Performance of Language Models",
+      "venue": "ICML 2021",
+      "url": "https://proceedings.mlr.press/v139/zhao21c.html"
+    },
+    {
+      "id": "zhou2023",
+      "authors": "Zhou, D., et al.",
+      "year": 2023,
+      "title": "Least-to-Most Prompting Enables Complex Reasoning in Large Language Models",
+      "venue": "ICLR / arXiv",
+      "url": "https://arxiv.org/abs/2205.10625"
+    },
+    {
+      "id": "zhuo2024",
+      "authors": "Zhuo, J., et al.",
+      "year": 2024,
+      "title": "ProSA: Assessing and Understanding the Prompt Sensitivity of LLMs",
+      "venue": "Findings of EMNLP",
+      "url": "https://aclanthology.org/2024.findings-emnlp.108/"
+    },
+    {
+      "id": "zou2025onmanyshotincontext",
+      "authors": "Zou, K., Khalifa, M., & Wang, L.",
+      "year": 2025,
+      "title": "On Many-Shot In-Context Learning for Long-Context Evaluation",
+      "venue": "ACL 2025",
+      "url": "https://aclanthology.org/2025.acl-long.1245/"
+    }
+  ]
+}

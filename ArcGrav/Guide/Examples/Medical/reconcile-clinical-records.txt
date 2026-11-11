@@ -1,0 +1,91 @@
+# Intent: Reconcile conflicting clinical record entries while preserving source provenance and unresolved uncertainty
+
+Context:
+- Record identifier: Example patient A
+- Encounter type: Outpatient follow-up
+- Decision authority: Licensed clinician
+- Purpose: Prepare a reconciled evidence view for clinical review
+
+[S1]:
+- Source: Patient-reported history
+- Recorded at: Current visit
+
+[S2]:
+- Source: Primary care record
+- Recorded at: Previous visit
+
+[S3]:
+- Source: Specialist consultation note
+- Recorded at: Most recent specialist review
+
+[S4]:
+- Source: Laboratory result
+- Recorded at: Most recent collection
+
+[Sources]:
+- [S1]
+- [S2]
+- [S3]
+- [S4]
+
+[RecordEntries]:
+- E1:
+  - Topic: Current symptom onset
+  - Source: [S1]
+  - Value: Approximately three weeks ago
+- E2:
+  - Topic: Current symptom onset
+  - Source: [S2]
+  - Value: Approximately five weeks ago
+- E3:
+  - Topic: Prior adverse reaction
+  - Source: [S1]
+  - Value: Reported
+- E4:
+  - Topic: Prior adverse reaction
+  - Source: [S3]
+  - Value: Not documented
+- E5:
+  - Topic: Laboratory finding
+  - Source: [S4]
+  - Value: Outside the reference interval
+
+[Reconciled]: []
+
+[Conflicts]: []
+
+[Unknown]: []
+
+[Reconcile]:
+=> Validate source references in [RecordEntries] against [Sources]
+=> Group [RecordEntries] by topic
+=> For each topic:
+  => Preserve every source independently
+  => Distinguish:
+    - Directly reported information
+    - Clinician documentation
+    - Objective test evidence
+    - Missing documentation
+  => Do not treat missing documentation as evidence that an event did not occur
+  => If entries agree:
+    => Append the supported statement and its sources to [Reconciled]
+  => If entries materially disagree:
+    => Append the disagreement and source provenance to [Conflicts]
+  => If available evidence cannot resolve the disagreement:
+    => Append the unresolved question to [Unknown]
+
+[ReviewGate]:
+=> Do not infer a diagnosis from the reconciled record
+=> Do not modify a clinical problem list or treatment plan
+=> Identify which conflicts may materially affect clinician interpretation
+=> Route unresolved clinically material conflicts for clinician review
+
+Task:
+1. Run [Reconcile]
+2. Run [ReviewGate]
+3. Present:
+  - Reconciled evidence
+  - Conflicting entries
+  - Source provenance
+  - Unresolved questions
+  - Items requiring clinician review

@@ -1,0 +1,115 @@
+# Intent: Coordinate a packaging-line changeover around prerequisites shared resources verification and restart conditions without hiding sequencing conflicts
+
+[ChangeoverContext]:
+- Line: Liquid hand soap packaging line 2
+- Current SKU: 500 milliliter round bottle
+- Next SKU: 750 milliliter rectangular bottle
+- Planned stop: 13:30
+- Target restart: 14:40
+- Maximum planned changeover window: 70 minutes
+
+[RequiredChanges]:
+- Container path:
+  - Replace filler starwheel
+  - Adjust infeed guides
+  - Adjust discharge guides
+- Pump placement:
+  - Replace capper chuck
+  - Load next-SKU pump supply
+- Labeling:
+  - Load next-SKU label roll
+  - Adjust label sensor position
+  - Load approved label recipe
+- Case packing:
+  - Replace case erector magazine setting
+  - Load next-SKU case material
+
+[Resources]:
+- Line technician: Available for the complete changeover window
+- Operator team: Three operators available after current-SKU clearance
+- Quality technician: Available from 14:15
+- Maintenance electrician: On call if recipe or sensor verification fails
+- Shared torque analyzer: Reserved from 14:05 through 14:25
+- Next-SKU change parts: Staged at line-side rack before planned stop
+
+[DependencyGraph]:
+- `StopAndClear`:
+  - Requires: Final current-SKU case released from the line
+  - Enables:
+    - `ContainerPathChange`
+    - `PumpPlacementChange`
+    - `LabelChange`
+    - `CasePackChange`
+- `ContainerPathChange`:
+  - Requires:
+    - `StopAndClear`
+    - Next-SKU change parts staged
+  - Enables: `DryCycle`
+- `PumpPlacementChange`:
+  - Requires: `StopAndClear`
+  - Enables: `DryCycle`
+- `LabelChange`:
+  - Requires: `StopAndClear`
+  - Enables: `DryCycle`
+- `CasePackChange`:
+  - Requires: `StopAndClear`
+  - Enables: `TrialRun`
+- `DryCycle`:
+  - Requires:
+    - `ContainerPathChange`
+    - `PumpPlacementChange`
+    - `LabelChange`
+  - Enables: `TrialRun`
+- `TrialRun`:
+  - Requires:
+    - `DryCycle`
+    - `CasePackChange`
+  - Enables: `QualityRelease`
+- `QualityRelease`:
+  - Requires:
+    - `TrialRun`
+    - Quality technician present
+    - Shared torque analyzer available
+  - Enables: `ProductionRestart`
+- `ProductionRestart`:
+  - Requires: `QualityRelease`
+
+[ReleaseChecks]:
+- Bottle handling: No tipping or guide interference through the complete path
+- Fill volume: Within the approved next-SKU specification
+- Pump torque: Within the approved next-SKU specification
+- Label identity: Matches the scheduled SKU and approved artwork revision
+- Label placement: Within the approved placement tolerance
+- Case identity: Matches the scheduled SKU
+- Reject function: Confirmed during trial run
+
+[ChangeoverPlan]: []
+
+[Exceptions]: []
+
+[Plan]:
+=> Build a dependency-respecting sequence from [DependencyGraph]
+=> Include every equipment change in [RequiredChanges]
+=> Run independent equipment changes in parallel only when staffing and shared resources in [Resources] permit
+=> Assign each activity an owner and a completion signal
+=> Reserve quality-dependent work using [Resources] so `TrialRun` reaches `QualityRelease` no earlier than the quality technician and torque analyzer are available
+=> Identify the critical path to `ProductionRestart` within the maximum planned window in [ChangeoverContext]
+=> Append the executable sequence to [ChangeoverPlan]
+
+[Adapt]:
+=> If an activity slips identify only the downstream activities whose prerequisites are affected
+=> Reuse unaffected completed work rather than restarting the complete plan
+=> Record any resource collision or unmet prerequisite in [Exceptions]
+=> Do not authorize `ProductionRestart` until every item in [ReleaseChecks] is satisfied or an explicit authority records an approved disposition
+
+[Verify]:
+=> Confirm the plan fits the maximum planned changeover window in [ChangeoverContext] or expose the expected miss
+=> Confirm no task uses the same person or shared tool in overlapping assignments
+=> Confirm every restart prerequisite has an observable completion condition
+=> Confirm the current-SKU material clearance remains distinguishable from next-SKU startup material
+
+Task:
+1. Run [Plan]
+2. Run [Adapt] if any planned dependency cannot be met
+3. Run [Verify]
+4. Provide [ChangeoverPlan] with [Exceptions] and the projected restart time

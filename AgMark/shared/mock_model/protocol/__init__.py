@@ -1,0 +1,41 @@
+"""Provider-neutral mock-model protocol surfaces."""
+
+from .runtime import (
+    CAPABILITY_INSPECTION_OPERATION,
+    DEFAULT_EXECUTABLE_ID,
+    DEFAULT_RUNTIME_ID,
+    DEFAULT_RUNTIME_VERSION,
+    INFERENCE_OPERATION,
+    MODEL_DISCOVERY_OPERATION,
+    RUNTIME_IDENTITY_OPERATION,
+    InferenceResult,
+    MockRuntimeProtocol,
+    ModelCatalog,
+    ModelCatalogEntry,
+    ModelProfileMapping,
+    ProbeFailure,
+    ProtocolInferenceError,
+    ProtocolProbeError,
+    RuntimeCapabilities,
+    RuntimeIdentity,
+)
+
+__all__ = [
+    "CAPABILITY_INSPECTION_OPERATION",
+    "DEFAULT_EXECUTABLE_ID",
+    "DEFAULT_RUNTIME_ID",
+    "DEFAULT_RUNTIME_VERSION",
+    "INFERENCE_OPERATION",
+    "MODEL_DISCOVERY_OPERATION",
+    "RUNTIME_IDENTITY_OPERATION",
+    "InferenceResult",
+    "MockRuntimeProtocol",
+    "ModelCatalog",
+    "ModelCatalogEntry",
+    "ModelProfileMapping",
+    "ProbeFailure",
+    "ProtocolInferenceError",
+    "ProtocolProbeError",
+    "RuntimeCapabilities",
+    "RuntimeIdentity",
+]

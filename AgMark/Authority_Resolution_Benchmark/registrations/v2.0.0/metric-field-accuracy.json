@@ -1,0 +1,135 @@
+{
+  "schema_id": "arcgrav.shared.schema.metric-registration",
+  "schema_version": "1.0.0",
+  "extensions": {
+    "arcgrav.authority-resolution:field-scoring": {
+      "formula": "correct_units/(expected_units+unexpected_units)",
+      "record_matching": "exact_id_first_occurrence",
+      "finding_matching": "exact_id_occurrence",
+      "uncertainty_matching": "position",
+      "field_comparison": "type_sensitive_exact_json_value",
+      "nonfinite_comparison": "same_constant_and_sign",
+      "ordering": "diagnostic_only",
+      "schema_defects": "partial_credit",
+      "extra_units": "schema_fields_and_extra_occurrences",
+      "treatment_parse_failure": "zero",
+      "golden_invalid": "invalid"
+    },
+    "arcgrav.shared.reporting:aggregation": {
+      "repetition_reducer": "mean",
+      "case_reducer": "mean"
+    },
+    "arcgrav.shared.reporting:score-details": {
+      "extension_keys": [
+        "arcgrav.authority-resolution:field-comparison"
+      ]
+    }
+  },
+  "registration_id": "arcgrav.authority-resolution.metric.field-accuracy",
+  "registration_version": "1.0.0",
+  "metric_id": "arcgrav.authority-resolution.metric.field-accuracy",
+  "metric_version": "1.0.0",
+  "name": "ARB field accuracy",
+  "description": "Granular typed field content accuracy against the single same-case Golden result retained before treatments; missing and incorrect fields retain partial credit elsewhere, and unexpected output units penalize the denominator.",
+  "classification": "primary_correctness",
+  "comparison_track_id": "arcgrav.authority-resolution.field-accuracy",
+  "is_primary_endpoint": true,
+  "formula_or_algorithm": "C / (G + E), where G is the number of expected registered fields derived from retained Golden output, C counts correctly matched expected fields, and E counts unexpected output units. Records contribute six fields each; findings five; uncertainties one per entry; execution four. A malformed treatment scores zero. Invalid Golden output carries no score. Schema and order diagnostics are reported separately from field content accuracy.",
+  "required_inputs": [
+    "golden_stdout",
+    "treatment_response"
+  ],
+  "unit": "proportion",
+  "valid_range": {
+    "kind": "numeric",
+    "minimum": 0,
+    "maximum": 1
+  },
+  "directionality": "higher_is_better",
+  "numerator_denominator": {
+    "uses_rate": true,
+    "numerator_rule": "Correct registered expected field units (C), matched by exact record id, finding id and occurrence ordinal, uncertainty position, and execution field name. Each complete nested field value is one unit.",
+    "denominator_rule": "Expected units derived from the captured Golden (G), plus unexpected units (E): six per unmatched record, five per unmatched finding, one per extra uncertainty or unexpected schema key. Unknown keys add units even on unmatched rows. A wrong identity may create both missing expected units and unexpected output units. Invalid or unavailable Golden never fabricates a denominator or score."
+  },
+  "repetition_aggregation": "Arithmetic mean of fractional observation-level field accuracies for the same case and treatment. Registered zero dispositions remain zero; unavailable or non-comparable observations remain explicit.",
+  "case_aggregation": "Arithmetic mean of case-level repetition means, giving cases equal weight even when repetition counts differ. This is a mean of scores, not pooled correct-field / total-field counts.",
+  "state_treatment": [
+    {
+      "state": "completed",
+      "disposition": "score",
+      "reason": "Compare each declared output field with the same-case retained Golden result using the registered granular scorer."
+    },
+    {
+      "state": "failed",
+      "disposition": "zero",
+      "reason": "A planned model execution failure is incorrect for the primary correctness endpoint."
+    },
+    {
+      "state": "missing",
+      "disposition": "zero",
+      "reason": "Missing planned model output is incorrect for the primary correctness endpoint."
+    },
+    {
+      "state": "malformed",
+      "disposition": "zero",
+      "reason": "A retained treatment response that cannot be parsed as ARB output is incorrect."
+    },
+    {
+      "state": "refused",
+      "disposition": "zero",
+      "reason": "A task refusal is incorrect for the primary correctness endpoint."
+    },
+    {
+      "state": "unsupported",
+      "disposition": "unavailable",
+      "reason": "Unsupported execution remains unavailable rather than being converted to task incorrectness."
+    },
+    {
+      "state": "excluded",
+      "disposition": "exclude",
+      "reason": "Explicit preregistered exclusions remain excluded."
+    },
+    {
+      "state": "unavailable",
+      "disposition": "unavailable",
+      "reason": "Required unavailable evidence remains unavailable."
+    },
+    {
+      "state": "non_comparable",
+      "disposition": "non_comparable",
+      "reason": "Non-comparable evidence remains non-comparable."
+    },
+    {
+      "state": "completed_non_scorable",
+      "disposition": "non_comparable",
+      "reason": "Completed but non-scorable evidence does not fabricate correctness."
+    }
+  ],
+  "normalization_and_equivalence": "Decode one UTF-8 Python-compatible JSON object with no duplicate object member names. Whitespace and object key order are immaterial. Equality is recursive and type-sensitive: integers, floats, booleans, strings, null, and missing fields are distinct; list order and signed floating zero are preserved; NaN matches NaN and infinity only the same sign. Records match the first occurrence of an exact id; duplicate or unknown record occurrences are extras. Findings match exact id plus occurrence ordinal. Schema defects lose credit only for affected expected fields; malformed syntax scores zero. Record/finding order is diagnostic, uncertainty positions are scored, and self-reported execution.validated is one compared field rather than an accuracy gate.",
+  "availability_and_noncomparability": "Unparseable or structurally invalid Golden produces an invalid score with no numeric value. Missing, integrity-invalid, unavailable, excluded and non-comparable evidence retain registered dispositions. A malformed treatment remains an explicit zero outcome with comparison counts and diagnostics.",
+  "required_companion_values": [
+    "correct_units",
+    "expected_units",
+    "unexpected_units",
+    "expected_field_accuracy",
+    "record_value_accuracy",
+    "record_status_accuracy",
+    "schema_valid",
+    "records_order_matches",
+    "findings_order_matches",
+    "uncertainties_order_matches",
+    "exact_result_match"
+  ],
+  "presentation_precision": 3,
+  "scorer_or_annotation": {
+    "procedure_id": "arcgrav.authority-resolution.scorer.field-accuracy",
+    "version": "1.0.0",
+    "kind": "parser_and_scorer"
+  },
+  "contracts": [
+    {
+      "id": "arcgrav.shared.scorer-invocation",
+      "version": "1.0.0"
+    }
+  ]
+}

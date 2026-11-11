@@ -1,0 +1,51 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.agmark_runs
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/AgMark_Runs/AgMark_Prompt_Performance.md
+  url: ../../../../Prompt_Performance/Studies/AgMark_Runs/AgMark_Prompt_Performance.md
+  fingerprint: fnv1a32-f33718fe
+sections:
+  study-agmark-prompt-performance: |-
+    Five retained AgMark runs compare complete ArcGrav, common prose, Markdown, XML and YAML formulations of a fixed authority-resolution task. Accuracy, exact-result agreement, token use and timing proxies are separate outcomes; representation and prompt length vary together.
+  abstract: |-
+    Across 250 scored observations on one case with gpt-5.6-luna at low reasoning, XML has 100% mean field accuracy while ArcGrav has 99.7361% and the lowest total tokens. ArcGrav uses 18.63–22.62% fewer total tokens than comparators but has the highest pooled inference-duration proxy. Four YAML results have full field credit without exact-result agreement because of ordering. These are observed formulation-level tradeoffs, not isolated syntax effects.
+  introduction: |-
+    A prompt must convey decisions and output obligations while producing evaluable responses. Field correctness, collection and ordering compliance, resource use and timing may rank formulations differently. This study compares retained AgMark evidence while treating historical prompt-refinement trials as a distinct endpoint.
+  research-question-and-scope: |-
+    Prompt performance is operationalized through registered field accuracy, exact-result agreement, execution token counters and duration-derived timing proxies. Five fixed treatment texts are compared on one authority-resolution case; prescribed confidence labels are task values, not estimated model correctness probabilities.
+  dataset-and-methods: |-
+    Five accepted generations have ten repetitions for each of five treatments, with all 250 planned observations scored and no exclusions. The model, case and low-reasoning setting stay fixed, while prompt formulation and size differ: ArcGrav is 9,559 bytes versus 30,802–38,704 bytes for alternatives. Archived scores, plans and counters support cross-run joins by generation and observation ID.
+  retained-runs-and-execution-conditions: |-
+    Generations retain identical benchmark, case, treatment hashes and execution-boundary fingerprints. Treatment starts and iteration order are randomized; each observation has one distinct attempt start and fresh process/work directory, while session homes are reused. Fifty observations per formulation are repeats on one case, not 50 independent cases.
+  aggregation-and-evidence-linkage: |-
+    Field accuracy equals matched expected units divided by expected plus unexpected units, averaged across repetitions and equally weighted runs. Every result expects 48 units; unexpected items can lower accuracy even when all expected units are correct. Token totals exclude double-counting cached input and reasoning output, and percentage reductions use the comparator as denominator. Duration-derived timing proxies are not direct token timestamps.
+  measurements: |-
+    Typed JSON matching supplies partial field credit; record and finding order are diagnostic rather than components of that primary score. Exact-result agreement separately detects whole-result discrepancies, including ordering. Cached input is already in input totals, and reasoning tokens already in output. The execution.validated field is not independent acceptance; TTFT and TBT are proxies rather than direct latency measures.
+  results: |-
+    XML achieves 100% field accuracy and 50/50 exact matches but uses the most total tokens. ArcGrav has the lowest total tokens and 48/50 exact matches but the highest pooled mean inference-duration proxy. Markdown also has 48/50 exact results with a higher field mean, while prose and YAML show different partial-credit and exact-match patterns.
+  accuracy-and-exact-result-agreement-differ: |-
+    Mean field accuracy is ArcGrav 99.7361%, prose 99.7083%, Markdown 99.9167%, XML 100% and YAML 98.6367%. Exact agreements are 48/50, 44/50, 48/50, 50/50 and 43/50 respectively. Four YAML outputs earn 100% field credit despite ordering-only exact-match failures; field agreement does not imply complete consumer acceptance.
+  input-reduction-exceeds-output-overhead: |-
+    ArcGrav averages 16,682.96 total tokens per observation, versus 20,503.72–21,559.68 for the alternatives: 18.63–22.62% lower total consumption and 40.07–45.97% lower uncached input. Its increased output and reasoning-token use is offset by shorter input prompts. Equal cached input across treatments explains why uncached percentages differ from total reductions.
+  timing-does-not-follow-the-token-ranking: |-
+    ArcGrav's 12,134.96 ms mean inference-duration proxy is highest despite its lowest token total. Its pooled TTFT proxy is also highest and TBT proxy lowest, but both rely on item durations and output counters rather than observed first-token or inter-token timestamps. The evidence does not establish a consistent real-time speed advantage.
+  discrepancies-connect-metrics-to-output-obligations: |-
+    An ArcGrav run-3 duplicate record preserves all 48 expected units but adds six unexpected units (48/54). Another ArcGrav response assigns incorrect authority metadata (47/48); a YAML relation-finding identity error loses expected units and adds unexpected units (38/58). Collection membership, field metadata and finding identity represent different failures that aggregate scores can obscure.
+  interpretation: |-
+    XML offers the highest measured fidelity with the most token use; ArcGrav consumes fewer tokens yet has two non-exact outputs and the highest pooled duration proxy. Representation and length are confounded, so the comparison is not a causal test of notation. Historical strict-response trials and current registered field scores measure different acceptance contracts.
+  relationship-to-the-historical-refinement-observations: |-
+    The separate historical ArcGrav ARB series contains 407 strict-response trials across 57 tested prompt hashes. Its analyses of collection membership, metadata binding and exact rendering help classify current discrepancies, but its adaptive edits and complete-response acceptance differ from these fixed-treatment AgMark runs. Strict-pass rate and field accuracy must not be pooled.
+  tests-suggested-by-the-findings: |-
+    Suggested controls cross representation with concise and expanded prompts while preserving task meaning, add held-out cases, and test multiple models and reasoning settings. Preserve partial-credit and consumer-acceptance outcomes; measure actual token timestamps and prices instead of inferring latency or billed cost from proxy counters.
+  scope: |-
+    Observed rankings are limited to one authority-resolution case, one model and low reasoning with fixed prompt texts. Syntax and prompt length vary together; savings cannot be attributed to syntax alone. Timing uses duration proxies, token counters are not bills, and cross-task or cross-model transfer has not been established.
+  conclusion: |-
+    Near-ceiling yet unequal correctness, input-driven ArcGrav token savings and timing rankings that do not follow token counts must be considered separately. Controlled representation-and-length tests on new cases are needed before causal or transfer conclusions.
+  data-and-reproducibility: |-
+    Five retained .agmark archives preserve the original reports, accepted plans, treatment hashes, score files and canonical evidence. The checked-out report Markdown copies link to their archives for JSON evidence, and the paper links directly to both. An inline Python example recomputes field means and exact-result counts; no standalone summary script or derived JSON is checked in. Token and timing summaries require canonical evidence roles; cross-run joins need generation IDs and original accepted-run observations.
+  related-papers: |-
+    Prompt Performance and Prompt Construction Principles provide research context; historical ARB trials are a distinct evidence base. Instructional Representation and Interpretive Efficiency examine neighboring questions without confirming syntax-specific causality.
+  references: |-
+    Pryzant et al. (2023) motivate separating optimization outcomes from individual-edit effects; Sclar et al. (2024) motivate investigating prompt formatting sensitivity. Neither reference independently replicates the five AgMark runs.

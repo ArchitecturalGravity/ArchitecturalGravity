@@ -1,0 +1,35 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.construction
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/ArcGrav_ARB_Trials/Inheritance_Defaults_and_Output_Construction.md
+  url: ../../../../Prompt_Performance/Studies/ArcGrav_ARB_Trials/Inheritance_Defaults_and_Output_Construction.md
+  fingerprint: fnv1a32-511e9f14
+sections:
+  paper-output-construction: |-
+    An output key needs both a value rule and a producer-level emission path. Shared derivation, materialization, overlapping branches and override scope impose distinct obligations.
+  abstract: |-
+    Responses omit inherited high-confidence keys while correctly materializing categories through a shared rule; a low-confidence override survives elsewhere. The paper separates presence, value, precedence and scope without treating local repetition as a universal remedy.
+  the-construction-distinction: |-
+    Materialization emits the key; assignment supplies its value. Inheritance defines shared meaning, defaults provide scoped fallbacks and overrides select exceptional values. Classification belongs to predicate scope.
+  scope-and-evidence-status: |-
+    Adaptive prompt revisions on one fixture yield descriptive contrasts, not isolated edit effects or observations of hidden operations. The collection lead supplies shared study limits.
+  observations-and-construction-implications: |-
+    Producer completeness depends on an emission path as well as a field definition. Shared rules can succeed, overlapping cases need priority, and a correct local exception may coexist with absent defaulted keys.
+  a-shared-assignment-can-exist-without-its-key-being-emitted: |-
+    Trial 195 omits three inherited-high confidence keys without other parsed discrepancies; trial 199 includes them. The V042 bundle changes a shared assignment and two producer clauses, so its 6/198 versus 0/209 omission contrast is associative, not a controlled locality effect.
+  inheritance-is-usable-when-the-derivation-remains-available-to-each-producer: |-
+    Shared identifier-prefix category derivation supports exact results under V12. Local literals under V11 coexist with unrelated failures, so stable derivations may be factored when producer inputs are explicit.
+  an-ordinary-case-must-not-absorb-an-exceptional-case-that-also-matches-it: |-
+    Partial singleton records require unresolved/low metadata before source-count cases. Trials 181 and 271 show errors at the exceptional and ordinary branches despite explicit case ordering.
+  a-defaults-scope-and-an-overrides-scope-can-be-preserved-differently: |-
+    Trial 195 preserves the Missing producer's local low confidence while three inherited-high keys are absent. The exact missing finding has low confidence in 395 of 395 emissions but is absent in twelve other outputs.
+  conclusion: |-
+    Keep shared definitions when useful, bind required keys to every output producer, order overlapping cases and distinguish key presence from value correctness.
+  data-and-reproducibility: |-
+    The Evidence Ledger provides anchored prompt excerpts and the Trial Audit provides raw outputs and decoded diagnostics. ABSENT marks a missing property in a diagnostic, not an output string.
+  other-analyses-in-this-study: |-
+    Predicate scope addresses classification; collection semantics addresses membership; compression and locality addresses safe sharing of definitions.
+  references: |-
+    The preserved Evidence Ledger and Trial Audit are primary artifacts for prompt contrasts, response diagnostics and verdicts.

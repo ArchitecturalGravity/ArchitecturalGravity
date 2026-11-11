@@ -1,0 +1,96 @@
+# Intent: Triage an operations work queue so immediate hazards and fixed deadlines are separated from routine work while each item reaches an appropriate owner and capacity remains protected for new urgent arrivals
+
+Scope:
+- Today's operations work queue and protected reserve
+
+[Queue]:
+- Q-184:
+  - Issue: Loading-dock door will not fully close
+  - Risk context: Forklift traffic continues nearby
+  - Reported: 07:40
+- Q-185:
+  - Issue: Replace six burned-out office lights
+  - Safety impact: None reported
+  - Reported: Yesterday
+- Q-186:
+  - Issue: Visitor-access badge printer offline
+  - Fixed event: External audit begins today at 11:00
+  - Reported: 08:05
+- Q-187:
+  - Issue: Recurring leak under break-room sink
+  - Containment: Water contained in a tray
+  - Reported: Two days ago
+- Q-188:
+  - Issue: Prepare 14 workstations for employees starting tomorrow at 09:00
+  - Reported: Yesterday
+- Q-189:
+  - Issue: Conference-room temperature complaint
+  - Workaround: Alternate rooms available
+  - Reported: 08:20
+
+[Capacity]:
+- Facilities: 2 technicians today
+- Workplace IT: 1 technician today
+- Front Desk: 1 coordinator who can perform badge-process work but not equipment repair
+- One technician-equivalent hour must remain uncommitted until 13:00 for urgent arrivals
+
+[TriageRules]:
+- Immediate risk to people or property outranks convenience and age
+- Work with a fixed operational deadline outranks routine work when delay would miss that deadline
+- Age breaks ties between otherwise similar items
+- A workaround can reduce urgency only when it actually preserves the affected outcome
+- Do not route work to a team that lacks authority or capability to complete the required action
+
+[PriorityClasses]:
+P0. Immediate
+P1. Today-fixed
+P2. Today-flexible
+P3. Routine
+
+[Triage]:
+=> Review each item in [Queue] under [TriageRules] ↳
+  - Immediate hazard or damage escalation
+  - Fixed deadline
+  - Viable workaround
+  - Required capability
+  - Consequence of waiting until later today or tomorrow
+=> Assign one class from [PriorityClasses] per item
+=> State the reason for each class in one sentence
+
+[Route]:
+=> For P0 items:
+  => Assign an authorized owner immediately
+  => Isolate or suspend the affected activity when that is the safest available containment
+=> For P1 through P3:
+  => Route to the capable team with the earliest feasible slot
+=> Preserve the reserve in [Capacity] unless an active P0 requires it
+=> If two items compete for the same owner, sequence them by:
+  1. Class
+  2. Deadline
+  3. Age
+=> If no capable owner is available before a required deadline, escalate the constraint instead of marking the item scheduled
+
+[QueueState]: []
+
+[Publish]:
+=> Append one record for each [Queue] item to [QueueState] ↳
+  - Ticket ID
+  - Class
+  - Owner
+  - Immediate action
+  - Planned timing
+  - Dependencies
+=> Separate blocked items from merely lower-priority items in [QueueState]
+=> Identify the next item to pull when capacity opens
+
+Task:
+1. Run [Triage]
+2. Run [Route]
+3. Run [Publish]
+4. Provide:
+  - Ordered queue
+  - Assignments
+  - Containment actions
+  - Blocked work
+  - Protected reserve
+  - Next pull candidate

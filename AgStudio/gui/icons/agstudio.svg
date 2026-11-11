@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="256" viewBox="0 0 256 256">
+  <title>AgStudio [Ag]</title>
+  <rect width="256" height="256" fill="#000000"/>
+  <!-- Outlined glyphs keep the logo identical without installed fonts. -->
+  <path fill="#ff8c00" d="M24 62H58V78H40V178H58V194H24Z M198 62H232V194H198V178H216V78H198Z"/>
+  <path fill="#ffd700" fill-rule="evenodd" transform="translate(7.44 0) scale(0.88 1)" d="M62 162L91 78H111L140 162H121L115 143H86L80 162Z M91 127H110L100.5 96Z"/>
+  <path fill="#ffd700" fill-rule="evenodd" d="M172 100C180 100 187 103 191 109V102H207V160C207 181 195 193 175 193C163 193 154 190 146 185L152 171C159 175 166 178 174 178C185 178 190 173 190 162V157C186 163 179 166 171 166C152 166 141 153 141 133C141 113 153 100 172 100Z M174 115C164 115 158 122 158 133C158 144 164 151 174 151C184 151 190 144 190 133C190 122 184 115 174 115Z" transform="translate(-4 0)"/>
+</svg>

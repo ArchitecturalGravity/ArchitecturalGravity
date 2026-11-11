@@ -1,0 +1,253 @@
+{
+  "schema_id": "arcgrav.shared.schema.registration",
+  "schema_version": "1.0.0",
+  "extensions": {
+    "arcgrav.authority-resolution:benchmark-authority": {
+      "benchmark_id": "arcgrav.authority-resolution.benchmark.core",
+      "benchmark_version": "2.0.0",
+      "comparison_track_id": "arcgrav.authority-resolution.field-accuracy",
+      "activation": {
+        "mode": "explicit_active_registration",
+        "active_by_presence": false
+      },
+      "selected_authority": {
+        "case_set": {
+          "id": "arcgrav.authority-resolution.case-set.core",
+          "version": "1.0.0",
+          "artifact_id": "arb-core-case-set"
+        },
+        "treatment_set": {
+          "id": "arcgrav.authority-resolution.treatment-set.core",
+          "version": "2.0.0",
+          "artifact_id": "arb-core-treatment-set"
+        },
+        "logic_set": {
+          "id": "arcgrav.authority-resolution.logic-set.core",
+          "version": "2.0.0",
+          "artifact_id": "arb-core-logic-set"
+        },
+        "golden_authority": {
+          "artifact_id": "arb-frozen-golden-source",
+          "requires_same_accepted_generation": true,
+          "requires_successful_nonempty_retained_stdout_before_treatments": true,
+          "caller_supplied_golden_allowed": false,
+          "input_transport": "registered_file",
+          "input_artifact_id": "arb-core-case-input",
+          "implementation_artifact_ids": [
+            "arb-frozen-golden-source",
+            "arb-core-case-input"
+          ]
+        },
+        "parser": {
+          "artifact_id": "arb-structured-output-parser",
+          "entry_point": "AgMark.Authority_Resolution_Benchmark.evaluation.structured_parser:parse_structured_output"
+        },
+        "primary_metric": {
+          "registration_id": "arcgrav.authority-resolution.metric.field-accuracy",
+          "registration_version": "1.0.0",
+          "metric_id": "arcgrav.authority-resolution.metric.field-accuracy",
+          "metric_version": "1.0.0",
+          "artifact_id": "arb-primary-metric-registration",
+          "is_primary_endpoint": true
+        },
+        "scorer": {
+          "registration_id": "arcgrav.authority-resolution.scorer.field-accuracy",
+          "registration_version": "1.0.0",
+          "registration_artifact_id": "arb-primary-scorer-registration",
+          "implementation_artifact_id": "arb-field-accuracy-scorer"
+        },
+        "report_configuration": {
+          "registration_id": "arcgrav.authority-resolution.report-configuration.core",
+          "registration_version": "2.0.0",
+          "artifact_id": "arb-core-report-configuration"
+        },
+        "report_evaluator": {
+          "module": "AgMark.Authority_Resolution_Benchmark.reporting.prerequisites",
+          "callable": "evaluate_report_extensions",
+          "artifact_id": "arb-report-prerequisites"
+        }
+      },
+      "inactive_by_default": {
+        "expanded_case_sets": true,
+        "additional_treatment_sets": true,
+        "optional_metrics": true,
+        "exact_stdout_metrics": true,
+        "telemetry_metrics": true,
+        "unselected_report_configurations": true
+      },
+      "authority_rules": {
+        "resource_drift": "fail_closed_before_accepted_planning",
+        "file_or_directory_presence": "no_authority",
+        "post_result_registration_change": "requires_new_registration_or_protocol_version",
+        "shared_contract_compatibility": "exact_declared_versions_only"
+      }
+    },
+    "arcgrav.benchmark:treatment-content-policy": {
+      "mismatch": "contaminated",
+      "treatment_set_artifact_id": "arb-core-treatment-set",
+      "prompt_artifacts": {
+        "arb-arcgrav": "arb-prompt-arcgrav",
+        "arb-common-prose": "arb-prompt-common-prose",
+        "arb-markdown": "arb-prompt-markdown",
+        "arb-xml": "arb-prompt-xml",
+        "arb-yaml": "arb-prompt-yaml"
+      }
+    }
+  },
+  "registration_id": "arcgrav.authority-resolution.benchmark.core",
+  "registration_version": "2.0.0",
+  "registration_kind": "benchmark",
+  "status": "active",
+  "contracts": [
+    {
+      "id": "arcgrav.shared.runner-invocation",
+      "version": "2.0.0"
+    },
+    {
+      "id": "arcgrav.shared.launch-environment",
+      "version": "1.0.0"
+    },
+    {
+      "id": "arcgrav.shared.transient-invocation",
+      "version": "1.0.0"
+    },
+    {
+      "id": "arcgrav.shared.golden-execution",
+      "version": "2.0.0"
+    },
+    {
+      "id": "arcgrav.shared.run-lifecycle",
+      "version": "1.0.0"
+    },
+    {
+      "id": "arcgrav.shared.evidence-validation",
+      "version": "1.0.0"
+    },
+    {
+      "id": "arcgrav.shared.scorer-invocation",
+      "version": "1.0.0"
+    },
+    {
+      "id": "arcgrav.shared.failure-taxonomy",
+      "version": "1.0.0"
+    },
+    {
+      "id": "arcgrav.shared.report-generation",
+      "version": "3.0.0"
+    },
+    {
+      "id": "arcgrav.shared.run-completion",
+      "version": "2.0.0"
+    }
+  ],
+  "implementation_artifacts": [
+    {
+      "artifact_id": "arb-core-case-set",
+      "sha256": "sha256:ce2917a9c5905637671fa7e7fa5b5ab1293bcaf7120778451f577a9e87e15023",
+      "reference": "AgMark/Authority_Resolution_Benchmark/cases/v1.0.0/case-set.json",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-core-case-input",
+      "sha256": "sha256:c08cb8cf278eb210321cae4faeec8566253ee0a96e8f041b10dae7ed2e5d6c98",
+      "reference": "AgMark/Authority_Resolution_Benchmark/cases/v1.0.0/arb-core-001.json",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-core-treatment-set",
+      "sha256": "sha256:e6e166634d9bdbaf02e82088e909ae3d608d865eff52bf57e1ff702225573edd",
+      "reference": "AgMark/Authority_Resolution_Benchmark/treatments/v2.0.0/treatment-set.json",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-prompt-arcgrav",
+      "sha256": "sha256:b4d3fcfeb641f5103f8cd58ae8607bf1dac88ea02ca6382b8bfa88582165f4e2",
+      "reference": "AgMark/Authority_Resolution_Benchmark/treatments/v2.0.0/prompts/arb-arcgrav.txt",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-prompt-common-prose",
+      "sha256": "sha256:3358753e6f6df2751fa3b7c5a67b236b6458a09c61c2aca762e1a7cdd6159b4c",
+      "reference": "AgMark/Authority_Resolution_Benchmark/treatments/v2.0.0/prompts/arb-common-prose.txt",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-prompt-markdown",
+      "sha256": "sha256:7b5b185dfd9732af7f7769f2ceb7eb3dfb4da27b787056c0ddfd4a8c449e04b2",
+      "reference": "AgMark/Authority_Resolution_Benchmark/treatments/v2.0.0/prompts/arb-markdown.md",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-prompt-xml",
+      "sha256": "sha256:116c3ac6b0a85a6a5de378c77b6cdee30bcaa8c1e90f67fa9895382166abfaf8",
+      "reference": "AgMark/Authority_Resolution_Benchmark/treatments/v2.0.0/prompts/arb-xml.xml",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-prompt-yaml",
+      "sha256": "sha256:2dc7e74d7000bb51479b20bb43a13aa015f8bbd61f8c42a46ef21c91c2e7b55c",
+      "reference": "AgMark/Authority_Resolution_Benchmark/treatments/v2.0.0/prompts/arb-yaml.yaml",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-core-logic-set",
+      "sha256": "sha256:cb36d6a9d4c6052ad2706067e3912163a8f084aeb0628aa7f311c2aa2119710f",
+      "reference": "AgMark/Authority_Resolution_Benchmark/logic/v2.0.0/logic-set.json",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-frozen-golden-source",
+      "sha256": "sha256:027dc39073047eab1d2d935d46a9f6355fb3204add47e774624b86c433ac026d",
+      "reference": "AgMark/Authority_Resolution_Benchmark/Legacy_Content/Authority_Resolution_Benchmark.py",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-structured-output-parser",
+      "sha256": "sha256:e98381d42a38de661fe61fb04a151926d32945b70bdbb2bc5d534a9127ae48b4",
+      "reference": "AgMark/Authority_Resolution_Benchmark/evaluation/structured_parser.py",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-primary-metric-registration",
+      "sha256": "sha256:ae712b2c4a2e2de05606cfcf222e0e19184887003e8eb699f1f34eb2318fa405",
+      "reference": "AgMark/Authority_Resolution_Benchmark/registrations/v2.0.0/metric-field-accuracy.json",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-primary-scorer-registration",
+      "sha256": "sha256:a57416257a9c0886768109d9e8ac143d7374155b2a827c130bfb7eb6a18fe5d2",
+      "reference": "AgMark/Authority_Resolution_Benchmark/registrations/v2.0.0/scorer-field-accuracy.json",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-field-accuracy-scorer",
+      "sha256": "sha256:178696088476aa8473baff8a0e7f0955f8511016eb95e88da3b763796243dfd3",
+      "reference": "AgMark/Authority_Resolution_Benchmark/evaluation/field_scorer.py",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-core-report-configuration",
+      "sha256": "sha256:f7b03cada2440827a542ac6c146f0cc69d90b071505a7196fe5d26618193834c",
+      "reference": "AgMark/Authority_Resolution_Benchmark/reporting/v2.0.0/report-configuration.json",
+      "availability": "retained"
+    },
+    {
+      "artifact_id": "arb-report-prerequisites",
+      "reference": "AgMark/Authority_Resolution_Benchmark/reporting/prerequisites.py",
+      "sha256": "sha256:9dbfdcc1c7f31d03195c857aa208d2eaa85d02f27567a2638c2cc1be73bec873",
+      "availability": "retained"
+    }
+  ],
+  "capabilities": [
+    "registered-core-case-authority",
+    "registered-core-treatment-authority",
+    "registered-frozen-golden-authority",
+    "registered-field-accuracy-primary-endpoint",
+    "registered-arb-report-interpretation",
+    "registered-default-file-golden-input"
+  ],
+  "limitations": [
+    "Does not activate optional exact-stdout, telemetry, dependency/effective-execution, expanded-case, or exploratory metrics.",
+    "Only this V2 ARB registration selects the active implementation; no earlier binary-scoring registration or fallback evaluator is retained."
+  ]
+}

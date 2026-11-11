@@ -1,0 +1,110 @@
+{
+  "schema_id": "arcgrav.shared.schema.registration",
+  "schema_version": "1.0.0",
+  "extensions": {
+    "arcgrav.authority-resolution:report-configuration": {
+      "configuration_id": "arcgrav.authority-resolution.report-configuration.core",
+      "configuration_version": "2.0.0",
+      "activation": {
+        "mode": "accepted_benchmark_registration_selection_only",
+        "file_presence_is_authority": false
+      },
+      "section_policy": {
+        "required_arb_sections": [
+          {
+            "role": "arb_authority_resolution_interpretation",
+            "availability": "required_when_primary_field_accuracy_is_available",
+            "content_boundary": "Interpret only retained granular field-accuracy results, companion counts, section breakdowns, and per-field comparisons against the same captured Golden result from the accepted generation. Preserve schema and ordering diagnostics separately from content accuracy."
+          },
+          {
+            "role": "arb_registered_prerequisites",
+            "availability": "always_required",
+            "content_boundary": "Report each registered prerequisite as satisfied or unsatisfied with concrete reasons, and identify the runner evidence class."
+          },
+          {
+            "role": "arb_dependency_effective_execution",
+            "availability": "required_when_dependency_or_effective_execution_evidence_is_registered_active",
+            "content_boundary": "Interpret only registered retained dependency/effective-execution evidence and preserve unavailable, invalid, or non-comparable states."
+          },
+          {
+            "role": "arb_limitations_and_scope",
+            "availability": "always_required",
+            "content_boundary": "State evidence limitations and bound conclusions to the accepted cases, treatments, comparison track, and invariant execution boundary."
+          }
+        ]
+      },
+      "metric_display": {
+        "primary_endpoint_label": "ARB field accuracy",
+        "source": "registered_metric_and_score_artifacts_only",
+        "preserve_registered_unit": true,
+        "preserve_registered_directionality": true,
+        "preserve_registered_precision_and_rounding": true,
+        "show_numerator_and_denominator_when_rate_metric": true,
+        "secondary_metrics": "display_only_when_explicitly_selected_by_active_registration",
+        "granular_counts": "Show correct_units / (expected_units + unexpected_units) for each scored observation; aggregation numerator and denominator describe means of scores, not pooled fields.",
+        "aggregation_labels": {
+          "repetition": "Mean accuracy across repetitions",
+          "case": "Mean case accuracy"
+        }
+      },
+      "availability_handling": {
+        "preserve_states": [
+          "available",
+          "unavailable",
+          "not_applicable",
+          "non_comparable",
+          "failed",
+          "missing",
+          "excluded",
+          "blocked"
+        ],
+        "never_promote_to_success": [
+          "unavailable",
+          "non_comparable",
+          "failed",
+          "missing",
+          "excluded",
+          "blocked"
+        ]
+      },
+      "conclusion_boundaries": [
+        "Exact-stdout behavior is a primary conclusion only when an active registration explicitly selects it as the primary endpoint; otherwise it remains secondary or diagnostic according to registration.",
+        "A field-content score of 1 does not certify ordering, schema validity, or full contract equivalence; report their retained diagnostics. Equal field weights are the registered initial metric policy, not an empirical importance weighting."
+      ],
+      "registered_prerequisites": {
+        "logic_set": {
+          "id": "arcgrav.authority-resolution.logic-set.core",
+          "version": "2.0.0"
+        },
+        "require_all_registered_logic_set_prerequisites": true,
+        "require_finalized_accepted_run": true,
+        "require_automatic_completion_validation": true
+      }
+    }
+  },
+  "registration_id": "arcgrav.authority-resolution.report-configuration.core",
+  "registration_version": "2.0.0",
+  "registration_kind": "report_configuration",
+  "status": "active",
+  "contracts": [
+    {
+      "id": "arcgrav.shared.report-generation",
+      "version": "3.0.0"
+    },
+    {
+      "id": "arcgrav.shared.run-completion",
+      "version": "2.0.0"
+    }
+  ],
+  "implementation_artifacts": [],
+  "capabilities": [
+    "arb_task_specific_sections",
+    "arb_registered_prerequisite_outcomes",
+    "registered_metric_display",
+    "availability_preservation",
+    "measurement_scope"
+  ],
+  "limitations": [
+    "This selectable report configuration has no authority until an accepted ARB benchmark registration explicitly binds it."
+  ]
+}

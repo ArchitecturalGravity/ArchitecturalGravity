@@ -1,0 +1,152 @@
+# Intent: Develop a coherent dinner from available ingredients by matching ingredient roles technique constraints and desired eating experience
+
+[Situation]:
+- Diners: 3
+- MealRole: Weeknight main dish
+- DesiredEatingExperience:
+  - Warm
+  - Savory
+  - Substantial
+  - Fresh contrast
+- MaximumElapsedTime: 45 minutes
+
+[AvailableIngredients]:
+- CookedChickpeas:
+  - Quantity: 500 g
+  - Priority: Use tonight
+- CherryTomatoes:
+  - Quantity: 350 g
+  - Priority: Use soon
+- BabySpinach:
+  - Quantity: 180 g
+  - Priority: Use tonight
+- GreekYogurt:
+  - Quantity: 200 g
+- Lemon:
+  - Quantity: 1
+- Garlic:
+  - Quantity: 4 cloves
+- RedOnion:
+  - Quantity: 1 small
+- Flatbread:
+  - Quantity: 3 pieces
+- OliveOil:
+  - Quantity: Sufficient
+- GroundCumin:
+  - Quantity: Sufficient
+- SmokedPaprika:
+  - Quantity: Sufficient
+- Salt:
+  - Quantity: Sufficient
+
+[KitchenLimits]:
+- Oven: Unavailable
+- Burners: 2
+- LargeSkillet: 1
+- Saucepan: 1
+- FoodProcessor: Unavailable
+
+[IngredientRoles]:
+- Chickpeas:
+  - CandidateRole: Main protein and textural base
+- Tomatoes:
+  - CandidateRole:
+    - Cooked sweet acidic component
+    - Fresh acidic component
+- Spinach:
+  - CandidateRole:
+    - Wilted green
+    - Fresh green
+- Yogurt:
+  - CandidateRole: Cool creamy contrast
+- Lemon:
+  - CandidateRole: Final acidity
+- Flatbread:
+  - CandidateRole: Starch and serving vehicle
+
+[TechniqueOptions]:
+- CrispChickpeas:
+  - Equipment: LargeSkillet
+  - Time: 12 to 15 minutes
+  - Effect: Dry crisp exterior
+- BurstTomatoes:
+  - Equipment: LargeSkillet
+  - Time: 8 to 10 minutes
+  - Effect: Concentrated juicy sauce
+- WiltSpinach:
+  - Equipment: LargeSkillet
+  - Time: 2 to 3 minutes
+  - Effect: Tender green layer
+- WarmFlatbread:
+  - Equipment: Dry skillet
+  - Time: 1 minute per side
+  - Effect: Warm flexible bread
+- MakeYogurtSauce:
+  - Equipment: Bowl
+  - Time: 3 minutes
+  - Effect: Cool tangy contrast
+
+[HardRequirements]:
+- Use all chickpeas
+- Use all spinach
+- Include a fresh or bright acidic element
+- Produce 3 complete servings
+- Stay within [Situation] MaximumElapsedTime
+- Do not require equipment outside [KitchenLimits]
+
+[CandidateConcepts]: []
+
+[ChosenDish]: []
+
+[IngredientAllocation]: []
+
+[OpenQuestions]: []
+
+[ComposeConcepts]:
+=> Build at least 2 dish concepts from [IngredientRoles] and [TechniqueOptions]
+=> Give each concept a distinct relationship between its main component sauce fresh contrast and flatbread
+=> Require every concept to satisfy [HardRequirements]
+=> Do not add unlisted ingredients to repair a concept
+=> Append viable concepts to [CandidateConcepts]
+
+[EvaluateConcepts]:
+=> For each concept in [CandidateConcepts] ↳
+  - Check whether the chickpeas can develop strong texture before wet ingredients enter the skillet
+  - Check whether the tomatoes provide enough moisture without making the flatbread soggy before service
+  - Check whether the spinach can be fully used without overcrowding the skillet
+  - Check whether yogurt and lemon provide the requested fresh contrast
+  - Check whether the required techniques fit within 45 minutes on 2 burners
+=> Prefer the concept with clear contrast between crisp warm components and cool bright components
+=> Append the best supported concept to [ChosenDish]
+
+[AllocateIngredients]:
+=> Assign exact available ingredients to [ChosenDish] components
+=> Reserve enough lemon for final adjustment after the main skillet component is seasoned
+=> Keep yogurt separate from direct high heat
+=> Use RedOnion either raw in the cool component or cooked in the skillet according to the chosen contrast
+=> Append the allocation to [IngredientAllocation]
+
+[DevelopMethod]:
+=> Sequence the chosen techniques around the single [KitchenLimits] LargeSkillet
+=> Preserve chickpea crispness by completing high moisture steps after initial browning or in a separate phase
+=> Warm flatbread near service rather than at the beginning
+=> Taste before final salt adjustment
+=> If available quantities make 3 balanced servings uncertain:
+  - Record the uncertainty in [OpenQuestions]
+  - Do not invent additional pantry items
+
+[ValidateDish]:
+=> Verify [ChosenDish] uses all chickpeas and spinach
+=> Verify every component maps to [AvailableIngredients]
+=> Verify the method fits [KitchenLimits]
+=> Verify the sequence can finish within [Situation] MaximumElapsedTime
+=> Verify the dish contains warm savory substance and fresh contrast
+=> Verify any quantity or balance uncertainty remains visible in [OpenQuestions]
+
+Task:
+1. Run [ComposeConcepts]
+2. Run [EvaluateConcepts]
+3. Run [AllocateIngredients]
+4. Run [DevelopMethod]
+5. Run [ValidateDish]
+6. Present [ChosenDish] with [IngredientAllocation] and [OpenQuestions]

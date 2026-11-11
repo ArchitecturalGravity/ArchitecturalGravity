@@ -1,0 +1,35 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.prompt_performance.rendering
+kind: research_reference
+source:
+  path: Research/Prompt_Performance/Studies/ArcGrav_ARB_Trials/Evidence_Assembly_and_Exact_Rendering.md
+  url: ../../../../Prompt_Performance/Studies/ArcGrav_ARB_Trials/Evidence_Assembly_and_Exact_Rendering.md
+  fingerprint: fnv1a32-18315daf
+sections:
+  paper-evidence-rendering: |-
+    Component completeness, observation provenance, operand conversion, literal template spelling and response envelope can fail separately from selection and object membership.
+  abstract: |-
+    Evidence can be selected correctly and still be assembled or rendered incorrectly. A retained finding may omit one required component; a displayed observation may need a different source label from the final decision; a value may require quoting while its authority label does not. The observations in this category distinguish the contents of a result from its representation and the complete response that delivers it. Their implications are specific to the consumer's contract: component inclusion needs its own rule, provenance must attach to the appropriate datum, and exact text requires separation of literal template material from converted operands.
+  core-distinction: |-
+    Evidence ownership binds a datum to the source that supplies it. Assembly combines the required components; rendering expresses them in the accepted form. This category concerns the inside of an emitted result, while collection membership concerns whether the result itself exists.
+  observations: |-
+    Component completeness, observation provenance, operand conversion, literal template spelling and response envelope can fail separately from selection and object membership.
+  a-retained-finding-can-omit-required-components: |-
+    A result object and its template do not establish that every required component is included; connect each inclusion condition to its own content before joining components.
+  evidence-provenance-and-decision-provenance-are-different-bindings: |-
+    Pair every reported datum with its own observation source and every selected result with its decision source; aggregate provenance requires a separate rule.
+  conversion-rules-belong-to-individual-operands: |-
+    Attach representation rules to individual template operands; quoted evidence authority can be wrong even when selected-authority resolution is correct.
+  fixed-labels-are-part-of-an-exact-output-contract: |-
+    Separate immutable template labels from computed operands when acceptance is exact; a literal spelling discrepancy need not indicate a wrong underlying decision.
+  payload-correctness-and-response-envelope-correctness-are-separate: |-
+    Define both the payload and the complete response envelope; extracting correct structured content does not make an extra-message response acceptable.
+  conclusion: |-
+    Content coverage, provenance, operand conversion, literal text and response boundaries are separate obligations. A correct choice does not settle any of them automatically.
+  data-and-reproducibility: |-
+    Exact prompt lines and decoded output witnesses substantiate the observations through ledger atom IDs, snapshot line ranges and audit trial IDs, with contrary cases and branch coverage.
+  other-analyses-in-this-study: |-
+    Predicate and comparison scope owns which observations are reportable; Collection membership, multiplicity and order owns which whole objects are emitted; Construction checks and verification owns what a check actually establishes.
+  references: |-
+    The Evidence Ledger supplies original formulations, annotations and historical lint reports; the Trial Audit supplies raw responses and strict output verdicts. Neither reference converts a semantic edit into an independently tested intervention.

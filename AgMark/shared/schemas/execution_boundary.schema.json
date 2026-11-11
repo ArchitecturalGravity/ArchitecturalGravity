@@ -1,0 +1,263 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcgrav:shared:schema:execution-boundary:1.0.0",
+  "schema_id": "arcgrav.shared.schema.execution-boundary",
+  "schema_version": "1.0.0",
+  "title": "Execution Boundary",
+  "description": "Canonical comparison boundary containing all comparison-relevant non-secret controls and stable integrity identity.",
+  "x-arcgrav-extension-policy": {
+    "mode": "namespaced-additive",
+    "extension_points": [
+      "/extensions"
+    ],
+    "unknown_fields": "reject",
+    "preserve_unknown_extensions": true,
+    "shared_fields_overridable": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "identityRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "version"
+      ],
+      "properties": {
+        "id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "schemaIdentity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_id",
+        "schema_version"
+      ],
+      "properties": {
+        "schema_id": {
+          "type": "string",
+          "pattern": "^arcgrav\\.shared\\.schema\\.[a-z0-9._-]+$"
+        },
+        "schema_version": {
+          "type": "string",
+          "pattern": "^(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)\\.(0|[1-9][0-9]*)$"
+        }
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "artifact_id",
+        "sha256"
+      ],
+      "properties": {
+        "artifact_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "sha256": {
+          "type": "string",
+          "pattern": "^sha256:[0-9a-f]{64}$"
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        },
+        "reference": {
+          "type": "string",
+          "minLength": 1
+        },
+        "availability": {
+          "type": "string",
+          "enum": [
+            "retained",
+            "not_produced",
+            "unavailable",
+            "invalid",
+            "excluded",
+            "missing",
+            "failed",
+            "completed_non_scorable",
+            "scored",
+            "not_applicable",
+            "non_comparable"
+          ]
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]*:[^\\s]+$"
+      },
+      "additionalProperties": true,
+      "description": "Opaque-preservable namespaced extension values. Consumers must preserve unknown entries and may not reinterpret shared fields."
+    },
+    "validationIssue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "source_id",
+        "message"
+      ],
+      "properties": {
+        "code": {
+          "type": "string",
+          "pattern": "^[A-Z][A-Z0-9_]*$"
+        },
+        "source_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "json_pointer": {
+          "type": "string",
+          "pattern": "^(?:/(?:[^~/]|~0|~1)*)*$"
+        },
+        "message": {
+          "type": "string",
+          "minLength": 1
+        },
+        "schema": {
+          "$ref": "#/$defs/schemaIdentity"
+        }
+      }
+    },
+    "namedValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "value"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "value": true
+      }
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "extensions",
+    "boundary_id",
+    "canonicalization",
+    "canonical_sha256",
+    "fingerprint",
+    "framework",
+    "runner",
+    "provider_runtime",
+    "controls",
+    "environment"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "arcgrav.shared.schema.execution-boundary"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "extensions": {
+      "$ref": "#/$defs/extensions"
+    },
+    "boundary_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonicalization": {
+      "const": "arcgrav.canonical-json.v1"
+    },
+    "canonical_sha256": {
+      "$ref": "#/$defs/sha256"
+    },
+    "fingerprint": {
+      "$ref": "#/$defs/sha256"
+    },
+    "framework": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "runner": {
+      "$ref": "#/$defs/identityRef"
+    },
+    "provider_runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runtime_id",
+        "access_method"
+      ],
+      "properties": {
+        "runtime_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "runtime_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provider": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "access_method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "model": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      }
+    },
+    "controls": {
+      "type": "array",
+      "uniqueItems": true,
+      "description": "Declared comparison-relevant, non-secret controls as closed name/value records.",
+      "items": {
+        "$ref": "#/$defs/namedValue"
+      }
+    },
+    "environment": {
+      "type": "array",
+      "uniqueItems": true,
+      "description": "Comparison-relevant, non-secret environment controls as closed name/value records.",
+      "items": {
+        "$ref": "#/$defs/namedValue"
+      }
+    }
+  }
+}

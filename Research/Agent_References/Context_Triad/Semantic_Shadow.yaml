@@ -1,0 +1,47 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.shadow
+kind: research_reference
+source:
+  path: Research/Context_Triad/Semantic_Shadow.md
+  url: ../../Context_Triad/Semantic_Shadow.md
+  fingerprint: fnv1a32-a5ecf062
+sections:
+  paper-semantic-shadow: |-
+    Semantic Shadow describes how later context changes an earlier semantic object's influence through reinforcement, competition, reinterpretation, or authorized supersession. It is evaluated through order- and continuation-sensitive response contrasts.
+  abstract: |-
+    An earlier rule or interpretation may remain accessible while later context changes its behavioral influence. Semantic Shadow compares competing or reinforcing continuations with matched neutral continuations and distinguishes historical adherence from correctness under the currently authorized state.
+  introduction: |-
+    Later semantic context can reinforce, compete with, reinterpret, or validly supersede an earlier represented object even while that object remains available. Shadow studies order and continuation effects, separating historical influence from the requirements of the currently authorized state.
+  role-within-the-context-triad: |-
+    The Context Triad develops the shared thesis and conceptual interactions. Shadow supplies its semantic-history contrasts and order-sensitive interpretation. This paper defines semantic shadow, describes its behavioral effects and interactions, and presents ways to quantify them.
+  construct-definition-and-boundaries: |-
+    Hold an earlier semantic object distinct from the later material that reinforces, competes with, or legitimately revises it. Shadow concerns order-sensitive behavioral influence, not a presumption that later context should suppress earlier authority. Current-state correctness is evaluated separately.
+  semantic-shadow-earlier-object: |-
+    An earlier rule, priority, constraint, definition, convention, or state assertion can remain visible while later context alters its effective influence. Measure changes relative to matched continuation baselines.
+  semantic-shadow-content: |-
+    Later material may be unrelated, relevant but nonconflicting, reinforcing, competing, or authorized to supersede. Semantic relatedness is not contradiction; historical influence must not override authorized updates.
+  behavioral-effects: |-
+    Five separable behavioral constructs cover evidence analogies, continuation effects, order contrasts, accumulated history, and differences between current state and historical interpretation. Do not infer a universal direction of suppression.
+  relation-to-prior-work: |-
+    Human order effects and language-model studies of conflicting context and temporal retrieval motivate candidate mechanisms; analogy and prior associations do not establish a unique Shadow effect.
+  semantic-shadow-effective-influence: |-
+    Hold the earlier semantic object and final task fixed. Compare response consistency after a competing or reinforcing continuation with consistency after a matched neutral continuation. The signed difference measures relative suppression or reinforcement, not correctness under the currently authorized state.
+  semantic-shadow-order-sensitivity: |-
+    Compare matched layouts that place a semantic competitor before versus after a fixed target, preserving relevant task, authority, length, and neutral controls. An order contrast may show increased suppression, reinforcement, or no measurable difference; direction is an outcome, not assumed by the label.
+  shadow-temporal-coupling: |-
+    An ordered history can accumulate reinforcement, competition, reinterpretation, or supersession; effects can flatten, saturate, or reverse. Temporal coupling concerns present dependence on past representation state.
+  shadow-interpretation-state: |-
+    Distinguish conventions learned generally by the model from conversation-specific remappings or demonstrations. A current response may depend on historical interpretation even when explicit current text is unchanged.
+  interactions-with-the-other-dimensions: |-
+    Interactions with the Other Dimensions: Shadow and Locality: An earlier object's response to later competition may depend on the placement of both the object and the competing material. Quantification. A placement-dependent order effect compares $ShA^{ord}$ at two target layouts.
+    Shadow and Weight: Strongly and lightly supported objects may respond differently to subsequent competition. Quantification. A support-dependent order effect is:
+    Compound Context Changes: Restating a still-active rule changes its locality profile, adds support, and changes later semantic context.
+  scope-and-evidence-status: |-
+    Shadow specifies model- and task-dependent contrasts for continuation, order, accumulated history, and authorized current state. Prior order and interference research motivates testing, but the proposed measures do not establish a universal suppression mechanism.
+  conclusion: |-
+    Semantic Shadow describes how subsequent context suppresses, reinforces, reinterprets, or supersedes earlier influence. Signed exposure, order, and cumulative-history contrasts quantify these relationships; current-state measurements distinguish historical consistency from authorized correctness.
+  related-papers: |-
+    Semantic Locality examines contextual placement; Semantic Weight examines support among competing representations.
+  references: |-
+    References: • Bajaj, A., et al. (2026).

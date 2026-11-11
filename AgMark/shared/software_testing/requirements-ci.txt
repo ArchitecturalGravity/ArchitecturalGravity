@@ -1,0 +1,2 @@
+# Concrete Qt frontend conformance dependency used by GitHub Actions.
+PySide6==6.11.2

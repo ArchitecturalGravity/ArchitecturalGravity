@@ -1,0 +1,49 @@
+schema_version: 2
+id: arcgrav.syntax.inline_aliasing
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Syntax/Inline_Aliasing.md
+  url: ../../Syntax/Inline_Aliasing.md
+  fingerprint: fnv1a32-751ea3ed
+sections:
+  ag-inline-aliasing: |-
+    Inline aliasing uses `AS` like a keyword to anchor a new symbolic reference like `AS [Alias]` that embodies the immediately preceding context. The alias symbol can then be referenced to later like a normal symbolic reference. This is the sole exception to normal symbolc reference rules prohibiting instantating symbols within another symbol body.
+    Inline Aliasing creates reusable symbolic references during interpretation or execution, allowing intermediate context to be named and reused without restating or predefining it.
+  ag-purpose: |-
+    Capture a derived or observed context without repeating its definition; Name intermediate results during execution; Preserve continuity across multi-step instructions; Reduce ambiguity when later steps depend on prior output
+    **Definition**
+    Context: - Immediate context AS [Alias]
+    Referenced after creation as:
+    Task: - Evaluate [Alias]
+    **Observation Aliasing**
+    [Files]: - ALL component.json files
+    [Property]: - `inspector`
+    Observation: - [Files] contains [Property] AS [FileProperties]
+    Task: - Compare [FileProperties]
+    **Execution Aliasing**
+    Task: 1. Combine [Primary] and [Secondary] AS [Combined] 2. Normalize [Combined] AS [Normalized] 3. Evaluate [Normalized]
+    **Scoped Aliasing**
+    Comparison: - [CurrentState] against [DesiredState] AS [StateDelta]
+    Constraint: - Limit changes to [StateDelta]
+  ag-rules: |-
+    **Immediate Prior Binding** — `AS [Alias]` names the context directly preceding it; **Procedurally Referenced** — invoke the alias only after it is created; **Symbolic Form** — aliases use bracket-wrapped identifiers; **Single Binding** — one alias should represent one derived context; **Stable Identity** — later references retain the first identity; another `AS [Name]` is a duplicate instantiation, not a reference; **Explicit Source** — the aliased context must be identifiable without inference
+  ag-constraints: |-
+    Do not use `AS` before the context it names; Every instantiated alias must have a subsequent reference; do not create unused aliases; Do not use `AS` as ordinary prose when it could be mistaken for an alias declaration; Prefer direct symbolic definition when the reference does not depend on immediate prior context; Keep alias names clear, concise, and semantically specific
+  ag-transformation-alias: |-
+    Name each stage of a transformation.
+    Task: 1. Parse [Source] AS [Parsed] 2. Normalize [Parsed] AS [Normalized] 3. Validate [Normalized] AS [Validated] 4. Output [Validated]
+  ag-boolean-alias: |-
+    Name the result of a condition or feasibility check.
+    Determine whether [Goal] is supported AS [Fulfillable]
+  ag-candidate-alias: |-
+    Capture discovered values for later resolution.
+    Collect matching records AS [Candidates]
+  ag-filtered-alias: |-
+    Name the subset produced by a filtering operation.
+    Remove invalid records from [Records] AS [ValidRecords]
+  ag-comparison-alias: |-
+    Name a normalized or canonical representation used for comparison.
+    Canonicalize [Candidate] AS [Signature]
+  ag-immediate-binding-rule: |-
+    Bind the alias only to the directly preceding expression.
+    Extract records AS [Records]

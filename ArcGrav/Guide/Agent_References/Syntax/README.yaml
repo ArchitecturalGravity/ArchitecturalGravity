@@ -1,0 +1,30 @@
+schema_version: 2
+id: arcgrav.syntax.index
+kind: documentation_reference
+source:
+  path: ArcGrav/Guide/Syntax/README.md
+  url: ../../Syntax/README.md
+  fingerprint: fnv1a32-44539886
+sections:
+  ag-arcgrav-syntax-reference: |-
+    This directory documents the core ArcGrav syntax used to structure, reference, and operate on context.
+  ag-sectioning: |-
+    > Uses `Key:` headers to organize related information into explicitly scoped context sections.
+  ag-listing: |-
+    > Uses line prefixes to represent unordered values, ordered steps, and prioritized items.
+  ag-grouping: |-
+    > Uses indentation to establish parent-child hierarchy, nested scope, and contextual relationships.
+  ag-symbolic-referencing: |-
+    > Uses bracket-wrapped identifiers such as `[Target]` to define and reuse explicitly anchored context.
+  ag-context-operation: |-
+    > Uses `=>` to define an operation that transforms context rather than adding another context item.
+  ag-inline-representation: |-
+    > Local interpretive forcing: bare content remains contextually interpreted, backticks identify exact structural names, and double quotes identify exact textual values.
+  ag-literal-quote-block: |-
+    > Uses triple double quotes (`"""`) to preserve multiline source material as a bounded literal value.
+  ag-explicit-block-binding: |-
+    > Uses `↳` to bind an indented block to a complete preceding expression when ordinary `:` scope would be ambiguous.
+  ag-inline-aliasing: |-
+    > Uses `AS` to assign the immediate prior context to a reusable symbolic reference.
+  ag-wildcarding: |-
+    > Uses `*` to represent matching values across filenames, paths, patterns, or context sets.

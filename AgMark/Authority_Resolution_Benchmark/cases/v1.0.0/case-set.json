@@ -1,0 +1,30 @@
+{
+  "case_set_id": "arcgrav.authority-resolution.case-set.core",
+  "case_set_version": "1.0.0",
+  "activation": {
+    "mode": "registration_only",
+    "active_by_presence": false
+  },
+  "cases": [
+    {
+      "case_id": "arb-core-001",
+      "categories": [
+        "authority-conflict",
+        "unresolved-value",
+        "instruction-like-data",
+        "explicit-relations"
+      ],
+      "input": {
+        "reference": "cases/v1.0.0/arb-core-001.json",
+        "media_type": "application/json",
+        "byte_length": 673,
+        "sha256": "sha256:c08cb8cf278eb210321cae4faeec8566253ee0a96e8f041b10dae7ed2e5d6c98"
+      },
+      "golden_binding": {
+        "case_key": "arb-core-001",
+        "requires_same_accepted_generation": true,
+        "caller_supplied_golden_allowed": false
+      }
+    }
+  ]
+}

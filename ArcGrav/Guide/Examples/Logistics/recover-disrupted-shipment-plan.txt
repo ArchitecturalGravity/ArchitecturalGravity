@@ -1,0 +1,133 @@
+# Intent: Replan a disrupted linehaul shipment from its current state while preserving delivery commitments cargo integrity downstream dependencies and uncertainty
+
+[Disruption]:
+- Time detected: 21:40
+- Location: Cedar Junction service area
+- Equipment state: Tractor disabled by cooling-system failure
+- Trailer state: Roadworthy
+- Cargo state: Secured with no observed damage
+- Driver state:
+  - Remaining legal duty time: 3 hours 10 minutes
+  - May supervise a trailer handoff before going off duty
+
+[Consignments]:
+- PlantSpareParts:
+  - Destination: East Ridge assembly plant
+  - Units: 6 crates
+  - Delivery commitment: 08:00
+  - Receiving opens: 06:00
+  - Unloading duration: 20 minutes
+  - Priority: Critical
+  - Dependency: Maintenance installation begins after receipt
+- StoreReplenishment:
+  - Destination: Brookfield regional store
+  - Units: 14 pallets
+  - Delivery commitment: 12:00
+  - Receiving opens: 07:00
+  - Unloading duration: 35 minutes
+  - Priority: Standard
+- FieldInstallKits:
+  - Destination: Southport staging depot
+  - Units: 9 pallets
+  - Delivery commitment: 10:30
+  - Receiving opens: 06:30
+  - Unloading duration: 30 minutes
+  - Priority: High
+  - Dependency: Final-mile crews depart at 11:15
+
+[Network]:
+- CedarJunctionToNorthHub: 95 minutes
+- CedarJunctionToEastRidge: 225 minutes
+- CedarJunctionToBrookfield: 250 minutes
+- CedarJunctionToSouthport: 205 minutes
+- NorthHubToEastRidge: 155 minutes
+- NorthHubToBrookfield: 170 minutes
+- NorthHubToSouthport: 145 minutes
+- EastRidgeToBrookfield: 80 minutes
+- EastRidgeToSouthport: 110 minutes
+- SouthportToBrookfield: 65 minutes
+
+[RecoveryResources]:
+- Replacement tractor:
+  - Earliest arrival at Cedar Junction: 00:20
+  - Trailer compatibility: Confirmed
+  - Driver duty availability: Through 09:30
+- North Hub rescue tractor:
+  - Earliest arrival at Cedar Junction: 23:35
+  - Must return to North Hub before long-haul reassignment
+  - Trailer compatibility: Confirmed
+- North Hub transfer dock:
+  - Opens for unscheduled transfer: 00:30
+  - Transfer duration: 50 minutes
+  - Outbound tractor earliest ready: 02:00
+- Dedicated van:
+  - Capacity: 8 crates
+  - Earliest availability at North Hub: 01:30
+  - Suitable cargo: PlantSpareParts only
+  - Driver duty availability: Through 10:00
+
+[KnownUncertainty]:
+- Repair completion:
+  - Earliest estimate: 01:00
+  - Confidence: Low
+- North Hub transfer duration:
+  - Typical duration: 50 minutes
+  - Congestion risk: Moderate after 02:00
+- Overnight road conditions:
+  - Current status: Open
+  - Forecast restriction: None confirmed
+
+[RecoveryRules]:
+- Cargo integrity:
+  - Keep every consignment traceable through any trailer or vehicle transfer
+  - Do not split a consignment unless its receiving party accepts split delivery
+- Critical dependency:
+  - Protect PlantSpareParts delivery before improving standard-priority performance
+- Driver compliance:
+  - Do not plan movement that exceeds any driver duty limit
+- Authority:
+  - Dispatch may reroute company equipment
+  - Dispatch may authorize North Hub transfer handling
+  - Customer commitment changes require account-management approval
+
+[RecoveryPlan]: []
+
+[Exposure]: []
+
+[DecisionPoints]: []
+
+[Recover]:
+=> Establish the earliest executable recovery paths from [Disruption] using [Network] and [RecoveryResources]
+=> Compare direct trailer continuation against North Hub transfer options
+=> Preserve completed movement and avoid returning cargo to origin unless no viable downstream path remains
+=> Protect PlantSpareParts in [Consignments] first under [RecoveryRules] when resource conflicts cannot be avoided
+=> Use [KnownUncertainty] as uncertainty rather than converting estimates into facts
+=> Include [Consignments] unloading durations when projecting each delivery completion
+=> Append the selected movement sequence to [RecoveryPlan] with:
+  - Cargo movement
+  - Assigned equipment
+  - Responsible driver or facility
+  - Earliest start
+  - Projected completion
+  - Dependency satisfied
+
+[BranchOnState]:
+=> If the replacement tractor reaches Cedar Junction by 00:20 evaluate direct continuation without a North Hub transfer
+=> If the replacement tractor is delayed beyond 00:50 evaluate using the North Hub rescue tractor to move the trailer to North Hub
+=> If PlantSpareParts cannot reach East Ridge by 08:00 on the selected trailer path evaluate transfer to the Dedicated van at North Hub
+=> If any [Consignments] commitment becomes infeasible append the affected commitment to [Exposure]
+=> For every unresolved estimate in [KnownUncertainty] that could change the selected path append a trigger and latest decision time to [DecisionPoints]
+
+[Verify]:
+=> Confirm every cargo handoff in [RecoveryPlan] preserves [Consignments] identity under [RecoveryRules]
+=> Confirm planned driver movements in [RecoveryPlan] respect [Disruption] and [RecoveryResources] duty limits
+=> Confirm critical maintenance dependency exposure is explicit in [Exposure]
+=> Confirm [RecoveryPlan] transfers respect [RecoveryResources] facility opening times
+=> Confirm [RecoveryPlan] projected delivery completion remains distinct from [Consignments] commitments
+=> Confirm any required commitment change in [Exposure] is assigned under [RecoveryRules] authority
+
+Task:
+1. Run [Recover]
+2. Run [BranchOnState]
+3. Run [Verify]
+4. Present [RecoveryPlan] with [Exposure] and [DecisionPoints]

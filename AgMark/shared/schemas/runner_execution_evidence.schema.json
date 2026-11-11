@@ -1,0 +1,374 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcgrav:shared:schema:runner-execution-evidence:2.0.0",
+  "schema_id": "arcgrav.shared.schema.runner-execution-evidence",
+  "schema_version": "2.0.0",
+  "title": "Runner Execution Evidence",
+  "description": "Canonical shared execution-evidence structure retained at treatment-observation extensions[\"arcgrav.runner:execution\"] for parity-capable runner observations.",
+  "x-arcgrav-extension-policy": {
+    "mode": "namespaced-additive",
+    "extension_points": [
+      "/extensions"
+    ],
+    "unknown_fields": "reject",
+    "preserve_unknown_extensions": true,
+    "shared_fields_overridable": false
+  },
+  "type": "object",
+  "additionalProperties": false,
+  "$defs": {
+    "availability": {
+      "type": "string",
+      "enum": [
+        "observed",
+        "unavailable",
+        "not_applicable"
+      ]
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^sha256:[0-9a-f]{64}$"
+    },
+    "nullableString": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]*:[^\\s]+$"
+      },
+      "additionalProperties": true
+    },
+    "channel": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "sha256",
+        "byte_length",
+        "reference"
+      ],
+      "properties": {
+        "availability": {
+          "type": "string",
+          "enum": [
+            "excluded",
+            "unavailable",
+            "not_produced",
+            "not_applicable"
+          ]
+        },
+        "sha256": {
+          "type": "null"
+        },
+        "byte_length": {
+          "type": "null"
+        },
+        "reference": {
+          "type": "null"
+        }
+      }
+    }
+  },
+  "required": [
+    "schema_id",
+    "schema_version",
+    "extensions",
+    "target",
+    "submission",
+    "runtime",
+    "launch_environment",
+    "authentication",
+    "isolation",
+    "request_framing",
+    "process",
+    "usage",
+    "error"
+  ],
+  "properties": {
+    "schema_id": {
+      "const": "arcgrav.shared.schema.runner-execution-evidence"
+    },
+    "schema_version": {
+      "const": "2.0.0"
+    },
+    "extensions": {
+      "$ref": "#/$defs/extensions"
+    },
+    "target": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "class",
+        "evidence_class"
+      ],
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "class": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "evidence_class": {
+          "$ref": "#/$defs/nullableString"
+        }
+      }
+    },
+    "submission": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "occurred",
+        "external_provider"
+      ],
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "occurred": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "external_provider": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "runtime_id",
+        "runtime_version",
+        "model_id",
+        "access_method"
+      ],
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "runtime_id": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "runtime_version": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "model_id": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "access_method": {
+          "$ref": "#/$defs/nullableString"
+        }
+      }
+    },
+    "launch_environment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "mode",
+        "environment_id",
+        "executable"
+      ],
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "mode": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "environment_id": {
+          "type": "null"
+        },
+        "executable": {
+          "type": "string",
+          "pattern": "^runtime/[A-Za-z0-9_.-]+$"
+        }
+      }
+    },
+    "authentication": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "class",
+        "source"
+      ],
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "class": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "source": {
+          "$ref": "#/$defs/nullableString"
+        }
+      }
+    },
+    "isolation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "fresh_process",
+        "fresh_workdir",
+        "prior_observation_context_reused",
+        "session_home_reused"
+      ],
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "fresh_process": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "fresh_workdir": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "prior_observation_context_reused": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "session_home_reused": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "request_framing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "mode",
+        "sha256",
+        "byte_length"
+      ],
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "mode": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "sha256": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/sha256"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "byte_length": {
+          "type": [
+            "integer",
+            "null"
+          ],
+          "minimum": 0
+        }
+      }
+    },
+    "process": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "exit_status",
+        "transport_status",
+        "stdout",
+        "stderr"
+      ],
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "exit_status": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "transport_status": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "stdout": {
+          "$ref": "#/$defs/channel"
+        },
+        "stderr": {
+          "$ref": "#/$defs/channel"
+        }
+      }
+    },
+    "usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "provider_reported",
+        "provenance"
+      ],
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "provider_reported": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "provenance": {
+          "$ref": "#/$defs/nullableString"
+        }
+      }
+    },
+    "error": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "availability",
+        "code",
+        "classification",
+        "message"
+      ],
+      "properties": {
+        "availability": {
+          "$ref": "#/$defs/availability"
+        },
+        "code": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "classification": {
+          "$ref": "#/$defs/nullableString"
+        },
+        "message": {
+          "$ref": "#/$defs/nullableString"
+        }
+      }
+    }
+  }
+}

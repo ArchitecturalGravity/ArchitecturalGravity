@@ -1,0 +1,133 @@
+# Intent: Adapt a dinner recipe to dietary ingredient equipment serving and timing constraints while preserving its core character
+
+[OriginalRecipe]:
+- Dish: Creamy Mushroom Pasta
+- Servings: 4
+- TargetCharacter:
+  - Savory mushroom forward sauce
+  - Silky coating texture
+  - Bright finish
+- Ingredients:
+  - Dried pasta: 400 g
+  - Cremini mushrooms: 450 g
+  - Heavy cream: 240 ml
+  - Parmesan: 80 g
+  - Butter: 30 g
+  - Garlic: 3 cloves
+  - Lemon: 1
+  - Parsley: 20 g
+- Method:
+  - Brown mushrooms in butter
+  - Add garlic
+  - Add cream
+  - Simmer until lightly thickened
+  - Toss with cooked pasta and Parmesan
+  - Finish with lemon and parsley
+
+[RequiredOutcome]:
+- Servings: 6
+- ReadyBy: 19:00
+- MaximumActiveCookingTime: 35 minutes
+
+[HardConstraints]:
+- Dietary:
+  - Dairy free
+  - Vegetarian
+- Ingredient:
+  - Cremini mushrooms available: 300 g
+  - Oyster mushrooms available: 300 g
+  - Parmesan available: None
+- Equipment:
+  - Burners available: 2
+  - Oven available: No
+  - Blender available: No
+
+[AvailableSubstitutions]:
+- Olive oil: 120 ml
+- Unsweetened oat cream: 500 ml
+- White miso: 45 g
+- Nutritional yeast: 60 g
+- Vegetable stock: 750 ml
+- Dried pasta: 700 g
+- Garlic: 1 head
+- Lemons: 2
+- Parsley: 40 g
+
+[Preserve]:
+- Primary flavor: Deeply browned mushrooms
+- Sauce behavior: Coats pasta without becoming soupy
+- Finish: Fresh acidity and herbs
+- Service: Serve hot as a single main dish
+
+[Adaptation]: []
+
+[Tradeoffs]: []
+
+[TimingPlan]: []
+
+[Unresolved]: []
+
+[ScaleBase]:
+=> Scale [OriginalRecipe] pasta quantity from 4 to 6 servings
+=> Apply [HardConstraints] Ingredient availability limits to the scaled quantities
+=> Scale sauce volume to match the new pasta quantity rather than multiplying every ingredient mechanically
+=> Combine cremini and oyster mushrooms without exceeding [HardConstraints] Ingredient availability
+=> Record the 75 g mushroom shortfall from a direct 6 serving scale in [Tradeoffs]
+=> Record any other ingredient whose available quantity prevents direct scaling in [Tradeoffs]
+
+[ReplaceDairy]:
+=> Apply [HardConstraints] Dietary restrictions to every replacement
+=> Replace butter with olive oil for mushroom browning
+=> Replace heavy cream with oat cream
+=> Use white miso and nutritional yeast to supply savory depth lost with Parmesan
+=> Taste after adding miso before adjusting seasoning
+=> Do not assume unlisted salt is available
+=> Preserve lemon and parsley as the finishing elements
+=> Append each replacement and its functional purpose to [Adaptation]
+
+[ProtectTexture]:
+=> Brown mushrooms in batches when crowding would cause steaming
+=> Reserve pasta water before draining
+=> Build the sauce slightly thicker than the final target
+=> Loosen the sauce during tossing with reserved pasta water only as needed
+=> Do not depend on a blender or oven step
+
+[FitServiceWindow]:
+=> Work within [HardConstraints] Equipment limits
+=> Work backward from [RequiredOutcome] ReadyBy
+=> Schedule mushroom browning before the pasta reaches final doneness
+=> Use the second burner for pasta water while the sauce is built
+=> Keep final tossing and acid adjustment inside the last 8 minutes before service
+=> If the proposed sequence exceeds [RequiredOutcome] MaximumActiveCookingTime ↳
+  - Simplify a nonessential garnish step
+  - Do not shorten mushroom browning below the point needed for [Preserve] Primary flavor
+=> If [RequiredOutcome] ReadyBy or MaximumActiveCookingTime remains infeasible, append the reason to [Unresolved] and do not claim a compliant plan
+=> Append the feasible sequence to [TimingPlan]
+
+[ValidateAdaptation]:
+=> Verify every adapted ingredient has a documented source:
+  - [OriginalRecipe] ingredients
+  - [HardConstraints] Ingredient availability
+  - [AvailableSubstitutions]
+=> Verify all quantities respect [HardConstraints] Ingredient availability and [AvailableSubstitutions] stock
+=> Verify every [HardConstraints] Dietary restriction is satisfied
+=> Verify the adapted quantity serves [RequiredOutcome] Servings
+=> Verify every [HardConstraints] Equipment limit is satisfied
+=> Verify [TimingPlan] meets [RequiredOutcome] ReadyBy and MaximumActiveCookingTime
+=> Verify [Preserve] characteristics are addressed by explicit technique or ingredient choices
+=> Preserve any unresolved issue in [Unresolved] ↳
+  - Failed or unverified constraints
+  - Unverified flavor effects
+  - Unverified texture effects
+
+Task:
+1. Run [ScaleBase]
+2. Run [ReplaceDairy]
+3. Run [ProtectTexture]
+4. Run [FitServiceWindow]
+5. Run [ValidateAdaptation]
+6. Present:
+  - [Adaptation]
+  - [TimingPlan]
+  - [Tradeoffs]
+  - [Unresolved]

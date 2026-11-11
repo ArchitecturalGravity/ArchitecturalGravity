@@ -1,0 +1,149 @@
+# Intent: Rebuild the affected run of show after a reception space becomes unavailable while preserving commitments that the change does not invalidate
+
+[Baseline]:
+- Event: Product launch evening
+- Attendance: 180 confirmed guests
+- Date: Thursday 24 September
+- GuestArrival: 17:45
+- LaunchProgram:
+  - Location: Gallery Level
+  - Start: 18:15
+  - End: 19:05
+- RooftopReception:
+  - Location: Rooftop Terrace
+  - Start: 19:15
+  - End: 21:15
+- GuestTransport:
+  - FirstPickup: 21:15
+  - FinalPickup: 21:30
+
+[Change]:
+- ObservedAt: 13:20
+- EffectiveAt: 17:00
+- Condition: Forecast wind exceeds the rooftop operating limit
+- Decision: Rooftop Terrace is closed for the evening
+- Authority: Venue operations manager
+
+[LockedCommitments]:
+- GuestArrival: 17:45
+- LivestreamStart: 18:15
+- LaunchProgramEnd: 19:05
+- GuestTransportFinalPickup: 21:30
+- CatererDeparture: 22:00
+- StepFreeGuestRoute: Required throughout the event
+
+[AffectedElements]:
+- ReceptionLocation: Rooftop Terrace
+- BarStation: Rooftop Terrace
+- LiveTrio: Rooftop Terrace
+- ProjectionSurface: Rooftop Terrace
+- DessertService: Rooftop Terrace
+
+[IndoorAlternates]:
+- GalleryLevel:
+  - ReceptionCapacityAfterStageStrike: 130 standing guests
+  - StageStrikeWindow: 19:05 to 19:25
+  - BarService: Approved
+  - ProjectionWall: Available after 20 minute audiovisual reset
+- StudioEast:
+  - ReceptionCapacity: 80 standing guests
+  - Adjacency: Directly connected to Gallery Level
+  - StepFreeAccess: Available
+  - BarService: Approved
+  - LiveMusicPower: Available
+- Lobby:
+  - ReceptionCapacity: 60 standing guests
+  - PrimaryConstraint: Must preserve the guest egress route
+  - BarService: Not approved
+
+[VendorCapabilities]:
+- Caterer:
+  - IndoorResetNeed: 35 minutes
+  - FoodStationsAvailable: 3
+  - MobileDessertService: Available
+- BarVendor:
+  - IndoorResetNeed: 25 minutes
+  - ApprovedIndoorLocations:
+    - GalleryLevel
+    - StudioEast
+- LiveTrio:
+  - RelocationNeed: 20 minutes
+  - IndoorLocation: StudioEast
+- AVTeam:
+  - ProjectionResetNeed: 20 minutes
+  - ResetCanBegin: 19:05
+
+[DependencyRules]:
+- Relationship:
+  - Type: Sequential
+  - From: StageStrike
+  - To: GalleryReceptionAccess
+  - Rule: Guests cannot enter the strike zone before 19:25
+- Relationship:
+  - Type: Sequential
+  - From: BarReset
+  - To: IndoorBarOpening
+  - Rule: Service cannot begin before reset is complete
+- Relationship:
+  - Type: Sequential
+  - From: AVReset
+  - To: ProjectionUse
+  - Rule: Projection cannot resume before reset is complete
+- Relationship:
+  - Type: Constraint
+  - From: GuestMovement
+  - To: Egress
+  - Rule: Reception zoning must preserve the approved exit path
+- Relationship:
+  - Type: Sequential
+  - From: ReceptionEnd
+  - To: FinalPickup
+  - Rule: Guests need 10 minutes to reach the transport point
+
+[ImpactMap]: []
+
+[RevisedRunOfShow]: []
+
+[Communications]: []
+
+[PropagateImpact]:
+=> Start from the unavailable Rooftop Terrace in [Change]
+=> Trace each affected use of the closed space:
+  - Activities in [Baseline]
+  - Elements in [AffectedElements]
+  - Dependencies in [DependencyRules] and [VendorCapabilities]
+=> Mark an element as "DirectlyAffected" when it requires the closed space
+=> Mark an element as "DownstreamAffected" when its timing or setup depends on a directly affected element
+=> Mark all other baseline commitments as "Unaffected"
+=> Append each classification and reason to [ImpactMap]
+
+[ReplanAffectedWork]:
+=> Preserve every [LockedCommitments] value
+=> Use only capacity and service approvals stated in [IndoorAlternates]
+=> Allocate reception guests across connected indoor spaces without exceeding stated capacities
+=> Sequence vendor resets in [VendorCapabilities] after `LaunchProgram` ends in [Baseline]
+=> Preserve the required step-free route and egress path during guest movement
+=> Do not delay `GuestTransportFinalPickup` in [LockedCommitments]
+=> Append only changed or newly inserted activities to [RevisedRunOfShow]
+
+[PrepareCommunications]:
+=> Identify each participant group whose location or timing changes
+=> State the replacement location and effective time for each affected group
+=> Avoid notifying a group about an unchanged commitment unless the change alters how they reach it
+=> Append required notices to [Communications]
+
+[Validate]:
+=> Verify combined indoor reception capacity covers all 180 guests
+=> Verify no guest enters Gallery Level reception space during the stage strike
+=> Verify bar and food service begin only after their required resets
+=> Verify the live trio has an approved indoor location with enough setup time
+=> Verify the projection plan respects `ProjectionResetNeed` in [VendorCapabilities]
+=> Verify guest departure can reach `GuestTransportFinalPickup` in [LockedCommitments]
+=> Verify every "Unaffected" item in [ImpactMap] remains unchanged
+
+Task:
+1. Run [PropagateImpact]
+2. Run [ReplanAffectedWork]
+3. Run [PrepareCommunications]
+4. Run [Validate]
+5. Provide [ImpactMap] with [RevisedRunOfShow] and [Communications]

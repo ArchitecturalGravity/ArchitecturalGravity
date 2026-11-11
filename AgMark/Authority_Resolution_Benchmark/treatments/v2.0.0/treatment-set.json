@@ -1,0 +1,92 @@
+{
+  "treatment_set_id": "arcgrav.authority-resolution.treatment-set.core",
+  "treatment_set_version": "2.0.0",
+  "activation": {
+    "mode": "registration_only",
+    "active_by_presence": false
+  },
+  "equivalence_expectation": {
+    "kind": "same_underlying_task_logic_and_required_output",
+    "content_changes_require_new_registered_version": true
+  },
+  "isolation": {
+    "new_conversation_per_observation": true,
+    "prior_treatment_prompt_allowed": false,
+    "prior_treatment_output_allowed": false,
+    "prior_treatment_correction_allowed": false,
+    "prior_treatment_score_allowed": false,
+    "prior_conversation_history_allowed": false
+  },
+  "treatments": [
+    {
+      "treatment_id": "arb-arcgrav",
+      "methodology": "architectural-gravity",
+      "prompt": {
+        "reference": "treatments/v2.0.0/prompts/arb-arcgrav.txt",
+        "media_type": "text/plain; charset=utf-8",
+        "byte_length": 9559,
+        "sha256": "sha256:b4d3fcfeb641f5103f8cd58ae8607bf1dac88ea02ca6382b8bfa88582165f4e2"
+      },
+      "provenance": {
+        "reference": "Legacy_Content/Bench_Context_ArcGrav_V4.txt",
+        "sha256": "sha256:b4d3fcfeb641f5103f8cd58ae8607bf1dac88ea02ca6382b8bfa88582165f4e2"
+      }
+    },
+    {
+      "treatment_id": "arb-common-prose",
+      "methodology": "common-prose",
+      "prompt": {
+        "reference": "treatments/v2.0.0/prompts/arb-common-prose.txt",
+        "media_type": "text/plain; charset=utf-8",
+        "byte_length": 33048,
+        "sha256": "sha256:3358753e6f6df2751fa3b7c5a67b236b6458a09c61c2aca762e1a7cdd6159b4c"
+      },
+      "provenance": {
+        "reference": "Legacy_Content/Bench_Context_CommonProse.txt",
+        "sha256": "sha256:3358753e6f6df2751fa3b7c5a67b236b6458a09c61c2aca762e1a7cdd6159b4c"
+      }
+    },
+    {
+      "treatment_id": "arb-markdown",
+      "methodology": "markdown",
+      "prompt": {
+        "reference": "treatments/v2.0.0/prompts/arb-markdown.md",
+        "media_type": "text/markdown; charset=utf-8",
+        "byte_length": 30806,
+        "sha256": "sha256:7b5b185dfd9732af7f7769f2ceb7eb3dfb4da27b787056c0ddfd4a8c449e04b2"
+      },
+      "provenance": {
+        "reference": "Legacy_Content/Bench_Context_Markdown.md",
+        "sha256": "sha256:7b5b185dfd9732af7f7769f2ceb7eb3dfb4da27b787056c0ddfd4a8c449e04b2"
+      }
+    },
+    {
+      "treatment_id": "arb-xml",
+      "methodology": "xml",
+      "prompt": {
+        "reference": "treatments/v2.0.0/prompts/arb-xml.xml",
+        "media_type": "application/xml; charset=utf-8",
+        "byte_length": 38704,
+        "sha256": "sha256:116c3ac6b0a85a6a5de378c77b6cdee30bcaa8c1e90f67fa9895382166abfaf8"
+      },
+      "provenance": {
+        "reference": "Legacy_Content/Bench_Context_XML.xml",
+        "sha256": "sha256:116c3ac6b0a85a6a5de378c77b6cdee30bcaa8c1e90f67fa9895382166abfaf8"
+      }
+    },
+    {
+      "treatment_id": "arb-yaml",
+      "methodology": "yaml",
+      "prompt": {
+        "reference": "treatments/v2.0.0/prompts/arb-yaml.yaml",
+        "media_type": "application/yaml; charset=utf-8",
+        "byte_length": 35788,
+        "sha256": "sha256:2dc7e74d7000bb51479b20bb43a13aa015f8bbd61f8c42a46ef21c91c2e7b55c"
+      },
+      "provenance": {
+        "reference": "Legacy_Content/Bench_Context_YAML.yaml",
+        "sha256": "sha256:2dc7e74d7000bb51479b20bb43a13aa015f8bbd61f8c42a46ef21c91c2e7b55c"
+      }
+    }
+  ]
+}

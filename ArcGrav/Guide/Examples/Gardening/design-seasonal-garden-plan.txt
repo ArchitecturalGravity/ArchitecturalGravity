@@ -1,0 +1,120 @@
+# Intent: Design a seasonal garden plan that coordinates crop windows with bed capacity succession and site constraints
+
+[SeasonAssumptions]:
+- Source: ./local-growing-calendar.md
+- LastExpectedFrost: 15 April
+- FirstExpectedFrost: 1 November
+- SummerHeatPeriod: 1 July through 31 August
+
+[Site]:
+- Sun exposure: Full sun
+- Irrigation: Drip available in every bed
+- Bed A:
+  - Area: 3.6 m²
+  - Spring soil condition: Workable
+- Bed B:
+  - Area: 3.6 m²
+  - Spring soil condition: Workable
+- Bed C:
+  - Area: 3.6 m²
+  - Spring soil condition: Workable
+
+[Crops]:
+- Pea:
+  - Planting window: 1 March through 31 March
+  - Expected bed release: 20 June through 10 July
+  - Season preference: Cool
+- Tomato:
+  - Transplant window: 1 May through 20 May
+  - Expected bed release: 1 October through 20 October
+  - Season preference: Warm
+- BushBean:
+  - Planting window: 15 May through 15 July
+  - Expected bed release: 55 through 70 days after planting
+  - Season preference: Warm
+- Lettuce:
+  - Spring window: 15 March through 15 April
+  - Fall window: 20 August through 15 September
+  - Season preference: Cool
+- Garlic:
+  - Planting window: 15 October through 15 November
+  - Expected bed release: Following June
+  - Season preference: Overwintering
+- CoverCrop:
+  - Planting window: After final food crop
+  - Purpose:
+    - Protect bare soil
+    - Hold unused bed capacity
+
+[RotationConstraints]:
+- Transition:
+  - From: Tomato
+  - To: Tomato
+  - Rule: Avoid consecutive occupancy in the same bed
+- Transition:
+  - From: Pea
+  - To: BushBean
+  - Rule: Allowed when the pea crop is removed before bean establishment
+- Transition:
+  - From: FoodCrop
+  - To: CoverCrop
+  - Rule: Allowed whenever no planned successor can establish in time
+- Transition:
+  - From: AnyCrop
+  - To: Successor
+  - Rule: Preserve enough turnover time for residue removal and bed preparation
+
+[SeasonPlan]: []
+
+[TurnoverGaps]: []
+
+[BareSoilIntervals]: []
+
+[Conflicts]: []
+
+[BuildWindows]:
+=> For each crop in [Crops] ↳
+  - Map its planting window against [SeasonAssumptions]
+  - Record its expected bed occupancy
+  - Mark heat or frost exposure that could make the window unreliable
+=> Preserve source-based uncertainty rather than inventing exact harvest dates
+
+[AllocateBeds]:
+=> Assign crops to [Site] beds without overlapping bed occupancy
+=> Prefer successions where a released bed can receive the next crop inside its planting window
+=> Apply [RotationConstraints] before optimizing bed utilization
+=> If two crops compete for the same bed window:
+  - Preserve the crop with the narrower viable window
+  - Search another bed or later succession for the other crop
+  - Append any unresolved competition to [Conflicts]
+=> Append accepted assignments to [SeasonPlan]
+
+[PlanTurnover]:
+=> For each transition in [SeasonPlan] ↳
+  - Calculate the available gap between expected release and successor planting
+  - Reserve time for residue removal and bed preparation
+  - If the successor window cannot tolerate the required turnover gap:
+    - Append the transition to [TurnoverGaps]
+  - If a bed would otherwise remain bare for a material interval:
+    - Evaluate [Crops] CoverCrop against the remaining window
+    - If cover crop establishment is not feasible:
+      - Append the uncovered interval to [BareSoilIntervals]
+=> Do not claim a succession is viable when its timing depends on an unresolved release date
+
+[ValidatePlan]:
+=> Verify every bed assignment fits within its seasonal window
+=> Verify no bed contains overlapping occupancy
+=> Verify [RotationConstraints] are preserved
+=> Verify every planned successor has a feasible turnover interval or a recorded gap
+=> Verify bare-soil intervals are either covered or explicitly recorded
+=> Preserve weather-sensitive timing as an assumption rather than a guarantee
+
+Task:
+1. Run [BuildWindows]
+2. Run [AllocateBeds]
+3. Run [PlanTurnover]
+4. Run [ValidatePlan]
+5. Provide [SeasonPlan] with:
+  - [TurnoverGaps]
+  - [BareSoilIntervals]
+  - [Conflicts]

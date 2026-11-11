@@ -1,0 +1,211 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:arcgrav:shared:schema:session-metrics:1.0.0",
+  "schema_id": "arcgrav.shared.schema.session-metrics",
+  "schema_version": "1.0.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_id",
+    "schema_version",
+    "thread_id",
+    "model",
+    "reasoning_effort",
+    "roles",
+    "extensions"
+  ],
+  "$defs": {
+    "measurement": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "availability",
+        "unit",
+        "kind",
+        "source",
+        "meaning",
+        "method",
+        "evidence_references",
+        "details"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "number",
+            "null"
+          ],
+          "minimum": 0
+        },
+        "availability": {
+          "enum": [
+            "available",
+            "unavailable",
+            "partial",
+            "non_comparable"
+          ]
+        },
+        "unit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "kind": {
+          "type": "string",
+          "minLength": 1
+        },
+        "source": {
+          "type": "string",
+          "minLength": 1
+        },
+        "meaning": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "type": "string",
+          "minLength": 1
+        },
+        "evidence_references": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "details": {
+          "type": "object"
+        }
+      }
+    }
+  },
+  "properties": {
+    "schema_id": {
+      "const": "arcgrav.shared.schema.session-metrics"
+    },
+    "schema_version": {
+      "const": "1.0.0"
+    },
+    "thread_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "minLength": 1
+    },
+    "model": {
+      "type": "string",
+      "minLength": 1
+    },
+    "reasoning_effort": {
+      "type": "string",
+      "minLength": 1
+    },
+    "roles": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "cache_write_input_tokens",
+        "context_window",
+        "prompt_count",
+        "session_span_minutes",
+        "prompt_span_minutes",
+        "avg_gap_between_user_prompts_minutes",
+        "average_characters_per_prompt",
+        "tool_call_span_duration",
+        "tool_call_avg_duration",
+        "distinct_tool_count",
+        "compaction_count",
+        "total_inference_ms",
+        "average_inference_ms",
+        "inference_call_count",
+        "average_ttft_ms",
+        "average_tbt_ms",
+        "turn_aborted"
+      ],
+      "properties": {
+        "cache_write_input_tokens": {
+          "$ref": "#/$defs/measurement"
+        },
+        "context_window": {
+          "$ref": "#/$defs/measurement"
+        },
+        "prompt_count": {
+          "$ref": "#/$defs/measurement"
+        },
+        "session_span_minutes": {
+          "$ref": "#/$defs/measurement"
+        },
+        "prompt_span_minutes": {
+          "$ref": "#/$defs/measurement"
+        },
+        "avg_gap_between_user_prompts_minutes": {
+          "$ref": "#/$defs/measurement"
+        },
+        "average_characters_per_prompt": {
+          "$ref": "#/$defs/measurement"
+        },
+        "tool_call_span_duration": {
+          "$ref": "#/$defs/measurement"
+        },
+        "tool_call_avg_duration": {
+          "$ref": "#/$defs/measurement"
+        },
+        "distinct_tool_count": {
+          "$ref": "#/$defs/measurement"
+        },
+        "compaction_count": {
+          "$ref": "#/$defs/measurement"
+        },
+        "total_inference_ms": {
+          "$ref": "#/$defs/measurement"
+        },
+        "average_inference_ms": {
+          "$ref": "#/$defs/measurement"
+        },
+        "inference_call_count": {
+          "$ref": "#/$defs/measurement"
+        },
+        "average_ttft_ms": {
+          "$ref": "#/$defs/measurement"
+        },
+        "average_tbt_ms": {
+          "$ref": "#/$defs/measurement"
+        },
+        "turn_aborted": {
+          "$ref": "#/$defs/measurement"
+        },
+        "token_usage_event_count": {
+          "$ref": "#/$defs/measurement"
+        },
+        "provider_request_count": {
+          "$ref": "#/$defs/measurement"
+        },
+        "average_request_duration_ms": {
+          "$ref": "#/$defs/measurement"
+        },
+        "average_direct_ttft_ms": {
+          "$ref": "#/$defs/measurement"
+        },
+        "average_direct_tbt_ms": {
+          "$ref": "#/$defs/measurement"
+        }
+      }
+    },
+    "extensions": {
+      "type": "object",
+      "propertyNames": {
+        "pattern": "^[A-Za-z][A-Za-z0-9._-]*:[^\\s]+$"
+      }
+    }
+  },
+  "x-arcgrav-extension-policy": {
+    "extension_points": [
+      "/extensions"
+    ],
+    "mode": "namespaced-additive",
+    "unknown_fields": "reject",
+    "preserve_unknown_extensions": true,
+    "shared_fields_overridable": false
+  }
+}

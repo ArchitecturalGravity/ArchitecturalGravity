@@ -1,0 +1,164 @@
+# Intent: Coordinate a three dish dinner so shared equipment dependencies holding limits and final service converge at one serving time
+
+[Service]:
+- Guests: 6
+- TargetServingTime: 18:30
+- TableReadyBy: 18:20
+
+[Kitchen]:
+- Oven:
+  - Capacity: One full sheet pan or two small baking dishes
+  - TemperatureChangeDelay: 10 minutes
+- Burners:
+  - FrontLeft: Available
+  - FrontRight: Available
+- LargePot: 1
+- LargeSkillet: 1
+- CuttingBoard: 1
+
+[Dishes]:
+- RoastChicken:
+  - TargetServeState: Rested and hot
+  - Tasks:
+    - `SeasonChicken`: 10 minutes
+    - `RoastChicken`: 45 minutes at 220 C
+    - `RestChicken`: 15 minutes
+  - HoldingLimit: 20 minutes after rest
+- CrispyPotatoes:
+  - TargetServeState: Crisp and hot
+  - Tasks:
+    - `CutPotatoes`: 10 minutes
+    - `ParboilPotatoes`: 8 minutes
+    - `DrainAndRoughenPotatoes`: 5 minutes
+    - `RoastPotatoes`: 40 minutes at 220 C
+  - HoldingLimit: 10 minutes uncovered
+- GreenBeans:
+  - TargetServeState: Bright and just tender
+  - Tasks:
+    - `TrimBeans`: 8 minutes
+    - `BlanchBeans`: 4 minutes
+    - `DrainBeans`: 2 minutes
+    - `SauteBeans`: 6 minutes with garlic
+  - HoldingLimit: 8 minutes after sautéing
+
+[Dependencies]:
+- Dependency:
+  - Predecessor: `SeasonChicken`
+  - Successor: `RoastChicken`
+  - Condition: Seasoning must finish before roasting
+- Dependency:
+  - Predecessor: `RoastChicken`
+  - Successor: `RestChicken`
+  - Condition: Rest begins when roasting ends
+- Dependency:
+  - Predecessor: `CutPotatoes`
+  - Successor: `ParboilPotatoes`
+  - Condition: Cutting must finish before parboiling
+- Dependency:
+  - Predecessor: `ParboilPotatoes`
+  - Successor: `DrainAndRoughenPotatoes`
+  - Condition: Parboiling must finish before draining and roughening
+- Dependency:
+  - Predecessor: `DrainAndRoughenPotatoes`
+  - Successor: `RoastPotatoes`
+  - Condition: Potatoes must be drained and roughened before roasting
+- Dependency:
+  - Predecessor: `TrimBeans`
+  - Successor: `BlanchBeans`
+  - Condition: Trimming must finish before blanching
+- Dependency:
+  - Predecessor: `BlanchBeans`
+  - Successor: `DrainBeans`
+  - Condition: Blanching must finish before draining
+- Dependency:
+  - Predecessor: `DrainBeans`
+  - Successor: `SauteBeans`
+  - Condition: Beans must be drained before sautéing
+
+[SharedConditions]:
+- SharedRoasting:
+  - Dishes:
+    - RoastChicken
+    - CrispyPotatoes
+  - OvenTemperature: 220 C
+  - SimultaneousUse: Allowed only when both dishes fit within [Kitchen] Oven capacity
+
+[ResourceClaims]:
+- RoastChicken:
+  - Oven: 45 minutes
+  - CuttingBoard: 10 minutes
+- CrispyPotatoes:
+  - LargePot: 8 minutes
+  - Oven: 40 minutes
+  - CuttingBoard: 10 minutes
+- GreenBeans:
+  - LargePot: 4 minutes
+  - LargeSkillet: 6 minutes
+  - CuttingBoard: 8 minutes
+
+[Schedule]: []
+
+[ResourceConflicts]: []
+
+[RecoveryWindows]: []
+
+[ServiceRisks]: []
+
+[AnchorFinishTimes]:
+=> Set GreenBeans sautéing to finish no earlier than 18:22
+=> Set RoastChicken rest to finish between 18:20 and 18:28
+=> Set CrispyPotatoes roasting to finish between 18:20 and 18:30
+=> Work backward through each dish using [Dependencies]
+=> Preserve each [Dishes] HoldingLimit as a hard service constraint
+
+[CoordinateOven]:
+=> Schedule RoastChicken and CrispyPotatoes at the shared 220 C temperature
+=> Allow simultaneous roasting only when [SharedConditions] SimultaneousUse is verified against [Kitchen] Oven capacity
+=> Use [ResourceClaims] to account for both oven reservations
+=> Record unresolved roast-vessel dimensions in [ServiceRisks] instead of assuming simultaneous fit
+=> If both dishes cannot fit together:
+  - Derive the serial oven duration against both [Dishes] HoldingLimit values
+  - Append any unsatisfied timing constraint to [ServiceRisks]
+  - Do not claim [Service] TargetServingTime is feasible without a valid schedule
+=> Do not introduce an oven temperature change unless no same temperature schedule can meet [Service] TargetServingTime
+
+[CoordinatePrep]:
+=> Reserve exclusive [Kitchen] equipment for the durations in [ResourceClaims]
+=> Prevent simultaneous use of [Kitchen] CuttingBoard
+=> Prevent simultaneous use of [Kitchen] LargePot
+=> Schedule vegetable cutting before the final 20 minute service window when doing so does not harm quality
+=> Keep the GreenBeans skillet step near service
+=> Append any overlapping exclusive resource claim to [ResourceConflicts]
+
+[ProtectRecovery]:
+=> Identify at least one 5 minute interval before 18:10 that can absorb prep delay
+=> Prefer recovery before final cooking rather than extending a finished dish beyond its HoldingLimit
+=> If a delay cannot be absorbed:
+  - Protect the RoastChicken rest requirement
+  - Protect the GreenBeans final sauté window
+  - Record the expected effect on [Service] TargetServingTime in [ServiceRisks]
+=> Append feasible slack to [RecoveryWindows]
+
+[ValidateSchedule]:
+=> Verify every task in [Dishes] appears exactly once in [Schedule] under its declared task identifier
+=> Verify every [Dependencies] edge names tasks in [Dishes] and is ordered correctly
+=> Verify every exclusive [ResourceClaims] reservation is reflected in [Schedule]
+=> Verify exclusive equipment is never double booked
+=> Verify no more than two [Kitchen] Burners are occupied at once
+=> Verify oven capacity is preserved during any shared roast window
+=> Preserve unknown oven-fit feasibility in [ServiceRisks] rather than certifying the schedule
+=> Verify every dish reaches [Service] TargetServingTime inside its HoldingLimit
+=> Verify [Kitchen] TemperatureChangeDelay is included if a temperature change is scheduled
+=> Preserve any unresolved timing conflict in [ResourceConflicts] or [ServiceRisks]
+
+Task:
+1. Run [AnchorFinishTimes]
+2. Run [CoordinateOven]
+3. Run [CoordinatePrep]
+4. Run [ProtectRecovery]
+5. Run [ValidateSchedule]
+6. Present:
+  - [Schedule]
+  - [RecoveryWindows]
+  - [ResourceConflicts]
+  - [ServiceRisks]

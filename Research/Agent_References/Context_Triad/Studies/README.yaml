@@ -1,0 +1,15 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.studies.index
+kind: research_reference
+source:
+  path: Research/Context_Triad/Studies/README.md
+  url: ../../../Context_Triad/Studies/README.md
+  fingerprint: fnv1a32-ef0e8655
+sections:
+  context-triad-studies: |-
+    This collection records individual Context Triad investigations and separates pilot observations, controlled experiments, attempted replications, and established empirical findings. Each report identifies its stimuli, outcomes, controls, and evidence limits.
+  study-index: |-
+    Fox–Leopard Displacement reports two GPT-6 Instant prompt conditions with a documented shift in selected animal after the competing description expanded; description volume and jumping-related cues remain confounded. Planetary Chain Activation reports three orders of the same mythological associations, with planetary-sequence recognition only in the canonical reported condition; order components remain to be independently crossed.
+  collection-conventions: |-
+    Preserve exact experimental prompts, observed outputs when available, model/settings, dates, run counts, and reproducibility data. Distinguish reported categorical outcomes from supplied verbatim responses; classify proposed controls separately from executed trials and independent replications. Stable source anchors link summaries to original evidence.

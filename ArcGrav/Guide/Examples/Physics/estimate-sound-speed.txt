@@ -1,0 +1,59 @@
+# Intent: Estimate the speed of sound from tube resonances while testing whether an end correction is required by the measured mode frequencies
+
+[Apparatus]:
+- A cylindrical tube is open at both ends
+- A calibrated microphone records resonance peaks during a frequency sweep
+- Tube length is measured independently before each run
+
+[Data]:
+- ./resonance-peaks.csv
+- ./tube-lengths.csv
+- ./frequency-calibration.md
+- ./length-uncertainty.md
+
+[CandidateRelations]:
+- Ideal open tube: f_n = n v / 2L
+- End-corrected tube: f_n = n v / 2(L + deltaL)
+
+[Constraints]:
+- Use only peaks with a documented mode assignment
+- Keep frequency uncertainty distinct from length uncertainty
+- Do not choose the end correction merely because it adds a free parameter
+- Preserve run and mode provenance for every fitted point
+
+[FitResults]: []
+
+[FitIdeal]:
+=> Read [Data] in the context of [Apparatus]
+=> For each measured tube length:
+  => Fit resonance frequency against mode number using the ideal relation in [CandidateRelations] under [Constraints]
+  => Derive the implied sound speed
+  => Record residuals by mode number
+  => Append each fit result to [FitResults]
+
+[TestCorrection]:
+=> Fit the end-corrected relation in [CandidateRelations] across all supported modes and tube lengths
+=> Determine whether one end correction consistently reduces structured residuals beyond measurement uncertainty
+=> Check whether the inferred sound speed remains stable across tube lengths
+=> If the correction is not resolved:
+  => Prefer the ideal relation
+  => Report an upper bound on any supported correction over the measured range
+=> If the correction is resolved:
+  => Report its uncertainty separately from the sound-speed uncertainty
+
+[Verify]:
+=> Check dimensional consistency of every fitted parameter
+=> Confirm the inferred speed is not driven by a single mode or tube length
+=> Identify any mode assignment whose removal materially changes the result
+=> Preserve unresolved assignment ambiguity in the final estimate
+
+Task:
+1. Run [FitIdeal]
+2. Run [TestCorrection]
+3. Run [Verify]
+4. Report:
+  - Sound-speed estimate
+  - End-correction assessment
+  - Residual diagnostics
+  - Uncertainty budget
+  - Provenance of fitted modes
