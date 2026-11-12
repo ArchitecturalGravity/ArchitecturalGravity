@@ -7,82 +7,28 @@ source:
   fingerprint: fnv1a32-75ab6389
 sections:
   ag-grouping: |-
-    Grouping uses indentation to bind child context beneath a parent item or section. Whitespace establishes hierarchy: aligned items are peers, while indented items qualify, expand, or operate within the nearest parent context.
-    Grouping converts whitespace into semantic hierarchy, allowing dense prompts to preserve parent-child relationships with minimal repetition.
+    Indentation binds child context to the nearest preceding parent item or section. Aligned items are peers; nested items qualify, expand, or operate within parent scope. Hierarchy conveys relationships without repeated prose.
   ag-purpose: |-
-    Represent hierarchy without repeated prose; Bind details to their parent; Express nested scope and substructure; Preserve compact, readable context trees
-    **Definition**
+    Express parent-child relationships, nested scope, and readable context trees.
+    **Canonical example**
     Key:
     - Parent:
       - Child one
       - Child two
     - Peer value
-    **Nested Grouping**
-    Retrieval:
-    - Backend Services:
-      1. Auth:
-        - URL: website.com/auth
-        - Owner: Identity team
-      2. User:
-        - Path: C:\Services\User
-        - Owner: Platform team
-    - Frontend:
-      - Path: C:\Project\Web
-    **Grouped Constraints**
-    Constraint:
-    - API:
-      P0. Preserve response shape
-      P1. Preserve status codes
-    - Implementation:
-      P0. Avoid new dependencies
-      P1. Minimize file changes
   ag-rules: |-
-    **Nearest Parent Binding** — indented context belongs to the nearest preceding item at the prior indentation level; **Peer Alignment** — items with equal indentation are interpreted as siblings; **Two-Space Indentation** — use two spaces for each nesting level; **Explicit Parenthood** — use a trailing `:` when an item exists primarily to contain children; **Stable Hierarchy** — maintain the same indentation level for the duration of a group; **Semantic Nesting** — nest only when the child qualifies or belongs to the parent
+    Root section items align with their header; each deeper nesting level adds two spaces. Children bind to the nearest preceding item at the previous indentation level; items at the same level are siblings. Maintain consistent peer alignment. Use a trailing `:` for items primarily containing children. Nest only when the child qualifies or belongs to its parent.
   ag-constraints: |-
-    Avoid deep nesting when a symbolic reference would be clearer; Do not use indentation decoratively; Do not mix tabs and spaces; Avoid attaching one child group ambiguously to multiple parents; Flatten groups whose hierarchy does not affect interpretation
+    Avoid decorative or semantically unnecessary nesting, tabs, ambiguous multiple-parent attachment, and excessive depth when symbolic references would be clearer. Flatten groups whose hierarchy adds no meaning.
   ag-nested-grouping: |-
-    Represent parent-child or containing-contained context.
-    Scope:
-    - Backend Services:
-      - Auth: Services/auth
-      - Users: Services/users
+    Group resources under their containing scopes (e.g., services under a backend). Numbered members may have nested properties; priority items such as `P0.` and `P1.` may be scoped under distinct constraint categories. Each child remains bound to its own parent.
   ag-contract-block: |-
-    Group inputs, outputs, invariants, side effects, and failure behavior.
-    [ResolveContract]:
-    - Input: Candidate records
-    - Output: Resolved records
-    - Invariants: Preserve source records
-    - Failure: Raise on malformed structure
+    Group an operation's inputs, outputs, invariants, side effects, and failure behavior under one contract, keeping each concern distinct.
   ag-explicit-uncertainty-record: |-
-    Represent unresolved information as structured data.
-    [Uncertainty]:
-    - `field`: `owner`
-    - `reason`: "Conflicting sources"
-    - `availableEvidence`:
-      - [SourceA]
-      - [SourceB]
-    - `status`: "unresolved"
+    Keep unresolved field identity, reason, available evidence, and status together. Example fields: `field`, `reason`, `availableEvidence` (nested evidence list), `status` (e.g., "unresolved").
   ag-evidence-carrying-record: |-
-    Store a conclusion together with its evidence and provenance.
-    [Finding]:
-    - `claim`: "Reference is stale"
-    - `source`: "repository-map.md"
-    - `location`: "line 42"
-    - `validator`: [ReferenceValidator]
+    Keep a conclusion with its provenance: example fields `claim`, `source`, `location`, and `validator`.
   ag-result-sidecar: |-
-    Return operational metadata beside, but separate from, domain output.
-    [Result]:
-    - `artifact`: [Artifact]
-    - `executionStats`:
-      - `processed`: 20
-      - `resolved`: 18
-      - `unresolved`: 2
+    Group the domain `artifact` beside separate operational `executionStats`, with `processed`, `resolved`, and `unresolved` nested within the statistics.
   ag-model-variant: |-
-    Group shared fields separately from variant-specific fields.
-    [RootModel]:
-    - Apply [SharedFields]
-    - `parent`: null
-
-    [LeafModel]:
-    - Apply [SharedFields]
-    - `children`: []
+    Group shared fields separately from variant-specific fields. Example: root and leaf models both apply shared fields; a root has `parent`: null while a leaf has `children`: [].
