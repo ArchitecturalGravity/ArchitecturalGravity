@@ -2,11 +2,9 @@
 
 **Registered trademark:** ARCHITECTURAL GRAVITY (also styled "Architectural Gravity")
 
-**U.S. registered trademark owner:** [INSERT EXACT LEGAL REGISTERED OWNER]
+**U.S. registered trademark owner:** Architectural Gravity LLC
 
-**Registration number (optional for this policy):** [VERIFY BEFORE PUBLISHING OR DELETE THIS LINE]
-
-**Trademark permissions contact:** [INSERT PUBLIC EMAIL OR URL]
+**Trademark permissions contact:** https://architecturalgravity.com
 
 The trademark owner reports that ARCHITECTURAL GRAVITY is federally registered
 with the United States Patent and Trademark Office. The nature and extent of the
@@ -84,7 +82,7 @@ own branding as registered under the owner's registration.
 
 ## Permission requests
 
-Send requests to [INSERT PUBLIC EMAIL OR URL] with the proposed use, product
+Send requests to https://architecturalgravity.com with the proposed use, product
 or service, geography, distribution channel, and any relevant images. Any
 separate brand license should be agreed in writing and may require appropriate
 quality controls.

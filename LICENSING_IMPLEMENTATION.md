@@ -7,10 +7,9 @@ contents have cleared third-party-rights review.
 
 ## Required owner inputs
 
-- [ ] Replace every `[INSERT ...]` and `[CORRECT ...]` placeholder with the
-      verified legal copyright holder, copyright year/range, creator/contributor credit, registered
-      trademark owner, and contact. The copyright owner and trademark owner
-      may be different entities.
+- [x] Populate the owner, trademark-owner, contact, and 2026 copyright fields
+      using the supplied information for Architectural Gravity LLC. Confirm recorded
+      trademark details and individual contributor rights separately.
 - [ ] Verify the federal trademark registration, exact mark, owner, covered
       goods/services and any assignment record; enter number in TRADEMARKS or
       delete the optional number line.
@@ -40,7 +39,7 @@ root README (do not replace the current README):
 > [ATTRIBUTION.md](ATTRIBUTION.md), and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
 >
 > ARCHITECTURAL GRAVITY is a federally registered U.S. trademark of
-> [EXACT TRADEMARK OWNER]. Redistribution rights do not confer separate
+> Architectural Gravity LLC. Redistribution rights do not confer separate
 > trademark branding rights. See [TRADEMARKS.md](TRADEMARKS.md).
 
 ## Subproject README links

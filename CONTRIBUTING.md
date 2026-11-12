@@ -23,7 +23,7 @@ For project-owned source code, add an SPDX marker and the correct holder where
 practicable:
 
 ```python
-# Copyright (c) [YEAR] [CORRECT COPYRIGHT HOLDER]
+# Copyright (c) 2026 Architectural Gravity LLC
 # SPDX-License-Identifier: Apache-2.0
 ```
 
