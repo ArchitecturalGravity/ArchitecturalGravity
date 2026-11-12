@@ -22,15 +22,29 @@ sections:
   ag-execution: |-
     `Task` `Action` `Question` `Evaluate` `Review` `Compare` `Explain` `Generate` `Simulate` `Modify` `Diagnose`
     **Definition**
-    Key: - Value one - Value two
+    Key:
+    - Value one
+    - Value two
     **Common Section Roles**
-    Scope: - Guide/Syntax
-    Context: - Existing pages define compact ArcGrav syntax
-    Constraint: - Preserve the established documentation style
-    Task: - Populate all empty syntax pages
+    Scope:
+    - Guide/Syntax
+
+    Context:
+    - Existing pages define compact ArcGrav syntax
+
+    Constraint:
+    - Preserve the established documentation style
+
+    Task:
+    - Populate all empty syntax pages
     Section names are descriptive rather than reserved. A section header should communicate how its children are meant to be interpreted.
     **Nested Sections**
-    Scope: - Guide: - Syntax - Examples - Research: - ArcGrav_Research.md
+    Scope:
+    - Guide:
+      - Syntax
+      - Examples
+    - Research:
+      - ArcGrav_Research.md
   ag-rules: |-
     **Header Binding** — child context belongs to the nearest preceding `Key:` header at its indentation level; **Single Responsibility** — each section should represent one clear semantic role; **Explicit Children** — place section values on following lines rather than hiding them in the header; **Consistent Indentation** — indent nested section children by two spaces; **Clear Verbiage** — use concise headers whose role can be inferred directly; **Operational Separation** — keep source context, constraints, and requested actions in distinct sections when practical
   ag-constraints: |-
@@ -42,18 +56,30 @@ sections:
     1. Retrieval; 2. Framing and refinement; 3. Execution
   ag-sectioned-context: |-
     Give one bounded concern a descriptive name.
-    Constraint: - Preserve the public API - Hide secret keys
+    Constraint:
+    - Preserve the public API
+    - Hide secret keys
     Headers describe roles; they are not reserved keywords.
   ag-scalar-section: |-
     Bind a section directly to one value when membership is unnecessary.
     Scope: C:\Project
   ag-capability-invocation: |-
     Declare the skill, tool, or capability governing the task.
-    Using: - $cartographic-agentic-contexting - $browser-skill - http://www.webpage.com/instructions.txt
+    Using:
+    - $cartographic-agentic-contexting
+    - $browser-skill
+    - http://www.webpage.com/instructions.txt
   ag-completion-hook: |-
     Separate follow-up work that occurs after the primary task.
-    OnComplete: 1. Update related references 2. Run [Orchestration]
+    OnComplete:
+    1. Update related references
+    2. Run [Orchestration] 
   ag-phase-labeled-work: |-
     Use descriptive sections to separate kinds of work.
-    ModifyComponentContext: - Update the component - Delete stale logic
-    VerifyComponentContext: - Confirm the output shape - Update the report
+    ModifyComponentContext:
+    - Update the component
+    - Delete stale logic
+
+    VerifyComponentContext:
+    - Confirm the output shape
+    - Update the report
