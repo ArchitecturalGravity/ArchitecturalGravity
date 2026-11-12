@@ -26,6 +26,7 @@ from ..shared.document import ParsedDocument
 from ..shared.diagnostics import DiagnosticResult, Finding
 from ..shared.recognition import SourceSpan
 from ..shared.lint import analyze
+from .image_export import ExportDialog, export_path, render_document, write_image
 from .spelling_suggestions import SpellingSuggestionController, WordTarget
 from .application_icon import application_icon, set_windows_app_id
 from .analysis import AnalysisController
@@ -2040,6 +2041,8 @@ class StudioWindow(QMainWindow):
             action.triggered.connect(lambda checked=False, mode=mode: self._set_inference_mode(mode))
             self.inference_mode_actions[mode] = action
         self.inference_menu.setToolTipsVisible(True)
+        export_menu: QMenu = self.menuBar().addMenu("Export")
+        self.export_action = export_menu.addAction("Code Image", self._export_current_image)
         self.menuBar().addAction("Color Scheme", self._edit_color_scheme)
         for action, icon in ((self.open_action, QStyle.StandardPixmap.SP_DirOpenIcon),
                              (self.save_action, QStyle.StandardPixmap.SP_DialogSaveButton)):
@@ -2401,6 +2404,38 @@ class StudioWindow(QMainWindow):
                 self.open_file(Path(name))
             except (OSError, UnicodeError, ValueError) as exc:
                 QMessageBox.critical(self, "Open failed", str(exc))
+
+    def _export_current_image(self) -> None:
+        tab = self.current()
+        if tab is None:
+            return
+        dialog = ExportDialog(self)
+        if not dialog.exec():
+            return
+        options = dialog.options()
+        suffix = '.png' if options.format == 'PNG' else '.jpg'
+        initial = tab.path.with_suffix(suffix) if tab.path else Path('Untitled' + suffix)
+        file_filter = 'PNG (*.png)' if options.format == 'PNG' else 'JPG (*.jpg *.jpeg)'
+        name, _ = QFileDialog.getSaveFileName(
+            self, 'Export Code Image', str(initial), file_filter,
+            options=QFileDialog.Option.DontConfirmOverwrite)
+        if not name:
+            return
+        path = export_path(name, options)
+        if path.exists():
+            answer = QMessageBox.question(
+                self, 'Replace image?', f'{path} already exists. Replace it?',
+                QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+                QMessageBox.StandardButton.No)
+            if answer != QMessageBox.StandardButton.Yes:
+                return
+        try:
+            image = render_document(tab.editor, options)
+            write_image(image, path, options)
+        except (OSError, ValueError, MemoryError) as exc:
+            QMessageBox.critical(self, 'Export failed', str(exc))
+            return
+        self.statusBar().showMessage(f'Exported {path.name} ({image.width} × {image.height})', 7000)
 
     def _save_current(self, save_as: bool = False) -> None:
         tab = self.current()
