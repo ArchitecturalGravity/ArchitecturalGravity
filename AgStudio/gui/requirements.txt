@@ -1,2 +1,5 @@
 PySide6>=6.6,<7
 -r ../shared/requirements.txt
+
+# Palette quantization and PNG/JPG image encoding.
+Pillow>=10,<13

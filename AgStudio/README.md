@@ -183,3 +183,24 @@ Analysis output can distinguish detected findings from unknown or unsupported co
   from unknown or unresolved behavior.
 - **Colors are difficult to read:** open **Color Scheme**, preview changes, and
   use **Reset to Default** or load a saved scheme.
+
+### Exporting a code image
+
+Choose **Export → Code Image** to save the active document (including unsaved text) as
+one continuous PNG or JPG image. Only code is included: no line-number gutter,
+menus, side panels, caret, or transient selections. Long lines are not wrapped
+or cropped. The export preserves the font and syntax colors without changing
+editor state. Uncheck **Include editor color scheme** for plain black text on
+a white background instead of the editor background and syntax colors.
+
+PNG defaults to lossless 24-bit color, with optional 8-, 4-, or 1-bit indexed
+color and Median cut, Maximum coverage, or Fast octree quantization. JPG offers
+a quality setting from 1 to 100. Grayscale is available for either format.
+Choose a filename and destination after selecting the options. PNG palette
+reduction and JPG quality reduce file size, not pixel dimensions.
+
+Rendering uses horizontal bands for tall documents. A safety limit of 24 million
+pixels and 32,760 pixels wide bounds memory and Qt raster coordinates; JPG also
+has a 65,500-pixel height limit. Exceeding a limit produces an error, never a
+truncated or split image. The exporter uses Pillow, included in the GUI
+requirements.
