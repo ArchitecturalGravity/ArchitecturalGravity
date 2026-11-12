@@ -7,7 +7,9 @@ or a prescribed screen placement.
 
 **Designated attribution party:** Architectural Gravity project.
 
-**Legal creator/copyright owner:** [INSERT CORRECT LEGAL CREATOR/HOLDER OR IDENTIFIED CONTRIBUTORS].
+**Copyright holder for project-owned material:** Architectural Gravity LLC.
+
+**Copyright year:** 2026.
 
 **Original source:** https://github.com/ArchitecturalGravity/ArchitecturalGravity
 
@@ -18,14 +20,14 @@ applicable license's terms and disclaimers.
 
 ## Suggested credit for an unchanged work
 
-> [Title of the reused work], by [CORRECT LEGAL CREATOR] / Architectural Gravity
-> project. Source: https://github.com/ArchitecturalGravity/ArchitecturalGravity.
+> [Title of the reused work], by the Architectural Gravity project
+> (copyright (c) 2026 Architectural Gravity LLC). Source: https://github.com/ArchitecturalGravity/ArchitecturalGravity.
 > Licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
 
 ## Suggested credit for an adaptation
 
-> Adapted from [Title], by [CORRECT LEGAL CREATOR] / Architectural Gravity
-> project (https://github.com/ArchitecturalGravity/ArchitecturalGravity), CC BY
+> Adapted from [Title], by the Architectural Gravity project
+> (copyright (c) 2026 Architectural Gravity LLC; https://github.com/ArchitecturalGravity/ArchitecturalGravity), CC BY
 > 4.0. Modified by [ADAPTER] on [DATE]; changes: [BRIEF DESCRIPTION].
 
 CC BY 4.0 permits attribution in any reasonable manner based on context; these

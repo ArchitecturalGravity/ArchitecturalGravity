@@ -7,7 +7,7 @@ not this summary, for operative terms.
 
 **Original project:** https://github.com/ArchitecturalGravity/ArchitecturalGravity
 
-**Legal copyright holder:** [INSERT EXACT LEGAL COPYRIGHT HOLDER]
+**Legal copyright holder:** Architectural Gravity LLC
 
 **Designated attribution:** Architectural Gravity project, with a source link
 where reasonably practicable. The legal copyright holder and the designated
@@ -71,8 +71,8 @@ are not overridden by this statement.
 ## 3. Trademarks are separate
 
 **ARCHITECTURAL GRAVITY** is reported by the trademark holder as a federally
-registered United States trademark. The registered owner's legal name must be
-entered accurately in `TRADEMARKS.md`. Neither Apache-2.0 nor CC BY 4.0 conveys
+registered United States trademark. Its registered owner is identified in
+`TRADEMARKS.md`. Neither Apache-2.0 nor CC BY 4.0 conveys
 independent trademark rights. Legitimate source attribution and descriptive,
 non-confusing references are not prohibited. Do not imply that third-party
 forks or adaptations are official releases or endorsed by the mark owner.
@@ -83,7 +83,7 @@ rights; it does not modify the copyright licenses.
 ## 4. Licensing contact
 
 For permission requests beyond these licenses, including official brand usage,
-contact: [INSERT RIGHTS CONTACT ADDRESS OR URL].
+contact: https://architecturalgravity.com.
 
 ## 5. Third-party license and distribution review
 

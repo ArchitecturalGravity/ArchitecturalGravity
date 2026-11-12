@@ -5,7 +5,9 @@ and guides
 
 **Designated attribution:** Architectural Gravity project
 
-**Creator/copyright holder:** [INSERT CORRECT LEGAL CREATOR/HOLDER]
+**Copyright holder for project-owned material:** Architectural Gravity LLC
+
+**Copyright year:** 2026
 
 **Source:** https://github.com/ArchitecturalGravity/ArchitecturalGravity/tree/main/ArcGrav
 
