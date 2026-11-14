@@ -1986,6 +1986,13 @@ class StudioWindow(QMainWindow):
         self.scheme_name, self.color_scheme, self.scheme_error = self.scheme_store.selected()
         self.background = background
         self.setFont(QFont("sans-serif", 11))
+        self.char_count_label = QLabel("Char Count: 0")
+        self.char_count_label.setObjectName("charCount")
+        self.char_count_label.setAlignment(Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignVCenter)
+        # Match the status message's inset at the opposite edge of the bar.
+        self.char_count_label.setContentsMargins(0, 0, 7, 0)
+        self.char_count_label.setToolTip("Unicode code points in the active source, including whitespace and line-ending characters.")
+        self.statusBar().addPermanentWidget(self.char_count_label)
         self.tabs = _DocumentTabs()
         self.tabs.setTabsClosable(True)
         self.tabs.currentChanged.connect(self._update_status)
@@ -2518,6 +2525,7 @@ class StudioWindow(QMainWindow):
 
     def _update_status(self, *_args) -> None:
         tab = self.current()
+        self.char_count_label.setText(f"Char Count: {len(tab.source) if tab else 0}")
         if tab:
             for index in range(self.tabs.count()):
                 document_tab = self.tabs.widget(index)
@@ -2537,7 +2545,7 @@ class StudioWindow(QMainWindow):
 STUDIO_STYLE = """
 QWidget { font-size: 14px; }
 QPlainTextEdit#sourceEditor { font-size: 16px; }
-QMainWindow, QStatusBar { background: #eaf0f6; color: #24394d; }
+QMainWindow, QStatusBar, QStatusBar QLabel#charCount { background: #eaf0f6; color: #24394d; }
 QMenuBar { background: #f4f7fa; color: #24394d; border-bottom: 1px solid #cad6e2; }
 QMenuBar::item { padding: 7px 12px; }
 QToolButton { padding: 5px 10px; border: 1px solid transparent; border-radius: 4px; }
