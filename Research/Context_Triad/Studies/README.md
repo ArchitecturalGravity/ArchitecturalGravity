@@ -9,6 +9,7 @@ This folder catalogs **individual investigations of the Context Triad**, includi
 | --- | --- | --- |
 | [Fox–Leopard Displacement: A Semantic Weight Pilot of Implicit Pangram Inference](./Fox_Leopard_Displacement.md) | Context competition to displace inference relationship despite intact descriptive and relational cues | Two-condition GPT-6 Instant pilot observation, one reported response per condition; controls and replications proposed |
 | [Planetary Chain Activation: A Semantic Locality Pilot of Order-Dependent Associative Recognition](./Planetary_Chain_Activation.md) | Canonical versus reversed and scattered ordering of cued elements and its inference effects thereof | Three-condition reported GPT-6 Instant pilot observation; categorical outcomes only; replications and controlled contrasts proposed |
+| [Glip Selection Shift: A Context Triad Pilot of Criterion-Free Candidate Choice](./Glip_Selection_Shift.md) | Two- versus three-candidate selection with abstract, structurally matched descriptions; label reversal and planned position controls | Three reported ChatGPT 5.6 Sol Instant configurations; repeated categorical selections; permutation tests proposed |
 
 ## Collection Conventions
 
