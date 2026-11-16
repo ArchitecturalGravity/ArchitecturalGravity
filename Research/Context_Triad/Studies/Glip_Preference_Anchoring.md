@@ -9,7 +9,7 @@ This study examines repeatable preference selection among fictional candidates d
 
 Each case contains **two separate test sets**. In the first, the Glip headings are renumbered into the case sequence while description bodies and their physical positions remain unchanged. In the second, complete description bodies are exchanged beneath that case's fixed headings. The design distinguishes **displayed label**, **original content identity**, and **physical position** rather than treating a case number as a content permutation.
 
-The researcher reports **100% selection consistency across repeated tests of the described conditions**, with every test conducted in a fresh ChatGPT conversation using GPT-6 Instant. Cases `123`, `132`, and `213` were reported as selecting `Glip3`, without the original-content following distinguished in `321`. Case `321` selected the description originally called Glip2 across its tested positions and labels. Case `312` selected that same original description in the middle or last position; when it occupied the first position, the last-position candidate was selected instead.
+The researcher reports **100% selection consistency across repeated tests of the described conditions**, with every test conducted in a fresh ChatGPT conversation using GPT-6 Instant. Cases `123`, `132`, `213`, and `231` were reported as selecting `Glip3`, without the original-content following distinguished in `321`. In `231`, `Glip3` remains selected despite content swapping and occupies the middle position. Case `321` selected the description originally called Glip2 across its tested positions and labels. Case `312` selected that same original description in the middle or last position; when it occupied the first position, the last-position candidate was selected instead.
 
 **The central observation is a distinction between label-following selection, content-following selection, and position-conditional content selection within the same comparison task.** The study connects this contrast to Semantic Locality and Semantic Shadow, with independent support manipulations proposed for Semantic Weight.
 
@@ -58,6 +58,7 @@ For the original body order `C1 → C2 → C3`:
 | `123` | `Glip1: C1` | `Glip2: C2` | `Glip3: C3` |
 | `132` | `Glip1: C1` | `Glip3: C2` | `Glip2: C3` |
 | `213` | `Glip2: C1` | `Glip1: C2` | `Glip3: C3` |
+| `231` | `Glip2: C1` | `Glip3: C2` | `Glip1: C3` |
 | `321` | `Glip3: C1` | `Glip2: C2` | `Glip1: C3` |
 | `312` | `Glip3: C1` | `Glip1: C2` | `Glip2: C3` |
 
@@ -100,10 +101,11 @@ In these initial layouts, final position and highest-numbered label coincide. Th
 | `123` | `Glip3` reliably selected in the reported tests | Displayed label; not the distinctive original-`C2` following observed in `321` |
 | `132` | `Glip3` reliably selected in the reported tests | Displayed label, which occupies the middle position |
 | `213` | `Glip3` reliably selected in the reported tests | Displayed label, which occupies the last position |
+| `231` | `Glip3` reliably selected despite content swapping | Displayed label in the middle position; selection does not follow a fixed original body |
 | `321` | Original `C2` selected when assigned to first, middle, or last position | Original description body rather than a fixed label or position |
 | `312` | Original `C2` selected in the middle or last position; last-position candidate selected when `C2` is first | Position-conditional content preference with a last-position fallback |
 
-The first three cases are retained as reported `Glip3` selections, not rewritten as a claim that original `C3` always wins. No outcome was supplied for heading-order case `231`.
+Cases `123`, `132`, `213`, and `231` are retained as reported selections of the displayed `Glip3`, not rewritten as a claim that original `C3` always wins. All six heading-order cases now have reported outcomes. In `231`, the headings remain `Glip2 → Glip3 → Glip1` while bodies are exchanged, and the middle-position `Glip3` remains selected. Within this test set, that label and position stay linked; the cross-case comparisons distinguish their contributions.
 
 ### The `321` versus `312` contrast
 
@@ -126,6 +128,8 @@ The comparison task remains the same, but the reported selection follows differe
 The study uses **preference anchoring** operationally: selection of the same original description across tested reassignment variants. It does not describe a preference accumulated across conversations. Every test starts fresh, and every scored condition is the complete submitted prompt.
 
 The `321` result is **content-following invariance** across tested positions. The `312` result adds a **first-position boundary**: the same content is selected in two positions but yields to the last candidate in the third. The initial terminal selections are therefore one part of the response pattern, not a universal rule for the task.
+
+Across the six reported heading orders, `Glip3` is selected in the four cases where its heading is not first: `123`, `132`, `213`, and `231`. The two cases with `Glip3` first, `321` and `312`, instead exhibit the distinct original-`C2` selection patterns described above. Case `231` supplies the previously missing middle-position result despite content swaps, extending the nonterminal-selection observations.
 
 The explanatory target is **description identity × heading assignment × physical arrangement**. Separating the two test sets prevents a heading permutation from being mistaken for a content relocation and makes the contrast between `321` and `312` directly testable.
 
@@ -177,7 +181,7 @@ The following tests extend the reported pilot while retaining its two-set struct
 
 ### Primary factorial layout
 
-Cross **six heading orders** with **six body orders**, yielding **36 unique layouts**. This includes the previously unreported heading-order case `231`. The six Set 1 layouts, with body order fixed at `123`, are a subset of this matrix, not six additional conditions. The `321` and `312` analyses are likewise targeted slices of the matrix.
+Cross **six heading orders** with **six body orders**, yielding **36 unique layouts**. All six heading orders now have reported case-level outcomes; this matrix supplies the fully crossed per-layout replication design. The six Set 1 layouts, with body order fixed at `123`, are a subset of this matrix, not six additional conditions. The `321` and `312` analyses are likewise targeted slices of the matrix.
 
 A proposed replication schedule is **20 fresh-conversation trials per layout**, for **720 trials** in the primary matrix. This is a prospective allocation, not the number of completed pilot runs. Randomize execution order and report each cell's count and selection frequencies.
 
@@ -223,13 +227,13 @@ The reported pattern predicts a larger boundary contrast for `312`. The factoria
 
 **Observation record:** The researcher reports repeated tests in ChatGPT using GPT-6 Instant, each in a fresh conversation, with 100% selection consistency for the described conditions. The original stimuli and the two-set testing procedure are supplied. Exact per-condition run counts, generation settings, complete switched-prompt logs, and raw response transcripts were not supplied.
 
-The case outcomes are reported pilot observations. The 36-layout matrix, replication allocation, support interventions, and associated measurements are proposed follow-up tests.
+The outcomes for all six heading-order cases are reported pilot observations. The 36-layout matrix, replication allocation, support interventions, and associated measurements are proposed follow-up tests.
 
 ## 7. Conclusion
 
 The Glip pilot documents repeatable selection among deliberately evaluatively equivalent, differently worded candidates. Its interpretation depends on separating **renumbered headings over fixed content** from **switched content beneath fixed headings**.
 
-Case `321` follows original `C2` across tested positions. Case `312` follows the same content in the middle and last positions but selects the last candidate when `C2` is first. Cases `123`, `132`, and `213` were reported as selecting the displayed `Glip3`, rather than exhibiting the same original-content following.
+Case `321` follows original `C2` across tested positions. Case `312` follows the same content in the middle and last positions but selects the last candidate when `C2` is first. Cases `123`, `132`, `213`, and `231` were reported as selecting the displayed `Glip3`, rather than exhibiting the same original-content following. In `231`, this selection persists through content swaps even though `Glip3` is in the middle, not last.
 
 The resulting research target is **when selection follows a label, when it follows a description, and when description-following depends on placement**. The crossed heading-and-content design makes these outcomes measurable within the Context Triad without conflating names, bodies, or positions.
 
