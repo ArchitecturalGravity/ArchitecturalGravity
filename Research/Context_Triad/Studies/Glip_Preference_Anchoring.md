@@ -1,7 +1,7 @@
 <a id="paper-glip-preference-anchoring"></a>
 # Glip Preference Anchoring: A Context Triad Pilot of Content–Position Interactions in Criterion-Free Selection
 
-## A `GPT-6 Instant` Pilot Observation of the Context Triad -- November 2026
+## A `GPT-6 Instant` Pilot Observation of the Context Triad -- 15 November 2026
 
 ## Abstract
 
