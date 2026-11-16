@@ -1,241 +1,129 @@
 <a id="paper-glip-preference-anchoring"></a>
-# Glip Preference Anchoring: A Context Triad Pilot of Content–Position Interactions in Criterion-Free Selection
+# Glip Preference Anchoring: A Context Triad Study of Label, Description, and Position in Criterion-Free Selection
 
-## A `GPT-6 Instant` Pilot Observation of the Context Triad -- 15 November 2026
+## GPT-6 Luna / Low · 216 fresh-conversation trials · 16 November 2026
 
 ## Abstract
 
-This study examines repeatable preference selection among fictional candidates designed to be evaluatively equivalent but differently worded. Three **Glips** share nine abstract attributes and parallel relational descriptions expressed through invented terms. Surface variation is intentional: the candidates appear different without receiving an explicit basis for superiority. The final question asks which Glip is better and requests a one-word answer.
+This study asks what a model selects when a prompt provides three fictional candidates, but no criterion that makes one better than another. Three Glip descriptions use the same nine attribute headings and parallel semantic relations, with different wording and invented terms. Six heading orders were crossed with six description orders. GPT-6 Luna was requested with Low reasoning for six fresh Dot subthreads per layout, yielding one dataset of 216 scored responses.
 
-Each case contains **two separate test sets**. In the first, the Glip headings are renumbered into the case sequence while description bodies and their physical positions remain unchanged. In the second, complete description bodies are exchanged beneath that case's fixed headings. The design distinguishes **displayed label**, **original content identity**, and **physical position** rather than treating a case number as a content permutation.
-
-The researcher reports **100% selection consistency across repeated tests of the described conditions**, with every test conducted in a fresh ChatGPT conversation using GPT-6 Instant. Cases `123`, `132`, `213`, and `231` were reported as selecting `Glip3`, without the original-content following distinguished in `321`. In `231`, `Glip3` remains selected despite content swapping and occupies the middle position. Case `321` selected the description originally called Glip2 across its tested positions and labels. Case `312` selected that same original description in the middle or last position; when it occupied the first position, the last-position candidate was selected instead.
-
-**The central observation is a distinction between label-following selection, content-following selection, and position-conditional content selection within the same comparison task.** The study connects this contrast to Semantic Locality and Semantic Shadow, with independent support manipulations proposed for Semantic Weight.
+Choice depended on the layout. With descriptions held fixed in order `321`, changing headings from `312` to `321` switched the selected slot from middle (6/6) to last (6/6). A target could also gain or lose selections when only its two rivals swapped positions. Last position won 130/216 overall, while only 10 of 36 layouts gave one answer on all six repeats. The focal position contrast was positive, but the original Glip2 description did not retain its selection rate across positions under heading order `321`. The data support conditional selection, not a universal label, position, or description rule.
 
 ## Role Within the Context Triad
 
-This pilot studies **selection under evaluative underdetermination**: the prompt provides candidate descriptions but no rule that establishes a superior candidate. Nevertheless, the reported responses exhibit repeatable selection patterns.
-
-[Semantic Locality](../Semantic_Locality.md) supplies placement measurements; [Semantic Shadow](../Semantic_Shadow.md) supplies within-prompt ordering contrasts; [Semantic Weight](../Semantic_Weight.md) supplies independently defined support comparisons. The study's distinctive contribution is the separation of label renumbering from content switching, allowing a preference to be tracked through changes in how a description is identified and where it appears.
+[Semantic Locality](../Semantic_Locality.md) frames placement contrasts relative to the final question. [Semantic Shadow](../Semantic_Shadow.md) frames matched contrasts in which neighboring descriptions change while the target remains fixed. [Semantic Weight](../Semantic_Weight.md) concerns independently specified support; this study did not manipulate it.
 
 ## 1. The Intended Evaluative Equivalence
 
-Each Glip contains the same nine attribute headings: **Semantic Orientation, Conceptual Resonance, Interpretive Density, Abstract Continuity, Narrative Disposition, Symbolic Coherence, Contextual Elasticity, Philosophical Momentum, and Imaginative Presence**.
+Each Glip has nine attributes in the same order. The descriptions are constructed on a common relational scaffold, but deliberately use different surface wording. They are intended to be evaluatively comparable; the experiment does not independently establish their equivalence. The unchanged question is:
 
-The values are designed as alternative linguistic realizations of a common conceptual scaffold. Invented names and paraphrased relationships make the descriptions appear different without assigning one a higher score, greater priority, or intended evaluative advantage. This variability is part of the stimulus design, not an accidental departure from verbatim duplication. It is intended to elicit a choice rather than an immediate response that the candidates are identical.
+> Question: Which Glip is better; provide only a one word answer
 
-The exact decision request is:
+The prompt gives no decision criterion. A choice measures selection, not correctness or objective superiority. Responses such as `Equal` or `Indeterminate` were not explicitly prohibited and would have been recorded as noncandidate responses.
 
-> **Question: Which Glip is better; provide only a one word answer**
-
-Here, **criterion-free** means that no evaluation criterion is declared. The experiment measures the model's selection, not objective superiority. The question requests a choice but does not explicitly prohibit a one-word response such as `Equal`; noncandidate responses therefore remain recordable outcomes.
-
-### Content identity, displayed label, and physical position
-
-These three properties are recorded separately:
-
-| Property | Definition | Example |
+| Variable | Definition | Example |
 | --- | --- | --- |
-| **Original content identity** | The complete, unchanged nine-attribute description body | `C2`, the body originally supplied under `Glip2` |
-| **Displayed label** | The heading attached to a body in a particular prompt | `Glip1`, `Glip2`, or `Glip3` |
-| **Physical position** | The body's ordinal location before the final question | First, middle, or last |
+| Original description identity | One of the three unchanged bodies in [Appendix A](#appendix-a--original-stimuli) | `C2`, originally under Glip2 |
+| Displayed label | The heading attached to a description in a particular layout | `Glip2` |
+| Physical position | The ordinal slot in the prompt before the final question | First, middle, last |
 
-`C1`, `C2`, and `C3` always identify the original Glip1, Glip2, and Glip3 bodies in [Appendix A](#appendix-a--original-stimuli). They are researcher-only identifiers and are not added to the experimental prompts. Renumbering a heading does not change a body's original identity. Content switching moves the entire body, including its invented terms; it does not rewrite individual attributes.
+The body identifiers `C1`–`C3) are scoring notation only. A code such as `312/321` means headings `Glip3 → Glip1 → Glip2` over bodies `C3 → C2 → C1`. In that layout a reply of `Glip1` selects `C2` in the middle.
 
-## 2. Two Test Sets per Case and Reported Selections
+## 2. Design and Trial Protocol
 
-All reported tests used **fresh conversations**. Neither test set is a continuation of the other inside a conversation.
+**Heading-only comparison.** Hold body order fixed and change the heading assignment. The six layouts with body order `123` form the baseline heading-only slice. Other fixed body rows provide additional matched comparisons.
 
-### Test Set 1 — Renumber headings without moving content
+**Body-switching comparison.** Hold the headings fixed and change the order of complete bodies. This moves a target description under different labels and positions; at a fixed target slot it also allows the two rival bodies to swap while the target's wording and label remain unchanged.
 
-Hold the body sequence and its positions fixed. Change only the displayed Glip numbers to produce the case sequence.
+The full crossing contains **36 layouts** (six heading orders × six body orders). Each layout was tested **six times**, for **216 trials in a single dataset**. Layout assignments were shuffled. Each run was launched as a separate fresh Dot subthread, without a copy of the parent conversation. Model `gpt-6-luna` and reasoning effort `low` were explicitly requested and accepted; the retained transcript did not expose an independent backend model snapshot. No warm-up, follow-up, or regeneration was used.
 
-For the original body order `C1 → C2 → C3`:
+Each subthread received one prompt: the entire stimulus and closing question inside one untagged triple-backtick block, with no other prompt text. The recorded prompt was checked against the assigned layout. The first verbatim reply was retained and decoded first as a displayed label, then mapped to its body and position. All **216** trials completed and returned one of the three valid labels. The trial log uses one continuous trial numbering sequence and retains exact fenced prompts, prompt SHA-256 hashes, and verbatim replies.
 
-| Case: displayed label order | First position | Middle position | Last position |
-| --- | --- | --- | --- |
-| `123` | `Glip1: C1` | `Glip2: C2` | `Glip3: C3` |
-| `132` | `Glip1: C1` | `Glip3: C2` | `Glip2: C3` |
-| `213` | `Glip2: C1` | `Glip1: C2` | `Glip3: C3` |
-| `231` | `Glip2: C1` | `Glip3: C2` | `Glip1: C3` |
-| `321` | `Glip3: C1` | `Glip2: C2` | `Glip1: C3` |
-| `312` | `Glip3: C1` | `Glip1: C2` | `Glip2: C3` |
+## 3. Results: Conditional Preference Anchoring
 
-The case digits specify **heading order**, not original-content order. Thus `321` does not mean that the bodies are initially arranged `C3 → C2 → C1`.
+### Overview
 
-This set asks whether changing an identifier changes the selected content when that content has not moved. In particular, selection of the displayed `Glip3` in case `132` refers to `C2` in the middle position, not automatically to original `C3`.
-
-### Test Set 2 — Switch content beneath fixed case headings
-
-Retain the case's displayed headings and their physical positions. Exchange complete description bodies between them. This asks whether the selection follows a particular body, stays with a heading, or stays at a position.
-
-The distinction can be illustrated by placing `C2` first in the two focal cases:
-
-~~~text
-Case 321 headings:  Glip3       Glip2       Glip1
-Body assignment:   C2          C1          C3
-
-Case 312 headings:  Glip3       Glip1       Glip2
-Body assignment:   C2          C1          C3
-~~~
-
-These layouts have the same body order but different heading orders. The diagrams illustrate the procedure; they are not additional archived trials.
-
-**The two test sets manipulate different assignments:** Set 1 changes labels over fixed bodies; Set 2 changes bodies under fixed labels. They must not be combined into a single unspecified act of rearranging Glips.
-
-### Initial two- and three-candidate observations
-
-| Comparison | Reported selection |
+| Selected variable | Counts across all 216 trials |
 | --- | --- |
-| Original two-Glip prompt | Last listed candidate, displayed `Glip2` |
-| Two-Glip descriptions exchanged under sequential labels | Last listed candidate, displayed `Glip2` |
-| Original Glip3 appended to the initial pair | Last listed candidate, displayed `Glip3` |
+| Displayed label | Glip1: 64 · Glip2: 35 · Glip3: 117 |
+| Original description | C1: 64 · C2: 87 · C3: 65 |
+| Physical position | First: 19 · Middle: 67 · Last: 130 |
 
-In these initial layouts, final position and highest-numbered label coincide. The later case tests distinguish these properties.
+Last position won **130/216 (60.2%)**. `Glip3` won **108/144 (75.0%)** in the four heading orders where it occupied the middle or last slot, and **9/72 (12.5%)** when it occupied the first slot. Neither pattern holds across all layouts. Only **10/36** layouts gave the same label on all six repeats.
 
-### Reported case outcomes
+| Heading order | Glip1 | Glip2 | Glip3 | First | Middle | Last |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `123` | 0 | 3 | 33 | 0 | 3 | 33 |
+| `132` | 6 | 7 | 23 | 6 | 23 | 7 |
+| `213` | 3 | 2 | 31 | 2 | 3 | 31 |
+| `231` | 13 | 2 | 21 | 2 | 21 | 13 |
+| `312` | 14 | 18 | 4 | 4 | 14 | 18 |
+| `321` | 28 | 3 | 5 | 5 | 3 | 28 |
 
-| Heading-order case | Reported selection pattern | What is followed |
-| --- | --- | --- |
-| `123` | `Glip3` reliably selected in the reported tests | Displayed label; not the distinctive original-`C2` following observed in `321` |
-| `132` | `Glip3` reliably selected in the reported tests | Displayed label, which occupies the middle position |
-| `213` | `Glip3` reliably selected in the reported tests | Displayed label, which occupies the last position |
-| `231` | `Glip3` reliably selected despite content swapping | Displayed label in the middle position; selection does not follow a fixed original body |
-| `321` | Original `C2` selected when assigned to first, middle, or last position | Original description body rather than a fixed label or position |
-| `312` | Original `C2` selected in the middle or last position; last-position candidate selected when `C2` is first | Position-conditional content preference with a last-position fallback |
+Each label occupied each slot in 72 trials. Holding ordinal slot fixed in the aggregate, Glip3 was selected more often than either alternative label in every slot: 9/72 first, 44/72 middle, and 64/72 last (Glip1: 6/72, 17/72, 41/72; Glip2: 4/72, 6/72, 25/72). This is a label association after balancing position, not an estimate of an isolated effect of the digit.
 
-Cases `123`, `132`, `213`, and `231` are retained as reported selections of the displayed `Glip3`, not rewritten as a claim that original `C3` always wins. All six heading-order cases now have reported outcomes. In `231`, the headings remain `Glip2 → Glip3 → Glip1` while bodies are exchanged, and the middle-position `Glip3` remains selected. Within this test set, that label and position stay linked; the cross-case comparisons distinguish their contributions.
+Each row contains 36 trials. The label and position columns are two views of the same responses. [Appendix C](#appendix-c--full-layout-counts) reports the complete cell counts.
 
-### The `321` versus `312` contrast
+### Heading changes can switch the selected description
 
-The following table decodes the reported content-switching pattern using each case's fixed headings:
+Hold the bodies fixed in order `321` (`C3 → C2 → C1`). Heading order `312` selected the middle description, `C2`, in **6/6** trials. Heading order `321` selected the last description, `C1`, in **6/6** trials. The only prompt change was the exchange of the second and third headings. This matched contrast rules out a rule that always selects the same description or the same slot regardless of headings.
 
-| Position of original `C2` | Case `321`: selected content | Case `321`: selected label | Case `312`: selected content | Case `312`: selected label |
-| --- | --- | --- | --- | --- |
-| First | `C2` | `Glip3` | Body occupying the last position | `Glip2` |
-| Middle | `C2` | `Glip2` | `C2` | `Glip1` |
-| Last | `C2` | `Glip1` | `C2` | `Glip2` |
+### C2 placement profile for cases 312 and 321
 
-**In `321`, choice follows `C2` through all tested positions. In `312`, it follows `C2` only in the middle or last position; placing `C2` first transfers choice to the last-position candidate.** These are reported outcome categories; the label columns are their decoding under the stated layouts, not verbatim response transcripts.
+| Heading order | C2 selected when first | C2 selected when middle | C2 selected when last |
+| --- | ---: | ---: | ---: |
+| `312` | 0/12 | 8/12 | 8/12 |
+| `321` | 4/12 | 0/12 | 11/12 |
 
-## 3. Central Observation: Conditional Preference Anchoring
+Each denominator of 12 pools six trials for each of the two rival orders. Under `312`, first-slot `C2` was never picked. The last candidate won **8/12** in those trials (3/6 and 5/6 for the two rival orders), so first-slot avoidance was more consistent than a last-slot fallback. Under `321`, `C2` was nearly always selected in the last slot and never in the middle. It did not follow its identity reliably across positions.
 
-The comparison task remains the same, but the reported selection follows different properties in different case configurations:
+### Rival order can matter with the target fixed
 
-> **A choice can remain attached to a displayed label, follow an unchanged description through content switches, or follow that description only within a subset of positions.**
-
-The study uses **preference anchoring** operationally: selection of the same original description across tested reassignment variants. It does not describe a preference accumulated across conversations. Every test starts fresh, and every scored condition is the complete submitted prompt.
-
-The `321` result is **content-following invariance** across tested positions. The `312` result adds a **first-position boundary**: the same content is selected in two positions but yields to the last candidate in the third. The initial terminal selections are therefore one part of the response pattern, not a universal rule for the task.
-
-Across the six reported heading orders, `Glip3` is selected in the four cases where its heading is not first: `123`, `132`, `213`, and `231`. The two cases with `Glip3` first, `321` and `312`, instead exhibit the distinct original-`C2` selection patterns described above. Case `231` supplies the previously missing middle-position result despite content swaps, extending the nonterminal-selection observations.
-
-The explanatory target is **description identity × heading assignment × physical arrangement**. Separating the two test sets prevents a heading permutation from being mistaken for a content relocation and makes the contrast between `321` and `312` directly testable.
+Under headings `312`, middle-slot `C2` was picked **2/6** with bodies `123` and **6/6** with bodies `321`. The target had the same wording, label (`Glip1`), and position; only its two rivals exchanged slots. A second, exploratory example in the same heading order is last-slot `C1` under `Glip2`: **5/6** with body order `231` versus **0/6** with `321`. These are descriptive contrasts; the latter was selected after inspecting the matrix and should be tested on new trials.
 
 ## 4. Relation to the Context Triad
 
 ### Semantic Locality — Where the description is used
 
-The final question is the point of use. Content switching changes where an original description appears relative to that question and to its competitors. The `312` first-position boundary provides a specific target for position–response measurement.
-
-Heading renumbering alone leaves the description bodies in their existing slots. It is a label control, not a relocation of the original semantic content. Record actual serialized spans when measuring token distances, since bodies can differ in length.
-
-**Quantification:** Compare selection of `C2` at first, middle, and last positions separately within each fixed heading order, balancing the two possible orders of the other bodies.
+The `C2` profiles show that selection changes with placement relative to the final question. They do not identify a pure position effect: moving a body also changes its neighbors and, within a fixed heading order, its displayed label. The full crossing and separate heading-only comparisons make those dependencies observable. A more direct distance test would hold the target labeling and surrounding content constant while varying its measured token distance from the question.
 
 ### Semantic Shadow — Which alternatives precede and follow
 
-Switching complete bodies changes the semantic continuation surrounding each candidate. A description's selection can differ according to which alternatives precede it and which follow it before the question.
-
-Here, the relevant history is **within the presented prompt**. Fresh conversations exclude carryover from earlier experimental exchanges. Moving a candidate changes both its placement and its ordering relationships, so these are matched order-and-placement contrasts rather than a claim of an isolated history mechanism.
-
-**Quantification:** At a fixed target position and heading order, compare the two orders of the other bodies. Then compare target-relocation contrasts across those matched rival-order conditions.
+The fixed-target rival swaps show that rearranging the competing descriptions can change selection without moving or relabeling the target. This is evidence of order dependence within a prompt. It does not identify whether the change arises from the predecessor, the successor, one rival's own position sensitivity, or an interaction among all three.
 
 ### Semantic Weight — Support as a separate experimental variable
 
-The original candidates have the same nine-attribute inventory and one description block each. This gives a coarse count-matched baseline. It does not assign any candidate more stated support for being *better*, because the prompt declares no superiority criterion.
+The three bodies are matched in attribute count; the study did not vary coherent support or specify a criterion that could weight one attribute over another. Selection frequencies therefore do not measure Semantic Weight. A support test should specify support units before looking at replies and contrast coherent support with length-matched neutral additions in matched slots.
 
-The pilot does not directly manipulate coherent support. Weight enters the follow-up through independently specified repetitions, equivalent paraphrases, and matched neutral expansions. A higher selection rate is the outcome to explain, not a definition of greater semantic mass.
+## 5. Measurements and Further Tests
 
-**Quantification:** Count predesignated support units and supporting-token spans before examining responses; compare coherent and neutral additions in matched slots. Record the resulting support ratios and placement profiles separately.
-
-### Joint interpretation
-
-The focal observation is a **conditional selection pattern**, not a demonstrated superiority difference. Locality and Shadow describe the geometry and ordering of the compared descriptions; the label controls separate those properties from numerical naming. Weight tests extend the design by varying support rather than inferring it from the winner.
-
-## 5. Proposed Tests of Label, Content, and Position Dependence
-
-The following tests extend the reported pilot while retaining its two-set structure.
-
-| Condition | Controlled variation | Research question |
-| --- | --- | --- |
-| **P0 — Original comparison** | Original two-Glip prompt, exchanged bodies, and three-Glip extension | Does the initial final-candidate selection recur? |
-| **P1 — Heading renumbering** | All six heading orders over the unchanged `C1 → C2 → C3` body sequence | Does the chosen content change when only the headings change? |
-| **P2 — Content switching within case** | All six body permutations beneath each fixed heading order | Does choice follow the label, an original body, or its position? |
-| **P3 — `321` retention** | Analyze `C2` at all three positions under fixed `321` headings | Does the reported content-following pattern hold across both rival orders at each position? |
-| **P4 — `312` boundary** | Analyze `C2` at all three positions under fixed `312` headings | Does placing `C2` first reliably transfer choice to the last candidate? |
-| **P5 — Wording and invented-name controls** | Separately exchange invented-name sets and use matched paraphrase templates | Does selection track sentence realization, invented terms, or their combination? |
-| **P6 — Support controls** | Add predesignated coherent repetitions or equivalent paraphrases; compare equal-length neutral additions | Does represented support alter the observed selection pattern? |
-| **P7 — Response-format control** | Compare the original question with one explicitly allowing `Equal` or `Indeterminate` | Does the reporting format change candidate-selection frequency? |
-| **P8 — Explicit-criterion control** | Add an unambiguous criterion and counterbalance which candidate satisfies it | Does task-relevant evidence override label and placement preferences? |
-
-### Primary factorial layout
-
-Cross **six heading orders** with **six body orders**, yielding **36 unique layouts**. All six heading orders now have reported case-level outcomes; this matrix supplies the fully crossed per-layout replication design. The six Set 1 layouts, with body order fixed at `123`, are a subset of this matrix, not six additional conditions. The `321` and `312` analyses are likewise targeted slices of the matrix.
-
-A proposed replication schedule is **20 fresh-conversation trials per layout**, for **720 trials** in the primary matrix. This is a prospective allocation, not the number of completed pilot runs. Randomize execution order and report each cell's count and selection frequencies.
-
-### Trial protocol and records
-
-Preserve the exact body text, nine-attribute ordering, punctuation, separators, and closing question in the primary matrix. Change only the heading assignment or whole-body assignment specified by the condition. Run each trial in a fresh conversation without preliminary recognition or explanation questions.
-
-Record the displayed model name, interface, date and time, available settings, complete submitted prompt, raw response, and the mapping between label, original content, and position. Record account-level context settings where available and keep them constant during a replication batch. The pilot's fresh-conversation procedure does not require an invented claim about settings that were not supplied.
-
-Parse the answer first as a displayed heading and then map it to original content identity and position. Preserve noncandidate and malformed responses as separate categories rather than discarding them. Additional explanation probes belong in separate trials.
-
-Use the complete prompt and its hash as the realized condition identifier. Keep `test_set` and `case_label_order` as explicit metadata. Labels `321` and `312` refer to different heading layouts even when body order is the same; they are not histories carried between conversations.
+For layout `C`, the estimated selection rate for body `Ci` is the number of replies selecting `Ci` divided by the total number of submitted trials for that layout. Noncandidate responses belong in that denominator. This is a response-frequency measure, not a correctness score.
 
 ### Measurements
 
-For complete prompt $C$, let $Y$ denote the selected original content identity, with noncandidate responses retained separately. Define:
+Let $e_2(L,p)$ denote the estimated selection rate for `C2` at position $p$ under heading order $L$, averaging the two rival orders equally. Define the first-position disadvantage and the between-heading contrast:
 
-```math
-E_i(C)=P(Y=C_i\mid C),
-\qquad
-\widehat E_i(C)=\frac{1}{n_C}\sum_{r=1}^{n_C}\mathbf{1}[Y_r=C_i].
-```
+$$
+B_2(L) = \frac{e_2(L,2)+e_2(L,3)}{2} - e_2(L,1)
+$$
 
-The denominator includes all submitted trials for the condition. This uses the Triad's response-consistency convention with selection as the scored event; it is not a correctness measure.
+$$
+I_2 = B_2(312) - B_2(321).
+$$
 
-Report three parallel outcome views: **selected label**, **selected content**, and **selected position**. For Set 1, compare selected content across heading-only changes. For Set 2, compare retention of selected content across body assignments within each heading order. Report noncandidate frequency alongside these selection rates.
+In the pooled data, $B_2(312)=2/3$ and $B_2(321)=1/8$, giving **$I_2=13/24$ (+0.54)**. This supports a larger *average* first-position disadvantage under `312`. The statistic does not measure position invariance: for `321`, the middle trough and last-position peak partly cancel when averaged. The individual slot counts remain necessary.
 
-For the focal boundary, let $e_2(L,p)$ be the selection probability of original `C2` under heading order $L$ when `C2` occupies position $p$, averaged equally over the two orders of the other bodies. Define:
-
-```math
-B_2(L)=\frac{e_2(L,2)+e_2(L,3)}{2}-e_2(L,1).
-```
-
-A positive value describes a first-position disadvantage relative to the middle and last positions. The case-dependent contrast is:
-
-```math
-I_2=B_2(312)-B_2(321).
-```
-
-The reported pattern predicts a larger boundary contrast for `312`. The factorial trials estimate it while balancing rival order. Report cell frequencies, trial counts, and uncertainty intervals; the full response table remains the primary result.
+Further tests can separate invented-name effects from phrasing, vary coherent support independently, explicitly permit `Equal`, or add a decision criterion and counterbalance which body satisfies it. None of those controls is part of the completed 216 trials.
 
 ## 6. Scope and Evidence Status
 
-**Observation record:** The researcher reports repeated tests in ChatGPT using GPT-6 Instant, each in a fresh conversation, with 100% selection consistency for the described conditions. The original stimuli and the two-set testing procedure are supplied. Exact per-condition run counts, generation settings, complete switched-prompt logs, and raw response transcripts were not supplied.
-
-The outcomes for all six heading-order cases are reported pilot observations. The 36-layout matrix, replication allocation, support interventions, and associated measurements are proposed follow-up tests.
+This study's evidence is the single pooled set of **216 GPT-6 Luna / Low Dot subthread trials** in the crossed three-candidate design. Earlier exploratory runs are not pooled. The results describe one set of fictional descriptions, one prompt format, and one execution setup. With six observations per cell, differences should be read descriptively; a unanimous cell does not imply that the model will always answer the same way. The design does not establish the internal mechanism, a general property of other models, or that the descriptions are objectively of equal quality.
 
 ## 7. Conclusion
 
-The Glip pilot documents repeatable selection among deliberately evaluatively equivalent, differently worded candidates. Its interpretation depends on separating **renumbered headings over fixed content** from **switched content beneath fixed headings**.
+When no decision criterion is specified, GPT-6 Luna / Low still shows structured preferences. Headings can change which body wins even when body order is fixed. Rival order can change a target's selection rate even when its wording, label, and slot are fixed. Last position and the `Glip3` label are both common winners, but neither is sufficient to predict the answer independently of the layout.
 
-Case `321` follows original `C2` across tested positions. Case `312` follows the same content in the middle and last positions but selects the last candidate when `C2` is first. Cases `123`, `132`, `213`, and `231` were reported as selecting the displayed `Glip3`, rather than exhibiting the same original-content following. In `231`, this selection persists through content swaps even though `Glip3` is in the middle, not last.
-
-The resulting research target is **when selection follows a label, when it follows a description, and when description-following depends on placement**. The crossed heading-and-content design makes these outcomes measurable within the Context Triad without conflating names, bodies, or positions.
+The best-supported conclusion is that **Glip preference anchoring is conditional on the arrangement of labels and descriptions**. The `312` first-slot disadvantage and the positive `312`–`321` boundary contrast are supported in this dataset; universal last-choice fallback, position-invariant `C2` selection under `321`, and an internal semantic mechanism are not.
 
 ## Related Papers
 
@@ -301,9 +189,7 @@ Glip3:
 Question: Which Glip is better; provide only a one word answer
 ```
 
-The original two-candidate prompt consists of A.1, a blank line, A.2, a blank line, and the exact final question. The three-candidate extension inserts A.3 before that question, also separated by a blank line.
-
-For Set 1, replace only the `GlipN:` headings with the case's label sequence. For Set 2, keep those headings fixed and exchange the complete nine-line bodies. Do not insert case codes, `C1`–`C3`, study terminology, or scoring instructions into the experimental prompt.
+For each layout, arrange the three complete bodies under their assigned headings. Use a single blank line between candidate blocks and before the final question, put the entire prompt inside an untagged triple-backtick block, and include no text outside it. The headings shown above name the original bodies; replace those headings as required by the layout. Do not insert case codes, scoring IDs, or research instructions into the prompt.
 
 ## Appendix B — Layout and Trial Records
 
@@ -325,14 +211,17 @@ This record describes case `321` with original `C2` first. A response of `Glip3`
 
 ### B.2 Trial record schema
 
-```text
-trial_id, date_time, model_display_name, model_version_if_available,
-interface, available_generation_settings, context_settings,
-test_set, case_label_order, content_order, candidate_count,
-label_to_content_map, content_to_position_map,
-exact_prompt_sha256, exact_prompt_text, raw_response,
-selected_display_label, selected_original_content,
-selected_position, response_category
-```
+The [study dataset](./Data/glip-luna-low-216-trials.csv) contains one record per trial: continuous trial number, heading order, body order, requested model and reasoning effort, execution surface, admission observation time, trial status, prompt verification, response category, verbatim reply, decoded label/body/position, position of C2, exact fenced prompt, and prompt SHA-256. The digest covers the whole prompt, including both fence lines.
 
-Store one row per fresh-conversation trial and retain exact text alongside its hash. Report label-only results and within-case content-switch results separately before aggregating the crossed matrix.
+## Appendix C — Full Layout Counts
+
+Each cell lists **Glip1 / Glip2 / Glip3**, six responses total. Rows are heading order; columns are body order.
+
+| Heading order \ Body order | `123` | `132` | `213` | `231` | `312` | `321` |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| `123` | 0/0/6 | 0/0/6 | 0/0/6 | 0/0/6 | 0/1/5 | 0/2/4 |
+| `132` | 1/0/5 | 0/2/4 | 1/1/4 | 2/3/1 | 1/1/4 | 1/0/5 |
+| `213` | 0/0/6 | 0/0/6 | 0/0/6 | 1/0/5 | 0/1/5 | 2/1/3 |
+| `231` | 2/1/3 | 4/0/2 | 2/0/4 | 1/1/4 | 2/0/4 | 2/0/4 |
+| `312` | 2/2/2 | 2/4/0 | 3/3/0 | 1/5/0 | 0/4/2 | 6/0/0 |
+| `321` | 5/0/1 | 6/0/0 | 3/0/3 | 3/2/1 | 5/1/0 | 6/0/0 |
