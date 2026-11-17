@@ -5,9 +5,9 @@
 
 ## Abstract
 
-This study examines selection among three fictional candidates when the prompt supplies no criterion that makes one better than another. The Glips share nine attribute headings and a common relational scaffold, with deliberately varied wording and invented terms. Corresponding attribute values are matched in character length. Six heading orders were crossed with six description orders, with six fresh Dot subthreads per layout using requested GPT-6 Luna / Low, yielding **216 scored responses**.
+This study examines selection among three fictional candidates when the prompt supplies no criterion that makes one better than another. The Glips share nine attribute headings and a common relational scaffold, with deliberately varied wording and invented terms. Corresponding attribute values are matched in character length. Six heading orders were crossed with six description orders, with ten fresh Dot subthreads per layout using requested GPT-6 Luna / Low, yielding **360 scored responses**.
 
-Selection depended on the arrangement of labels and descriptions. With description order `321` held fixed, changing heading order from `312` to `321` switched selection from the middle description (6/6) to the last (6/6). Exchanging rival descriptions also changed selection while the target retained its wording, label, and ordinal slot. Last position won **130/216** responses, and **10/36** layouts produced the same answer on all six repeats. The original Glip2 description showed distinct placement profiles under heading orders `312` and `321`.
+Selection depended on the arrangement of labels and descriptions. With description order `321` held fixed, exchanging the middle and last headings changed which description the most frequent reply denoted: the middle description in one layout (9/10) and the last in the other (9/10). The literal answer frequencies were identical in the two layouts. In a separate contrast, swapping rival descriptions changed the frequency of the target’s label while its wording, heading, and slot stayed fixed. Last position was selected in **213/360** trials, and **5/36** layouts produced the same answer on all ten repeats. The original Glip2 description showed distinct placement profiles under heading orders `312` and `321`.
 
 **The central observation is conditional preference anchoring: selection tracks different combinations of label, description, and position despite the absence of a declared evaluation criterion.**
 
@@ -66,11 +66,11 @@ Hold the headings fixed and change the order of complete bodies. This moves a ta
 
 ### Crossed layout and execution
 
-The full crossing contains **36 layouts** (six heading orders × six body orders). The six baseline heading-only layouts are included in this matrix, not additional trials. Each layout was tested **six times**, for **216 trials in a single dataset**. Layout assignments were shuffled.
+The full crossing contains **36 layouts** (six heading orders × six body orders). The six baseline heading-only layouts are included in this matrix, not additional trials. Each layout was tested **ten times**, for **360 trials in a single dataset**. Layout assignments were shuffled.
 
 Each run was launched as a separate fresh Dot subthread, without a copy of the parent conversation. Model `gpt-6-luna` and reasoning effort `low` were explicitly requested and accepted; the retained transcript identifies the requested configuration rather than an independent backend snapshot. No warm-up, follow-up, or regeneration was used.
 
-Each subthread received one prompt: the entire stimulus and closing question inside one untagged triple-backtick block, with no other prompt text. The recorded prompt was checked against the assigned layout. The first verbatim reply was retained and decoded first as a displayed label, then mapped to its body and position. All **216** trials completed and returned one of the three valid labels. The trial log uses one continuous trial numbering sequence and retains exact fenced prompts, prompt SHA-256 hashes, and verbatim replies.
+Each subthread received one prompt: the entire stimulus and closing question inside one untagged triple-backtick block, with no other prompt text. The recorded prompt was checked against the assigned layout. The first verbatim reply was retained and decoded first as a displayed label, then mapped to its body and position. All **360** trials completed and returned one of the three valid labels. The trial log uses one continuous trial numbering sequence and retains exact fenced prompts, prompt SHA-256 hashes, and verbatim replies.
 
 ## 3. Central Observation: Conditional Preference Anchoring
 
@@ -78,47 +78,47 @@ Each subthread received one prompt: the entire stimulus and closing question ins
 
 ### Overview
 
-| Selected variable | Counts across all 216 trials |
+| Selected variable | Counts across all 360 trials |
 | --- | --- |
-| Displayed label | Glip1: 64 · Glip2: 35 · Glip3: 117 |
-| Original description | C1: 64 · C2: 87 · C3: 65 |
-| Physical position | First: 19 · Middle: 67 · Last: 130 |
+| Displayed label | Glip1: 103 · Glip2: 61 · Glip3: 196 |
+| Original description | C1: 113 · C2: 139 · C3: 108 |
+| Physical position | First: 33 · Middle: 114 · Last: 213 |
 
-Last position won **130/216 (60.2%)**. `Glip3` won **108/144 (75.0%)** in the four heading orders where it occupied the middle or last slot, and **9/72 (12.5%)** when it occupied the first slot. **10/36** layouts gave the same label on all six repeats.
+Last position was selected in **213/360 (59.2%)** trials. `Glip3` was selected in **179/240 (74.6%)** trials in the four heading orders where it occupied the middle or last slot, and **17/120 (14.2%)** when it occupied the first slot. **5/36** layouts gave the same label on all ten repeats.
 
 | Heading order | Glip1 | Glip2 | Glip3 | First | Middle | Last |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `123` | 0 | 3 | 33 | 0 | 3 | 33 |
-| `132` | 6 | 7 | 23 | 6 | 23 | 7 |
-| `213` | 3 | 2 | 31 | 2 | 3 | 31 |
-| `231` | 13 | 2 | 21 | 2 | 21 | 13 |
-| `312` | 14 | 18 | 4 | 4 | 14 | 18 |
-| `321` | 28 | 3 | 5 | 5 | 3 | 28 |
+| `123` | 0 | 4 | 56 | 0 | 4 | 56 |
+| `132` | 8 | 14 | 38 | 8 | 38 | 14 |
+| `213` | 5 | 6 | 49 | 6 | 5 | 49 |
+| `231` | 22 | 2 | 36 | 2 | 36 | 22 |
+| `312` | 24 | 28 | 8 | 8 | 24 | 28 |
+| `321` | 44 | 7 | 9 | 9 | 7 | 44 |
 
-Each label occupied each slot in 72 trials. Holding ordinal slot fixed in the aggregate, Glip3 was selected more often than either alternative label in every slot: 9/72 first, 44/72 middle, and 64/72 last (Glip1: 6/72, 17/72, 41/72; Glip2: 4/72, 6/72, 25/72). These comparisons describe label-associated selection after balancing position.
+Each label occupied each slot in 120 trials. Holding ordinal slot fixed in the aggregate, Glip3 was selected more often than either alternative label in every slot: 17/120 first, 74/120 middle, and 105/120 last (Glip1: 8/120, 29/120, 66/120; Glip2: 8/120, 11/120, 42/120). These comparisons describe label-associated selection after balancing position.
 
-Each row contains 36 trials. The label and position columns are two views of the same responses. [Appendix C](#appendix-c--full-layout-counts) reports the complete cell counts.
+Each row contains 60 trials. The label and position columns are two views of the same responses. [Appendix C](#appendix-c--full-layout-counts) reports the complete cell counts.
 
-### Heading changes can switch the selected description
+### Heading changes can switch which description a reply denotes
 
-Hold the bodies fixed in order `321` (`C3 → C2 → C1`). Heading order `312` selected the middle description, `C2`, in **6/6** trials. Heading order `321` selected the last description, `C1`, in **6/6** trials. The only prompt change was the exchange of the second and third headings. **Changing heading assignment changed both the selected description and the selected ordinal slot in this matched pair.**
+Hold the bodies fixed in order `321` (`C3 → C2 → C1`). Under headings `312`, **9/10** replies selected the middle description `C2` and **1/10** selected the last description `C1`. Under headings `321`, **9/10** selected `C1` in the last slot and **1/10** selected `C2` in the middle. The only prompt change was the exchange of the second and third headings. In both layouts the literal replies were `Glip1` nine times and `Glip2` once. The heading exchange changed the description and slot denoted by those replies, not the observed distribution of reply labels. This pair alone does not distinguish a preference for emitting a label from a change in preference for the descriptions.
 
 ### C2 placement profiles for cases 312 and 321
 
 | Heading order | C2 selected when first | C2 selected when middle | C2 selected when last |
 | --- | ---: | ---: | ---: |
-| `312` | 0/12 | 8/12 | 8/12 |
-| `321` | 4/12 | 0/12 | 11/12 |
+| `312` | 3/20 | 12/20 | 12/20 |
+| `321` | 6/20 | 3/20 | 18/20 |
 
-Each denominator of 12 pools six trials for each of the two rival orders. Under `312`, first-slot `C2` was selected in **0/12** trials; the last candidate won **8/12** of those responses (3/6 and 5/6 for the two rival orders). Under `321`, `C2` selection was concentrated in the last slot (**11/12**), compared with **4/12** first and **0/12** middle.
+Each denominator of 20 pools ten trials for each of the two rival orders. Under `312`, first-slot `C2` was selected in **3/20** trials; the last candidate was selected in **11/20** trials (5/10 and 6/10 for the two rival orders). Under `321`, `C2` selection was concentrated in the last slot (**18/20**), compared with **6/20** first and **3/20** middle.
 
 The two heading orders therefore produced different placement profiles for the same unchanged description.
 
 ### Rival order can matter with the target fixed
 
-Under headings `312`, middle-slot `C2` was selected **2/6** times with body order `123` and **6/6** with body order `321`. The target retained the same wording, label (`Glip1`), and ordinal slot; only its two rivals exchanged slots.
+Under headings `312`, middle-slot `C2` was selected **3/10** times with body order `123` and **9/10** with body order `321`. The target retained the same wording, label (`Glip1`), and ordinal slot; only its two rivals exchanged slots.
 
-A second, exploratory example identified after inspecting the matrix is last-slot `C1` under `Glip2` in the same heading order: **5/6** with body order `231` versus **0/6** with `321`. Both examples measure changes in selection under rival rearrangement while preserving the target's wording, label, and ordinal slot.
+A second, exploratory example identified after inspecting the matrix is last-slot `C1` under `Glip2` in the same heading order: **6/10** with body order `231` versus **1/10** with `321`. Both examples measure changes in selection under rival rearrangement while preserving the target's wording, label, and ordinal slot.
 
 ### Measurements
 
@@ -134,7 +134,7 @@ $$
 I_2 = B_2(312) - B_2(321).
 $$
 
-In the pooled data, $B_2(312)=2/3$ and $B_2(321)=1/8$, giving **$I_2=13/24$ (+0.54)**. The average first-position disadvantage is larger under `312`. The individual slot profiles explain the contrast: under `321`, the middle trough and last-position peak partly cancel when averaged. The statistic summarizes that average difference rather than position invariance.
+In the pooled data, $B_2(312)=9/20$ and $B_2(321)=9/40$, giving **$I_2=9/40$ (+0.225)**. The average first-position disadvantage is larger under `312`. The individual slot profiles explain the contrast: under `321`, the middle trough and last-position peak partly cancel when averaged. The statistic summarizes that average difference rather than position invariance.
 
 ## 4. Relation to the Context Triad
 
@@ -169,11 +169,11 @@ The following tests extend the completed heading-and-description crossing.
 
 ## 6. Scope and Evidence Status
 
-**Observation record:** This study is based on **216 completed GPT-6 Luna / Low Dot subthread trials**, covering 36 layouts with six fresh runs per layout on 16 November 2026. Exact prompts, prompt hashes, verbatim replies, decoded selections, and complete layout counts are supplied. Cell frequencies and matched contrasts describe this stimulus set, prompt format, and execution setup; the tests in Section 5 are proposed extensions.
+**Observation record:** This study is based on **360 completed Dot subthread trials with GPT-6 Luna / Low requested**, covering 36 layouts with ten fresh runs per layout on 16–17 November 2026 (UTC). Exact prompts, prompt hashes, verbatim replies, decoded selections, and complete layout counts are supplied. Cell frequencies and matched contrasts describe this stimulus set, prompt format, and execution setup; the tests in Section 5 are proposed extensions.
 
 ## 7. Conclusion
 
-In the 216 Luna/Low trials, heading exchanges changed which description was selected, and rival rearrangements changed selection while the target retained its wording, label, and ordinal slot. Last position and the `Glip3` label were frequent selection targets. The same `C2` description exhibited different placement profiles under `312` and `321`, with a larger average first-position disadvantage under `312`.
+In the 360 Luna/Low trials, a matched heading exchange changed what an unchanged distribution of reply labels denoted. Rival rearrangements changed how often the target’s label was returned while its wording, label, and ordinal slot stayed fixed. Last position and the `Glip3` label were frequent selection targets. The same `C2` description exhibited different placement profiles under `312` and `321`, with a larger average first-position disadvantage under `312`.
 
 **Glip preference anchoring is conditional on the joint arrangement of labels and descriptions.** The crossed design measures these dependencies while preserving the descriptions, character-matched attribute values, and decision question.
 
@@ -292,7 +292,7 @@ Question: Which Glip is better; provide only a one word answer
 
 > Glip1
 
-**Outcome:** 6/6 trials selected `C2` in the middle slot.
+**Outcome:** 9/10 replies were `Glip1`, selecting `C2` in the middle slot; 1/10 was `Glip2`, selecting `C1` in the last slot.
 
 ### A.6 Prompt — Heading Order `321`, Body Order `321`
 
@@ -339,7 +339,7 @@ Question: Which Glip is better; provide only a one word answer
 
 > Glip1
 
-**Outcome:** 6/6 trials selected `C1` in the last slot.
+**Outcome:** 9/10 replies were `Glip1`, selecting `C1` in the last slot; 1/10 was `Glip2`, selecting `C2` in the middle slot.
 
 ## Appendix B — Layout and Trial Records
 
@@ -361,17 +361,17 @@ This record describes case `321` with original `C2` first. A response of `Glip3`
 
 ### B.2 Trial record schema
 
-The [study dataset](./Data/glip-luna-low-216-trials.csv) contains one record per trial: continuous trial number, heading order, body order, requested model and reasoning effort, execution surface, admission observation time, trial status, prompt verification, response category, verbatim reply, decoded label/body/position, position of C2, exact fenced prompt, and prompt SHA-256. The digest covers the whole prompt, including both fence lines.
+The [study dataset](./Data/glip-luna-low-360-trials.csv) contains one record per trial: continuous trial number, heading order, body order, requested model and reasoning effort, execution surface, admission observation time, trial status, prompt verification, response category, verbatim reply, decoded label/body/position, position of C2, exact fenced prompt, and prompt SHA-256. The digest covers the whole prompt, including both fence lines.
 
 ## Appendix C — Full Layout Counts
 
-Each cell lists **Glip1 / Glip2 / Glip3**, six responses total. Rows are heading order; columns are body order.
+Each cell lists **Glip1 / Glip2 / Glip3**, ten responses total. Rows are heading order; columns are body order.
 
 | Heading order \ Body order | `123` | `132` | `213` | `231` | `312` | `321` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| `123` | 0/0/6 | 0/0/6 | 0/0/6 | 0/0/6 | 0/1/5 | 0/2/4 |
-| `132` | 1/0/5 | 0/2/4 | 1/1/4 | 2/3/1 | 1/1/4 | 1/0/5 |
-| `213` | 0/0/6 | 0/0/6 | 0/0/6 | 1/0/5 | 0/1/5 | 2/1/3 |
-| `231` | 2/1/3 | 4/0/2 | 2/0/4 | 1/1/4 | 2/0/4 | 2/0/4 |
-| `312` | 2/2/2 | 2/4/0 | 3/3/0 | 1/5/0 | 0/4/2 | 6/0/0 |
-| `321` | 5/0/1 | 6/0/0 | 3/0/3 | 3/2/1 | 5/1/0 | 6/0/0 |
+| `123` | 0/0/10 | 0/0/10 | 0/0/10 | 0/0/10 | 0/2/8 | 0/2/8 |
+| `132` | 1/3/6 | 1/3/6 | 1/1/8 | 3/4/3 | 1/1/8 | 1/2/7 |
+| `213` | 0/1/9 | 0/0/10 | 0/1/9 | 1/0/9 | 0/1/9 | 4/3/3 |
+| `231` | 4/1/5 | 5/0/5 | 4/0/6 | 2/1/7 | 3/0/7 | 4/0/6 |
+| `312` | 3/4/3 | 4/6/0 | 3/5/2 | 3/6/1 | 2/6/2 | 9/1/0 |
+| `321` | 6/2/2 | 9/0/1 | 4/1/5 | 7/2/1 | 9/1/0 | 9/1/0 |
