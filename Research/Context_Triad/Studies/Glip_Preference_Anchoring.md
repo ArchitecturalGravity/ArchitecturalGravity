@@ -175,24 +175,44 @@ The following tests extend the completed heading-and-description crossing.
 
 ## 7. Conclusion
 
-Across **one continuous series of 360 GPT-6 Luna / Low trials**, covering 36 layouts with ten fresh runs per layout, all responses selected a Glip despite the absence of a declared superiority criterion. The three description bodies, their nine character-matched attribute values, and the decision question remained unchanged. Selection nevertheless varied with heading assignment, description placement, and rival arrangement.
+Across **one continuous series of 360 trials with GPT-6 Luna / Low requested**, covering 36 counterbalanced layouts with ten fresh runs each, every response selected a Glip despite no declared evaluation criterion. The three descriptions, their nine character-matched attribute values, and the decision question remained unchanged.
 
-**Last position and the Glip3 label were frequent but distinct selection targets.** The last slot accounted for **213/360 selections (59.2%)**, compared with **114/360 (31.7%)** for the middle and **33/360 (9.2%)** for the first. The displayed `Glip3` was selected **196/360 times (54.4%)**: **179/240 (74.6%)** when middle or last, versus **17/120 (14.2%)** when first. Even within the last slot, selection differed by label: **105/120 (87.5%)** for `Glip3`, **66/120 (55.0%)** for `Glip1`, and **42/120 (35.0%)** for `Glip2`. The observed pattern therefore extends beyond a uniform preference for the most recent candidate.
+### 1. Late-position bias: strong evidence
 
-**Heading changes altered which description an unchanged answer distribution selected.** With body order `321` fixed, heading orders `312` and `321` both produced nine `Glip1` replies and one `Glip2` reply. Those replies selected middle-slot `C2` in **9/10** trials under `312`, but last-slot `C1` in **9/10** under `321`. The stable literal-label distribution thus mapped to different descriptions and positions; it was not evidence of a stable preference for one description.
+- **First:** 33/360 (9.2%)
+- **Middle:** 114/360 (31.7%)
+- **Last:** 213/360 (59.2%)
 
-**Rival rearrangement changed selection with the target held fixed.** Under headings `312`, middle-slot `C2`, labeled `Glip1`, was selected **3/10** times with body order `123` and **9/10** with body order `321`: a **60-percentage-point increase** when only its rivals exchanged slots. In the exploratory last-slot `C1` contrast, selection fell from **6/10** to **1/10** between body orders `231` and `321`, while its wording, `Glip2` label, and ordinal slot remained fixed.
+The last candidate was selected disproportionately often, demonstrating a strong late-position preference.
 
-**The same description had different placement profiles under different heading orders.** For original `C2`, selection rates were:
+### 2. Higher-numbered label bias: evidence with a qualification
 
-| Heading order | C2 first | C2 middle | C2 last |
-| --- | ---: | ---: | ---: |
-| `312` | **3/20 (15%)** | **12/20 (60%)** | **12/20 (60%)** |
-| `321` | **6/20 (30%)** | **3/20 (15%)** | **18/20 (90%)** |
+- **Glip1:** 103/360 (28.6%)
+- **Glip2:** 61/360 (16.9%)
+- **Glip3:** 196/360 (54.4%)
 
-Each position includes both rival orders. The average first-position disadvantage was **0.45** under `312` and **0.225** under `321`, giving a between-heading contrast of **0.225 (22.5 percentage points)**. Under `312`, placing `C2` first led to last-slot selection in **11/20** trials, rather than a universal last-choice fallback. Only **5/36** layouts were unanimous across all ten repeats; all five returned `Glip3` from the last slot. The other 31 layouts produced more than one response label.
+Every label occupied every position equally often, so the `Glip3` preference cannot be explained by position alone. Because `Glip2` trailed `Glip1`, this establishes a `Glip3` preference rather than a general preference for increasing numbers.
 
-Together, these findings connect **Semantic Locality** to the measured placement profiles and **Semantic Shadow** to the fixed-target rival-order contrasts. Heading controls distinguish the emitted label from the description it denotes. Attribute-level character matching controls represented size, while Semantic Weight remains a separate support-manipulation question. **Preserving the descriptions and their character lengths did not preserve selection: the expressed preference depended on heading assignment, target placement, and rival arrangement.**
+### 3. Label and position jointly influence selection
+
+Selection rates for `Glip3` by position:
+
+- **First:** 17/120 (14.2%)
+- **Middle:** 74/120 (61.7%)
+- **Last:** 105/120 (87.5%)
+
+Even within the last slot, selection differed by label: **87.5% for Glip3**, **55.0% for Glip1**, and **35.0% for Glip2**. The pattern therefore extends beyond a uniform preference for the last candidate.
+
+### 4. Competing context changes preference
+
+- **Heading swaps:** With body order `321` fixed, headings `312` and `321` both produced nine `Glip1` replies and one `Glip2`. These identical reply distributions selected different descriptions: middle-slot `C2` versus last-slot `C1` in **9/10 trials**.
+- **Rival rearrangement:** Under headings `312`, middle-slot `C2`, labeled `Glip1`, increased from **3/10 to 9/10** selections between body orders `123` and `321`; only its rivals moved. The exploratory fixed-target `C1` contrast fell from **6/10 to 1/10**.
+- **Placement profiles:** `C2` selection across first, middle, and last positions was **3/20, 12/20, 12/20** under headings `312`, versus **6/20, 3/20, 18/20** under `321`.
+- **Response variability:** Only **5/36 layouts** produced unanimous responses across ten trials; all selected last-position `Glip3`.
+
+These findings connect **Semantic Locality** to positional sensitivity and **Semantic Shadow** to within-prompt rival-order effects. Character matching controls description length; **Semantic Weight** was not independently varied.
+
+**Central conclusion — Conditional Preference Anchoring:** In criterion-free selection, expressed preference depends on label identity, physical position, and competing context—not candidate content alone. Preserving the descriptions does not preserve selection.
 
 ## Related Papers
 
