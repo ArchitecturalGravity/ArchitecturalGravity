@@ -5,7 +5,7 @@
 
 ## Abstract
 
-This study examines selection among three fictional candidates when the prompt supplies no criterion that makes one better than another. The Glips share nine attribute headings and a common relational scaffold, with deliberately varied wording and invented terms. Corresponding attribute values are matched in character length. Six heading orders were crossed with six description orders, with ten fresh Dot subthreads per layout using requested GPT-6 Luna / Low, yielding **360 scored responses**.
+This study examines selection among three fictional candidates when the prompt supplies no criterion that makes one better than another. The Glips share nine attribute headings and a common relational scaffold, with deliberately varied wording and invented terms. Corresponding attribute values are matched in character length. Six heading orders were crossed with six description orders, with ten fresh Dot subthreads per layout using requested GPT-6 Luna / Low, forming **one continuous series of 360 scored trials**.
 
 Selection depended on the arrangement of labels and descriptions. With description order `321` held fixed, exchanging the middle and last headings changed which description the most frequent reply denoted: the middle description in one layout (9/10) and the last in the other (9/10). The literal answer frequencies were identical in the two layouts. In a separate contrast, swapping rival descriptions changed the frequency of the target’s label while its wording, heading, and slot stayed fixed. Last position was selected in **213/360** trials, and **5/36** layouts produced the same answer on all ten repeats. The original Glip2 description showed distinct placement profiles under heading orders `312` and `321`.
 
@@ -56,6 +56,8 @@ The body identifiers `C1`–`C3` are scoring notation only. A code such as `312/
 
 ## 2. Design and Trial Protocol
 
+The heading-only and body-switching procedures are two comparison views of the same continuous trial series. They do not divide the dataset into separate collections of trials.
+
 ### Test Set 1 — Heading-only comparison
 
 Hold body order fixed and change the heading assignment. The six layouts with body order `123` form the baseline heading-only slice. Other fixed body orders provide additional matched comparisons.
@@ -66,7 +68,7 @@ Hold the headings fixed and change the order of complete bodies. This moves a ta
 
 ### Crossed layout and execution
 
-The full crossing contains **36 layouts** (six heading orders × six body orders). The six baseline heading-only layouts are included in this matrix, not additional trials. Each layout was tested **ten times**, for **360 trials in a single dataset**. Layout assignments were shuffled.
+The full crossing contains **36 layouts** (six heading orders × six body orders). All **360 trials form one continuous series, numbered 1–360**, with **ten trials per layout**. Layout assignments were shuffled. The six baseline heading-only layouts are included in this matrix; both comparison procedures and all reported results use this same trial series.
 
 Each run was launched as a separate fresh Dot subthread, without a copy of the parent conversation. Model `gpt-6-luna` and reasoning effort `low` were explicitly requested and accepted; the retained transcript identifies the requested configuration rather than an independent backend snapshot. No warm-up, follow-up, or regeneration was used.
 
@@ -110,7 +112,7 @@ Hold the bodies fixed in order `321` (`C3 → C2 → C1`). Under headings `312`,
 | `312` | 3/20 | 12/20 | 12/20 |
 | `321` | 6/20 | 3/20 | 18/20 |
 
-Each denominator of 20 pools ten trials for each of the two rival orders. Under `312`, first-slot `C2` was selected in **3/20** trials; the last candidate was selected in **11/20** trials (5/10 and 6/10 for the two rival orders). Under `321`, `C2` selection was concentrated in the last slot (**18/20**), compared with **6/20** first and **3/20** middle.
+Each denominator of 20 includes ten trials for each of the two rival orders. Under `312`, first-slot `C2` was selected in **3/20** trials; the last candidate was selected in **11/20** trials (5/10 and 6/10 for the two rival orders). Under `321`, `C2` selection was concentrated in the last slot (**18/20**), compared with **6/20** first and **3/20** middle.
 
 The two heading orders therefore produced different placement profiles for the same unchanged description.
 
@@ -134,7 +136,7 @@ $$
 I_2 = B_2(312) - B_2(321).
 $$
 
-In the pooled data, $B_2(312)=9/20$ and $B_2(321)=9/40$, giving **$I_2=9/40$ (+0.225)**. The average first-position disadvantage is larger under `312`. The individual slot profiles explain the contrast: under `321`, the middle trough and last-position peak partly cancel when averaged. The statistic summarizes that average difference rather than position invariance.
+Across the full trial series, $B_2(312)=9/20$ and $B_2(321)=9/40$, giving **$I_2=9/40$ (+0.225)**. The average first-position disadvantage is larger under `312`. The individual slot profiles explain the contrast: under `321`, the middle trough and last-position peak partly cancel when averaged. The statistic summarizes that average difference rather than position invariance.
 
 ## 4. Relation to the Context Triad
 
@@ -169,11 +171,11 @@ The following tests extend the completed heading-and-description crossing.
 
 ## 6. Scope and Evidence Status
 
-**Observation record:** This study is based on **360 completed Dot subthread trials with GPT-6 Luna / Low requested**, covering 36 layouts with ten fresh runs per layout on 16–17 November 2026 (UTC). Exact prompts, prompt hashes, verbatim replies, decoded selections, and complete layout counts are supplied. Cell frequencies and matched contrasts describe this stimulus set, prompt format, and execution setup; the tests in Section 5 are proposed extensions.
+**Observation record:** This study is based on **one continuous series of 360 completed Dot subthread trials with GPT-6 Luna / Low requested**, covering 36 layouts with ten fresh runs per layout on 16–17 November 2026 (UTC). Exact prompts, prompt hashes, verbatim replies, decoded selections, and complete layout counts are supplied. Cell frequencies and matched contrasts describe this stimulus set, prompt format, and execution setup; the tests in Section 5 are proposed extensions.
 
 ## 7. Conclusion
 
-In the 360 Luna/Low trials, a matched heading exchange changed what an unchanged distribution of reply labels denoted. Rival rearrangements changed how often the target’s label was returned while its wording, label, and ordinal slot stayed fixed. Last position and the `Glip3` label were frequent selection targets. The same `C2` description exhibited different placement profiles under `312` and `321`, with a larger average first-position disadvantage under `312`.
+Across the complete 360-trial series, a matched heading exchange changed what an unchanged distribution of reply labels denoted. Rival rearrangements changed how often the target’s label was returned while its wording, label, and ordinal slot stayed fixed. Last position and the `Glip3` label were frequent selection targets. The same `C2` description exhibited different placement profiles under `312` and `321`, with a larger average first-position disadvantage under `312`.
 
 **Glip preference anchoring is conditional on the joint arrangement of labels and descriptions.** The crossed design measures these dependencies while preserving the descriptions, character-matched attribute values, and decision question.
 
@@ -361,7 +363,7 @@ This record describes case `321` with original `C2` first. A response of `Glip3`
 
 ### B.2 Trial record schema
 
-The [study dataset](./Data/glip-luna-low-360-trials.csv) contains **360 trial records**, numbered 1–360, with ten runs for each of the 36 layouts. Each record includes the continuous trial number, heading order, body order, requested model and reasoning effort, execution surface, admission observation time, trial status, prompt verification, response category, verbatim reply, decoded label/body/position, position of C2, exact fenced prompt, and prompt SHA-256. The digest covers the whole prompt, including both fence lines.
+The [study dataset](./Data/glip-luna-low-360-trials.csv) contains **one continuous sequence of 360 trial records**, numbered 1–360, with ten runs for each of the 36 layouts. Each record includes the continuous trial number, heading order, body order, requested model and reasoning effort, execution surface, admission observation time, trial status, prompt verification, response category, verbatim reply, decoded label/body/position, position of C2, exact fenced prompt, and prompt SHA-256. The digest covers the whole prompt, including both fence lines.
 
 ## Appendix C — Full Layout Counts
 
