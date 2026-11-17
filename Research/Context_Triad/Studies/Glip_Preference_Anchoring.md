@@ -1,11 +1,11 @@
 <a id="paper-glip-preference-anchoring"></a>
 # Glip Preference Anchoring: A Context Triad Study of Label, Description, and Position in Criterion-Free Selection
 
-## A `GPT-6 Luna / Low` Controlled Study of the Context Triad -- 16–17 November 2026 (UTC)
+## A `GPT-6 Luna / Low` Controlled Study of the Context Triad -- 16 November 2026 (UTC)
 
 ## Abstract
 
-This study examines selection among three fictional candidates when the prompt supplies no criterion that makes one better than another. The Glips share nine attribute headings and a common relational scaffold, with deliberately varied wording and invented terms. Corresponding attribute values are matched in character length. Six heading orders were crossed with six description orders, with ten fresh Dot subthreads per layout using requested GPT-6 Luna / Low, forming **one continuous series of 360 scored trials**.
+This study examines selection among three fictional candidates when the prompt supplies no criterion that makes one better than another. The Glips share nine attribute headings and a common relational scaffold, with deliberately varied wording and invented terms. Corresponding attribute values are matched in character length. Six heading orders were crossed with six description orders, with ten fresh subthreads per layout using requested GPT-6 Luna / Low, forming **one continuous series of 360 scored trials**.
 
 Selection depended on the arrangement of labels and descriptions. With description order `321` held fixed, exchanging the middle and last headings changed which description the most frequent reply denoted: the middle description in one layout (9/10) and the last in the other (9/10). The literal answer frequencies were identical in the two layouts. In a separate contrast, swapping rival descriptions changed the frequency of the target’s label while its wording, heading, and slot stayed fixed. Last position was selected in **213/360** trials, and **5/36** layouts produced the same answer on all ten repeats. The original Glip2 description showed distinct placement profiles under heading orders `312` and `321`.
 
@@ -70,7 +70,7 @@ Hold the headings fixed and change the order of complete bodies. This moves a ta
 
 The full crossing contains **36 layouts** (six heading orders × six body orders). All **360 trials form one continuous series, numbered 1–360**, with **ten trials per layout**. Layout assignments were shuffled. The six baseline heading-only layouts are included in this matrix; both comparison procedures and all reported results use this same trial series.
 
-Each run was launched as a separate fresh Dot subthread, without a copy of the parent conversation. Model `gpt-6-luna` and reasoning effort `low` were explicitly requested and accepted; the retained transcript identifies the requested configuration rather than an independent backend snapshot. No warm-up, follow-up, or regeneration was used.
+Each run was launched as a separate fresh subthread, without a copy of the parent conversation. Model `gpt-6-luna` and reasoning effort `low` were explicitly requested and accepted; the retained transcript identifies the requested configuration rather than an independent backend snapshot. No warm-up, follow-up, or regeneration was used.
 
 Each subthread received one prompt: the entire stimulus and closing question inside one untagged triple-backtick block, with no other prompt text. The recorded prompt was checked against the assigned layout. The first verbatim reply was retained and decoded first as a displayed label, then mapped to its body and position. All **360** trials completed and returned one of the three valid labels. The trial log uses one continuous trial numbering sequence and retains exact fenced prompts, prompt SHA-256 hashes, and verbatim replies.
 
@@ -171,7 +171,7 @@ The following tests extend the completed heading-and-description crossing.
 
 ## 6. Scope and Evidence Status
 
-**Observation record:** This study is based on **one continuous series of 360 completed Dot subthread trials with GPT-6 Luna / Low requested**, covering 36 layouts with ten fresh runs per layout on 16–17 November 2026 (UTC). Exact prompts, prompt hashes, verbatim replies, decoded selections, and complete layout counts are supplied. Cell frequencies and matched contrasts describe this stimulus set, prompt format, and execution setup; the tests in Section 5 are proposed extensions.
+**Observation record:** This study is based on **one continuous series of 360 completed subthread trials with GPT-6 Luna / Low requested**, covering 36 layouts with ten fresh runs per layout on 16–17 November 2026 (UTC). Exact prompts, prompt hashes, verbatim replies, decoded selections, and complete layout counts are supplied. Cell frequencies and matched contrasts describe this stimulus set, prompt format, and execution setup; the tests in Section 5 are proposed extensions.
 
 ## 7. Conclusion
 
