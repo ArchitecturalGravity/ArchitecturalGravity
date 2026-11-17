@@ -175,9 +175,24 @@ The following tests extend the completed heading-and-description crossing.
 
 ## 7. Conclusion
 
-Across the complete 360-trial series, a matched heading exchange changed what an unchanged distribution of reply labels denoted. Rival rearrangements changed how often the target’s label was returned while its wording, label, and ordinal slot stayed fixed. Last position and the `Glip3` label were frequent selection targets. The same `C2` description exhibited different placement profiles under `312` and `321`, with a larger average first-position disadvantage under `312`.
+Across **one continuous series of 360 GPT-6 Luna / Low trials**, covering 36 layouts with ten fresh runs per layout, all responses selected a Glip despite the absence of a declared superiority criterion. The three description bodies, their nine character-matched attribute values, and the decision question remained unchanged. Selection nevertheless varied with heading assignment, description placement, and rival arrangement.
 
-**Glip preference anchoring is conditional on the joint arrangement of labels and descriptions.** The crossed design measures these dependencies while preserving the descriptions, character-matched attribute values, and decision question.
+**Last position and the Glip3 label were frequent but distinct selection targets.** The last slot accounted for **213/360 selections (59.2%)**, compared with **114/360 (31.7%)** for the middle and **33/360 (9.2%)** for the first. The displayed `Glip3` was selected **196/360 times (54.4%)**: **179/240 (74.6%)** when middle or last, versus **17/120 (14.2%)** when first. Even within the last slot, selection differed by label: **105/120 (87.5%)** for `Glip3`, **66/120 (55.0%)** for `Glip1`, and **42/120 (35.0%)** for `Glip2`. The observed pattern therefore extends beyond a uniform preference for the most recent candidate.
+
+**Heading changes altered which description an unchanged answer distribution selected.** With body order `321` fixed, heading orders `312` and `321` both produced nine `Glip1` replies and one `Glip2` reply. Those replies selected middle-slot `C2` in **9/10** trials under `312`, but last-slot `C1` in **9/10** under `321`. The stable literal-label distribution thus mapped to different descriptions and positions; it was not evidence of a stable preference for one description.
+
+**Rival rearrangement changed selection with the target held fixed.** Under headings `312`, middle-slot `C2`, labeled `Glip1`, was selected **3/10** times with body order `123` and **9/10** with body order `321`: a **60-percentage-point increase** when only its rivals exchanged slots. In the exploratory last-slot `C1` contrast, selection fell from **6/10** to **1/10** between body orders `231` and `321`, while its wording, `Glip2` label, and ordinal slot remained fixed.
+
+**The same description had different placement profiles under different heading orders.** For original `C2`, selection rates were:
+
+| Heading order | C2 first | C2 middle | C2 last |
+| --- | ---: | ---: | ---: |
+| `312` | **3/20 (15%)** | **12/20 (60%)** | **12/20 (60%)** |
+| `321` | **6/20 (30%)** | **3/20 (15%)** | **18/20 (90%)** |
+
+Each position includes both rival orders. The average first-position disadvantage was **0.45** under `312` and **0.225** under `321`, giving a between-heading contrast of **0.225 (22.5 percentage points)**. Under `312`, placing `C2` first led to last-slot selection in **11/20** trials, rather than a universal last-choice fallback. Only **5/36** layouts were unanimous across all ten repeats; all five returned `Glip3` from the last slot. The other 31 layouts produced more than one response label.
+
+Together, these findings connect **Semantic Locality** to the measured placement profiles and **Semantic Shadow** to the fixed-target rival-order contrasts. Heading controls distinguish the emitted label from the description it denotes. Attribute-level character matching controls represented size, while Semantic Weight remains a separate support-manipulation question. **Preserving the descriptions and their character lengths did not preserve selection: the expressed preference depended on heading assignment, target placement, and rival arrangement.**
 
 ## Related Papers
 
