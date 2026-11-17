@@ -1,7 +1,7 @@
 <a id="paper-glip-preference-anchoring"></a>
 # Glip Preference Anchoring: A Context Triad Study of Label, Description, and Position in Criterion-Free Selection
 
-## A `GPT-6 Luna / Low` Controlled Study of the Context Triad -- 16 November 2026
+## A `GPT-6 Luna / Low` Controlled Study of the Context Triad -- 16–17 November 2026 (UTC)
 
 ## Abstract
 
@@ -84,7 +84,7 @@ Each subthread received one prompt: the entire stimulus and closing question ins
 | Original description | C1: 113 · C2: 139 · C3: 108 |
 | Physical position | First: 33 · Middle: 114 · Last: 213 |
 
-Last position was selected in **213/360 (59.2%)** trials. `Glip3` was selected in **179/240 (74.6%)** trials in the four heading orders where it occupied the middle or last slot, and **17/120 (14.2%)** when it occupied the first slot. **5/36** layouts gave the same label on all ten repeats.
+Last position was selected in **213/360 (59.2%)** trials. `Glip3` was selected in **179/240 (74.6%)** trials in the four heading orders where it occupied the middle or last slot, and **17/120 (14.2%)** when it occupied the first slot. **5/36** layouts gave the same label on all ten repeats. The five unanimous layouts were `123/123`, `123/132`, `123/213`, `123/231`, and `213/132`; all returned `Glip3`.
 
 | Heading order | Glip1 | Glip2 | Glip3 | First | Middle | Last |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -288,7 +288,7 @@ Question: Which Glip is better; provide only a one word answer
 ```
 ~~~
 
-**Observed response (verbatim):**
+**Most frequent observed response (verbatim):**
 
 > Glip1
 
@@ -335,7 +335,7 @@ Question: Which Glip is better; provide only a one word answer
 ```
 ~~~
 
-**Observed response (verbatim):**
+**Most frequent observed response (verbatim):**
 
 > Glip1
 
@@ -361,11 +361,11 @@ This record describes case `321` with original `C2` first. A response of `Glip3`
 
 ### B.2 Trial record schema
 
-The [study dataset](./Data/glip-luna-low-360-trials.csv) contains one record per trial: continuous trial number, heading order, body order, requested model and reasoning effort, execution surface, admission observation time, trial status, prompt verification, response category, verbatim reply, decoded label/body/position, position of C2, exact fenced prompt, and prompt SHA-256. The digest covers the whole prompt, including both fence lines.
+The [study dataset](./Data/glip-luna-low-360-trials.csv) contains **360 trial records**, numbered 1–360, with ten runs for each of the 36 layouts. Each record includes the continuous trial number, heading order, body order, requested model and reasoning effort, execution surface, admission observation time, trial status, prompt verification, response category, verbatim reply, decoded label/body/position, position of C2, exact fenced prompt, and prompt SHA-256. The digest covers the whole prompt, including both fence lines.
 
 ## Appendix C — Full Layout Counts
 
-Each cell lists **Glip1 / Glip2 / Glip3**, ten responses total. Rows are heading order; columns are body order.
+Each cell lists **Glip1 / Glip2 / Glip3**, ten responses total. Rows are heading order; columns are body order. Each row and column contains 60 responses, giving 360 responses across the matrix.
 
 | Heading order \ Body order | `123` | `132` | `213` | `231` | `312` | `321` |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
