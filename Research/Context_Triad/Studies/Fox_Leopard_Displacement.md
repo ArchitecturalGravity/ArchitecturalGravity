@@ -122,7 +122,7 @@ For the next comparison, replace the explicit jumping assertions with neutral de
 
 ## 6. Scope and Evidence Status
 
-**Observation record:** 360 completed and scored trials. The accompanying `Fox-Leopard-360-trial-results.csv` records layout, execution notes, planned prompts and hashes, verbatim final replies, and both outcome scores. The planned hashes identify the intended text; most delivered prompts were not independently verified byte for byte. The main sequence scheduled Prompt 1 before Prompt 2 within each pair, so prompt version and within-pair run order were not independently varied.
+**Observation record:** 360 completed and scored trials. The accompanying [Fox-Leopard-360-trial-results.csv](./Data/Fox-Leopard-360-trial-results.csv) records layout, execution notes, planned prompts and hashes, verbatim final replies, and both outcome scores. The planned hashes identify the intended text; most delivered prompts were not independently verified byte for byte. The main sequence scheduled Prompt 1 before Prompt 2 within each pair, so prompt version and within-pair run order were not independently varied.
 
 ## 7. Conclusion
 
