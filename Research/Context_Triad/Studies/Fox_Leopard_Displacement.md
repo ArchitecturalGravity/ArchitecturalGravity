@@ -1,23 +1,21 @@
 <a id="paper-fox-leopard-answer-displacement"></a>
-# Fox–Leopard Displacement: A Semantic Weight Pilot of Implicit Pangram Inference
+# Fox–Leopard Displacement: A Semantic Weight Study of Implicit Pangram Inference
 
-## A `GPT-6 Instant` Pilot Observation of the Context Triad -- 24 October 2026
+## A `GPT-6 Luna / Low` Study of the Context Triad -- 18 November 2026 (UTC)
 
 ## Abstract
 
-This study examines a deliberately *unstated* but strongly cued association of a familiar pangram:
+This study examines whether a competing animal description changes which animal the model selects when the prompt implicitly cues the familiar quick-brown-fox pangram. The Fox and Dog descriptions stay fixed while the Leopard block expands from three to fifty attributes, including explicit jumping cues.
 
-> **“The quick brown fox jumps over the lazy dog.”**
+Six label assignments were crossed with six display orders, two prompt versions, and five repetitions per condition, forming **one series of 360 scored trials**. Each trial used a fresh Codex subagent conversation with `GPT-6 Luna / Low` requested. The question always referred to the Dog’s assigned label.
 
-Neither experimental prompt quotes or names that sentence. Instead, the words **quick**, **brown**, and **fox** appear as attributes of `[Animal1]`; **lazy** and **dog** describe `[Animal2]`; and the question asks which animal **jumps over** `[Animal2]`. The intended inference is to assemble these dispersed cues into the familiar sentence and identify `[Animal1]` as its subject.
+Across 180 matched pairs, Leopard was selected in **77/180 Prompt 1 replies** and **135/180 Prompt 2 replies**. Leopard was selected more often under Prompt 2 in each position group: trials with the Leopard block displayed first, middle, or last. The largest difference was at first position.
 
-In the first GPT-6 Instant response, the model reconstructed “the quick brown fox” and “the lazy dog.” In the second prompt, the cues and question remained unchanged while a preceding `[Animal3]` Leopard description grew from three attributes to fifty. The answer shifted to `[Animal3]`, without the pangram. **The central observation is the displacement of an implicit, phrase-level inferential correlation in the presence of a much larger competing context.** The observed answer displacement is consistent with a Semantic Weight effect, although competing context volume and task-specific semantic support remain confounded.
-
-**The paired answers document displacement under expanded competing context.** Because the added Leopard fields increase volume and introduce jumping cues, follow-up controls will distinguish their contributions under the [Context Triad](../README.md#paper-context-triad).
+**The central observation is answer displacement: the distribution of animal selections differed across prompt conditions while the pangram cues remained available.** The comparison does not separate description length from task-relevant wording.
 
 ## Role Within the Context Triad
 
-This pilot documents answer displacement when a competing animal description expands while the implicit pangram cue remains present. It is a motivating observation for the [Semantic Weight](../Semantic_Weight.md) study and its proposed controls, not itself a controlled test of the proposed Semantic Weight mechanism.
+This study documents answer displacement when a competing animal description expands while the implicit pangram cue remains present. The study varies animal labels and block order independently to test whether the displacement persists across layouts. The proposed [Semantic Weight](../Semantic_Weight.md) controls address competing context volume and task-specific cues separately.
 
 ## 1. The Intended Inferential Correlation
 
@@ -33,95 +31,111 @@ The task **never says that this phrase is the reference**, never identifies a pa
 | **lazy dog** | `[Animal2]`: Demeanor = Lazy; Type = Dog | Recognize the conventional phrase's object |
 | **jumps over** | Final question: “Which animal jumps over [Animal2]” | Recover the relationship connecting subject and object |
 
-All three pieces must be related, rather than considered as independent biological facts. This matters because the prompt places the subject and object in labeled data blocks, not in a sentence that explicitly states who jumped. It also introduces a distractor, `[Animal3]`, *before* the Fox and Dog.
+All three pieces must be related, rather than considered as independent biological facts. This matters because the prompt places the subject and object in labeled data blocks, not in a sentence that explicitly states who jumped. It also introduces a competing Leopard block. In the example assignment shown above, that block is `[Animal3]`; its display position varies.
 
-**`[Animal1]` is the target associative answer**: the dispersed clues reconstruct the familiar pangram rather than explicitly state a jumping event. The test measures whether that indirect association governs the selection.
+**Fox is the target associative answer** (`[Animal1]` in this example): the dispersed clues can reconstruct the familiar pangram, but the prompt does not explicitly state a jumping event. The test measures whether that indirect association governs the selection.
 
 ## 2. Two Prompts; One Unchanged Implicit Cue
 
-Both inputs are ordered `[Animal3]` → `[Animal1]` → `[Animal2]` → Question. Exact full stimuli and reported responses appear in [Appendix A](#appendix-a--reported-stimuli-and-responses).
+The two versions differ in the Leopard block. The Fox and Dog descriptions are identical across versions, and the question always refers to the label assigned to the Dog. The planned stimuli for the first matched pair, in `3–1–2` display order, appear in [Appendix A](#appendix-a--planned-stimuli).
 
 | Feature | Prompt 1 | Prompt 2 |
 | --- | --- | --- |
-| `[Animal3]` | Three short Leopard attributes | Fifty Leopard/snow-leopard attributes, including some jumping descriptions |
+| Leopard block | Three short Leopard attributes | Fifty Leopard/snow-leopard attributes, including jumping and leaping |
 | Pangram cue: **quick + brown + fox** | Present, unchanged | Present, unchanged |
 | Pangram cue: **lazy + dog** | Present, unchanged | Present, unchanged |
 | Relational cue: **jumps over** | Present in question, unchanged | Present in question, unchanged |
-| Intended associative answer | `[Animal1]` (Fox) | `[Animal1]` (Fox) |
-| **GPT-6 Instant answer** | **`[Animal1]` (Fox)** | **`[Animal3]` (Leopard)** |
+| Intended associative answer | Fox | Fox |
 
-### Response evidence
+### Trial methodology
 
-**Prompt 1 — verbatim:**
-
-> Animal1 (the quick brown fox) jumps over Animal2 (the lazy dog).
-
-The response does more than select the Fox. Its phrasing reconstructs the famous sentence's two noun phrases and their relation. The response reconstructs the pangram's distinctive wording and relationship from dispersed cues.
-
-**Prompt 2 — verbatim:**
-
-> Animal3 (Leopard) jumps over Animal2 (Dog).
-
-The second response selects the Leopard and no longer reproduces the characteristic “quick brown fox” / “lazy dog” wording. The underlying pangram cues were still present. The change goes beyond the animal label: **the implicit pangram correlation no longer governed the answer**.
+The study crossed **six label assignments × six label display orders × two prompts × five repetitions**. Each round shuffled all 36 layouts, with Prompt 1 scheduled immediately before Prompt 2 for each layout. Each trial used a fresh Codex subagent conversation without inherited history, configured for `GPT-6 Luna / Low`. The planned stimuli were enclosed in a single untagged fence. Within each prompt version, only label assignment, display order, and the Dog label in the question changed. All 360 trials returned final replies, five per condition. Animal choice was scored by referent, not label number. Spontaneous pangram reconstruction was scored separately from the verbatim final reply. A bare Fox answer did not count as reconstruction; partial cues were recorded separately.
 
 ## 3. Central Observation: Answer Displacement under Increased Competing Context
 
-The large `[Animal3]` block did **not** remove, rewrite, or contradict the five distinctive pangram descriptors. It did **not** change the relation requested in the question. The answer nevertheless moved away from the inference those cues collectively invite.
+**Animal selected in the final reply:**
 
-This is the key experimental phenomenon:
+| Selection outcome | Prompt 1 | Prompt 2 |
+| --- | ---: | ---: |
+| Fox | 88/180 | 43/180 |
+| Leopard | 77/180 | 135/180 |
+| Dog | 0/180 | 1/180 |
+| Ambiguous/multiple | 8/180 | 0/180 |
+| No selection | 7/180 | 1/180 |
 
-> **A highly recognizable, implicitly cued phrase-level relationship guided the short-context answer, but no longer guided the answer when a competing entity acquired extensive additional context.**
+**Matched comparison.** Leopard selection was 32.2 percentage points higher under Prompt 2. Of 180 pairs matched by label assignment, display order, and scheduled repetition, 72 yielded a Leopard selection only under Prompt 2 and 14 only under Prompt 1.
 
-The interesting failure mode is not that a leopard *could* jump over a dog, or that one animal is more agile than another. Those are alternative selection rationales, not the research target. The research target is whether the model **preserves and applies the intended correlation among indirect cues** when the competing context becomes disproportionately extensive.
+**Pangram reconstruction, scored separately.** Full reconstruction occurred in 11/180 Prompt 1 replies and 12/180 Prompt 2 replies. Partial cues occurred in 26/180 and 9/180 replies, respectively.
 
-The contrast is especially notable because the Fox and Dog descriptions remain immediately before the question. The task did not ask for the animal with the greatest jumping ability; it asked which animal jumps over the labeled dog. Under the pangram interpretation, that answer remains the Fox regardless of Leopard background information.
+### Leopard selection by displayed animal position
 
-The expanded `[Animal3]` representation **displaced the implicit pangram association in the answer**, consistent with a competing Semantic Weight effect. Description length and task-specific jumping cues changed together, so their respective contributions remain unresolved.
+Animal position is where the block appears: first, middle, or last, independent of its label number. Each row pools the two display orders in which Leopard occupies that position.
+
+| Leopard block position | Leopard selections, Prompt 1 | Leopard selections, Prompt 2 | Difference (percentage points) |
+| --- | ---: | ---: | ---: |
+| First | 19/60 | 52/60 | +55.0 |
+| Middle | 31/60 | 40/60 | +15.0 |
+| Last | 27/60 | 43/60 | +26.7 |
+
+The prompt difference was largest with Leopard first. In both Leopard-first orders, the expanded block appeared before the Fox and Dog blocks, so the added text did not come between either block and the question. At the full-order level, Dog → Leopard → Fox was the only order in which Leopard was selected less often under Prompt 2 (see the matrix totals).
+
+**Label versus position.** In a descriptive comparison of matched layouts, swapping the Fox and Leopard label numbers at fixed physical order while keeping the Dog label unchanged shifted the Leopard selection rate by an average absolute **25.6 points in Prompt 1** and **30.0 in Prompt 2**. Swapping their physical positions at fixed label assignment and Dog position shifted it by **38.9** and **27.8 points**, respectively. For each prompt version, these comparisons used 18 matched layouts of each type, with five replies per layout. The contrasts reuse the same data, and each cell has few trials. They are descriptive, not estimates of independent effects.
+
+### Leopard selection matrix: label assignment × animal display order
+
+**F** = Fox, **D** = Dog, **L** = Leopard. Read a row code in label-number order (Animal1, Animal2, Animal3) and a column code in display order (first, middle, last). For example, row **FDL** assigns Animal1 to Fox, Animal2 to Dog, and Animal3 to Leopard; column **LFD** displays Leopard first, Fox second, and Dog last.
+
+Cells show Leopard selections as **Prompt 1 · Prompt 2**. Each assignment-by-order cell is out of five replies per prompt. The bottom row pools all six assignments within each display order (30 replies per prompt).
+
+| Assignment / Display order | FDL | FLD | DFL | DLF | LFD | LDF |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **FDL** | 4/5 · 4/5 | 0/5 · 2/5 | 0/5 · 2/5 | 1/5 · 0/5 | 1/5 · 4/5 | 1/5 · 0/5 |
+| **FLD** | 3/5 · 4/5 | 4/5 · 4/5 | 0/5 · 2/5 | 4/5 · 4/5 | 2/5 · 5/5 | 2/5 · 4/5 |
+| **DFL** | 4/5 · 5/5 | 0/5 · 4/5 | 1/5 · 3/5 | 3/5 · 3/5 | 1/5 · 5/5 | 1/5 · 4/5 |
+| **DLF** | 3/5 · 4/5 | 1/5 · 1/5 | 1/5 · 2/5 | 5/5 · 5/5 | 1/5 · 5/5 | 1/5 · 5/5 |
+| **LFD** | 5/5 · 5/5 | 1/5 · 5/5 | 2/5 · 4/5 | 4/5 · 4/5 | 1/5 · 5/5 | 4/5 · 5/5 |
+| **LDF** | 4/5 · 4/5 | 3/5 · 3/5 | 0/5 · 4/5 | 5/5 · 5/5 | 3/5 · 5/5 | 1/5 · 5/5 |
+| **All label assignments** | **23/30 · 26/30** | **9/30 · 19/30** | **4/30 · 17/30** | **22/30 · 21/30** | **9/30 · 29/30** | **10/30 · 23/30** |
 
 ## 4. Relation to the Context Triad
 
 This case belongs in the Triad because **semantic information can remain present and inferentially relevant without continuing to govern behavior**.
 
-- [**Semantic Weight:**](../Semantic_Weight.md#paper-semantic-weight) The Leopard block expands from three fields to fifty, increasing competing representation volume. Two added fields also describe jumping and leaping, directly matching the question. Size-only and jumping-only controls separate these influences.
-
-Under the [Triad's outcome vocabulary](../README.md#common-behavioral-outcomes-and-dynamics), the `[Animal1]` → `[Animal3]` shift is **answer displacement**: a competing interpretation replaced the intended **implicit inferential correlation**, rather than an explicitly stated instruction or fact.
+- [**Semantic Weight:**](../Semantic_Weight.md#paper-semantic-weight) The Leopard block expands from three fields to fifty. The expanded representation also supplies jumping and leaping details that directly match the question. The selection shift motivates the matched controls below.
+- [**Answer displacement:**](../README.md#common-behavioral-outcomes-and-dynamics) The competing Leopard interpretation was selected more often while the intended **implicit inferential correlation** remained available in the prompt.
 
 ## 5. Proposed Tests of the Semantic Weight Hypothesis
 
-The following **proposed controls** separate contextual volume from task-specific jumping cues.
+The following conditions separate contextual volume from task-specific jumping cues. This study compares P0 and P3 across all six physical orders. It does not separate description length from the added jumping cues or the rewritten Speed and Color fields.
 
 | Condition | Controlled variation | Research question |
 | --- | --- | --- |
-| **P0 — Short baseline** | Original Prompt 1 | How reliably do the indirect cues elicit the pangram-based Fox answer? |
-| **P1 — Size-only expansion** | Expand `[Animal3]` with length-matched, non-jumping background details while retaining the pangram cues | Can a large competing description displace the association without task-specific jumping claims? |
+| **P0 — Short baseline** | Prompt 1 | How reliably do the indirect cues elicit the pangram-based Fox answer? |
+| **P1 — Size-only expansion** | Expand the Leopard block with length-matched, non-jumping background details while retaining the pangram cues | Can a large competing description displace the association without task-specific jumping claims? |
 | **P2 — Jumping-cue addition** | Add only a small matched block describing Leopard jumping | How much displacement is attributable to task-specific semantic cues rather than bulk? |
-| **P3 — Full expanded context** | Original Prompt 2 | Does the reported displacement recur? |
+| **P3 — Full expanded context** | Prompt 2 | How strong is the displacement relative to the matched controls? |
 | **P4 — Jumping-cue ablation** | Preserve the expanded layout and approximate length but replace jumping-specific assertions with neutral details | Does the intended pangram inference recover without those explicit competing cues? |
 | **P5 — Pangram-cue ablation** | Change one or more of Quick, Brown, Lazy, or the exact “jumps over” wording while preserving other conditions | Does Fox selection depend on the recognizable phrase-level correlation? |
 | **P6 — Independent recognition probe** | In separate fresh-context runs, ask whether the described animal attributes and question evoke a familiar sentence | Is the pangram association recoverable even when it does not govern the original selection task? |
 
-Maintain the five descriptor cues and the original question exactly across the main expansion comparisons. For controlled follow-up trials, use fixed-capacity layouts, matched neutral material, counterbalancing, and repeated-response analysis. The recognition probe must be separate from the original selection task: asking about the phrase first would itself supply or refresh the very interpretation being tested.
-
-Record (1) **which animal is selected** and (2) **whether the response spontaneously reconstructs the pangram**. Compare both outcomes across repeated trials.
+For the next comparison, replace the explicit jumping assertions with neutral details while preserving the expanded layout and approximate length. This tests those assertions, not all movement- or agility-related language. For a size-only contrast, keep the shared fields unchanged and use neutral expansion details. Keep the Fox and Dog descriptors and question wording unchanged, counterbalance which version runs first, and run the recognition probe separately so it cannot cue answers in the selection task.
 
 ## 6. Scope and Evidence Status
 
-**Observation record:** The study provides two GPT-6 **Instant** prompts and one verbatim response per condition, dated 24 October 2026, and reports three runs per condition. The response contrast is documented; size versus jumping-specific contributions remain the next experimental question.
-
-The reported answer displacement motivates the size-only and jumping-cue controls specified above.
+**Observation record:** 360 completed and scored trials. The accompanying `Fox-Leopard-360-trial-results.csv` records layout, execution notes, planned prompts and hashes, verbatim final replies, and both outcome scores. The planned hashes identify the intended text; most delivered prompts were not independently verified byte for byte. The main sequence scheduled Prompt 1 before Prompt 2 within each pair, so prompt version and within-pair run order were not independently varied.
 
 ## 7. Conclusion
 
-The reported response shifted from the implicitly cued Fox to the expanded Leopard description. The planned controls distinguish description length from directly relevant jumping cues.
+Leopard was selected more often under Prompt 2 than under Prompt 1 at each of the three displayed animal positions when results were grouped by the Leopard block’s position. At the more detailed level of full animal order, this pattern held in five of six orders. The pangram cues were present in both prompt versions. Full pangram reconstruction was uncommon and was scored separately from animal selection. These results describe the answers the model gave; they do not establish whether it recognized the pangram without saying so. Matched controls are needed to separate description length from task-relevant wording.
 
 ## Related Papers
 
 - [Context Triad](../README.md#paper-context-triad) — semantic presence versus behavioral influence and outcome classifications.
 - [Semantic Weight](../Semantic_Weight.md#paper-semantic-weight) — coherent support, competing representation volume, and support–response experiments.
 
-## Appendix A — Reported Stimuli and Responses
+## Appendix A — Planned Stimuli
 
-**Record:** Original prompt text and supplied verbatim outputs for GPT-6 **Instant**, 24 October 2026; three runs per condition reported.
+**Layout:** The two planned prompts for the first matched pair. Display order: `3–1–2`. Label assignment: `[Animal1]` Fox, `[Animal2]` Dog, `[Animal3]` Leopard.
 
 ### A.1 Prompt 1 — Short Leopard Description
 
@@ -142,10 +156,6 @@ The reported response shifted from the implicitly cued Fox to the expanded Leopa
 
 Question: Which animal jumps over [Animal2]
 ```
-
-**Reported response (verbatim):**
-
-> Animal1 (the quick brown fox) jumps over Animal2 (the lazy dog).
 
 ### A.2 Prompt 2 — Expanded Leopard Description
 
@@ -213,7 +223,3 @@ Question: Which animal jumps over [Animal2]
 
 Question: Which animal jumps over [Animal2]
 ```
-
-**Reported response (verbatim):**
-
-> Animal3 (Leopard) jumps over Animal2 (Dog).
