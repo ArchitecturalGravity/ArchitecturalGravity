@@ -113,7 +113,7 @@ Each row gives the contents under `[Animal1]`, `[Animal2]` and `[Animal3]`, in t
 
 ## Scope and Evidence Status
 
-[Fox-Leopard-360-trial-results.csv](./Data/Fox-Leopard-360-trial-results.csv) records the assignment, exact prompt, recorded input, verbatim reply, hashes and scores for each of the 360 trials. Every recorded input matched its planned prompt, and the archive was applied after all 360 trial replies were verified. `GPT-6 Luna / Low` was requested; the effective model was not independently verified.
+[Fox-Leopard-360-trial-results.csv](./Data/Fox-Leopard-360-trial-results.csv) records the assignment, exact prompt, recorded input, verbatim reply, hashes and scores for each of the 360 trials. Every recorded input matched its planned prompt, and the archive was applied after all 360 trial replies were verified. All trials were configured for GPT-6 Luna with Low reasoning effort.
 
 The outcomes measure visible recognition and decisiveness within replies. The design varies length and content together, and slot changes also change the label and surrounding context.
 
