@@ -1,225 +1,236 @@
 <a id="paper-fox-leopard-answer-displacement"></a>
-# Fox–Leopard Displacement: A Semantic Weight Study of Implicit Pangram Inference
+# Fox–Leopard Displacement: Semantic Weight and Implicit Pangram Inference
 
-## A `GPT-6 Luna / Low` Study of the Context Triad -- 18 November 2026 (UTC)
+## A `GPT-6 Luna / Low` Study of the Context Triad -- 21 November 2026 (UTC)
 
 ## Abstract
 
-This study examines whether a competing animal description changes which animal the model selects when the prompt implicitly cues the familiar quick-brown-fox pangram. The Fox and Dog descriptions stay fixed while the Leopard block expands from three to fifty attributes, including explicit jumping cues.
-
-Six label assignments were crossed with six display orders, two prompt versions, and five repetitions per condition, forming **one series of 360 scored trials**. Each trial used a fresh Codex subagent conversation with `GPT-6 Luna / Low` requested. The question always referred to the Dog’s assigned label.
-
-Across 180 matched pairs, Leopard was selected in **77/180 Prompt 1 replies** and **135/180 Prompt 2 replies**. Leopard was selected more often under Prompt 2 in each position group: trials with the Leopard block displayed first, middle, or last. The largest difference was at first position.
-
-**The central observation is answer displacement: the distribution of animal selections differed across prompt conditions while the pangram cues remained available.** The comparison does not separate description length from task-relevant wording.
+This 360-trial study tested whether expanding a competing Leopard description changes how often replies show evidence of identifying the quick-brown-fox pangram. The headings stayed in numerical order while the three animal descriptions moved through all six assignments. The expanded prompt elicited more single-animal choices, while pangram identification was similar across the two prompts.
 
 ## Role Within the Context Triad
 
-This study documents answer displacement when a competing animal description expands while the implicit pangram cue remains present. The study varies animal labels and block order independently to test whether the displacement persists across layouts. The proposed [Semantic Weight](../Semantic_Weight.md) controls address competing context volume and task-specific cues separately.
+The study distinguishes an implicit cue available in the prompt from evidence that the model recognized it and from the animal it selected. The Leopard expansion adds competing information while leaving the cues to the intended inference intact within each matched pair. [Semantic Weight](../Semantic_Weight.md#paper-semantic-weight) frames the comparison, and [Semantic Locality](../Semantic_Locality.md#paper-semantic-locality) frames the placement of the cues and the competing block.
 
-## 1. The Intended Inferential Correlation
+## The Intended Inferential Correlation
 
-The famous English pangram, used in typing and font demonstrations because it contains every letter of the alphabet, is:
+> The quick brown fox jumps over the lazy dog.
 
-> **The quick brown fox jumps over the lazy dog.**
+| Part of the phrase | Cue in the prompt |
+| --- | --- |
+| Quick brown fox | Fox attributes: `Speed: Quick`, `Color: Brown`, `Type: Fox` |
+| Lazy dog | Dog attributes: `Demeanor: Lazy`, `Type: Dog` |
+| Jumps over | The question asks which animal jumps over the label containing the Dog description |
 
-The task **never says that this phrase is the reference**, never identifies a pangram, and never states the event “Animal1 jumps over Animal2.” Its design instead relies on the reader recognizing a relationship among *scattered descriptors and the verb in the question*.
+The prompt neither states the full sentence nor mentions pangrams. Fox is the intended answer by association. A bare Fox choice does not demonstrate recognition.
 
-| Element of the familiar phrase | Where the prompt provides it | Required inferential step |
+## Two Prompts; One Unchanged Implicit Cue
+
+| Feature | Prompt 1 (Short) | Prompt 2 (Expanded) |
 | --- | --- | --- |
-| **quick brown fox** | `[Animal1]`: Speed = Quick; Color = Brown; Type = Fox | Recognize the conventional phrase's subject |
-| **lazy dog** | `[Animal2]`: Demeanor = Lazy; Type = Dog | Recognize the conventional phrase's object |
-| **jumps over** | Final question: “Which animal jumps over [Animal2]” | Recover the relationship connecting subject and object |
+| Leopard description | 3 attributes; 3 words in the values | 50 attributes; 1,178 words in the values |
+| Fox and Dog descriptions | Fixed wording | Same wording |
+| Question | Refers to the Dog label for that assignment | Same question within the matched pair |
 
-All three pieces must be related, rather than considered as independent biological facts. This matters because the prompt places the subject and object in labeled data blocks, not in a sentence that explicitly states who jumped. It also introduces a competing Leopard block. In the example assignment shown above, that block is `[Animal3]`; its display position varies.
+Both Leopard blocks begin with `Speed: Fast`, `Color: Silver` and `Type: Leopard`. Prompt 2 adds 47 attributes, starting with `Species: Panthera uncia`. From attribute 4 through 50, each value adds one whitespace-delimited word to the preceding value's length. The expanded block includes movement descriptions but makes no explicit jumping or leaping claim. [Appendix A](#fox-leopard-verified-stimuli) reproduces one matched pair.
 
-**Fox is the target associative answer** (`[Animal1]` in this example): the dispersed clues can reconstruct the familiar pangram, but the prompt does not explicitly state a jumping event. The test measures whether that indirect association governs the selection.
+### 1. Trial methodology
 
-## 2. Two Prompts; One Unchanged Implicit Cue
+Every prompt displayed `[Animal1]`, `[Animal2]` and `[Animal3]` in that order. The complete Fox, Dog and Leopard descriptions moved among these headings, covering all six permutations for each prompt. For example, moving Dog from `[Animal1]` to `[Animal2]` changed the question’s target to `[Animal2]`. Each animal occupied each slot 60 times per prompt.
 
-The two versions differ in the Leopard block. The Fox and Dog descriptions are identical across versions, and the question always refers to the label assigned to the Dog. The planned stimuli for the first matched pair, in `3–1–2` display order, appear in [Appendix A](#appendix-a--planned-stimuli).
+Six assignments × 30 repeats × two prompts produced 360 trials, or 180 matched pairs. Each pair shared an assignment and repeat; only the Leopard description changed. For every assignment, Short ran first in 15 pairs and Expanded ran first in 15. Each trial used a fresh Codex conversation without inherited conversation history. Each input consisted of a single untagged triple-backtick fence containing the three blocks and the question.
 
-| Feature | Prompt 1 | Prompt 2 |
-| --- | --- | --- |
-| Leopard block | Three short Leopard attributes | Fifty Leopard/snow-leopard attributes, including jumping and leaping |
-| Pangram cue: **quick + brown + fox** | Present, unchanged | Present, unchanged |
-| Pangram cue: **lazy + dog** | Present, unchanged | Present, unchanged |
-| Relational cue: **jumps over** | Present in question, unchanged | Present in question, unchanged |
-| Intended associative answer | Fox | Fox |
+### 2. Scoring
 
-### Trial methodology
+**Primary outcome: evidence of pangram identification.** Full reconstruction linked the quick brown Fox to the lazy Dog through the jumping-over relation, including when the reply used clear references to connect those cues. Recognizable partial cues and explicit references to the pangram also counted as identification evidence.
 
-The study crossed **six label assignments × six label display orders × two prompts × five repetitions**. Each round shuffled all 36 layouts, with Prompt 1 scheduled immediately before Prompt 2 for each layout. Each trial used a fresh Codex subagent conversation without inherited history, configured for `GPT-6 Luna / Low`. The planned stimuli were enclosed in a single untagged fence. Within each prompt version, only label assignment, display order, and the Dog label in the question changed. All 360 trials returned final replies, five per condition. Animal choice was scored by referent, not label number. Spontaneous pangram reconstruction was scored separately from the verbatim final reply. A bare Fox answer did not count as reconstruction; partial cues were recorded separately.
+**Secondary outcome: animal selected.** Replies were scored by the animal named or unambiguously referenced, not by its label. One favored animal counted as a single selection. Multiple candidates without a clear preference and replies making no selection were coded separately.
 
-## 3. Central Observation: Answer Displacement under Increased Competing Context
+## Central Observation: Pangram Identification and Answer Displacement
 
-**Animal selected in the final reply:**
+### 1. Evidence of pangram identification
 
-| Selection outcome | Prompt 1 | Prompt 2 |
+| Evidence in the reply | Prompt 1 (Short) | Prompt 2 (Expanded) |
 | --- | ---: | ---: |
-| Fox | 88/180 | 43/180 |
-| Leopard | 77/180 | 135/180 |
-| Dog | 0/180 | 1/180 |
-| Ambiguous/multiple | 8/180 | 0/180 |
-| No selection | 7/180 | 1/180 |
+| Full reconstruction | 12/180 | 10/180 |
+| Partial cue or explicit reference | 22/180 | 21/180 |
+| **Any evidence of identification** | **34/180 (18.9%)** | **31/180 (17.2%)** |
+| No evidence observed | 146/180 | 149/180 |
 
-**Matched comparison.** Leopard selection was 32.2 percentage points higher under Prompt 2. Of 180 pairs matched by label assignment, display order, and scheduled repetition, 72 yielded a Leopard selection only under Prompt 2 and 14 only under Prompt 1.
+Among the 180 matched pairs, 6 showed evidence in both replies, 28 in Short only, 25 in Expanded only and 121 in neither. The overall difference was −1.7 percentage points (Expanded minus Short; two-sided exact McNemar `p = 0.784`).
 
-**Pangram reconstruction, scored separately.** Full reconstruction occurred in 11/180 Prompt 1 replies and 12/180 Prompt 2 replies. Partial cues occurred in 26/180 and 9/180 replies, respectively.
+### 2. Animal selected in the final reply
 
-### Leopard selection by displayed animal position
+| Selection outcome | Prompt 1 (Short) | Prompt 2 (Expanded) |
+| --- | ---: | ---: |
+| Fox | 70/180 | 94/180 |
+| Leopard | 58/180 | 80/180 |
+| Dog | 0/180 | 0/180 |
+| Ambiguous or multiple | 29/180 | 1/180 |
+| No selection | 23/180 | 5/180 |
+| **No single animal selected** | **52/180** | **6/180** |
 
-Animal position is where the block appears: first, middle, or last, independent of its label number. Each row pools the two display orders in which Leopard occupies that position.
+Both Fox and Leopard gained selections. The expanded prompt increased decisiveness within replies, rather than uniformly steering them toward Leopard.
 
-| Leopard block position | Leopard selections, Prompt 1 | Leopard selections, Prompt 2 | Difference (percentage points) |
+### 3. Leopard selection by displayed slot
+
+Each slot pools the two assignments in which Leopard occupies it. The heading number and display position coincide by design.
+
+| Leopard slot | Prompt 1 (Short) | Prompt 2 (Expanded) | Expanded minus Short (percentage points) |
 | --- | ---: | ---: | ---: |
-| First | 19/60 | 52/60 | +55.0 |
-| Middle | 31/60 | 40/60 | +15.0 |
-| Last | 27/60 | 43/60 | +26.7 |
+| `[Animal1]` (first) | 18/60 | 19/60 | +1.7 |
+| `[Animal2]` (middle) | 21/60 | 28/60 | +11.7 |
+| `[Animal3]` (last) | 19/60 | 33/60 | +23.3 |
 
-The prompt difference was largest with Leopard first. In both Leopard-first orders, the expanded block appeared before the Fox and Dog blocks, so the added text did not come between either block and the question. At the full-order level, Dog → Leopard → Fox was the only order in which Leopard was selected less often under Prompt 2 (see the matrix totals).
+Leopard selections were nearly flat across slots with the short block and rose at each later slot with the expanded block. The gap was smallest with Leopard first and largest with Leopard last. The two Leopard-last assignments moved in opposite directions.
 
-**Label versus position.** In a descriptive comparison of matched layouts, swapping the Fox and Leopard label numbers at fixed physical order while keeping the Dog label unchanged shifted the Leopard selection rate by an average absolute **25.6 points in Prompt 1** and **30.0 in Prompt 2**. Swapping their physical positions at fixed label assignment and Dog position shifted it by **38.9** and **27.8 points**, respectively. For each prompt version, these comparisons used 18 matched layouts of each type, with five replies per layout. The contrasts reuse the same data, and each cell has few trials. They are descriptive, not estimates of independent effects.
+### 4. Outcomes by animal assignment
 
-### Leopard selection matrix: label assignment × animal display order
+Each row gives the contents under `[Animal1]`, `[Animal2]` and `[Animal3]`, in that order. Rows sharing a Dog label hold the question fixed and swap Fox with Leopard.
 
-**F** = Fox, **D** = Dog, **L** = Leopard. Read a row code in label-number order (Animal1, Animal2, Animal3) and a column code in display order (first, middle, last). For example, row **FDL** assigns Animal1 to Fox, Animal2 to Dog, and Animal3 to Leopard; column **LFD** displays Leopard first, Fox second, and Dog last.
+| Animal1 → Animal2 → Animal3 | Dog label | Pangram evidence, Short | Pangram evidence, Expanded | Leopard selected, Short | Leopard selected, Expanded |
+| --- | --- | ---: | ---: | ---: | ---: |
+| Dog → Fox → Leopard | `[Animal1]` | 12/30 | 2/30 | 1/30 | 23/30 |
+| Dog → Leopard → Fox | `[Animal1]` | 1/30 | 2/30 | 19/30 | 12/30 |
+| Fox → Dog → Leopard | `[Animal2]` | 3/30 | 15/30 | 18/30 | 10/30 |
+| Leopard → Dog → Fox | `[Animal2]` | 9/30 | 7/30 | 11/30 | 6/30 |
+| Fox → Leopard → Dog | `[Animal3]` | 7/30 | 2/30 | 2/30 | 16/30 |
+| Leopard → Fox → Dog | `[Animal3]` | 2/30 | 3/30 | 7/30 | 13/30 |
 
-Cells show Leopard selections as **Prompt 1 · Prompt 2**. Each assignment-by-order cell is out of five replies per prompt. The bottom row pools all six assignments within each display order (30 replies per prompt).
+## Relation to the Context Triad
 
-| Assignment / Display order | FDL | FLD | DFL | DLF | LFD | LDF |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **FDL** | 4/5 · 4/5 | 0/5 · 2/5 | 0/5 · 2/5 | 1/5 · 0/5 | 1/5 · 4/5 | 1/5 · 0/5 |
-| **FLD** | 3/5 · 4/5 | 4/5 · 4/5 | 0/5 · 2/5 | 4/5 · 4/5 | 2/5 · 5/5 | 2/5 · 4/5 |
-| **DFL** | 4/5 · 5/5 | 0/5 · 4/5 | 1/5 · 3/5 | 3/5 · 3/5 | 1/5 · 5/5 | 1/5 · 4/5 |
-| **DLF** | 3/5 · 4/5 | 1/5 · 1/5 | 1/5 · 2/5 | 5/5 · 5/5 | 1/5 · 5/5 | 1/5 · 5/5 |
-| **LFD** | 5/5 · 5/5 | 1/5 · 5/5 | 2/5 · 4/5 | 4/5 · 4/5 | 1/5 · 5/5 | 4/5 · 5/5 |
-| **LDF** | 4/5 · 4/5 | 3/5 · 3/5 | 0/5 · 4/5 | 5/5 · 5/5 | 3/5 · 5/5 | 1/5 · 5/5 |
-| **All label assignments** | **23/30 · 26/30** | **9/30 · 19/30** | **4/30 · 17/30** | **22/30 · 21/30** | **9/30 · 29/30** | **10/30 · 23/30** |
+- [**Semantic Weight:**](../Semantic_Weight.md#paper-semantic-weight) The short Fox and Leopard blocks each had three one-word values, and replies more often left the choice open. With the expanded Leopard block, replies more often named one animal, with both Fox and Leopard gaining selections. This suggests that giving one alternative more descriptive support can reduce indecision.
+- [**Semantic Shadow:**](../Semantic_Shadow.md#paper-semantic-shadow) With the short Leopard block, selection stayed nearly flat across slots. With the expanded block, Leopard selection rose at each later slot. The expansion’s advantage was smallest when both Fox and Dog followed Leopard and largest when neither did. This pattern is consistent with subsequent context dampening the influence of the added detail.
 
-## 4. Relation to the Context Triad
+## Proposed Tests of Semantic Weight and Shadow
 
-This case belongs in the Triad because **semantic information can remain present and inferentially relevant without continuing to govern behavior**.
+| Test | Status | Controlled variation | Research question |
+| --- | --- | --- | --- |
+| Balance of descriptive detail | **Partly tested.** Both short vs. Leopard alone expanded | Add Fox alone expanded and both expanded. Run all four conditions at matched total prompt length in the same layout. Match additions in length and specificity and preserve pangram cues | Does unequal detail reduce indecision regardless of which animal gets the expansion? |
+| Subsequent context | **Proposed.** The slot pattern motivates the test | For each Leopard block length, hold its label, slot, wording and distance to the question fixed. Vary whether equal-length text following Leopard is relevant to the choice or neutral, leaving the Fox and Dog cues unchanged | Does relevant subsequent context reduce the effect of expanding Leopard? |
+| Competing jump cue | Proposed | At similar lengths, substitute a jumping claim for a neutral attribute | Does a competing cue that directly answers the question alter either outcome? |
+| Pangram cue | Proposed | Change one of `Quick`, `Brown`, `Lazy` or the relation in the question | Which cues support observable identification? |
+| Separate recognition probe | Proposed | Ask in fresh conversations whether the animal descriptions and question evoke a familiar sentence | Is the association recoverable when recognition is elicited directly? |
 
-- [**Semantic Weight:**](../Semantic_Weight.md#paper-semantic-weight) The Leopard block expands from three fields to fifty. The expanded representation also supplies jumping and leaping details that directly match the question. The selection shift motivates the matched controls below.
-- [**Answer displacement:**](../README.md#common-behavioral-outcomes-and-dynamics) The competing Leopard interpretation was selected more often while the intended **implicit inferential correlation** remained available in the prompt.
+## Scope and Evidence Status
 
-## 5. Proposed Tests of the Semantic Weight Hypothesis
+[Fox-Leopard-360-trial-results.csv](./Data/Fox-Leopard-360-trial-results.csv) records the assignment, exact prompt, recorded input, verbatim reply, hashes and scores for each of the 360 trials. Every recorded input matched its planned prompt, and the archive was applied after all 360 trial replies were verified. `GPT-6 Luna / Low` was requested; the effective model was not independently verified.
 
-The following conditions separate contextual volume from task-specific jumping cues. This study compares P0 and P3 across all six physical orders. It does not separate description length from the added jumping cues or the rewritten Speed and Color fields.
+The outcomes measure visible recognition and decisiveness within replies. The design varies length and content together, and slot changes also change the label and surrounding context.
 
-| Condition | Controlled variation | Research question |
-| --- | --- | --- |
-| **P0 — Short baseline** | Prompt 1 | How reliably do the indirect cues elicit the pangram-based Fox answer? |
-| **P1 — Size-only expansion** | Expand the Leopard block with length-matched, non-jumping background details while retaining the pangram cues | Can a large competing description displace the association without task-specific jumping claims? |
-| **P2 — Jumping-cue addition** | Add only a small matched block describing Leopard jumping | How much displacement is attributable to task-specific semantic cues rather than bulk? |
-| **P3 — Full expanded context** | Prompt 2 | How strong is the displacement relative to the matched controls? |
-| **P4 — Jumping-cue ablation** | Preserve the expanded layout and approximate length but replace jumping-specific assertions with neutral details | Does the intended pangram inference recover without those explicit competing cues? |
-| **P5 — Pangram-cue ablation** | Change one or more of Quick, Brown, Lazy, or the exact “jumps over” wording while preserving other conditions | Does Fox selection depend on the recognizable phrase-level correlation? |
-| **P6 — Independent recognition probe** | In separate fresh-context runs, ask whether the described animal attributes and question evoke a familiar sentence | Is the pangram association recoverable even when it does not govern the original selection task? |
+## Conclusion
 
-For the next comparison, replace the explicit jumping assertions with neutral details while preserving the expanded layout and approximate length. This tests those assertions, not all movement- or agility-related language. For a size-only contrast, keep the shared fields unchanged and use neutral expansion details. Keep the Fox and Dog descriptors and question wording unchanged, counterbalance which version runs first, and run the recognition probe separately so it cannot cue answers in the selection task.
+### 1. Semantic Weight: More decisive replies
 
-## 6. Scope and Evidence Status
+When Fox and Leopard were equally brief, replies more often left the choice open. Expanding Leopard led to more single-animal choices, while the overall Fox–Leopard split among those choices and the rate of pangram identification changed little. The added detail appears to have helped the model commit to an answer without consistently favoring Leopard.
 
-**Observation record:** 360 completed and scored trials. The accompanying [Fox-Leopard-360-trial-results.csv](./Data/Fox-Leopard-360-trial-results.csv) records layout, execution notes, planned prompts and hashes, verbatim final replies, and both outcome scores. The planned hashes identify the intended text; most delivered prompts were not independently verified byte for byte. The main sequence scheduled Prompt 1 before Prompt 2 within each pair, so prompt version and within-pair run order were not independently varied.
+### 2. Semantic Shadow: A larger advantage in later slots
 
-## 7. Conclusion
+With the short block, Leopard selection was nearly flat across slots. With the expanded block, Leopard was selected more often at each later slot. The gap between prompts was smallest when both Fox and Dog followed Leopard and largest when neither did, consistent with later descriptions dampening the influence of the extra detail.
 
-Leopard was selected more often under Prompt 2 than under Prompt 1 at each of the three displayed animal positions when results were grouped by the Leopard block’s position. At the more detailed level of full animal order, this pattern held in five of six orders. The pangram cues were present in both prompt versions. Full pangram reconstruction was uncommon and was scored separately from animal selection. These results describe the answers the model gave; they do not establish whether it recognized the pangram without saying so. Matched controls are needed to separate description length from task-relevant wording.
+### 3. Slightly less evidence of pangram identification
+
+The expanded prompt elicited slightly less evidence of pangram identification overall, a decrease of 1.7 percentage points.
 
 ## Related Papers
 
-- [Context Triad](../README.md#paper-context-triad) — semantic presence versus behavioral influence and outcome classifications.
-- [Semantic Weight](../Semantic_Weight.md#paper-semantic-weight) — coherent support, competing representation volume, and support–response experiments.
+- [Context Triad](../README.md#paper-context-triad) — semantic presence and behavioral influence
+- [Semantic Weight](../Semantic_Weight.md#paper-semantic-weight) — competing descriptions and support–response measurements
+- [Semantic Locality](../Semantic_Locality.md#paper-semantic-locality) — placement of cues and competing descriptions
+- [Semantic Shadow](../Semantic_Shadow.md#paper-semantic-shadow) — how subsequent context changes the influence of earlier material
 
-## Appendix A — Planned Stimuli
+<a id="fox-leopard-verified-stimuli"></a>
 
-**Layout:** The two planned prompts for the first matched pair. Display order: `3–1–2`. Label assignment: `[Animal1]` Fox, `[Animal2]` Dog, `[Animal3]` Leopard.
+## Appendix A — Verified Stimuli
+
+**Record:** The first matched pair assigned Leopard to `[Animal1]`, Fox to `[Animal2]` and Dog to `[Animal3]`. The two recorded prompts are shown in prompt-number order. The triple-backtick fences are part of the recorded inputs.
 
 ### A.1 Prompt 1 — Short Leopard Description
 
-```text
-[Animal3]:
+~~~text
+```
+[Animal1]:
 1. Speed: Fast
 2. Color: Silver
 3. Type: Leopard
 
-[Animal1]:
+[Animal2]:
 1. Speed: Quick
 2. Color: Brown
 3. Type: Fox
 
-[Animal2]:
+[Animal3]:
 1. Demeanor: Lazy
 2. Type: Dog
 
-Question: Which animal jumps over [Animal2]
+Question: Which animal jumps over [Animal3]
 ```
+~~~
 
 ### A.2 Prompt 2 — Expanded Leopard Description
 
-```text
-[Animal3]:
-1. Speed: Fast and agile, capable of swift, precise movements
-2. Color: Silver-gray with white fur and dark black markings
+~~~text
+```
+[Animal1]:
+1. Speed: Fast
+2. Color: Silver
 3. Type: Leopard
 4. Species: Panthera uncia
-5. Animal Class: Mammal
-6. Family: Felidae
-7. Size: Medium to large wild cat
-8. Weight: 22–55 kilograms
-9. Length: 90–130 centimeters, excluding the tail
-10. Tail: Long, thick, and bushy, used for balance and warmth
-11. Eyes: Pale green or gray, with exceptional low-light vision
-12. Fur: Extremely dense, soft, and insulating
-13. Pattern: Dark rosettes and spots for natural camouflage
-14. Habitat: High-altitude mountains and rocky alpine regions
-15. Geographic Range: Central and South Asia
-16. Climate Preference: Cold, snowy, and mountainous environments
-17. Diet: Carnivorous
-18. Favorite Prey: Wild sheep, ibex, marmots, and smaller mammals
-19. Hunting Style: Stealthy ambush predator
-20. Demeanor: Solitary, cautious, intelligent, and observant
-21. Temperament: Generally elusive and avoids human interaction
-22. Strength: Powerful hind legs and exceptional jumping ability
-23. Jumping Ability: Capable of leaping approximately 15 meters horizontally
-24. Climbing Ability: Expert climber on steep and rocky terrain
-25. Swimming Ability: Can swim, although rarely observed doing so
-26. Activity Pattern: Most active at dawn and dusk
-27. Communication: Growls, hisses, chuffs, and scent markings
-28. Roaring Ability: Cannot produce the full roar typical of lions or tigers
-29. Intelligence: Highly adaptable, with strong spatial awareness
-30. Social Behavior: Primarily solitary except during mating and cub rearing
-31. Territorial Behavior: Marks territory using scent and scratching
-32. Camouflage: Excellent concealment against snow-covered rocky landscapes
-33. Special Adaptation: Wide, fur-covered paws distribute weight across snow
-34. Cold Resistance: Thick undercoat and long fur provide thermal insulation
-35. Tail Function: Provides stability and can wrap around the face for warmth
-36. Typical Lifespan: Approximately 10–12 years in the wild
-37. Reproduction: Usually gives birth to 1–3 cubs per litter
-38. Parental Behavior: Mothers raise and protect cubs without assistance from males
-39. Natural Predators: Few natural predators as an adult
-40. Conservation Status: Vulnerable
-41. Primary Threats: Poaching, habitat fragmentation, and declining prey populations
-42. Distinctive Feature: Exceptionally long tail relative to body size
-43. Personality Description: Quiet, independent, patient, and highly alert
-44. Defensive Behavior: Prefers escaping danger rather than confronting threats
-45. Environmental Awareness: Sensitive hearing and keen visual perception
-46. Movement Style: Graceful, deliberate, and nearly silent
-47. Endurance: Adapted to navigating vast mountainous territories
-48. Preferred Resting Place: Sheltered rocky ledges and secluded mountain caves
-49. Unique Trait: Often called the "Ghost of the Mountains" because of its elusive nature
-50. Overall Description: A powerful, mysterious, and exceptionally agile mountain predator, perfectly adapted to surviving in some of Earth's harshest environments
+5. Animal Class: Classification is Mammalia
+6. Family: Taxonomic placement is Felidae
+7. Size: Body size is moderately large
+8. Weight: Adult individuals usually weigh 22–55 kilograms
+9. Length: Head and trunk measure 90–130 centimeters combined
+10. Tail: The long, bushy tail aids balance and warmth
+11. Eyes: Pale green or gray eyes see in dim light
+12. Fur: Dense, soft fur traps air to insulate against the cold
+13. Pattern: Dark rosettes and spots break up the outline, making detection harder
+14. Habitat: High elevations offer rocky alpine landscapes with exposed stone above the treeline
+15. Geographic Range: The species ranges through parts of Central and South Asia, spanning several countries
+16. Climate Preference: Preferred climates combine low temperatures and persistent snow, unlike milder conditions at lower elevations
+17. Diet: A carnivorous diet centers on other animals rather than on vegetation as a food source
+18. Favorite Prey: Wild sheep, ibex, marmots, and smaller mammals are usual targets, from hoofed animals to small rodents
+19. Hunting Style: Stealthy hunters approach without attracting notice, then attack by surprise instead of relying on a prolonged pursuit
+20. Demeanor: Solitary habits and caution go together with close attention to changes in surroundings, especially unfamiliar sounds or movements
+21. Temperament: An elusive temperament makes encounters with people uncommon, even on slopes occasionally traversed by herders, trekkers, or field researchers
+22. Whiskers: Long whiskers emerge on both sides of the muzzle, where individual strands stand out clearly against the shorter fur beneath
+23. Ear Shape: Small rounded ears frame the upper head, their curved edges forming a distinct contour from the straighter profile of the muzzle
+24. Climbing Ability: Climbing skill allows secure footing on uneven stone surfaces, including steep slopes where rock is irregular and available footholds may be narrow
+25. Swimming Ability: Swimming is possible, but infrequent sightings leave too little evidence to say how often adults enter open water or under what environmental conditions
+26. Activity Pattern: Peak activity occurs around dawn and dusk, so midday observations give only a partial picture of how frequently the animal moves over a day
+27. Communication: Growls, hisses, and chuffs carry audible signals, while lingering scent marks convey information about the sender after the animal has moved away from the site
+28. Roaring Ability: The voice lacks the full roar associated with lions and tigers, so a listener should not necessarily expect the same resonant sound from all large cats
+29. Intelligence: Flexible route selection and keen spatial awareness are useful even where a pass visible from one vantage point disappears from view as the angle of approach changes
+30. Social Behavior: Adults generally keep apart outside the breeding season, with a notable exception in temporary family groups that form when a female rears her young before they become independent
+31. Territorial Behavior: Scratches and scent deposits announce occupancy along travel routes, allowing a visitor to register an earlier passage at particular points without having to meet or follow the animal responsible
+32. Camouflage: Pale patches fade into remaining drifts while darker markings resemble shadows between stones, making the transition from flank to background harder to distinguish when the observer views it from afar
+33. Special Adaptation: Wide, furred paws spread the load over enough space to reduce sinking into loose powder, where a narrower point of contact would concentrate pressure on a smaller patch with each step
+34. Cold Resistance: Fine fibers of the undercoat capture still air beneath the outer layer, forming a barrier that slows heat loss from the skin as temperatures fall across the most exposed slopes in winter
+35. Tail Function: Movement of the extended tail helps steady the animal on uneven footing, whereas at rest the same appendage can be curled around the torso to shield the nose and cheeks from frigid air
+36. Typical Lifespan: Roughly ten to twelve years is the customary estimate for survival in the wild, a figure best read as a broad expectation rather than as an upper limit on age or any firm guarantee
+37. Reproduction: Litters usually consist of one to three cubs, so a single birth event can produce an only offspring or siblings that begin life together, with the number referring specifically to youngsters delivered in that pregnancy
+38. Parental Behavior: A mother provides protection and care without a male partner, remaining the sole parent responsible for her dependents while they are too immature to handle all the demands of feeding and finding safety on their own
+39. Natural Predators: Full grown animals are seldom primary targets of other large hunters, a description of how seldom they are taken as quarry rather than an assertion that an encounter with another carnivore cannot end in injury or death
+40. Conservation Status: Vulnerable is the assigned conservation category, a formal indication of extinction risk that applies across the global population and does not by itself describe which local groups are the smallest, most isolated, or most likely to disappear first
+41. Primary Threats: Illegal killing removes animals, the division of suitable country into disconnected parcels restricts access between areas, and declining numbers of prey reduce food supplies, so pressures on this predator can originate well beyond the sites where it is seen
+42. Distinctive Feature: The tail is unusually long and thick relative to a compact trunk, and the contrast is most evident in profile, where the fully extended shape remains distinct from the legs and torso instead of overlapping the rest of the body
+43. Personality Description: A quiet, self reliant disposition combines with patience and observation, traits better conveyed by the sustained attention paid to an unfamiliar stimulus than by dramatic displays, and none of these tendencies requires the animal to stay passive when action is necessary
+44. Defensive Behavior: Withdrawal is generally favored over confrontation when a threat appears, with the distinction that leaving can end the contact without settling which party would prevail, whereas remaining in place keeps the possibility of direct conflict open for as long as both stay
+45. Environmental Awareness: Sensitive hearing can reveal activity beyond a visual barrier, while sharp eyesight makes exposed movement easier to follow, giving the animal two ways to account for an event when a ridge, cover, or a bend in the landscape interrupts the line of sight
+46. Movement Style: Deliberate placement of the feet gives the gait a smooth, almost noiseless quality, especially noticeable when the observer can see the body moving but hears little indication of contact with the ground, a contrast that defines this style rather than any particular traveling speed
+47. Endurance: Sustained travel over demanding country requires the capacity to keep going after the first incline or exposed stretch has been crossed, and the species is suited to journeys in which many such obstacles occur in succession rather than being confined to a single short passage
+48. Preferred Resting Place: Deep recesses and rocky ledges provide secluded resting sites, so a place to settle may be tucked behind a face of stone or set back from an open slope, offering a quieter and less exposed alternative to the visible paths that cut through the surrounding terrain
+49. Unique Trait: The nickname Ghost of the Mountains reflects an animal easier to trace than to watch, since tracks or other signs can remain after a brief passage through terrain where ridges interrupt sightlines and a watcher might catch only a fleeting glimpse before the slope hides the silhouette
+50. Overall Description: A powerful predator adapted to cold, remote uplands combines a coat that buffers exposure with habits that limit detection, a profile in which physical structure and behavior both matter because success depends not just on reaching suitable places but on living there through changing conditions across successive seasons
 
-[Animal1]:
+[Animal2]:
 1. Speed: Quick
 2. Color: Brown
 3. Type: Fox
 
-[Animal2]:
+[Animal3]:
 1. Demeanor: Lazy
 2. Type: Dog
 
-Question: Which animal jumps over [Animal2]
+Question: Which animal jumps over [Animal3]
 ```
+~~~
