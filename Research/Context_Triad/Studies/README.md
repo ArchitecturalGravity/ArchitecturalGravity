@@ -7,7 +7,7 @@ This folder catalogs **individual investigations of the Context Triad**, includi
 
 | Study | Focus | Evidence status |
 | --- | --- | --- |
-| [Fox–Leopard Displacement: A Semantic Weight Pilot of Implicit Pangram Inference](./Fox_Leopard_Displacement.md) | Context competition to displace inference relationship despite intact descriptive and relational cues | Two-condition GPT-6 Instant pilot observation, one reported response per condition; controls and replications proposed |
+| [Fox–Leopard Displacement: Semantic Weight and Implicit Pangram Inference](./Fox_Leopard_Displacement.md) | Effect of expanding the Leopard description on pangram identification and animal choice across fixed-slot layouts | 360 scored trials with GPT-6 Luna / Low requested; two prompt versions across six assignments, with 30 repeats per version and assignment; exact prompts, replies, and scores supplied |
 | [Planetary Chain Activation: A Semantic Locality Pilot of Order-Dependent Associative Recognition](./Planetary_Chain_Activation.md) | Canonical versus reversed and scattered ordering of cued elements and its inference effects thereof | Three-condition reported GPT-6 Instant pilot observation; categorical outcomes only; replications and controlled contrasts proposed |
 | [Glip Preference Anchoring: A Context Triad Study of Label, Description, and Position in Criterion-Free Selection](./Glip_Preference_Anchoring.md) | Crossed heading and description assignments testing label, content, position, and rival-order dependence with character-matched attribute values | One continuous series of 360 fresh subthread trials with requested GPT-6 Luna / Low; 36 layouts × 10 repeats; exact prompts, replies, and complete layout counts supplied |
 
