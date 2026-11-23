@@ -74,7 +74,10 @@ sections:
       [State]:
       - `phase`: "discover"
       - `completed`: []
-      - `pending`: ["derive", "render", "publish"]
+      - `pending`:
+        - "derive"
+        - "render"
+        - "publish"
       - `blockers`: []
 
       Task:

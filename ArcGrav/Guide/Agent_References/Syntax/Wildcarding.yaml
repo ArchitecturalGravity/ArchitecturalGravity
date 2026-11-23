@@ -25,6 +25,7 @@ sections:
 
     Directory:
     - src/services
+
     Files:
     - Recursively select *.component.json
   ag-wildcard-with-exclusions: |-
@@ -32,5 +33,6 @@ sections:
 
     Files:
     - Recursively select *.json
+
     Exclude:
     - generated/

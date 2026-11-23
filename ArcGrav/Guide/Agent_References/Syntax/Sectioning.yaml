@@ -30,13 +30,17 @@ sections:
     Use a descriptive header such as `Constraint:` for one bounded concern.
 
     [Source]: docs/README.md
+
     Scope:
     - Docs:
       - [Source]
+
     Context:
     - The guide explains local setup
+
     Constraint:
     - Do not edit files
+
     Task:
     1. Read [Source]
     2. List the setup prerequisites
@@ -58,5 +62,6 @@ sections:
 
     ModifyComponentContext:
     - Update the component
+
     VerifyComponentContext:
     - Confirm output shape

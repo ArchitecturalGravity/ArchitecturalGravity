@@ -113,7 +113,7 @@ sections:
 
     Example:
       [ResolvedResources]:
-      => For each [Resource]:
+      => For each [Resource] ↳
         1. Identify its contribution
         2. Compare its contribution with existing context
         3. Confirm a downstream operation uses it

@@ -87,6 +87,7 @@ sections:
     - `resources_requested`: 0
     - `resources_resolved`: 0
     - `postconditions_passed`: false
+
     [Assessment]:
     => Populate [ExecutionMetrics] from observed events
     => Include [ExecutionMetrics] with [Result]
@@ -130,9 +131,9 @@ sections:
 
     Example:
     [Assessment]:
-    - `quality`: "acceptable"
+    - `quality`: acceptable
     - `confidence`: 0.86
-    - `uncertainty`: "source directory inventory was partially constrained"
+    - `uncertainty`: source directory inventory was partially constrained
   ag-acceptance-testing-consumer-level-test: |-
     [Acceptance]: Test as consumer: locate each category via index, copy patterns without missing context, check example ArcGrav syntax.
 

@@ -17,6 +17,7 @@ sections:
 
     [Record]:
     - `id`: "R-01"
+
     Task:
     => Return [Record].id
   ag-explicit: |-
@@ -31,6 +32,7 @@ sections:
     Use `[Constraint]:` for later explicit reuse, `Constraint:` for procedural context.
 
     [Constraint]: Preserve API behavior
+
     Task:
     - Refactor under [Constraint]
   ag-symbolic-anchor: |-
@@ -38,6 +40,7 @@ sections:
 
     [Files]:
     - All user.json files
+
     Task:
     - Review [Files]
   ag-symbol-composition: |-
@@ -70,8 +73,11 @@ sections:
     Initialize mutable or unresolved state explicitly: `[]`, `{}`, `0`, or `unset`.
 
     [Findings]: []
+
     [Lookup]: {}
+
     [Processed]: 0
+
     [Selected]: unset
   ag-whole-record-selection: |-
     Select the complete record rather than reconstructing its value.
@@ -83,12 +89,14 @@ sections:
 
     [Records]:
     - Canonical records
+
     [Summary]:
     - Derived from [Records]
   ag-adjunct-reference: |-
     Reference the authoritative definition; keep local additions separate.
 
     [SecurityStandard]: policies/security.md
+
     [FeatureContext]:
     - Apply [SecurityStandard]
     - Add feature constraints

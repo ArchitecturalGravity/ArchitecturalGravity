@@ -64,12 +64,16 @@ sections:
     Example:
     [Target]:
     - Package manifests and lockfiles
+
     [Objectives]:
     - Migrate without changing runtime behavior
+
     [Assumptions]:
     - The target version is approved
+
     [Success]:
     - Dependency resolves, tests pass, no unrelated edits
+
     [Authority]:
     P0. Repository instructions
     P1. [Target] and [Success]

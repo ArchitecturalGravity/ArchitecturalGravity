@@ -111,6 +111,7 @@ sections:
     => Validate [Postconditions]
     => Validate [FormatGate]
     => Apply [Failure] on any failed assertion in [ExitGate]
+
     Task:
     1. Execute only when [Gate] passes
     2. Run [ExitGate]

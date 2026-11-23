@@ -11,7 +11,10 @@ sections:
   ag-purpose: |-
     Bind the whole expression without attaching children to its final reference.
   ag-edge-case: |-
-    `=> Plan under [Constraint] ↳` scopes children to planning, not `[Constraint]`.
+    Scope the child to planning, not to the trailing reference.
+
+    => Plan under [Constraint] ↳
+      - List only the necessary changes
   ag-rules: |-
     End the complete parent expression with ` ↳`. Indent children two spaces and apply ordinary nearest-parent binding within the block. A trailing reference remains an invocation, not a declaration or extension.
   ag-constraints: |-
