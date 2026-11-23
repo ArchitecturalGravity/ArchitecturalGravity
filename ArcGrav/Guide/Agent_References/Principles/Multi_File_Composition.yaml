@@ -11,9 +11,14 @@ sections:
   ag-declare-and-bind: |-
     Declare the child symbol with a relative or absolute file path under Resolves:. Import only needed, already-defined bindings. Mirror the identical Import: list at the top of the child. Run the child symbol to follow its Task:. If the child supplies rules or operations without a Task:, apply them at use. Give writer and reader an existing path binding; run the writer first.
 
+    The child imports [Item] from SKILL.txt. AgStudio cannot resolve it by analyzing the child alone.
+
     SKILL.txt:
 
-    [Item]: "mint tea"
+    Scope:
+    - Report an item
+
+    [Item]: Mint tea
 
     [Report]:
     1. Resolves: references/report.txt

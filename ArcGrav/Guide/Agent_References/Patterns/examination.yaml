@@ -9,73 +9,73 @@ sections:
   ag-examination: |-
     Inspect evidence, intermediates, structures or candidates against explicit criteria. Flag defects, omissions, contradictions, unsupported claims, counterexamples and failed checks; leave unresolved conflicts to resolution.
   ag-observation-fact-only-observation: |-
-    [Observations]: Record visible headings, references, operations and constraints in [Source]; defer intent inference.
+    Record visible headings, references, operations and constraints in [Source]; defer intent inference.
 
     Example:
-    [Observations]:
-    => List in [Source] ↳
+    Observations:
+    => List in the source ↳
       - Visible headings
       - References
     => Do not infer intent yet
   ag-inspection-targeted-inspection: |-
-    [Inspection]: Inspect bounded [Files] for declared defects.
+    Inspect bounded [Files] for declared defects.
 
     Example:
-    [Inspection]:
-    => Inspect [Files] for:
+    Inspection:
+    => Inspect the target files for:
       - Broken links
       - Duplicate headings
       - Empty sections
   ag-structural-validation-structure-contract-check: |-
-    [StructureCheck]: Check required sections, order and nesting.
+    Check required sections, order and nesting.
 
     Example:
-    [StructureCheck]:
+    StructureCheck:
     - Exactly one H1
     - Pattern entries use H2
     - Examples use fenced blocks
   ag-schema-validation-field-level-validation: |-
-    [SchemaCheck]: Validate every [Pattern] against [PatternSchema].
+    Validate every [Pattern] against [PatternSchema].
 
     Example:
-    [SchemaCheck]:
-    => Validate every [Pattern] against [PatternSchema]
+    SchemaCheck:
+    => Validate every pattern record against the declared schema
   ag-semantic-validation-meaning-check: |-
-    [SemanticCheck]: Compare pattern intent, procedure and example; flag meaning mismatches.
+    Compare pattern intent, procedure and example; flag meaning mismatches.
 
     Example:
-    [SemanticCheck]:
+    SemanticCheck:
     => Compare each:
       - Pattern intent
       - Procedure
       - Example
     => Flag mismatched semantics
   ag-referential-validation-reference-integrity-check: |-
-    [ReferenceCheck]: Resolve every bracketed symbol and repo-relative link uniquely; reject missing or multiply defined targets.
+    Resolve every bracketed symbol and repo-relative link uniquely; reject missing or multiply defined targets.
 
     Example:
-    [ReferenceCheck]:
+    ReferenceCheck:
     => Resolve every bracketed symbol and repository-relative link
     => Reject undefined or multiply defined references
   ag-consistency-and-completeness-cross-artifact-check: |-
-    [Coverage]: Check terminology and coverage across outputs: one file per [Category], every requested subcategory present.
+    Check terminology and coverage across outputs: one file per [Category], every requested subcategory present.
 
     Example:
-    [Coverage]:
-    => Confirm every [Category] has one file
+    Coverage:
+    => Confirm every category has one file
     => Confirm every requested subcategory appears
   ag-evidence-verification-claim-to-evidence-check: |-
-    [EvidenceCheck]: Map each derived pattern to at least one source mechanism; keep source locations when available.
+    Map each derived pattern to at least one source mechanism; keep source locations when available.
 
     Example:
-    [EvidenceCheck]:
+    EvidenceCheck:
     => Map each derived pattern to one or more source mechanisms
     => Preserve source locations where available
   ag-assertion-checking-explicit-assertion-set: |-
-    [Assertions]: Use pass/fail requirements.
+    Use pass/fail requirements.
 
     Example:
-    [Assertions]:
+    Assertions:
     - count(category files) = 10
     - empty(category files) = 0
     - missing(index links) = 0
@@ -83,69 +83,72 @@ sections:
     Publish stable workflow metrics with [Result] from observable events: resources_requested, resources_resolved, records_processed, records_accepted, records_rejected, unresolved_items, validation_failures, postconditions_passed. Expose skipped or unresolved work; claim completeness only with coverage evidence.
 
     Example:
-    [ExecutionMetrics]:
-    - `resources_requested`: 0
-    - `resources_resolved`: 0
-    - `postconditions_passed`: false
+    Scope:
+    - Report coverage for pattern extraction
 
-    [Assessment]:
-    => Populate [ExecutionMetrics] from observed events
-    => Include [ExecutionMetrics] with [Result]
+    [ExecutionMetrics]:
+    - resources_requested: 0
+    - resources_resolved: 0
+    - postconditions_passed: false
+
+    Task:
+    1. Populate [ExecutionMetrics] from observed events
+    2. Include [ExecutionMetrics] in the result
   ag-instrumentation-validation-independent-metrics-check: |-
-    [MetricsCheck]: Check processed counts against [SourceInventory] and workflow state; reconcile accepted/rejected/unresolved totals, match unresolved records to [Result], and reject unsupported completeness.
+    Check processed counts against [SourceInventory] and workflow state; reconcile accepted/rejected/unresolved totals, match unresolved records to [Result], and reject unsupported completeness.
 
     Example:
-    [MetricsCheck]:
-    => Compare processed counts with [SourceInventory]
+    MetricsCheck:
+    => Compare processed counts with the source inventory
     => Confirm accepted, rejected, and unresolved totals reconcile
-    => Confirm unresolved records appear in [Result]
+    => Confirm unresolved records appear in the result
     => Reject unsupported completeness claims
   ag-cross-validation-independent-check-path: |-
-    [CrossCheck]: Use a second method: compare rendered inventory with [Categories]; independently match index links to actual paths.
+    Use a second method: compare rendered inventory with [Categories]; independently match index links to actual paths.
 
     Example:
-    [CrossCheck]:
-    => Compare rendered file inventory with [Categories]
+    CrossCheck:
+    => Compare rendered file inventory with the category list
     => Independently compare index links with actual paths
   ag-evaluation-criteria-based-evaluation: |-
-    [Evaluation]: Judge [Candidate] by named criteria.
+    Judge [Candidate] by named criteria.
 
     Example:
-    [Evaluation]:
-    => Evaluate [Candidate] against:
+    Evaluation:
+    => Evaluate the candidate against:
       - Precision
       - Completeness
       - Reuse
       - Token cost
   ag-candidate-ranking-dimensioned-ranking: |-
-    [Ranking]: Weight or order criteria; retain tradeoffs.
+    Weight or order criteria; retain tradeoffs.
 
     Example:
-    [Ranking]:
+    Ranking:
     P0. Satisfies constraints
     P1. Preserves source semantics
     P2. Improves clarity
     P3. Minimizes complexity
   ag-quality-assessment-and-confidence-calibrated-assessment: |-
-    [Assessment]: Report quality, confidence and uncertainty separately.
+    Report quality, confidence and uncertainty separately.
 
     Example:
-    [Assessment]:
-    - `quality`: acceptable
-    - `confidence`: 0.86
-    - `uncertainty`: source directory inventory was partially constrained
+    Assessment:
+    - quality: acceptable
+    - confidence: 0.86
+    - uncertainty: source directory inventory was partially constrained
   ag-acceptance-testing-consumer-level-test: |-
-    [Acceptance]: Test as consumer: locate each category via index, copy patterns without missing context, check example ArcGrav syntax.
+    Test as consumer: locate each category via index, copy patterns without missing context, check example ArcGrav syntax.
 
     Example:
-    [Acceptance]:
+    Acceptance:
     - A reader can locate each category from the index
     - A pattern can be copied without missing context
     - Examples conform to ArcGrav syntax
   ag-pass-fail-determination-explicit-verdict: |-
-    [Verdict]: After assertions and acceptance tests, PASS only if all P0 assertions pass; otherwise FAIL and list exact unmet assertions. Keep observation, validation, ranking and acceptance distinct.
+    After assertions and acceptance tests, PASS only if all P0 assertions pass; otherwise FAIL and list exact unmet assertions. Keep observation, validation, ranking and acceptance distinct.
 
     Example:
-    [Verdict]:
+    Verdict:
     => PASS only when all P0 assertions pass
     => Otherwise FAIL with exact unmet assertions

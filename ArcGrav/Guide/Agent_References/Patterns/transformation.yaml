@@ -12,8 +12,8 @@ sections:
     Recover explicit structure before interpretation.
 
     Example:
-    [Parsed]:
-    => Parse [Source] into:
+    Parsed:
+    => Parse the source into:
       - Headings
       - Lists
       - References
@@ -22,8 +22,8 @@ sections:
     Extract only fields relevant to the objective; retain source identity.
 
     Example:
-    [Extracted]:
-    => Extract pattern from [Source] ↳
+    Extracted:
+    => Extract pattern from the source ↳
       - Name
       - Intent
       - Constraints
@@ -31,42 +31,42 @@ sections:
     Apply explicit inclusion and exclusion criteria.
 
     Example:
-    [Filtered]:
+    Filtered:
     => Keep reusable prompt-operation patterns
     => Exclude repository history and incidental prose
   ag-normalization-surface-normalization: |-
     Standardize spelling, headings, identifiers and lists without changing meaning.
 
     Example:
-    [Normalized]:
+    Normalized:
     => Normalize category names to canonical title case
     => Normalize file names to kebab-case
   ag-canonicalization-semantic-equivalence-collapse: |-
     Merge equivalent intent/mechanics; keep the clearest example and every unique constraint.
 
     Example:
-    [Canonical]:
+    Canonical:
     => Merge patterns with equivalent intent and mechanics
     => Retain the clearest example and all unique constraints
   ag-classification-primary-category-assignment: |-
     Classify by dominant function; keep useful secondary tags.
 
     Example:
-    [Classified]:
-    => Classify [Extracted] by [Categories]
+    Classified:
+    => Classify the extracted records by the category list
     => Preserve secondary-category tags when useful
   ag-aggregation-category-aggregation: |-
     Group canonical records by primary category; sort by conceptual dependency.
 
     Example:
-    [Grouped]:
-    => Group [Canonical] by primary category
+    Grouped:
+    => Group the canonical patterns by primary category
     => Sort by conceptual dependency
   ag-analysis-mechanism-analysis: |-
     Relate syntax to interpretation through cue, binding, behavior and failure.
 
     Example:
-    [Analysis]:
+    Analysis:
     => Identify:
       - Cue
       - Binding rule
@@ -76,8 +76,8 @@ sections:
     Abstract from multiple observations without inventing mechanics.
 
     Example:
-    [Pattern]:
-    => Synthesize [Evidence] into:
+    Pattern:
+    => Synthesize the evidence into:
       - Intent
       - Procedure
       - Invariant
@@ -86,15 +86,15 @@ sections:
     Generate distinct candidates under one contract; retain tradeoffs for examination.
 
     Example:
-    [Candidates]:
-    => Generate 3 distinct implementations satisfying [Constraints]
+    Candidates:
+    => Generate 3 distinct implementations satisfying the same constraints
     => Preserve tradeoffs for ranking
   ag-comparison-dimensioned-comparison: |-
     Compare on explicit dimensions.
 
     Example:
-    [Comparison]:
-    => Compare [Candidates] by:
+    Comparison:
+    => Compare the candidates by:
       - Precision
       - Reuse
       - Token cost
@@ -103,16 +103,16 @@ sections:
     Order executable steps by dependency; mark validation and termination.
 
     Example:
-    [Plan]:
-    => Decompose [Goal]
+    Plan:
+    => Decompose the goal
     => Order steps by dependency
     => Mark validation and termination conditions
   ag-translation-meaning-preserving-translation: |-
     Translate prose; preserve hierarchy, behavior, references and literals.
 
     Example:
-    [Translated]:
-    => Translate prose in [Source]
+    Translated:
+    => Translate prose in the source
     => Preserve symbols literally:
       - Paths
       - Code
@@ -121,8 +121,8 @@ sections:
     Expose each semantic transformation; keep derivation distinct from publication.
 
     Example:
-    [Derived]:
-    => Parse [Existing] and extract reusable mechanisms
+    Derived:
+    => Parse the supplied materials and extract reusable mechanisms
     => Normalize terminology and canonicalize equivalents
-    => Classify by [Categories] and aggregate by category
+    => Classify by the category list and aggregate by category
     => Synthesize publishable pattern entries

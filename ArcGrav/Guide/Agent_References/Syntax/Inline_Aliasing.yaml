@@ -17,30 +17,50 @@ sections:
   ag-transformation-alias: |-
     Name an intermediate result and reuse it.
 
+    Scope: Work within the example data
+
+    [Source]: sample.txt
+
+    Task:
     1. Parse [Source] AS [Parsed]
     2. Validate [Parsed]
   ag-boolean-alias: |-
     Name a condition and use it to govern later work.
 
+    Task:
     1. Determine feasibility AS [Fulfillable]
     2. If [Fulfillable], proceed
   ag-candidate-alias: |-
     Capture discovered values for later resolution.
 
+    Task:
     1. Collect matching records AS [Candidates]
     2. Resolve [Candidates]
   ag-filtered-alias: |-
     Name the subset produced by filtering.
 
+    Scope: Work within the example data
+
+    [Records]: records.csv
+
+    Task:
     1. Remove invalid records from [Records] AS [ValidRecords]
     2. Return [ValidRecords]
   ag-comparison-alias: |-
     Name a canonical representation for comparison.
 
+    Scope: Work within the example data
+
+    [Candidate]: Candidate record
+
+    [Expected]: Expected record shape
+
+    Task:
     1. Canonicalize [Candidate] AS [Signature]
     2. Compare [Signature] with [Expected]
   ag-immediate-binding-rule: |-
     Bind only the immediately preceding expression, not earlier context.
 
+    Task:
     1. Extract records AS [Records]
     2. Evaluate [Records]

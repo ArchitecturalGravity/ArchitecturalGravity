@@ -29,6 +29,8 @@ sections:
   ag-sectioned-context: |-
     Use a descriptive header such as `Constraint:` for one bounded concern.
 
+    Scope: Work within the example data
+
     [Source]: docs/README.md
 
     Scope:
@@ -53,6 +55,10 @@ sections:
     - $browser-skill
   ag-completion-hook: |-
     `OnComplete:` scopes work after the primary task.
+
+    Scope: Work within the example data
+
+    [Orchestration]: Rebuild the reference index
 
     OnComplete:
     1. Update related references

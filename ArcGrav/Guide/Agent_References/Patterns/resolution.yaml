@@ -13,21 +13,27 @@ sections:
     [SourceRecords]:
     - Unmodified retrieved content
 
-    [DerivedRecords]:
-    => Transform [SourceRecords]
+    Task:
+    => Transform [SourceRecords] into separate derived records
   ag-evidence-retention-keep-supporting-evidence: |-
     Keep supporting evidence through transformation and publication.
     [Decision]:
-    - `outcome`: classify symbolic references under Representation Shaping
-    - `evidence`: reusable named context and composition behavior
+    - `outcome`: classify under Representation Shaping
+    - `evidence`: named context and composition behavior
+
+    Task:
+    => Publish the `outcome` of [Decision] with its `evidence`
   ag-provenance-source-to-output-trace: |-
     Trace a derived artifact from source through ordered operations to its output path.
     [Provenance]:
-    - `source`: current ArcGrav syntax documentation
+    - `source`: syntax guide
     - `operations`:
       1. Extract
       2. Normalize
-    - `output`: relative path and filename
+    - `output`: category file
+
+    Task:
+    => Report the `source`, `operations`, and `output` from [Provenance]
   ag-authority-ranking-ranked-evidence-authority: |-
     Rank authority before resolving disputes, from highest to lowest: explicit governing constraints, current authoritative source, repository convention, derived inference, general convention.
     [Authority]:
@@ -36,51 +42,63 @@ sections:
     P2. Repository-local convention
     P3. Derived inference
     P4. General convention
+
+    Task:
+    => Resolve supported disagreements using [Authority]
   ag-conflict-resolution-rule-guided-conflict-resolution: |-
     Compare competing claims by [Authority]; choose a higher-authority supported claim only when justified, and record the rejected alternative and reason.
-    [Resolved]:
-    => Compare conflicting claims by [Authority]
-    => Select the higher-authority supported claim
-    => Record the rejected alternative and reason
+    [Authority]:
+    P0. Current policy
+    P1. Local convention
+
+    Task:
+    => Rank supported claims using [Authority]
+    => Record the discarded claim and reason
   ag-ambiguity-preservation-preserve-material-ambiguity: |-
     Preserve materially different meanings until evidence or the task contract warrants choosing one (e.g., source example vs. reusable pattern).
-    [Ambiguities]:
-    - "pattern" may mean source example or reusable abstraction
+    Task:
+    - pattern may mean source example or reusable abstraction
     - Preserve both until the task contract selects one
   ag-uncertainty-representation-calibrated-uncertainty-record: |-
     Calibrate uncertainty and state what would resolve it.
     [Uncertainty]:
-    - `claim`: uncertainty description
-    - `confidence`: confidence level for `claim`
-    - `cause`: what caused the uncertainty of `claim`
-    - `resolution`: proposed uncertainty resolution for `claim`
+    - `claim`: scope may be incomplete
+    - `confidence`: low
+    - `cause`: one source unavailable
+    - `resolution`: verify missing source
+
+    Task:
+    => Report [Uncertainty] with its `claim`, `confidence`, `cause`, and `resolution`
   ag-decision-records-compact-decision-log: |-
     Log consequential decisions.
     [DecisionRecord]:
-    - `decision`: one primary category per pattern
-    - `alternatives`: duplicate patterns across categories
-    - `rationale`: reduce drift and maintenance cost
+    - `decision`: one primary category
+    - `alternatives`: duplicate across categories
+    - `rationale`: avoid drift
+
+    Task:
+    => Record the `decision`, `alternatives`, and `rationale` from [DecisionRecord]
   ag-independent-verification-separate-verification-path: |-
     Verify final claims independently of derivation.
-    [Verification]:
-    => Rebuild expected file list directly from [Categories]
+    Task:
+    => Rebuild expected file list directly from categories
     => Compare with published paths
   ag-final-completeness-checks-closure-audit: |-
     Audit against the original request, not only the latest state.
-    [Closure]:
+    Task:
     - All categories represented
     - Files created in target directory
     - Files populated from derived patterns
     - Git history not used as source material
   ag-output-publication-validated-publication: |-
     Require structural and semantic checks; report partial completion.
-    [Publish]:
-    => Publish outputs that pass [Acceptance]
+    Task:
+    => Publish outputs that pass acceptance
     => Retain failed outputs as drafts
     => Report exact unresolved items
   ag-composite-pattern-evidence-to-publication-resolution: |-
     Rank authorities and resolve supported conflicts; preserve ambiguities and uncertainty, retain evidence and provenance, log decisions, verify closure independently, and publish validated work.
-    [Resolution]:
+    Task:
     => Resolve supported conflicts
     => Preserve unresolved ambiguity
     => Independently verify completeness

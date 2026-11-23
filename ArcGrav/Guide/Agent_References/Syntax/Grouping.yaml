@@ -23,36 +23,65 @@ sections:
   ag-contract-block: |-
     Group inputs, outputs, invariants, side effects, and failure behavior together but apart by concern.
 
+    Scope: Work within the example data
+
     [Contract]:
     - Input: Candidate records
     - Output: Resolved records
     - Invariants: Preserve source records
     - SideEffects: None
     - Failure: Raise on malformed structure
+
+    Task:
+    - Use [Contract] in the result
   ag-explicit-uncertainty-record: |-
     Keep unresolved field, reason, available evidence, and status together.
 
+    Scope: Work within the example data
+
+    [Source]: sample.txt
+
+    Context:
     - `field`: "status"
     - `reason`: Missing source value
     - `availableEvidence`:
       - [Source]
     - `status`: "unresolved"
+
+    Task:
+    - Verify the uncertainty identifies "status" and marks it "unresolved"
   ag-evidence-carrying-record: |-
     Bind each claim to its source, location, and validator.
 
+    Scope: Work within the example data
+
+    [Log]: access.log
+
+    [Verify]: Check evidence against the source
+
+    Context:
     - `claim`: "Access granted"
     - `source`: [Log]
     - `location`: Line 4
     - `validator`: [Verify]
+
+    Task:
+    - Check whether [Log] supports the claim "Access granted"
   ag-result-sidecar: |-
     Return the artifact and execution statistics as siblings; nest counters under executionStats.
 
+    Scope: Work within the example data
+
+    [Result]: summary.txt
+
+    Context:
     - `artifact`: [Result]
     - `executionStats`:
       - `processed`: 1
   ag-model-variant: |-
     Separate shared fields from variant fields: root `parent`: null; leaf `children`: [].
 
+    Context:
     - Shared:
       - `id`
     - Root:

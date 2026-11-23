@@ -17,13 +17,22 @@ sections:
   ag-quoted-scalar: |-
     "complete" fixes exact single-line text.
   ag-literal-source-block: |-
+    Preserve the two-line log as exact source.
+
+    Scope: Quoted input only
+
     [Log]:
     """
     ERROR
     RETRY
     """
+
+    Task:
+    - Summarize [Log] without modifying it
   ag-literal-source-block-members: |-
     Use a separate fenced value under each exact backticked member.
+
+    Scope: Quoted input only
 
     [Logs]:
     - `first`:
@@ -36,8 +45,13 @@ sections:
       OPEN
       CLOSE
       """
+
+    Task:
+    - Inspect [Logs].first, [Logs].second
   ag-code-block-source: |-
     Keep code formatting inside the fence and the instruction outside.
+
+    Scope: Quoted input only
 
     [Code]:
     """
@@ -45,8 +59,13 @@ sections:
       return true;
     }
     """
+
+    Task:
+    - Use [Code] in the result
   ag-embedded-example: |-
     Bind an exact exemplar as source another operation can inspect or imitate.
+
+    Scope: Quoted input only
 
     [Expected]:
     """
@@ -54,24 +73,39 @@ sections:
       "status": "complete"
     }
     """
+
+    Task:
+    - Use [Expected] in the result
   ag-placeholder-template: |-
     Fence the template shape and retain placeholders such as <summary>.
+
+    Scope: Quoted input only
 
     [Template]:
     """
     Summary: <summary>
     Findings: <findings>
     """
+
+    Task:
+    - Use [Template] in the result
   ag-literal-comparison-target: |-
     Fence the expected value for a direct comparison.
+
+    Scope: Quoted input only
 
     [Expected]:
     """
     status: valid
     count: 1
     """
+
+    Task:
+    - Use [Expected] in the result
   ag-nested-literal-block: |-
     Use four quotes around source with triple-quote delimiters; increase length for longer standalone runs.
+
+    Scope: Quoted input only
 
     [Outer]:
     """"
@@ -80,3 +114,6 @@ sections:
     Literal content
     """
     """"
+
+    Task:
+    - Use [Outer] in the result

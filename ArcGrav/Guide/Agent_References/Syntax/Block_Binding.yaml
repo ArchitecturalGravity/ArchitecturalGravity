@@ -13,6 +13,11 @@ sections:
   ag-edge-case: |-
     Scope the child to planning, not to the trailing reference.
 
+    Scope: Implementation planning
+
+    [Constraint]: Preserve public behavior
+
+    Task:
     => Plan under [Constraint] ↳
       - List only the necessary changes
   ag-rules: |-
@@ -20,14 +25,27 @@ sections:
   ag-constraints: |-
     Use only for actual scope ambiguity. Keep children below the parent, never aligned with it. Prefer ordinary `:` grouping otherwise.
   ag-operation-ending-in-a-reference: |-
+    Bind a local constraint to the complete operation.
+
+    Scope: Implementation planning
+
+    [Constraint]: Preserve public behavior
+
+    Task:
     => Plan under [Constraint] ↳
       - Preserve the API
   ag-nested-conditional-under-a-complete-operation: |-
     Indent a conditional operation below the completed `↳` parent; indent its own children another two spaces.
 
+    Scope: Implementation planning
+
+    [Roadmap]: roadmap.md
+
+    Task:
     => Select items from [Roadmap] ↳
       => If none qualify:
         - Return "NO ELIGIBLE"
+    => Verify empty selections return "NO ELIGIBLE"
   ag-prefer-normal-grouping-when-unambiguous: |-
     Use `:` for an unambiguous parent.
 

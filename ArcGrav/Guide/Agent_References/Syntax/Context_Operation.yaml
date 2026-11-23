@@ -15,53 +15,116 @@ sections:
   ag-constraints: |-
     Prefer static lists where sufficient. Avoid vague or subjective operations.
   ag-context-operation-2: |-
-    `=> Parse [Source]` directs one behavior.
+    Use one explicit operation to transform named context.
+
+    Scope: Local inputs only
+
+    [Source]: sample.txt
+
+    Task:
+    => Parse [Source]
   ag-derived-anchor: |-
     Declare an anchor for the operation result.
 
+    Scope: Local inputs only
+
+    [Source]: sample.txt
+
     [Parsed]:
     => Parse [Source]
+
+    Task:
+    - Use [Parsed] in the result
   ag-operation-chain: |-
     Write one transformation per line; execute the chain top to bottom.
+
+    Scope: Local inputs only
+
+    [Source]: sample.txt
 
     [Normalized]:
     => Parse [Source]
     => Normalize field names
+
+    Task:
+    - Use [Normalized] in the result
   ag-nested-operation: |-
     Indent each child operation two spaces below its controlling operation.
 
+    Task:
     => Repeat 3 times:
       => Concatenate without line break:
         - "Alpha"
         - "Beta"
+    => Verify "Alpha" precedes "Beta" on each repetition
   ag-apply-to-invocation: |-
-    `=> Apply [Validation] to [Artifact]` invokes a reusable operation on a target.
+    Apply a reusable operation to its named target.
+
+    Scope: Local inputs only
+
+    [Validation]: Check required fields
+
+    [Artifact]: report.txt
+
+    Task:
+    => Apply [Validation] to [Artifact]
   ag-conditional-gate: |-
     Apply the gate before allowing the dependent operation.
 
+    Scope: Local inputs only
+
+    [ContextGate]: Check the source is readable
+
+    [Artifact]: report.txt
+
+    Task:
     => Apply [ContextGate]
     => If the gate passes, produce [Artifact]
   ag-fail-fast-stop: |-
     Stop when invalid required structure would make later output misleading.
 
+    Scope: Local inputs only
+
+    [Source]: sample.txt
+
+    Task:
     => Parse [Source]
     => Raise when required structure is invalid
   ag-recursive-self-application: |-
     Make progress toward termination before invoking the same operation again.
+
+    Scope: Local inputs only
 
     [Traverse]:
     => Process the current node
     => If an unvisited node remains:
       => Select the next node
       => Apply [Traverse]
+
+    Task:
+    => Apply [Traverse] to the root node
   ag-independent-verification-operation: |-
     Compare directly with the source; report defects without changing the artifact.
 
+    Scope: Local inputs only
+
+    [Artifact]: report.txt
+
+    [Source]: sample.txt
+
+    Task:
     => Compare [Artifact] directly with [Source]
     => Report defects
     => Do not modify [Artifact]
   ag-instrumented-operation: |-
     Return the artifact and separate execution statistics.
 
+    Scope: Local inputs only
+
+    [ExecutionStats]: {}
+
+    [Artifact]: report.txt
+
+    Task:
     => Populate [ExecutionStats]
     => Return [Artifact] with [ExecutionStats]

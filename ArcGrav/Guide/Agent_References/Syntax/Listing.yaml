@@ -29,11 +29,22 @@ sections:
   ag-schema-field-list: |-
     List exact schema member names with backticks.
 
+    Scope: Work within the example data
+
     [FindingSchema]:
     - `id`
     - `evidence`
+
+    Task:
+    - Inspect [FindingSchema].id, [FindingSchema].evidence
   ag-import-set: |-
     List required references independently beneath `Import:`.
+
+    Scope: Work within the example data
+
+    [Standard]: rules.md
+
+    [Validation]: Check required fields
 
     Import:
     - [Standard]
@@ -41,28 +52,59 @@ sections:
   ag-scoped-validator: |-
     State both the validator's checks and exclusions.
 
+    Scope: Work within the example data
+
     [Validator]:
     - Confirm required fields
     - Do not validate semantics
+
+    Task:
+    - Use [Validator] in the result
   ag-composite-membership: |-
     List the reusable members of a composite.
+
+    Scope: Work within the example data
+
+    [Tree]: tree.txt
+
+    [Map]: map.txt
 
     [ArtifactSystem]:
     - [Tree]
     - [Map]
+
+    Task:
+    - Use [ArtifactSystem] in the result
   ag-ordered-sequence: |-
     Number steps only when order affects execution or interpretation.
 
+    Scope: Work within the example data
+
+    [Source]: sample.txt
+
+    Task:
     1. Read [Source]
     2. Extract candidates
   ag-resolve-before-use: |-
     Resolve a file-backed reference before applying it.
 
+    Scope: Work within the example data
+
+    [Validator]: validator.md
+
+    [Artifact]: report.txt
+
+    Task:
     1. Resolve [Validator]
     2. Apply [Validator] to [Artifact]
   ag-lifecycle-bracketing: |-
     Initialize state before work; consume or discard it afterward.
 
+    Scope: Work within the example data
+
+    [Results]: records.csv
+
+    Task:
     1. Clear [Results]
     2. Populate [Results]
     3. Render [Results]
@@ -70,54 +112,86 @@ sections:
   ag-validator-chain: |-
     Run separate validation passes in prerequisite order.
 
+    Scope: Work within the example data
+
+    [SchemaValidation]: Check field types
+
+    [ReferenceValidation]: Check reference targets
+
+    Task:
     1. Run [SchemaValidation]
     2. Run [ReferenceValidation]
   ag-direct-source-verification: |-
     Compare the artifact directly with its authoritative source.
 
+    Scope: Work within the example data
+
+    [Source]: sample.txt
+
+    [Artifact]: report.txt
+
+    Task:
     1. Read [Source]
     2. Compare [Artifact] with [Source]
     3. Report differences
   ag-postcondition-check: |-
     Check a specific postcondition before returning the artifact.
 
+    Scope: Work within the example data
+
+    [Artifact]: report.txt
+
+    [Postcheck]: Confirm the report is complete
+
+    Task:
     1. Generate [Artifact]
     2. Apply [Postcheck]
     3. Return [Artifact]
   ag-idempotence-check: |-
     Run maintenance twice; require no further changes on the second run.
 
+    Scope: Work within the example data
+
+    [Maintenance]: Normalize field names
+
+    Task:
     1. Run [Maintenance]
     2. Run [Maintenance] again
     3. Confirm no further changes
   ag-conditional-continuation: |-
     Evaluate the condition before dependent work; name it if reused.
 
+    Task:
     1. Determine feasibility AS [Fulfillable]
     2. If [Fulfillable], proceed
   ag-priority-sequence: |-
     Rank competing concerns with `P0.`, `P1.`, and onward.
 
+    Constraint:
     P0. Preserve the public API
     P1. Minimize file edits
   ag-authority-ranking: |-
     Prefer more authoritative evidence over lower-ranked evidence.
 
+    Constraint:
     P0. Authoritative source
     P1. Maintained secondary source
   ag-severity-ranking: |-
     Rank findings by impact, not discovery.
 
+    Constraint:
     P0. Blocking
     P1. Major
   ag-stable-ordering-specification: |-
     Specify ranking keys and tie-breakers explicitly.
 
+    Constraint:
     P0. Category rank
     P1. Identifier
     P2. Original position
   ag-dependency-aware-priority: |-
     Distinguish urgency from prerequisite order; state both when needed.
 
+    Constraint:
     P0. Blocking prerequisites
     P1. Blocking dependents

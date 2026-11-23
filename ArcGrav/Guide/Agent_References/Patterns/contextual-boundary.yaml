@@ -17,64 +17,62 @@ sections:
     - tests/auth/*
     - Exclude deployment configuration
   ag-authority-and-precedence-ranked-instruction-sources: |-
-    [Authority]: Rank competing sources. Lower ranks may refine, never override.
+    Rank competing sources. Lower ranks may refine, never override.
 
     Example:
-    [Authority]:
+    Authority:
     P0. Safety and repository policy
     P1. Explicit task constraints
     P2. Local conventions
     P3. General best practices
   ag-objectives-named-objective-set: |-
-    [Objectives]: Name desired outcomes separately from steps.
+    Name desired outcomes separately from steps.
 
     Example:
-    [Objectives]:
+    Objectives:
     - Preserve public behavior
     - Remove duplicated validation
     - Improve failure diagnostics
   ag-audience-and-consumers-consumer-specific-output-boundary: |-
-    [Audience]: Name the consumer and what they need to decide.
+    Name the consumer and what they need to decide.
 
     Example:
-    [Audience]:
+    Audience:
     - Maintainers reviewing a pull request
     - Decisions:
       - Need risks
       - Changed behavior
       - Test evidence
   ag-assumptions-visible-assumption-ledger: |-
-    [Assumptions]: State material, revisable assumptions separately from facts.
+    State material, revisable assumptions separately from facts.
 
     Example:
-    [Assumptions]:
+    Assumptions:
     - Input files are UTF-8
     - Missing fields are invalid, not optional
   ag-success-criteria-verifiable-completion-contract: |-
-    [Success]: State observable checks.
+    State observable checks.
 
     Example:
-    [Success]:
+    Success:
     - Existing tests pass
     - New invalid-input cases are covered
     - No public API signature changes
   ag-composite-pattern-boundary-contract: |-
-    Separate [Target] (manifests, lockfiles, migration tests), [Objectives] (unchanged runtime behavior), [Assumptions] (version approved), [Success] (dependency resolves, tests pass, no unrelated edits), and [Authority] (repo instructions > target/success > style).
+    State scope, objective, assumptions, observable success and precedence separately.
 
     Example:
-    [Target]:
-    - Package manifests and lockfiles
-
-    [Objectives]:
-    - Migrate without changing runtime behavior
-
-    [Assumptions]:
+    Scope:
+    - Migrate the package without changing runtime behavior
     - The target version is approved
+
+    [Target]:
+    - Package manifests, lockfiles and migration tests
 
     [Success]:
     - Dependency resolves, tests pass, no unrelated edits
 
-    [Authority]:
-    P0. Repository instructions
-    P1. [Target] and [Success]
-    P2. Existing style
+    Task:
+    P0. Follow repository instructions
+    P1. Migrate [Target] and verify [Success]
+    P2. Follow existing style

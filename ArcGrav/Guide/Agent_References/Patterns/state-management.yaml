@@ -10,75 +10,98 @@ sections:
     Track changing values, decisions, dependencies, progress, checkpoints, blockers, and temporary context. Define ownership, validity, transitions, and cleanup, not execution order.
   ag-session-state-session-bounded-configuration: |-
     Keep task settings session-bounded.
-
     Example:
       [SessionState]:
       - Branch: main
+
+      Task:
+      - Apply [SessionState] for this task
   ag-conversation-state-turn-state-summary: |-
     Summarize the turn in decisions, active constraints, and open items.
-
     Example:
       [ConversationState]:
       - Decided: One file per category
       - Active Constraint: ignore git history
       - Open: Populate target directory
+
+      Task:
+      - Continue from [ConversationState]
   ag-working-variables-named-mutable-values: |-
     Update named state; avoid competing aliases.
-
     Example:
       [PendingFiles]:
       - contextual-boundary.md
+
+      Task:
+      - Inspect next item in [PendingFiles]
   ag-mutable-state-explicit-transition: |-
     Express before-and-after conditions as an operation.
-
     Example:
+      [Requested]: Files A and B
+
+      [Completed]: File A
+
       [Remaining]:
       => Subtract [Completed] from [Requested]
-  ag-dependency-state-readiness-map: |-
-    Track task readiness explicitly: blocked (with dependency), ready, running, or complete.
 
+      Task:
+      - Process [Remaining]
+  ag-dependency-state-readiness-map: |-
+    Track blocked, ready, running, and complete work.
     Example:
       [DependencyState]:
-      - Resolve source files: "complete"
-      - Render category files: "ready"
-      - Publish index: "blocked by file creation"
+      - Resolve source files: complete
+      - Render category files: ready
+      - Publish index: blocked by file creation
+
+      Task:
+      - Choose ready work from [DependencyState]
   ag-state-lifecycle-initialize-use-retire: |-
     Initialize, use, and retire named state.
-
     Example:
+      [Derived]: []
+
       [Lifecycle]:
       1. Initialize [Derived]
-      2. Append categorized patterns
-      3. Publish files
-      4. Clear temporary extraction notes
-  ag-checkpoints-recoverable-snapshot: |-
-    Take recoverable snapshots at meaningful stages.
+      2. Append patterns to [Derived]
+      3. Publish [Derived]
+      4. Clear [Derived]
 
+      Task:
+      - Run [Lifecycle]
+  ag-checkpoints-recoverable-snapshot: |-
+    Checkpoint at meaningful stages.
     Example:
       [Checkpoint]:
       - Resources resolved
       - Category mapping complete
       - Writes not yet started
+
+      Task:
+      - Resume from [Checkpoint]
   ag-cleanup-and-reset-behavior-explicit-disposal: |-
     Define disposal after success or failure.
-
     Example:
       [Cleanup]:
       - Remove temporary aliases
       - Do not delete source files
       - Preserve published outputs and provenance
-  ag-composite-pattern-stateful-work-ledger: |-
-    Track phase, completed and pending work, and blockers in one ledger. Record transitions and checkpoint after publication stages.
 
+      Task:
+      - Apply [Cleanup]
+  ag-composite-pattern-stateful-work-ledger: |-
+    Maintain one progress ledger.
     Example:
       [State]:
-      - `phase`: "discover"
+      - `phase`: discover
       - `completed`: []
       - `pending`:
-        - "derive"
-        - "render"
-        - "publish"
+        - derive
+        - render
+        - publish
       - `blockers`: []
+
+      [Checkpoint]: [State]
 
       Task:
       1. Execute the next ready item from [State].pending

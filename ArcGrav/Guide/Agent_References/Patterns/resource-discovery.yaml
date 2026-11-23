@@ -10,43 +10,52 @@ sections:
     Find and prioritize relevant context, history, memory, files, tools, URLs, registries, and external evidence. Do not interpret or transform it.
   ag-tool-discovery-capability-enumeration: |-
     Verify available tools, required inputs, and limits before choosing a path.
-
     Example:
       [Capabilities]:
       => Discover tools for repository reading and writing
       => Record required inputs and write limitations
+
+      Task:
+      - Select a tool from [Capabilities]
   ag-external-knowledge-sources-declared-source-set: |-
     Name approved sources and assign each a role.
-
     Example:
       [Sources]:
       - Official documentation for current API behavior
       - Repository files for local conventions
       - User-provided text for requirements
-  ag-conversation-history-relevant-turn-retrieval: |-
-    Retrieve prior constraints, decisions, open questions, and reusable artifacts. Skip superseded proposals.
 
+      Task:
+      - Ground findings in [Sources]
+  ag-conversation-history-relevant-turn-retrieval: |-
+    Keep applicable prior decisions, constraints, questions, and artifacts.
     Example:
       [History]:
       => Retrieve prior decisions about authentication behavior
       => Exclude superseded proposals
+
+      Task:
+      - Continue from decisions in [History]
   ag-working-memory-named-active-context: |-
     Name active facts: current constraints, inspected files, and open validation failures.
-
     Example:
       [WorkingSet]:
       - Current task constraints
       - Open validation failures
+
+      Task:
+      - Use [WorkingSet] for the next check
   ag-session-memory-session-scoped-fact-set: |-
     Keep session facts separate from permanent assumptions.
-
     Example:
       [SessionFacts]:
       - Target branch is main
       - Output format is Markdown
-  ag-file-and-directory-resolution-resolve-before-read: |-
-    Resolve ambiguous file references to canonical repository-relative paths before reading; honor filters such as excluding generated and vendored files.
 
+      Task:
+      - Apply [SessionFacts] for this task
+  ag-file-and-directory-resolution-resolve-before-read: |-
+    Resolve canonical repo paths before reading; honor exclusions.
     Example:
       [Patterns]:
       - /Guide/Patterns/
@@ -54,9 +63,11 @@ sections:
       [Files]:
       => Resolve all Markdown files under [Patterns]
       => Exclude generated and vendored directories
-  ag-url-resolution-url-to-resource-mapping: |-
-    Classify the URL (file, directory, issue, document, registry entry) and resolve identifiers before fetching.
 
+      Task:
+      - Read [Files]
+  ag-url-resolution-url-to-resource-mapping: |-
+    Classify the URL and resolve identifiers before fetching.
     Example:
       [TargetURL]:
       - https://example.test/repo/tree/main/Patterns
@@ -67,15 +78,19 @@ sections:
         - Repository
         - Branch
         - Directory path
-  ag-resource-registries-registry-lookup: |-
-    Use a named registry to resolve logical identifiers to resource locations rather than guessing paths.
 
+      Task:
+      - Fetch [ResolvedTarget]
+  ag-resource-registries-registry-lookup: |-
+    Resolve logical IDs through a registry.
     Example:
       [Registry]:
       - Pattern: Guide/Patterns/contextual-boundary.md
-  ag-file-backed-context-indirect-resource-anchor: |-
-    Represent a reusable resource by a symbolic anchor, e.g., [ValidationStandard]; resolve and verify it before applying its contents.
 
+      Task:
+      - Locate Pattern through [Registry]
+  ag-file-backed-context-indirect-resource-anchor: |-
+    Resolve and verify a file-backed symbol before applying it.
     Example:
       [ValidationStandard]:
       - Guide/Standards/validation.md
@@ -86,8 +101,11 @@ sections:
       3. Apply its context
   ag-dependency-resolution-resolve-then-bind: |-
     Resolve separately from binding. Verify requirements, bind inputs, then execute for declared outputs.
-
     Example:
+      [PatternSchema]: Guide/schema.md
+
+      [AuditResult]: []
+
       [AuditorModule]:
       - Resolves: Guide/Auditors/content-auditor.md
       - Requires:
@@ -101,26 +119,33 @@ sections:
       3. Bind the required context
       4. Execute the resolved module
   ag-retrieval-rag-query-then-ground: |-
-    Retrieve for [Question] before synthesizing; exclude low-relevance material and retain passages with source identifiers and exact locations.
-
+    Retrieve relevant passages before synthesis; retain provenance.
     Example:
+      [Question]: Rule governing imports
+
       [Evidence]:
       => Retrieve passages matching [Question]
       => Retain source identifiers and exact locations
       => Exclude low-relevance results
-  ag-resource-contribution-distinct-contribution-test: |-
-    Retain unique information, authority, provenance, or independent verification only if used downstream. Exclude redundancy.
 
+      Task:
+      - Answer [Question] from [Evidence]
+  ag-resource-contribution-distinct-contribution-test: |-
+    Keep only distinct information, authority, provenance, or verification used downstream.
     Example:
+      [Resources]: Guide/*.md
+
       [ResolvedResources]:
-      => For each [Resource] ↳
+      => Examine each item in [Resources] ↳
         1. Identify its contribution
-        2. Compare its contribution with existing context
-        3. Confirm a downstream operation uses it
-        4. Exclude it when it adds nothing distinct
+        2. Compare with existing context
+        3. Check downstream use
+        4. Exclude redundant items
+
+      Task:
+      - Use [ResolvedResources]
   ag-composite-pattern-discovery-pipeline: |-
     Discover evidence before using it.
-
     Example:
       [Need]:
       - Current pattern definitions
@@ -128,8 +153,8 @@ sections:
       [Capabilities]:
       => Discover repository read and write tools
 
-      [Resources]:
-      => Resolve [Need] into files, URLs, and registries
+      Resources:
+      => Use [Capabilities] to resolve [Need]
       => Retrieve current contents only
       => Preserve canonical paths AS [ResolvedResources]
 

@@ -12,7 +12,7 @@ sections:
     Check governing policy before planning. Reject prohibited actions; keep allowed work.
 
     Example:
-    [PolicyGate]:
+    PolicyGate:
     => Identify applicable policies
     => Reject prohibited actions
     => Preserve the allowed portion of the task
@@ -20,7 +20,7 @@ sections:
     Protect secrets; require explicit scope for destructive writes; redact sensitive published evidence.
 
     Example:
-    [Safety]:
+    Safety:
     - Do not expose secrets
     - Do not perform destructive writes without explicit scope
     - Redact sensitive evidence in published output
@@ -28,21 +28,21 @@ sections:
     Make business rules testable.
 
     Example:
-    [Rules]:
+    Rules:
     - A published pattern must belong to exactly one primary category
     - Every category file must contain at least one pattern
   ag-scope-constraints-target-membership-check: |-
     Check every target against scope; reject unrelated paths.
 
     Example:
-    [ScopeGate]:
+    ScopeGate:
     => Confirm each target is under Guide/Patterns
     => Reject unrelated paths
   ag-capability-checks-tool-capability-gate: |-
     Verify tools can read, write and check results.
 
     Example:
-    [CapabilityGate]:
+    CapabilityGate:
     - Can read current files
     - Can create or update Markdown files
     - Can verify resulting content
@@ -50,7 +50,7 @@ sections:
     State what must hold before execution.
 
     Example:
-    [Preconditions]:
+    Preconditions:
     - Categories are defined
     - Source material is available
     - Target directory resolves
@@ -58,7 +58,7 @@ sections:
     State what must remain true throughout.
 
     Example:
-    [Invariants]:
+    Invariants:
     - Source files remain unchanged
     - Category names remain canonical
     - No git history is used as source material
@@ -75,7 +75,7 @@ sections:
     Check format independently of meaning.
 
     Example:
-    [FormatGate]:
+    FormatGate:
     - Markdown parses cleanly
     - One H1 per file
     - Code fences are balanced
@@ -84,7 +84,7 @@ sections:
     Define the required exit state.
 
     Example:
-    [Postconditions]:
+    Postconditions:
     - Ten category files exist
     - Each file is populated
     - The index links every category file
@@ -92,26 +92,26 @@ sections:
     Stop writes on failure. Preserve successes, record the exact unmet condition, and continue independent work if safe.
 
     Example:
-    [Failure]:
+    Failure:
     - Stop writes to the failing path
     - Preserve completed files
     - Record the exact unmet condition
     - Continue independent work when safe
   ag-composite-pattern-guarded-execution-contract: |-
-    Run [Gate] before execution and proceed only if it passes. Run [ExitGate] afterward; apply [Failure] on any failed [ExitGate] assertion.
+    Execute only if [Gate] passes; afterward run [ExitGate] and apply the failure path on a failed exit assertion.
 
     Example:
+    Scope:
+    - Update the index in the agreed directory
+
     [Gate]:
-    => Validate [Policies]
-    => Validate [Preconditions]
-    => Check [Capabilities]
-    => Assert [Invariants]
+    => Check policies, permissions, capabilities and preconditions
+    => Confirm source files will stay unchanged
 
     [ExitGate]:
-    => Validate [Postconditions]
-    => Validate [FormatGate]
-    => Apply [Failure] on any failed assertion in [ExitGate]
+    => Check every category is linked and Markdown is valid
+    => On a failed exit check, stop writes and report the failure
 
     Task:
-    1. Execute only when [Gate] passes
+    1. Update the index only if [Gate] passes
     2. Run [ExitGate]
