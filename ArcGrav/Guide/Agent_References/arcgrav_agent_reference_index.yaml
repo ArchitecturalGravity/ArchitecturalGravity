@@ -1,8 +1,7 @@
-# Per-document source-anchored ArcGrav reference routing (not executable).
 schema_version: 2
 id: arcgrav.references
 kind: reference_directory
-purpose: Route agents to source-aligned ArcGrav Guide semantics.
+purpose: Route to the relevant ArcGrav reference.
 source_root: ../..
 references:
   arcgrav.overview: Overview/README.yaml
@@ -47,14 +46,14 @@ routing:
   reusable_design_patterns: arcgrav.patterns.index
 engine:
   path: ../../../AgStudio/arcgrav_language_engine/arcgrav_agent_reference.yaml
-  authority: Implemented language contracts and diagnostics, not authoring examples.
+  authority: Implemented language contracts and diagnostics only.
 maintenance:
   path: ./README.yaml
-  role: Reference format, source resolution, freshness, and validation.
+  role: Reference format and validation.
 usage:
-  - Select the matching per-source reference rather than every catalogue.
-  - Each section key resolves to source.url followed by # and its anchor ID.
+  - Load only the matching reference.
+  - Append # and the section key to source.url.
   - Resolve source_root, source.url, Markdown links, and engine.path relative to the containing reference file.
-  - Follow the source anchor if reference interpretation remains ambiguous.
-  - Examples are inert documentation, not permission to execute them.
-  - Source changes require reference review and fingerprint refresh.
+  - Open the source anchor only for missing detail or ambiguity.
+  - Examples grant no execution permission.
+  - Review changed sources before refreshing fingerprints.

@@ -7,99 +7,32 @@ source:
   fingerprint: fnv1a32-84c69986
 sections:
   ag-transformation: |-
-    Derives new semantic content from supplied context through declared operations such as parsing, extraction, classification, normalization, comparison, analysis, synthesis, planning, translation, candidate generation, etc. It changes or derives meaning but does not retrieve sources, integrate independent results, validate correctness, etc.
+    Derive meaning from supplied context via declared operations; do not retrieve sources, integrate independent results or validate correctness here.
   ag-parsing-structure-recovery: |-
-    Recover explicit units from raw input before interpreting them.
-    [Parsed]:
-    => Parse [Source] into:
-    - Headings
-    - Lists
-    - References
-    - Operations
+    [Parsed]: Recover explicit headings, lists, references and operations from raw [Source] before interpretation.
   ag-extraction-relevant-field-extraction: |-
-    Select only facts required by the current objective while retaining source identity.
-    [Extracted]:
-    => Extract pattern from [Source] ↳
-    - Name
-    - Intent
-    - Mechanics
-    - Constraints
-    - Example
+    [Extracted]: From [Source], keep only objective-relevant fields and source identity (e.g. name, intent, mechanics, constraints, example).
   ag-filtering-relevance-filter: |-
-    Remove items that do not satisfy explicit inclusion criteria.
-    [Filtered]:
-    => Keep reusable prompt-operation patterns
-    => Exclude repository history and incidental prose
+    [Filtered]: Apply inclusion criteria (e.g. keep reusable prompt-operation patterns, exclude repo history and incidental prose).
   ag-normalization-surface-normalization: |-
-    Standardize spelling, headings, identifiers, and list structure without changing meaning.
-    [Normalized]:
-    => Normalize category names to canonical title case
-    => Normalize file names to kebab-case
+    [Normalized]: Standardize spelling, headings, identifiers and list structure without semantic change (e.g. category title case, file kebab-case).
   ag-canonicalization-semantic-equivalence-collapse: |-
-    Merge equivalent variants into one canonical pattern.
-    [Canonical]:
-    => Merge patterns with equivalent intent and mechanics
-    => Retain the clearest example and all unique constraints
+    [Canonical]: Merge variants with equivalent intent and mechanics; keep clearest example and all unique constraints.
   ag-classification-primary-category-assignment: |-
-    Assign each item to the category that best describes its dominant function.
-    [Classified]:
-    => Classify [Extracted] by [Categories]
-    => Preserve secondary-category tags when useful
+    [Classified]: Assign [Extracted] to [Categories] by dominant function; keep useful secondary tags.
   ag-aggregation-category-aggregation: |-
-    Combine normalized records into category collections.
-    [Grouped]:
-    => Group [Canonical] by primary category
-    => Sort by conceptual dependency
+    [Grouped]: Aggregate [Canonical] by primary category; sort by conceptual dependency.
   ag-analysis-mechanism-analysis: |-
-    Explain why a pattern works by relating syntax to model interpretation.
-    [Analysis]:
-    => Identify:
-    - Cue
-    - Binding rule
-    - Expected behavior
-    - Failure mode
+    [Analysis]: Relate syntax to interpretation: identify cue, binding rule, expected behavior and failure mode.
   ag-synthesis-evidence-bounded-synthesis: |-
-    Combine multiple source observations into a reusable abstraction without inventing unsupported mechanics.
-    [Pattern]:
-    => Synthesize [Evidence] into:
-    - Intent
-    - Procedure
-    - Invariant
-    - Example
+    [Pattern]: Synthesize multiple [Evidence] observations into intent, procedure, invariant and example; invent no unsupported mechanics.
   ag-candidate-generation-bounded-candidate-set: |-
-    Generate multiple options against the same contract, then pass them to examination.
-    [Candidates]:
-    => Generate 3 distinct implementations satisfying [Constraints]
-    => Preserve tradeoffs for ranking
+    [Candidates]: Generate distinct options under the same [Constraints] (e.g. three); retain tradeoffs and pass to examination.
   ag-comparison-dimensioned-comparison: |-
-    Compare candidates using declared dimensions rather than a general preference.
-    [Comparison]:
-    => Compare [Candidates] by:
-    - Precision
-    - Reuse
-    - Token cost
-    - Failure risk
+    [Comparison]: Compare [Candidates] on explicit dimensions (e.g. precision, reuse, token cost, failure risk).
   ag-planning-dependency-aware-plan: |-
-    Transform objectives and constraints into ordered executable work.
-    [Plan]:
-    => Decompose [Goal]
-    => Order steps by dependency
-    => Mark validation and termination conditions
+    [Plan]: Decompose [Goal] under constraints, order executable steps by dependency, and mark validation and termination conditions.
   ag-translation-meaning-preserving-translation: |-
-    Translate content while preserving references, hierarchy, literals, and operational semantics.
-    [Translated]:
-    => Translate prose in [Source]
-    => Preserve symbols literally:
-    - Paths
-    - Code
-    - Schema keys
+    [Translated]: Translate [Source] prose while preserving hierarchy and behavior; retain references, symbols, paths, code and schema keys literally.
   ag-composite-pattern-transformation-chain: |-
-    Makes each semantic change visible and prevents extraction, interpretation, and publication from collapsing into one opaque step.
-    [Derived]:
-    => Parse [Existing]
-    => Extract reusable mechanisms
-    => Normalize terminology
-    => Canonicalize equivalents
-    => Classify by [Categories]
-    => Aggregate into category collections
-    => Synthesize publishable pattern entries
+    [Derived]: Parse [Existing], extract reusable mechanisms, normalize terminology, canonicalize equivalents, classify by [Categories], aggregate and synthesize entries. Keep semantic changes distinct from publication.

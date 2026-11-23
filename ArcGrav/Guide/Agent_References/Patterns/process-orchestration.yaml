@@ -7,144 +7,41 @@ source:
   fingerprint: fnv1a32-e04e3d14
 sections:
   ag-process-orchestration: |-
-    Coordinates execution structure by decomposing work, assigning responsibilities, ordering dependencies, routing operations, managing parallel or iterative work, limiting retries, handling recovery, defining termination conditions, etc. It determines when and in what order operations occur, not their internal semantics.
+    Determine when operations run, not what they mean: split, assign, order, dispatch, parallelize, iterate, recover, and stop.
   ag-workflow-management-phase-oriented-workflow: |-
-    Organize work into named phases with explicit entry and exit conditions.
-    [Workflow]:
-    1. Discover
-    2. Derive
-    3. Render
-    4. Validate
-    5. Publish
+    Name workflow phases and their entry/exit conditions: discover, derive, render, validate, publish.
   ag-task-decomposition-atomic-task-split: |-
-    Decompose goals into independently verifiable tasks.
-    [Tasks]:
-    - Resolve current source files
-    - Extract reusable mechanisms
-    - Classify patterns
-    - Create category files
-    - Verify coverage
+    Split [Goal] into independently verifiable work items (e.g., source resolution, extraction, classification, rendering, coverage).
   ag-recursive-traversal-hierarchy-walk: |-
-    Traverse nested resources while preserving parent-child context.
-    [Files]:
-    => Recursively traverse /Patterns/
-    => Include Markdown files
-    => Exclude generated directories
+    Walk nested resources preserving parent-child context; declare include/exclude rules (Markdown under /Patterns/, no generated directories).
   ag-worklists-and-queues-explicit-pending-set: |-
-    Maintain a visible queue for scalable or interruptible work.
-    [Queue]:
-    - unresolved resources
-    - unclassified patterns
-    - unrendered categories
+    Keep a visible pending queue for interruptible work (unresolved resources, unclassified patterns, unrendered categories).
   ag-dependency-ordering-topological-work-order: |-
-    Order tasks from prerequisites to dependents.
-    [Order]:
-    => Build dependency graph for [Tasks]
-    => Execute ready nodes first
+    Build the task dependency graph; execute ready prerequisites before dependents.
   ag-routing-and-dispatch-capability-based-routing: |-
-    Send work to the tool or reasoning path that satisfies its requirements.
-    [Route]:
-    - Repository reads:
-    => File retrieval
-    - Repository writes:
-    => Create or update operation
-    - Semantic grouping:
-    => Model reasoning
+    Route by capability: file retrieval for reads, create/update for writes, model reasoning for semantic grouping.
   ag-conditional-execution-branch-on-evidence: |-
-    State conditions and actions explicitly.
-    Task:
-    - IF target file exists: update it
-    - ELSE: create it
+    Make evidence and actions explicit: IF the target exists, update it; ELSE create it.
   ag-conditional-dispatch-condition-based-selection: |-
-    Select an operation by mapping conditions directly to their corresponding actions.
-    [Switch]:
-    - Condition 1:
-    => Do thing 1
-    - Condition 2:
-    => Do thing 2
-    - Condition 3:
-    => Do thing 3
-    Use when execution should be routed according to mutually exclusive or otherwise explicitly defined conditions.
-    When selection precedence matters, use an ordered list:
-    [Switch]:
-    1. Condition 1:
-    => Do thing 1
-    2. Condition 2:
-    => Do thing 2
-    3. Condition 3:
-    => Do thing 3
-    When utilizing symbolic references:
+    Map each defined condition directly to its action. Use an unordered list for mutually exclusive or otherwise explicit cases; order it when precedence matters. Bind conditions and actions to symbolic references when useful.
     [Switch]:
     - [Value] is positive:
-    => Run [Positive]
-    - [Value] is neutral:
-    => Output "Value was Neutral"
-    - [Value] is negative:
-    => Run [Negative]
+      => Run [Positive]
   ag-sequential-execution-dependency-sequence: |-
-    Use ordered lists when each step depends on the prior result.
-    Task:
-    1. Resolve [Files]
-    2. Parse [Files] AS [Parsed]
-    3. Classify [Parsed] AS [Derived]
-    4. Render [Derived]
+    Use an ordered list when later steps consume prior results: resolve [Files], parse as [Parsed], classify as [Derived], then render [Derived].
   ag-parallel-execution-independent-work-set: |-
-    Run independent tasks concurrently while isolating their outputs.
-    [Parallel]:
-    - Render contextual-boundary.md
-    - Render transformation.md
-    - Render examination.md
+    Run independent tasks concurrently and isolate their outputs.
   ag-iteration-bounded-refinement-loop: |-
-    Repeat an operation with an explicit bound and progress condition.
-    [Refinement]:
-    => Repeat up to 3 times:
-    => Validate [Draft]
-    => Correct failed assertions only
-    => Stop when all assertions pass
+    Iterate with an explicit bound and progress test: for up to three iterations, validate and fix only failed assertions; stop when all pass.
   ag-retry-and-recovery-bounded-retry: |-
-    Retry only transient or independent failures and preserve completed work.
-    [Recovery]:
-    - Retry a failed write once after refreshing target state
-    - Do not replay successful writes
-    - Record persistent failures
+    Retry only transient or independent failures within a bound (e.g., one write retry after refreshing target state); preserve successes and record persistent failures.
   ag-replay-plans-deterministic-re-execution: |-
-    Record sufficient inputs and ordering to reproduce a workflow.
-    [ReplayPlan]:
-    - Source paths
-    - Category taxonomy
-    - Transformation chain
-    - Output paths
-    - Validation assertions
+    Record source paths, taxonomy, ordered transformations, output paths, and validation assertions for deterministic replay.
   ag-termination-conditions-explicit-stop-contract: |-
-    Define completion and non-progress stopping rules.
-    [Terminate]:
-    - Stop successfully when all postconditions pass
-    - Stop with partial result when no ready work remains
-    - Never loop without changed state
+    Stop successfully when postconditions pass; stop with partial results when no work is ready; never loop on unchanged state.
   ag-maintenance-convergence-minimal-idempotent-update: |-
-    Apply only the changes required to reach the desired state and verify that repeating the same operation produces no additional changes.
-    [Maintenance]:
-    1. Inspect the current artifact
-    2. Identify the smallest required changes
-    3. Preserve valid existing content
-    4. Apply changes deterministically
-    5. Verify the result
-    6. Repeat against the updated result
-    7. Confirm no additional changes are produced
+    Inspect current state, apply the smallest deterministic changes, preserve valid content, and verify. Repeat against the result and confirm no further changes.
   ag-workflow-extension-replaceable-strategy-pipeline: |-
-    Route workflow responsibilities through stable stages whose implementations may be replaced without changing unrelated stages.
-    [Workflow]:
-    1. Apply [DiscoveryStrategy]
-    2. Apply [TransformationStrategy]
-    3. Apply [ValidationStrategy]
-    4. Apply [PublicationStrategy]
+    Route through stable discovery, transformation, validation, and publication stages; replace one strategy without changing unrelated stages.
   ag-composite-pattern-orchestrated-work-graph: |-
-    Turns a broad task into a visible, recoverable execution system rather than an implicit chain of guesses.
-    [Plan]:
-    => Decompose [Goal]
-    => Build dependencies
-    => Dispatch independent ready tasks in parallel
-    => Execute dependent tasks sequentially
-    => Retry bounded transient failures
-    => Validate after each phase
-    => Terminate on [Postconditions] or no-progress condition
+    Split the goal and build dependencies; run independent ready work in parallel and dependent work in order. Bound transient retries, validate each phase, and stop at postconditions or no progress.

@@ -7,52 +7,71 @@ source:
   fingerprint: fnv1a32-38f5cb16
 sections:
   ag-using-multiple-arcgrav-instruction-files: |-
-    Keep the workflow sequence in an entry file. Separate responsibilities and load supporting context at the step that needs it. Reuse shared context without loading files the workflow never uses.
+    Keep the primary sequence in the entry file. Separate responsibilities and load supporting context only at use. Share rules; isolate logic, data, and templates where useful.
   ag-declare-and-bind: |-
-    Declare the child symbol with `Resolves:` and an `Import:` list of existing bindings. The child opens with the identical `Import:` list. Supply only what it needs. Apply imported rules or operations at their point of use; use `Run [Child]` to follow a child’s `Task:` when needed. Pass an existing path binding to both writer and reader, then run the writer first.
+    Declare the child symbol with a relative or absolute file path under Resolves:. Import only needed, already-defined bindings. Mirror the identical Import: list at the top of the child. Run the child symbol to follow its Task:. If the child supplies rules or operations without a Task:, apply them at use. Give writer and reader an existing path binding; run the writer first.
+
+    SKILL.txt:
+
+    [Item]: "mint tea"
+
+    [Report]:
+    1. Resolves: references/report.txt
+    2. Import: [Item]
+
+    Task:
+    1. Run [Report]
+
+    references/report.txt:
+
+    Import:
+    - [Item]
+
+    Task:
+    1. Output [Item]
   ag-shared-instructions-different-imports: |-
-    Share a rule between siblings while giving each child a different input. Resolve both child paths relative to `SKILL.txt` in this example.
+    Share a rule across siblings with different inputs. Resolve both child paths from SKILL.txt.
   ag-multi-file-greet-sign-off-entry: |-
-    Define the line rule once. Bind it with the guest name for the greeting and with the closing phrase for the sign-off.
+    Bind the shared line rule once. Give the greeting the guest name and the sign-off the closing phrase.
   ag-multi-file-greet-sign-off-greet: |-
-    Use the guest name to form a greeting and the shared rule to format its output.
+    Form a greeting from the guest name. Apply the line rule.
   ag-multi-file-greet-sign-off-sign-off: |-
-    Use the closing phrase and the shared rule. The guest name is not imported.
+    Output the closing phrase under the shared line rule. Do not import the guest name.
   ag-multi-file-greet-sign-off-walkthrough: |-
-    Run the greeting and then the sign-off. Each produces one line ending in a period.
+    Run greeting then sign-off. Each outputs one line ending in a period.
   ag-file-backed-rule: |-
-    An imported binding can identify a rules file. Follow it at `Apply` and apply the instructions to local data. Do not run the rules file as a task.
+    Pass a file-backed rule. Follow the path at Apply and use the rule on local child data without running the rules file as a separate task.
   ag-multi-file-shelf-capacity-entry: |-
-    Bind the rules file in the entry file. Pass that binding as the capacity checker’s only import and run the checker.
+    Bind the rules path; pass it as the checker’s only import; Run the checker.
   ag-multi-file-shelf-capacity-check-capacity: |-
-    Define the shelf counts locally. Apply the imported rules to the local shelf and output the decision.
+    Define shelf counts locally. Apply imported rules and report the decision.
   ag-multi-file-shelf-capacity-storage-rules: |-
-    Each incoming box occupies one slot. Allow loading only if at least one slot remains free afterward.
+    Each incoming box uses one slot. Allow loading only if at least one slot remains afterward.
   ag-multi-file-shelf-capacity-walkthrough: |-
-    Match imports at `Run`. Resolve the rules path relative to its declaration in `SKILL.txt` when `Apply` needs it. Reject a load that leaves no free slot.
+    Match imports at Run. Resolve the rules path from SKILL.txt at Apply. Reject a load that leaves no free slot.
   ag-worked-example: |-
-    Separate input data, literal template, and logic. Give the formatting child both bindings; it reads the input file when needed.
+    Separate data, literal template, and logic. Pass both bindings to the formatting child; resolve paths from SKILL.txt.
   ag-multi-file-label-template-entry: |-
-    Bind the input file path and define the literal template in `SKILL.txt`. Pass both to the child and run it.
+    Bind the input path in SKILL.txt, declare the literal template inline, and pass both to the child.
   ag-multi-file-label-template-label-input: |-
-    The input file supplies lowercase name, type, and caffeine values.
+    Supply lowercase name, type, and caffeine values.
   ag-multi-file-label-template-populate-label: |-
-    Title-case the input values, copy the template, fill its three placeholders, and output only the filled copy.
+    Title-case values as [FinalInput]. Copy the template as [FilledLabel], populate the three placeholders, and output only the copy.
   ag-trace-the-expanded-procedure: |-
-    At the parent call, resolve the child and bind the input path and literal template. The child loads the data, transforms a copy of the template, and returns the filled label.
+    Resolve the child at Run, bind input and template, then load data. Group the placeholder mappings under the population operation; return only the filled label.
   ag-sequential-child-calls: |-
-    Sequence child calls around a shared file. Run the writer before either reader, then use both counts to fill a separate report template.
+    Run the writer before either reader; fill a separate report template with both counts. Resolve paths from SKILL.txt.
   ag-multi-file-word-list-entry: |-
-    The writer imports the source and destination. Both readers import only the destination path. The parent runs them in order and outputs the filled report.
+    Writer imports source and destination. Both counters import only the saved path. Parent runs children in order and fills the report.
   ag-multi-file-word-list-words: |-
-    The input file contains comma-separated words.
+    Supply comma-separated words.
   ag-multi-file-word-list-save-list: |-
-    Read the input, split on commas, trim each word, and write one word per line.
+    Parse commas, trim each word, and write one word per line as peer steps.
   ag-multi-file-word-list-count-list: |-
     Count nonempty lines in the saved file.
   ag-multi-file-word-list-count-edible: |-
-    Count saved entries that name foods.
+    Count entries naming foods in the saved file.
   ag-multi-file-word-list-count-template: |-
-    The report template has one placeholder for the total and one for the edible count.
+    Template placeholders: <total> and <edible-total>.
   ag-multi-file-word-list-walkthrough: |-
-    Write the shared file first, read it for both counts, then populate and output only the report. Later steps can reference the child results without requiring aliases.
+    Write once, read for both counts, and output only the populated report. Reference child counts directly; aliases are optional.

@@ -7,85 +7,28 @@ source:
   fingerprint: fnv1a32-047e3f53
 sections:
   ag-constraint-gating: |-
-    Converts policies, rules, permissions, capabilities, preconditions, invariants, postconditions, formatting requirements, etc. into explicit checks that control whether an operation may begin, continue, or complete. It expands and enforces operating contract boundaries.
+    Turn policies, rules, permissions, capabilities, conditions, invariants and format into checks before, during or after execution.
   ag-policies-policy-first-gate: |-
-    Evaluate governing policies before planning an action.
-    [PolicyGate]:
-    => Identify applicable policies
-    => Reject prohibited actions
-    => Preserve the allowed portion of the task
+    [PolicyGate]: Identify governing policies before planning; reject prohibited actions and retain allowed work.
   ag-safety-constraints-safe-execution-envelope: |-
-    Define hazardous boundaries and safer fallback behavior.
-    [Safety]:
-    - Do not expose secrets
-    - Do not perform destructive writes without explicit scope
-    - Redact sensitive evidence in published output
+    [Safety]: Protect secrets, require explicit scope for destructive writes, and redact sensitive published evidence.
   ag-business-rules-domain-rule-gate: |-
-    Express business rules as testable conditions rather than narrative guidance.
-    [Rules]:
-    - A published pattern must belong to exactly one primary category
-    - Every category file must contain at least one pattern
+    [Rules]: Test domain rules. Example: one primary category per published pattern and at least one pattern per category file.
   ag-scope-constraints-target-membership-check: |-
-    Verify every proposed operation is within the declared scope.
-    [ScopeGate]:
-    => Confirm each target is under Guide/Patterns
-    => Reject unrelated paths
+    [ScopeGate]: Check every target against declared scope (e.g. under Guide/Patterns); reject unrelated paths.
   ag-capability-checks-tool-capability-gate: |-
-    Confirm that required read, write, and validation capabilities actually exist.
-    [CapabilityGate]:
-    - Can read current files
-    - Can create or update Markdown files
-    - Can verify resulting content
+    [CapabilityGate]: Confirm tools can read inputs, create/update Markdown and verify results.
   ag-preconditions-entry-contract: |-
-    List conditions that must be true before execution.
-    [Preconditions]:
-    - Categories are defined
-    - Source material is available
-    - Target directory resolves
+    [Preconditions]: State what must hold before execution. Example: categories defined, sources available, target directory resolvable.
   ag-invariants-must-remain-true-contract: |-
-    Declare properties that must hold throughout the workflow.
-    [Invariants]:
-    - Source files remain unchanged
-    - Category names remain canonical
-    - No git history is used as source material
+    [Invariants]: State what must remain true. Example: preserve sources and canonical category names, and exclude Git history.
   ag-execution-guards-guarded-mutation: |-
-    Place checks immediately before a side effect.
-    Task:
-    1. Confirm target path and current existence
-    2. Select create or update operation
-    3. Write complete content
-    4. Verify the result
+    Immediately before mutation, check target path and existence, choose create/update, write complete content and verify.
   ag-formatting-constraints-render-gate: |-
-    Validate output-specific requirements separately from semantic correctness.
-    [FormatGate]:
-    - Markdown parses cleanly
-    - One H1 per file
-    - Code fences are balanced
-    - Links are repository-relative
+    [FormatGate]: Verify the declared output format independently. Example: valid Markdown, one H1, balanced fences, and repository-relative links.
   ag-postconditions-exit-contract: |-
-    Define the state required after completion.
-    [Postconditions]:
-    - Ten category files exist
-    - Each file is populated
-    - The index links every category file
+    [Postconditions]: Define the state required after execution.
   ag-failure-handling-bounded-failure-path: |-
-    Specify how to fail without corrupting state or hiding partial completion.
-    [Failure]:
-    - Stop writes to the failing path
-    - Preserve completed files
-    - Record the exact unmet condition
-    - Continue independent work when safe
+    [Failure]: Stop writes to the failing path; preserve completed files, record the exact unmet condition, and continue independent work if safe.
   ag-composite-pattern-guarded-execution-contract: |-
-    Turns constraints into executable decision points instead of passive reminders.
-    [Gate]:
-    => Validate [Policies]
-    => Validate [Preconditions]
-    => Check [Capabilities]
-    => Assert [Invariants]
-    [ExitGate]:
-    => Validate [Postconditions]
-    => Validate [FormatGate]
-    => Apply [Failure] on any failed assertion
-    Task:
-    1. Execute only when [Gate] passes
-    2. Run [ExitGate]
+    [Gate]: Validate policies and preconditions, check capabilities, and assert invariants. Execute only if [Gate] passes. Run [ExitGate] after execution to check postconditions and format. Apply [Failure] on any failed assertion in [ExitGate].
