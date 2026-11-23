@@ -7,24 +7,24 @@ source:
   fingerprint: fnv1a32-ed0606c1
 sections:
   ag-arcgrav-design-pattern-catalogue: |-
-    This directory organizes reusable ArcGrav design patterns by their operational responsibility.
+    Reusable ArcGrav patterns organized by operational responsibility.
   ag-contextual-boundary: |-
-    > Defines the task’s scope, objectives, assumptions, success criteria, audience, governing instructions, etc. within clear boundaries.
+    Set scope, objectives, assumptions, success criteria, audience, and governing instructions.
   ag-resource-discovery: |-
-    > Identifies and retrieves the files, tools, history, memory, URLs, and external sources needed to complete the task using verified information.
+    Identify and retrieve verified files, tools, history, memory, URLs, and external sources.
   ag-representation-shaping: |-
-    > Organizes information into stable schemas, models, templates, and views that support reliable reasoning, reuse, validation, publication, etc.
+    Shape stable schemas, models, templates, and views for reasoning, reuse, validation, and publication.
   ag-state-management: |-
-    > Tracks changing context, working variables, dependencies, checkpoints, cleanup requirements, etc. throughout a multi-step workflow.
+    Track changing context, variables, dependencies, checkpoints, and cleanup across steps.
   ag-constraint-gating: |-
-    > Turns policies, safety requirements, business rules, execution conditions, etc. into explicit checks that determine whether an operation may proceed.
+    Check policies, safety, business rules, and execution conditions before allowing operations.
   ag-transformation: |-
-    > Converts source material into structured information or candidate outputs through operations such as parsing, extraction, classification, analysis, synthesis, planning, etc.
+    Parse, extract, classify, analyze, synthesize, or plan from source material.
   ag-context-integration: |-
-    > Combines retrieved, remembered, derived, tool-produced information, etc. into a coherent context while preserving sources, dependencies, and unresolved conflicts.
+    Combine retrieved, remembered, derived, and tool-produced context; retain sources, dependencies, and unresolved conflicts.
   ag-examination: |-
-    > Inspects and validates evidence, structures, outputs, etc. against defined criteria to determine their correctness, completeness, quality, and acceptability.
+    Check evidence, structures, and outputs against defined criteria for correctness, completeness, quality, and acceptability.
   ag-process-orchestration: |-
-    > Coordinates task decomposition, routing, sequencing, parallel work, iteration, recovery, termination, etc. across complex workflows.
+    Decompose, route, sequence, parallelize, iterate, recover, and terminate work.
   ag-resolution: |-
-    > Resolves supported conflicts, preserves meaningful uncertainty, records provenance & decisions, verifies completeness, and produces a defensible final result.
+    Resolve supported conflicts, preserve uncertainty, record decisions and provenance, verify closure, and produce a defensible result.

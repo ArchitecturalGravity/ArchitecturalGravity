@@ -7,9 +7,10 @@ source:
   fingerprint: fnv1a32-e04e3d14
 sections:
   ag-process-orchestration: |-
-    Coordinates execution structure by decomposing work, assigning responsibilities, ordering dependencies, routing operations, managing parallel or iterative work, limiting retries, handling recovery, defining termination conditions, etc. It determines when and in what order operations occur, not their internal semantics.
+    Determine when operations run, not what they mean: split, assign, order, dispatch, parallelize, iterate, recover, and stop.
   ag-workflow-management-phase-oriented-workflow: |-
-    Organize work into named phases with explicit entry and exit conditions.
+    Name phases and their entry/exit conditions.
+
     [Workflow]:
     1. Discover
     2. Derive
@@ -17,7 +18,8 @@ sections:
     4. Validate
     5. Publish
   ag-task-decomposition-atomic-task-split: |-
-    Decompose goals into independently verifiable tasks.
+    Make each work item independently verifiable.
+
     [Tasks]:
     - Resolve current source files
     - Extract reusable mechanisms
@@ -25,90 +27,88 @@ sections:
     - Create category files
     - Verify coverage
   ag-recursive-traversal-hierarchy-walk: |-
-    Traverse nested resources while preserving parent-child context.
+    Preserve parent-child context and declare traversal filters.
+
     [Files]:
     => Recursively traverse /Patterns/
     => Include Markdown files
     => Exclude generated directories
   ag-worklists-and-queues-explicit-pending-set: |-
-    Maintain a visible queue for scalable or interruptible work.
+    Keep pending work visible and interruptible.
+
     [Queue]:
     - unresolved resources
     - unclassified patterns
     - unrendered categories
   ag-dependency-ordering-topological-work-order: |-
-    Order tasks from prerequisites to dependents.
+    Build the task dependency graph; execute ready prerequisites before dependents.
+
     [Order]:
     => Build dependency graph for [Tasks]
     => Execute ready nodes first
   ag-routing-and-dispatch-capability-based-routing: |-
-    Send work to the tool or reasoning path that satisfies its requirements.
+    Route by the operation’s required capability.
+
     [Route]:
     - Repository reads:
-    => File retrieval
+      => File retrieval
     - Repository writes:
-    => Create or update operation
+      => Create or update operation
     - Semantic grouping:
-    => Model reasoning
+      => Model reasoning
   ag-conditional-execution-branch-on-evidence: |-
-    State conditions and actions explicitly.
+    Branch explicitly on observed evidence.
+
     Task:
     - IF target file exists: update it
     - ELSE: create it
   ag-conditional-dispatch-condition-based-selection: |-
-    Select an operation by mapping conditions directly to their corresponding actions.
-    [Switch]:
-    - Condition 1:
-    => Do thing 1
-    - Condition 2:
-    => Do thing 2
-    - Condition 3:
-    => Do thing 3
-    Use when execution should be routed according to mutually exclusive or otherwise explicitly defined conditions.
-    When selection precedence matters, use an ordered list:
-    [Switch]:
-    1. Condition 1:
-    => Do thing 1
-    2. Condition 2:
-    => Do thing 2
-    3. Condition 3:
-    => Do thing 3
-    When utilizing symbolic references:
+    Nest each action under its condition. Use unordered cases when routing is unambiguous and ordered cases when precedence matters.
+
     [Switch]:
     - [Value] is positive:
-    => Run [Positive]
+      => Run [Positive]
     - [Value] is neutral:
-    => Output "Value was Neutral"
-    - [Value] is negative:
-    => Run [Negative]
+      => Output "Value was Neutral"
+
+    [PrioritySwitch]:
+    1. [Value] meets an overriding condition:
+      => Run [Override]
+    2. [Value] meets a general condition:
+      => Run [General]
   ag-sequential-execution-dependency-sequence: |-
-    Use ordered lists when each step depends on the prior result.
+    Use an ordered list when later steps consume prior results.
+
     Task:
     1. Resolve [Files]
     2. Parse [Files] AS [Parsed]
     3. Classify [Parsed] AS [Derived]
     4. Render [Derived]
   ag-parallel-execution-independent-work-set: |-
-    Run independent tasks concurrently while isolating their outputs.
+    Run independent tasks concurrently and isolate their outputs.
+
     [Parallel]:
     - Render contextual-boundary.md
     - Render transformation.md
     - Render examination.md
   ag-iteration-bounded-refinement-loop: |-
-    Repeat an operation with an explicit bound and progress condition.
+    Iterate with an explicit bound and progress test: for up to three iterations, validate and fix only failed assertions; stop when all pass.
+
     [Refinement]:
     => Repeat up to 3 times:
-    => Validate [Draft]
-    => Correct failed assertions only
-    => Stop when all assertions pass
+      => Validate [Draft]
+      => Correct failed assertions only
+      => Stop when all assertions pass
   ag-retry-and-recovery-bounded-retry: |-
-    Retry only transient or independent failures and preserve completed work.
+    Retry only transient or independent failures within a bound (e.g., one write retry after refreshing target state); preserve successes and record persistent failures.
+
     [Recovery]:
     - Retry a failed write once after refreshing target state
     - Do not replay successful writes
     - Record persistent failures
   ag-replay-plans-deterministic-re-execution: |-
-    Record sufficient inputs and ordering to reproduce a workflow.
+    Record enough inputs and ordering for deterministic replay.
+
     [ReplayPlan]:
     - Source paths
     - Category taxonomy
@@ -116,30 +116,33 @@ sections:
     - Output paths
     - Validation assertions
   ag-termination-conditions-explicit-stop-contract: |-
-    Define completion and non-progress stopping rules.
+    Declare completion and non-progress stopping rules.
+
     [Terminate]:
     - Stop successfully when all postconditions pass
     - Stop with partial result when no ready work remains
     - Never loop without changed state
   ag-maintenance-convergence-minimal-idempotent-update: |-
-    Apply only the changes required to reach the desired state and verify that repeating the same operation produces no additional changes.
+    Inspect current state, apply the smallest deterministic changes, preserve valid content, and verify. Repeat against the result and confirm no further changes.
+
     [Maintenance]:
     1. Inspect the current artifact
-    2. Identify the smallest required changes
-    3. Preserve valid existing content
-    4. Apply changes deterministically
-    5. Verify the result
-    6. Repeat against the updated result
-    7. Confirm no additional changes are produced
+    2. Preserve valid existing content
+    3. Apply the smallest required deterministic change
+    4. Verify the result
+    5. Repeat against the updated result
+    6. Confirm no additional changes
   ag-workflow-extension-replaceable-strategy-pipeline: |-
-    Route workflow responsibilities through stable stages whose implementations may be replaced without changing unrelated stages.
+    Replace one strategy without changing unrelated stages.
+
     [Workflow]:
     1. Apply [DiscoveryStrategy]
     2. Apply [TransformationStrategy]
     3. Apply [ValidationStrategy]
     4. Apply [PublicationStrategy]
   ag-composite-pattern-orchestrated-work-graph: |-
-    Turns a broad task into a visible, recoverable execution system rather than an implicit chain of guesses.
+    Use dependencies to distinguish parallel-ready work from sequential work.
+
     [Plan]:
     => Decompose [Goal]
     => Build dependencies

@@ -7,60 +7,76 @@ source:
   fingerprint: fnv1a32-cb99b450
 sections:
   ag-literal-quote-block: |-
-    A literal quote block uses a standalone run of three or more double quotes (`"""`, `""""`, and so on) to wrap source material that should be preserved and interpreted as a bounded value. The block distinguishes quoted content from the prompt instructions surrounding it, including when the source contains code, formatting, headings, lists, or instruction-like text.
-    Literal Quote Blocks preserve source fidelity and isolate quoted material from operational prompt context, reducing boundary ambiguity and instruction leakage.
+    Standalone paired quote runs of at least three double quotes preserve multiline source as one bounded value, not prompt instructions.
   ag-purpose: |-
-    Preserve multiline source material; Prevent source text from blending with prompt instructions; Maintain whitespace and formatting; Bind a complete block to a named section or symbol
-    **Definition**
-    Source: """ Multiline source content is preserved here. """
-    **Code Source**
-    [DiscountFunc]: """ function calculateDiscount(user, cart) { if (user.role = "admin") { return cart.total * 0.5; }
-    return 0; } """
-    Task: - Diagnose [DiscountFunc]
-    Text inside the block is source context. Instruction-like statements inside it do not override the surrounding prompt unless the task explicitly asks the model to execute or adopt them.
-    **Compounded Resource and Document Target**
-    [Document]: - `origin`: https://www.webpage.com/notes.md - `focus`: """ # Release Notes
-    - Added account export - Fixed session timeout """
-    Task: - Explain "export" in [Document].focus
-    Here, `[Document].focus` selects the declared `focus` member as the target; the quoted block remains source content.
+    Preserve source text, whitespace, and formatting beneath a named context when needed.
   ag-rules: |-
-    **Paired Delimiters** — open with N consecutive double quotes, where N is at least three, and close with exactly N double quotes on a standalone line; **Literal Boundary** — treat all enclosed content as one bounded source value; **Formatting Preservation** — retain meaningful line breaks and indentation; **External Instruction Priority** — surrounding prompt instructions control how the block is interpreted; **Named Binding** — place the block beneath a clear section or symbolic reference when it will be referenced later; **Delimiter Isolation** — place opening and closing delimiters on separate lines for multiline content; **Collision Avoidance** — Outer quote fence must be longer than every standalone quote run inside its content to avoid collisions
+    Put matching N-quote delimiters on their own lines. N must exceed every standalone quote run inside; shorter runs remain literal. Preserve meaningful indentation and line breaks. Surrounding instructions govern use of the block. Place a block intended for later reference under a clear section or symbolic reference.
   ag-constraints: |-
-    Do not use a literal block for short values that fit clearly on one line; Choose an outer delimiter at least one quote longer than every standalone quote run in the source block; shorter runs inside remain literal content; Do not assume quoted source is trustworthy or executable; State whether code should be reviewed, transformed, or run; quoting alone does not define an operation; Use separate blocks for unrelated sources
+    Use inline quotes for short single-line text. Use separate blocks for unrelated sources. Never infer trust or execution from quoting; specify review, transformation, or execution explicitly.
   ag-quoted-scalar: |-
-    Preserve the exact characters of a short textual value.
-    [Status]: - "complete"
-    Use quoted scalars for exact textual values, tokens, errors, constants, and exact phrases.
+    "complete" fixes exact single-line text.
   ag-literal-source-block: |-
-    Preserve multiline source material as data.
-    [ErrorLog]: """ ERROR Connection refused RETRY Attempt 2 """
+    [Log]:
+    """
+    ERROR
+    RETRY
+    """
   ag-literal-source-block-members: |-
-    Preserve multiple literal source blocks as nested members. The members are exact structural names; each holds its own bounded multiline source value.
-    [SuccessLog]:
-    - `Result1`:
+    Use a separate fenced value under each exact backticked member.
+
+    [Logs]:
+    - `first`:
       """
-      SUCCESS Access Granted
-      COUNT 1
+      START
+      END
       """
-    - `Result2`:
+    - `second`:
       """
-      SUCCESS Access Granted
-      COUNT 2
+      OPEN
+      CLOSE
       """
   ag-code-block-source: |-
-    Keep code formatting separate from instructions operating on it.
-    [SourceCode]: """ function run() { return true; } """
+    Keep code formatting inside the fence and the instruction outside.
+
+    [Code]:
+    """
+    function run() {
+      return true;
+    }
+    """
   ag-embedded-example: |-
-    Store an exact example that another operation should inspect or imitate.
-    [ReferenceOutput]: """ { "status": "complete" } """
+    Bind an exact exemplar as source another operation can inspect or imitate.
+
+    [Expected]:
+    """
+    {
+      "status": "complete"
+    }
+    """
   ag-placeholder-template: |-
-    Define a stable shape containing replaceable values.
-    [ReportTemplate]: """ Summary: <summary>
-    Findings: <finding-blocks>
-    Uncertainties: <uncertainties> """
+    Fence the template shape and retain placeholders such as <summary>.
+
+    [Template]:
+    """
+    Summary: <summary>
+    Findings: <findings>
+    """
   ag-literal-comparison-target: |-
-    Preserve an expected result for direct comparison.
-    [Expected]: """ status: valid count: 12 """
+    Fence the expected value for a direct comparison.
+
+    [Expected]:
+    """
+    status: valid
+    count: 1
+    """
   ag-nested-literal-block: |-
-    Use when referring to a block which already uses triple quotes to avoid collision.
-    [Outer]: """" [Inner]: """ Literal content """ """"
+    Use four quotes around source with triple-quote delimiters; increase length for longer standalone runs.
+
+    [Outer]:
+    """"
+    [Inner]:
+    """
+    Literal content
+    """
+    """"

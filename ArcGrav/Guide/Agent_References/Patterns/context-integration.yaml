@@ -7,106 +7,100 @@ source:
   fingerprint: fnv1a32-1aff9cfd
 sections:
   ag-context-integration: |-
-    Combines independently retrieved, remembered, derived, tool-produced context, etc. into a coherent whole while preserving source identity, qualifications, dependencies, provenance, and unresolved conflicts. It establishes relationships among context units rather than independently transforming or judging them.
+    Relate context units rather than independently transforming or judging them. Preserve source identity, qualifications, dependencies, provenance, and unresolved conflicts.
   ag-component-responsibility-single-responsibility-context-unit: |-
-    Give each reusable context component one dominant responsibility so retrieval, transformation, validation, rendering, mutation, and publication remain independently replaceable.
+    Give each reusable unit one dominant responsibility. Keep retrieval, transformation, validation, rendering, mutation, and publication replaceable; split when contracts or reasons for change differ.
+
     [DiscoverPatterns]:
     - Retrieve pattern source material
+
     [ClassifyPatterns]:
     - Assign patterns to categories
-    [ResolvePatterns]:
-    - Resolve conflicts and uncertainty
-    [RenderPatterns]:
-    - Produce category documents
-    [ValidatePatterns]:
-    - Verify structure, coverage, and semantics
-    **Rule:** split a component when its parts change for different reasons or require different contracts.
   ag-dependency-contracts-explicit-context-interface: |-
-    Declare the symbolic context a reusable component requires and the context it produces before integrating it into a workflow.
+    Declare a component’s required inputs and provided outputs before binding it to a workflow.
+
     [PatternAuditor]:
     - Requires:
-    - [PatternSchema]
-    - [AcceptanceRules]
+      - [PatternSchema]
     - Provides:
-    - [Findings]
-    - [CoverageResult]
+      - [Findings]
+
     [Integrated]:
     => Bind [PatternAuditor] dependencies from [ContextPack]
   ag-memory-reconciliation-current-fact-reconciliation: |-
-    Compare remembered facts with current authoritative sources before use.
+    Reconcile [SessionFacts] against current authoritative sources; replace stale facts and preserve unresolved conflicts.
+
     [ReconciledMemory]:
     => Compare [SessionFacts] with [CurrentSources]
     => Replace stale facts
     => Preserve unresolved conflicts
   ag-retrieval-fusion-evidence-fusion: |-
-    Merge overlapping retrieval results by claim while retaining every supporting source.
+    Group retrieved passages by supported claim; deduplicate equivalents but keep all supporting sources.
+
     [FusedEvidence]:
     => Group [RetrievedPassages] by supported claim
     => Deduplicate equivalent passages
     => Retain source references
   ag-tool-result-integration-typed-tool-result-merge: |-
-    Normalize tool outputs before adding them to the reasoning context.
+    Normalize paths, identifiers, status, and content from [ToolResults]; separate errors from successful observations.
+
     [ToolFacts]:
     => Normalize paths, identifiers, status, and content from [ToolResults]
     => Separate errors from successful observations
   ag-representation-composition-compatible-model-composition: |-
-    Compose representations only after mapping compatible fields and identifiers.
+    Map compatible fields and identifiers before joining models (e.g., by `categoryId`); retain unmatched records for examination.
+
     [ComposedModel]:
     => Join [Patterns] with [Categories] on `categoryId`
     => Preserve unmatched records for examination
   ag-intermediate-result-merging-deterministic-merge: |-
-    Merge partial results with explicit rules for duplicates and conflicts.
+    Union partial results under explicit duplicate/conflict rules: deduplicate by canonical name and route incompatible definitions to [Conflicts].
+
     [Merged]:
     => Union [PartialA] and [PartialB]
     => Deduplicate by canonical name
     => Route conflicting definitions to [Conflicts]
   ag-context-stitching-boundary-preserving-stitch: |-
-    Connect fragments without erasing their source boundaries or scope.
+    Order fragments by topic and add transitions without crossing scope boundaries; keep source-specific qualifications attached to claims.
+
     [Stitched]:
     => Order fragments by topic
     => Add transitions
     => Keep source-specific qualifiers attached to claims
   ag-knowledge-consolidation-reusable-knowledge-set: |-
-    Convert repeated observations into concise, stable abstractions.
+    Consolidate recurring mechanisms in [Evidence] into one stable, reusable abstraction per mechanism.
+
     [Consolidated]:
     => Combine recurring mechanisms across [Evidence]
     => Express each as one reusable pattern
   ag-context-assembly-ordered-context-pack: |-
     Assemble context in dependency order: boundaries, source facts, derived state, then task instructions.
+
     [ContextPack]:
     - [Boundary]
     - [ResolvedResources]
     - [CurrentState]
     - [TaskContract]
   ag-dependency-resolution-dependency-binding: |-
-    Resolve symbolic or procedural dependencies before executing downstream steps.
+    Resolve symbolic or procedural dependencies before downstream execution.
+
     [ReadyWork]:
     => Select items whose dependencies are present in [ContextPack]
   ag-extensible-composition-open-closed-context-set: |-
-    Extend compatible context components through composition without modifying the established set consumed elsewhere.
-    Modification:
-    [Validators]:
-    - [SchemaValidator]
-    - [ReferenceValidator]
-    - [SemanticValidator]
-    [ExpandValidators]:
-    => Append [FreshnessValidator] to [Validators]
-    Extension:
-    [Validators]:
-    - [SchemaValidator]
-    - [ReferenceValidator]
-    - [SemanticValidator]
+    Compose [ExpandedValidators] from [Validators] + [FreshnessValidator] rather than mutating [Validators]. Preserve the original set and the consumer's dependency, behavior, and output contracts.
+
     [ExpandedValidators]:
     - [Validators]
     - [FreshnessValidator]
-    Invariant: extensions preserve the original context set and conform to the dependency, behavior, and output contract expected by the consumer.
   ag-output-composition-section-aware-composition: |-
-    Compose the final artifact from validated components rather than free-form regeneration.
+    Build by section from validated components; do not regenerate free-form.
+
     [Output]:
     => Compose title, category intent, pattern entries, examples, and cautions
     => Render only validated components
   ag-composite-pattern-integration-pipeline: |-
-    Prevents source loss, accidental contradiction, and context fragmentation during multi-source work.
+    Integrate independent results without losing sources or hiding contradictions.
+
     [Integrated]:
     => Reconcile [Memory] with [CurrentSources]
     => Fuse [RetrievedEvidence]
@@ -114,5 +108,6 @@ sections:
     => Resolve dependencies
     => Merge intermediate results
     => Consolidate reusable knowledge
+
     [Output]:
     => Compose [Integrated] using [OutputSchema]

@@ -7,123 +7,137 @@ source:
   fingerprint: fnv1a32-745f0b8c
 sections:
   ag-representation-shaping: |-
-    Defines how information is encoded, organized, compressed, structured, rendered, etc. for reliable use by the model or consumer. It includes schemas, canonical models, intermediate representations, templates, views, serialization, ordering, formatting, etc. while preserving declared semantic invariants.
+    Encode, organize, compress, and render meaning in schemas, models, intermediate artifacts, views, and serialized outputs without breaking declared invariants.
   ag-schemas-explicit-shape-contract: |-
-    Define required fields, types, optionality, and allowed values before producing records.
+    Before producing records, declare required fields, types, optionality, and allowed values (e.g., `category` enum; `confidence` float from 0 to 1).
+
     [ResultSchema]:
     - `name`: string
     - `category`: enum
     - `evidence`: list
     - `confidence`: float from 0 to 1
   ag-structural-identifiers-exact-name-representation: |-
-    Render an exact variable, property, field, key, schema member, model member, column, parameter, or equivalent structural name with backticks wherever that identifier appears as context.
-    Use the same representation when the identifier is declared, referenced, projected, compared, transformed, or mutated.
+    Backtick exact members in declarations, references, projections, comparisons, transformations, and mutations; use double quotes for text. This is a convention, not an operator.
+
     [RecordSchema]:
-    - `accountId`: string
     - `status`: string
+
     Task:
-    => Group [Records] by `accountId`
     => Set `status` to "complete"
-    When a name identifies an exact member of an external or modeled structure, preserve it with backticks everywhere it appears as that identifier. Backticks identify structure; double quotes identify text.
-    This is a representation convention, not an ArcGrav operator or syntax primitive. A stable representation preserves the identifier's semantic identity across declarations and later operations.
   ag-data-modeling-relationship-first-model: |-
-    Represent entities and their relationships explicitly when flat lists hide dependencies.
+    Model entities and relationships whenever lists hide dependencies: a pattern belongs to a category, may reference another pattern, and is supported by evidence.
+
     [Model]:
     - Pattern belongs to Category
     - Pattern may reference Pattern
     - Evidence supports Pattern
   ag-canonical-models-one-authoritative-representation: |-
-    Normalize equivalent inputs into a single model used by later stages.
+    Normalize equivalent inputs into one authoritative record for downstream use. Selected fields:
+
     [CanonicalPattern]:
     - `name`
     - `intent`
-    - `inputs`
-    - `procedure`
     - `invariants`
-    - `mechanics`
-    - `example`
-    - `cautions`
-    - `outputs`
-    - `failureModes`
   ag-scoped-inheritance-broad-to-narrow-context-model: |-
-    Represent general and specialized context through explicit parent-child inheritance while placing each rule at the narrowest scope where it remains fully valid.
+    Model explicit parent-child inheritance; put each rule at the narrowest scope where fully valid (repository validation, app integration tests, endpoint response shape).
+
     [RepositoryContext]:
     - All changes require validation
+
     [ApplicationContext]:
     - [RepositoryContext]
     - Application changes require integration tests
-    [EndpointContext]:
-    - [ApplicationContext]
-    - Endpoint changes must preserve response shape
   ag-canonical-referencing-reference-over-embedded-copy: |-
-    Reference an authoritative policy, schema, model, operation, or instruction set instead of maintaining a partial duplicate in local context.
+    Reference authoritative policies, schemas, models, operations, or instructions; add only local rules rather than duplicating part of the authority.
+
     [SecurityPolicy]:
     - policies/security.md
+
     [FeatureContext]:
     1. [SecurityPolicy]
     2. Feature-specific constraints only
   ag-context-composition-composite-context-interface: |-
-    Expose a coherent collection of related policies, models, constraints, or operations through one stable higher-level anchor.
+    Expose related context through one stable higher-level anchor.
+
     [PublicationStandard]:
     - [PatternSchema]
     - [FormattingRules]
     - [ValidationRules]
     - [ProvenanceRules]
+
     Task:
     - Apply [PublicationStandard]
   ag-intermediate-representations-staged-reasoning-artifact: |-
-    Create a temporary representation between raw input and final output.
+    Stage reasoning with temporary representations: parse [RawText] into one record per semantic unit, then group parsed items by `category`.
+
     [ParsedItems]:
     => Parse [RawText]
     => Emit one record per semantic unit
+
     [GroupedItems]:
     => Group [ParsedItems] by `category`
   ag-model-variants-purpose-specific-variant: |-
-    Derive variants from a canonical model rather than maintaining independent copies.
+    Project variants from the canonical model; do not maintain separate copies.
+
     [CompactView]:
     => Project `name`, `intent`, and `invariants` from [CanonicalPattern]
   ag-derived-views-reversible-projection: |-
-    Produce filtered or aggregated views while retaining a reference to the canonical source.
+    Filter, aggregate, or sort without losing the link to the canonical source.
+
     [CategoryIndex]:
     => Group [CanonicalPatterns] by `category`
     => Sort each group by `name`
   ag-output-shaping-consumer-driven-projection: |-
-    Select the minimum fields required by the audience.
+    Project only what the audience needs.
+
     [PublishedView]:
     => Project [CanonicalPatterns] for guide readers
     => Include `intent`, `mechanics`, `example`, and `cautions`
     => Exclude extraction notes
   ag-templating-stable-document-template: |-
-    Use a templated structure to make a document's output consistent.
+    Keep template structure literal; retain placeholders for caller-supplied content.
+
     [Template]:
     """
     # <category name>
+
     ## <pattern name>
+
     **Intent:** <intent context>
+
     **Use when:** <usage conditions>
+
+    ```text
     <example usage>
+    ```
+
     # Invariant:
     [InvariantCondition]
     """
   ag-formatting-and-rendering-render-last: |-
-    Apply layout only after semantic content is complete.
+    Complete semantic content before rendering; apply output layout then (e.g., Markdown, one H1, fenced prompt notation).
+
     [Rendered]:
     => Render [PublishedView] as Markdown
     => Use one H1 per file
     => Use fenced blocks for prompt notation
   ag-serialization-declared-encoding: |-
-    Specify serialization rules when output will be consumed by tools or stored as data.
+    Declare these rules for stored or tool-consumed output.
+
     [Serialization]:
     - UTF-8
     - Markdown
     - LF line endings
     - Repository-relative links
   ag-composite-pattern-canonicalize-project-render: |-
-    Separates meaning from presentation, reducing drift between files and making alternate views cheap to generate.
+    Normalize [Source] to [Schema], derive the audience view, then render using [Template] and serialize by [Serialization]; keep meaning independent of presentation.
+
     [Canonical]:
     => Normalize [Source] into [Schema]
+
     [View]:
     => Derive reader-facing fields from [Canonical]
+
     [Output]:
     => Render [View] using [Template]
     => Serialize by [Serialization]

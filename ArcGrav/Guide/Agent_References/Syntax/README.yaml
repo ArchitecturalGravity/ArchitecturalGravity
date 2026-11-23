@@ -7,24 +7,24 @@ source:
   fingerprint: fnv1a32-44539886
 sections:
   ag-arcgrav-syntax-reference: |-
-    This directory documents the core ArcGrav syntax used to structure, reference, and operate on context.
+    ArcGrav syntax reference for structuring, referencing, and operating on context.
   ag-sectioning: |-
-    > Uses `Key:` headers to organize related information into explicitly scoped context sections.
+    [Sectioning](./Sectioning.yaml): `Key:` scopes context by role.
   ag-listing: |-
-    > Uses line prefixes to represent unordered values, ordered steps, and prioritized items.
+    [Listing](./Listing.yaml): `-` marks membership, `1.` sequence, and `P0.` precedence.
   ag-grouping: |-
-    > Uses indentation to establish parent-child hierarchy, nested scope, and contextual relationships.
+    [Grouping](./Grouping.yaml): Indentation binds children to parents.
   ag-symbolic-referencing: |-
-    > Uses bracket-wrapped identifiers such as `[Target]` to define and reuse explicitly anchored context.
+    [Symbolic Referencing](./Symbolic_Referencing.yaml): `[Target]:` declares an anchor; `[Target]` reuses it.
   ag-context-operation: |-
-    > Uses `=>` to define an operation that transforms context rather than adding another context item.
+    [Context Operation](./Context_Operation.yaml): `=>` directs an operation rather than listing context.
   ag-inline-representation: |-
-    > Local interpretive forcing: bare content remains contextually interpreted, backticks identify exact structural names, and double quotes identify exact textual values.
+    [Inline Representation](./Inline_Representation.yaml): Bare content is interpreted; backticks fix structural names; double quotes fix text.
   ag-literal-quote-block: |-
-    > Uses triple double quotes (`"""`) to preserve multiline source material as a bounded literal value.
+    [Literal Quote Block](./Literal_Quote_Block.yaml): Standalone runs of at least three double quotes bound literal source.
   ag-explicit-block-binding: |-
-    > Uses `↳` to bind an indented block to a complete preceding expression when ordinary `:` scope would be ambiguous.
+    [Explicit Block Binding](./Block_Binding.yaml): Trailing ` ↳` binds children to the entire expression when `:` would be ambiguous.
   ag-inline-aliasing: |-
-    > Uses `AS` to assign the immediate prior context to a reusable symbolic reference.
+    [Inline Aliasing](./Inline_Aliasing.yaml): `AS [Alias]` names the immediately preceding context.
   ag-wildcarding: |-
-    > Uses `*` to represent matching values across filenames, paths, patterns, or context sets.
+    [Wildcarding](./Wildcarding.yaml): `*` selects matches within the stated scope.
