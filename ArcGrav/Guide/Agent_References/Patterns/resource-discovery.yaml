@@ -7,30 +7,131 @@ source:
   fingerprint: fnv1a32-3514d36c
 sections:
   ag-resource-discovery: |-
-    Identify, resolve, retrieve, and prioritize relevant supplied context, history, memory, files, tools, URLs, registries, and external evidence without interpreting or transforming it.
+    Find and prioritize relevant context, history, memory, files, tools, URLs, registries, and external evidence. Do not interpret or transform it.
   ag-tool-discovery-capability-enumeration: |-
-    Inspect actual read/write tools, required inputs, and limitations before choosing a path; never assume a helpful capability exists.
+    Verify available tools, required inputs, and limits before choosing a path.
+
+    Example:
+      [Capabilities]:
+      => Discover tools for repository reading and writing
+      => Record required inputs and write limitations
   ag-external-knowledge-sources-declared-source-set: |-
-    Declare approved sources and their roles: official docs for API behavior, repository files for local conventions, user-provided text for requirements.
+    Name approved sources and assign each a role.
+
+    Example:
+      [Sources]:
+      - Official documentation for current API behavior
+      - Repository files for local conventions
+      - User-provided text for requirements
   ag-conversation-history-relevant-turn-retrieval: |-
-    Retrieve only prior turns with applicable constraints, decisions, open questions, or reusable artifacts; exclude superseded proposals.
+    Retrieve prior constraints, decisions, open questions, and reusable artifacts. Skip superseded proposals.
+
+    Example:
+      [History]:
+      => Retrieve prior decisions about authentication behavior
+      => Exclude superseded proposals
   ag-working-memory-named-active-context: |-
-    Name active facts in a compact [WorkingSet]: current constraints, inspected files, open validation failures.
+    Name active facts: current constraints, inspected files, and open validation failures.
+
+    Example:
+      [WorkingSet]:
+      - Current task constraints
+      - Open validation failures
   ag-session-memory-session-scoped-fact-set: |-
-    Retain facts valid across session steps (branch, format, exclusions) without promoting them to permanent assumptions.
+    Keep session facts separate from permanent assumptions.
+
+    Example:
+      [SessionFacts]:
+      - Target branch is main
+      - Output format is Markdown
   ag-file-and-directory-resolution-resolve-before-read: |-
     Resolve ambiguous file references to canonical repository-relative paths before reading; honor filters such as excluding generated and vendored files.
+
+    Example:
+      [Patterns]:
+      - /Guide/Patterns/
+
+      [Files]:
+      => Resolve all Markdown files under [Patterns]
+      => Exclude generated and vendored directories
   ag-url-resolution-url-to-resource-mapping: |-
-    Classify a URL before fetching (file, directory, issue, document, registry entry); resolve identifiers such as repository, branch, and path.
+    Classify the URL (file, directory, issue, document, registry entry) and resolve identifiers before fetching.
+
+    Example:
+      [TargetURL]:
+      - https://example.test/repo/tree/main/Patterns
+
+      [ResolvedTarget]:
+      => Classify [TargetURL]
+      => Resolve:
+        - Repository
+        - Branch
+        - Directory path
   ag-resource-registries-registry-lookup: |-
     Use a named registry to resolve logical identifiers to resource locations rather than guessing paths.
+
+    Example:
+      [Registry]:
+      - Pattern: Guide/Patterns/contextual-boundary.md
   ag-file-backed-context-indirect-resource-anchor: |-
     Represent a reusable resource by a symbolic anchor, e.g., [ValidationStandard]; resolve and verify it before applying its contents.
+
+    Example:
+      [ValidationStandard]:
+      - Guide/Standards/validation.md
+
+      Task:
+      1. Resolve [ValidationStandard]
+      2. Verify the resolved resource
+      3. Apply its context
   ag-dependency-resolution-resolve-then-bind: |-
-    Keep component resolution distinct from binding required and provided context. Resolve [AuditorModule], verify dependencies, bind required inputs, then execute with declared outputs.
+    Resolve separately from binding. Verify requirements, bind inputs, then execute for declared outputs.
+
+    Example:
+      [AuditorModule]:
+      - Resolves: Guide/Auditors/content-auditor.md
+      - Requires:
+        - [PatternSchema]
+      - Provides:
+        - [AuditResult]
+
+      Task:
+      1. Resolve [AuditorModule]
+      2. Verify its dependencies
+      3. Bind the required context
+      4. Execute the resolved module
   ag-retrieval-rag-query-then-ground: |-
     Retrieve for [Question] before synthesizing; exclude low-relevance material and retain passages with source identifiers and exact locations.
+
+    Example:
+      [Evidence]:
+      => Retrieve passages matching [Question]
+      => Retain source identifiers and exact locations
+      => Exclude low-relevance results
   ag-resource-contribution-distinct-contribution-test: |-
-    Retain a resource only if downstream work uses distinct information, authority, provenance, or an independent verification path. Compare with existing context and exclude redundancy.
+    Retain unique information, authority, provenance, or independent verification only if used downstream. Exclude redundancy.
+
+    Example:
+      [ResolvedResources]:
+      => For each [Resource]:
+        1. Identify its contribution
+        2. Compare its contribution with existing context
+        3. Confirm a downstream operation uses it
+        4. Exclude it when it adds nothing distinct
   ag-composite-pattern-discovery-pipeline: |-
-    Declare [Need], discover actual capabilities, resolve files/URLs/registries, retrieve current contents, and preserve canonical paths as [ResolvedResources]. Operate only on that set.
+    Discover evidence before using it.
+
+    Example:
+      [Need]:
+      - Current pattern definitions
+
+      [Capabilities]:
+      => Discover repository read and write tools
+
+      [Resources]:
+      => Resolve [Need] into files, URLs, and registries
+      => Retrieve current contents only
+      => Preserve canonical paths AS [ResolvedResources]
+
+      Task:
+      - Operate exclusively on [ResolvedResources]

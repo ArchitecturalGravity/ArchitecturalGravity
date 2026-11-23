@@ -9,16 +9,68 @@ sections:
   ag-contextual-boundary: |-
     Define the operating contract (scope, objectives, assumptions, audience, authority, permissions, exclusions, measurable success); enforce it separately.
   ag-scope-enumerated-scope-fence: |-
-    Scope: Bound initial context before other instructions (e.g. src/auth/* and tests/auth/*, excluding deployment config). No work outside scope without explicit expansion in the prompt.
+    Scope: Bound initial context before other instructions. No work outside scope without explicit expansion in the prompt.
+
+    Example:
+    Scope:
+    - src/auth/*
+    - tests/auth/*
+    - Exclude deployment configuration
   ag-authority-and-precedence-ranked-instruction-sources: |-
-    [Authority]: Rank competing sources (e.g. P0 safety/repo policy, P1 explicit task constraints, P2 local conventions, P3 best practices). Lower ranks may refine, never override.
+    [Authority]: Rank competing sources. Lower ranks may refine, never override.
+
+    Example:
+    [Authority]:
+    P0. Safety and repository policy
+    P1. Explicit task constraints
+    P2. Local conventions
+    P3. General best practices
   ag-objectives-named-objective-set: |-
-    [Objectives]: Name desired outcomes separately from steps (e.g. preserve public behavior, remove duplicated validation, improve diagnostics).
+    [Objectives]: Name desired outcomes separately from steps.
+
+    Example:
+    [Objectives]:
+    - Preserve public behavior
+    - Remove duplicated validation
+    - Improve failure diagnostics
   ag-audience-and-consumers-consumer-specific-output-boundary: |-
-    [Audience]: Name the consumer and what they need to decide (e.g. PR maintainers need risks, changed behavior and test evidence).
+    [Audience]: Name the consumer and what they need to decide.
+
+    Example:
+    [Audience]:
+    - Maintainers reviewing a pull request
+    - Decisions:
+      - Need risks
+      - Changed behavior
+      - Test evidence
   ag-assumptions-visible-assumption-ledger: |-
-    [Assumptions]: State material, revisable assumptions separately from facts (e.g. UTF-8 inputs; missing fields invalid).
+    [Assumptions]: State material, revisable assumptions separately from facts.
+
+    Example:
+    [Assumptions]:
+    - Input files are UTF-8
+    - Missing fields are invalid, not optional
   ag-success-criteria-verifiable-completion-contract: |-
-    [Success]: State observable checks (e.g. existing tests pass, new invalid-input coverage, public API signatures unchanged).
+    [Success]: State observable checks.
+
+    Example:
+    [Success]:
+    - Existing tests pass
+    - New invalid-input cases are covered
+    - No public API signature changes
   ag-composite-pattern-boundary-contract: |-
     Separate [Target] (manifests, lockfiles, migration tests), [Objectives] (unchanged runtime behavior), [Assumptions] (version approved), [Success] (dependency resolves, tests pass, no unrelated edits), and [Authority] (repo instructions > target/success > style).
+
+    Example:
+    [Target]:
+    - Package manifests and lockfiles
+    [Objectives]:
+    - Migrate without changing runtime behavior
+    [Assumptions]:
+    - The target version is approved
+    [Success]:
+    - Dependency resolves, tests pass, no unrelated edits
+    [Authority]:
+    P0. Repository instructions
+    P1. [Target] and [Success]
+    P2. Existing style

@@ -9,26 +9,79 @@ sections:
   ag-resolution: |-
     Turn examined evidence into a defensible conclusion: rank authority, resolve supported conflicts, preserve ambiguity, record uncertainty and provenance, verify closure, and publish only eligible outputs.
   ag-source-record-preservation-immutable-source-layer: |-
-    Keep unmodified [SourceRecords] separate from normalized or derived records.
+    Keep raw records separate from normalized or derived records.
+    [SourceRecords]:
+    - Unmodified retrieved content
+
+    [DerivedRecords]:
+    => Transform [SourceRecords]
   ag-evidence-retention-keep-supporting-evidence: |-
-    Keep support attached to the outcome through transformation and publication (e.g., classification and evidence for it).
+    Keep supporting evidence through transformation and publication.
+    [Decision]:
+    - `outcome`: classify symbolic references under Representation Shaping
+    - `evidence`: reusable named context and composition behavior
   ag-provenance-source-to-output-trace: |-
     Trace a derived artifact from source through ordered operations to its output path.
+    [Provenance]:
+    - `source`: current ArcGrav syntax documentation
+    - `operations`:
+      1. Extract
+      2. Normalize
+    - `output`: relative path and filename
   ag-authority-ranking-ranked-evidence-authority: |-
     Rank authority before resolving disputes, from highest to lowest: explicit governing constraints, current authoritative source, repository convention, derived inference, general convention.
+    [Authority]:
+    P0. Explicit governing constraints
+    P1. Current authoritative source
+    P2. Repository-local convention
+    P3. Derived inference
+    P4. General convention
   ag-conflict-resolution-rule-guided-conflict-resolution: |-
     Compare competing claims by [Authority]; choose a higher-authority supported claim only when justified, and record the rejected alternative and reason.
+    [Resolved]:
+    => Compare conflicting claims by [Authority]
+    => Select the higher-authority supported claim
+    => Record the rejected alternative and reason
   ag-ambiguity-preservation-preserve-material-ambiguity: |-
     Preserve materially different meanings until evidence or the task contract warrants choosing one (e.g., source example vs. reusable pattern).
+    [Ambiguities]:
+    - "pattern" may mean source example or reusable abstraction
+    - Preserve both until the task contract selects one
   ag-uncertainty-representation-calibrated-uncertainty-record: |-
-    Record the uncertain `claim`, `confidence`, `cause`, and what would resolve it.
+    Calibrate uncertainty and state what would resolve it.
+    [Uncertainty]:
+    - `claim`: uncertainty description
+    - `confidence`: confidence level for `claim`
+    - `cause`: what caused the uncertainty of `claim`
+    - `resolution`: proposed uncertainty resolution for `claim`
   ag-decision-records-compact-decision-log: |-
-    Log consequential `decision`, `alternatives`, and `rationale`.
+    Log consequential decisions.
+    [DecisionRecord]:
+    - `decision`: one primary category per pattern
+    - `alternatives`: duplicate patterns across categories
+    - `rationale`: reduce drift and maintenance cost
   ag-independent-verification-separate-verification-path: |-
-    Verify final claims independently of derivation (e.g., derive expected paths directly from categories and compare with published paths).
+    Verify final claims independently of derivation.
+    [Verification]:
+    => Rebuild expected file list directly from [Categories]
+    => Compare with published paths
   ag-final-completeness-checks-closure-audit: |-
-    Audit closure against the original request, not latest state: coverage, target paths, content, and source restrictions.
+    Audit against the original request, not only the latest state.
+    [Closure]:
+    - All categories represented
+    - Files created in target directory
+    - Files populated from derived patterns
+    - Git history not used as source material
   ag-output-publication-validated-publication: |-
-    Publish only outputs passing structural and semantic [Acceptance]; retain failures as drafts and report exact unresolved items.
+    Require structural and semantic checks; report partial completion.
+    [Publish]:
+    => Publish outputs that pass [Acceptance]
+    => Retain failed outputs as drafts
+    => Report exact unresolved items
   ag-composite-pattern-evidence-to-publication-resolution: |-
     Rank authorities and resolve supported conflicts; preserve ambiguities and uncertainty, retain evidence and provenance, log decisions, verify closure independently, and publish validated work.
+    [Resolution]:
+    => Resolve supported conflicts
+    => Preserve unresolved ambiguity
+    => Independently verify completeness
+    => Publish validated outputs

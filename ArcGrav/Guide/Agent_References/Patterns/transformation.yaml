@@ -7,32 +7,122 @@ source:
   fingerprint: fnv1a32-84c69986
 sections:
   ag-transformation: |-
-    Derive meaning from supplied context via declared operations; do not retrieve sources, integrate independent results or validate correctness here.
+    Derive meaning from supplied context. Do not retrieve sources, integrate independent results or validate correctness.
   ag-parsing-structure-recovery: |-
-    [Parsed]: Recover explicit headings, lists, references and operations from raw [Source] before interpretation.
+    Recover explicit structure before interpretation.
+
+    Example:
+    [Parsed]:
+    => Parse [Source] into:
+      - Headings
+      - Lists
+      - References
+      - Operations
   ag-extraction-relevant-field-extraction: |-
-    [Extracted]: From [Source], keep only objective-relevant fields and source identity (e.g. name, intent, mechanics, constraints, example).
+    Extract only fields relevant to the objective; retain source identity.
+
+    Example:
+    [Extracted]:
+    => Extract pattern from [Source] ↳
+      - Name
+      - Intent
+      - Constraints
   ag-filtering-relevance-filter: |-
-    [Filtered]: Apply inclusion criteria (e.g. keep reusable prompt-operation patterns, exclude repo history and incidental prose).
+    Apply explicit inclusion and exclusion criteria.
+
+    Example:
+    [Filtered]:
+    => Keep reusable prompt-operation patterns
+    => Exclude repository history and incidental prose
   ag-normalization-surface-normalization: |-
-    [Normalized]: Standardize spelling, headings, identifiers and list structure without semantic change (e.g. category title case, file kebab-case).
+    Standardize spelling, headings, identifiers and lists without changing meaning.
+
+    Example:
+    [Normalized]:
+    => Normalize category names to canonical title case
+    => Normalize file names to kebab-case
   ag-canonicalization-semantic-equivalence-collapse: |-
-    [Canonical]: Merge variants with equivalent intent and mechanics; keep clearest example and all unique constraints.
+    Merge equivalent intent/mechanics; keep the clearest example and every unique constraint.
+
+    Example:
+    [Canonical]:
+    => Merge patterns with equivalent intent and mechanics
+    => Retain the clearest example and all unique constraints
   ag-classification-primary-category-assignment: |-
-    [Classified]: Assign [Extracted] to [Categories] by dominant function; keep useful secondary tags.
+    Classify by dominant function; keep useful secondary tags.
+
+    Example:
+    [Classified]:
+    => Classify [Extracted] by [Categories]
+    => Preserve secondary-category tags when useful
   ag-aggregation-category-aggregation: |-
-    [Grouped]: Aggregate [Canonical] by primary category; sort by conceptual dependency.
+    Group canonical records by primary category; sort by conceptual dependency.
+
+    Example:
+    [Grouped]:
+    => Group [Canonical] by primary category
+    => Sort by conceptual dependency
   ag-analysis-mechanism-analysis: |-
-    [Analysis]: Relate syntax to interpretation: identify cue, binding rule, expected behavior and failure mode.
+    Relate syntax to interpretation through cue, binding, behavior and failure.
+
+    Example:
+    [Analysis]:
+    => Identify:
+      - Cue
+      - Binding rule
+      - Expected behavior
+      - Failure mode
   ag-synthesis-evidence-bounded-synthesis: |-
-    [Pattern]: Synthesize multiple [Evidence] observations into intent, procedure, invariant and example; invent no unsupported mechanics.
+    Abstract from multiple observations without inventing mechanics.
+
+    Example:
+    [Pattern]:
+    => Synthesize [Evidence] into:
+      - Intent
+      - Procedure
+      - Invariant
+      - Example
   ag-candidate-generation-bounded-candidate-set: |-
-    [Candidates]: Generate distinct options under the same [Constraints] (e.g. three); retain tradeoffs and pass to examination.
+    Generate distinct candidates under one contract; retain tradeoffs for examination.
+
+    Example:
+    [Candidates]:
+    => Generate 3 distinct implementations satisfying [Constraints]
+    => Preserve tradeoffs for ranking
   ag-comparison-dimensioned-comparison: |-
-    [Comparison]: Compare [Candidates] on explicit dimensions (e.g. precision, reuse, token cost, failure risk).
+    Compare on explicit dimensions.
+
+    Example:
+    [Comparison]:
+    => Compare [Candidates] by:
+      - Precision
+      - Reuse
+      - Token cost
+      - Failure risk
   ag-planning-dependency-aware-plan: |-
-    [Plan]: Decompose [Goal] under constraints, order executable steps by dependency, and mark validation and termination conditions.
+    Order executable steps by dependency; mark validation and termination.
+
+    Example:
+    [Plan]:
+    => Decompose [Goal]
+    => Order steps by dependency
+    => Mark validation and termination conditions
   ag-translation-meaning-preserving-translation: |-
-    [Translated]: Translate [Source] prose while preserving hierarchy and behavior; retain references, symbols, paths, code and schema keys literally.
+    Translate prose; preserve hierarchy, behavior, references and literals.
+
+    Example:
+    [Translated]:
+    => Translate prose in [Source]
+    => Preserve symbols literally:
+      - Paths
+      - Code
+      - Schema keys
   ag-composite-pattern-transformation-chain: |-
-    [Derived]: Parse [Existing], extract reusable mechanisms, normalize terminology, canonicalize equivalents, classify by [Categories], aggregate and synthesize entries. Keep semantic changes distinct from publication.
+    Expose each semantic transformation; keep derivation distinct from publication.
+
+    Example:
+    [Derived]:
+    => Parse [Existing] and extract reusable mechanisms
+    => Normalize terminology and canonicalize equivalents
+    => Classify by [Categories] and aggregate by category
+    => Synthesize publishable pattern entries

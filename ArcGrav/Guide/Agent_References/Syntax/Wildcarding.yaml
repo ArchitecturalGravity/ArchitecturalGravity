@@ -13,7 +13,7 @@ sections:
   ag-rules: |-
     Match any sequence of characters or values within the stated scope; require the literal surrounding text. State recursion when depth is unclear. Apply the same instruction to every match unless exceptions are explicit.
   ag-constraints: |-
-    Bound broad patterns and state exclusions. Do not assume shell glob semantics without a named environment. Anchor reused sets. Quote literal source containing `*` rather than treating it as a selector.
+    Bound broad patterns and state exclusions. Do not assume shell glob semantics without a named environment. Anchor reused sets. Use a Literal Quote Block when `*` is source text, not a selector.
   ag-wildcard-selection: |-
     `tests/*Service.test.ts` selects a filename family.
   ag-extension-family: |-
@@ -22,5 +22,15 @@ sections:
     `AGENTS.route.*.md` preserves required name fragments.
   ag-bounded-wildcard: |-
     Name the root or traversal boundary separately from the pattern.
+
+    Directory:
+    - src/services
+    Files:
+    - Recursively select *.component.json
   ag-wildcard-with-exclusions: |-
     Use an explicit `Exclude:` section for unwanted matching paths.
+
+    Files:
+    - Recursively select *.json
+    Exclude:
+    - generated/

@@ -24,13 +24,59 @@ sections:
     """
   ag-literal-source-block-members: |-
     Use a separate fenced value under each exact backticked member.
+
+    [Logs]:
+    - `first`:
+      """
+      START
+      END
+      """
+    - `second`:
+      """
+      OPEN
+      CLOSE
+      """
   ag-code-block-source: |-
     Keep code formatting inside the fence and the instruction outside.
+
+    [Code]:
+    """
+    function run() {
+      return true;
+    }
+    """
   ag-embedded-example: |-
     Bind an exact exemplar as source another operation can inspect or imitate.
+
+    [Expected]:
+    """
+    {
+      "status": "complete"
+    }
+    """
   ag-placeholder-template: |-
     Fence the template shape and retain placeholders such as <summary>.
+
+    [Template]:
+    """
+    Summary: <summary>
+    Findings: <findings>
+    """
   ag-literal-comparison-target: |-
     Fence the expected value for a direct comparison.
+
+    [Expected]:
+    """
+    status: valid
+    count: 1
+    """
   ag-nested-literal-block: |-
     Use four quotes around source with triple-quote delimiters; increase length for longer standalone runs.
+
+    [Outer]:
+    """"
+    [Inner]:
+    """
+    Literal content
+    """
+    """"

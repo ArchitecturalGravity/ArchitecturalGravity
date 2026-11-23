@@ -28,11 +28,35 @@ sections:
     Ground before interpreting; interpret and constrain before executing.
   ag-sectioned-context: |-
     Use a descriptive header such as `Constraint:` for one bounded concern.
+
+    [Source]: docs/README.md
+    Scope:
+    - Docs:
+      - [Source]
+    Context:
+    - The guide explains local setup
+    Constraint:
+    - Do not edit files
+    Task:
+    1. Read [Source]
+    2. List the setup prerequisites
   ag-scalar-section: |-
     For one scalar, use `Scope: C:\Project` without a child list.
   ag-capability-invocation: |-
     `Using:` names the governing skill, tool, or capability.
+
+    Using:
+    - $browser-skill
   ag-completion-hook: |-
     `OnComplete:` scopes work after the primary task.
+
+    OnComplete:
+    1. Update related references
+    2. Run [Orchestration]
   ag-phase-labeled-work: |-
     Name modifying and verifying as separate phases when they serve different roles.
+
+    ModifyComponentContext:
+    - Update the component
+    VerifyComponentContext:
+    - Confirm output shape

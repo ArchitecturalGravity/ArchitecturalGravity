@@ -7,22 +7,78 @@ source:
   fingerprint: fnv1a32-1d0a2c12
 sections:
   ag-state-management: |-
-    Own and track changing values, decisions, dependencies, progress, checkpoints, blockers, and temporary context; define validity, transitions, lifecycle, and cleanup without dictating sequence.
+    Track changing values, decisions, dependencies, progress, checkpoints, blockers, and temporary context. Define ownership, validity, transitions, and cleanup, not execution order.
   ag-session-state-session-bounded-configuration: |-
-    Store task-wide settings (repository, branch, target) as session-bounded, not permanent.
+    Keep task settings session-bounded.
+
+    Example:
+      [SessionState]:
+      - Branch: main
   ag-conversation-state-turn-state-summary: |-
     Summarize the turn in decisions, active constraints, and open items.
+
+    Example:
+      [ConversationState]:
+      - Decided: One file per category
+      - Active Constraint: ignore git history
+      - Open: Populate target directory
   ag-working-variables-named-mutable-values: |-
-    Give changing values a symbolic name, e.g., [PendingFiles]; update that name rather than creating competing aliases.
+    Update named state; avoid competing aliases.
+
+    Example:
+      [PendingFiles]:
+      - contextual-boundary.md
   ag-mutable-state-explicit-transition: |-
-    State transitions with before/after conditions, e.g., [Remaining] = [Requested] minus [Completed].
+    Express before-and-after conditions as an operation.
+
+    Example:
+      [Remaining]:
+      => Subtract [Completed] from [Requested]
   ag-dependency-state-readiness-map: |-
     Track task readiness explicitly: blocked (with dependency), ready, running, or complete.
+
+    Example:
+      [DependencyState]:
+      - Resolve source files: "complete"
+      - Render category files: "ready"
+      - Publish index: "blocked by file creation"
   ag-state-lifecycle-initialize-use-retire: |-
-    Initialize named state, use it through publication, then retire temporary state such as extraction notes.
+    Initialize, use, and retire named state.
+
+    Example:
+      [Lifecycle]:
+      1. Initialize [Derived]
+      2. Append categorized patterns
+      3. Publish files
+      4. Clear temporary extraction notes
   ag-checkpoints-recoverable-snapshot: |-
-    Capture a recoverable snapshot after meaningful stages: resolved resources, completed mappings, and whether writes have started.
+    Take recoverable snapshots at meaningful stages.
+
+    Example:
+      [Checkpoint]:
+      - Resources resolved
+      - Category mapping complete
+      - Writes not yet started
   ag-cleanup-and-reset-behavior-explicit-disposal: |-
-    Define reset/disposal after success or failure; remove temporary aliases, not source files, published outputs, or provenance.
+    Define disposal after success or failure.
+
+    Example:
+      [Cleanup]:
+      - Remove temporary aliases
+      - Do not delete source files
+      - Preserve published outputs and provenance
   ag-composite-pattern-stateful-work-ledger: |-
-    Use one [State] ledger for `phase`, `completed`, `pending`, and `blockers`: run the next ready item, record completion, update phase and blockers, then checkpoint after each publication stage.
+    Track phase, completed and pending work, and blockers in one ledger. Record transitions and checkpoint after publication stages.
+
+    Example:
+      [State]:
+      - `phase`: "discover"
+      - `completed`: []
+      - `pending`: ["derive", "render", "publish"]
+      - `blockers`: []
+
+      Task:
+      1. Execute the next ready item from [State].pending
+      2. Append it to [State].completed
+      3. Update `phase` and `blockers`
+      4. Create [Checkpoint] after each publication stage

@@ -14,6 +14,11 @@ sections:
     The first `[Name]:` outside a section or symbol body declares it. Use matching brackets, PascalCase, and no whitespace. Declare before use and reference afterward; plain headers and quoted or literal text do not declare symbols. Grouping and Sectioning bound the body. Only `AS [Alias]` can instantiate inline within a body; it names the preceding context. Surrounding operations determine reading or mutation.
   ag-qualified-member-referencing: |-
     `[Record].id` identifies the declared exact `id` owned by `[Record]`; omit backticks after the dot. Every segment in a chain must already be exposed by its parent. Dotted access does not itself declare, read, or mutate. Prefer shallow paths; agent state tracking is inferential.
+
+    [Record]:
+    - `id`: "R-01"
+    Task:
+    => Return [Record].id
   ag-explicit: |-
     Anchor any context you explicitly reference.
   ag-implied: |-
@@ -24,23 +29,66 @@ sections:
     Do not repurpose an existing name or select undeclared or differently owned members. A reference alone does not execute, expand, or mutate.
   ag-semantic-referencing-vs-procedural-context: |-
     Use `[Constraint]:` for later explicit reuse, `Constraint:` for procedural context.
+
+    [Constraint]: Preserve API behavior
+    Task:
+    - Refactor under [Constraint]
   ag-symbolic-anchor: |-
     `[Files]:` anchors one explicit context.
+
+    [Files]:
+    - All user.json files
+    Task:
+    - Review [Files]
   ag-symbol-composition: |-
     Compose a new anchor from existing symbols.
+
+    [Target]:
+    - [Files]
+    - [Field]
   ag-file-backed-reference: |-
     Anchor an external path without copying its content.
+
+    [Validator]: references/validator.md
   ag-inheritance-link: |-
     State inheritance from broader context explicitly.
+
+    [Application]:
+    - Inherits [Repository]
+    - Add application constraints
   ag-predicate-defined-set: |-
     Name a subset using a predicate over another context.
+
+    [Affected]:
+    - [Files] where [Field] matches [Invalid]
   ag-exemplar-transfer: |-
     Name the exemplar used to shape the target.
+
+    [Goal]:
+    - Modify [Target] to match [Reference]
   ag-mutable-state: |-
     Initialize mutable or unresolved state explicitly: `[]`, `{}`, `0`, or `unset`.
+
+    [Findings]: []
+    [Lookup]: {}
+    [Processed]: 0
+    [Selected]: unset
   ag-whole-record-selection: |-
     Select the complete record rather than reconstructing its value.
+
+    [Winner]:
+    - Select one complete record from [Candidates]
   ag-canonical-and-derived-references: |-
     Separate canonical state from derived views.
+
+    [Records]:
+    - Canonical records
+    [Summary]:
+    - Derived from [Records]
   ag-adjunct-reference: |-
     Reference the authoritative definition; keep local additions separate.
+
+    [SecurityStandard]: policies/security.md
+    [FeatureContext]:
+    - Apply [SecurityStandard]
+    - Add feature constraints

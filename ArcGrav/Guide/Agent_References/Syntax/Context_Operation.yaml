@@ -17,20 +17,51 @@ sections:
   ag-context-operation-2: |-
     `=> Parse [Source]` directs one behavior.
   ag-derived-anchor: |-
-    Declare `[Parsed]:` above `=> Parse [Source]` to anchor its result.
+    Declare an anchor for the operation result.
+
+    [Parsed]:
+    => Parse [Source]
   ag-operation-chain: |-
-    Write one transformation per successive `=>` line.
+    Write one transformation per line; execute the chain top to bottom.
+
+    [Normalized]:
+    => Parse [Source]
+    => Normalize field names
   ag-nested-operation: |-
-    Use `=> Repeat:` with a two-space-indented child operation.
+    Indent each child operation two spaces below its controlling operation.
+
+    => Repeat 3 times:
+      => Concatenate without line break:
+        - "Alpha"
+        - "Beta"
   ag-apply-to-invocation: |-
     `=> Apply [Validation] to [Artifact]` invokes a reusable operation on a target.
   ag-conditional-gate: |-
     Apply the gate before allowing the dependent operation.
+
+    => Apply [ContextGate]
+    => If the gate passes, produce [Artifact]
   ag-fail-fast-stop: |-
     Stop when invalid required structure would make later output misleading.
+
+    => Parse [Source]
+    => Raise when required structure is invalid
   ag-recursive-self-application: |-
     Make progress toward termination before invoking the same operation again.
+
+    [Traverse]:
+    => Process the current node
+    => If an unvisited node remains:
+      => Select the next node
+      => Apply [Traverse]
   ag-independent-verification-operation: |-
     Compare directly with the source; report defects without changing the artifact.
+
+    => Compare [Artifact] directly with [Source]
+    => Report defects
+    => Do not modify [Artifact]
   ag-instrumented-operation: |-
     Return the artifact and separate execution statistics.
+
+    => Populate [ExecutionStats]
+    => Return [Artifact] with [ExecutionStats]

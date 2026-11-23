@@ -16,39 +16,108 @@ sections:
     Use numbering or priority only when meaningful; do not mix marker types on one line. Keep ranks sparse; state dependencies explicitly.
   ag-unordered-membership: |-
     Use `-` when membership is independent of position.
+
+    Files:
+    - guide.md
+    - tests.md
   ag-constraint-set: |-
     List independent constraints without implying rank.
+
+    Constraint:
+    - Preserve behavior
+    - Minimize edits
   ag-schema-field-list: |-
     List exact schema member names with backticks.
+
+    [FindingSchema]:
+    - `id`
+    - `evidence`
   ag-import-set: |-
     List required references independently beneath `Import:`.
+
+    Import:
+    - [Standard]
+    - [Validation]
   ag-scoped-validator: |-
     State both the validator's checks and exclusions.
+
+    [Validator]:
+    - Confirm required fields
+    - Do not validate semantics
   ag-composite-membership: |-
     List the reusable members of a composite.
+
+    [ArtifactSystem]:
+    - [Tree]
+    - [Map]
   ag-ordered-sequence: |-
     Number steps only when order affects execution or interpretation.
+
+    1. Read [Source]
+    2. Extract candidates
   ag-resolve-before-use: |-
     Resolve a file-backed reference before applying it.
+
+    1. Resolve [Validator]
+    2. Apply [Validator] to [Artifact]
   ag-lifecycle-bracketing: |-
     Initialize state before work; consume or discard it afterward.
+
+    1. Clear [Results]
+    2. Populate [Results]
+    3. Render [Results]
+    4. Discard temporary state
   ag-validator-chain: |-
     Run separate validation passes in prerequisite order.
+
+    1. Run [SchemaValidation]
+    2. Run [ReferenceValidation]
   ag-direct-source-verification: |-
     Compare the artifact directly with its authoritative source.
+
+    1. Read [Source]
+    2. Compare [Artifact] with [Source]
+    3. Report differences
   ag-postcondition-check: |-
     Check a specific postcondition before returning the artifact.
+
+    1. Generate [Artifact]
+    2. Apply [Postcheck]
+    3. Return [Artifact]
   ag-idempotence-check: |-
     Run maintenance twice; require no further changes on the second run.
+
+    1. Run [Maintenance]
+    2. Run [Maintenance] again
+    3. Confirm no further changes
   ag-conditional-continuation: |-
     Evaluate the condition before dependent work; name it if reused.
+
+    1. Determine feasibility AS [Fulfillable]
+    2. If [Fulfillable], proceed
   ag-priority-sequence: |-
     Rank competing concerns with `P0.`, `P1.`, and onward.
+
+    P0. Preserve the public API
+    P1. Minimize file edits
   ag-authority-ranking: |-
     Prefer more authoritative evidence over lower-ranked evidence.
+
+    P0. Authoritative source
+    P1. Maintained secondary source
   ag-severity-ranking: |-
     Rank findings by impact, not discovery.
+
+    P0. Blocking
+    P1. Major
   ag-stable-ordering-specification: |-
     Specify ranking keys and tie-breakers explicitly.
+
+    P0. Category rank
+    P1. Identifier
+    P2. Original position
   ag-dependency-aware-priority: |-
     Distinguish urgency from prerequisite order; state both when needed.
+
+    P0. Blocking prerequisites
+    P1. Blocking dependents
