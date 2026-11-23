@@ -9,7 +9,7 @@ sections:
   ag-resource-discovery: |-
     Find and prioritize relevant context, history, memory, files, tools, URLs, registries, and external evidence. Do not interpret or transform it.
   ag-tool-discovery-capability-enumeration: |-
-    Verify available tools, required inputs, and limits before choosing a path.
+    Verify available tools, required inputs, and limits before choosing a path. Do not assume a capability merely because it would help.
 
     Example:
       [Capabilities]:
@@ -123,7 +123,7 @@ sections:
 
     Example:
       [Need]:
-      - Current pattern definitions
+      - Current pattern definitions and target directory contents
 
       [Capabilities]:
       => Discover repository read and write tools

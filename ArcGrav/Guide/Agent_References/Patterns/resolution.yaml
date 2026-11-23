@@ -7,7 +7,7 @@ source:
   fingerprint: fnv1a32-70c7899b
 sections:
   ag-resolution: |-
-    Turn examined evidence into a defensible conclusion: rank authority, resolve supported conflicts, preserve ambiguity, record uncertainty and provenance, verify closure, and publish only eligible outputs.
+    Turn examined evidence into a defensible conclusion: rank authority, resolve supported conflicts, preserve ambiguity, record uncertainty and provenance, verify closure, and publish only eligible outputs. Record consequential decisions and unresolved limitations.
   ag-source-record-preservation-immutable-source-layer: |-
     Keep raw records separate from normalized or derived records.
 

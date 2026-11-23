@@ -32,7 +32,7 @@ sections:
     - Pattern may reference Pattern
     - Evidence supports Pattern
   ag-canonical-models-one-authoritative-representation: |-
-    Normalize equivalent inputs into one authoritative record for downstream use.
+    Normalize equivalent inputs into one authoritative record for downstream use. Selected fields:
 
     [CanonicalPattern]:
     - `name`

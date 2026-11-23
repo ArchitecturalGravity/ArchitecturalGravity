@@ -15,13 +15,13 @@ sections:
   ag-retrieval: |-
     Retrieval sets scope or names a resource, e.g. `Scope:`.
   ag-framing: |-
-    Framing supplies observations or facts, e.g. `Context:`.
+    Framing supplies context for interpretation, such as facts, observations, behavior, examples, specifications, state, or errors.
   ag-refinement-optional: |-
     Optional refinement states constraints, assumptions, or unknowns.
   ag-execution: |-
     Execution requests an action or answer, e.g. `Task:`.
   ag-rules: |-
-    Bind children to the nearest preceding header at their section level. Put child values on following lines; indent nested children two spaces. Use one clear role per section; separate source, constraints, and action where practical.
+    Bind children to the nearest preceding header at their section level. Put child values on following lines, except when binding one scalar directly to the header. Indent nested children two spaces. Use one clear role per section; separate source, constraints, and action where practical.
   ag-constraints: |-
     Omit empty, vague, decorative, redundant, or mixed-purpose sections.
   ag-role-ordered-frame: |-

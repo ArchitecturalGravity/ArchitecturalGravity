@@ -15,7 +15,7 @@ sections:
   ag-constraints: |-
     Nest only where meaningful. Avoid tabs, ambiguous attachment, and depth better handled by references.
   ag-nested-grouping: |-
-    Indent contained resources or properties below their parent; scope priorities to their own category.
+    Indent contained resources or properties below their parent.
 
     Scope:
     - Backend:
@@ -33,9 +33,10 @@ sections:
     Keep unresolved field, reason, available evidence, and status together.
 
     - `field`: `owner`
-    - `reason`: Missing source value
+    - `reason`: "Conflicting sources"
     - `availableEvidence`:
-      - [Source]
+      - [SourceA]
+      - [SourceB]
     - `status`: "unresolved"
   ag-evidence-carrying-record: |-
     Bind each claim to its source, location, and validator.

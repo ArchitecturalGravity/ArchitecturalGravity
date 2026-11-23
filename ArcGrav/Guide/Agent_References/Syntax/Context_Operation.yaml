@@ -19,8 +19,8 @@ sections:
   ag-derived-anchor: |-
     Declare an anchor for the operation result.
 
-    [Parsed]:
-    => Parse [Source]
+    [Normalized]:
+    => Normalize [RawRecords]
   ag-operation-chain: |-
     Write one transformation per line; execute the chain top to bottom.
 

@@ -7,7 +7,7 @@ source:
   fingerprint: fnv1a32-1d0a2c12
 sections:
   ag-state-management: |-
-    Track changing values, decisions, dependencies, progress, checkpoints, blockers, and temporary context. Define ownership, validity, transitions, and cleanup, not execution order.
+    Track changing values, decisions, dependencies, progress, checkpoints, blockers, and temporary context. Define ownership, validity, invalidation, transitions, and cleanup, not execution order.
   ag-session-state-session-bounded-configuration: |-
     Keep task settings session-bounded.
 

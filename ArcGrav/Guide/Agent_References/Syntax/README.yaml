@@ -9,22 +9,22 @@ sections:
   ag-arcgrav-syntax-reference: |-
     ArcGrav syntax reference for structuring, referencing, and operating on context.
   ag-sectioning: |-
-    `Key:` scopes context by role.
+    [Sectioning](./Sectioning.yaml): `Key:` scopes context by role.
   ag-listing: |-
-    `-` marks membership, `1.` sequence, and `P0.` precedence.
+    [Listing](./Listing.yaml): `-` marks membership, `1.` sequence, and `P0.` precedence.
   ag-grouping: |-
-    Indentation binds children to parents.
+    [Grouping](./Grouping.yaml): Indentation binds children to parents.
   ag-symbolic-referencing: |-
-    `[Target]:` declares an anchor; `[Target]` reuses it.
+    [Symbolic Referencing](./Symbolic_Referencing.yaml): `[Target]:` declares an anchor; `[Target]` reuses it.
   ag-context-operation: |-
-    `=>` directs an operation rather than listing context.
+    [Context Operation](./Context_Operation.yaml): `=>` directs an operation rather than listing context.
   ag-inline-representation: |-
-    Bare content is interpreted; backticks fix structural names; double quotes fix text.
+    [Inline Representation](./Inline_Representation.yaml): Bare content is interpreted; backticks fix structural names; double quotes fix text.
   ag-literal-quote-block: |-
-    Standalone runs of at least three double quotes bound literal source.
+    [Literal Quote Block](./Literal_Quote_Block.yaml): Standalone runs of at least three double quotes bound literal source.
   ag-explicit-block-binding: |-
-    Trailing ` ↳` binds children to the entire expression when `:` would be ambiguous.
+    [Explicit Block Binding](./Block_Binding.yaml): Trailing ` ↳` binds children to the entire expression when `:` would be ambiguous.
   ag-inline-aliasing: |-
-    `AS [Alias]` names the immediately preceding context.
+    [Inline Aliasing](./Inline_Aliasing.yaml): `AS [Alias]` names the immediately preceding context.
   ag-wildcarding: |-
-    `*` selects matches within the stated scope.
+    [Wildcarding](./Wildcarding.yaml): `*` selects matches within the stated scope.

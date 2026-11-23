@@ -7,20 +7,20 @@ source:
   fingerprint: fnv1a32-047e3f53
 sections:
   ag-constraint-gating: |-
-    Gate execution on policies, rules, permissions, capabilities, conditions, invariants and format.
+    Turn policies, rules, permissions, capabilities, conditions, invariants and format into checks governing when work may begin, continue or complete.
   ag-policies-policy-first-gate: |-
     Check governing policy before planning. Reject prohibited actions; keep allowed work.
 
     Example:
-    PolicyGate:
+    [PolicyGate]:
     => Identify applicable policies
     => Reject prohibited actions
     => Preserve the allowed portion of the task
   ag-safety-constraints-safe-execution-envelope: |-
-    Protect secrets; require explicit scope for destructive writes; redact sensitive published evidence.
+    Define hazardous boundaries and safer fallback behavior. Protect secrets; require explicit scope for destructive writes; redact sensitive published evidence.
 
     Example:
-    Safety:
+    [Safety]:
     - Do not expose secrets
     - Do not perform destructive writes without explicit scope
     - Redact sensitive evidence in published output
@@ -28,21 +28,21 @@ sections:
     Make business rules testable.
 
     Example:
-    Rules:
+    [Rules]:
     - A published pattern must belong to exactly one primary category
     - Every category file must contain at least one pattern
   ag-scope-constraints-target-membership-check: |-
     Check every target against scope; reject unrelated paths.
 
     Example:
-    ScopeGate:
+    [ScopeGate]:
     => Confirm each target is under Guide/Patterns
     => Reject unrelated paths
   ag-capability-checks-tool-capability-gate: |-
     Verify tools can read, write and check results.
 
     Example:
-    CapabilityGate:
+    [CapabilityGate]:
     - Can read current files
     - Can create or update Markdown files
     - Can verify resulting content

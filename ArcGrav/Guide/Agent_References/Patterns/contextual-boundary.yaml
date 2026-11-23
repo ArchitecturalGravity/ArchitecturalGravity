@@ -20,16 +20,16 @@ sections:
     Rank competing sources. Lower ranks may refine, never override.
 
     Example:
-    Authority:
+    [Authority]:
     P0. Safety and repository policy
     P1. Explicit task constraints
     P2. Local conventions
     P3. General best practices
   ag-objectives-named-objective-set: |-
-    Name desired outcomes separately from steps.
+    Name desired outcomes separately from steps so alternative plans can be evaluated against the same goal.
 
     Example:
-    Objectives:
+    [Objectives]:
     - Preserve public behavior
     - Remove duplicated validation
     - Improve failure diagnostics
@@ -37,7 +37,7 @@ sections:
     Name the consumer and what they need to decide.
 
     Example:
-    Audience:
+    [Audience]:
     - Maintainers reviewing a pull request
     - Decisions:
       - Need risks
@@ -47,7 +47,7 @@ sections:
     State material, revisable assumptions separately from facts.
 
     Example:
-    Assumptions:
+    [Assumptions]:
     - Input files are UTF-8
     - Missing fields are invalid, not optional
   ag-success-criteria-verifiable-completion-contract: |-
@@ -67,10 +67,10 @@ sections:
     - Lockfiles
     - Migration tests
 
-    Objectives:
+    [Objectives]:
     - Migrate without changing runtime behavior
 
-    Assumptions:
+    [Assumptions]:
     - The target version is approved
 
     [Success]:
@@ -78,7 +78,7 @@ sections:
     - Tests pass
     - No unrelated edits
 
-    Authority:
+    [Authority]:
     P0. Repository instructions
     P1. [Target] and [Success]
     P2. Existing style

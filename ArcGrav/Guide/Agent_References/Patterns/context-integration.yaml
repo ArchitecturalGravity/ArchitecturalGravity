@@ -74,7 +74,7 @@ sections:
     => Combine recurring mechanisms across [Evidence]
     => Express each as one reusable pattern
   ag-context-assembly-ordered-context-pack: |-
-    Assemble context in dependency order.
+    Assemble context in dependency order: boundaries, source facts, derived state, then task instructions.
 
     [ContextPack]:
     - [Boundary]
