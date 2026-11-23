@@ -15,14 +15,11 @@ sections:
   ag-qualified-member-referencing: |-
     `[Record].id` identifies the declared exact `id` owned by `[Record]`; omit backticks after the dot. Every segment in a chain must already be exposed by its parent. Dotted access does not itself declare, read, or mutate. Prefer shallow paths; agent state tracking is inferential.
 
-    Scope: Named resources only
-
     [Record]:
     - `id`: "R-01"
 
     Task:
     => Return [Record].id
-    => Confirm the returned ID equals "R-01"
   ag-explicit: |-
     Anchor any context you explicitly reference.
   ag-implied: |-
@@ -34,16 +31,12 @@ sections:
   ag-semantic-referencing-vs-procedural-context: |-
     Use `[Constraint]:` for later explicit reuse, `Constraint:` for procedural context.
 
-    Scope: Named resources only
-
     [Constraint]: Preserve API behavior
 
     Task:
     - Refactor under [Constraint]
   ag-symbolic-anchor: |-
     `[Files]:` anchors one explicit context.
-
-    Scope: Named resources only
 
     [Files]:
     - All user.json files
@@ -53,74 +46,31 @@ sections:
   ag-symbol-composition: |-
     Compose a new anchor from existing symbols.
 
-    Scope: Named resources only
-
-    [Files]: records.csv
-
-    [Field]: Status field
-
     [Target]:
     - [Files]
     - [Field]
-
-    Task:
-    - Review [Target]
   ag-file-backed-reference: |-
     Anchor an external path without copying its content.
 
-    Scope: Named resources only
-
     [Validator]: references/validator.md
-
-    Task:
-    - Use [Validator] in the result
   ag-inheritance-link: |-
     State inheritance from broader context explicitly.
-
-    Scope: Named resources only
-
-    [Repository]: repository.md
 
     [Application]:
     - Inherits [Repository]
     - Add application constraints
-
-    Task:
-    - Use [Application] in the result
   ag-predicate-defined-set: |-
     Name a subset using a predicate over another context.
 
-    Scope: Named resources only
-
-    [Files]: records.csv
-
-    [Field]: Status field
-
-    [Invalid]: Missing required field
-
     [Affected]:
     - [Files] where [Field] matches [Invalid]
-
-    Task:
-    - Report [Affected]
   ag-exemplar-transfer: |-
     Name the exemplar used to shape the target.
 
-    Scope: Named resources only
-
-    [Target]: target.txt
-
-    [Reference]: example.txt
-
     [Goal]:
     - Modify [Target] to match [Reference]
-
-    Task:
-    - Use [Goal] in the result
   ag-mutable-state: |-
     Initialize mutable or unresolved state explicitly: `[]`, `{}`, `0`, or `unset`.
-
-    Scope: Named resources only
 
     [Findings]: []
 
@@ -129,44 +79,24 @@ sections:
     [Processed]: 0
 
     [Selected]: unset
-
-    Task:
-    - Use [Findings], [Lookup], [Processed], [Selected] in the result
   ag-whole-record-selection: |-
     Select the complete record rather than reconstructing its value.
 
-    Scope: Named resources only
-
-    [Candidates]: candidate records
-
     [Winner]:
     - Select one complete record from [Candidates]
-
-    Task:
-    - Use [Winner] in the result
   ag-canonical-and-derived-references: |-
     Separate canonical state from derived views.
-
-    Scope: Named resources only
 
     [Records]:
     - Canonical records
 
     [Summary]:
     - Derived from [Records]
-
-    Task:
-    - Use [Summary] in the result
   ag-adjunct-reference: |-
     Reference the authoritative definition; keep local additions separate.
-
-    Scope: Named resources only
 
     [SecurityStandard]: policies/security.md
 
     [FeatureContext]:
     - Apply [SecurityStandard]
     - Add feature constraints
-
-    Task:
-    - Use [FeatureContext] in the result

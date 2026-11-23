@@ -73,7 +73,11 @@ sections:
   ag-example-reconciliation-as-a-procedural-cue: |-
     For reconciliation, identify both sources, matching key, comparison fields, treatment of ambiguity/unmatched records, mutation policy, and success. Compress routine mechanics, not local rules.
   ag-example-audit-without-repeating-its-entire-procedure: |-
-    For audit, bind target, policy, and output. Preserve evidence and unresolved findings. Define and verify coverage independently when required.
+    Bind scope, policy, and result; define and verify coverage separately when required.
+
+    [AuditFindings]:
+    => Audit [Repository] against [Policy]
+    => Preserve evidence and unresolved findings
   ag-example-compositional-compression: |-
     Compose parse, normalize, validate, and render with explicit inputs, outputs, and dependencies. Keep normalization rules, schema, uncertainty/failures, and presentation explicit. Naming stages does not prove execution.
   ag-the-semantic-compression-boundary: |-

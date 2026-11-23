@@ -13,7 +13,7 @@ sections:
 
     Example:
     Observations:
-    => List in the source ↳
+    => List in [Source] ↳
       - Visible headings
       - References
     => Do not infer intent yet
@@ -22,7 +22,7 @@ sections:
 
     Example:
     Inspection:
-    => Inspect the target files for:
+    => Inspect [Files] for:
       - Broken links
       - Duplicate headings
       - Empty sections
@@ -39,7 +39,7 @@ sections:
 
     Example:
     SchemaCheck:
-    => Validate every pattern record against the declared schema
+    => Validate every [Pattern] against [PatternSchema]
   ag-semantic-validation-meaning-check: |-
     Compare pattern intent, procedure and example; flag meaning mismatches.
 
@@ -62,7 +62,7 @@ sections:
 
     Example:
     Coverage:
-    => Confirm every category has one file
+    => Confirm every [Category] has one file
     => Confirm every requested subcategory appears
   ag-evidence-verification-claim-to-evidence-check: |-
     Map each derived pattern to at least one source mechanism; keep source locations when available.
@@ -83,39 +83,36 @@ sections:
     Publish stable workflow metrics with [Result] from observable events: resources_requested, resources_resolved, records_processed, records_accepted, records_rejected, unresolved_items, validation_failures, postconditions_passed. Expose skipped or unresolved work; claim completeness only with coverage evidence.
 
     Example:
-    Scope:
-    - Report coverage for pattern extraction
-
     [ExecutionMetrics]:
-    - resources_requested: 0
-    - resources_resolved: 0
-    - postconditions_passed: false
+    - `resources_requested`: 0
+    - `resources_resolved`: 0
+    - `postconditions_passed`: false
 
-    Task:
-    1. Populate [ExecutionMetrics] from observed events
-    2. Include [ExecutionMetrics] in the result
+    Assessment:
+    => Populate [ExecutionMetrics] from observed events
+    => Include [ExecutionMetrics] with [Result]
   ag-instrumentation-validation-independent-metrics-check: |-
     Check processed counts against [SourceInventory] and workflow state; reconcile accepted/rejected/unresolved totals, match unresolved records to [Result], and reject unsupported completeness.
 
     Example:
     MetricsCheck:
-    => Compare processed counts with the source inventory
+    => Compare processed counts with [SourceInventory]
     => Confirm accepted, rejected, and unresolved totals reconcile
-    => Confirm unresolved records appear in the result
+    => Confirm unresolved records appear in [Result]
     => Reject unsupported completeness claims
   ag-cross-validation-independent-check-path: |-
     Use a second method: compare rendered inventory with [Categories]; independently match index links to actual paths.
 
     Example:
     CrossCheck:
-    => Compare rendered file inventory with the category list
+    => Compare rendered file inventory with [Categories]
     => Independently compare index links with actual paths
   ag-evaluation-criteria-based-evaluation: |-
     Judge [Candidate] by named criteria.
 
     Example:
     Evaluation:
-    => Evaluate the candidate against:
+    => Evaluate [Candidate] against:
       - Precision
       - Completeness
       - Reuse

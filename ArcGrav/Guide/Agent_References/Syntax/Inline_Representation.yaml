@@ -20,48 +20,37 @@ sections:
     Task:
     - Identify matching records
   ag-field-assignment: |-
-    Task:
     => Set `status` to "complete"
-    => Confirm `status` is now "complete"
   ag-partial-exactitude: |-
-    In "set `status` to the resolved value", only the field is exact.
+    Only `status` is exact; the resolved value remains interpreted.
 
-    Task:
     => Set `status` to the resolved value
   ag-structural-projection: |-
     Project the exact member `name` from [Results].
 
-    Scope: Work within the example data
-
-    [Results]: records.csv
-
-    Task:
     => Project `name` from [Results]
   ag-structural-comparison: |-
     Compare exact identifiers such as `sourceId` and `targetId`.
 
-    Task:
     => Compare `sourceId` with `targetId`
   ag-textual-comparison: |-
     Match `status` against the exact text "pending review".
 
-    Task:
     => Select records where `status` equals "pending review"
-    => Confirm every selected record has `status` equal to "pending review"
   ag-textual-label: |-
     "Display Name" is text; `displayName` is structure.
   ag-same-lexeme-in-different-roles: |-
-    status `status` "status"
+    Same spelling, different roles: interpreted, exact structure, exact text.
+
+    status
+    `status`
+    "status"
   ag-mixed-interpretation-and-exactitude: |-
     Combine bare instruction, exact field `accountId`, and exact message "No matching record" as needed.
 
-    Task:
     => Find records associated with `accountId` and return "No matching record" when none exist
-    => Verify empty results return "No matching record"
   ag-quoted-scalar-vs-literal-source: |-
     Use "Connection refused" for exact inline text; use fenced literal blocks under backticked members for multiline sources.
-
-    Scope: Work within the example data
 
     [Log]:
     - `error`:
@@ -69,6 +58,3 @@ sections:
       ERROR
       RETRY
       """
-
-    Task:
-    - Inspect [Log].error

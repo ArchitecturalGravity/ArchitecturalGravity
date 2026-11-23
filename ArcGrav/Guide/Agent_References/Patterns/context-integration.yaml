@@ -10,104 +10,104 @@ sections:
     Relate independent context units without transforming or judging them. Preserve source identity, qualifications, dependencies, provenance, and unresolved conflicts.
   ag-component-responsibility-single-responsibility-context-unit: |-
     Give each reusable unit one dominant responsibility. Keep retrieval, transformation, validation, rendering, mutation, and publication replaceable; split when contracts or reasons for change differ.
+
     [DiscoverPatterns]:
-    - Retrieve pattern sources
+    - Retrieve pattern source material
 
     [ClassifyPatterns]:
-    - Assign categories
-
-    Task:
-    1. Apply [DiscoverPatterns]
-    2. Apply [ClassifyPatterns]
+    - Assign patterns to categories
   ag-dependency-contracts-explicit-context-interface: |-
-    Declare the symbolic inputs a component requires and outputs it provides before integration; bind its inputs from [ContextPack].
-    [Schema]:
-    - A pattern has a name
+    Declare a component’s required inputs and provided outputs before binding it to a workflow.
 
-    [Auditor]:
+    [PatternAuditor]:
     - Requires:
-      - [Schema]
+      - [PatternSchema]
     - Provides:
-      - Findings
+      - [Findings]
 
-    Task:
-    => Bind and invoke [Auditor]
+    [Integrated]:
+    => Bind [PatternAuditor] dependencies from [ContextPack]
   ag-memory-reconciliation-current-fact-reconciliation: |-
     Reconcile [SessionFacts] against current authoritative sources; replace stale facts and preserve unresolved conflicts.
-    Task:
-    => Compare session facts with current sources
+
+    [ReconciledMemory]:
+    => Compare [SessionFacts] with [CurrentSources]
     => Replace stale facts
     => Preserve unresolved conflicts
   ag-retrieval-fusion-evidence-fusion: |-
     Group retrieved passages by supported claim; deduplicate equivalents but keep all supporting sources.
-    Task:
-    => Group retrieved passages by supported claim
+
+    [FusedEvidence]:
+    => Group [RetrievedPassages] by supported claim
     => Deduplicate equivalent passages
     => Retain source references
   ag-tool-result-integration-typed-tool-result-merge: |-
     Normalize paths, identifiers, status, and content from [ToolResults]; separate errors from successful observations.
-    Task:
-    => Normalize paths, identifiers, status, and content from tool results
+
+    [ToolFacts]:
+    => Normalize paths, identifiers, status, and content from [ToolResults]
     => Separate errors from successful observations
   ag-representation-composition-compatible-model-composition: |-
     Map compatible fields and identifiers before joining models (e.g., by `categoryId`); retain unmatched records for examination.
-    [JoinSchema]:
-    - `categoryId`: string
 
-    Task:
-    => Apply [JoinSchema] and join patterns with categories on `categoryId`
-    => Retain unmatched records
+    [ComposedModel]:
+    => Join [Patterns] with [Categories] on `categoryId`
+    => Preserve unmatched records for examination
   ag-intermediate-result-merging-deterministic-merge: |-
     Union partial results under explicit duplicate/conflict rules: deduplicate by canonical name and route incompatible definitions to [Conflicts].
-    Task:
-    => Union partial results A and B
+
+    [Merged]:
+    => Union [PartialA] and [PartialB]
     => Deduplicate by canonical name
-    => Record conflicting definitions separately
+    => Route conflicting definitions to [Conflicts]
   ag-context-stitching-boundary-preserving-stitch: |-
     Order fragments by topic and add transitions without crossing scope boundaries; keep source-specific qualifications attached to claims.
-    Task:
+
+    [Stitched]:
     => Order fragments by topic
     => Add transitions
     => Keep source-specific qualifiers attached to claims
   ag-knowledge-consolidation-reusable-knowledge-set: |-
     Consolidate recurring mechanisms in [Evidence] into one stable, reusable abstraction per mechanism.
-    Task:
-    => Combine recurring mechanisms across evidence
+
+    [Consolidated]:
+    => Combine recurring mechanisms across [Evidence]
     => Express each as one reusable pattern
   ag-context-assembly-ordered-context-pack: |-
     Assemble context in dependency order.
-    [ContextPack]:
-    - Boundaries
-    - Resolved sources
-    - Current state
-    - Task contract
 
-    Task:
-    => Apply [ContextPack]
+    [ContextPack]:
+    - [Boundary]
+    - [ResolvedResources]
+    - [CurrentState]
+    - [TaskContract]
   ag-dependency-resolution-dependency-binding: |-
     Resolve symbolic or procedural dependencies before downstream execution.
-    Task:
-    => Select items whose dependencies are present in context pack
+
+    [ReadyWork]:
+    => Select items whose dependencies are present in [ContextPack]
   ag-extensible-composition-open-closed-context-set: |-
     Compose [ExpandedValidators] from [Validators] + [FreshnessValidator] rather than mutating [Validators]. Preserve the original set and the consumer's dependency, behavior, and output contracts.
-    [Validators]:
-    - Check structure
 
     [ExpandedValidators]:
     - [Validators]
-    - Check freshness
-
-    Task:
-    => Apply [ExpandedValidators]
+    - [FreshnessValidator]
   ag-output-composition-section-aware-composition: |-
     Build by section from validated components; do not regenerate free-form.
-    Task:
+
+    [Output]:
     => Compose title, category intent, pattern entries, examples, and cautions
     => Render only validated components
   ag-composite-pattern-integration-pipeline: |-
-    Reconcile memory, fuse retrieval, normalize tool results, bind dependencies, merge partials, and consolidate patterns. Compose the result using [OutputSchema] without source loss or silent contradiction.
-    Task:
-    => Reconcile memory with current sources
-    => Fuse retrieval and normalize tool results
-    => Bind dependencies, merge results, and consolidate knowledge
-    => Compose the integrated result using the output schema
+    Integrate independent results without losing sources or hiding contradictions.
+
+    [Integrated]:
+    => Reconcile [Memory] with [CurrentSources]
+    => Fuse [RetrievedEvidence]
+    => Normalize [ToolResults]
+    => Resolve dependencies
+    => Merge intermediate results
+    => Consolidate reusable knowledge
+
+    [Output]:
+    => Compose [Integrated] using [OutputSchema]

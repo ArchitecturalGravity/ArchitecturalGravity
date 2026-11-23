@@ -7,33 +7,28 @@ source:
   fingerprint: fnv1a32-38f5cb16
 sections:
   ag-using-multiple-arcgrav-instruction-files: |-
-    Keep the primary sequence in the entry file. Separate responsibilities and load supporting context only at use. Share rules; isolate logic, data, and templates where useful.
+    Keep the main workflow in the entry file. Separate responsibilities; load referenced files only at use.
   ag-declare-and-bind: |-
-    Declare the child symbol with a relative or absolute file path under Resolves:. Import only needed, already-defined bindings. Mirror the identical Import: list at the top of the child. Run the child symbol to follow its Task:. If the child supplies rules or operations without a Task:, apply them at use. Give writer and reader an existing path binding; run the writer first.
-
-    The child imports [Item] from SKILL.txt. AgStudio cannot resolve it by analyzing the child alone.
+    Declare a child with `Resolves:` and a relative or absolute path. In `Import:`, supply only needed, already-defined symbols. Mirror the identical `Import:` list at the top of the child. Apply supporting context at use; `Run` the child symbol when its `Task:` is needed. Writer and reader may import the same path; run the writer first.
 
     SKILL.txt:
 
-    Scope:
-    - Report an item
+    [Audience]: "visitors"
 
-    [Item]: Mint tea
+    [Tone]: "friendly"
 
-    [Report]:
-    1. Resolves: references/report.txt
-    2. Import: [Item]
+    [NoticeRules]:
+    1. Resolves: references/notice-rules.txt
+    2. Import: [Audience], [Tone]
 
-    Task:
-    1. Run [Report]
-
-    references/report.txt:
+    references/notice-rules.txt:
 
     Import:
-    - [Item]
+    - [Audience]
+    - [Tone]
 
-    Task:
-    1. Output [Item]
+    Rules:
+    - Address [Audience] using [Tone] as the tone
   ag-shared-instructions-different-imports: |-
     Share a rule across siblings with different inputs. Resolve both child paths from SKILL.txt.
   ag-multi-file-greet-sign-off-entry: |-

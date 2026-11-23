@@ -30,7 +30,9 @@ sections:
   ag-arcgrav-applications: |-
     Use declared symbols to recover identity and abbreviate articles or partitives. Keep coverage (“all”), membership (“in”), standard (“against”), declarations, and operations. Shortening does not imply success or alter the contract.
   ag-safe-and-unsafe-examples: |-
-    Check omissions against their effects: article before fixed symbol or optional “that” may be safe. Direction words, negation, scope limiters, per-item quantifiers, approval and identity markers are not expendable where operative.
+    Safe when [Report] is declared and unique: Return the [Report] → Return [Report].
+    Unsafe: Merge [Patch] into [Baseline] → Merge [Patch] [Baseline] (loses destination).
+    Keep operative negation, scope limits, per-item quantifiers, approval, and identity.
   ag-reduction-guidance: |-
     Identify action, participants, relations, scope, modality, constraints, and output. Remove the smallest recoverable span, then recheck material distinctions and exact text. Restore wording if behavior diverges. Test representative inputs and measure with the target tokenizer. Do not add this procedure as boilerplate.
   ag-evaluation-and-limitations: |-

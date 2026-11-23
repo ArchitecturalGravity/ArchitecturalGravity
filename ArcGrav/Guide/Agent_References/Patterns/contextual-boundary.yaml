@@ -54,25 +54,31 @@ sections:
     State observable checks.
 
     Example:
-    Success:
+    [Success]:
     - Existing tests pass
     - New invalid-input cases are covered
     - No public API signature changes
   ag-composite-pattern-boundary-contract: |-
-    State scope, objective, assumptions, observable success and precedence separately.
+    State target, objective, assumptions, observable success and precedence separately.
 
     Example:
-    Scope:
-    - Migrate the package without changing runtime behavior
+    [Target]:
+    - Package manifests
+    - Lockfiles
+    - Migration tests
+
+    Objectives:
+    - Migrate without changing runtime behavior
+
+    Assumptions:
     - The target version is approved
 
-    [Target]:
-    - Package manifests, lockfiles and migration tests
-
     [Success]:
-    - Dependency resolves, tests pass, no unrelated edits
+    - Dependency resolves
+    - Tests pass
+    - No unrelated edits
 
-    Task:
-    P0. Follow repository instructions
-    P1. Migrate [Target] and verify [Success]
-    P2. Follow existing style
+    Authority:
+    P0. Repository instructions
+    P1. [Target] and [Success]
+    P2. Existing style

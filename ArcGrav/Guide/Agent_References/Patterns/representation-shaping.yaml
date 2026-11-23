@@ -10,131 +10,134 @@ sections:
     Encode, organize, compress, and render meaning in schemas, models, intermediate artifacts, views, and serialized outputs without breaking declared invariants.
   ag-schemas-explicit-shape-contract: |-
     Before producing records, declare required fields, types, optionality, and allowed values (e.g., `category` enum; `confidence` float from 0 to 1).
+
     [ResultSchema]:
     - `name`: string
+    - `category`: enum
+    - `evidence`: list
     - `confidence`: float from 0 to 1
-
-    Task:
-    => Apply [ResultSchema] and check `name` and `confidence`
   ag-structural-identifiers-exact-name-representation: |-
-    Backtick exact members in declarations and uses; double quotes identify literal text. This is a convention, not a syntax operator.
+    Backtick exact members in declarations, references, projections, comparisons, transformations, and mutations; use double quotes for text. This is a convention, not an operator.
+
     [RecordSchema]:
     - `status`: string
 
     Task:
-    => Apply [RecordSchema]
     => Set `status` to "complete"
-    => Preserve the value "complete"
   ag-data-modeling-relationship-first-model: |-
     Model entities and relationships whenever lists hide dependencies: a pattern belongs to a category, may reference another pattern, and is supported by evidence.
-    Task:
+
+    [Model]:
     - Pattern belongs to Category
     - Pattern may reference Pattern
     - Evidence supports Pattern
   ag-canonical-models-one-authoritative-representation: |-
-    Normalize equivalent inputs into one authoritative schema for downstream work.
-    [CanonicalPattern]:
-    - `name`: string
-    - `intent`: string
+    Normalize equivalent inputs into one authoritative record for downstream use.
 
-    Task:
-    => Normalize variants to [CanonicalPattern] using `name` and `intent`
+    [CanonicalPattern]:
+    - `name`
+    - `intent`
+    - `invariants`
   ag-scoped-inheritance-broad-to-narrow-context-model: |-
     Model explicit parent-child inheritance; put each rule at the narrowest scope where fully valid (repository validation, app integration tests, endpoint response shape).
+
     [RepositoryContext]:
-    - Validate all changes
+    - All changes require validation
 
     [ApplicationContext]:
     - [RepositoryContext]
-    - Run integration tests
-
-    Task:
-    => Apply [ApplicationContext]
+    - Application changes require integration tests
   ag-canonical-referencing-reference-over-embedded-copy: |-
     Reference authoritative policies, schemas, models, operations, or instructions; add only local rules rather than duplicating part of the authority.
+
     [SecurityPolicy]:
     - policies/security.md
 
-    Task:
-    1. Apply [SecurityPolicy]
-    2. Add feature-specific constraints only
+    [FeatureContext]:
+    1. [SecurityPolicy]
+    2. Feature-specific constraints only
   ag-context-composition-composite-context-interface: |-
-    Expose related models, policies, constraints, or operations through one stable anchor: [PublicationStandard] combines schema, formatting, validation, and provenance rules.
+    Expose related context through one stable higher-level anchor.
+
     [PublicationStandard]:
-    - Check formatting
-    - Preserve provenance
+    - [PatternSchema]
+    - [FormattingRules]
+    - [ValidationRules]
+    - [ProvenanceRules]
 
     Task:
-    => Apply [PublicationStandard]
+    - Apply [PublicationStandard]
   ag-intermediate-representations-staged-reasoning-artifact: |-
     Stage reasoning with temporary representations: parse [RawText] into one record per semantic unit, then group parsed items by `category`.
-    [ParsedItems]:
-    => Parse raw input into one record per semantic unit
 
-    Task:
-    => Group [ParsedItems] by category
+    [ParsedItems]:
+    => Parse [RawText]
+    => Emit one record per semantic unit
+
+    [GroupedItems]:
+    => Group [ParsedItems] by `category`
   ag-model-variants-purpose-specific-variant: |-
     Project variants from the canonical model; do not maintain separate copies.
-    [CanonicalPattern]:
-    - `name`: string
-    - `intent`: string
 
-    Task:
-    => Project `name` and `intent` from [CanonicalPattern] into a compact view
+    [CompactView]:
+    => Project `name`, `intent`, and `invariants` from [CanonicalPattern]
   ag-derived-views-reversible-projection: |-
     Filter, aggregate, or sort without losing the link to the canonical source.
-    [CanonicalPatterns]:
-    - `category`: string
-    - `name`: string
 
-    Task:
-    => Group [CanonicalPatterns] by `category`, sort by `name`, and link back to [CanonicalPatterns]
+    [CategoryIndex]:
+    => Group [CanonicalPatterns] by `category`
+    => Sort each group by `name`
   ag-output-shaping-consumer-driven-projection: |-
     Project only what the audience needs.
-    [CanonicalPattern]:
-    - `intent`: string
-    - `cautions`: list
 
-    Task:
-    => From [CanonicalPattern], publish `intent` and `cautions`; omit extraction notes
+    [PublishedView]:
+    => Project [CanonicalPatterns] for guide readers
+    => Include `intent`, `mechanics`, `example`, and `cautions`
+    => Exclude extraction notes
   ag-templating-stable-document-template: |-
-    Write the stable template as a literal block.
+    Keep template structure literal; retain placeholders for caller-supplied content.
+
     [Template]:
     """
     # <category name>
+
     ## <pattern name>
+
     **Intent:** <intent context>
+
     **Use when:** <usage conditions>
+
+    ```text
     <example usage>
+    ```
+
     # Invariant:
     [InvariantCondition]
     """
-
-    Task:
-    => Render using [Template]
   ag-formatting-and-rendering-render-last: |-
     Complete semantic content before rendering; apply output layout then (e.g., Markdown, one H1, fenced prompt notation).
-    Task:
-    => Render published view as Markdown
+
+    [Rendered]:
+    => Render [PublishedView] as Markdown
     => Use one H1 per file
     => Use fenced blocks for prompt notation
   ag-serialization-declared-encoding: |-
     Declare these rules for stored or tool-consumed output.
+
     [Serialization]:
     - UTF-8
     - Markdown
     - LF line endings
     - Repository-relative links
-
-    Task:
-    => Serialize using [Serialization]
   ag-composite-pattern-canonicalize-project-render: |-
     Normalize [Source] to [Schema], derive the audience view, then render using [Template] and serialize by [Serialization]; keep meaning independent of presentation.
+
     [Canonical]:
-    => Normalize source to schema
+    => Normalize [Source] into [Schema]
 
     [View]:
     => Derive reader-facing fields from [Canonical]
 
-    Task:
-    => Render [View] with the template, then serialize using the declared rules
+    [Output]:
+    => Render [View] using [Template]
+    => Serialize by [Serialization]

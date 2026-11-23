@@ -10,7 +10,8 @@ sections:
     Determine when operations run, not what they mean: split, assign, order, dispatch, parallelize, iterate, recover, and stop.
   ag-workflow-management-phase-oriented-workflow: |-
     Name phases and their entry/exit conditions.
-    Task:
+
+    [Workflow]:
     1. Discover
     2. Derive
     3. Render
@@ -18,7 +19,8 @@ sections:
     5. Publish
   ag-task-decomposition-atomic-task-split: |-
     Make each work item independently verifiable.
-    Task:
+
+    [Tasks]:
     - Resolve current source files
     - Extract reusable mechanisms
     - Classify patterns
@@ -26,24 +28,28 @@ sections:
     - Verify coverage
   ag-recursive-traversal-hierarchy-walk: |-
     Preserve parent-child context and declare traversal filters.
-    Task:
+
+    [Files]:
     => Recursively traverse /Patterns/
     => Include Markdown files
     => Exclude generated directories
   ag-worklists-and-queues-explicit-pending-set: |-
     Keep pending work visible and interruptible.
-    Task:
+
+    [Queue]:
     - unresolved resources
     - unclassified patterns
     - unrendered categories
   ag-dependency-ordering-topological-work-order: |-
     Build the task dependency graph; execute ready prerequisites before dependents.
-    Task:
-    => Build dependency graph for tasks
+
+    [Order]:
+    => Build dependency graph for [Tasks]
     => Execute ready nodes first
   ag-routing-and-dispatch-capability-based-routing: |-
     Route by the operation’s required capability.
-    Task:
+
+    [Route]:
     - Repository reads:
       => File retrieval
     - Repository writes:
@@ -52,59 +58,58 @@ sections:
       => Model reasoning
   ag-conditional-execution-branch-on-evidence: |-
     Branch explicitly on observed evidence.
+
     Task:
     - IF target file exists: update it
     - ELSE: create it
   ag-conditional-dispatch-condition-based-selection: |-
-    Map each defined condition directly to its action. Use an unordered list for mutually exclusive or otherwise explicit cases; order it when precedence matters. Bind conditions and actions to symbolic references when useful.
-    [Value]:
-    - User-supplied number
+    Nest each action under its condition. Use unordered cases when routing is unambiguous and ordered cases when precedence matters.
 
     [Switch]:
     - [Value] is positive:
-      => Continue processing
+      => Run [Positive]
     - [Value] is neutral:
-      => Output neutral status
+      => Output "Value was Neutral"
 
     [PrioritySwitch]:
-    1. [Value] is greater than ten:
-      => Apply priority handling
-    2. [Value] is positive:
-      => Apply general handling
-
-    Task:
-    => Use [Switch] for independent cases and [PrioritySwitch] when first-match precedence is required
+    1. [Value] meets an overriding condition:
+      => Run [Override]
+    2. [Value] meets a general condition:
+      => Run [General]
   ag-sequential-execution-dependency-sequence: |-
     Use an ordered list when later steps consume prior results.
-    [Files]:
-    - Source Markdown files
 
     Task:
-    1. Parse [Files] AS [Parsed]
-    2. Classify [Parsed] AS [Derived]
-    3. Render [Derived]
+    1. Resolve [Files]
+    2. Parse [Files] AS [Parsed]
+    3. Classify [Parsed] AS [Derived]
+    4. Render [Derived]
   ag-parallel-execution-independent-work-set: |-
     Run independent tasks concurrently and isolate their outputs.
-    Task:
+
+    [Parallel]:
     - Render contextual-boundary.md
     - Render transformation.md
     - Render examination.md
   ag-iteration-bounded-refinement-loop: |-
     Iterate with an explicit bound and progress test: for up to three iterations, validate and fix only failed assertions; stop when all pass.
-    Task:
+
+    [Refinement]:
     => Repeat up to 3 times:
-      => Validate the draft
+      => Validate [Draft]
       => Correct failed assertions only
       => Stop when all assertions pass
   ag-retry-and-recovery-bounded-retry: |-
     Retry only transient or independent failures within a bound (e.g., one write retry after refreshing target state); preserve successes and record persistent failures.
-    Task:
+
+    [Recovery]:
     - Retry a failed write once after refreshing target state
     - Do not replay successful writes
     - Record persistent failures
   ag-replay-plans-deterministic-re-execution: |-
     Record enough inputs and ordering for deterministic replay.
-    Task:
+
+    [ReplayPlan]:
     - Source paths
     - Category taxonomy
     - Transformation chain
@@ -112,35 +117,37 @@ sections:
     - Validation assertions
   ag-termination-conditions-explicit-stop-contract: |-
     Declare completion and non-progress stopping rules.
-    Task:
+
+    [Terminate]:
     - Stop successfully when all postconditions pass
     - Stop with partial result when no ready work remains
     - Never loop without changed state
   ag-maintenance-convergence-minimal-idempotent-update: |-
     Inspect current state, apply the smallest deterministic changes, preserve valid content, and verify. Repeat against the result and confirm no further changes.
-    Task:
+
+    [Maintenance]:
     1. Inspect the current artifact
-    2. Apply the smallest required deterministic change
-    3. Verify the result
-    4. Repeat against the updated result
-    5. Confirm no additional changes
+    2. Preserve valid existing content
+    3. Apply the smallest required deterministic change
+    4. Verify the result
+    5. Repeat against the updated result
+    6. Confirm no additional changes
   ag-workflow-extension-replaceable-strategy-pipeline: |-
     Replace one strategy without changing unrelated stages.
-    [DiscoveryStrategy]:
-    - List source files
 
-    [ValidationStrategy]:
-    - Check links
-
-    Task:
+    [Workflow]:
     1. Apply [DiscoveryStrategy]
-    2. Transform and render
+    2. Apply [TransformationStrategy]
     3. Apply [ValidationStrategy]
-    4. Publish
+    4. Apply [PublicationStrategy]
   ag-composite-pattern-orchestrated-work-graph: |-
-    Split the goal and build dependencies; run independent ready work in parallel and dependent work in order. Bound transient retries, validate each phase, and stop at postconditions or no progress.
-    Task:
+    Use dependencies to distinguish parallel-ready work from sequential work.
+
+    [Plan]:
+    => Decompose [Goal]
     => Build dependencies
     => Dispatch independent ready tasks in parallel
     => Execute dependent tasks sequentially
-    => Terminate on postconditions or no-progress condition
+    => Retry bounded transient failures
+    => Validate after each phase
+    => Terminate on [Postconditions] or no-progress condition
