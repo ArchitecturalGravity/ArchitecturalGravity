@@ -41,14 +41,15 @@ sections:
   ag-evidence-carrying-record: |-
     Bind each claim to its source, location, and validator.
 
-    - `claim`: "Access granted"
-    - `source`: [Log]
-    - `location`: Line 4
-    - `validator`: [Verify]
+    [Finding]:
+    - `claim`: "Reference is stale"
+    - `source`: "repository-map.md"
+    - `location`: "line 42"
+    - `validator`: [ReferenceValidator]
   ag-result-sidecar: |-
-    Return the artifact and execution statistics as siblings; nest counters under executionStats.
+    In [Result], keep [Artifact] separate from execution statistics. Nest counters under `executionStats`.
 
-    - `artifact`: [Result]
+    - `artifact`: [Artifact]
     - `executionStats`:
       - `processed`: 1
   ag-model-variant: |-

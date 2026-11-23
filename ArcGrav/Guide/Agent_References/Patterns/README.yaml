@@ -23,7 +23,7 @@ sections:
   ag-context-integration: |-
     Combine retrieved, remembered, derived, and tool-produced context; retain sources, dependencies, and unresolved conflicts.
   ag-examination: |-
-    Check evidence, structures, and outputs for correctness, completeness, quality, and acceptability.
+    Check evidence, structures, and outputs against defined criteria for correctness, completeness, quality, and acceptability.
   ag-process-orchestration: |-
     Decompose, route, sequence, parallelize, iterate, recover, and terminate work.
   ag-resolution: |-

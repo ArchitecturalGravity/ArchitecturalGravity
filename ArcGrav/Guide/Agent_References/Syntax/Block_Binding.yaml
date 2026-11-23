@@ -25,9 +25,9 @@ sections:
   ag-nested-conditional-under-a-complete-operation: |-
     Indent a conditional operation below the completed `↳` parent; indent its own children another two spaces.
 
-    => Select items from [Roadmap] ↳
-      => If none qualify:
-        - Return "NO ELIGIBLE"
+    => Identify next eligible incomplete items in [Roadmap] ↳
+      => If no eligible items:
+        - Append "NO ELIGIBLE" to [Plan] and return
   ag-prefer-normal-grouping-when-unambiguous: |-
     Use `:` for an unambiguous parent.
 

@@ -11,7 +11,7 @@ sections:
   ag-purpose: |-
     Preserve source text, whitespace, and formatting beneath a named context when needed.
   ag-rules: |-
-    Put matching N-quote delimiters on their own lines. N must exceed every standalone quote run inside; shorter runs remain literal. Preserve meaningful indentation and line breaks. Surrounding instructions govern use of the block.
+    Put matching N-quote delimiters on their own lines. N must exceed every standalone quote run inside; shorter runs remain literal. Preserve meaningful indentation and line breaks. Surrounding instructions govern use of the block. Place a block intended for later reference under a clear section or symbolic reference.
   ag-constraints: |-
     Use inline quotes for short single-line text. Use separate blocks for unrelated sources. Never infer trust or execution from quoting; specify review, transformation, or execution explicitly.
   ag-quoted-scalar: |-

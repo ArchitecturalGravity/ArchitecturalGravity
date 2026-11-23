@@ -17,13 +17,13 @@ sections:
   ag-unordered-membership: |-
     Use `-` when membership is independent of position.
 
-    Files:
+    [Files]:
     - guide.md
     - tests.md
   ag-constraint-set: |-
     List independent constraints without implying rank.
 
-    Constraint:
+    [Constraint]:
     - Preserve behavior
     - Minimize edits
   ag-schema-field-list: |-

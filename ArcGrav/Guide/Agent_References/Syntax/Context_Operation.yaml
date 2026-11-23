@@ -51,7 +51,8 @@ sections:
 
     [Traverse]:
     => Process the current node
-    => If an unvisited node remains:
+    => Add unvisited children to [Pending]
+    => If [Pending] is not empty:
       => Select the next node
       => Apply [Traverse]
   ag-independent-verification-operation: |-

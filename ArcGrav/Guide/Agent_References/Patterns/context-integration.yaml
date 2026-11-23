@@ -7,7 +7,7 @@ source:
   fingerprint: fnv1a32-1aff9cfd
 sections:
   ag-context-integration: |-
-    Relate independent context units without transforming or judging them. Preserve source identity, qualifications, dependencies, provenance, and unresolved conflicts.
+    Relate context units rather than independently transforming or judging them. Preserve source identity, qualifications, dependencies, provenance, and unresolved conflicts.
   ag-component-responsibility-single-responsibility-context-unit: |-
     Give each reusable unit one dominant responsibility. Keep retrieval, transformation, validation, rendering, mutation, and publication replaceable; split when contracts or reasons for change differ.
 
