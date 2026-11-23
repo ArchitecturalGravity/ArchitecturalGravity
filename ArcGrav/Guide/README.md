@@ -5,7 +5,7 @@
 - [Design Principles](./Principles/README.md) — Principles for creating clear, compact, reusable, deterministic, and auditable systems using ArcGrav
 - [Lexical Representation](./Principles/Lexical_Representation.md) — Separate guidance for lexical naming and lexical instruction compression
 - [Grammatical Reduction](./Principles/Grammatical_Reduction.md) — Contextual omission and simplification of recoverable grammatical material
-- [Multi-File Composition](./Principles/Multi_File_Composition.md#ag-using-multiple-arcgrav-instruction-files) — Entry workflows, child imports, and supporting files loaded as needed
+- [Multi-File Composition](./Principles/Multi_File_Composition.md) — Entry workflows, child imports, and supporting files loaded as needed
 - [Design Pattern Catalogue](./Patterns/README.md) — Overview of reusable ArcGrav design patterns organized by operational responsibility
 
 ## Syntax
