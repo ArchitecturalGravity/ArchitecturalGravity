@@ -7,238 +7,52 @@ source:
   fingerprint: fnv1a32-38f5cb16
 sections:
   ag-using-multiple-arcgrav-instruction-files: |-
-    Organize one ArcGrav workflow across multiple files. The agent starts in an entry file and follows references at the steps that need them. Keep the primary sequence clear, maintain reusable parts in one place, and load context only as needed; unused files can be skipped. This applies separation of concerns to workflow roles: isolate independently changing logic, share rules, or separate input data and output templates from the steps that use them. Choose boundaries to fit the intended workflow.
+    Keep the workflow sequence in an entry file. Separate responsibilities and load supporting context at the step that needs it. Reuse shared context without loading files the workflow never uses.
   ag-declare-and-bind: |-
-    Create a symbol for the child, put the child path in its Resolves: (absolute or relative as needed), and list already-established symbolic bindings under Import:. The child opens with an identical Import: list. Use imported content where needed and supply only the bindings each child needs. The child can supply operations, rules, or templates without a Task:; apply that content within the caller’s procedure. If the child defines a Task: and the caller needs to execute it, use Run with the child symbol. Two children can import the same existing file-path binding up front; run the writer before the reader so the file exists at read time.
-
-    [Audience]: "visitors"
-
-    [Tone]: "friendly"
-
-    [NoticeRules]:
-    1. Resolves: references/notice-rules.txt
-    2. Import: [Audience], [Tone]
-
-    Import:
-    - [Audience]
-    - [Tone]
-
-    Rules:
-    - Address [Audience] using [Tone] as the tone
+    Declare the child symbol with `Resolves:` and an `Import:` list of existing bindings. The child opens with the identical `Import:` list. Supply only what it needs. Apply imported rules or operations at their point of use; use `Run [Child]` to follow a child’s `Task:` when needed. Pass an existing path binding to both writer and reader, then run the writer first.
   ag-shared-instructions-different-imports: |-
-    Greet and Sign Off: both children receive [LineRule] but only [Greet] receives [GuestName] and only [SignOff] receives [ClosingText]. Resolve the referenced files relative to SKILL.txt.
+    Share a rule between siblings while giving each child a different input. Resolve both child paths relative to `SKILL.txt` in this example.
   ag-multi-file-greet-sign-off-entry: |-
-    Source file: SKILL.txt
-
-    Scope:
-    - Produce a greeting and a sign-off
-
-    [LineRule]:
-    - Output one line ending with a period
-
-    [GuestName]: "Mira"
-
-    [ClosingText]: "See you soon"
-
-    [Greet]:
-    1. Resolves: references/greet.txt
-    2. Import: [LineRule], [GuestName]
-
-    [SignOff]:
-    1. Resolves: references/sign-off.txt
-    2. Import: [LineRule], [ClosingText]
-
-    Task:
-    1. Run [Greet]
-    2. Run [SignOff]
+    Define the line rule once. Bind it with the guest name for the greeting and with the closing phrase for the sign-off.
   ag-multi-file-greet-sign-off-greet: |-
-    Source file: references/greet.txt
-
-    Import:
-    - [LineRule]
-    - [GuestName]
-
-    Task:
-    1. Greet [GuestName] with "Hello" followed by the guest's name
-    2. Output the greeting according to [LineRule]
+    Use the guest name to form a greeting and the shared rule to format its output.
   ag-multi-file-greet-sign-off-sign-off: |-
-    Source file: references/sign-off.txt
-
-    Import:
-    - [LineRule]
-    - [ClosingText]
-
-    Task:
-    1. Output [ClosingText] according to [LineRule]
+    Use the closing phrase and the shared rule. The guest name is not imported.
   ag-multi-file-greet-sign-off-walkthrough: |-
-    Run Greet with [LineRule] and [GuestName]; then run SignOff with [LineRule] and [ClosingText]. Both produce a single line ending in a period; the second does not need the guest name.
-
-    Hello Mira.
-    See you soon.
+    Run the greeting and then the sign-off. Each produces one line ending in a period.
   ag-file-backed-rule: |-
-    Check Shelf Capacity: import the [ShelfCapacityRules] file binding, not the shelf counts. On Apply, the child follows this binding to the rules and applies them to its local [Shelf]. The referenced rules file has no separate Task:.
+    An imported binding can identify a rules file. Follow it at `Apply` and apply the instructions to local data. Do not run the rules file as a task.
   ag-multi-file-shelf-capacity-entry: |-
-    Source file: SKILL.txt
-
-    [ShelfCapacityRules]:
-    - references/storage-rules.txt
-
-    [CheckShelfCapacity]:
-    1. Resolves: references/check-capacity.txt
-    2. Import: [ShelfCapacityRules]
-
-    Task:
-    1. Run [CheckShelfCapacity]
+    Bind the rules file in the entry file. Pass that binding as the capacity checker’s only import and run the checker.
   ag-multi-file-shelf-capacity-check-capacity: |-
-    Source file: references/check-capacity.txt
-
-    Import:
-    - [ShelfCapacityRules]
-
-    [Shelf]:
-    - Capacity: 10 slots
-    - Occupied: 6 slots
-    - Incoming: 4 boxes
-
-    Task:
-    1. Apply [ShelfCapacityRules] to [Shelf]
-    2. Output decision
+    Define the shelf counts locally. Apply the imported rules to the local shelf and output the decision.
   ag-multi-file-shelf-capacity-storage-rules: |-
-    Source file: references/storage-rules.txt
-
-    Rules:
-    - Each incoming box occupies one slot
-    - Allow loading only if at least one slot remains free after loading
+    Each incoming box occupies one slot. Allow loading only if at least one slot remains free afterward.
   ag-multi-file-shelf-capacity-walkthrough: |-
-    At Run, match the declared imports and pass the binding whose path is relative to SKILL.txt. At Apply, follow the binding to the rules. Four incoming boxes fill all ten slots (six already occupied), but the rule requires a free slot, so deny loading.
-
-    Cannot add the boxes: one slot must stay free.
+    Match imports at `Run`. Resolve the rules path relative to its declaration in `SKILL.txt` when `Apply` needs it. Reject a load that leaves no free slot.
   ag-worked-example: |-
-    Populate a Label Template: separate template, data, and logic. In SKILL.txt bind the input path and define a literal template; pass both to populate-label.txt. Resolve paths relative to the directory containing SKILL.txt.
+    Separate input data, literal template, and logic. Give the formatting child both bindings; it reads the input file when needed.
   ag-multi-file-label-template-entry: |-
-    Source file: SKILL.txt
-
-    Scope:
-    - Produce one label
-
-    [LabelInput]:
-    - references/label-input.txt
-
-    [LabelTemplate]:
-    """
-    Label: <name>
-    Type: <type>
-    Caffeine: <caffeine>
-    """
-
-    [PopulateLabel]:
-    1. Resolves: references/populate-label.txt
-    2. Import: [LabelInput], [LabelTemplate]
-
-    Task:
-    1. Run [PopulateLabel]
+    Bind the input file path and define the literal template in `SKILL.txt`. Pass both to the child and run it.
   ag-multi-file-label-template-label-input: |-
-    Source file: references/label-input.txt
-
-    Input:
-    - `name`: "mint tea"
-    - `type`: "herbal"
-    - `caffeine`: "none"
+    The input file supplies lowercase name, type, and caffeine values.
   ag-multi-file-label-template-populate-label: |-
-    Source file: references/populate-label.txt
-
-    Import:
-    - [LabelInput]
-    - [LabelTemplate]
-
-    Task:
-    1. Change each member value in [LabelInput] to title case AS [FinalInput]
-    2. Copy [LabelTemplate] AS [FilledLabel]
-    3. Populate [FilledLabel] ↳
-      - "<name>" with [FinalInput].name
-      - "<type>" with [FinalInput].type
-      - "<caffeine>" with [FinalInput].caffeine 
-    4. Output only [FilledLabel]
+    Title-case the input values, copy the template, fill its three placeholders, and output only the filled copy.
   ag-trace-the-expanded-procedure: |-
-    Resolve [PopulateLabel] at its Run call, then match and bind [LabelInput] and [LabelTemplate]. The child title-cases the input as [FinalInput], copies the literal template as [FilledLabel], applies the three mappings nested under ↳, and outputs only the filled copy.
-
-    Label: Mint Tea
-    Type: Herbal
-    Caffeine: None
+    At the parent call, resolve the child and bind the input path and literal template. The child loads the data, transforms a copy of the template, and returns the filled label.
   ag-sequential-child-calls: |-
-    Save and Count a Word List: bind [Words], [SavedListPath], and [CountTemplate] in SKILL.txt. The writer imports input and destination; both readers import only the saved path, so run them after the writer. The entry fills its file-backed report template using both counts. Resolve all paths from the SKILL.txt directory.
+    Sequence child calls around a shared file. Run the writer before either reader, then use both counts to fill a separate report template.
   ag-multi-file-word-list-entry: |-
-    Source file: SKILL.txt
-
-    Scope:
-    - Save word list
-    - Report total and edible counts
-
-    [Words]: "references/words.txt"
-
-    [SavedListPath]: "word-list.txt"
-
-    [CountTemplate]: "references/count-template.txt"
-
-    [SaveWordList]:
-    1. Resolves: references/save-list.txt
-    2. Import: [Words], [SavedListPath]
-
-    [CountEntries]:
-    1. Resolves: references/count-list.txt
-    2. Import: [SavedListPath]
-
-    [CountEdibleEntries]:
-    1. Resolves: references/count-edible.txt
-    2. Import: [SavedListPath]
-
-    Task:
-    1. Run [SaveWordList]
-    2. Run [CountEntries]
-    3. Run [CountEdibleEntries]
-    4. Read template at [CountTemplate]
-    5. Populate template ↳
-      - "<total>" with count from [CountEntries]
-      - "<edible-total>" with count from [CountEdibleEntries]
-    6. Output only populated template
+    The writer imports the source and destination. Both readers import only the destination path. The parent runs them in order and outputs the filled report.
   ag-multi-file-word-list-words: |-
-    Source file: references/words.txt
-
-    apple, pear, butter, car, computer
+    The input file contains comma-separated words.
   ag-multi-file-word-list-save-list: |-
-    Source file: references/save-list.txt
-
-    Import:
-    - [Words]
-    - [SavedListPath]
-
-    Task:
-    1. Parse file at [Words] as comma-separated words
-    2. Trim spaces around each word
-    3. Write one word per line to [SavedListPath]
+    Read the input, split on commas, trim each word, and write one word per line.
   ag-multi-file-word-list-count-list: |-
-    Source file: references/count-list.txt
-
-    Import:
-    - [SavedListPath]
-
-    Task:
-    1. Return nonempty line count in [SavedListPath]
+    Count nonempty lines in the saved file.
   ag-multi-file-word-list-count-edible: |-
-    Source file: references/count-edible.txt
-
-    Import:
-    - [SavedListPath]
-
-    Task:
-    1. Return count of entries naming foods in [SavedListPath]
+    Count saved entries that name foods.
   ag-multi-file-word-list-count-template: |-
-    Source file: references/count-template.txt
-
-    Total items: <total>
-    Edible items: <edible-total>
+    The report template has one placeholder for the total and one for the edible count.
   ag-multi-file-word-list-walkthrough: |-
-    Run the writer with [Words] and [SavedListPath]; parse commas, trim each word, and write five lines. Run [CountEntries] and [CountEdibleEntries] on the saved file and return 5 and 3 (apple, pear, butter). Read the report template at [CountTemplate], replace <total> and <edible-total>, and output only the populated report.
-
-    Total items: 5
-    Edible items: 3
+    Write the shared file first, read it for both counts, then populate and output only the report. Later steps can reference the child results without requiring aliases.
