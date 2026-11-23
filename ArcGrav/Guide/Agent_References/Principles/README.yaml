@@ -4,12 +4,13 @@ kind: documentation_reference
 source:
   path: ArcGrav/Guide/Principles/README.md
   url: ../../Principles/README.md
-  fingerprint: fnv1a32-638cd1bd
+  fingerprint: fnv1a32-d8b4e7b6
 sections:
   ag-arcgrav-design-principles: |-
     Design principles for creating clear, compact, reusable, deterministic, and auditable systems using ArcGrav.
     These principles define the qualities an ArcGrav system should preserve across tasks and implementations.
     For syntax and operators, see [Syntax Reference](../../Syntax/); For reusable implementation structures, see [ArcGrav Design Pattern Catalogue](../../Patterns/README.md); For lexical naming and instruction compression guidance, see [Lexical Representation](../../Principles/Lexical_Representation.md); For context-dependent grammatical omission and simplification, see [Grammatical Reduction](../../Principles/Grammatical_Reduction.md)
+    For organizing entry workflows, child procedures, and supporting context across files, see [Multi-File Composition](../../Principles/Multi_File_Composition.md#ag-using-multiple-arcgrav-instruction-files).
   ag-purpose: |-
     ArcGrav is designed to maximize signal density while minimizing unnecessary inference.
     A well-designed ArcGrav prompt makes the following explicit when they materially affect the task:

@@ -5,6 +5,7 @@
 - [Design Principles](./Principles/README.md) — Principles for creating clear, compact, reusable, deterministic, and auditable systems using ArcGrav
 - [Lexical Representation](./Principles/Lexical_Representation.md) — Separate guidance for lexical naming and lexical instruction compression
 - [Grammatical Reduction](./Principles/Grammatical_Reduction.md) — Contextual omission and simplification of recoverable grammatical material
+- [Multi-File Composition](./Principles/Multi_File_Composition.md) — Entry workflows, child imports, and supporting files loaded as needed
 - [Design Pattern Catalogue](./Patterns/README.md) — Overview of reusable ArcGrav design patterns organized by operational responsibility
 
 ## Syntax
@@ -27,6 +28,7 @@
 - [Design Principles](./Agent_References/Principles/README.yaml) — Design principles, integrity, and authoring guidance
 - [Lexical Representation](./Agent_References/Principles/Lexical_Representation.yaml) — Lexical naming, semantic roles, and instruction compression
 - [Grammatical Reduction](./Agent_References/Principles/Grammatical_Reduction.yaml) — Contextual omission, semantic preservation, and reduction evaluation
+- [Multi-File Composition](./Agent_References/Principles/Multi_File_Composition.yaml) — Child declarations, matching imports, and worked multi-file workflows
 - [Syntax Index](./Agent_References/Syntax/README.yaml) — Indexed syntax documentation, rules, constraints, and examples
 - [Design Pattern Index](./Agent_References/Patterns/README.yaml) — Indexed categories of reusable design patterns
 - [Language Engine](../../AgStudio/arcgrav_language_engine/arcgrav_agent_reference.yaml) — Language engine catalogue of syntax, semantic states, and registered diagnostics
