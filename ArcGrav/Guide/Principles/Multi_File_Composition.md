@@ -68,6 +68,7 @@ flowchart TD
     Entry -->|"Supplies LineRule and ClosingText"| SignOff
 ```
 
+<a id="ag-multi-file-greet-sign-off-entry"></a>
 ### `SKILL.txt`
 
 ```text
@@ -94,6 +95,7 @@ Task:
 2. Run [SignOff]
 ```
 
+<a id="ag-multi-file-greet-sign-off-greet"></a>
 ### `references/greet.txt`
 
 ```text
@@ -106,6 +108,7 @@ Task:
 2. Output the greeting according to [LineRule]
 ```
 
+<a id="ag-multi-file-greet-sign-off-sign-off"></a>
 ### `references/sign-off.txt`
 
 ```text
@@ -117,6 +120,7 @@ Task:
 1. Output [ClosingText] according to [LineRule]
 ```
 
+<a id="ag-multi-file-greet-sign-off-walkthrough"></a>
 ### Step-by-Step Walkthrough
 
 1. **Run the greeting.**
@@ -165,6 +169,7 @@ flowchart TD
     Check -->|"Follow ShelfCapacityRules at Apply"| Rules
 ```
 
+<a id="ag-multi-file-shelf-capacity-entry"></a>
 ### `SKILL.txt`
 
 ```text
@@ -179,6 +184,7 @@ Task:
 1. Run [CheckShelfCapacity]
 ```
 
+<a id="ag-multi-file-shelf-capacity-check-capacity"></a>
 ### `references/check-capacity.txt`
 
 ```text
@@ -195,6 +201,7 @@ Task:
 2. Output decision
 ```
 
+<a id="ag-multi-file-shelf-capacity-storage-rules"></a>
 ### `references/storage-rules.txt`
 
 ```text
@@ -203,6 +210,7 @@ Rules:
 - Allow loading only if at least one slot remains free after loading
 ```
 
+<a id="ag-multi-file-shelf-capacity-walkthrough"></a>
 ### Step-by-Step Walkthrough
 
 1. **Bind the reference.**
@@ -252,6 +260,7 @@ flowchart TD
     Input -->|"Supplies the input values"| Logic
 ```
 
+<a id="ag-multi-file-label-template-entry"></a>
 ### `SKILL.txt`
 
 ```text
@@ -276,6 +285,7 @@ Task:
 1. Run [PopulateLabel]
 ```
 
+<a id="ag-multi-file-label-template-label-input"></a>
 ### `references/label-input.txt`
 
 ```text
@@ -285,6 +295,7 @@ Input:
 - `caffeine`: "none"
 ```
 
+<a id="ag-multi-file-label-template-populate-label"></a>
 ### `references/populate-label.txt`
 
 ```text
@@ -375,6 +386,7 @@ flowchart LR
     Template -->|"Supplies report template"| Report
 ```
 
+<a id="ag-multi-file-word-list-entry"></a>
 ### `SKILL.txt`
 
 ```text
@@ -411,12 +423,14 @@ Task:
 6. Output only populated template
 ```
 
+<a id="ag-multi-file-word-list-words"></a>
 ### `references/words.txt`
 
 ```text
 apple, pear, butter, car, computer
 ```
 
+<a id="ag-multi-file-word-list-save-list"></a>
 ### `references/save-list.txt`
 
 ```text
@@ -430,6 +444,7 @@ Task:
 3. Write one word per line to [SavedListPath]
 ```
 
+<a id="ag-multi-file-word-list-count-list"></a>
 ### `references/count-list.txt`
 
 ```text
@@ -440,6 +455,7 @@ Task:
 1. Return nonempty line count in [SavedListPath]
 ```
 
+<a id="ag-multi-file-word-list-count-edible"></a>
 ### `references/count-edible.txt`
 
 ```text
@@ -450,6 +466,7 @@ Task:
 1. Return count of entries naming foods in [SavedListPath]
 ```
 
+<a id="ag-multi-file-word-list-count-template"></a>
 ### `references/count-template.txt`
 
 ```text
@@ -457,6 +474,7 @@ Total items: <total>
 Edible items: <edible-total>
 ```
 
+<a id="ag-multi-file-word-list-walkthrough"></a>
 ### Step-by-Step Walkthrough
 
 1. **Save the list.**

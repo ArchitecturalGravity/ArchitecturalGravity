@@ -9,6 +9,7 @@ These principles define the qualities an ArcGrav system should preserve across t
 - For reusable implementation structures, see [ArcGrav Design Pattern Catalogue](../Patterns/README.md)
 - For lexical naming and instruction compression guidance, see [Lexical Representation](./Lexical_Representation.md)
 - For context-dependent grammatical omission and simplification, see [Grammatical Reduction](./Grammatical_Reduction.md)
+- For organizing entry workflows, child procedures, and supporting context across files, see [Multi-File Composition](./Multi_File_Composition.md#ag-using-multiple-arcgrav-instruction-files)
 
 ---
 
