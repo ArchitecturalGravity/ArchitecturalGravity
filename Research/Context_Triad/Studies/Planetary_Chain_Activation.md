@@ -9,11 +9,11 @@ This study examines whether the ordering of independently represented semantic a
 
 Eight symbolic references contain mythological descriptions indirectly associated with the eight planets of the Solar System -- neither planet names nor the astronomical relationship are stated in the experimental prompts. Each reference constitutes an individual **Implicit Associative Inference (IAI)** unit and recognition and reconstruction of the collective planetary relationship is the intended **Associative Pattern Completion (APC)** outcome.
 
-Three ArcGrav prompts preserve the same eight references, identical descriptive clues, and identical concluding task. The revised stimuli request both the appropriate sequence and a one-sentence explanation of the ordering. The first places the references in canonical planetary order; the second reverses that order; and the third scatters them. In each prompt, the entries in `[Chain]` follow the order in which the references appear.
+Three ArcGrav prompts preserve the same eight references, identical descriptive clues, and identical concluding task. The task requests both the appropriate sequence and a one-sentence explanation of the ordering. The first places the references in canonical planetary order; the second reverses that order; and the third scatters them. In each prompt, the entries in `[Chain]` follow the order in which the references appear.
 
-In the original GPT-6 Instant pilot, which requested the sequence without explicitly requesting an explanation, **only the canonically ordered prompt elicited the planetary correlation**. The reversed and scattered conditions did not. **The central observation is an order-dependent change in the expression of an unstated collective association while its constituent semantic cues remain present.**
+In the GPT-6 Instant pilot, **only the canonically ordered prompt elicited the planetary correlation**. The reversed and scattered conditions did not. **The central observation is an order-dependent change in the expression of an unstated collective association while its constituent semantic cues remain present.**
 
-This contrast motivates separating canonical-sequence priming from definition placement under the [Context Triad](../README.md#paper-context-triad). The revised task provides a concise rationale as an additional observable response measure; its outcomes have not yet been reported.
+This contrast motivates separating canonical-sequence priming from definition placement under the [Context Triad](../README.md#paper-context-triad). The requested explanation provides an observable indication of the ordering principle expressed by the model.
 
 ## Role Within the Context Triad
 
@@ -42,7 +42,7 @@ Each symbolic unit is an **IAI** opportunity: the model must recover the intende
 
 **APC** requires an additional operation: integrating the separately cued identities into the familiar eight-planet relationship and producing the appropriate sequence. The requested one-sentence explanation can help distinguish explicit recognition of the planetary ordering principle from literal repetition of `[Chain]`.
 
-The revised concluding task is:
+The concluding task is:
 
 > Task: Provide the appropriate sequence for [Chain] and a one sentence explanation
 
@@ -50,7 +50,7 @@ The revised concluding task is:
 
 ## 2. Three Prompts and One Preserved Set of IAI Units
 
-All three conditions keep every reference body and the concluding task identical across conditions. Each `[Chain]` lists the references in the order of their first occurrence, as established by the experimental design to retain general sequencing consistency. The revised prompts appear in [Appendix A](#appendix-a--revised-stimuli-and-reported-pilot-outcomes); the historical outcomes refer to the original task wording.
+All three conditions keep every reference body and the concluding task identical across conditions. Each `[Chain]` lists the references in the order of their first occurrence, as established by the experimental design to retain general sequencing consistency. Full prompts appear in [Appendix A](#appendix-a--reported-stimuli-and-outcomes).
 
 | Feature | P1 — Expected | P2 — Reverse | P3 — Scattered |
 | --- | --- | --- | --- |
@@ -59,11 +59,11 @@ All three conditions keep every reference body and the concluding task identical
 | Reference labels | Unchanged | Unchanged | Unchanged |
 | Definition order | Canonical | Reversed | Scattered |
 | `[Chain]` order | Canonical | Reversed | Scattered |
-| Concluding task (revised) | Sequence and one-sentence explanation | Same | Same |
-| Intended associative output (revised) | Canonical eight-planet sequence and explanation of the ordering principle | Same | Same |
-| **GPT-6 Instant result (original task)** | **Correlation elicited** | **Not elicited** | **Not elicited** |
+| Concluding task | Sequence and one-sentence explanation | Same | Same |
+| Intended associative output | Canonical eight-planet sequence and explanation of the ordering principle | Same | Same |
+| **GPT-6 Instant result** | **Correlation elicited** | **Not elicited** | **Not elicited** |
 
-### Reported response pattern (original task)
+### Reported response pattern
 
 **P1 — Expected associative order:** The response identified the planetary correlation. The references already followed Mercury-through-Neptune order, providing a collective associative cue.
 
@@ -73,7 +73,7 @@ All three conditions keep every reference body and the concluding task identical
 
 ## 3. Central Observation: Contextual Ordering and Associative Activation
 
-No condition deletes or contradicts a mythological clue. No condition introduces a competing instruction, and each symbol remains explicitly invoked in the concluding `[Chain]`. The revised task requests an explanation equally across conditions, without introducing an astronomical cue.
+No condition deletes or contradicts a mythological clue. No condition introduces a competing instruction, and each symbol remains explicitly invoked in the concluding `[Chain]`. The task requests an explanation equally across conditions, without introducing an astronomical cue.
 
 Only the canonical condition elicited the intended hidden relation in the study record:
 
@@ -97,46 +97,43 @@ The focus is spontaneous integration of indirect semantic cues, rather than reca
 
 ## 5. Proposed Tests of the Associative Locality Hypothesis
 
-These **proposed controls** separate placement, canonical-sequence activation, and individual clue recognizability. Use the same revised task across conditions unless task wording is itself the controlled variable.
+These **proposed controls** separate placement, canonical-sequence activation, and individual clue recognizability. Keep the concluding task identical across conditions.
 
 | Condition | Controlled variation | Research question |
 | --- | --- | --- |
-| **P0 — Canonical baseline** | Revised P1 | How often does canonical ordering elicit planetary APC? |
-| **P1 — Reverse baseline** | Revised P2 | Does the reported non-activation recur? |
-| **P2 — Scattered baseline** | Revised P3, with additional scatter permutations | How reliably do noncanonical orders differ? |
+| **P0 — Canonical baseline** | Prompt 1 (P1) | How often does canonical ordering elicit planetary APC? |
+| **P1 — Reverse baseline** | Prompt 2 (P2) | Does the reported non-activation recur? |
+| **P2 — Scattered baseline** | Prompt 3 (P3), with additional scatter permutations | How reliably do noncanonical orders differ? |
 | **P3 — Definition relocation** | Keep `[Chain]` canonical while moving only definitions | Can physical placement alter APC without changing chain order? |
 | **P4 — Chain permutation** | Keep definition placement fixed while changing only `[Chain]` order | Is the outcome driven by canonical ordering in the final chain? |
 | **P5 — Independent recognition probes** | In separate fresh contexts, ask about each symbol's association | Are individual IAIs recoverable when collective APC is not expressed? |
 | **P6 — Noncanonical sequence control** | Use other hidden associative sequences and counterbalanced target orders | Does the effect generalize beyond a memorized planetary sequence? |
 | **P7 — Cue ablation** | Replace individual cues with matched neutral descriptions | Which cues are necessary for the observed correlation? |
-| **P8 — Task wording control** | Compare the original sequence-only question with the revised sequence-and-explanation task at matched definition and `[Chain]` orders | Does requesting a concise explanation change the frequency of expressed planetary APC? |
 
 The highest-priority control independently crosses **definition order** and **chain order**. Record each definition's actual token span, relative position, and distance from the concluding task while keeping model settings, stimulus wording, and content support matched.
 
 Measure five outcomes: (1) spontaneous recognition of the astronomical relationship, (2) recovery of all eight associations in canonical order, (3) per-symbol IAI recognition in separate probes, (4) alternatives such as literal chain repetition, mythological naming, or other ordering rationales, and (5) the ordering principle expressed in the one-sentence explanation, including whether it explicitly identifies the planetary sequence. Score sequence correctness and explanation content separately; an expressed explanation is a behavioral observation, not direct evidence of an internal reasoning process.
 
-Use fresh-context trials at fixed settings, preserve exact outputs, and compare response frequencies. Keep recognition probes separate so the original task never receives an explicit planetary cue. Document reproducible prompt layouts and counterbalance definition placement and Chain order.
+Use fresh-context trials at fixed settings, preserve exact outputs, and compare response frequencies. Keep recognition probes separate so the chain task never receives an explicit planetary cue. Document reproducible prompt layouts and counterbalance definition placement and Chain order.
 
 ## 6. Scope and Evidence Status
 
-**Observation record:** The original pilot supplies three ArcGrav prompts and categorical GPT-6 **Instant** outcomes dated 26 October 2026: only P1 elicited the planetary correlation. Exact model replies were not supplied; the study records three simultaneous runs. All three original prompts ended with `Question: What is the appropriate sequence for [Chain]`.
-
-**Stimulus revision:** The prompts in this document now request the appropriate sequence and a one-sentence explanation. No new runs or outcomes under the revised task are reported. The historical observations cannot establish whether the explanation requirement changes response behavior.
+**Observation record:** The study records three ArcGrav prompts and categorical GPT-6 **Instant** outcomes dated 26 October 2026: only P1 elicited the planetary correlation. Exact model replies were not supplied; the study records three simultaneous runs. The available evidence does not permit separate assessment of sequence accuracy, explanation content, or compliance with the one-sentence requirement.
 
 The observed contrast motivates separate manipulation of definition placement and final chain order.
 
 ## 7. Conclusion
 
-The canonical ordering elicited the planetary association, while the reverse and scattered presentations did not in the reported pilot. Crossing definition placement with final reference order is the priority controlled test. The revised task adds a concise explanation to the requested output, enabling separate assessment of the proposed sequence and its stated rationale in future trials.
+The canonical ordering elicited the planetary association, while the reverse and scattered presentations did not in the reported pilot. Crossing definition placement with final reference order is the priority controlled test. The sequence and its requested explanation provide complementary measures of the expressed ordering principle in controlled trials.
 
 ## Related Papers
 
 - [Context Triad](../README.md#paper-context-triad) — semantic presence and behavioral influence
 - [Semantic Locality](../Semantic_Locality.md#paper-semantic-locality) — placement geometry, distribution, and points of use
 
-## Appendix A — Revised Stimuli and Reported Pilot Outcomes
+## Appendix A — Reported Stimuli and Outcomes
 
-**Record:** Revised ArcGrav prompts with `[Chain]` following reference appearance order and an identical concluding task requesting a sequence and one-sentence explanation. All original definitions, clues, labels, and orderings are retained; only the final task wording has changed. The categorical GPT-6 **Instant** outcomes below refer to the original sequence-only task (26 October 2026; three simultaneous runs reported), not the revised prompts. Verbatim replies were not supplied. To reconstruct the original stimuli, replace the final task line in each prompt with the original question recorded in Section 6.
+**Record:** ArcGrav prompts with `[Chain]` following reference appearance order and an identical concluding task requesting a sequence and one-sentence explanation. Categorical GPT-6 **Instant** outcomes were supplied for 26 October 2026; three simultaneous runs reported. Verbatim replies were not supplied.
 
 ### A.1 Prompt 1 — Expected Associative Order
 
@@ -186,7 +183,7 @@ The canonical ordering elicited the planetary association, while the reverse and
 Task: Provide the appropriate sequence for [Chain] and a one sentence explanation
 ~~~
 
-**Reported outcome (original task):** Planetary correlation elicited (exact response not supplied).
+**Reported outcome:** Planetary correlation elicited (exact response not supplied).
 
 ### A.2 Prompt 2 — Reverse Associative Order
 
@@ -236,7 +233,7 @@ Task: Provide the appropriate sequence for [Chain] and a one sentence explanatio
 Task: Provide the appropriate sequence for [Chain] and a one sentence explanation
 ~~~
 
-**Reported outcome (original task):** Planetary correlation not elicited (exact response not supplied).
+**Reported outcome:** Planetary correlation not elicited (exact response not supplied).
 
 ### A.3 Prompt 3 — Scattered Associative Order
 
@@ -286,7 +283,7 @@ Task: Provide the appropriate sequence for [Chain] and a one sentence explanatio
 Task: Provide the appropriate sequence for [Chain] and a one sentence explanation
 ~~~
 
-**Reported outcome (original task):** Planetary correlation not elicited (exact response not supplied).
+**Reported outcome:** Planetary correlation not elicited (exact response not supplied).
 
 ### A.4 Researcher-Only Expected APC
 
@@ -305,4 +302,4 @@ Task: Provide the appropriate sequence for [Chain] and a one sentence explanatio
 
 **Expected one-sentence explanation (example):** The mythological descriptions correspond to the eight planets of the Solar System, arranged in increasing distance from the Sun.
 
-The mapping, target sequence, and example explanation are researcher-only evaluation material and are not supplied in any experimental prompt. Equivalent explanations that identify the planetary ordering principle may satisfy the revised task.
+The mapping, target sequence, and example explanation are researcher-only evaluation material and are not supplied in any experimental prompt. Equivalent explanations that identify the planetary ordering principle may satisfy the task.
