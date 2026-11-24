@@ -1,6 +1,7 @@
-name: Validate ArcGrav agent references
+name: Validate ArcGrav Guide Agent References
 
 'on':
+  workflow_dispatch:
   push:
     branches:
       - '**'
@@ -9,12 +10,16 @@ name: Validate ArcGrav agent references
       - 'ArcGrav/Guide/Principles/**/*.md'
       - 'ArcGrav/Guide/Syntax/**/*.md'
       - 'ArcGrav/Guide/Patterns/**/*.md'
+      - 'ArcGrav/Guide/Agent_References/**'
+      - '.github/workflows/validate-arcgrav-guide-agent-references.yml'
   pull_request:
     paths:
       - 'ArcGrav/README.md'
       - 'ArcGrav/Guide/Principles/**/*.md'
       - 'ArcGrav/Guide/Syntax/**/*.md'
       - 'ArcGrav/Guide/Patterns/**/*.md'
+      - 'ArcGrav/Guide/Agent_References/**'
+      - '.github/workflows/validate-arcgrav-guide-agent-references.yml'
 
 permissions:
   contents: read
