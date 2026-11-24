@@ -2,7 +2,7 @@
 <a id="context-triad"></a>
 # Context Triad
 
-![Context Triad](./Assets/triad.svg)
+<img src="./Assets/triad.svg" alt="Context Triad" width="50%">
 
 ## Abstract
 
