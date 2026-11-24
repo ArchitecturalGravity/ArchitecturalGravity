@@ -2,6 +2,8 @@
 <a id="context-triad"></a>
 # Context Triad
 
+![Context Triad](./Assets/triad.svg)
+
 ## Abstract
 
 Instructions, definitions, and task-state assertions may remain present and recoverable in a language model's context without reliably governing its later behavior. The Context Triad examines this gap through three complementary perspectives: **Semantic Locality**, the placement and distribution of representations relative to their points of use; **Semantic Shadow**, the effects of subsequent semantic context and ordering on earlier influence; and **Semantic Weight**, the balance of coherent support among competing meanings. The framework distinguishes semantic objects from their contextual representations and separates consistency with an earlier object from correctness under an authorized update. It proposes positional profiles, semantic-continuation contrasts, and support–response measurements to assess how these relationships shape behavior, individually and in interaction. The central prediction is that changes in arrangement, semantic history, and represented support can suppress, preserve, or restore behavioral influence even when the underlying meaning remains available.
