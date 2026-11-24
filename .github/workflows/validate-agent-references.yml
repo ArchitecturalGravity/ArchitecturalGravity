@@ -1,6 +1,7 @@
-name: Validate ArcGrav agent references
+name: Validate ArcGrav Guide Agent References
 
 'on':
+  workflow_dispatch:
   push:
     branches:
       - '**'
