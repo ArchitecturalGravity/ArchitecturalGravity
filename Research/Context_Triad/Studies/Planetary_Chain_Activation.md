@@ -139,36 +139,36 @@ The canonical ordering elicited the planetary association, while the reverse and
 
 ~~~text
 [Qevan]:
-- Winged sandals
-- Messenger and protector of travelers
+- Protects travelers and delivers divine messages
+- Winged sandals and a serpent staff
 
 [Mepix]:
-- Mother of Aeneas
-- Embodiment of love and beauty
+- Governs love, beauty, desire, and attraction
+- Paris awards her the golden apple
 
 [Tovek]:
-- Primordial mother of the Titans
-- Consort of the sky-father
+- Personifies the world that sustains life
+- Bears mountains and the primordial sea
 
 [Zafur]:
-- Father of Romulus and Remus
-- Patron of warriors
+- Embodies bloodshed and fury in battle
+- Fathers the twins Romulus and Remus
 
 [Ruvem]:
-- Wielder of thunderbolts
-- Supreme ruler of the gods
+- Rules the gods from Mount Olympus
+- Hurls thunderbolts and bears an aegis
 
 [Pekil]:
-- Ruler of the Golden Age
-- Swallowed his own children
+- Rules during the fabled Golden Age
+- Carries a sickle for harvesting grain
 
 [Nolix]:
-- Primordial father of the Titans
-- Overthrown by his youngest son
+- Personifies the sky that surrounds everything
+- Fathers the first generation of Titans
 
 [Vezor]:
-- Trident-bearing ruler of the seas
-- Patron of horses
+- Rules the seas and causes earthquakes
+- Strikes the ground with his trident
 
 [Chain]:
 - [Qevan]
@@ -180,7 +180,7 @@ The canonical ordering elicited the planetary association, while the reverse and
 - [Nolix]
 - [Vezor]
 
-Task: Provide the appropriate sequence for [Chain] and a one sentence explanation
+Task: Order [Chain]
 ~~~
 
 **Reported outcome:** Planetary correlation elicited (exact response not supplied).
@@ -189,36 +189,36 @@ Task: Provide the appropriate sequence for [Chain] and a one sentence explanatio
 
 ~~~text
 [Vezor]:
-- Trident-bearing ruler of the seas
-- Patron of horses
+- Rules the seas and causes earthquakes
+- Strikes the ground with his trident
 
 [Nolix]:
-- Primordial father of the Titans
-- Overthrown by his youngest son
+- Personifies the sky that surrounds everything
+- Fathers the first generation of Titans
 
 [Pekil]:
-- Ruler of the Golden Age
-- Swallowed his own children
+- Rules during the fabled Golden Age
+- Carries a sickle for harvesting grain
 
 [Ruvem]:
-- Wielder of thunderbolts
-- Supreme ruler of the gods
+- Rules the gods from Mount Olympus
+- Hurls thunderbolts and bears an aegis
 
 [Zafur]:
-- Father of Romulus and Remus
-- Patron of warriors
+- Embodies bloodshed and fury in battle
+- Fathers the twins Romulus and Remus
 
 [Tovek]:
-- Primordial mother of the Titans
-- Consort of the sky-father
+- Personifies the world that sustains life
+- Bears mountains and the primordial sea
 
 [Mepix]:
-- Mother of Aeneas
-- Embodiment of love and beauty
+- Governs love, beauty, desire, and attraction
+- Paris awards her the golden apple
 
 [Qevan]:
-- Winged sandals
-- Messenger and protector of travelers
+- Protects travelers and delivers divine messages
+- Winged sandals and a serpent staff
 
 [Chain]:
 - [Vezor]
@@ -230,7 +230,7 @@ Task: Provide the appropriate sequence for [Chain] and a one sentence explanatio
 - [Mepix]
 - [Qevan]
 
-Task: Provide the appropriate sequence for [Chain] and a one sentence explanation
+Task: Order [Chain]
 ~~~
 
 **Reported outcome:** Planetary correlation not elicited (exact response not supplied).
@@ -238,49 +238,49 @@ Task: Provide the appropriate sequence for [Chain] and a one sentence explanatio
 ### A.3 Prompt 3 — Scattered Associative Order
 
 ~~~text
+[Ruvem]:
+- Rules the gods from Mount Olympus
+- Hurls thunderbolts and bears an aegis
+
 [Tovek]:
-- Primordial mother of the Titans
-- Consort of the sky-father
+- Personifies the world that sustains life
+- Bears mountains and the primordial sea
 
 [Vezor]:
-- Trident-bearing ruler of the seas
-- Patron of horses
-
-[Qevan]:
-- Winged sandals
-- Messenger and protector of travelers
-
-[Nolix]:
-- Primordial father of the Titans
-- Overthrown by his youngest son
-
-[Ruvem]:
-- Wielder of thunderbolts
-- Supreme ruler of the gods
+- Rules the seas and causes earthquakes
+- Strikes the ground with his trident
 
 [Mepix]:
-- Mother of Aeneas
-- Embodiment of love and beauty
+- Governs love, beauty, desire, and attraction
+- Paris awards her the golden apple
+
+[Nolix]:
+- Personifies the sky that surrounds everything
+- Fathers the first generation of Titans
+
+[Qevan]:
+- Protects travelers and delivers divine messages
+- Winged sandals and a serpent staff
 
 [Pekil]:
-- Ruler of the Golden Age
-- Swallowed his own children
+- Rules during the fabled Golden Age
+- Carries a sickle for harvesting grain
 
 [Zafur]:
-- Father of Romulus and Remus
-- Patron of warriors
+- Embodies bloodshed and fury in battle
+- Fathers the twins Romulus and Remus
 
 [Chain]:
+- [Ruvem]
 - [Tovek]
 - [Vezor]
-- [Qevan]
-- [Nolix]
-- [Ruvem]
 - [Mepix]
+- [Nolix]
+- [Qevan]
 - [Pekil]
 - [Zafur]
 
-Task: Provide the appropriate sequence for [Chain] and a one sentence explanation
+Task: Order [Chain]
 ~~~
 
 **Reported outcome:** Planetary correlation not elicited (exact response not supplied).
