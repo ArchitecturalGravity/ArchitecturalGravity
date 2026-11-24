@@ -1,7 +1,7 @@
 <a id="paper-context-triad"></a>
 
 <p align="center">
-  <img src="./Assets/triad.svg" alt="Context Triad" width="50%">
+  <img src="./Assets/triad.svg" alt="Context Triad" width="66%">
 </p>
 
 <a id="context-triad"></a>
