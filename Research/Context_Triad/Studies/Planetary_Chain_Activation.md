@@ -238,9 +238,21 @@ Task: Order [Chain]
 ### A.3 Prompt 3 — Scattered Associative Order
 
 ~~~text
+[Mepix]:
+- Governs love, beauty, desire, and attraction
+- Paris awards her the golden apple
+
 [Ruvem]:
 - Rules the gods from Mount Olympus
 - Hurls thunderbolts and bears an aegis
+
+[Qevan]:
+- Protects travelers and delivers divine messages
+- Winged sandals and a serpent staff
+
+[Zafur]:
+- Embodies bloodshed and fury in battle
+- Fathers the twins Romulus and Remus
 
 [Tovek]:
 - Personifies the world that sustains life
@@ -250,35 +262,23 @@ Task: Order [Chain]
 - Rules the seas and causes earthquakes
 - Strikes the ground with his trident
 
-[Mepix]:
-- Governs love, beauty, desire, and attraction
-- Paris awards her the golden apple
+[Pekil]:
+- Rules during the fabled Golden Age
+- Carries a sickle for harvesting grain
 
 [Nolix]:
 - Personifies the sky that surrounds everything
 - Fathers the first generation of Titans
 
-[Qevan]:
-- Protects travelers and delivers divine messages
-- Winged sandals and a serpent staff
-
-[Pekil]:
-- Rules during the fabled Golden Age
-- Carries a sickle for harvesting grain
-
-[Zafur]:
-- Embodies bloodshed and fury in battle
-- Fathers the twins Romulus and Remus
-
 [Chain]:
+- [Mepix]
 - [Ruvem]
+- [Qevan]
+- [Zafur]
 - [Tovek]
 - [Vezor]
-- [Mepix]
-- [Nolix]
-- [Qevan]
 - [Pekil]
-- [Zafur]
+- [Nolix]
 
 Task: Order [Chain]
 ~~~
