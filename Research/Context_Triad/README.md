@@ -23,6 +23,8 @@ The Context Triad develops this thesis through three complementary perspectives:
 
 The framework distinguishes meaning’s presence and recoverability from its effectiveness in governing behavior. This paper develops the perspectives and their interactions, while the component papers propose operational measures, testable predictions, and controlled comparisons for evaluating their combined explanatory and predictive value.
 
+Empirical investigations of these relationships are documented separately in the [Context Triad Studies](./Studies/README.md#context-triad-studies).
+
 
 ## Thesis: Semantic Presence Is Not Behavioral Influence
 
