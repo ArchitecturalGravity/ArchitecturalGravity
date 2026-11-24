@@ -11,7 +11,7 @@ name: Validate ArcGrav Guide Agent References
       - 'ArcGrav/Guide/Syntax/**/*.md'
       - 'ArcGrav/Guide/Patterns/**/*.md'
       - 'ArcGrav/Guide/Agent_References/**'
-      - '.github/workflows/validate-agent-references.yml'
+      - '.github/workflows/validate-arcgrav-guide-agent-references.yml'
   pull_request:
     paths:
       - 'ArcGrav/README.md'
@@ -19,7 +19,7 @@ name: Validate ArcGrav Guide Agent References
       - 'ArcGrav/Guide/Syntax/**/*.md'
       - 'ArcGrav/Guide/Patterns/**/*.md'
       - 'ArcGrav/Guide/Agent_References/**'
-      - '.github/workflows/validate-agent-references.yml'
+      - '.github/workflows/validate-arcgrav-guide-agent-references.yml'
 
 permissions:
   contents: read
