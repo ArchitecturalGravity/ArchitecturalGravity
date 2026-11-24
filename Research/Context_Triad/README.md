@@ -312,7 +312,15 @@ Together, these classifications connect **contextual configuration, interaction 
 
 The triad describes interacting behavioral relationships within represented active context, rather than separate internal mechanisms. Changes in training, tool execution, and unavailable or truncated information are outside this account of represented context.
 
-**Evidence status.** This collection defines the concepts, describes their behavioral relationships, and presents ways to quantify them. It reports no new experiments.
+**Evidence status.** This paper develops the conceptual and measurement framework. Empirical investigations are reported separately in the [Context Triad Studies](./Studies/README.md#context-triad-studies).
+
+| Study | Empirical focus | Evidence |
+| --- | --- | --- |
+| [Glip Preference Anchoring](./Studies/Glip_Preference_Anchoring.md) | Label, position, and competing-context sensitivity | 360 trials |
+| [Fox–Leopard Displacement](./Studies/Fox_Leopard_Displacement.md) | Descriptive support, answer selection, and position-dependent effects | 360 trials |
+| [Planetary Chain Activation](./Studies/Planetary_Chain_Activation.md) | Order-dependent associative recognition | Three-condition pilot |
+
+These studies provide empirical grounding for aspects of the framework while identifying relationships requiring further controlled investigation and replication.
 
 
 ## Conclusion
