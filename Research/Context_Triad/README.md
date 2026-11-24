@@ -1,10 +1,11 @@
 <a id="paper-context-triad"></a>
-<a id="context-triad"></a>
-# Context Triad
 
 <p align="center">
   <img src="./Assets/triad.svg" alt="Context Triad" width="50%">
 </p>
+
+<a id="context-triad"></a>
+# Context Triad
 
 ## Abstract
 
