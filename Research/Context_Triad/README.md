@@ -30,7 +30,7 @@ A model-facing requirement has three distinct statuses: it can be present in the
 
 The triad's thesis is:
 
-> **Contextual semantic influence must be studied through the arrangement, contextual history, and relative support of represented meaning, not through its presence alone.**
+> **Contextual influence must be studied through the arrangement, history, and relative support of represented meaning, not through its presence alone.**
 
 A requirement appears somewhere, coexists with supporting and competing representations, and must remain effective across relevant operations. These relationships remain distinct even when a practical prompt edit changes several at once.
 
