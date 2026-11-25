@@ -1,5 +1,5 @@
 <a id="paper-planetary-chain-activation"></a>
-# Planetary Chain Activation: Order-Dependent Selection Between Astronomy and Genealogy
+# Planetary Order vs. Greek Genealogy: How Name Order Shapes Interpretation
 
 ## A `GPT-5.6 Sol / Low` Study of the Context Triad -- 25 November 2026 (UTC)
 ## Abstract
