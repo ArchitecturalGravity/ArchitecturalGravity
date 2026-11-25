@@ -3,8 +3,8 @@ schema_version: 2
 id: research.context_triad.studies.planetary_chain
 kind: research_reference
 source:
-  path: Research/Context_Triad/Studies/Planetary_Chain_Activation.md
-  url: ../../../Context_Triad/Studies/Planetary_Chain_Activation.md
+  path: Research/Context_Triad/Studies/Planetary_Order_vs_Greek_Genealogy.md
+  url: ../../../Context_Triad/Studies/Planetary_Order_vs_Greek_Genealogy.md
   fingerprint: fnv1a32-b9da2239
 sections:
   paper-planetary-chain-activation: |-

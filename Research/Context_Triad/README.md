@@ -33,5 +33,5 @@ The [Context Triad Model](./Context_Triad_Model/README.md#paper-context-triad-mo
 | --- | --- |
 | [Studies index](./Studies/README.md#context-triad-studies) | catalogs investigations, their evidence status, and collection conventions |
 | [Fox–Leopard Displacement](./Studies/Fox_Leopard_Displacement.md#paper-fox-leopard-answer-displacement) | Semantic weight, pangram inference, and answer displacement across fixed-slot layouts; 360 scored trials |
-| [Planetary Order vs. Greek Genealogy](./Studies/Planetary_Chain_Activation.md#paper-planetary-chain-activation) | Order-dependent interpretation of the same nine names; 390 scored trials |
+| [Planetary Order vs. Greek Genealogy](./Studies/Planetary_Order_vs_Greek_Genealogy.md#paper-planetary-chain-activation) | Order-dependent interpretation of the same nine names; 390 scored trials |
 | [Glip Preference Anchoring](./Studies/Glip_Preference_Anchoring.md#paper-glip-preference-anchoring) | Label, description, position, and rival-order dependence in criterion-free selection; 360 trials |

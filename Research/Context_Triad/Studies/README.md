@@ -8,7 +8,7 @@ This folder catalogs **individual investigations of the Context Triad**, includi
 | Study | Focus | Evidence status |
 | --- | --- | --- |
 | [Fox–Leopard Displacement: Semantic Weight and Implicit Pangram Inference](./Fox_Leopard_Displacement.md) | Effect of expanding the Leopard description on pangram identification and animal choice across fixed-slot layouts | 360 scored trials configured for GPT-6 Luna with Low reasoning effort; two prompt versions across six assignments, with 30 repeats per version and assignment; exact prompts, replies, and scores supplied |
-| [Planetary Order vs. Greek Genealogy: How Name Order Shapes Interpretation](./Planetary_Chain_Activation.md#paper-planetary-chain-activation) | How name order affects Solar System and Greek genealogy readings | 390 scored trials across 13 layouts |
+| [Planetary Order vs. Greek Genealogy: How Name Order Shapes Interpretation](./Planetary_Order_vs_Greek_Genealogy.md#paper-planetary-chain-activation) | How name order affects Solar System and Greek genealogy readings | 390 scored trials across 13 layouts |
 | [Glip Preference Anchoring: A Context Triad Study of Label, Description, and Position in Criterion-Free Selection](./Glip_Preference_Anchoring.md) | Crossed heading and description assignments testing label, content, position, and rival-order dependence with character-matched attribute values | One continuous series of 360 fresh subthread trials with requested GPT-6 Luna / Low; 36 layouts × 10 repeats; exact prompts, replies, and complete layout counts supplied |
 
 ## Collection Conventions

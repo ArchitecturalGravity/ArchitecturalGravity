@@ -269,7 +269,7 @@ The triad describes interacting behavioral relationships within represented acti
 | --- | --- | --- |
 | [Glip Preference Anchoring](./Studies/Glip_Preference_Anchoring.md) | Label, position, and competing-context sensitivity | 360 trials |
 | [Fox–Leopard Displacement](./Studies/Fox_Leopard_Displacement.md) | Descriptive support, answer selection, and position-dependent effects | 360 trials |
-| [Planetary Chain Activation](./Studies/Planetary_Chain_Activation.md) | Order-dependent associative recognition | Three-condition pilot |
+| [Planetary Order vs. Greek Genealogy](./Studies/Planetary_Order_vs_Greek_Genealogy.md#paper-planetary-chain-activation) | Order-dependent interpretation of the same nine names | 390 scored trials |
 
 These studies provide empirical grounding for aspects of the framework while identifying relationships requiring further controlled investigation and replication.
 

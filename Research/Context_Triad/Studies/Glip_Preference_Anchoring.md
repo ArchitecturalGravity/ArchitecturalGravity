@@ -220,7 +220,7 @@ These findings connect **Semantic Locality** to positional sensitivity and **Sem
 - [Semantic Locality](../Semantic_Locality.md#paper-semantic-locality) — placement profiles and position–response measurements.
 - [Semantic Shadow](../Semantic_Shadow.md#paper-semantic-shadow) — order-sensitive competition and matched-history contrasts.
 - [Semantic Weight](../Semantic_Weight.md#paper-semantic-weight) — independently defined support and support–response measurements.
-- [Planetary Chain Activation](./Planetary_Chain_Activation.md#paper-planetary-chain-activation) — order-dependent associative recognition.
+- [Planetary Order vs. Greek Genealogy](./Planetary_Order_vs_Greek_Genealogy.md#paper-planetary-chain-activation) — order-dependent associative recognition.
 - [Fox–Leopard Displacement](./Fox_Leopard_Displacement.md#paper-fox-leopard-answer-displacement) — displacement under expanded competing context.
 
 <a id="appendix-a--original-stimuli"></a>

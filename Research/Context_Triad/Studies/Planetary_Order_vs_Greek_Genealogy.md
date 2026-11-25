@@ -116,7 +116,7 @@ The planetary direction was recognized in **19/30** forward planetary replies an
 
 ## Scope and Evidence Status
 
-**Observation record:** 390 replies were verified and scored, 30 per layout. The companion file `planetary-chain-sol-low-390-trials.csv` records the exact prompts, first replies, scores, and actual admission order. GPT-5.6 Sol / Low was requested throughout; effective settings were not independently verified. The permutations vary positions, neighbors, and endpoints together.
+**Observation record:** 390 replies were verified and scored, 30 per layout. The companion file [planetary-order-vs-greek-genealogy-sol-low-390-trials.csv](./Data/planetary-order-vs-greek-genealogy-sol-low-390-trials.csv) records the exact prompts, first replies, scores, and actual admission order. GPT-5.6 Sol / Low was requested throughout; effective settings were not independently verified. The permutations vary positions, neighbors, and endpoints together.
 
 ## Conclusion
 
