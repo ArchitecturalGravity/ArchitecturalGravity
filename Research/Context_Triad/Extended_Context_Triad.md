@@ -1,7 +1,7 @@
 <a id="paper-extended-context-triad"></a>
 
 <p align="center">
-  <img src="./Research_Atlas/Assets/Triad.svg" alt="Extended Context Triad" width="85%">
+  <img src="./Research_Atlas/Assets/Triad.svg" alt="Extended Context Triad" width="66%">
 </p>
 
 <a id="extended-context-triad"></a>
