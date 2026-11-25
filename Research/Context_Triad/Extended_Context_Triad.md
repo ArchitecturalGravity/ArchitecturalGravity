@@ -227,7 +227,7 @@ These representations appear in different parts of the context and accumulate as
 
 When the agent prepares the workflow, it treats the originals as files to preserve rather than overwrite. This example illustrates **Semantic Consolidation**: how distributed and accumulating semantic support can converge around a common requirement.
 
-Conversely, if subsequent folder descriptions, editing checklists, and export instructions consistently favor modifying files in place, semantic support may consolidate around an incompatible workflow. The agent may overwrite the original photos despite the initial preservation requirement remaining present.
+Conversely, if subsequent folder descriptions, editing checklists, and export instructions consistently favor modifying files in place, semantic support may consolidate around an incompatible workflow. When the agent prepares the workflow, it directs edits and exports to the original files, violating the user's preservation requirement despite that requirement remaining present in context.
 
 ## Conclusion
 
