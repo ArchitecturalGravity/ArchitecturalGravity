@@ -1,9 +1,5 @@
 <a id="context-triad-portal"></a>
 
-<p align="center">
-  <img src="./Assets/triad.svg" alt="Context Triad" width="66%">
-</p>
-
 # Context Triad — Research Portal
 
 The Context Triad is a research framework for examining how the placement, subsequent history, and relative support of represented meaning affect language-model behavior. Its central distinction is between meaning that remains present or recoverable in context and meaning that actually governs a later operation.
