@@ -125,16 +125,18 @@ The following hypothetical examples illustrate the three compound dimensions and
 
 > *Initial intent: The user wants a software bug fixed without changing the existing function interface.*
 
-A developer tells an AI agent, “Fix the parsing bug, but do not change the function's parameters.” The agent reviews the code, proposes a repair, and modifies the implementation while preserving the interface.
+A developer tells an AI agent, “Fix the parsing bug, but do not change the function's parameters.”
 
-As the task develops, the agent reviews a lengthy collection of unrelated code before encountering a later example that fixes a similar bug by changing the parameters. During a subsequent revision, it adopts that pattern and breaks existing callers, even though the original constraint remains in context.
+After reviewing a lengthy collection of unrelated code, the agent encounters a newer example that fixes a similar bug by changing the parameters. It follows that example, unintentionally breaking existing callers.
 
-- **Semantic Locality:** The original constraint becomes more distant from successive implementation decisions.
+Two dimensions are particularly relevant:
+
+- **Semantic Locality:** The original constraint is far from the code modification where it must be applied.
 - **Semantic Shadow:** The later example introduces a competing implementation pattern that redirects the earlier constraint's influence.
 
-Moving the original constraint closer to the modification, or replacing the conflicting example with a compatible one, could improve adherence through different contextual changes. Relocating the existing constraint changes its placement without adding another representation, whereas replacing the conflicting example changes the subsequent semantic context. Restating the constraint at a relevant point could also renew its influence, but adds represented support and therefore implicates Semantic Weight.
+Moving the original constraint closer to the modification, or replacing the conflicting example with a compatible one, could improve adherence through different contextual changes.
 
-**Semantic Continuity** concerns whether the interface constraint continues to govern the successive development operations. The example illustrates how placement and subsequent competition can interact without requiring extensive repetition of competing instructions. The central question is persistence across contextual development, rather than adherence at a single operation.
+This example illustrates **Semantic Continuity**: how placement and subsequent competition can affect the persistence of a constraint's influence without requiring extensive repetition of competing instructions.
 
 ---
 
@@ -142,24 +144,16 @@ Moving the original constraint closer to the modification, or replacing the conf
 
 > *Initial intent: The user wants a camping checklist that includes a rain jacket.*
 
-A camper tells an agent, “Make sure I pack a rain jacket.” After reviewing a lengthy itinerary, the agent produces a checklist but omits the jacket.
+A camper tells an agent, “Make sure I pack a rain jacket.”
 
-In a revised itinerary, the requirement appears again beside the hiking plans and once more near the final checklist request. The agent includes the jacket. This change improves the placement of represented support relative to use while also increasing the amount of coherent support for the requirement.
+After reviewing a lengthy itinerary, the agent produces a checklist but omits the jacket.
 
-Consider three contextual arrangements:
+In a revised itinerary, the requirement appears again beside the hiking plans and once more near the final checklist request. The agent includes the jacket.
 
-- **Single representation:** The requirement appears once near the beginning of the itinerary, far from the final checklist request.
-- **Clustered support:** The same requirement appears three times together near the beginning of the itinerary.
-- **Distributed support:** The same three reminders are distributed across the itinerary, with one near the beginning, one beside the hiking plans, and one near the final checklist request.
+- **Semantic Locality:** Representations of the requirement now appear closer to where the checklist is created.
+- **Semantic Weight:** Multiple consistent reminders provide greater support for including the jacket.
 
-The agent might omit the jacket with the single distant reminder, respond differently to the clustered reminders, and include the jacket when the reminders are distributed near the relevant operations. No competing packing instructions are introduced in any of these arrangements.
-
-- **Semantic Locality:** Distributed reminders occupy positions closer to the operations at which the requirement must be applied.
-- **Semantic Weight:** Three consistent reminders provide more represented support for including the jacket than a single reminder. The amount and content of that support remain the same when comparing the clustered and distributed arrangements.
-
-**Semantic Concentration** concerns how coherent support is organized relative to its points of use. Comparing the single representation with the distributed reminders illustrates how proximity and repeated support may jointly strengthen the requirement's influence. Comparing the clustered and distributed reminders emphasizes the distribution of equivalent support rather than its amount alone.
-
-These comparisons illustrate distinct contextual changes; controlled comparisons are required to isolate their effects.
+No competing packing instructions are introduced. The example illustrates **Semantic Concentration**: how proximity and repeated support can jointly strengthen a requirement's influence through the distribution of support relative to use.
 
 ---
 
@@ -167,16 +161,18 @@ These comparisons illustrate distinct contextual changes; controlled comparisons
 
 > *Initial intent: The user wants a factual, neutral announcement without promotional language.*
 
-A person tells an agent, “Write a neutral announcement about our new product.” The agent initially produces a factual draft.
+A person tells an agent, “Write a neutral announcement about our new product.”
 
-The agent then receives a series of enthusiastic sample announcements using phrases such as “revolutionary,” “incredible,” and “game-changing.” As these examples accumulate, successive revisions become increasingly promotional, although the original instruction has not been changed.
+The agent then receives several enthusiastic sample announcements filled with phrases such as “revolutionary,” “incredible,” and “game-changing.” Its final announcement adopts the same promotional tone.
 
-- **Semantic Shadow:** The later examples introduce and reinforce a competing tone through contextual history, redirecting the influence of the original writing instruction.
-- **Semantic Weight:** Multiple examples reinforce promotional language, while neutrality receives only one explicit statement. Coherent support for promotional language accumulates relative to the original instruction.
+Two dimensions are particularly relevant:
 
-Replacing several enthusiastic examples with neutral ones changes both the subsequent context and the balance of represented support, potentially restoring the intended tone. Alternatively, appending a subsequent series of neutral examples could weaken or redirect the promotional tendency while leaving the earlier competing examples in context. Replacement alters the existing contextual history, whereas appending extends it and adds coherent support for neutrality.
+- **Semantic Shadow:** The later examples establish a competing tone that redirects the original writing instruction.
+- **Semantic Weight:** Multiple examples reinforce promotional language, while neutrality receives only one explicit statement.
 
-**Semantic Momentum** concerns the direction of that developing influence as examples accumulate. The example illustrates how later competing meaning and repeated reinforcement can influence writing style even when the original instruction remains available, and how different contextual interventions may redirect that influence. The emphasis is on the changing direction of influence, rather than the balance of support in the final draft alone.
+Replacing several enthusiastic examples with neutral ones changes both the subsequent context and the balance of represented support, potentially restoring the intended tone.
+
+This example illustrates **Semantic Momentum**: how later competing meaning and repeated reinforcement can redirect writing style as context develops, even when the original instruction remains available.
 
 ---
 
