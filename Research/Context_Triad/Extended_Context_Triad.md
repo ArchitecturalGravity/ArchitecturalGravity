@@ -176,18 +176,18 @@ This example illustrates **Semantic Momentum**: how later competing meaning and 
 
 ---
 
-### Maintaining a Restaurant Requirement — Semantic Anchoring
+### Preparing a Survey Report — Semantic Anchoring
 
-> *Initial intent: The user wants a restaurant that provides outdoor seating.*
+> *Initial intent: The user wants a survey report that preserves the anonymity of participants.*
 
-A person tells an agent, “The restaurant must have outdoor seating.” The agent must screen candidate restaurants, compare the remaining options, and recommend a final choice. Later descriptions of attractive indoor dining rooms introduce competing considerations without changing the original requirement.
+A person tells an agent, “Do not include participant names or identifying details in the report.” The agent must select survey excerpts, summarize the findings, and assemble the final report. Later examples of reports that attribute quotations to named participants introduce a competing reporting pattern without changing the original requirement.
 
-In one arrangement, consistent representations of the requirement appear together early in the conversation. In another, the same representations are distributed near candidate screening, comparison, and final selection. The agent might apply the requirement more consistently at each of these operations in the second arrangement.
+In one arrangement, consistent reminders of the anonymity requirement appear together early in the conversation. In another, the same reminders are distributed near excerpt selection, findings summarization, and final report assembly. The agent might preserve participant anonymity more consistently at each of these operations in the second arrangement.
 
-- **Semantic Continuity:** The requirement continues to govern behavior despite later contextual development.
-- **Semantic Concentration:** Coherent support is distributed in relation to the operations that depend on it.
+- **Semantic Continuity:** The anonymity requirement continues to govern behavior despite later contextual development.
+- **Semantic Concentration:** Coherent support for anonymity is distributed in relation to the operations that depend on it.
 
-**Semantic Anchoring** concerns the sustained attachment of the outdoor-seating requirement to each relevant decision. A requirement that governs only the initial screening, but not the final recommendation, would exhibit weaker anchoring across these operations.
+**Semantic Anchoring** concerns the sustained attachment of the anonymity requirement to each relevant operation. A requirement that governs the selection of excerpts but not the assembly of the final report would exhibit weaker anchoring across these operations.
 
 ---
 
