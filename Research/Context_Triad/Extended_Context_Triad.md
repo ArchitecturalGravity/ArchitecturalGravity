@@ -225,9 +225,9 @@ These representations reinforce the same requirement across successive operation
 - **Semantic Concentration:** Coherent support for preserving the originals is distributed across the folder description, editing checklist, and export instructions.
 - **Semantic Momentum:** Successive representations reinforce the same preservation requirement.
 
-When the agent prepares the workflow, it treats the originals as files to preserve rather than overwrite.
+When the agent edits the photos, it saves edited versions as separate copies, leaving the original files unchanged.
 
-Conversely, if those same sources favor in-place modifications, the agent directs edits and exports to the originals, violating the preservation requirement.
+Conversely, if those same sources consistently favor in-place editing, the agent overwrites the original files with the edited versions instead of saving separate copies.
 
 This example illustrates **Semantic Consolidation**: how distributed and accumulating semantic support can converge around meaning that supports or contradicts the user's intent.
 
