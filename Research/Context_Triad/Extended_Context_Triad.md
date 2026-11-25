@@ -129,14 +129,12 @@ A developer tells an AI agent, “Fix the parsing bug, but do not change the fun
 
 After reviewing a lengthy collection of unrelated code, the agent encounters a newer example that fixes a similar bug by changing the parameters. It follows that example, unintentionally breaking existing callers.
 
-Two dimensions are particularly relevant:
-
-- **Semantic Locality:** The original constraint is far from the code modification where it must be applied.
-- **Semantic Shadow:** The later example introduces a competing implementation pattern that redirects the earlier constraint's influence.
-
-Moving the original constraint closer to the modification, or replacing the conflicting example with a compatible one, could improve adherence through different contextual changes.
-
 In a revised arrangement, the original constraint appears immediately before the code modification, and the subsequent example demonstrates a compatible solution. The agent fixes the bug without changing the function's parameters.
+
+- **Semantic Locality:** The original constraint moves from a distant position to immediately before the modification.
+- **Semantic Shadow:** Replacing the conflicting example with a compatible one removes the competing implementation pattern.
+
+Either contextual change could improve adherence.
 
 This example illustrates **Semantic Continuity**: how placement and subsequent competition can affect the persistence of a constraint's influence without requiring extensive repetition of competing instructions.
 
@@ -167,14 +165,10 @@ A person tells an agent, “Write a neutral announcement about our new product.�
 
 The agent then receives several enthusiastic sample announcements filled with phrases such as “revolutionary,” “incredible,” and “game-changing.” Its final announcement adopts the same promotional tone.
 
-Two dimensions are particularly relevant:
+In a revised arrangement, the subsequent examples consistently demonstrate factual, neutral language. The agent produces a neutral announcement.
 
-- **Semantic Shadow:** The later examples establish a competing tone that redirects the original writing instruction.
-- **Semantic Weight:** Multiple examples reinforce promotional language, while neutrality receives only one explicit statement.
-
-Replacing several enthusiastic examples with neutral ones changes both the subsequent context and the balance of represented support, potentially restoring the intended tone.
-
-Conversely, when the subsequent examples consistently demonstrate factual, neutral language, the accumulating support reinforces the original instruction, and the agent produces a neutral announcement.
+- **Semantic Shadow:** Later examples establish either a competing promotional tone or a tone consistent with the original instruction.
+- **Semantic Weight:** Multiple promotional examples compete with a single instruction for neutrality; replacing them with neutral examples reinforces that instruction.
 
 This example illustrates **Semantic Momentum**: how later competing meaning and repeated reinforcement can redirect writing style as context develops, even when the original instruction remains available.
 
