@@ -1,310 +1,196 @@
 <a id="paper-planetary-chain-activation"></a>
-# Planetary Chain Activation: A Semantic Locality Pilot of Order-Dependent Associative Recognition
+# Planetary Chain Activation: Order-Dependent Selection Between Astronomy and Genealogy
 
-## A `GPT-6 Instant` Pilot Observation of the Context Triad -- 26 October 2026
-
+## A `GPT-5.6 Sol / Low` Study of the Context Triad -- 25 November 2026 (UTC)
 ## Abstract
 
-This study examines whether the ordering of independently represented semantic associations influences the spontaneous recognition of an unstated, familiar sequence.
+Nine Greek names support two collective readings: the Sun and eight planets, and the lineage and succession of Greek gods. Thirteen layouts permuted those names while preserving the instruction `Task: Interpret [Items]`. The study scored 390 first replies across four reference layouts and nine scattered layouts.
 
-Eight symbolic references contain mythological descriptions indirectly associated with the eight planets of the Solar System -- neither planet names nor the astronomical relationship are stated in the experimental prompts. Each reference constitutes an individual **Implicit Associative Inference (IAI)** unit and recognition and reconstruction of the collective planetary relationship is the intended **Associative Pattern Completion (APC)** outcome.
-
-Three ArcGrav prompts preserve the same eight references, identical descriptive clues, and identical concluding task. The concluding task is the minimal ordering instruction `Task: Order [Chain]`, which specifies neither an ordering criterion nor a requirement to explain the result. The first places the references in canonical planetary order; the second reverses that order; and the third uses a noncanonical scattered permutation. In each prompt, the entries in `[Chain]` follow the order in which the references appear.
-
-In the reported GPT-6 Instant pilot, **only the canonical condition elicited the planetary correlation**. The reversed and scattered conditions did not. **The central observation is an order-dependent change in the expression of an unstated collective association while its constituent semantic cues remain present.**
-
-This contrast motivates separating canonical-sequence priming from definition placement under the [Context Triad](../Context_Triad.md#paper-context-triad). An explicitly expressed planetary correlation can distinguish associative recognition from mere reproduction of the supplied order; the task does not require such an explanation.
+**The Solar System was the main reading in 19/30 replies for the forward planetary layout and 10/30 for its reverse. The forward genealogy layout also drew 19/30 Solar System readings, versus 12/30 for its reverse.** Genealogy was the most common reading in both reverse layouts. Across the scattered layouts, Solar System readings ranged from **1/30** to **28/30**.
 
 ## Role Within the Context Triad
 
-This pilot documents how presenting the same mythological associations in different sequences changes spontaneous identification of an unstated planetary pattern. It motivates the [Semantic Locality](../Semantic_Locality.md) study, especially independent manipulation of definition placement and reference order.
+The same names make both interpretations available in every layout. The study measures which interpretation organizes the reply, whether either relationship is recognized, and whether the reply recognizes the supplied order. [Semantic Locality](../Semantic_Locality.md#paper-semantic-locality) frames the placement comparison; [Semantic Weight](../Semantic_Weight.md#paper-semantic-weight) frames the competition between the two readings.
 
-## 1. The Intended Inferential Correlation
+## 1. The Intended Inferential Correlations
 
-The familiar planetary sequence is:
+> **Planetary order:** Helios → Hermes → Aphrodite → Gaia → Ares → Zeus → Cronus → Ouranos → Poseidon
 
-> **Mercury → Venus → Earth → Mars → Jupiter → Saturn → Uranus → Neptune**
+The names correspond, respectively, to the Sun, Mercury, Venus, Earth, Mars, Jupiter, Saturn, Uranus, and Neptune. The prompt states neither the correspondences nor the astronomical relationship.
 
-The task never identifies the references as planets, names astronomy, or requests astronomical sorting. Instead, it offers eight mythological descriptions under arbitrary symbolic identities.
+The genealogy layout begins with Gaia and Ouranos, continues through Cronus, and places Zeus before Ares and Hermes. It accommodates Aphrodite’s emergence after Cronus’s attack on Ouranos in Hesiod and places Helios on a separate Titan branch. It is a specified reference sequence, not a single line of descent.
 
-| Symbol | Mythological descriptors | Intended unstated association |
+The October pilot used symbolic labels and descriptive clues, and asked for an appropriate chain sequence. The present study names the figures directly and asks for interpretation, so the two runs are not pooled.
+
+## 2. Design and Trial Protocol
+
+| Layout | Name-order code | Presentation |
 | --- | --- | --- |
-| `[Qevan]` | Protects travelers and delivers divine messages; winged sandals and a serpent staff | Mercury |
-| `[Mepix]` | Governs love, beauty, desire, and attraction; Paris awards her the golden apple | Venus |
-| `[Tovek]` | Personifies the world that sustains life; bears mountains and the primordial sea | Earth |
-| `[Zafur]` | Embodies bloodshed and fury in battle; fathers the twins Romulus and Remus | Mars |
-| `[Ruvem]` | Rules the gods from Mount Olympus; hurls thunderbolts and bears an aegis | Jupiter |
-| `[Pekil]` | Rules during the fabled Golden Age; carries a sickle for harvesting grain | Saturn |
-| `[Nolix]` | Personifies the sky that surrounds everything; fathers the first generation of Titans | Uranus |
-| `[Vezor]` | Rules the seas and causes earthquakes; strikes the ground with his trident | Neptune |
+| Forward planetary | `123456789` | Solar System, Sun outward |
+| Reverse planetary | `987654321` | Solar System, Neptune inward |
+| Forward genealogy | `487319652` | Hesiod-based genealogy |
+| Reverse genealogy | `256913784` | Reverse of the Hesiod-based sequence |
+| Scattered layout 1 | `361549728` | Scattered |
+| Scattered layout 2 | `742698153` | Scattered |
+| Scattered layout 3 | `657312489` | Scattered |
+| Scattered layout 4 | `275931864` | Scattered |
+| Scattered layout 5 | `928463517` | Scattered |
+| Scattered layout 6 | `194785632` | Scattered |
+| Scattered layout 7 | `589127346` | Scattered |
+| Scattered layout 8 | `413876295` | Scattered |
+| Scattered layout 9 | `836254971` | Scattered |
 
-Each symbolic unit is an **IAI** opportunity: the model must recover the intended relationship through previously learned associations rather than read it from an explicit assertion. The labels themselves give no meaningful hints.
+The codes index the names in the planetary sequence above, from Helios (`1`) to Poseidon (`9`). Each name occupies every slot once across the nine scattered layouts. Each planned block contained one trial per layout in a fixed order. The trials form one study series, numbered 1–390. Each trial used a fresh subthread with no copied conversation history. The nine name lines were the only stimulus variation; [Appendix A](#planetary-verified-stimulus) reproduces the forward planetary stimulus.
 
-**APC** requires an additional operation: integrating the separately cued identities into the familiar eight-planet relationship and producing the appropriate sequence. An explicit planetary association or an unsolicited explanation can help distinguish recognition of the planetary ordering principle from literal repetition of `[Chain]`. Correct ordering alone, particularly in the canonical condition, does not establish that the model recognized the intended relationship.
+### Scoring
 
-The concluding task is:
+| Outcome | What qualified |
+| --- | --- |
+| Main interpretation | The reading that organized the first reply: Solar System, genealogy, other mythology, or mixed / unclear |
+| Relationship recognition | An account of the names as a collection of celestial bodies or as a multigenerational divine family or succession. Both could be recognized in one reply |
+| Supplied order | An explicit claim about the sequence as presented. Planetary direction required a tie to Sun distance; genealogy direction also required a lineage anchor. A reordered list alone did not count |
 
-> Task: Order [Chain]
+## 3. Central Observation: Order Changes the Main Reading
 
-**The planetary sequence is the target associative interpretation**, inferred from the mythological clues rather than specified by the task. The model must select an ordering principle without the prompt identifying the intended domain or supplying an ordering criterion. No explanation, output format, or sentence limit is requested; alternative interpretations of the task remain possible.
+### Main interpretation by layout
 
-## 2. Three Prompts and One Preserved Set of IAI Units
+| Layout | Replies | Solar System | Genealogy | Other mythology | Mixed / unclear |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| Forward planetary | 30 | 19 | 8 | 3 | 0 |
+| Reverse planetary | 30 | 10 | 16 | 4 | 0 |
+| Forward genealogy | 30 | 19 | 11 | 0 | 0 |
+| Reverse genealogy | 30 | 12 | 17 | 1 | 0 |
+| Scattered layout 1 | 30 | 17 | 2 | 11 | 0 |
+| Scattered layout 2 | 30 | 10 | 6 | 14 | 0 |
+| Scattered layout 3 | 30 | 1 | 23 | 6 | 0 |
+| Scattered layout 4 | 30 | 17 | 9 | 4 | 0 |
+| Scattered layout 5 | 30 | 14 | 15 | 1 | 0 |
+| Scattered layout 6 | 30 | 22 | 0 | 8 | 0 |
+| Scattered layout 7 | 30 | 14 | 9 | 7 | 0 |
+| Scattered layout 8 | 30 | 28 | 1 | 1 | 0 |
+| Scattered layout 9 | 30 | 12 | 4 | 14 | 0 |
+| Pooled scatter | 270 | 135 | 69 | 66 | 0 |
 
-All three conditions keep every reference body and the concluding task identical across conditions. Each `[Chain]` lists the references in the order of their first occurrence, as established by the experimental design to retain general sequencing consistency. Full prompts appear in [Appendix A](#appendix-a--reported-stimuli-and-outcomes).
+- **Forward vs. reverse planetary:** Reversing the planetary sequence reduced Solar System readings from 19/30 to 10/30. Genealogy rose from 8/30 to 16/30.
+- **Forward vs. reverse genealogy:** Reversing the genealogy sequence reduced Solar System readings from 19/30 to 12/30 and increased genealogy readings from 11/30 to 17/30.
+- **Planetary vs. genealogy:** The forward layouts tied on Solar System readings (19/30 each), although the forward genealogy layout drew more genealogy readings (11/30 vs. 8/30). The reverse planetary and reverse genealogy layouts yielded 10/30 and 12/30 Solar System readings, respectively.
+- **Scattered layouts:** Scattered layout 8 favored astronomy (28/30); scattered layout 3 favored genealogy (23/30) and rarely yielded astronomy (1/30). Scattered layouts 4 and 5 contain no adjacent planetary pair in either direction but still yielded 17/30 and 14/30 Solar System readings.
 
-| Feature | P1 — Expected | P2 — Reverse | P3 — Scattered |
-| --- | --- | --- | --- |
-| Eight IAI definitions | Same | Same | Same |
-| Mythological clues | Unchanged | Unchanged | Unchanged |
-| Reference labels | Unchanged | Unchanged | Unchanged |
-| Definition order | Canonical | Reversed | Scattered |
-| `[Chain]` order | Canonical | Reversed | Scattered (same permutation as definitions) |
-| Order (canonical planet indices) | 1, 2, 3, 4, 5, 6, 7, 8 | 8, 7, 6, 5, 4, 3, 2, 1 | 2, 5, 1, 4, 3, 8, 6, 7 |
-| Concluding task | `Task: Order [Chain]` | Same | Same |
-| Intended associative output | Canonical eight-planet sequence; explicit planetary recognition scored separately | Same | Same |
-| **Reported GPT-6 Instant result (26 October 2026)** | **Correlation elicited** | **Not elicited** | **Not elicited** |
+### Relationship recognition
 
-P3 places Venus, Jupiter, Mercury, Mars, Earth, Neptune, Saturn, and Uranus in that order in both the definitions and `[Chain]`. This fixed scattered permutation retains two adjacent planetary pairs: Mars–Earth in reverse order and Saturn–Uranus in canonical order.
+| Layout | Replies | Solar System recognized | Genealogy recognized |
+| --- | ---: | ---: | ---: |
+| Forward planetary | 30 | 19 | 8 |
+| Reverse planetary | 30 | 10 | 16 |
+| Forward genealogy | 30 | 20 | 11 |
+| Reverse genealogy | 30 | 12 | 17 |
+| Scattered layout 1 | 30 | 17 | 2 |
+| Scattered layout 2 | 30 | 10 | 10 |
+| Scattered layout 3 | 30 | 1 | 24 |
+| Scattered layout 4 | 30 | 17 | 10 |
+| Scattered layout 5 | 30 | 14 | 15 |
+| Scattered layout 6 | 30 | 22 | 0 |
+| Scattered layout 7 | 30 | 14 | 9 |
+| Scattered layout 8 | 30 | 28 | 2 |
+| Scattered layout 9 | 30 | 12 | 7 |
+| Pooled scatter | 270 | 135 | 79 |
 
-### Reported response pattern
+Relationship recognition mostly tracked the main reading, but the scores were distinct. For example, the forward genealogy layout produced 20/30 replies recognizing the Solar System, of which 19 made it the main reading.
 
-**P1 — Expected associative order:** The response identified the planetary correlation. The references already followed Mercury-through-Neptune order, providing a collective associative cue.
+### Recognition of the supplied order
 
-**P2 — Reverse associative order:** The response followed the noncanonical `[Chain]` order and added mythological details. Follow-up replies did not identify the planetary pattern.
-
-**P3 — Scattered associative order:** The reported response followed the supplied scattered `[Chain]` order and added mythological details. Follow-up replies did not identify the planetary pattern.
-
-## 3. Central Observation: Contextual Ordering and Associative Activation
-
-No condition deletes or contradicts a mythological clue. No condition introduces a competing instruction, and each symbol remains explicitly invoked in the concluding `[Chain]`. The same minimal ordering instruction is used across conditions, without introducing an astronomical cue, specifying an ordering criterion, or requesting an explanation.
-
-Only the canonical condition elicited the intended hidden relation in the study record:
-
-> **The same distributed implicit associations produced a planetary correlation under canonical ordering but did not produce that correlation when the references were reversed or scattered**
-
-This contrast highlights three distinct properties:
-
-- **Semantic Presence:** The eight sets of clues are present in every prompt
-- **IAI Recoverability:** Individual clue-to-planet associations can be measured separately from full-chain recognition
-- **APC Activation:** The integrated planetary relation appears in the canonical-condition response
-
-The canonical condition alone presents the target order, so **canonical-sequence priming** and **definition placement** change together. The observed phenomenon is **order-dependent associative activation**; independently varying definition and `[Chain]` order will distinguish these contributions.
+The planetary direction was recognized in **19/30** forward planetary replies and **10/30** reverse planetary replies. By contrast, **3/30** forward genealogy replies met the criterion for forward genealogy order, and **0/30** reverse genealogy replies met it for reverse genealogy order, despite frequent recognition of the family relationship. [Appendix B](#planetary-order-counts) gives the full counts.
 
 ## 4. Relation to the Context Triad
 
-This case belongs in the Triad because **the presence of semantic information does not ensure that its intended inferred relation will govern the final response**.
+- [**Semantic Locality:**](../Semantic_Locality.md#paper-semantic-locality) Permuting the same names changed which relationship governed the reply. The contrast between scattered layouts 3 and 8 shows why a single scattered layout is an inadequate control.
+- **Associative Pattern Completion:** A reply could recover a collective association without identifying the order in which its cues appeared. The genealogy layouts make this distinction visible: family recognition was common, but explicit recognition of the supplied genealogy direction was rare.
 
-- [**Semantic Locality:**](../Semantic_Locality.md#paper-semantic-locality) The eight references occupy different positions in the input sequence relative to each other and the concluding task. Their invocation through `[Chain]` is near the task, but their substantive descriptions occupy distributed earlier positions. The manipulation therefore changes placement profiles and relative distance to use, alongside reference sequence.
+## 5. Proposed Tests
 
-The focus is spontaneous integration of indirect semantic cues, rather than recall of a fact explicitly requested by the prompt.
+| Controlled variation | Research question |
+| --- | --- |
+| Hold the first and last names fixed while permuting the interior | How much of the layout effect survives matched endpoints? |
+| Preserve planetary neighbor pairs while moving them to different slots | Does local adjacency matter independently of position? |
+| Vary the definition order and final reference order independently in the symbolic-chain prompt | Does the order effect persist when names must be inferred from descriptions? |
 
-## 5. Proposed Tests of the Associative Locality Hypothesis
+## Scope and Evidence Status
 
-These **proposed controls** separate placement, canonical-sequence activation, and individual clue recognizability. Keep the concluding task identical across conditions.
+**Observation record:** 390 replies were verified and scored, 30 per layout. The companion file `planetary-chain-sol-low-390-trials.csv` records the exact prompts, first replies, scores, and actual admission order. GPT-5.6 Sol / Low was requested throughout; effective settings were not independently verified. The permutations vary positions, neighbors, and endpoints together.
 
-| Condition | Controlled variation | Research question |
-| --- | --- | --- |
-| **P0 — Canonical baseline** | Prompt 1 (P1) | How often does canonical ordering elicit planetary APC? |
-| **P1 — Reverse baseline** | Prompt 2 (P2) | Does the reported non-activation recur? |
-| **P2 — Scattered baseline** | Prompt 3 (P3), with additional scatter permutations and matched definition/chain order | Does non-activation recur, and how sensitive is APC to the specific permutation? |
-| **P3 — Definition relocation** | Keep `[Chain]` canonical while moving only definitions | Can physical placement alter APC without changing chain order? |
-| **P4 — Chain permutation** | Keep definition placement fixed while changing only `[Chain]` order | Is the outcome driven by canonical ordering in the final chain? |
-| **P5 — Independent recognition probes** | In separate fresh contexts, ask about each symbol's association | Are individual IAIs recoverable when collective APC is not expressed? |
-| **P6 — Noncanonical sequence control** | Use other hidden associative sequences and counterbalanced target orders | Does the effect generalize beyond a memorized planetary sequence? |
-| **P7 — Cue ablation** | Replace individual cues with matched neutral descriptions | Which cues are necessary for the observed correlation? |
+## Conclusion
 
-The highest-priority control independently crosses **definition order** and **chain order**, using the P3 permutation as one fixed scattered level. For additional scatter permutations, record canonical-order and reverse-order adjacent pairs and other retained subsequences; do not treat every noncanonical permutation as equivalent. Record each definition's actual token span, relative position, and distance from the concluding task while keeping model settings, stimulus wording, and content support matched.
-
-Measure five outcomes: (1) spontaneous, explicit recognition of the astronomical relationship, (2) production of the complete canonical symbol sequence, (3) per-symbol IAI recognition in separate probes, (4) alternatives such as literal chain repetition, mythological naming, or other ordering strategies, and (5) the ordering principle, if voluntarily expressed. Score sequence correctness and explicit planetary recognition separately: in the canonical condition, literal repetition already produces the target sequence. A correct sequence without an expressed planetary association leaves recognition undetermined rather than demonstrating APC or its absence. Any unsolicited rationale is a behavioral observation, not direct evidence of an internal reasoning process. Do not require an explanation in baseline trials; an explanation-requesting instruction can be tested separately as a task-wording control.
-
-Use fresh-context trials at fixed settings, preserve exact outputs, and compare response frequencies. Keep recognition probes separate so the chain task never receives an explicit planetary cue. Document reproducible prompt layouts and counterbalance definition placement and Chain order.
-
-## 6. Scope and Evidence Status
-
-**Observation record:** The study records categorical GPT-6 **Instant** outcomes dated 26 October 2026 from three simultaneous runs: only the canonical condition elicited the planetary correlation. The available evidence is a condition-level report rather than a complete trial record; exact administered stimuli and verbatim model replies cannot be independently verified from that record. Sequence accuracy, explicit association content, and unsolicited ordering rationales cannot be assessed separately. No replication trials are documented here.
-
-The observed contrast motivates separate manipulation of definition placement and final chain order.
-
-## 7. Conclusion
-
-The canonical ordering elicited the planetary association, while the reverse and scattered presentations did not in the reported pilot. Crossing definition placement with final reference order is the priority controlled test. Sequence correctness and explicit planetary recognition provide complementary behavioral measures in controlled trials; a correct sequence alone is insufficient to establish recognition.
+The forward layouts favored a Solar System reading relative to their reversals, whether the reference sequence was astronomical or genealogical. The two reverse layouts more often elicited genealogy. Scattering preserved both associations but did not produce a uniform baseline. Which relationship a reply recognized, which interpretation it chose, and whether it described the supplied order were three distinct outcomes.
 
 ## Related Papers
 
 - [Context Triad](../Context_Triad.md#paper-context-triad) — semantic presence and behavioral influence
-- [Semantic Locality](../Semantic_Locality.md#paper-semantic-locality) — placement geometry, distribution, and points of use
+- [Semantic Locality](../Semantic_Locality.md#paper-semantic-locality) — placement geometry and points of use
+- [Semantic Shadow](../Semantic_Shadow.md#paper-semantic-shadow) — order-sensitive influence
+- [Semantic Weight](../Semantic_Weight.md#paper-semantic-weight) — competition between interpretations
 
-## Appendix A — Reported Stimuli and Outcomes
+<a id="planetary-verified-stimulus"></a>
+## Appendix A — Verified Stimulus
 
-**Record:** Three ArcGrav prompts with `[Chain]` following reference appearance order and the identical concluding instruction `Task: Order [Chain]`. The reported condition-level GPT-6 **Instant** outcomes are from 26 October 2026 (three simultaneous runs); see Section 6 for the evidence limitations.
-
-### A.1 Prompt 1 — Expected Associative Order
-
-~~~text
-[Qevan]:
-- Protects travelers and delivers divine messages
-- Winged sandals and a serpent staff
-
-[Mepix]:
-- Governs love, beauty, desire, and attraction
-- Paris awards her the golden apple
-
-[Tovek]:
-- Personifies the world that sustains life
-- Bears mountains and the primordial sea
-
-[Zafur]:
-- Embodies bloodshed and fury in battle
-- Fathers the twins Romulus and Remus
-
-[Ruvem]:
-- Rules the gods from Mount Olympus
-- Hurls thunderbolts and bears an aegis
-
-[Pekil]:
-- Rules during the fabled Golden Age
-- Carries a sickle for harvesting grain
-
-[Nolix]:
-- Personifies the sky that surrounds everything
-- Fathers the first generation of Titans
-
-[Vezor]:
-- Rules the seas and causes earthquakes
-- Strikes the ground with his trident
-
-[Chain]:
-- [Qevan]
-- [Mepix]
-- [Tovek]
-- [Zafur]
-- [Ruvem]
-- [Pekil]
-- [Nolix]
-- [Vezor]
-
-Task: Order [Chain]
-~~~
-
-**Reported outcome:** Planetary correlation elicited (exact response not supplied).
-
-### A.2 Prompt 2 — Reverse Associative Order
+The enclosing triple backticks are part of the recorded prompt. The other layouts permute the nine name lines using the codes in §2.
 
 ~~~text
-[Vezor]:
-- Rules the seas and causes earthquakes
-- Strikes the ground with his trident
+```
+[Items]:
+- Helios
+- Hermes
+- Aphrodite
+- Gaia
+- Ares
+- Zeus
+- Cronus
+- Ouranos
+- Poseidon
 
-[Nolix]:
-- Personifies the sky that surrounds everything
-- Fathers the first generation of Titans
-
-[Pekil]:
-- Rules during the fabled Golden Age
-- Carries a sickle for harvesting grain
-
-[Ruvem]:
-- Rules the gods from Mount Olympus
-- Hurls thunderbolts and bears an aegis
-
-[Zafur]:
-- Embodies bloodshed and fury in battle
-- Fathers the twins Romulus and Remus
-
-[Tovek]:
-- Personifies the world that sustains life
-- Bears mountains and the primordial sea
-
-[Mepix]:
-- Governs love, beauty, desire, and attraction
-- Paris awards her the golden apple
-
-[Qevan]:
-- Protects travelers and delivers divine messages
-- Winged sandals and a serpent staff
-
-[Chain]:
-- [Vezor]
-- [Nolix]
-- [Pekil]
-- [Ruvem]
-- [Zafur]
-- [Tovek]
-- [Mepix]
-- [Qevan]
-
-Task: Order [Chain]
+Task: Interpret [Items]
+```
 ~~~
 
-**Reported outcome:** Planetary correlation not elicited (exact response not supplied).
+<a id="planetary-order-counts"></a>
+## Appendix B — Supplied-Order Counts
 
-### A.3 Prompt 3 — Scattered Associative Order
+“Not reference order” denotes a correct departure claim; “None” denotes no qualifying whole-list judgment.
 
-**Permutation:** 2, 5, 1, 4, 3, 8, 6, 7 (canonical planet indices).
+### B.1 Planetary Order
 
-~~~text
-[Mepix]:
-- Governs love, beauty, desire, and attraction
-- Paris awards her the golden apple
+| Layout | Replies | Forward | Reverse | Not reference order | None | Incorrect |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Forward planetary | 30 | 19 | 0 | 0 | 11 | 0 |
+| Reverse planetary | 30 | 0 | 10 | 0 | 20 | 0 |
+| Forward genealogy | 30 | 0 | 0 | 9 | 21 | 0 |
+| Reverse genealogy | 30 | 0 | 0 | 3 | 27 | 0 |
+| Scattered layout 1 | 30 | 0 | 0 | 5 | 25 | 0 |
+| Scattered layout 2 | 30 | 0 | 0 | 3 | 27 | 0 |
+| Scattered layout 3 | 30 | 0 | 0 | 0 | 30 | 0 |
+| Scattered layout 4 | 30 | 0 | 0 | 6 | 24 | 0 |
+| Scattered layout 5 | 30 | 0 | 0 | 6 | 24 | 0 |
+| Scattered layout 6 | 30 | 0 | 0 | 10 | 20 | 0 |
+| Scattered layout 7 | 30 | 0 | 0 | 7 | 23 | 0 |
+| Scattered layout 8 | 30 | 0 | 0 | 7 | 23 | 0 |
+| Scattered layout 9 | 30 | 0 | 0 | 3 | 27 | 0 |
+| Pooled scatter | 270 | 0 | 0 | 47 | 223 | 0 |
 
-[Ruvem]:
-- Rules the gods from Mount Olympus
-- Hurls thunderbolts and bears an aegis
+### B.2 Genealogy Order
 
-[Qevan]:
-- Protects travelers and delivers divine messages
-- Winged sandals and a serpent staff
+| Layout | Replies | Forward | Reverse | Not reference order | None | Incorrect |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| Forward planetary | 30 | 0 | 0 | 0 | 30 | 0 |
+| Reverse planetary | 30 | 0 | 0 | 1 | 29 | 0 |
+| Forward genealogy | 30 | 3 | 0 | 0 | 26 | 1 |
+| Reverse genealogy | 30 | 0 | 0 | 0 | 29 | 1 |
+| Scattered layout 1 | 30 | 0 | 0 | 0 | 30 | 0 |
+| Scattered layout 2 | 30 | 0 | 0 | 0 | 30 | 0 |
+| Scattered layout 3 | 30 | 0 | 0 | 1 | 29 | 0 |
+| Scattered layout 4 | 30 | 0 | 0 | 1 | 29 | 0 |
+| Scattered layout 5 | 30 | 0 | 0 | 1 | 29 | 0 |
+| Scattered layout 6 | 30 | 0 | 0 | 0 | 30 | 0 |
+| Scattered layout 7 | 30 | 0 | 0 | 0 | 30 | 0 |
+| Scattered layout 8 | 30 | 0 | 0 | 1 | 29 | 0 |
+| Scattered layout 9 | 30 | 0 | 0 | 0 | 30 | 0 |
+| Pooled scatter | 270 | 0 | 0 | 4 | 266 | 0 |
 
-[Zafur]:
-- Embodies bloodshed and fury in battle
-- Fathers the twins Romulus and Remus
-
-[Tovek]:
-- Personifies the world that sustains life
-- Bears mountains and the primordial sea
-
-[Vezor]:
-- Rules the seas and causes earthquakes
-- Strikes the ground with his trident
-
-[Pekil]:
-- Rules during the fabled Golden Age
-- Carries a sickle for harvesting grain
-
-[Nolix]:
-- Personifies the sky that surrounds everything
-- Fathers the first generation of Titans
-
-[Chain]:
-- [Mepix]
-- [Ruvem]
-- [Qevan]
-- [Zafur]
-- [Tovek]
-- [Vezor]
-- [Pekil]
-- [Nolix]
-
-Task: Order [Chain]
-~~~
-
-**Reported outcome:** Planetary correlation not elicited (exact response not supplied).
-
-### A.4 Researcher-Only Expected APC
-
-~~~text
-[Qevan] -> Mercury
-[Mepix] -> Venus
-[Tovek] -> Earth
-[Zafur] -> Mars
-[Ruvem] -> Jupiter
-[Pekil] -> Saturn
-[Nolix] -> Uranus
-[Vezor] -> Neptune
-~~~
-
-**Expected collective association:** Mercury → Venus → Earth → Mars → Jupiter → Saturn → Uranus → Neptune.
-
-**Example of explicit planetary recognition (not a required response format):** The mythological descriptions correspond to the eight planets of the Solar System, arranged in increasing distance from the Sun.
-
-The mapping, target sequence, and example of explicit recognition are researcher-only evaluation material and are not supplied in any experimental prompt. The ordering task does not require an explanation. Equivalent spontaneous expressions of the planetary relationship count as recognition; sequence correctness is scored independently.
