@@ -220,14 +220,16 @@ A person tells an agent, “Keep all original photos unchanged.”
 
 As the task develops, a folder description identifies the originals as read-only, an editing checklist specifies that adjustments must be made to copies, and export instructions direct edited photos to a separate folder.
 
-These representations appear in different parts of the context and accumulate as the task develops. Each expresses or reinforces the same underlying requirement in a form relevant to a particular operation.
+These representations reinforce the same requirement across successive operations.
 
 - **Semantic Concentration:** Coherent support for preserving the originals is distributed across the folder description, editing checklist, and export instructions.
 - **Semantic Momentum:** Successive representations reinforce the same preservation requirement.
 
-When the agent prepares the workflow, it treats the originals as files to preserve rather than overwrite. This example illustrates **Semantic Consolidation**: how distributed and accumulating semantic support can converge around a common requirement.
+When the agent prepares the workflow, it treats the originals as files to preserve rather than overwrite.
 
-Conversely, if subsequent folder descriptions, editing checklists, and export instructions consistently favor modifying files in place, semantic support may consolidate around an incompatible workflow. When the agent prepares the workflow, it directs edits and exports to the original files, violating the user's preservation requirement despite that requirement remaining present in context.
+Conversely, if those same sources favor in-place modifications, the agent directs edits and exports to the originals, violating the preservation requirement.
+
+This example illustrates **Semantic Consolidation**: how distributed and accumulating semantic support can converge around meaning that supports or contradicts the user's intent.
 
 ## Conclusion
 
