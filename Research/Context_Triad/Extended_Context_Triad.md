@@ -218,11 +218,9 @@ This example illustrates **Semantic Trajectory**: the progression of the budget 
 
 A person tells an agent, “Keep all original photos unchanged.”
 
-As the task develops, a folder description identifies the originals as read-only, an editing checklist specifies that adjustments must be made to copies, and export instructions direct edited photos to a separate folder.
+As the task develops, a folder description, an editing checklist, and export instructions consistently favor in-place editing. The agent overwrites the original files with the edited versions instead of saving separate copies.
 
-When the agent edits the photos, it saves edited versions as separate copies, leaving the original files unchanged.
-
-Conversely, if those same sources consistently favor in-place editing, the agent overwrites the original files with the edited versions instead of saving separate copies.
+In a revised arrangement, the folder description identifies the originals as read-only, the editing checklist specifies that adjustments must be made to copies, and the export instructions direct edited photos to a separate folder. The agent saves edited versions as separate copies, leaving the original files unchanged.
 
 - **Semantic Concentration:** Coherent support for either preserving or modifying the originals is distributed across the folder description, editing checklist, and export instructions.
 - **Semantic Momentum:** Successive representations reinforce either the original preservation requirement or the competing in-place editing workflow.
