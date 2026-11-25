@@ -328,6 +328,11 @@ These studies provide empirical grounding for aspects of the framework while ide
 The Context Triad connects placement, contextual history, and relative support to the behavioral effectiveness of represented meaning. Locality supplies position–response measurements; Shadow supplies semantic-history contrasts; Weight supplies support–response measurements. Together, they describe how represented meaning affects behavior, how the three perspectives interact, and how those relationships can be quantified.
 
 
+## Research Atlas
+
+The [Context Triad Research Atlas](./Research_Atlas/README.md#context-triad-research-atlas) overlays established research and engineering practices onto the primary Triad and proposed compound constructs, distinguishing direct factor evidence, related empirical evidence, and applied engineering.
+
+
 ## Related Papers
 
 - [Context Triad Model](./Context_Triad_Model/README.md#paper-context-triad-model)
