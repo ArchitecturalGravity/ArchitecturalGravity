@@ -220,14 +220,12 @@ A person tells an agent, “Keep all original photos unchanged.”
 
 As the task develops, a folder description identifies the originals as read-only, an editing checklist specifies that adjustments must be made to copies, and export instructions direct edited photos to a separate folder.
 
-These representations reinforce the same requirement across successive operations.
-
-- **Semantic Concentration:** Coherent support for preserving the originals is distributed across the folder description, editing checklist, and export instructions.
-- **Semantic Momentum:** Successive representations reinforce the same preservation requirement.
-
 When the agent edits the photos, it saves edited versions as separate copies, leaving the original files unchanged.
 
 Conversely, if those same sources consistently favor in-place editing, the agent overwrites the original files with the edited versions instead of saving separate copies.
+
+- **Semantic Concentration:** Coherent support for either preserving or modifying the originals is distributed across the folder description, editing checklist, and export instructions.
+- **Semantic Momentum:** Successive representations reinforce either the original preservation requirement or the competing in-place editing workflow.
 
 This example illustrates **Semantic Consolidation**: how distributed and accumulating semantic support can converge around meaning that supports or contradicts the user's intent.
 
