@@ -170,9 +170,9 @@ Later, the organizer provides an update. Compare two possibilities:
 - “We might move the meeting to 3 PM.”
 - “We have moved the meeting to 3 PM.”
 
-In the first case, the agent should retain 2 PM as the confirmed time. In the second, it should use 3 PM.
+The agent incorrectly uses 3 PM after the tentative update or retains 2 PM after the confirmed change.
 
-An inappropriate outcome would occur if the agent treated the tentative update as a confirmed change or retained the original time after the change had been confirmed.
+In an aligned response, the agent retains 2 PM in the first case and uses 3 PM in the second.
 
 - **Semantic Shadow:** The meaning of the later statement in relation to the original schedule determines whether the earlier information remains governing or is superseded.
 
@@ -204,15 +204,13 @@ A person tells an agent, “The restaurant must have outdoor seating.”
 
 The conversation continues with numerous recommendations praising indoor dining rooms. When asked to choose a restaurant, the agent recommends one without outdoor seating.
 
-Three dimensions may explain this behavior:
+When the person repeats “Outdoor seating is required” immediately before the decision, the agent recommends a restaurant with outdoor seating.
 
-- **Semantic Locality:** The outdoor-seating requirement is far from the final decision.
-- **Semantic Shadow:** Later descriptions of indoor dining compete with the earlier requirement.
-- **Semantic Weight:** Repeated support for indoor dining outweighs the single representation favoring outdoor seating.
+Three dimensions may explain these contrasting outcomes:
 
-Repeating “Outdoor seating is required” immediately before the decision changes all three dimensions: it brings the requirement closer to use, reinforces it after competing context, and increases its represented support.
-
-In this revised arrangement, the agent recommends a restaurant with outdoor seating, preserving the user's original requirement despite the competing descriptions.
+- **Semantic Locality:** Repeating the distant requirement brings it closer to the final decision.
+- **Semantic Shadow:** Later descriptions of indoor dining compete with the requirement until it is reaffirmed after them.
+- **Semantic Weight:** Repeated support for indoor dining outweighs the single outdoor-seating requirement; restating the requirement increases its represented support.
 
 The example illustrates how meaning can remain present yet fail to govern behavior. Determining each dimension's contribution requires controlled comparisons.
 
