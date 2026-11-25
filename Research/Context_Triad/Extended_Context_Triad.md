@@ -119,7 +119,7 @@ Where Concentration describes the arrangement of support and Momentum describes 
 
 ## Everyday Examples of the Extended Context Triad
 
-The following hypothetical examples illustrate the three compound dimensions and the three higher-order dimensions. They are not empirical findings or controlled demonstrations of the derived constructs.
+The following hypothetical examples illustrate the three compound dimensions and the three higher-order dimensions. They are not empirical findings or controlled demonstrations of the derived constructs. These examples illustrate how semantic influence may support or undermine the user's initial intent. The dimensions describe contextual relationships rather than inherently beneficial or detrimental behavior.
 
 ### Software Development — Semantic Continuity
 
@@ -135,6 +135,8 @@ Two dimensions are particularly relevant:
 - **Semantic Shadow:** The later example introduces a competing implementation pattern that redirects the earlier constraint's influence.
 
 Moving the original constraint closer to the modification, or replacing the conflicting example with a compatible one, could improve adherence through different contextual changes.
+
+In a revised arrangement, the original constraint appears immediately before the code modification, and the subsequent example demonstrates a compatible solution. The agent fixes the bug without changing the function's parameters.
 
 This example illustrates **Semantic Continuity**: how placement and subsequent competition can affect the persistence of a constraint's influence without requiring extensive repetition of competing instructions.
 
@@ -172,6 +174,8 @@ Two dimensions are particularly relevant:
 
 Replacing several enthusiastic examples with neutral ones changes both the subsequent context and the balance of represented support, potentially restoring the intended tone.
 
+Conversely, when the subsequent examples consistently demonstrate factual, neutral language, the accumulating support reinforces the original instruction, and the agent produces a neutral announcement.
+
 This example illustrates **Semantic Momentum**: how later competing meaning and repeated reinforcement can redirect writing style as context develops, even when the original instruction remains available.
 
 ---
@@ -182,7 +186,7 @@ This example illustrates **Semantic Momentum**: how later competing meaning and 
 
 A person tells an agent, “Keep all survey participants anonymous.” The agent must select excerpts, summarize findings, and assemble the report. Later sample reports attribute quotations to named participants.
 
-In one arrangement, reminders of anonymity appear together early in the conversation. In another, the same reminders appear near each reporting operation. The agent might preserve anonymity more consistently throughout the task in the second arrangement.
+When reminders of anonymity appear together early in the conversation, the agent preserves anonymity during initial excerpt selection but later attributes quotations to named participants. When the same reminders are distributed near each reporting operation, the agent preserves anonymity throughout the task.
 
 - **Semantic Continuity:** The anonymity requirement retains influence despite later competing examples.
 - **Semantic Concentration:** Consistent reminders are distributed near the operations they govern.
@@ -222,6 +226,8 @@ These representations appear in different parts of the context and accumulate as
 - **Semantic Momentum:** Successive representations reinforce the same preservation requirement.
 
 When the agent prepares the workflow, it treats the originals as files to preserve rather than overwrite. This example illustrates **Semantic Consolidation**: how distributed and accumulating semantic support can converge around a common requirement.
+
+Conversely, if subsequent folder descriptions, editing checklists, and export instructions consistently favor modifying files in place, semantic support may consolidate around an incompatible workflow. The agent may overwrite the original photos despite the initial preservation requirement remaining present.
 
 ## Conclusion
 
