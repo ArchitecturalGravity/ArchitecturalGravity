@@ -216,7 +216,7 @@ These findings connect **Semantic Locality** to positional sensitivity and **Sem
 
 ## Related Papers
 
-- [Context Triad](../README.md#paper-context-triad) — semantic presence, behavioral influence, and compound context changes.
+- [Context Triad](../Context_Triad.md#paper-context-triad) — semantic presence, behavioral influence, and compound context changes.
 - [Semantic Locality](../Semantic_Locality.md#paper-semantic-locality) — placement profiles and position–response measurements.
 - [Semantic Shadow](../Semantic_Shadow.md#paper-semantic-shadow) — order-sensitive competition and matched-history contrasts.
 - [Semantic Weight](../Semantic_Weight.md#paper-semantic-weight) — independently defined support and support–response measurements.

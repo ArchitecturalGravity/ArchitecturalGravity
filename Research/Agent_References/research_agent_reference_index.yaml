@@ -21,7 +21,8 @@ references:
   research.operational_leverage.index: Operational_Leverage/README.yaml
   research.operational_leverage.longitudinal: Operational_Leverage/Studies/ArcGrav_Longitudinal_Operational_Leverage.yaml
   research.operational_leverage.single_workstream: Operational_Leverage/Studies/ArcGrav_Single_Workstream_Delegation_Leverage.yaml
-  research.context_triad.index: Context_Triad/README.yaml
+  research.context_triad.index: Context_Triad/Context_Triad.yaml
+  research.context_triad.portal: Context_Triad/README.yaml
   research.context_triad.locality: Context_Triad/Semantic_Locality.yaml
   research.context_triad.shadow: Context_Triad/Semantic_Shadow.yaml
   research.context_triad.weight: Context_Triad/Semantic_Weight.yaml
@@ -44,7 +45,7 @@ groups:
   representation_efficiency: [research.representational_capacity_reclamation, research.syntax_efficiency, research.interpretive_efficiency]
   task_completion: [research.reasoning_interaction_substitution]
   operational_evidence: [research.operational_baseline, research.operational_leverage.index, research.operational_leverage.longitudinal, research.operational_leverage.single_workstream]
-  context_triad_theory: [research.context_triad.index, research.context_triad.locality, research.context_triad.shadow, research.context_triad.weight, research.context_triad.context_triad_model]
+  context_triad_theory: [research.context_triad.portal, research.context_triad.index, research.context_triad.locality, research.context_triad.shadow, research.context_triad.weight, research.context_triad.context_triad_model]
   context_triad_studies: [research.context_triad.studies.index, research.context_triad.studies.fox_leopard, research.context_triad.studies.planetary_chain]
   methodology_and_style: [research.style_guide, research.prompt_performance.principles, research.prompt_performance.index, research.swe_rebench_csv_compatibility_plan]
   prompt_performance: [research.prompt_performance.overview, research.prompt_performance.principles, research.prompt_performance.studies.index, research.prompt_performance.agmark_runs, research.prompt_performance.index, research.prompt_performance.input_integrity, research.prompt_performance.binding, research.prompt_performance.predicates, research.prompt_performance.construction, research.prompt_performance.collections, research.prompt_performance.rendering, research.prompt_performance.composition, research.prompt_performance.checks]
@@ -68,6 +69,7 @@ routing:
   longitudinal_codex_evidence: research.operational_leverage.longitudinal
   single_workstream_evidence: research.operational_leverage.single_workstream
   context_triad: research.context_triad.index
+  context_triad_portal: research.context_triad.portal
   semantic_locality: research.context_triad.locality
   semantic_shadow: research.context_triad.shadow
   semantic_weight: research.context_triad.weight

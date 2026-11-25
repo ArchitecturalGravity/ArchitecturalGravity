@@ -5,7 +5,7 @@ kind: research_reference
 source:
   path: Research/Context_Triad/Context_Triad_Model/README.md
   url: ../../../Context_Triad/Context_Triad_Model/README.md
-  fingerprint: fnv1a32-b7951e56
+  fingerprint: fnv1a32-69f7836e
 sections:
   paper-context-triad-model: |-
     Navigation for an interactive illustration of Locality, Shadow, and Weight.

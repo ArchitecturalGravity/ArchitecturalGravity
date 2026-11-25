@@ -5,7 +5,7 @@ kind: research_reference
 source:
   path: Research/Context_Triad/Semantic_Weight.md
   url: ../../Context_Triad/Semantic_Weight.md
-  fingerprint: fnv1a32-fb57e909
+  fingerprint: fnv1a32-eb58ec36
 sections:
   paper-semantic-weight: |-
     Semantic Weight characterizes coherent represented support for one semantic object relative to declared competitors. It separates support amounts and ratios from response consistency, instruction authority, and raw context length.

@@ -15,7 +15,7 @@ The Extended Context Triad develops the relationships between Semantic Locality,
 
 > **The interaction of semantic locality, shadow, and weight gives rise to compound relationships that characterize the persistence, direction, and organization of semantic influence**
 
-The Extended Context Triad develops the relationships established within the [Context Triad](./README.md#paper-context-triad) across three levels:
+The Extended Context Triad develops the relationships established within the [Context Triad](./Context_Triad.md#paper-context-triad) across three levels:
 
 - **Primary dimensions** characterize the foundational relationships of contextual semantic influence.
 - **Compound dimensions** characterize relationships between pairs of primary dimensions.

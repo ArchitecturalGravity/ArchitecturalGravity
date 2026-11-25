@@ -54,9 +54,9 @@ This paper owns the reasoning–interaction substitution hypothesis, single-spec
 
 Operational leverage is studied through independent observational design and analysis of model usage telemetry.
 
-### 8. [Context Triad](./Context_Triad/#paper-context-triad)
+### 8. [Context Triad](./Context_Triad/Context_Triad.md#paper-context-triad)
 
-Unifies three contextual forces as position, order-sensitive history, and relative semantic magnitude, and owns their shared decomposition, experimental separability, and interaction design.
+Unifies three contextual forces as position, order-sensitive history, and relative semantic magnitude, and owns their shared decomposition, experimental separability, and interaction design. See the [Context Triad research portal](./Context_Triad/README.md) for the complete collection of papers, extensions, literature mapping, visualization, and studies.
 
 - [Semantic Locality](./Context_Triad/Semantic_Locality.md#paper-semantic-locality): How does position relative to surrounding context and point of use affect behavioral influence?
 

@@ -133,7 +133,7 @@ The expanded prompt elicited slightly less evidence of pangram identification ov
 
 ## Related Papers
 
-- [Context Triad](../README.md#paper-context-triad) — semantic presence and behavioral influence
+- [Context Triad](../Context_Triad.md#paper-context-triad) — semantic presence and behavioral influence
 - [Semantic Weight](../Semantic_Weight.md#paper-semantic-weight) — competing descriptions and support–response measurements
 - [Semantic Locality](../Semantic_Locality.md#paper-semantic-locality) — placement of cues and competing descriptions
 - [Semantic Shadow](../Semantic_Shadow.md#paper-semantic-shadow) — how subsequent context changes the influence of earlier material

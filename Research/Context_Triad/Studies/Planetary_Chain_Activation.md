@@ -13,7 +13,7 @@ Three ArcGrav prompts preserve the same eight references, identical descriptive 
 
 In the reported GPT-6 Instant pilot, **only the canonical condition elicited the planetary correlation**. The reversed and scattered conditions did not. **The central observation is an order-dependent change in the expression of an unstated collective association while its constituent semantic cues remain present.**
 
-This contrast motivates separating canonical-sequence priming from definition placement under the [Context Triad](../README.md#paper-context-triad). An explicitly expressed planetary correlation can distinguish associative recognition from mere reproduction of the supplied order; the task does not require such an explanation.
+This contrast motivates separating canonical-sequence priming from definition placement under the [Context Triad](../Context_Triad.md#paper-context-triad). An explicitly expressed planetary correlation can distinguish associative recognition from mere reproduction of the supplied order; the task does not require such an explanation.
 
 ## Role Within the Context Triad
 
@@ -131,7 +131,7 @@ The canonical ordering elicited the planetary association, while the reverse and
 
 ## Related Papers
 
-- [Context Triad](../README.md#paper-context-triad) — semantic presence and behavioral influence
+- [Context Triad](../Context_Triad.md#paper-context-triad) — semantic presence and behavioral influence
 - [Semantic Locality](../Semantic_Locality.md#paper-semantic-locality) — placement geometry, distribution, and points of use
 
 ## Appendix A — Reported Stimuli and Outcomes

@@ -5,7 +5,7 @@
   <img src="./Assets/Triad_Research_Atlas.svg" alt="Expanded Context Triad with numbered research points 01 through 08; repeated numbers indicate relevance to multiple constructs" width="85%">
 </p>
 
-The Research Atlas maps established research and applied engineering practices onto the [Context Triad](../README.md#context-triad) and its proposed compound constructs. Its purpose is to relate existing findings, identify overlapping contextual relationships, and guide further investigation rather than claim that the underlying phenomena are newly discovered.
+The Research Atlas maps established research and applied engineering practices onto the [Context Triad](../Context_Triad.md#context-triad) and its proposed compound constructs. Its purpose is to relate existing findings, identify overlapping contextual relationships, and guide further investigation rather than claim that the underlying phenomena are newly discovered.
 
 ## Reading the Map
 
@@ -61,6 +61,6 @@ The combined SVG contains the independent group `research-point-overlay`. The SV
 
 ## Related Research
 
-- [Context Triad](../README.md#context-triad)
+- [Context Triad](../Context_Triad.md#context-triad)
 - [Context Triad Studies](../Studies/README.md#context-triad-studies)
 - [Context Triad Model](../Context_Triad_Model/README.md#context-triad-model)

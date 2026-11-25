@@ -5,7 +5,7 @@ kind: research_reference
 source:
   path: Research/Context_Triad/Semantic_Shadow.md
   url: ../../Context_Triad/Semantic_Shadow.md
-  fingerprint: fnv1a32-a5ecf062
+  fingerprint: fnv1a32-831b2911
 sections:
   paper-semantic-shadow: |-
     Semantic Shadow describes how later context changes an earlier semantic object's influence through reinforcement, competition, reinterpretation, or authorized supersession. It is evaluated through order- and continuation-sensitive response contrasts.

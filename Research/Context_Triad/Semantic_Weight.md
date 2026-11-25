@@ -14,7 +14,7 @@ This paper develops semantic weight as the relative amount of coherent support r
 
 ## Role within the Context Triad
 
-The [Context Triad](./README.md#paper-context-triad) develops the shared thesis and conceptual interactions. Weight supplies its theory of **relative coherent support**. [Locality](./Semantic_Locality.md#paper-semantic-locality) defines placement; [Shadow](./Semantic_Shadow.md#paper-semantic-shadow) defines semantic-history contrasts and their order sensitivity.
+The [Context Triad](./Context_Triad.md#paper-context-triad) develops the shared thesis and conceptual interactions. Weight supplies its theory of **relative coherent support**. [Locality](./Semantic_Locality.md#paper-semantic-locality) defines placement; [Shadow](./Semantic_Shadow.md#paper-semantic-shadow) defines semantic-history contrasts and their order sensitivity.
 
 This paper defines represented support, describes its behavioral effects and interactions, and presents ways to quantify them.
 
@@ -214,7 +214,7 @@ Weight describes how represented support relates to behavioral consistency withi
 
 ## Conclusion
 
-Semantic Weight describes coherent support relative to the objects relevant to a decision. Support proxies, competitive shares and ratios, and support–response measurements distinguish represented balance from behavioral consistency and quantify its interactions with placement and semantic history. The [README](./README.md#paper-context-triad) explains how these perspectives combine.
+Semantic Weight describes coherent support relative to the objects relevant to a decision. Support proxies, competitive shares and ratios, and support–response measurements distinguish represented balance from behavioral consistency and quantify its interactions with placement and semantic history. The [Context Triad](./Context_Triad.md#paper-context-triad) explains how these perspectives combine.
 
 ## Related Papers
 

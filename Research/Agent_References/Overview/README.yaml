@@ -5,7 +5,7 @@ kind: research_reference
 source:
   path: Research/README.md
   url: ../../README.md
-  fingerprint: fnv1a32-6f9ebd0b
+  fingerprint: fnv1a32-d3380d3a
 sections:
   research-index: |-
     Architectural Gravity Research investigates how model-facing representations preserve task relationships and how ArcGrav may affect interpretation and agent performance. Model familiarity, portability, and efficiency are research questions, not established advantages.

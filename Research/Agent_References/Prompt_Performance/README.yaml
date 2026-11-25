@@ -5,7 +5,7 @@ kind: research_reference
 source:
   path: Research/Prompt_Performance/README.md
   url: ../../Prompt_Performance/README.md
-  fingerprint: fnv1a32-b11fbb10
+  fingerprint: fnv1a32-2f849d4a
 sections:
   paper-prompt-performance: |-
     Prompt Performance examines observable task and output outcomes under declared evaluation conditions, synthesizing research distinctions and explanations from separately documented investigations.

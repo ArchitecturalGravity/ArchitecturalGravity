@@ -5,7 +5,7 @@ kind: research_reference
 source:
   path: Research/Context_Triad/Semantic_Locality.md
   url: ../../Context_Triad/Semantic_Locality.md
-  fingerprint: fnv1a32-7f297329
+  fingerprint: fnv1a32-3d1c1a04
 sections:
   paper-semantic-locality: |-
     Semantic Locality describes where representations of a semantic object appear relative to the operation that needs them. It studies whether placement, distribution, and input-sequence geometry affect observed consistency, without equating distance with influence.

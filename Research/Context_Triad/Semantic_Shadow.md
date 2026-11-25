@@ -14,7 +14,7 @@ This paper develops semantic shadow as an order-sensitive change in how earlier 
 
 ## Role Within the Context Triad
 
-The [Context Triad](./README.md#paper-context-triad) develops the shared thesis and conceptual interactions. Shadow supplies its **semantic-history contrasts and order-sensitive interpretation**. [Locality](./Semantic_Locality.md#paper-semantic-locality) defines positional geometry; [Weight](./Semantic_Weight.md#paper-semantic-weight) defines represented support and its behavioral response.
+The [Context Triad](./Context_Triad.md#paper-context-triad) develops the shared thesis and conceptual interactions. Shadow supplies its **semantic-history contrasts and order-sensitive interpretation**. [Locality](./Semantic_Locality.md#paper-semantic-locality) defines positional geometry; [Weight](./Semantic_Weight.md#paper-semantic-weight) defines represented support and its behavioral response.
 
 This paper defines semantic shadow, describes its behavioral effects and interactions, and presents ways to quantify them.
 
@@ -221,7 +221,7 @@ Shadow characterizes model- and task-specific behavioral responses to semantic h
 
 ## Conclusion
 
-Semantic Shadow describes how subsequent context suppresses, reinforces, reinterprets, or supersedes earlier influence. Signed exposure, order, and cumulative-history contrasts quantify these relationships; current-state measurements distinguish historical consistency from authorized correctness. The [README](./README.md#paper-context-triad) explains how semantic history interacts with placement and relative support.
+Semantic Shadow describes how subsequent context suppresses, reinforces, reinterprets, or supersedes earlier influence. Signed exposure, order, and cumulative-history contrasts quantify these relationships; current-state measurements distinguish historical consistency from authorized correctness. The [Context Triad](./Context_Triad.md#paper-context-triad) explains how semantic history interacts with placement and relative support.
 
 ## Related Papers
 

@@ -89,4 +89,4 @@ The [study catalog](./Studies/README.md) currently includes the [ArcGrav Authori
 
 - [Instructional Representation](../Instructional_Representation.md) examines how instruction meaning and program-like structure differ.
 - [ArcGrav Interpretive Efficiency](../ArcGrav_Interpretive_Efficiency.md) examines the cost of recovering meaning from a representation.
-- [Context Triad](../Context_Triad/README.md) examines locality, later context, and relative support at points of use.
+- [Context Triad](../Context_Triad/Context_Triad.md) examines locality, later context, and relative support at points of use.

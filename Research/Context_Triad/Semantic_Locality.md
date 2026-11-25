@@ -15,7 +15,7 @@ This paper develops locality as the geometric dimension of contextual semantic i
 
 ## Role Within the Context Triad
 
-The [Context Triad](./README.md#paper-context-triad) develops the shared thesis that semantic presence is insufficient to explain behavioral influence. Locality supplies its account of **placement relative to use**. [Shadow](./Semantic_Shadow.md#paper-semantic-shadow) supplies semantic-history contrasts; [Weight](./Semantic_Weight.md#paper-semantic-weight) supplies support measures and support–response theory.
+The [Context Triad](./Context_Triad.md#paper-context-triad) develops the shared thesis that semantic presence is insufficient to explain behavioral influence. Locality supplies its account of **placement relative to use**. [Shadow](./Semantic_Shadow.md#paper-semantic-shadow) supplies semantic-history contrasts; [Weight](./Semantic_Weight.md#paper-semantic-weight) supplies support measures and support–response theory.
 
 This paper defines positional geometry, describes its behavioral effects and interactions, and presents ways to quantify them.
 
@@ -203,7 +203,7 @@ Locality describes model- and task-specific behavioral relationships within acti
 
 ## Conclusion
 
-Semantic Locality supplies the geometry and position–response measurements needed to characterize contextual placement. Placement, distribution, and structural surroundings describe where representations are available for use; response contrasts describe their behavioral effects and interactions with semantic history and relative support. The [README](./README.md#paper-context-triad) explains how these perspectives combine.
+Semantic Locality supplies the geometry and position–response measurements needed to characterize contextual placement. Placement, distribution, and structural surroundings describe where representations are available for use; response contrasts describe their behavioral effects and interactions with semantic history and relative support. The [Context Triad](./Context_Triad.md#paper-context-triad) explains how these perspectives combine.
 
 ## Related Papers
 
