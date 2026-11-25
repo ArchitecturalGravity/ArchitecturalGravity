@@ -191,33 +191,37 @@ In one arrangement, consistent representations of the requirement appear togethe
 
 ---
 
-### Evolving Restaurant Recommendations — Semantic Trajectory
+### Planning a Birthday Party — Semantic Trajectory
 
-> *Initial intent: The user wants a restaurant that provides outdoor seating.*
+> *Initial intent: The user wants to organize a birthday party without exceeding a $200 budget.*
 
-A person gives an agent a mandatory outdoor-seating requirement. At first, the agent excludes restaurants that lack outdoor seating.
+A person tells an agent, “Keep the total cost of the party under $200.” Initially, the agent rejects suggestions that exceed the budget and proposes an affordable plan.
 
-After receiving several descriptions praising indoor dining, the agent begins to include indoor-only restaurants in its comparisons while still recommending outdoor options. After further competing descriptions, it recommends an indoor-only restaurant. The original requirement remains present and has not been superseded.
+After reviewing several elaborate party plans, the agent begins suggesting expensive extras, marking them as optional. As further examples accumulate, it incorporates those extras into its main plan, bringing the total to $280.
 
-- **Semantic Continuity:** The requirement initially retains its influence, but that influence diminishes across successive decisions.
-- **Semantic Momentum:** Accumulating descriptions of indoor dining increasingly favor a competing direction.
+When the person restates the budget and provides examples of affordable parties, the agent revises the plan to meet the original constraint.
 
-**Semantic Trajectory** concerns the resulting course of influence across the initial screening, subsequent comparison, and final recommendation. The sequence illustrates a possible progression from adherence to partial displacement and eventual nonadherence. A different contextual history could produce a stable or recovering trajectory instead.
+- **Semantic Continuity:** The budget initially governs the agent's decisions, loses influence during successive revisions, and becomes effective again.
+- **Semantic Momentum:** Accumulating support for elaborate parties shifts the agent's recommendations toward more expensive options, while subsequent support for affordable alternatives redirects them.
+
+This example illustrates **Semantic Trajectory**: the progression of the budget constraint's influence from adherence through weakening and eventual recovery across successive operations.
 
 ---
 
-### Consolidating a Restaurant Requirement — Semantic Consolidation
+### Organizing Family Photos — Semantic Consolidation
 
-> *Initial intent: The user wants a restaurant that provides outdoor seating.*
+> *Initial intent: The user wants to organize and edit family photos without altering the original files.*
 
-A person tells an agent, “The restaurant must have outdoor seating.” As planning develops, the same requirement is expressed in several compatible forms: a candidate-selection checklist requires outdoor seating, a comparison table marks indoor-only restaurants as ineligible, and a reservation note specifies an outdoor table.
+A person tells an agent, “Keep all original photos unchanged.”
 
-These representations are distributed across different parts of the conversation and accumulate as the task develops. Although they serve different immediate purposes, they reinforce the same governing meaning rather than introducing new or competing requirements.
+As the task develops, a folder description identifies the originals as read-only, an editing checklist specifies that adjustments must be made to copies, and export instructions direct edited photos to a separate folder.
 
-- **Semantic Concentration:** Coherent support is organized across multiple contextual regions and forms.
-- **Semantic Momentum:** Successive representations accumulate in a consistent semantic direction.
+These representations appear in different parts of the context and accumulate as the task develops. Each expresses or reinforces the same underlying requirement in a form relevant to a particular operation.
 
-**Semantic Consolidation** concerns the convergence of these distributed representations around the common outdoor-seating requirement. If the agent comes to apply that requirement consistently, the example illustrates how organized, cumulative support may reinforce a common interpretation. The emphasis is on convergence of support, rather than persistence across operations alone.
+- **Semantic Concentration:** Coherent support for preserving the originals is distributed across the folder description, editing checklist, and export instructions.
+- **Semantic Momentum:** Successive representations reinforce the same preservation requirement.
+
+When the agent prepares the workflow, it treats the originals as files to preserve rather than overwrite. This example illustrates **Semantic Consolidation**: how distributed and accumulating semantic support can converge around a common requirement.
 
 ## Conclusion
 
