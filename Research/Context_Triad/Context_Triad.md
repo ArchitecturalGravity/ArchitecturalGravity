@@ -143,7 +143,7 @@ Several common operations admit the same analysis:
 
 ## Everyday Examples of the Context Triad
 
-The following hypothetical examples illustrate the three primary dimensions individually, followed by an example of their joint influence.
+The following hypothetical examples illustrate the three primary dimensions individually, followed by an example of their joint influence. These examples illustrate how semantic influence may support or undermine the user's initial intent. The dimensions describe contextual relationships rather than inherently beneficial or detrimental behavior.
 
 ### Summarizing a Project — Locality
 
@@ -172,6 +172,8 @@ Later, the organizer provides an update. Compare two possibilities:
 
 In the first case, the agent should retain 2 PM as the confirmed time. In the second, it should use 3 PM.
 
+An inappropriate outcome would occur if the agent treated the tentative update as a confirmed change or retained the original time after the change had been confirmed.
+
 - **Semantic Shadow:** The meaning of the later statement in relation to the original schedule determines whether the earlier information remains governing or is superseded.
 
 The position and amount of represented scheduling information are similar. What changes is the meaning of the subsequent authorized communication.
@@ -185,6 +187,8 @@ The position and amount of represented scheduling information are similar. What 
 An agent receives descriptions of two logo designs. Design A is repeatedly described as attractive, memorable, and visually appealing. Design B receives one brief positive description.
 
 Although no new objective evidence favors A, the agent strongly recommends it. Reversing the balance of positive descriptions could shift the recommendation toward B.
+
+When both designs receive comparable descriptive support, the agent produces an evenhanded comparison without disproportionately favoring either design.
 
 - **Semantic Weight:** Repeated coherent support favors one design over another, potentially influencing the outcome independently of their actual merits.
 
@@ -207,6 +211,8 @@ Three dimensions may explain this behavior:
 - **Semantic Weight:** Repeated support for indoor dining outweighs the single representation favoring outdoor seating.
 
 Repeating “Outdoor seating is required” immediately before the decision changes all three dimensions: it brings the requirement closer to use, reinforces it after competing context, and increases its represented support.
+
+In this revised arrangement, the agent recommends a restaurant with outdoor seating, preserving the user's original requirement despite the competing descriptions.
 
 The example illustrates how meaning can remain present yet fail to govern behavior. Determining each dimension's contribution requires controlled comparisons.
 
