@@ -178,16 +178,16 @@ This example illustrates **Semantic Momentum**: how later competing meaning and 
 
 ### Preparing a Survey Report — Semantic Anchoring
 
-> *Initial intent: The user wants a survey report that preserves the anonymity of participants.*
+> *Initial intent: The user wants a survey report that preserves participant anonymity.*
 
-A person tells an agent, “Do not include participant names or identifying details in the report.” The agent must select survey excerpts, summarize the findings, and assemble the final report. Later examples of reports that attribute quotations to named participants introduce a competing reporting pattern without changing the original requirement.
+A person tells an agent, “Keep all survey participants anonymous.” The agent must select excerpts, summarize findings, and assemble the report. Later sample reports attribute quotations to named participants.
 
-In one arrangement, consistent reminders of the anonymity requirement appear together early in the conversation. In another, the same reminders are distributed near excerpt selection, findings summarization, and final report assembly. The agent might preserve participant anonymity more consistently at each of these operations in the second arrangement.
+In one arrangement, reminders of anonymity appear together early in the conversation. In another, the same reminders appear near each reporting operation. The agent might preserve anonymity more consistently throughout the task in the second arrangement.
 
-- **Semantic Continuity:** The anonymity requirement continues to govern behavior despite later contextual development.
-- **Semantic Concentration:** Coherent support for anonymity is distributed in relation to the operations that depend on it.
+- **Semantic Continuity:** The anonymity requirement retains influence despite later competing examples.
+- **Semantic Concentration:** Consistent reminders are distributed near the operations they govern.
 
-**Semantic Anchoring** concerns the sustained attachment of the anonymity requirement to each relevant operation. A requirement that governs the selection of excerpts but not the assembly of the final report would exhibit weaker anchoring across these operations.
+This example illustrates **Semantic Anchoring**: how a requirement can remain influential at each relevant operation rather than only during initial excerpt selection.
 
 ---
 
