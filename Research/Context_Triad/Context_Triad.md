@@ -143,27 +143,7 @@ Several common operations admit the same analysis:
 
 ## Everyday Examples of the Context Triad
 
-The following examples illustrate how Semantic Locality, Semantic Shadow, and Semantic Weight may individually or jointly influence behavior.
-
-### Choosing a Restaurant — Locality + Shadow + Weight
-
-> *Initial intent: The user wants a restaurant that provides outdoor seating.*
-
-A person tells an agent, “The restaurant must have outdoor seating.”
-
-The conversation continues with numerous recommendations praising indoor dining rooms. When asked to choose a restaurant, the agent recommends one without outdoor seating.
-
-Three dimensions may explain this behavior:
-
-- **Semantic Locality:** The outdoor-seating requirement is far from the final decision.
-- **Semantic Shadow:** Later descriptions of indoor dining compete with the earlier requirement.
-- **Semantic Weight:** Repeated support for indoor dining outweighs the single representation favoring outdoor seating.
-
-Repeating “Outdoor seating is required” immediately before the decision changes all three dimensions: it brings the requirement closer to use, reinforces it after competing context, and increases its represented support.
-
-The example illustrates how meaning can remain present yet fail to govern behavior. Determining each dimension's contribution requires controlled comparisons.
-
----
+The following hypothetical examples illustrate the three primary dimensions individually, followed by an example of their joint influence.
 
 ### Summarizing a Project — Locality
 
@@ -212,60 +192,27 @@ The example emphasizes how represented support can affect a decision without cha
 
 ---
 
-### Software Development — Locality + Shadow
+### Choosing a Restaurant — Locality + Shadow + Weight
 
-> *Initial intent: The user wants a software bug fixed without changing the existing function interface.*
+> *Initial intent: The user wants a restaurant that provides outdoor seating.*
 
-A developer tells an AI agent, “Fix the parsing bug, but do not change the function's parameters.”
+A person tells an agent, “The restaurant must have outdoor seating.”
 
-After reviewing a lengthy collection of unrelated code, the agent encounters a newer example that fixes a similar bug by changing the parameters. It follows that example, unintentionally breaking existing callers.
+The conversation continues with numerous recommendations praising indoor dining rooms. When asked to choose a restaurant, the agent recommends one without outdoor seating.
 
-Two dimensions are particularly relevant:
+Three dimensions may explain this behavior:
 
-- **Semantic Locality:** The original constraint is far from the code modification where it must be applied.
-- **Semantic Shadow:** The later example introduces a competing implementation pattern that redirects the earlier constraint's influence.
+- **Semantic Locality:** The outdoor-seating requirement is far from the final decision.
+- **Semantic Shadow:** Later descriptions of indoor dining compete with the earlier requirement.
+- **Semantic Weight:** Repeated support for indoor dining outweighs the single representation favoring outdoor seating.
 
-Moving the original constraint closer to the modification, or replacing the conflicting example with a compatible one, could improve adherence through different contextual changes.
+Repeating “Outdoor seating is required” immediately before the decision changes all three dimensions: it brings the requirement closer to use, reinforces it after competing context, and increases its represented support.
 
-This example emphasizes how placement and subsequent competition can interact without requiring extensive repetition of competing instructions.
+The example illustrates how meaning can remain present yet fail to govern behavior. Determining each dimension's contribution requires controlled comparisons.
 
----
+These examples emphasize the primary relationships being examined, not necessarily the absence of other influences. Controlled comparisons are required to isolate individual effects and establish their interactions.
 
-### Preparing a Packing List — Locality + Weight
-
-> *Initial intent: The user wants a camping checklist that includes a rain jacket.*
-
-A camper tells an agent, “Make sure I pack a rain jacket.”
-
-After reviewing a lengthy itinerary, the agent produces a checklist but omits the jacket.
-
-In a revised itinerary, the requirement appears again beside the hiking plans and once more near the final checklist request. The agent includes the jacket.
-
-- **Semantic Locality:** Representations of the requirement now appear closer to where the checklist is created.
-- **Semantic Weight:** Multiple consistent reminders provide greater support for including the jacket.
-
-No competing packing instructions are introduced. The example emphasizes how proximity and repeated support can jointly strengthen a requirement's influence.
-
----
-
-### Writing an Announcement — Shadow + Weight
-
-> *Initial intent: The user wants a factual, neutral announcement without promotional language.*
-
-A person tells an agent, “Write a neutral announcement about our new product.”
-
-The agent then receives several enthusiastic sample announcements filled with phrases such as “revolutionary,” “incredible,” and “game-changing.” Its final announcement adopts the same promotional tone.
-
-Two dimensions are particularly relevant:
-
-- **Semantic Shadow:** The later examples establish a competing tone that redirects the original writing instruction.
-- **Semantic Weight:** Multiple examples reinforce promotional language, while neutrality receives only one explicit statement.
-
-Replacing several enthusiastic examples with neutral ones changes both the subsequent context and the balance of represented support, potentially restoring the intended tone.
-
-This example illustrates how later competing meaning and repeated reinforcement can influence writing style even when the original instruction remains available.
-
-These seven examples illustrate distinct combinations of the triad's dimensions. The combinations identify the primary relationships being examined, not necessarily the absence of other influences. Controlled comparisons are required to isolate individual effects and establish their interactions.
+Examples of the compound and higher-order relationships developed from these dimensions are provided in the [Extended Context Triad](./Extended_Context_Triad.md#paper-extended-context-triad).
 
 
 ## Common Behavioral Outcomes and Dynamics
