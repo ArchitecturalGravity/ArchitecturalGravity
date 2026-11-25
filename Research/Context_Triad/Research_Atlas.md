@@ -6,7 +6,7 @@
 
 # Context Triad Research Atlas
 
-The Research Atlas maps established research and applied engineering practices onto the [Context Triad](../Context_Triad.md#context-triad) and its proposed compound constructs. Its purpose is to relate existing findings, identify overlapping contextual relationships, and guide further investigation rather than claim that the underlying phenomena are newly discovered.
+The Research Atlas maps established research and applied engineering practices onto the [Context Triad](./Context_Triad.md#context-triad) and its proposed compound constructs. Its purpose is to relate existing findings, identify overlapping contextual relationships, and guide further investigation rather than claim that the underlying phenomena are newly discovered.
 
 ## Reading the Map
 
@@ -18,9 +18,9 @@ Positions represent conceptual associations, not measured coordinates, effect si
 
 | Level | Construct | Composition | Proposed focus |
 | --- | --- | --- | --- |
-| Primary | [Semantic Locality](../Semantic_Locality.md) | — | Placement and distribution relative to use |
-| Primary | [Semantic Shadow](../Semantic_Shadow.md) | — | Subsequent context and order-sensitive influence |
-| Primary | [Semantic Weight](../Semantic_Weight.md) | — | Relative coherent support |
+| Primary | [Semantic Locality](./Semantic_Locality.md) | — | Placement and distribution relative to use |
+| Primary | [Semantic Shadow](./Semantic_Shadow.md) | — | Subsequent context and order-sensitive influence |
+| Primary | [Semantic Weight](./Semantic_Weight.md) | — | Relative coherent support |
 | Compound | Semantic Continuity | Locality + Shadow | Persistence of influence across contextual development |
 | Compound | Semantic Concentration | Locality + Weight | Distribution of coherent support relative to use |
 | Compound | Semantic Momentum | Shadow + Weight | Direction and accumulation of influence through contextual history |
@@ -62,6 +62,6 @@ The combined SVG contains the independent group `research-point-overlay`. The SV
 
 ## Related Research
 
-- [Context Triad](../Context_Triad.md#context-triad)
-- [Context Triad Studies](../Studies/README.md#context-triad-studies)
-- [Context Triad Model](../Context_Triad_Model/README.md#context-triad-model)
+- [Context Triad](./Context_Triad.md#context-triad)
+- [Context Triad Studies](./Studies/README.md#context-triad-studies)
+- [Context Triad Model](./Context_Triad_Model/README.md#context-triad-model)

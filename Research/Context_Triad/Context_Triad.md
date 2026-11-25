@@ -330,7 +330,7 @@ The Context Triad connects placement, contextual history, and relative support t
 
 ## Research Atlas
 
-The [Context Triad Research Atlas](./Research_Atlas/README.md#context-triad-research-atlas) overlays established research and engineering practices onto the primary Triad and proposed compound constructs, distinguishing direct factor evidence, related empirical evidence, and applied engineering.
+The [Context Triad Research Atlas](./Research_Atlas.md#context-triad-research-atlas) overlays established research and engineering practices onto the primary Triad and proposed compound constructs, distinguishing direct factor evidence, related empirical evidence, and applied engineering.
 
 
 ## Related Papers

@@ -21,7 +21,7 @@ The Context Triad is a research framework for examining how the placement, subse
 | Document | Role |
 | --- | --- |
 | [Extended Context Triad](./Extended_Context_Triad.md#paper-extended-context-triad) | Develops six proposed compound and higher-order constructs from the primary dimensions: Continuity, Concentration, Momentum, Anchoring, Trajectory, and Consolidation |
-| [Context Triad Research Atlas](./Research_Atlas/README.md#context-triad-research-atlas) | Maps established external research and engineering practices onto the primary and proposed derived constructs, distinguishing direct factor research, related evidence, and applied engineering |
+| [Context Triad Research Atlas](./Research_Atlas.md#context-triad-research-atlas) | Maps established external research and engineering practices onto the primary and proposed derived constructs, distinguishing direct factor research, related evidence, and applied engineering |
 
 ## Interactive Model
 

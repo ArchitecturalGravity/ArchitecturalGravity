@@ -5,19 +5,15 @@ kind: research_reference
 source:
   path: Research/Context_Triad/README.md
   url: ../../Context_Triad/README.md
-  fingerprint: fnv1a32-392eda93
+  fingerprint: fnv1a32-cb5ecc1a
 sections:
-  context-triad--research-portal: |-
-    The directory portal organizes theory, extensions, research mapping, an illustrative model, and empirical investigations around the distinction between represented meaning and its behavioral influence.
+  context-triad-portal: |-
+    The research portal organizes theory, extensions, literature mapping, an illustrative model, and empirical investigations around the distinction between represented meaning and behavioral influence.
   paper-context-triad: |-
-    Read Context_Triad.md for the shared framework and interactions. Its component papers address Locality (placement and distribution), Shadow (subsequent semantic history), and Weight (relative coherent support).
+    Context_Triad.md defines the shared framework, interactions, and measurement strategy. Locality examines placement and distribution, Shadow subsequent semantic context and order, and Weight coherent support relative to competing meanings.
   extended-framework-and-research-atlas: |-
-    The Extended Context Triad proposes compound and higher-order relationships; the Research Atlas relates those constructs to external research and engineering while distinguishing kinds of evidence. The proposed constructs are not established independent mechanisms.
+    The extended paper proposes Continuity, Concentration, Momentum, Anchoring, Trajectory, and Consolidation. Research_Atlas.md maps external research and engineering to the primary and derived constructs, distinguishing direct factor research, related evidence, and applied engineering.
   interactive-model: |-
-    The model documentation links to a local-browser HTML visualization of the three primary dimensions. Its controls and results illustrate relationships without calibrated behavioral predictions.
+    The model provides an interactive visual demonstration of how Locality, Shadow, and Weight may interact.
   empirical-studies: |-
-    The Studies index catalogs the Fox–Leopard 360-trial investigation, Planetary Chain three-condition reported pilot, and Glip 360-trial investigation. Consult the reports and supporting data for methods, observations, and limitations; inclusion does not demonstrate causality.
-  reading-paths: |-
-    Start with the main paper for theory, the extended paper and atlas for compound relationships, the model for visualization, or the studies for evidence. Consult cited publications to examine the external research.
-  related-resources: |-
-    The wider research index, agent-reference routing index, and visual assets supply additional navigation.
+    The Studies index catalogs investigations and their evidence status. Fox–Leopard examines weight and pangram inference across 360 scored trials; Planetary Chain reports a three-condition associative-recognition pilot; Glip examines label, description, position, and rival-order dependence across 360 trials.
