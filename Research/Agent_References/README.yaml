@@ -11,7 +11,7 @@ coverage:
   include: Curated Markdown documents in Research and all its child directories.
   exclude: Agent_References itself; generated AgMark run reports under Prompt_Performance/Studies/AgMark_Runs/Data/ followed by a generation-prefixed 64-character hexadecimal run directory and report.md; non-Markdown files such as CSV, JSON, HTML, Python, PowerShell and JSONL.
   correspondence: Exactly one YAML research_reference per included Research Markdown document. Generated benchmark reports remain authoritative run evidence but are not separately indexed as semantic research references.
-  notices: Attribution and rights notices are included; their original terms remain authoritative.
+  notices: Research-local rights notices are included. Project-wide attribution is maintained in ../../ATTRIBUTION.md.
   subsection_policy: Give every heading, including each subsection at any depth, one source-anchored summary. For a grouping heading, orient to its children without repeating their findings.
   root_index_exception: Research/README.md maps to Agent_References/Overview/README.yaml.
   other_paths: Mirror source Markdown paths beneath Agent_References, replacing .md with .yaml.

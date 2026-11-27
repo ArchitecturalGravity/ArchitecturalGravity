@@ -53,7 +53,8 @@ root README (do not replace the current README):
   and ../TRADEMARKS.md.`
 - `Research/README.md`: add `Original research documents: CC BY 4.0;
   original utilities: Apache-2.0; external data exceptions apply; see
-  ../LICENSING.md, ATTRIBUTION.md, and ../THIRD_PARTY_NOTICES.md.`
+  ../LICENSING.md, ../ATTRIBUTION.md#research-attribution, and
+  ../THIRD_PARTY_NOTICES.md.`
 
 ## Enforceable requirements vs policy requests
 
