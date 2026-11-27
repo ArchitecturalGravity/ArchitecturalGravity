@@ -26,7 +26,8 @@ https://huggingface.co/datasets/ibragim-bad/swe_rebench_07_2026_trajectories/blo
   portions are under Apache-2.0 (root `LICENSE`), to the extent the project
   has authority to license them.
 - `CSV_compatibility_plan.md`: Original project-authored explanatory prose is
-  CC BY 4.0 (Research `LICENSE`) to the extent the project controls it.
+  CC BY 4.0 (root [`LICENSE-CC-BY-4.0`](../../LICENSE-CC-BY-4.0)) to the extent
+  the project controls it.
 
 **Release gate:** Confirm origins, source terms, and permissions of each
 third-party dataset component before redistributing or publishing a release.

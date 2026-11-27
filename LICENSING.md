@@ -21,7 +21,7 @@ attribution party might not be the same person or entity.
 | AgMark, including original source, benchmark logic, owned prompt treatments/cases, configuration, application documentation, and owned media | Apache License 2.0 | `AgMark/LICENSE` |
 | ArcGrav original specifications, guides, explanatory Markdown, and owned diagrams | Creative Commons Attribution 4.0 International (CC BY 4.0) | `ArcGrav/LICENSE` |
 | ArcGrav Guide/Examples, including original `.arc` prompts and associated examples | Apache License 2.0 | `ArcGrav/Guide/Examples/LICENSE` |
-| Original research prose, original explanatory graphics, and original research reference/annotation files under Research | CC BY 4.0 | `Research/LICENSE` |
+| Original research prose, original explanatory graphics, and original research reference/annotation files under Research | CC BY 4.0 | Root [`LICENSE-CC-BY-4.0`](LICENSE-CC-BY-4.0) |
 | Original research utility source code, test programs, and scripts (`.py`, `.ps1`, `.bat`, `.sh`, etc.) | Apache License 2.0 | Root `LICENSE` |
 | Root `README.md` and original, project-owned images under root `Images/` | CC BY 4.0 | `LICENSE-CC-BY-4.0` |
 | Original code snippets expressly marked `SPDX-License-Identifier: Apache-2.0` | Apache License 2.0 | Root `LICENSE` |
@@ -55,7 +55,8 @@ retain applicable source-form copyright, patent, trademark and attribution
 notices; and reproduce applicable attribution from any distributed `NOTICE`
 in one of the locations permitted by Apache-2.0 §4(d). The license does not
 require Architectural Gravity credit on the application's main screen or in
-its new product name. See `NOTICE` and each application-level `NOTICE`.
+its new product name. See the root [`NOTICE`](NOTICE), which includes Research
+utility scripts and tests, and each application-level `NOTICE`.
 
 **CC BY 4.0 documentation/research:** When sharing licensed material, provide
 appropriate credit (including the designated Architectural Gravity attribution

@@ -5,7 +5,7 @@ kind: research_reference
 source:
   path: Research/ATTRIBUTION.md
   url: ../ATTRIBUTION.md
-  fingerprint: fnv1a32-e8a74747
+  fingerprint: fnv1a32-37846fc7
 sections:
   architectural-gravity-research-attribution-details: |-
     Credit Architectural Gravity project; project-owned research © Architectural Gravity LLC, 2026, CC BY 4.0. Link source and license, credit creators, and note adaptations. Executable code and third-party materials have separate terms; consult the original notices before reuse.

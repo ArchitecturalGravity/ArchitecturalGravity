@@ -5,7 +5,7 @@ kind: research_reference
 source:
   path: Research/swe_rebench_07_2026_trajectories/RIGHTS.md
   url: ../../swe_rebench_07_2026_trajectories/RIGHTS.md
-  fingerprint: fnv1a32-7185604f
+  fingerprint: fnv1a32-8c07fdc0
 sections:
   swe-rebench-materials-rights-exception-and-provenance-review: |-
     The directory has no blanket project license. Repository content retains upstream licenses; agent traces and outputs retain applicable provider or agent terms. The upstream dataset does not relicense third-party material.

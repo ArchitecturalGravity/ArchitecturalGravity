@@ -13,13 +13,14 @@ Representation and related studies
 
 **License for original papers, project-authored explanatory materials and
 research references:** CC BY 4.0
-(https://creativecommons.org/licenses/by/4.0/).
+([repository license text](../LICENSE-CC-BY-4.0); [Creative Commons](https://creativecommons.org/licenses/by/4.0/)).
 
 When sharing adaptations, credit the project and creators, link to the original
 source and the license where reasonably practicable, and note modifications.
 
 **Excluded or separately licensed:** original executable scripts and tests
-(Apache-2.0); imported third-party studies, datasets, agent traces/model
+(Apache-2.0; see the root [LICENSE](../LICENSE) and [NOTICE](../NOTICE));
+imported third-party studies, datasets, agent traces/model
 outputs, and other material whose rights are not held by the project (see
 `../THIRD_PARTY_NOTICES.md`). In particular see
 `swe_rebench_07_2026_trajectories/RIGHTS.md`.
