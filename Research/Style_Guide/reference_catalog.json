@@ -236,7 +236,7 @@
     },
     {
       "id": "jin2024tugofwar",
-      "authors": "Jin, M., et al.",
+      "authors": "Jin, Z., Cao, P., Chen, Y., Liu, K., Jiang, X., Xu, J., Li, Q., & Zhao, J.",
       "year": 2024,
       "title": "Tug-of-War Between Knowledge: Exploring and Resolving Knowledge Conflicts in Retrieval-Augmented Language Models",
       "venue": "arXiv preprint",
@@ -276,7 +276,7 @@
     },
     {
       "id": "laban2025lostmultiturn",
-      "authors": "Laban et al.",
+      "authors": "Laban, P., Hayashi, H., Zhou, Y., & Neville, J.",
       "year": 2025,
       "title": "LLMs Get Lost in Multi-Turn Conversation",
       "venue": "arXiv preprint",
@@ -650,7 +650,7 @@
     },
     {
       "id": "zhang2024snowball",
-      "authors": "Zhang et al.",
+      "authors": "Zhang, M., Press, O., Merrill, W., Liu, A., & Smith, N. A.",
       "year": 2024,
       "title": "How Language Model Hallucinations Can Snowball",
       "venue": "ICML / PMLR",

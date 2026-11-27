@@ -186,7 +186,7 @@ The SVG displays 30 distinct publication identifiers once in this region. A sour
 | Point | Publication | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict; candidate relevance to Weight. | Direct factor research |
-| [R03](#r03) | Jin, M., et al. (2024) | Frequency and consistency of competing evidence; candidate relevance to Weight. | Direct factor research |
+| [R03](#r03) | Jin et al. (2024) | Frequency and consistency of competing evidence; candidate relevance to Weight. | Direct factor research |
 | [R28](#r28) | Hu, J., Liu, W., & Du, M. (2024) | Selection of in-context demonstrations; candidate relevance to Weight. | Related empirical evidence |
 | [R38](#r38) | Lewis, R. L., & Vasishth, S. (2005) | Human retrieval and interference model; candidate relevance to Weight. | Cross-disciplinary conceptual research |
 | [R46](#r46) | Lu, Y., et al. (2022) | Few-shot demonstration-order sensitivity; candidate relevance to Weight. | Direct factor research |

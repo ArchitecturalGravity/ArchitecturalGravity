@@ -5,11 +5,11 @@
   <path d="M630 506 L350 66 M630 506 L70 506" fill="none" stroke="#518ac9" stroke-width="2"/>
   <path d="M350 66 L70 506" fill="none" stroke="#9575cd" stroke-width="2.5" stroke-dasharray="8 6"/>
   <g id="construct-concentration">
-    <circle cx="350" cy="66" r="28" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="350" cy="66" r="18" fill="#9575cd" fill-opacity=".14"/>
     <circle cx="350" cy="66" r="5" fill="#9575cd"/>
   </g>
   <g id="construct-momentum">
-    <circle cx="70" cy="506" r="28" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="70" cy="506" r="18" fill="#9575cd" fill-opacity=".14"/>
     <circle cx="70" cy="506" r="5" fill="#9575cd"/>
   </g>
   <g id="construct-weight">

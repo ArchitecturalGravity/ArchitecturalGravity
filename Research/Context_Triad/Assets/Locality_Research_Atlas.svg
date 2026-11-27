@@ -10,11 +10,11 @@
     <circle cx="350" cy="78" r="6" fill="#518ac9"/>
   </g>
   <g id="construct-continuity">
-    <circle cx="70" cy="506" r="28" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="70" cy="506" r="18" fill="#9575cd" fill-opacity=".14"/>
     <circle cx="70" cy="506" r="5" fill="#9575cd"/>
   </g>
   <g id="construct-concentration">
-    <circle cx="630" cy="506" r="28" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="630" cy="506" r="18" fill="#9575cd" fill-opacity=".14"/>
     <circle cx="630" cy="506" r="5" fill="#9575cd"/>
   </g>
   <text x="350" y="24" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Locality</text>
