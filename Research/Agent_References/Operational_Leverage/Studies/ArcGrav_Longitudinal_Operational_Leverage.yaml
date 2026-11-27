@@ -17,12 +17,30 @@ sections:
     This paper measures longitudinal activity leverage during sustained ArcGrav usage. It complements the single-workstream comparison and uses the external operational baseline for broader context. Its primary contribution is the measured change in activity per unit of human-authored text.
   study-scope-and-operational-leverage: |-
     Track human specification, steering and downstream Codex activity over sustained ArcGrav use. Activity is not accepted work.
+  operational-activity-leverage: |-
+    Measure observed tool and inference activity per estimated human-authored character; this is activity leverage, not independently accepted work.
+  human-specification-versus-model-computation: |-
+    Local token cost and operational leverage can move independently: longer representations may reduce steering and reacquisition, while concise prompts may increase them.
+  relationship-to-other-arcgrav-research: |-
+    Related papers cover encoding, acquisition and contextual influence; this study measures downstream activity under observed human specifications.
+  principal-empirical-findings: |-
+    Specifications shrank while per-prompt activity broadly persisted; activity per user character rose about fourfold. Chronology and reasoning comparisons inform interpretation but do not establish causation.
   dataset-and-methods: |-
     Join committed telemetry and notation chronology. Match fixed-model/reasoning endpoint windows and disclose prompt and settings exclusions.
+  source-dataset: |-
+    The committed CSV covers 1,164 sessions across 115 active days, February 26 to August 17, 2026.
+  operational-arcgrav-exposure-history: |-
+    Telemetry spans pre-ArcGrav through mature use; commits date construct availability, not whether a specific session used each construct.
+  development-chronology-and-arcgrav-maturity: |-
+    Use documented notation milestones to contextualize the cohorts. Repository dates establish feature availability, not per-prompt adoption or effects.
+  analysis-cohorts: |-
+    Prompt-normalized, model-known cohort: 1,158 sessions and 6,037 prompts after excluding five zero-prompt rows and one unknown-setting row.
   measurements: |-
-    Estimate human-authored specification characters for each session as prompt count multiplied by average characters per prompt. Separately track cached and uncached input, model output, tool activity, steering, and recorded non-success. Report denominators explicitly; estimated characters and token-processing totals are not interchangeable.
+    Select a cohort before estimating specification, compute and tool activity; activity ratios do not measure acceptance.
+  derived-activity-measures: |-
+    Estimate characters as prompt count × session mean characters; uncached input is input minus cache. Divide downstream activity by total estimated characters in thousands.
   results: |-
-    In a fixed GPT-5.4/xhigh cohort, endpoint comparisons show shorter authored prompts with broadly preserved downstream activity. The approximately fourfold rise in activity per authored character is an association; task acceptance and isolated ArcGrav effects were not measured.
+    The results cover specification compression, retained downstream activity, notation chronology and reasoning effort.
   human-specification-burden-fell-743: |-
     In fixed GPT-5.4/xhigh endpoint windows, average user-authored characters per prompt fell from 2,259 to 581 (74.3%). This records human specification burden, not task success or experimental causality.
   downstream-computational-activity-was-preserved-per-prompt: |-
@@ -45,6 +63,14 @@ sections:
     Mean recorded session span fell approximately 75.2 to 43.1 minutes, but outliers and potential idle intervals constrain inference; session duration and continuation are not reliable direct measures of task completion.
   interpretation: |-
     Shorter prompts coincided with maintained agent activity. Notation, user fluency, task mix, settings and time covary; controlled acceptance data are needed.
+  specification-compression-with-preserved-agent-activity: |-
+    Shorter specifications coincided with comparable task-independent per-prompt model and tool activity; activity alone does not show work quality.
+  from-notation-construction-to-operational-fluency: |-
+    The fixed cohort began after many core constructs existed. Later gains may reflect authoring fluency rather than the introduction of each feature.
+  arcgrav-authoring-fluency-versus-general-codex-expertise: |-
+    Separate notation-specific fluency from general Codex skill, repository familiarity and task selection; observational telemetry cannot isolate them.
+  further-evaluation: |-
+    Test matched tasks, measure accepted outcomes and human correction, and separate notation effects from user experience and task mix.
   scope-and-evidence-status: |-
     In matched GPT-5.4/xhigh endpoint windows, recorded user characters per prompt fell 74.3%, while activity per estimated human character rose 4.07×–4.44×. Session telemetry lacks prompt-level ArcGrav usage labels, accepted-task outcomes, and human supervision time. Changes in task mix, skill, repository familiarity, or service behavior remain confounders; the findings are observational.
   conclusion: |-

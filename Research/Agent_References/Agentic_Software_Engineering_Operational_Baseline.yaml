@@ -17,10 +17,26 @@ sections:
     This representation-neutral reference establishes comparison quantities for the observational Operational Leverage papers. It defines matched delegation, tool-call, specification, and outcome measures from a standardized coding-agent dataset.
   purpose-and-reference-design: |-
     Treat one externally assigned engineering objective and its autonomous trajectory as a delegation episode. Compare its exact task specification, normalized tool events, steering, and independent resolution; avoid equating a benchmark episode with an arbitrary observed chat session.
+  baseline-delegation-episode: |-
+    One delegated engineering objective plus autonomous execution to termination forms an episode. Map an interactive session or work packet only if it contains one coherent objective; count internal prompts as steering.
+  primary-operating-axes: |-
+    Separate depth per episode, activity per 1,000 specification characters, human steering per episode, and resolution. Tool activity alone does not establish a useful result.
   external-dataset: |-
-    Uses July 2026 SWE-rebench standardized trajectories, including 555 Codex episodes representing 111 tasks repeated five times. Compatibility extraction normalizes tool and trajectory events; the Codex cohort records model identity in the source. Treat benchmark episodes and interactive sessions as distinct unless explicitly mapped.
+    SWE-rebench supplies standardized trajectories; the compatibility extraction isolates the directly comparable Codex cohort.
+  swe-rebench-july-2026-trajectories: |-
+    July 2026 SWE-rebench retains 9,435 normalized trajectories across 111 tasks, 17 participants and five runs per participant: 13 models and four complete coding-agent systems.
+  codex-comparison-cohort: |-
+    Codex: 555 trajectories, 111 tasks × five runs, GPT-5.6 Sol / Medium per benchmark documentation, one exact user task input per episode.
+  reproducible-compatibility-extraction: |-
+    The compatibility plan and PowerShell generator extract the 555-episode Codex CSV, checking task/run balance, prompts, normalized events and totals.
   comparison-protocol-for-observational-workstreams: |-
-    Map workstream sessions or work packets to comparable delegation episodes before normalizing activity. Report tool calls per episode against 20.29 and per 1,000 specification characters against 9.52, together with steering, event definitions, task mix, and outcomes. Ratios describe operating profiles, not a causal ArcGrav advantage.
+    Align episode boundaries and measures before comparing workstreams with Codex. Report activity, steering and outcomes separately.
+  map-the-episode-boundary-first: |-
+    Map one benchmark trajectory to one coherent observational work packet. Extra prompts inside the packet count as steering, not additional episodes.
+  direct-comparison-measures: |-
+    Report comparable tool depth (Codex 20.29/episode), specification burden (2,132.46 chars/episode), steering, and tool leverage (9.52/1,000 chars). Keep broader event depth and outcomes separate.
+  recommended-interpretation-order: |-
+    Describe the workstream, align boundaries, compare depth and character-normalized activity, then report steering and comparable outcomes separately. Use historical endpoints as secondary context.
   baseline-external-codex-reference: |-
     Five repeated Codex runs on 111 SWE-rebench tasks supply 555 standardized delegation episodes. The baseline combines exact supplied task text, normalized tool-call depth, broader event depth, and independently evaluated resolution; these are distinct measurements.
   aggregate-operating-profile: |-
@@ -42,7 +58,13 @@ sections:
   depth-and-outcome-are-separate-axes: |-
     Codex has the lowest normalized event depth among the four complete systems in this comparison, while success rankings need not match depth; evaluate outcome independently of activity.
   reusable-baseline-profile: |-
-    Reuse standardized cohort, episode, exact user specification, tool-call depth, event-depth, steering, and outcome definitions together. Report baseline version and normalization, preserve repeat-run clustering, and avoid equating activity depth or specification leverage with successful task completion.
+    Two profiles distinguish the Codex-only reference from the four-agent pool.
+  codex-direct-comparison-profile: |-
+    555 episodes preserve exact task text; 20.29 tool calls per episode, 9.52 per 1,000 characters, and 322/555 resolved. Depth and resolution are distinct.
+  broader-complete-agent-profile: |-
+    Pooled complete agents: 2,220 episodes, 1,287 resolved (58.0%), and 105.76 normalized events per episode; individual agents span about 52–172.
+  reference-terminology: |-
+    Codex reference denotes 555 episodes; complete-agent reference pools four systems. Depth is activity per objective; burden is specification characters; steering is interventions; leverage normalizes activity by specification.
   scope-and-evidence-status: |-
     External operating reference, not an ArcGrav effect estimate. Match episode boundaries, tool counts, specification denominators, and outcome standards.
   conclusion: |-

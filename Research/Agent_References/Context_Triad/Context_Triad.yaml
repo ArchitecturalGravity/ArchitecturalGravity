@@ -19,16 +19,46 @@ sections:
     Distinguish presence, recoverability, and task influence. Retrieval alone does not show that a requirement governs execution; measure task-specific response consistency.
   the-shared-object-of-study: |-
     Measure how consistently responses follow semantic object A under a specified task and active context C. Following an earlier object may be incorrect after an authorized update.
+  quantification: |-
+    Measure behavioral consistency with an object under the full active context and stated task; the score can track instruction, value, definition or state fidelity.
   three-complementary-perspectives: |-
     Locality compares positions, Shadow compares semantic continuations and order, and Weight compares relative support. Use matched controls when dimensions covary.
+  locality-where-representations-are-available-for-use: |-
+    Locality relates a representation's position, distance and distribution to its use. A nearby pointer may still depend on a remote definition.
+  shadow-how-subsequent-context-changes-influence: |-
+    Shadow concerns how later context reinforces, competes with, or legitimately revises earlier influence. Recency is not authority.
+  weight-how-support-is-balanced: |-
+    Weight is coherent support relative to relevant competitors, not size alone. Distinguish support from whether a meaning actually governs the reply.
   context-triad-interactions: |-
     Placement can condition later competition; support can offset placement; later context can shift the support needed. Compare conditional effects rather than attributing a compound change to one dimension.
+  locality-and-shadow: |-
+    Order-sensitive competition can depend on positions of the target and competitor. Moving a competitor can change both placement and history.
+  locality-and-weight: |-
+    Additional support may offset unfavorable placement. Equal support totals can act differently when clustered or distributed.
+  shadow-and-weight: |-
+    Later competition may affect strongly and weakly supported objects differently; the history can alter the support needed to retain influence.
+  joint-behavior: |-
+    A single intervention may change arrangement, history and support together. Compare matched conditional contrasts to distinguish interactions.
   compound-context-changes: |-
     Later renaming examples can compete with an earlier preserve-identifiers rule through placement, subsequent context, and relative support. Correctness still depends on current authority.
   everyday-examples-of-the-context-triad: |-
     Hypothetical restaurant, writing, scheduling, planning, and coding cases illustrate how position, later additions, and competing support affect response consistency.
+  summarizing-a-project--locality: |-
+    Hypothetical Locality example: an early Friday deadline can remain recoverable yet go unused in the final project summary; placing it near the task can restore use.
+  rescheduling-a-meeting--shadow: |-
+    Hypothetical Shadow example: a later authorized time change supersedes the original meeting time; following the old time is not current-state correctness.
+  comparing-designs--weight: |-
+    Hypothetical Weight example: repeated favorable descriptions of one design can bias an intended balanced comparison.
+  choosing-a-restaurant--locality--shadow--weight: |-
+    Hypothetical compound example: restating outdoor seating immediately before selection changes distance, later context and support together.
   common-behavioral-outcomes-and-dynamics: |-
     Influence can persist, weaken, strengthen, or shift as the three contextual relationships change; observed dynamics do not establish independent internal mechanisms.
+  behavioral-outcomes: |-
+    Classify effects as preservation, suppression, displacement, transformation, or resolution under legitimate authority and scope.
+  behavioral-dynamics: |-
+    Reinforcement, interference, compensation, dominance, recovery and reversal describe how the contextual influences interact, not independent mechanisms.
+  relationship-to-the-triad: |-
+    Contextual configuration shapes interaction dynamics, which shape observable semantic influence. Keep the three levels distinct.
   scope-and-evidence-status: |-
     The framework concerns active context and measured responses. It excludes absent or truncated context and does not infer mechanisms or causal effects from uncontrolled covariation.
   conclusion: |-

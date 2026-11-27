@@ -21,10 +21,22 @@ sections:
     Represent intended task structure as a typed graph whose nodes include instructions, objects, states, evidence, and outputs, and whose edges encode scope, reference, precedence, dependence, and other consequential relations. This is an analytical representation; it does not assert literal internal graph storage.
   mnsr-representation-vs-serialization: |-
     Distinguish intended task graph G, external representation R, serialized input S, model activation Z, recovered usable structure Ĝ, and response or action A. Sequential token order is the communication channel; it does not determine whether the represented task is relationally simple.
+  mnsr-dimensionality: |-
+    Distinguish serialization channel, relational topology and internal latent dimensions. A text stream can express a graph without assuming a hidden geometric mapping.
   the-mnsr-thesis: |-
     Task relationships carry information; serializations preserve them differently. Model-native fit means recovery using learned structural cues, not one syntax or latent vector.
+  relationships-are-part-of-task-information: |-
+    Scope, ownership, precedence and other relations carry task information; preserving the words can still lose which object they govern.
+  representations-differ-in-topology-preservation: |-
+    Equivalent task semantics can use different serializations, which expose the same relations with different clarity and reconstruction demands.
+  mnsr-learned-structural-priors: |-
+    Headings, nesting, labels and references can cue learned structural functions. These associations are hypotheses about recoverability, not execution guarantees.
+  mnsr-model-native-fit: |-
+    Model-native fit means ease of recovering task relationships with learned cues, not adherence to one syntax.
   why-model-native-structure-matters: |-
     An explicit but unfamiliar encoding can still require expensive semantic acquisition. Model-native fit is functional recoverability through learned associations, not geometric closeness to a hidden vector; it is task-, model-, and interface-dependent.
+  model-native-is-not-latent-proximity: |-
+    Model-native fit does not require proximity to a particular hidden vector; test it through observable structural recovery and execution.
   mnsr-representation-recovery-before-reasoning: |-
     6. Representation Recovery Before Reasoning: MNSR distinguishes three functional stages: > Recover Task → Reason Over Task → Execute Task A structured representation does not enlarge the model, and it does not create new parameters, hidden dimensions, attention heads, or reasoning modules, instead it changes the representation upon which reasoning operates.
   mnsr-representational-impedance: |-

@@ -29,6 +29,14 @@ sections:
     Keep shared definitions when useful, bind required keys to every output producer, order overlapping cases and distinguish key presence from value correctness.
   data-and-reproducibility: |-
     The Evidence Ledger provides anchored prompt excerpts and the Trial Audit provides raw outputs and decoded diagnostics. ABSENT marks a missing property in a diagnostic, not an output string.
+  evidence-1: |-
+    Identical high-confidence defaults appear at distinct construction sites; trial 195 omits a required confidence field despite that default.
+  evidence-2: |-
+    Category can be inherited from the finding ID prefix or supplied explicitly. Compare construction scope rather than treating all labels as interchangeable.
+  evidence-3: |-
+    Metadata cases run in order; unresolved fields, missing recognized authority and eligible single-source cases determine different outputs.
+  evidence-4: |-
+    A scoped high default must coexist with specific overrides; trial 195 correctly used low confidence for a missing-value finding.
   other-analyses-in-this-study: |-
     Predicate scope addresses classification; collection semantics addresses membership; compression and locality addresses safe sharing of definitions.
   references: |-

@@ -27,6 +27,14 @@ sections:
     Identity is useful when it survives the path from evidence to decision to output. Preserve partial results at their actual scope and define any later aggregate separately.
   data-and-reproducibility: |-
     Exact prompt lines and decoded output witnesses substantiate the observations through ledger atom IDs, snapshot line ranges and audit trial IDs, with contrary cases and branch coverage.
+  evidence-1: |-
+    V46 changes status to the datum of Choice.Status. Trials 229–230 illustrate why the resolved status must survive independent of value.
+  evidence-2: |-
+    Key maps by exact group ID and resolve each source column independently. The observed status outcomes expose loss of a supported sibling field.
+  evidence-3: |-
+    V54 clarifies that aggregation uses selected authorities from the distinct Status and Value choices, not an unqualified group authority.
+  evidence-4: |-
+    V48 alters instruction binding and declares exact members; lint history concerns static references, not proof of correct extraction.
   other-analyses-in-this-study: |-
     Predicate and comparison scope owns which observations a decision compares; Compression, reuse and instruction locality owns the coordination costs of stored and shared results.
   references: |-

@@ -19,12 +19,14 @@ sections:
     Five retained runs × five treatments × ten observations, all scored. Model, case and low reasoning fixed; prompt size and formulation differ. Join archives by generation and observation ID.
   retained-runs-and-execution-conditions: |-
     Generations retain identical benchmark, case, treatment hashes and execution-boundary fingerprints. Treatment starts and iteration order are randomized; each observation has one distinct attempt start and fresh process/work directory, while session homes are reused. Fifty observations per formulation are repeats on one case, not 50 independent cases.
+  task-and-treatment-content: |-
+    One authority-resolution case has four source occurrences, three IDs and two relations. Preserve a supported field despite an unresolved sibling; expected output includes three records, five findings, uncertainty and execution metadata.
   aggregation-and-evidence-linkage: |-
     Field accuracy equals matched expected units divided by expected plus unexpected units, averaged across repetitions and equally weighted runs. Every result expects 48 units; unexpected items can lower accuracy even when all expected units are correct. Token totals exclude double-counting cached input and reasoning output, and percentage reductions use the comparator as denominator. Duration-derived timing proxies are not direct token timestamps.
   measurements: |-
     Typed JSON matching supplies partial field credit; record and finding order are diagnostic rather than components of that primary score. Exact-result agreement separately detects whole-result discrepancies, including ordering. Cached input is already in input totals, and reasoning tokens already in output. The execution.validated field is not independent acceptance; TTFT and TBT are proxies rather than direct latency measures.
   results: |-
-    XML achieves 100% field accuracy and 50/50 exact matches but uses the most total tokens. ArcGrav has the lowest total tokens and 48/50 exact matches but the highest pooled mean inference-duration proxy. Markdown also has 48/50 exact results with a higher field mean, while prose and YAML show different partial-credit and exact-match patterns.
+    Separate field accuracy, exact-result agreement, token use and timing proxies; the five treatments rank differently.
   accuracy-and-exact-result-agreement-differ: |-
     Mean field accuracy is ArcGrav 99.7361%, prose 99.7083%, Markdown 99.9167%, XML 100% and YAML 98.6367%. Exact agreements are 48/50, 44/50, 48/50, 50/50 and 43/50 respectively. Four YAML outputs earn 100% field credit despite ordering-only exact-match failures; field agreement does not imply complete consumer acceptance.
   input-reduction-exceeds-output-overhead: |-
@@ -35,6 +37,8 @@ sections:
     An ArcGrav run-3 duplicate record preserves all 48 expected units but adds six unexpected units (48/54). Another ArcGrav response assigns incorrect authority metadata (47/48); a YAML relation-finding identity error loses expected units and adds unexpected units (38/58). Collection membership, field metadata and finding identity represent different failures that aggregate scores can obscure.
   interpretation: |-
     XML had highest fidelity and token use. ArcGrav used fewest tokens, with two non-exact results and highest pooled duration proxy. Prompt length confounds notation; historical strict acceptance uses a different metric.
+  separate-fidelity-construction-and-cost: |-
+    XML led measured fidelity and token use; ArcGrav used fewest tokens but had two non-exact results and highest pooled duration proxy. Markdown tied exact-result count with higher field mean and token use.
   relationship-to-the-historical-refinement-observations: |-
     The separate historical ArcGrav ARB series contains 407 strict-response trials across 57 tested prompt hashes. Its analyses of collection membership, metadata binding and exact rendering help classify current discrepancies, but its adaptive edits and complete-response acceptance differ from these fixed-treatment AgMark runs. Strict-pass rate and field accuracy must not be pooled.
   tests-suggested-by-the-findings: |-

@@ -29,6 +29,14 @@ sections:
     Bind authority, admission, fidelity and inspection rules to their intended input and output consumers. Diagnostic emission and metadata errors have response witnesses; several exceptional and noninterference branches remain specification-only.
   supporting-evidence-and-reproducibility: |-
     Evidence Ledger atom IDs and exact prompt snapshots anchor textual changes; Trial Audit outputs and strict verdicts anchor the observed contrasts. No new experiments or independently controlled edit effects are claimed.
+  evidence-1: |-
+    Trials 1 and 16 return the same item_3 values but differ in whether they emit the instruction-content diagnostic. Detection and execution are separate.
+  evidence-2: |-
+    Snapshots distinguish absent member reads, collection defaults and prohibition on substituting another source. These clauses specify behavior beyond the valid fixture.
+  evidence-3: |-
+    Trials 181–182 retain item_2 null and active status but misstate derivation/confidence and omit missing-value evidence. Preserving a value is not complete construction.
+  evidence-4: |-
+    Detection must not change eligibility, evidence, authority or metadata; rank defines preference, not eligibility. These snapshots establish declared boundaries.
   other-analyses-in-this-study: |-
     Predicate scope defines comparisons over admitted evidence; reference identity assigns independently selected fields; evidence assembly handles representation; verification limits what checks and repairs can establish.
   references: |-

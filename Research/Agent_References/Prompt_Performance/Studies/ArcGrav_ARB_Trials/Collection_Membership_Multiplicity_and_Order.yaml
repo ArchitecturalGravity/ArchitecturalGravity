@@ -31,6 +31,16 @@ sections:
     Define a collection through its contributors and occurrence rules before relying on its count or order. The type and name of a container cannot substitute for those relationships.
   supporting-evidence: |-
     Exact prompt lines and decoded output witnesses substantiate the observations through ledger atom IDs, snapshot line ranges and audit trial IDs, with contrary cases and branch coverage.
+  evidence-1: |-
+    V53 replaces a generic uncertainties array with explicit Missing, unresolved-relation and validation contributors. The trial witness separates a retained finding from membership in uncertainties.
+  evidence-2: |-
+    Preserve Missing and relation uncertainties even when validation passes; later validation failures must not replace previously accumulated entries.
+  evidence-3: |-
+    V39 counts scoped source occurrences, including repeats, before grouping. Trials 185–186 reported three processed instead of four.
+  evidence-4: |-
+    Dispute findings are grouped, not emitted once per field; the snapshots specify membership and recheck at the group level.
+  evidence-5: |-
+    Retain colliding IDs, sort by Unicode code-point order, and preserve emission order for equal keys. Sorting does not authorize deduplication.
   other-analyses-in-this-study: |-
     Inheritance, defaults and output obligations owns required fields within each producer; Evidence ownership, assembly and rendering owns component coverage within a retained member.
   references: |-

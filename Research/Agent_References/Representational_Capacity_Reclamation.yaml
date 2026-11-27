@@ -19,14 +19,40 @@ sections:
     A model acts on a representation of the intended task, not the task itself. Recovering identity, scope, precedence, exclusions, dependencies, and completion conditions consumes reasoning effort; successful performance must be measured at fixed model and resource budgets to isolate representational effects.
   intrinsic-and-accessible-capacity: |-
     Intrinsic capacity comes from the model and execution environment. Accessible capacity is the portion a representation directs toward the task.
+  rcr-intrinsic-capacity: |-
+    Intrinsic capacity is supplied by model and execution resources: architecture, parameters, context, reasoning, budget, tooling and time.
+  rcr-accessible-task-capacity: |-
+    Accessible capacity is the part of fixed intrinsic capacity available for useful task work under a representation after overhead.
   rcr-representational-capacity-reclamation: |-
     Clearer representation may reduce reconstruction and repair, raising the accepted-complexity frontier without increasing model resources.
+  definition: |-
+    RCR hypothesizes that reducing reconstruction, disambiguation and repair redirects fixed model-side resources toward task execution.
+  capacity-reclamation-is-not-token-compression: |-
+    Shorter token encoding need not reclaim task capacity; a longer representation can still expose relations with less reconstruction.
+  capacity-reclamation-is-not-additional-compute: |-
+    Reallocation does not add resources: lower reconstruction burden can leave more fixed capacity for task reasoning and verification.
   why-capacity-reclamation-can-be-large: |-
     Larger tasks add interacting scopes, references and dependencies. Recovery errors can propagate; the hypothesized benefit grows with relational load but its magnitude is unverified.
+  structural-reconstruction: |-
+    Explicit topology can reduce recovery of scope, exclusion, precedence and dependencies from separated prose.
+  error-propagation: |-
+    A reversed precedence relation can propagate through planning, transformation, conflict handling and verification; preventing it can avoid the full branch.
+  coordination-cost: |-
+    Potential pairwise relationships grow quadratically with element count; relevant higher-order interactions can add coordination cost without every pair mattering.
   breadth-depth-and-active-relational-load: |-
     Breadth is the number of task dimensions handled; depth is the longest supported dependency chain; active relational load counts consequential relationships maintained together.
+  breadth: |-
+    Breadth is the maximum number of task-relevant dimensions handled above the acceptance threshold at fixed budget.
+  depth: |-
+    Depth is the longest dependency chain supported above the acceptance threshold at fixed budget.
+  rcr-active-relational-load: |-
+    Active relational load counts consequential relationships that must be maintained together, not merely enumerated items.
   rcr-effective-capacity-frontier: |-
     The frontier is the highest task complexity sustaining the required success rate under fixed model, settings, tools, budget, and acceptance.
+  definition-1: |-
+    Effective frontier: greatest task complexity sustaining a specified success threshold with fixed representation and model-side budget.
+  capacity-frontier-versus-quality-improvement: |-
+    An average-quality gain at one complexity does not establish an outward shift in the highest supported task complexity.
   central-hypotheses: |-
     Six proposed predictions separate recoverable task capacity, the acceptable complexity frontier, relational amplification, avoidance of cascading errors, and fixed-budget breadth versus depth.
   rcr-capacity-reclamation-hypothesis: |-
@@ -43,10 +69,26 @@ sections:
     H6: With breadth fixed, lower-impedance representations should sustain deeper dependency traversal, verification, and reasoning before task quality falls.
   new-metrics: |-
     Measure frontier multiplication, remaining headroom at a given task complexity, the reclaimed share beyond baseline saturation, and accepted work per budget. Use source formulas for calculation.
+  frontier-multiplier: |-
+    Frontier multiplier is representation A's supported complexity divided by B's at the same budget and threshold.
+  rcr-residual-frontier-headroom: |-
+    Residual headroom is one minus task complexity divided by the representation's frontier; a task at B's frontier leaves 75% headroom if A's is fourfold.
+  rcr-capacity-reclamation-ratio: |-
+    Reclaimed share is the difference between A and B frontiers divided by A's; fourfold A implies 75% beyond B.
+  rcr-useful-work-per-budget: |-
+    Useful work per budget divides accepted task complexity by model-side execution resources.
   the-fourfold-case: |-
     9. The Fourfold Case: Longitudinal ArcGrav operational telemetry has identified an approximately fourfold increase in downstream model and agent activity per unit of human specification in a fixed-model, fixed-reasoning comparison. A separate single-workstream study relative to an external Codex baseline provides complementary evidence of elevated specification-normalized operational leverage. That result motivates, but does not define, a corresponding frontier hypothesis.
   expected-regimes: |-
     Proposed progression: negligible effects on trivial tasks, emerging reconstruction cost, divergence near baseline saturation, then saturation of both representations.
+  regime-i--trivial-tasks: |-
+    At low complexity, reconstruction cost is predicted to be negligible and the two frontiers similar.
+  regime-ii--emerging-representation-cost: |-
+    As relational complexity rises, recovery overhead becomes noticeable; a clearer representation may begin outperforming prose.
+  regime-iii--capacity-divergence: |-
+    Frontier divergence should be strongest near baseline saturation when the lower-impedance representation still has headroom.
+  regime-iv--intrinsic-saturation: |-
+    Both representations ultimately approach the same intrinsic ceiling; reducing overhead cannot remove inherent task difficulty.
   experimental-design: |-
     Controlled complexity-frontier comparison. Fix model resources and task semantics, vary representation format, increase relational complexity, and evaluate accepted execution rather than nominal concision.
   objective: |-
@@ -77,6 +119,10 @@ sections:
     Compare optimized prose, ArcGrav, Markdown, YAML, code-like and randomized isomorphic grammars, and graph-native inputs where supported; do not presume one winner.
   capacity-reclamation-versus-model-scaling: |-
     Scaling adds capability or compute; representation may free existing capacity by reducing recovery costs. Measure them separately.
+  model-scaling: |-
+    Scaling increases intrinsic resources, such as parameters, context, reasoning compute or tooling.
+  representation-improvement: |-
+    Representation improvement reallocates existing resources by reducing reconstruction. It may complement scaling, but is a different intervention.
   reasoning-effort-and-capacity-reclamation: |-
     15. Reasoning Effort and Capacity Reclamation: Additional reasoning is useful only when directed toward the correct recovered task. represent reasoning effort.
   single-specification-completion: |-
@@ -90,7 +136,17 @@ sections:
   arcgrav-as-a-capacity-reclamation-hypothesis: |-
     20. ArcGrav as a Capacity-Reclamation Hypothesis: ArcGrav uses structural cues such as: nested lists, named sections, ordered tasks, and reusable symbolic references.
   relationship-to-existing-arcgrav-research: |-
-    MNSR supplies the recovery hypothesis; Interpretive Efficiency measures acquisition burden; the Context Triad describes contextual influence; Reasoning–Interaction Substitution concerns rework costs; Operational Leverage measures activity separately from accepted work.
+    Connect recoverable structure, contextual influence and avoided rework to proposed gains in accessible capacity.
+  model-native-structural-representation: |-
+    MNSR hypothesizes recoverable task relations; RCR tests whether reduced recovery effort raises accessible complexity.
+  interpretive-efficiency: |-
+    Interpretive Efficiency measures how cheaply meaning is recovered; RCR measures additional task complexity supported by the saved resources.
+  semantic-locality-shadow-and-weight: |-
+    Locality, Shadow and Weight concern placement, later context and relative support; they can condition whether recovered structure governs execution.
+  reasoninginteraction-substitution: |-
+    Better specification and reasoning can avoid steering, repair and reacquisition; RCR interprets the savings as potentially usable task capacity.
+  operational-leverage: |-
+    Operational Leverage measures activity per specification; RCR tests whether that activity translates into a higher accepted-complexity frontier.
   scope-and-evidence-status: |-
     RCR proposes a testable model–representation frontier effect, not an established increase in intrinsic capacity. Observed fourfold specification-normalized activity motivates testing but is not evidence of a fourfold task-complexity frontier.
   conclusion: |-

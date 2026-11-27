@@ -29,6 +29,14 @@ sections:
     Useful verification separates the reference, coverage, execution evidence and correction authority of a check. A success label becomes informative only within those boundaries.
   supporting-evidence-and-reproducibility: |-
     Exact prompt lines and decoded output witnesses substantiate the observations through ledger atom IDs, snapshot line ranges and audit trial IDs, with contrary cases and branch coverage.
+  evidence-1: |-
+    Recompute each field independently and verify one finding per scoped relation occurrence. Preserve valid null/unresolved distinctions rather than relying on a pass flag.
+  evidence-2: |-
+    Trial 387 marked validation true despite wrong aggregate authority; a correct status and missing-value finding do not certify all fields.
+  evidence-3: |-
+    Trial 195 omitted three required confidence keys despite validated=true; trials 181–182 also omitted required missing-value evidence.
+  evidence-4: |-
+    Repair replaces erroneous elements without adding copies, preserves occurrences and legitimate unresolved outcomes, and does not emit additional findings.
   other-analyses-in-this-study: |-
     Reference identity and independent decisions owns verified static repairs and aggregate operands; Inheritance, defaults and output obligations owns covered key and metadata requirements; Evidence ownership, assembly and rendering owns whole-response acceptance versus payload diagnosis.
   references: |-

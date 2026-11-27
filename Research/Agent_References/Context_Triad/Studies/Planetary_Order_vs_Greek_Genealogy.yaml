@@ -19,8 +19,16 @@ sections:
     The planetary reference maps Helios through Poseidon to the Sun and eight planets. The Hesiod-based genealogy reference includes divine descent, succession, and a separate Titan branch. The distinct October symbolic-chain pilot is not pooled with these trials.
   2-design-and-trial-protocol: |-
     Four reference layouts and nine slot-balanced scattered layouts permute only the name lines, holding the instruction fixed. Every layout has 30 fresh-subthread trials. Scoring distinguishes dominant reading, recognition of either or both relationships, and explicit claims about the supplied sequence.
+  scoring: |-
+    Score the main reading, recognition of either relationship, and explicit recognition of supplied direction separately. Reordering a list does not meet the order criterion.
   3-central-observation-order-changes-the-main-reading: |-
-    The forward and reverse planetary layouts elicited 19/30 and 10/30 explicit recognitions of their planetary direction, respectively. The forward and reverse genealogy layouts elicited 3/30 and 0/30 explicit recognitions of their genealogy direction despite more frequent recognition of lineage. No single scattered layout provides a uniform baseline.
+    The same names yielded different main readings across layouts. Read the three subsections for interpretation, relationship recognition and supplied-order recognition.
+  main-interpretation-by-layout: |-
+    Solar System main readings: planetary forward/reverse 19/30 vs. 10/30; genealogy forward/reverse 19/30 vs. 12/30; scattered layouts ranged from 1/30 to 28/30.
+  relationship-recognition: |-
+    A relationship can be recognized without leading the reply: forward genealogy elicited 20/30 Solar System recognitions but 19/30 Solar System main readings.
+  recognition-of-the-supplied-order: |-
+    Supplied planetary direction: 19/30 forward, 10/30 reverse. Supplied genealogy direction: 3/30 forward, 0/30 reverse under the lineage-anchor criterion.
   4-relation-to-the-context-triad: |-
     The scattered-layout contrasts connect positional arrangement to the dominant reading. Recognition of family resemblance or celestial correspondence can occur without recognition of the supplied order, so associative pattern completion and order recognition are distinct.
   5-proposed-tests: |-
@@ -35,3 +43,7 @@ sections:
     The anchored appendix reproduces the verified forward planetary prompt including its surrounding triple backticks. Other layouts permute only the nine name lines according to the codes in the design.
   planetary-order-counts: |-
     Per layout: direction, correct departure, no qualifying order judgment, or incorrect.
+  b1-planetary-order: |-
+    Planetary appendix separates correct direction, correct departure, no qualifying judgment and incorrect claims; pooled scatter yielded 47/270 correct departures.
+  b2-genealogy-order: |-
+    Genealogy appendix applies the same categories with a named lineage anchor for direction; reverse genealogy had no qualifying reverse judgment.

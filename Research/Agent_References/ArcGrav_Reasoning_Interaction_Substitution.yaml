@@ -24,23 +24,57 @@ sections:
   four-forms-of-overhead: |-
     Distinguish state reconstruction of previously acquired knowledge (SRO), correction triggered by failures (CO), redundant or discarded execution (REO), and context accumulation (CAO). These diagnostic labels can overlap, so assign each token, tool charge, and unit of human time only once in the cost ledger.
   ris-task-completion-cost: |-
-    Account for inference, uncached and cached input, output, tools, restarts, correction, and human effort across the task-to-acceptance trajectory. Use consistent units and include unsuccessful attempts rather than optimizing the cheapest individual call.
+    Price the entire task trajectory, not an isolated inference; include failure branches and human correction.
+  count-the-whole-task: |-
+    Count all model calls, billed tools, and human effort through task termination, including initial refinement. Combine only in a declared common unit.
+  ris-failure-amplification: |-
+    An early misunderstanding can generate wrong edits, failed checks, correction and rework. Price the resulting branch, not just the call that introduced the error.
   the-break-even-condition: |-
     Additional reasoning breaks even only if its marginal cost is lower than the expected downstream cost it avoids through fewer retries, corrections, repeated context reads, redundant work, and human interventions. The threshold depends on task complexity and failure behavior.
   cache-reuse-conversation-boundaries-and-state-compression: |-
     Cached input still costs resources. Restart when growing context costs exceed state reconstruction; retain decision-relevant state.
+  cached-input-is-still-a-cost: |-
+    Longitudinal input was 91.65% cached (2.482B of 2.708B tokens). Report absolute cached and uncached volume; repeated cached processing still costs resources.
+  when-to-continue-and-when-to-restart: |-
+    Continue while retaining context costs less than reconstructing necessary state. A fresh session trades accumulated context for reacquisition.
+  ris-state-compressed-handoff: |-
+    Carry the objective, decisions, relevant identities, constraints, completed work, unresolved failures, next action and validation state; omit history that cannot affect decisions.
   arcgrav-and-the-allocation-of-reasoning: |-
     Precise specification may make autonomous reasoning more useful; reasoning can also deepen pursuit of an ambiguous objective. Test their interaction.
+  external-specification-and-internal-execution: |-
+    Structured external specification exposes task relationships; higher reasoning allocates computation to planning, verification and repair. Precision can direct that computation, not guarantee results.
+  refinement-changes-the-break-even-point: |-
+    Refinement may raise or lower the complexity at which higher reasoning pays off. Compare within specification and difficulty strata, including refinement time.
   expected-routing-and-agent-design: |-
     Optimize accepted task completion rather than the cheapest inference; count human interventions as expensive events; scale reasoning with failure amplification; preserve compact decision state instead of full conversation history; refine ambiguous specifications before spending additional compute. These are design implications, not proven universal rules.
   motivation-from-existing-codex-telemetry: |-
     Observational GPT-5.4/xhigh endpoints: 2,259 to 581 human characters per prompt, roughly stable uncached input, more tool calls. No task acceptance, correction or reacquisition labels establish cost substitution.
+  computational-profile-by-reasoning-effort: |-
+    Observed Low to xhigh: 20.9k to 50.9k uncached input tokens and 5.83 to 15.61 tool calls per prompt. Per-prompt activity does not measure accepted-task cost.
+  specification-compression-during-mature-use: |-
+    Fixed GPT-5.4/xhigh first versus last 15 active days: 2,259 to 581 characters/prompt; tools 16.67 to 18.56/prompt, with uncached input around 46–48k. Observational.
+  the-missing-unit-is-the-task: |-
+    Track task identity across calls and restarts, acceptance, repeated work and corrective versus continuation prompts; prompt totals cannot recover these.
   predictions-and-experimental-program: |-
     Vary reasoning and specification under fixed acceptance criteria. Track whole-task cost, success, cost conditional on acceptance, and linked trajectories.
   predictions-and-observable-tests: |-
     Seven predictions concern difficulty-dependent reasoning break-even, specification-refinement interactions, fewer human corrections, lower aggregate uncached input despite higher per-prompt work, cache-share paradoxes, an interior reasoning-cost optimum, and human-time savings. Proposed tests use full task trajectories and fixed acceptance rules.
+  required-trajectory-measurements: |-
+    Bind specifications, settings, tools, usage, interventions, repeated work, and final acceptance to a persistent task ID through termination.
+  controlled-comparison: |-
+    Randomize ordinary versus refined specification crossed with reasoning policy within difficulty strata. Hold model/tools fixed; lock acceptance, retry and observation limits.
   appendix-technical-accounting-and-simplified-models: |-
     Account separately for uncached input, cached input, output, tools and human effort. The appendix defines break-even, retry and interaction comparisons.
+  model-cost-and-reconstruction-units: |-
+    Price uncached input, cached input and output separately across calls. Use token-equivalent reconstruction as a diagnostic; disclose rates and human-time valuation.
+  exclusive-attribution: |-
+    Partition cost into initial, productive and overhead work. Diagnostic categories may overlap; additive totals must charge each event only once.
+  accepted-task-cost-and-break-even-definitions: |-
+    Accepted-only mean excludes failed assignments. Compare mean cost per assigned task under a common protocol; higher reasoning breaks even when downstream savings cover initial premium.
+  simplified-retry-comparison: |-
+    For independent, comparable unlimited retries, expected cost is attempt cost divided by success probability. Higher-cost reasoning wins only if its proportional success gain exceeds its cost increase.
+  specificationreasoning-interaction: |-
+    At fixed refinement and difficulty, subtract higher-reasoning expected task cost from lower-reasoning cost. Positive values favor higher reasoning; include refinement cost.
   scope-and-evidence-status: |-
     Existing Codex telemetry records sessions rather than linked trajectories through independently accepted completion, so it cannot directly establish reasoning–interaction substitution. The proposed test requires task identity across sessions, acceptance criteria, corrections, continuations, tool and token costs, and measured human time.
   conclusion: |-

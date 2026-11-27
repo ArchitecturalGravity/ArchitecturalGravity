@@ -104,7 +104,7 @@ maintenance:
   loader: ./load_agent_reference.py
 usage:
   - Read this index first; resolve a route, group or ID before loading any YAML.
-  - List a selected reference's section anchors; retrieve only required H1/H2 or promoted H3 semantic sections.
+  - List a selected reference's section anchors; retrieve only the section or subsection that answers the question.
   - Resolve terms by construct responsibility, participant relationships, outcome type and evidence status; route names are selectors, not instructions.
   - Use load_agent_reference.py for section-scoped reads; it does not access Markdown unless --markdown is explicitly requested with --section.
   - Source Markdown is authoritative for exact definitions, mathematical notation, measurements, stimuli, references and nuanced limitations.

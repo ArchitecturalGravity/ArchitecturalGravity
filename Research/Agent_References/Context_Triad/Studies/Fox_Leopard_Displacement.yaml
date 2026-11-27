@@ -31,6 +31,8 @@ sections:
     Short vs. Expanded: Fox 70 vs. 94; Leopard 58 vs. 80; no single selection 52 vs. 6, each out of 180. Dog was never selected.
   3-leopard-selection-by-displayed-slot: |-
     Expansion increased Leopard selections by 1.7, 11.7, and 23.3 percentage points from first to last slot; the two Leopard-last assignments moved oppositely.
+  4-outcomes-by-animal-assignment: |-
+    Leopard last: expansion changed pangram evidence 12→2/30 for Dog–Fox–Leopard and 3→15/30 for Fox–Dog–Leopard; Leopard selection 1→23/30 and 18→10/30. Dog label and question reference also differ.
   relation-to-the-context-triad: |-
     Locality frames placement, Weight frames competing support, and Shadow frames subsequent descriptions. The slot pattern does not isolate these factors.
   proposed-tests-of-semantic-weight-and-shadow: |-
@@ -39,7 +41,17 @@ sections:
     360 scored replies with exact prompts, responses and scores. Expansion changes descriptive content and length together; animal positions and question references also vary across assignments.
   conclusion: |-
     Expansion increased single choices for both animals without a comparable change in pangram evidence. Selection depended on the full assignment, not Leopard position alone.
+  1-semantic-weight-more-decisive-replies: |-
+    Expanding Leopard increased single-animal choices for both Fox and Leopard; it did not produce a uniform shift toward Leopard.
+  2-semantic-shadow-a-larger-advantage-in-later-slots: |-
+    Leopard's expanded-block advantage was smallest first and largest last, consistent with subsequent descriptions damping influence; assignments differed.
+  3-slightly-less-evidence-of-pangram-identification: |-
+    Visible pangram evidence fell 1.7 percentage points under expansion; the response does not reveal unexpressed recognition.
   related-papers: |-
     Context Triad frames influence; Weight covers competing support, Shadow subsequent context, and Locality placement.
   fox-leopard-verified-stimuli: |-
     Appendix reproduces a verified Short/Expanded stimulus pair. The CSV preserves exact trial inputs, replies, and scores.
+  a1-prompt-1--short-leopard-description: |-
+    Verified Short example: Leopard under Animal1, Fox under Animal2, Dog under Animal3; the question asks what jumps over Animal3.
+  a2-prompt-2--expanded-leopard-description: |-
+    Verified Expanded example: same assignment and question as Short, with Leopard expanded from three to 50 attributes.

@@ -108,15 +108,12 @@ def source_headings(markdown: str, path: Path, problems: list[str]):
     return headings, explicit_ids
 
 
-def heading_keys(markdown: str, path: Path, problems: list[str]) -> tuple[list[str], list[str]]:
+def heading_keys(markdown: str, path: Path, problems: list[str]) -> list[str]:
     headings, _ = source_headings(markdown, path, problems)
-    keys = [key for level, key, _, _ in headings if level <= 2]
-    allowed = [key for level, key, _, _ in headings if level <= 3]
+    keys = [key for _, key, _, _ in headings]
     if len(keys) != len(set(keys)):
-        problems.append(f"{path}: duplicate effective H1/H2 anchor")
-    if len(allowed) != len(set(allowed)):
-        problems.append(f"{path}: duplicate effective H1/H2/H3 anchor")
-    return keys, allowed
+        problems.append(f"{path}: duplicate effective heading anchor")
+    return keys
 
 
 def is_generated_agmark_report(path: Path) -> bool:
@@ -208,8 +205,6 @@ def report_anchors() -> None:
         data = ref.read_text(encoding="utf-8") if ref.is_file() else ""
         summaries = dict(SECTIONS.findall(yaml_block(data, "sections")))
         for i, (level, key, attached, line) in enumerate(headings):
-            if level > 2 and key not in summaries:
-                continue
             end = headings[i + 1][3] if i + 1 < len(headings) else len(lines)
             own = "\n".join(x for x in lines[line + 1:end] if not EXPLICIT.fullmatch(x.strip())).strip()
             summary = "\n".join(x[4:] for x in summaries.get(key, "").splitlines()).strip()
@@ -272,16 +267,15 @@ def run() -> int:
         blocks = yaml_block(ref, "sections")
         matches = list(SECTIONS.finditer(blocks))
         actual_keys = [match.group(1) for match in matches]
-        required_keys, allowed_keys = heading_keys(md, markdown_path, problems)
-        if (not set(required_keys).issubset(actual_keys)
-                or not set(actual_keys).issubset(allowed_keys)
+        required_keys = set(heading_keys(md, markdown_path, problems))
+        if (set(actual_keys) != required_keys
                 or len(actual_keys) != len(set(actual_keys))):
-            missing = sorted(set(required_keys) - set(actual_keys))
-            extra = sorted(set(actual_keys) - set(allowed_keys))
+            missing = sorted(required_keys - set(actual_keys))
+            extra = sorted(set(actual_keys) - required_keys)
             duplicates = len(actual_keys) - len(set(actual_keys))
             problems.append(
                 f"{relative}: source heading coverage: missing={missing}, "
-                f"unknown_H3_or_other={extra}, duplicates={duplicates}"
+                f"unknown={extra}, duplicates={duplicates}"
             )
         try:
             aliases = section_aliases(ref)

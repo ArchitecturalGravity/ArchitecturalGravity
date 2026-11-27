@@ -25,10 +25,22 @@ sections:
     Selection and reporting may require different evidence domains; scope each consequence separately and do not infer complete assembly from a correct predicate definition.
   4-unresolved-selection-does-not-establish-missing-source-evidence: |-
     Test a source-absence claim against the source property itself; an unresolved output may have several causes and is not generally an equivalent predicate.
+  comparison-operands-and-equivalence: |-
+    Choose the candidate tier, then compare the relevant data under a declared equality rule. Best-tier ties differ from disagreement across ranks.
   conclusion: |-
     A useful predicate names both the condition and its domain. Preserve different domains when reporting, selection and classification have different consequences.
   supporting-evidence: |-
     Exact prompt lines and decoded output witnesses substantiate the observations through ledger atom IDs, snapshot line ranges and audit trial IDs, with contrary cases and branch coverage.
+  evidence-1: |-
+    V50 restricts ties to distinct data serializations at the same best authority; unrelated metadata is not the comparison operand.
+  evidence-2: |-
+    Rank controls preference, not admission; the scan skips empty tiers and stops at the first nonempty tier.
+  evidence-3: |-
+    Cross-authority conflict reporting compares all explicit data without ranking filters; this is not the winner-selection predicate.
+  evidence-4: |-
+    Missing authority evidence means no qualifying source authority, not merely an unresolved output authority. Trial 140 supplies the distinction.
+  evidence-5: |-
+    Compare selected-tier candidate data for winner decisions; the broad disagreement predicate instead compares explicit source data under its own rule.
   other-analyses-in-this-study: |-
     Inheritance, defaults and output obligations owns key presence versus label classification; Evidence ownership, assembly and rendering owns turning included observations into complete text.
   references: |-

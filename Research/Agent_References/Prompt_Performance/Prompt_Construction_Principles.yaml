@@ -8,7 +8,7 @@ source:
   fingerprint: fnv1a32-b5cb2d1b
 sections:
   prompt-construction-principles: |-
-    Derived principles seek minimum sufficient semantic specification: preserve distinctions, dependencies, obligations and permissions that change intended outcomes while leaving other choices open. They are interpretations synthesized from prompt-refinement observations, not independently demonstrated laws of performance.
+    Principles for binding authority, scope, references, construction and verification in model-facing instructions.
   abstract: |-
     The synthesis applies to many kinds of prompts without assuming one mandatory structure or procedure. Clarity concerns consequential meaning and allowable freedom, not prompt length or a guaranteed performance improvement.
   purpose: |-
@@ -17,15 +17,65 @@ sections:
     Obligations require preservation or action; preferences guide choices without universally excluding alternatives; latitude is intentionally unconstrained. Subjects locate instructions, domains bound decision populations, dependencies link requirements and consequences, and consequential distinctions can change meaning, permissions or results.
   input-and-execution-integrity: |-
     Separate control from data. State admission, defaults and failure behavior; preserve values, types, and absence unless authorized. Inspection must not silently change unrelated decisions.
+  separate-controlling-instructions-from-source-material: |-
+    Treat instruction-like source text as data unless authorized to govern behavior; reporting it does not entail executing it.
+  specify-input-admission-and-failure-behavior-where-consequential: |-
+    State admissible inputs, absent-member behavior and failure handling where outcomes depend on them. Exclusion need not emit a diagnostic.
+  preserve-source-values-types-and-meaningful-absence-states: |-
+    Preserve source values, types and meaningful absence until an authorized conversion. Explicit null, absent data and unresolved decisions are different states.
+  keep-inspection-and-diagnosis-noninterfering-unless-authorized: |-
+    Inspection reports properties without changing admission, independent evidence or decisions unless an intervention is explicitly authorized.
   scope-integrity: |-
     Bind each instruction to its subject. Separate independent decisions, eligibility, comparison operands, missing evidence, and unresolved results.
+  bind-each-instruction-to-its-intended-subject: |-
+    Bind a requirement to the smallest applicable subject; neither spread it to unrelated fields nor separate decisions with real dependencies.
+  distinguish-criteria-by-their-domains: |-
+    Eligibility admits candidates, ranking compares them, and reporting may use a broader population. State each criterion's domain.
+  define-comparison-operands-and-equivalence: |-
+    Specify compared data, candidate domain and equality. Best-tier ties, cross-tier disagreements and unrelated metadata differences are distinct.
+  distinguish-missing-source-evidence-from-unresolved-output: |-
+    Unresolved output describes a decision; missing evidence describes qualifying sources. Neither condition implies the other.
+  define-the-basis-of-synthesis-or-aggregation: |-
+    Specify contributors and combinations. Synthesizing accepted conclusions differs from reporting all consulted or competing sources.
   dependency-conservation: |-
     Connect each requirement to the decisions and output consumers it governs; bind shared rules to all intended applications. Specify whether stage contributions persist, replace previous members or reconcile with them rather than letting later empty results silently erase earlier work.
+  connect-requirements-to-their-intended-consequences: |-
+    Connect required findings to their intended output consumers; asking for a summary does not automatically require it to include every finding.
+  bind-shared-instructions-to-their-applications: |-
+    Bind shared rules to each call's subject, inputs and output destination; preserve which results belong to which application.
+  specify-persistence-replacement-and-reconciliation-when-relevant: |-
+    State what persists, accumulates, or is superseded. No new findings does not mean no unresolved findings remain.
   representational-completeness: |-
     Specify output units, count/repeat rules, required membership, provenance, and what may vary before ordering or rendering.
+  identify-response-units-and-quantities-only-when-consequential: |-
+    When quantities matter, specify whether counts use occurrences, distinct entities or grouped summaries; repeated names need not be duplicates.
+  order-retained-collection-members-after-defining-membership: |-
+    Define collection membership and repeat policy before sorting. An ordered array does not prove correct coverage.
+  state-mandatory-elements-distinctly-from-defaults-and-preferences: |-
+    Distinguish required presence from fallback values and stylistic preferences; a default value need not require the field.
+  separate-whole-content-inclusion-from-internal-coverage: |-
+    Check both requested item inclusion and required content within each item. Item count alone does not prove completeness.
+  preserve-attribution-and-perspective-when-they-matter: |-
+    Keep observations, interpretations and final judgments attributed to their sources; evidence provenance is not deciding authority.
+  match-expressive-constraints-to-the-intended-freedom: |-
+    Constrain fields, literals, ordering and response boundaries only where delivery requires them; preserve permitted expressive latitude.
   abstraction-fidelity: |-
     Factor shared rules without losing exceptions, bindings, precedence or protected differences.
+  share-invariant-meaning-specialize-meaningful-differences: |-
+    Share invariant rules; bind exceptions to affected subjects and specify how they override or qualify the common rule.
+  compress-wording-without-collapsing-distinctions: |-
+    Remove redundant wording without merging absent, singleton, matching or conflicting cases that require different outcomes.
+  use-placement-to-clarify-scope-not-to-replace-meaning: |-
+    Place guidance near its subject to clarify binding; placement cannot supply an unstated rule or exception.
   verification-boundedness: |-
     Name the standard, material and allowed repair. Separate static conformance, observed execution, and permission to act.
+  define-the-basis-and-scope-of-delegated-review: |-
+    Name the review standard, scope and authoritative material. Style, factual support, source fidelity and structural conformance are different checks.
+  limit-claims-of-assurance-to-the-requested-check: |-
+    Claim assurance only for checks performed and their coverage; a success flag does not establish untested requirements.
+  check-static-conformance-separately-from-behavioral-correctness: |-
+    Lint can verify syntax and references, not correct selection, construction or rendering. A correct reply does not establish syntax conformance.
+  bound-revision-and-action-authority: |-
+    Separate permission to evaluate, edit, recommend or execute. An authorized rewrite preserves facts and genuine unknowns unless the task authorizes more.
   construction-sufficiency-criterion: |-
     A prompt is sufficiently specified when consequential distinctions, dependencies, required content and permissions are clear, while irrelevant details remain open. More detail is justified only by a necessary constraint or a consequential ambiguity.
