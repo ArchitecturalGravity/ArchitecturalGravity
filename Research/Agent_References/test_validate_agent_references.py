@@ -8,7 +8,7 @@ from pathlib import Path
 
 from load_agent_reference import original_section, section_aliases
 
-from validate_agent_references import RESEARCH, is_generated_agmark_report, sources, source_headings, inline_reference_link_issues, ROOT
+from validate_agent_references import RESEARCH, is_generated_agmark_report, sources, source_headings, heading_keys, inline_reference_link_issues, ROOT
 
 
 class GeneratedAgMarkReportSelectionTests(unittest.TestCase):
@@ -65,6 +65,13 @@ class ReferenceAnchorTests(unittest.TestCase):
             path.write_text(source)
             self.assertEqual(original_section(path, "real-section"), "## Real section\nBody")
             self.assertIn("## Not a heading", original_section(path, "current"))
+
+    def test_every_depth_contributes_a_required_key(self) -> None:
+        md = "# Title\n## Section\n### Subsection\n#### Detail\n##### Example\n###### Caveat\n"
+        problems = []
+        self.assertEqual(heading_keys(md, Path("source.md"), problems),
+                         ["title", "section", "subsection", "detail", "example", "caveat"])
+        self.assertEqual(problems, [])
 
     def test_alias_parsing_and_duplicate_rejection(self) -> None:
         self.assertEqual(section_aliases("sections:\n"), {})

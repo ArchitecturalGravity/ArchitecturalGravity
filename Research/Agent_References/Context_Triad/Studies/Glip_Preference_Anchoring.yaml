@@ -17,27 +17,73 @@ sections:
     The study separates displayed label, body identity, and position; it does not assign greater semantic support by design.
   1-the-intended-evaluative-equivalence: |-
     Three fictional descriptions share attributes and match each value on character count. No objective ranking is specified; character matching does not equate token length or meaning.
+  character-matched-attribute-values: |-
+    Corresponding attribute values match in character length; each body totals 645 value characters. Character equality does not establish equal tokens or support.
+  description-identity-displayed-label-and-physical-position: |-
+    Body identity follows unchanged wording; displayed label follows the heading; slot tracks first, middle or last independently.
   2-design-and-trial-protocol: |-
     Six heading orders × six body orders × ten fresh trials; the question and body wording stayed fixed. Score displayed label, original description, and physical slot separately.
+  test-set-1--heading-only-comparison: |-
+    Hold body order fixed, then exchange headings to test label assignment. Body order 123 supplies the baseline heading comparison.
+  test-set-2--body-switching-comparison: |-
+    Hold heading order fixed, then exchange whole bodies; moving a body changes its label, slot and surrounding alternatives.
+  crossed-layout-and-execution: |-
+    Cross six heading orders with six body orders, ten fresh trials per layout; 360 trials used requested GPT-6 Luna / Low.
   3-central-observation-conditional-preference-anchoring: |-
     Selections changed with combinations of label, body, slot, and surrounding alternatives. No one variable accounts for all layouts.
+  overview: |-
+    Across 360 choices, Glip3 led labels (196), C2 led bodies (139), and last led slots (213). These are different views of the same replies.
+  heading-changes-can-switch-which-description-a-reply-denotes: |-
+    With bodies 321 fixed, headings 312 and 321 both produced Glip1 9/10 and Glip2 1/10. Glip1 denoted middle C2 in the first and last C1 in the second.
   c2-placement-profiles-for-cases-312-and-321: |-
     C2 at first/middle/last: 3/12/12 of 20 under heading order 312; 6/3/18 of 20 under 321.
   rival-order-can-matter-with-the-target-fixed: |-
     With headings 312 and C2 bound to middle-slot Glip1, C2 rose from 3/10 to 9/10 when rival bodies exchanged first and last positions.
+  measurements: |-
+    Divide body selections by all submitted trials. Averaging rival orders, C2's first-position disadvantage differed by 0.225 between heading orders 312 and 321.
   4-relation-to-the-context-triad: |-
     Locality describes placement; Shadow describes rival order. Weight remains a separate proposed manipulation, not an observed advantage inferred from selection.
+  semantic-locality--where-the-description-is-used: |-
+    The final question is the point of use. C2 placement profiles differ by heading order; moving C2 also changes rival arrangement.
+  semantic-shadow--which-alternatives-precede-and-follow: |-
+    Fixed-target rival swaps changed choice despite identical target wording, label and slot. This measures arrangement dependence, not an isolated support effect.
+  semantic-weight--support-as-a-separate-experimental-variable: |-
+    Bodies match attributes and character lengths; coherent semantic support was not manipulated independently.
   5-proposed-tests-of-conditional-preference-anchoring: |-
     Proposed controls exchange names, use matched paraphrases or support, permit abstention, and introduce a criterion.
   6-scope-and-evidence-status: |-
     360 replies across 36 layouts with exact stimuli, verbatim replies and full counts. Results describe this stimulus and setup; proposed controls were not executed here.
   7-conclusion: |-
     Later slots and higher-numbered labels gained selections in some configurations; fixed-target contrasts show rival order also matters.
+  1-late-position-bias-strong-evidence: |-
+    Last led with 213/360 selections, versus 114 middle and 33 first. Individual layouts can depart from the aggregate.
+  2-higher-numbered-label-bias-evidence-with-a-qualification: |-
+    Glip3 led overall (196/360), but Glip1 or Glip2 could lead under particular heading orders; numeric label alone does not explain choice.
+  3-label-and-position-jointly-influence-selection: |-
+    With 120 appearances per slot, Glip3 was selected 17 first, 74 middle and 105 last; its relative advantage varies with placement.
+  4-competing-context-changes-preference: |-
+    Heading changes can change what a reply denotes; rival swaps can change selection even when the target stays fixed.
   related-papers: |-
     The Context Triad frames selection dependence; Locality and Shadow address placement and subsequent alternatives, while Weight concerns relative support.
   appendix-a--original-stimuli: |-
     Exact description bodies, decision question, and verified example prompts. C1–C3 are scoring identities, not prompt text.
+  a1-original-glip1--content-identity-c1: |-
+    Original C1 is the complete nine-attribute body first labeled Glip1; the heading is not part of body identity.
+  a2-original-glip2--content-identity-c2: |-
+    Original C2 is the complete nine-attribute body first labeled Glip2; the heading may change in crossed layouts.
+  a3-original-glip3--content-identity-c3: |-
+    Original C3 is the complete nine-attribute body first labeled Glip3; use the source for exact wording.
+  a4-exact-final-question: |-
+    The final question asks which Glip is better, requires a one-word answer, and supplies no criterion.
+  a5-prompt--heading-order-312-body-order-321: |-
+    Example headings 312, bodies 321: Glip1 selected middle C2 in 9/10 replies; Glip2 selected last C1 in 1/10.
+  a6-prompt--heading-order-321-body-order-321: |-
+    Example headings 321, bodies 321: Glip1 selected last C1 in 9/10 replies; Glip2 selected middle C2 in 1/10.
   appendix-b--layout-and-trial-records: |-
     Heading order and body order are separate codes. Trial records retain prompts, hashes, replies, selected label, body, and slot.
+  b1-layout-notation: |-
+    Encode label and body order separately; each list specifies first through last slot.
+  b2-trial-record-schema: |-
+    Trial records preserve layout codes, settings, exact prompts/hashes, verbatim replies and decoded label, body and position.
   appendix-c--full-layout-counts: |-
     Each of 36 cells tabulates ten replies by selected displayed label; map to body or slot using the layout codes.

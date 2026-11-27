@@ -29,6 +29,16 @@ sections:
     Content coverage, provenance, operand conversion, literal text and response boundaries are separate obligations. A correct choice does not settle any of them automatically.
   data-and-reproducibility: |-
     Exact prompt lines and decoded output witnesses substantiate the observations through ledger atom IDs, snapshot line ranges and audit trial IDs, with contrary cases and branch coverage.
+  evidence-1: |-
+    V51 adds separate required value and status conflict components; selecting the right evidence does not establish that every component was rendered.
+  evidence-2: |-
+    Render each observation with its own authority, separate from the winning choice's authority. Trial 272 supplies the provenance witness.
+  evidence-3: |-
+    Apply repr conversion to the datum, not the authority label; later instructions explicitly prohibit authority quotes.
+  evidence-4: |-
+    Trial 293 retained value and status evidence but changed literal capitalization; component presence and exact rendering are separate checks.
+  evidence-5: |-
+    Trial 310 matched the parsed object but used two assistant messages. Compact one-line JSON and response boundaries are distinct from parsed equality.
   other-analyses-in-this-study: |-
     Predicate and comparison scope owns which observations are reportable; Collection membership, multiplicity and order owns which whole objects are emitted; Construction checks and verification owns what a check actually establishes.
   references: |-

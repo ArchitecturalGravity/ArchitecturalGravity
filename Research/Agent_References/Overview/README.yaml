@@ -10,9 +10,27 @@ sections:
   research-index: |-
     Architectural Gravity Research investigates how model-facing representations preserve task relationships and how ArcGrav may affect interpretation and agent performance. Model familiarity, portability, and efficiency are research questions, not established advantages.
   research-program: |-
-    Eight strands divide conceptual ownership: MNSR—structural recovery; Instructional Representation—model-interpreted instruction relationships; RCR—accessible task capacity; Syntax Efficiency—encoding and reuse cost; Interpretive Efficiency—representation-specific specification cost; Reasoning–Interaction Substitution—accepted-task cost; Operational Leverage—activity versus useful work; Context Triad—placement, history, and competing support.
+    The program distinguishes structure recovery, instruction, capacity, three efficiency measures, operational leverage and contextual influence.
+  1-model-native-structural-representation: |-
+    MNSR owns the hypothesis that familiar external cues expose task relationships with less representation-specific explanation.
+  2-instructional-representation--the-proseprogram-boundary: |-
+    Instructional Representation treats scope, authority, priority, reference and transformation as model-interpreted relationships, distinct from program execution.
+  3-representational-capacity-reclamation: |-
+    RCR tests whether lower representational impedance makes more task complexity accessible at fixed resources.
+  4-arcgrav--syntax-efficiency: |-
+    Syntax Efficiency measures token encoding and reuse after semantics are established, separately from first-use interpretation.
+  5-arcgrav--interpretive-efficiency: |-
+    Interpretive Efficiency measures specification needed to acquire, maintain and repair correct interpretation.
+  6-arcgrav--reasoninginteraction-substitution-in-agentic-task-completion: |-
+    Reasoning–Interaction Substitution compares extra inference effort against avoided steering, reconstruction and rework through completion.
+  7-arcgrav--operational-leverage: |-
+    Operational Leverage separates observed agent activity per human effort from validated autonomous work.
+  8-context-triad: |-
+    The Context Triad studies placement, later history and coherent support, with controls for separating and combining their effects.
   shared-operational-baseline: |-
     The [external operational baseline](../../Agentic_Software_Engineering_Operational_Baseline.md#paper-operational-baseline) uses standardized SWE-rebench episodes as a representation-neutral reference.
+  external-operational-baseline-for-agentic-software-engineering: |-
+    Standardized SWE-rebench trajectories supply external delegation, specification, tool activity and resolution scales independent of representation.
   efficiency-dimensions: |-
     Keep five outcomes distinct: serialization efficiency measures tokens used to encode an expression; compositional efficiency captures reuse savings; interpretive efficiency measures representation-specific acquisition and repair; operational leverage relates autonomous activity or validated work to human specification; task-completion efficiency measures total resources to accepted completion. A gain in one is not evidence of gains in the others.
   related-representation-and-context-concepts: |-

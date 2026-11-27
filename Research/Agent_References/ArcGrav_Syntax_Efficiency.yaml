@@ -19,6 +19,8 @@ sections:
     Characters and tokens are different units; punctuation, spacing, vocabulary, and model tokenizer all affect cost. A shortest-looking notation can tokenize poorly. Compare actual tokenizer counts for matched semantics, not visual length.
   controlled-syntax-comparison: |-
     A controlled benchmark serialized a matched conceptual prompt in Python-like compact syntax, YAML, ArcGrav, Markdown, and XML, including constraints, ordered operations, and references. It compares that workload's tokens, not universal model comprehension or downstream success.
+  interpretation: |-
+    On the tested prompt, compact Python-like syntax used fewest tokens, then YAML and ArcGrav; conventional Markdown and paired-tag XML used more. Visual brevity does not predict token count.
   comparative-format-profiles: |-
     The controlled comparison illustrates syntax costs and expressiveness trade-offs, not universal model-performance rankings. Format choice depends on semantics, scale, and human interpretation.
   python-like-compact-syntax: |-
@@ -55,6 +57,8 @@ sections:
     Let D denote the tokens needed to repeat a definition, R the tokens for one symbolic reference, H the one-time declaration overhead, and n the number of uses. Repetition costs n×D; declaration plus reuse costs H+n×R. Reuse saves tokens only when the latter is smaller, assuming equivalent meaning.
   scaling-for-homogeneous-collections: |-
     Repeated bullet or element markers can dominate large homogeneous data collections. Use readable ArcGrav control lists for small or heterogeneous instructions, but choose a compact domain-appropriate data encoding for bulk records. Keep control semantics separate from data serialization.
+  practical-rule: |-
+    Use ArcGrav for control and small inspectable lists; embed compact arrays, tables or literal blocks for large homogeneous data.
   syntax-control-plane-data-plane: |-
     Use ArcGrav's model-interpreted structure to identify control policies, constraints, operations, and references; encode large homogeneous records in the most suitable data format, such as JSON when appropriate. Keep instructions governing data distinct from the data payload. A compact control plane does not guarantee more accurate interpretation or permission to modify records.
   syntax-optimization-rules: |-

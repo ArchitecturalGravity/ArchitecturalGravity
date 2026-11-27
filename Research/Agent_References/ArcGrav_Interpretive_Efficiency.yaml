@@ -36,6 +36,14 @@ sections:
     Four falsifiable hypotheses distinguish representation-specific teaching costs at equal semantics, advantages of familiar prior-aligned cues over randomized mappings, ArcGrav's possible performance against strong familiar alternatives, and whether reduced teaching cost preserves downstream execution. Evaluate semantic recovery and task outcome separately.
   zero-specification-probes: |-
     Use small, directly scorable examples to isolate recovery of context names, operations, priority, hierarchy, references, and policy application before testing full tasks. Score intended relationships directly rather than inferring correct interpretation from an acceptable-looking answer.
+  named-contexts-and-operations: |-
+    Test whether the model binds Alpha to two items and interprets Beta's count operation on Alpha.
+  priority: |-
+    Ask whether the model ranks P0 above P1. Familiar priority notation does not guarantee recovery.
+  hierarchy-and-scope: |-
+    Test whether indentation binds inclusion and exclusion rules to the intended parent directory.
+  references-and-policy-application: |-
+    Score policy identity, source identity, and operation binding separately from an answer that merely looks acceptable.
   comparison-representations: |-
     A fair cold-start benchmark includes optimized prose, familiar structured formats, ArcGrav without local instructions, and multiple isomorphic randomized DSLs with or without grammar. Count the cost of supplying any required grammar from zero.
   familiar-baselines-and-the-pseudocode-boundary: |-

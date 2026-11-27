@@ -17,12 +17,28 @@ sections:
     This study characterizes tool-execution depth and human-text-normalized activity in one persistent ArcGrav software-development workstream. The External Operational Baseline provides a non-ArcGrav reference distribution, while the longitudinal study examines changes across sustained use.
   research-scope-and-comparison-unit: |-
     Compare tool activity per human specification for one workstream and an external reference. Align delegation boundaries before comparing; sparse steering does not establish acceptance.
+  delegation-episode-as-the-comparison-unit: |-
+    A SWE-rebench trajectory is one delegated objective through termination; one telemetry session approximates a work packet, with possible boundary differences.
   dataset-and-methods: |-
     Compare July SWE-rebench Codex episodes with August–September feature-work sessions. Match tool definitions and denominators; task mix, settings and boundaries differ.
+  external-codex-operational-baseline: |-
+    Use the 555-episode SWE-rebench Codex CSV as the external reference, not as an intervention control.
+  observational-workstream-telemetry: |-
+    The committed workstream CSV covers 193 sessions over nine active days, August 25 to September 4, 2026.
+  workstream-context: |-
+    One feature-development workstream spans core logic, application integration, interactive state, presentation, performance and testing; it is not a standardized task suite.
+  secondary-within-workstream-analysis: |-
+    Compare four early with four late active days, dropping the middle day. Cluster bootstrap resamples days; this is secondary to the full cohort.
   measurements-and-comparability: |-
-    Delegation depth counts tool work per episode; specification-normalized activity counts tools per 1,000 authored characters; steering density counts human prompts per episode. Workstream sessions approximate but need not equal externally bounded benchmark tasks. Keep denominators, model settings, event taxonomies, and outcomes separate.
+    Compare tool depth and character-normalized activity only after aligning episode and measurement boundaries.
+  operating-measures: |-
+    Report tool calls per episode, tool activity per 1,000 estimated human characters, and prompts per episode. Do not substitute them for acceptance.
+  cross-dataset-compatibility: |-
+    Compare aligned tool counts and human-specification denominators against the external Codex reference. Task mix, boundaries and settings still differ.
+  evidence-provenance-and-comparison-detail: |-
+    External trajectories establish the reference, workstream telemetry measures observed activity, and project context characterizes the work; they do not independently certify acceptance.
   ol-single-workstream-observations: |-
-    Seven reported comparisons describe one engineering workstream against a separately collected coding-agent baseline. Differences in task mix, repository persistence, model, and episode boundaries prevent interpreting activity ratios as matched productivity or a causal ArcGrav effect.
+    Workstream-versus-baseline summaries separate delegation depth, steering and specification-normalized activity.
   direct-comparison-with-the-external-codex-reference: |-
     Compares 193 workstream sessions with 555 external Codex episodes on common operational measures; matched metric definitions do not guarantee matched task difficulty, acceptance, or causal comparability.
   specification-normalized-tool-activity: |-
@@ -39,6 +55,10 @@ sections:
     The cohort records about 7.53% tool non-success and 0.195 aborted turns per prompt. Tool outcomes and aborted turns are separate from independently verified task acceptance.
   interpretation: |-
     The workstream shows sparse recorded steering and greater normalized tool activity than the separate benchmark. Long-lived engineering objectives and persistent context may change what a session represents; accepted outcomes and human supervision time were not measured comparably.
+  ol-delegation-depth-leverage: |-
+    Deeper tool execution accompanied lower measured human text per session; specification-normalized depth measures activity, not useful throughput.
+  work-packets-and-sparse-steering: |-
+    The one-prompt subset resembles the full cohort in tool depth and leverage. Sparse prompts support a work-packet interpretation without proving acceptance.
   scope-and-evidence-status: |-
     Observed workstream tool depth and calls per estimated human character exceed the SWE-rebench reference, but the cohorts use different models (GPT-5.4/xhigh versus gpt-5.6-sol), tasks, episode boundaries, and instrumentation. The comparison is descriptive, not controlled evidence of an ArcGrav productivity advantage.
   conclusion: |-

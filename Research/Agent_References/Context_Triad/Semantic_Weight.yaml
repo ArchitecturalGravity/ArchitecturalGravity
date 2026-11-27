@@ -28,9 +28,11 @@ sections:
   semantic-weight-global-weight: |-
     Global support density compares support to total context size; unrelated filler can reduce density without changing support shares, while also changing placement and overall length.
   behavioral-effects: |-
-    Four separable effects distinguish prior observations, support–response behavior, arithmetic shifts in competitive share, and absolute-scale effects. Represented support never determines instruction authority by itself.
+    Compare response consistency across declared support ratios while controlling placement and semantic history.
   relation-to-prior-work: |-
     Research on contradictory long context and in-context demonstration frequency and order motivates these tests, but existing findings do not establish one monotonic weight-to-compliance law.
+  quantification-shared-behavioral-measurement: |-
+    Average 0–1 response consistency across repeated runs under the declared context, model and settings. The behavioral score is distinct from represented support.
   semantic-weight-effective-influence: |-
     Increasing support for A relative to B may increase behavioral consistency with A, but responses can saturate, reverse, or remain unchanged. Measured support and actual behavioral dominance are different variables.
   semantic-weight-reinforcement: |-
@@ -39,6 +41,10 @@ sections:
     Proportional scaling leaves normalized support ratios unchanged, not necessarily model behavior. Restoring a ratio at a larger total can change placement, absolute volume, and response.
   interactions-with-the-other-dimensions: |-
     Compare support effects across matched placement and history conditions; added support can change both distribution and subsequent context.
+  weight-and-locality: |-
+    Compare equal support-ratio changes at near and far placements. Include target, competitor and support-span geometry.
+  weight-and-shadow: |-
+    Compare an identical support-ratio change under different matched histories; order can condition the behavioral effect of support.
   scope-and-evidence-status: |-
     The paper defines a theoretical support construct, operational proxies, and proposed support–response tests. Support measures are model-, task-, representation-, and competitor-dependent; their ratios do not themselves establish compliance, causal influence, or a universal semantic-mass scale.
   conclusion: |-

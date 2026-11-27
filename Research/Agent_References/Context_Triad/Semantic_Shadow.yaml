@@ -22,9 +22,11 @@ sections:
   semantic-shadow-content: |-
     Later material may be unrelated, relevant but nonconflicting, reinforcing, competing, or authorized to supersede. Semantic relatedness is not contradiction; historical influence must not override authorized updates.
   behavioral-effects: |-
-    Five separable behavioral constructs cover evidence analogies, continuation effects, order contrasts, accumulated history, and differences between current state and historical interpretation. Do not infer a universal direction of suppression.
+    Measure how later context changes consistency with an earlier object; score authorized current-state correctness separately.
   relation-to-prior-work: |-
     Human order effects and language-model studies of conflicting context and temporal retrieval motivate candidate mechanisms; analogy and prior associations do not establish a unique Shadow effect.
+  quantification-shared-behavioral-measurement: |-
+    Estimate expected 0–1 consistency by averaging repeated responses under fixed declared context, task and settings. Score consistency separately from correctness after authorized updates.
   semantic-shadow-effective-influence: |-
     Hold the earlier semantic object and final task fixed. Compare response consistency after a competing or reinforcing continuation with consistency after a matched neutral continuation. The signed difference measures relative suppression or reinforcement, not correctness under the currently authorized state.
   semantic-shadow-order-sensitivity: |-
@@ -35,6 +37,12 @@ sections:
     Distinguish conventions learned generally by the model from conversation-specific remappings or demonstrations. A current response may depend on historical interpretation even when explicit current text is unchanged.
   interactions-with-the-other-dimensions: |-
     Compare order effects across layouts or support levels. Restating an active rule changes placement, support, and its subsequent context together.
+  shadow-and-locality: |-
+    Compare the same Shadow order contrast at different target layouts with competitor geometry and support specified.
+  shadow-and-weight: |-
+    Compare matched order contrasts at high and low support. A positive difference means a larger order contrast at high support.
+  semantic-shadow-restartability: |-
+    Resolved-state compression replaces an amendment chain with its current policy; restating also changes placement, support and later context. Test restartability rather than assume it.
   scope-and-evidence-status: |-
     Shadow specifies model- and task-dependent contrasts for continuation, order, accumulated history, and authorized current state. Prior order and interference research motivates testing, but the proposed measures do not establish a universal suppression mechanism.
   conclusion: |-

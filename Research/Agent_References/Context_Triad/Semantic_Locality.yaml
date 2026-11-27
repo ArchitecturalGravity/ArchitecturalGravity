@@ -17,10 +17,32 @@ sections:
     The Context Triad develops the shared thesis that semantic presence is insufficient to explain behavioral influence. Locality supplies its account of placement relative to use. This paper defines positional geometry, describes its behavioral effects and interactions, and presents ways to quantify them.
   construct-definition-and-boundaries: |-
     Locality locates a representation relative to its point of use in actual input. Geometry is distinct from compliance, support, and contextual history.
+  locality-semantic-object: |-
+    A semantic object may have several representations and uses. A representation near one operation can be remote from another; a nearby reference may depend on a remote definition.
+  locality-frame-distance: |-
+    Sequence distance runs from representation end to use boundary. Measure in a declared unit, preferably model tokens; span length is separate.
+  locality-relative-locality: |-
+    Normalize by active input length for cross-length comparison. At terminal use, relative distance is one minus normalized position, not an independent effect.
+  locality-multiple-support: |-
+    Track all spans and representation types; nearest distance, centroid and mean summarize different aspects and do not preserve the full layout.
+  locality-neighborhood: |-
+    Separate structural surroundings from nearby semantic support or competition. Moving a fixed wrapper changes placement; unrelated nearby text can still affect behavior.
   behavioral-effects: |-
-    Prior long-context and instruction-placement findings motivate position-sensitive hypotheses. Evaluate the same semantic requirement across controlled locations while preserving task, authority, competing support, and relevant input-format and layout features. External correlations do not prove a unique locality mechanism.
+    Position, normalized distance and support distribution can change response consistency. Match controls before attributing a difference.
+  locality-position-hypothesis: |-
+    Prior retrieval and instruction-placement findings motivate a position hypothesis; they do not establish the same response profile for every task.
+  quantification-shared-behavioral-measurement: |-
+    Estimate expected response consistency on a 0–1 score by averaging matched runs under the declared model, task and settings. Outcome differences do not by themselves identify causes.
+  locality-position: |-
+    Compare response consistency at two placements while preserving declared content, support, task and layout constraints. A positive contrast favors the second placement.
+  profile-and-length-comparisons: |-
+    Separate absolute from normalized distance across lengths. Compare layouts under equal declared support and model the position-by-length surface when both vary.
   interactions-with-the-other-dimensions: |-
     Support distribution can change placement effects; the effect of later competition can depend on target and competitor positions. Match the other dimension when comparing.
+  locality-refresh-hypothesis: |-
+    Refresh adds a representation, changing both layout and support; a nearby pointer may leave its defining body remote.
+  locality-and-shadow-placement-and-semantic-history: |-
+    Compare identical placement contrasts under neutral and competing histories. A contrast difference measures history dependence, not a pure order effect from an unmatched move.
   scope-and-evidence-status: |-
     The paper defines model- and task-specific placement measures and proposes response comparisons within declared active contexts. Existing position-sensitivity literature motivates the construct; the described experiments do not establish a universal locality function or isolate it from altered support and order.
   conclusion: |-

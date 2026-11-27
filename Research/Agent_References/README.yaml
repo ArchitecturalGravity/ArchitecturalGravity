@@ -12,7 +12,7 @@ coverage:
   exclude: Agent_References itself; generated AgMark run reports under Prompt_Performance/Studies/AgMark_Runs/Data/ followed by a generation-prefixed 64-character hexadecimal run directory and report.md; non-Markdown files such as CSV, JSON, HTML, Python, PowerShell and JSONL.
   correspondence: Exactly one YAML research_reference per included Research Markdown document. Generated benchmark reports remain authoritative run evidence but are not separately indexed as semantic research references.
   notices: Attribution and rights notices are included; their original terms remain authoritative.
-  subsection_policy: H1/H2 sections are mandatory; independently retrievable H3 concepts may be added when source-anchored, with no redundant copy of the H2 parent.
+  subsection_policy: Give every heading, including each subsection at any depth, one source-anchored summary. For a grouping heading, orient to its children without repeating their findings.
   root_index_exception: Research/README.md maps to Agent_References/Overview/README.yaml.
   other_paths: Mirror source Markdown paths beneath Agent_References, replacing .md with .yaml.
 source_contract:
@@ -20,7 +20,7 @@ source_contract:
   url: File-relative path from each reference YAML to its original Markdown source.
   fingerprint: FNV-1a 32-bit over Unicode code points in the full UTF-8-decoded Markdown text.
   sections: Compact, complete-at-their-level semantic descriptions under real source heading anchors.
-  selective_h3: Promote definitions, hypotheses, distinct findings, and experimental conditions when independently useful; avoid mechanically copying all H3 headings.
+  section_boundaries: Summarize each heading’s own content. Preserve distinctions, controls and qualifications needed to read that section independently.
   anchors: Prefer existing explicit HTML IDs immediately preceding headings; otherwise use GitHub-style heading slugs.
   address: Resolve source.url and append the canonical anchor. An optional section_aliases entry preserves an existing explicit source ID as a loader selector; it maps to one canonical section without duplicating the digest.
   source_change: Any fingerprint difference requires semantic review and reference refresh.
@@ -71,7 +71,7 @@ validation:
   future_ci: Run tests and the validator on relevant pushes and pull requests when workflow changes are in scope. See SOURCE_ANCHORS.md.
   structural_checks:
     - Exactly one reference for each included Research Markdown document, excluding only the specified generated AgMark reports.
-    - Relative source path resolution, fingerprint freshness and mandatory H1/H2 plus optional verified H3 anchor integrity.
+    - Relative source path resolution, fingerprint freshness and one-to-one source heading coverage at every depth.
     - Unique reference IDs, nonempty sections and index/group/routing integrity.
     - Reference files must be smaller than their corresponding Markdown sources.
     - Relative inline links in reference digests must resolve; validate Markdown fragments where present.
