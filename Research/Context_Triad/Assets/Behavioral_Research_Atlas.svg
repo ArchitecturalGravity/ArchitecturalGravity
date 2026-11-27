@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 700 580" role="img" aria-labelledby="atlas-title atlas-desc" font-family="Arial, Helvetica, sans-serif">
+  <title id="atlas-title">Behavioral Research Atlas</title>
+  <desc id="atlas-desc">Joint contextual influences and the behavioral dynamics and outcomes defined in the Context Triad paper. The center is not an additional semantic dimension. Amber points represent publication identifiers, not measured coordinates or evidence strength. See Research_Atlas.md for the linked index.</desc>
+  <path d="M70 66 L630 66 L350 506 Z" fill="#a0a0a0" fill-opacity="0.5" stroke="none"/>
+  <path d="M70 66 L630 66 L350 506 Z" fill="none" stroke="#9575cd" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <g id="construct-continuity">
+    <circle cx="70" cy="66" r="28" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="70" cy="66" r="5" fill="#9575cd"/>
+  </g>
+  <g id="construct-concentration">
+    <circle cx="630" cy="66" r="28" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="630" cy="66" r="5" fill="#9575cd"/>
+  </g>
+  <g id="construct-momentum">
+    <circle cx="350" cy="506" r="28" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="350" cy="506" r="5" fill="#9575cd"/>
+  </g>
+  <text x="70" y="24" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Continuity</text>
+  <text x="630" y="24" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Concentration</text>
+  <text x="350" y="558" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Momentum</text>
+  <text x="350" y="205" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Behavior</text>
+  <text x="350" y="225" text-anchor="middle" font-size="13" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Dynamics &amp; Outcomes</text>
+  <g id="research-point-overlay" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" font-weight="700">
+    <g id="research-R01"><title>R01: Lost in the Middle: How Language Models Use Long Contexts</title><circle cx="361" cy="130" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="134" fill="#382502" font-size="12">01</text></g>
+    <g id="research-R02"><title>R02: Conflicting Needles in a Haystack: How LLMs behave when faced with contradictory information</title><circle cx="451" cy="130" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="451" y="134" fill="#382502" font-size="12">02</text></g>
+    <g id="research-R03"><title>R03: Tug-of-War Between Knowledge: Exploring and Resolving Knowledge Conflicts in Retrieval-Augmented Language Models</title><circle cx="481" cy="130" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="481" y="134" fill="#382502" font-size="12">03</text></g>
+    <g id="research-R04"><title>R04: Measuring and Controlling Instruction (In)Stability in Language Model Dialogs</title><circle cx="241" cy="130" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="241" y="134" fill="#382502" font-size="12">04</text></g>
+    <g id="research-R05"><title>R05: Can’t Remember Details in Long Documents? You Need Some R&amp;R</title><circle cx="211" cy="130" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="211" y="134" fill="#382502" font-size="12">05</text></g>
+    <g id="research-R06"><title>R06: How Language Model Hallucinations Can Snowball</title><circle cx="241" cy="160" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="241" y="164" fill="#382502" font-size="12">06</text></g>
+    <g id="research-R07"><title>R07: LLMs Get Lost in Multi-Turn Conversation</title><circle cx="211" cy="160" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="211" y="164" fill="#382502" font-size="12">07</text></g>
+    <g id="research-R09"><title>R09: Beyond Semantics: How Temporal Biases Shapes Retrieval in Transformer and State-Space Models</title><circle cx="361" cy="340" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="344" fill="#382502" font-size="12">09</text></g>
+    <g id="research-R27"><title>R27: Found in the Middle: Calibrating Positional Attention Bias Improves Long Context Utilization</title><circle cx="361" cy="370" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="374" fill="#382502" font-size="12">27</text></g>
+    <g id="research-R46"><title>R46: Fantastically Ordered Prompts and Where to Find Them: Overcoming Few-Shot Prompt Order Sensitivity</title><circle cx="331" cy="340" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="344" fill="#382502" font-size="12">46</text></g>
+    <g id="research-R58"><title>R58: Large Language Models Can Be Easily Distracted by Irrelevant Context</title><circle cx="331" cy="130" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="134" fill="#382502" font-size="12">58</text></g>
+    <g id="research-R62"><title>R62: Large Language Models Can Follow Instructions, But Not Many at Once: Phase Transitions in Compositional Constraint Satisfaction</title><circle cx="361" cy="310" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="314" fill="#382502" font-size="12">62</text></g>
+    <g id="research-R66"><title>R66: The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions</title><circle cx="361" cy="160" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="164" fill="#382502" font-size="12">66</text></g>
+    <g id="research-R74"><title>R74: LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory</title><circle cx="331" cy="160" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="164" fill="#382502" font-size="12">74</text></g>
+    <g id="research-R79"><title>R79: Can We Instruct LLMs to Compensate for Position Bias?</title><circle cx="331" cy="370" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="374" fill="#382502" font-size="12">79</text></g>
+    <g id="research-R80"><title>R80: More is not always better? Enhancing Many-Shot In-Context Learning with Differentiated and Reweighting Objectives</title><circle cx="361" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="404" fill="#382502" font-size="12">80</text></g>
+    <g id="research-R84"><title>R84: On Many-Shot In-Context Learning for Long-Context Evaluation</title><circle cx="331" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="404" fill="#382502" font-size="12">84</text></g>
+    <g id="research-R87"><title>R87: Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design or: How I learned to start worrying about prompt formatting</title><circle cx="391" cy="370" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="391" y="374" fill="#382502" font-size="12">87</text></g>
+  </g>
+</svg>

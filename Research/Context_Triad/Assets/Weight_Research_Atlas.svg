@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 700 580" role="img" aria-labelledby="atlas-title atlas-desc" font-family="Arial, Helvetica, sans-serif">
+  <title id="atlas-title">Weight Research Atlas</title>
+  <desc id="atlas-desc">Relative coherent support; distribution, accumulation and convergence around an interpretation. Amber points represent publication identifiers, not measured coordinates or evidence strength. See Research_Atlas.md for the linked index.</desc>
+  <path d="M350 66 L70 506 L630 506 Z" fill="#a0a0a0" fill-opacity="0.5" stroke="none"/>
+  <path d="M630 506 L350 66 M630 506 L70 506" fill="none" stroke="#518ac9" stroke-width="2"/>
+  <path d="M350 66 L70 506" fill="none" stroke="#9575cd" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <g id="construct-concentration">
+    <circle cx="350" cy="66" r="28" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="350" cy="66" r="5" fill="#9575cd"/>
+  </g>
+  <g id="construct-momentum">
+    <circle cx="70" cy="506" r="28" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="70" cy="506" r="5" fill="#9575cd"/>
+  </g>
+  <g id="construct-weight">
+    <circle cx="618" cy="498" r="28" fill="#518ac9" fill-opacity=".12"/>
+    <circle cx="618" cy="498" r="17" fill="#518ac9" fill-opacity=".2"/>
+    <circle cx="618" cy="498" r="6" fill="#518ac9"/>
+  </g>
+  <text x="350" y="24" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Concentration</text>
+  <text x="70" y="558" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Momentum</text>
+  <text x="630" y="558" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Weight</text>
+  <circle cx="350" cy="346" r="42" fill="none" stroke="#000000" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text x="350" y="351" text-anchor="middle" font-size="15" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Consolidation</text>
+  <g id="research-point-overlay" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" font-weight="700">
+    <g id="research-R02"><title>R02: Conflicting Needles in a Haystack: How LLMs behave when faced with contradictory information</title><circle cx="541" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="541" y="464" fill="#382502" font-size="12">02</text></g>
+    <g id="research-R03"><title>R03: Tug-of-War Between Knowledge: Exploring and Resolving Knowledge Conflicts in Retrieval-Augmented Language Models</title><circle cx="571" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="571" y="464" fill="#382502" font-size="12">03</text></g>
+    <g id="research-R28"><title>R28: Strategic Demonstration Selection for Improved Fairness in LLM In-Context Learning</title><circle cx="541" cy="430" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="541" y="434" fill="#382502" font-size="12">28</text></g>
+    <g id="research-R46"><title>R46: Fantastically Ordered Prompts and Where to Find Them: Overcoming Few-Shot Prompt Order Sensitivity</title><circle cx="511" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="511" y="464" fill="#382502" font-size="12">46</text></g>
+    <g id="research-R47"><title>R47: Rethinking the Role of Demonstrations: What Makes In-Context Learning Work?</title><circle cx="511" cy="430" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="511" y="434" fill="#382502" font-size="12">47</text></g>
+    <g id="research-R52"><title>R52: What In-Context Learning Learns In-Context: Disentangling Task Recognition and Task Learning</title><circle cx="541" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="541" y="404" fill="#382502" font-size="12">52</text></g>
+    <g id="research-R58"><title>R58: Large Language Models Can Be Easily Distracted by Irrelevant Context</title><circle cx="481" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="481" y="464" fill="#382502" font-size="12">58</text></g>
+    <g id="research-R71"><title>R71: Larger language models do in-context learning differently</title><circle cx="511" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="511" y="404" fill="#382502" font-size="12">71</text></g>
+    <g id="research-R72"><title>R72: Symbol tuning improves in-context learning in language models</title><circle cx="481" cy="430" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="481" y="434" fill="#382502" font-size="12">72</text></g>
+    <g id="research-R76"><title>R76: An Explanation of In-context Learning as Implicit Bayesian Inference</title><circle cx="481" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="481" y="404" fill="#382502" font-size="12">76</text></g>
+    <g id="research-R78"><title>R78: How do Large Language Models Learn In-Context? Query and Key Matrices of In-Context Heads are Two Towers for Metric Learning</title><circle cx="511" cy="370" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="511" y="374" fill="#382502" font-size="12">78</text></g>
+    <g id="research-R80"><title>R80: More is not always better? Enhancing Many-Shot In-Context Learning with Differentiated and Reweighting Objectives</title><circle cx="451" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="451" y="464" fill="#382502" font-size="12">80</text></g>
+    <g id="research-R81"><title>R81: Calibrate Before Use: Improving Few-shot Performance of Language Models</title><circle cx="451" cy="430" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="451" y="434" fill="#382502" font-size="12">81</text></g>
+    <g id="research-R84"><title>R84: On Many-Shot In-Context Learning for Long-Context Evaluation</title><circle cx="481" cy="370" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="481" y="374" fill="#382502" font-size="12">84</text></g>
+    <g id="research-R05"><title>R05: Can’t Remember Details in Long Documents? You Need Some R&amp;R</title><circle cx="361" cy="130" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="134" fill="#382502" font-size="12">05</text></g>
+    <g id="research-R26"><title>R26: RULER: What's the Real Context Size of Your Long-Context Language Models?</title><circle cx="361" cy="160" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="164" fill="#382502" font-size="12">26</text></g>
+    <g id="research-R34"><title>R34: LLMLingua: Compressing Prompts for Accelerated Inference of Large Language Models</title><circle cx="331" cy="130" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="134" fill="#382502" font-size="12">34</text></g>
+    <g id="research-R49"><title>R49: NoLiMa: Long-Context Evaluation Beyond Literal Matching</title><circle cx="331" cy="160" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="164" fill="#382502" font-size="12">49</text></g>
+    <g id="research-R53"><title>R53: LLMLingua-2: Data Distillation for Efficient and Faithful Task-Agnostic Prompt Compression</title><circle cx="391" cy="160" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="391" y="164" fill="#382502" font-size="12">53</text></g>
+    <g id="research-R60"><title>R60: Distance between Relevant Information Pieces Causes Bias in Long-Context LLMs</title><circle cx="361" cy="190" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="194" fill="#382502" font-size="12">60</text></g>
+    <g id="research-R06"><title>R06: How Language Model Hallucinations Can Snowball</title><circle cx="151" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="151" y="464" fill="#382502" font-size="12">06</text></g>
+    <g id="research-R65"><title>R65: Transformers Learn In-Context by Gradient Descent</title><circle cx="121" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="121" y="464" fill="#382502" font-size="12">65</text></g>
+    <g id="research-R08"><title>R08: Effective Context Engineering for AI Agents</title><circle cx="331" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="404" fill="#382502" font-size="12">08</text></g>
+    <g id="research-R22"><title>R22: In-Context Learning Creates Task Vectors</title><circle cx="301" cy="310" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="301" y="314" fill="#382502" font-size="12">22</text></g>
+    <g id="research-R25"><title>R25: Instruction Induction: From Few Examples to Natural Language Task Descriptions</title><circle cx="361" cy="280" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="284" fill="#382502" font-size="12">25</text></g>
+    <g id="research-R42"><title>R42: In-context Vectors: Making In Context Learning More Effective and Controllable Through Latent Space Steering</title><circle cx="391" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="391" y="404" fill="#382502" font-size="12">42</text></g>
+    <g id="research-R50"><title>R50: In-context Learning and Induction Heads</title><circle cx="331" cy="280" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="284" fill="#382502" font-size="12">50</text></g>
+    <g id="research-R51"><title>R51: MemGPT: Towards LLMs as Operating Systems</title><circle cx="421" cy="340" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="421" y="344" fill="#382502" font-size="12">51</text></g>
+    <g id="research-R61"><title>R61: Function Vectors in Large Language Models</title><circle cx="301" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="301" y="404" fill="#382502" font-size="12">61</text></g>
+    <g id="research-R68"><title>R68: Label Words are Anchors: An Information Flow Perspective for Understanding In-Context Learning</title><circle cx="421" cy="370" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="421" y="374" fill="#382502" font-size="12">68</text></g>
+  </g>
+</svg>
