@@ -3,52 +3,52 @@
   <g id="research-R01-1">
     <title>R01: Locality — Lost in the Middle</title>
     <circle cx="208" cy="40" r="10" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/>
-    <text x="208" y="43.25" font-size="9.5" fill="#382502" stroke="none">01</text>
+    <text x="208" y="42.89" font-size="8.5" fill="#382502" stroke="none">R01</text>
   </g>
   <g id="research-R02-2">
     <title>R02: Shadow — Conflicting Needles in a Haystack</title>
     <circle cx="77" cy="237" r="10" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/>
-    <text x="77" y="240.25" font-size="9.5" fill="#382502" stroke="none">02</text>
+    <text x="77" y="239.89" font-size="8.5" fill="#382502" stroke="none">R02</text>
   </g>
   <g id="research-R03-3">
     <title>R03: Weight — Tug-of-War Between Knowledge</title>
     <circle cx="263" cy="237" r="10" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/>
-    <text x="263" y="240.25" font-size="9.5" fill="#382502" stroke="none">03</text>
+    <text x="263" y="239.89" font-size="8.5" fill="#382502" stroke="none">R03</text>
   </g>
   <g id="research-R04-4">
     <title>R04: Continuity — Measuring and Controlling Instruction (In)Stability</title>
     <circle cx="71" cy="145" r="10" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/>
-    <text x="71" y="148.25" font-size="9.5" fill="#382502" stroke="none">04</text>
+    <text x="71" y="147.89" font-size="8.5" fill="#382502" stroke="none">R04</text>
   </g>
   <g id="research-R05-5">
     <title>R05: Concentration — R&amp;R</title>
     <circle cx="269" cy="145" r="10" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/>
-    <text x="269" y="148.25" font-size="9.5" fill="#382502" stroke="none">05</text>
+    <text x="269" y="147.89" font-size="8.5" fill="#382502" stroke="none">R05</text>
   </g>
   <g id="research-R06-6">
     <title>R06: Momentum — How Language Model Hallucinations Can Snowball</title>
     <circle cx="199" cy="244" r="10" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/>
-    <text x="199" y="247.25" font-size="9.5" fill="#382502" stroke="none">06</text>
+    <text x="199" y="246.89" font-size="8.5" fill="#382502" stroke="none">R06</text>
   </g>
   <g id="research-R07-7">
     <title>R07: Trajectory — LLMs Get Lost in Multi-Turn Conversation</title>
     <circle cx="134" cy="207" r="10" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/>
-    <text x="134" y="210.25" font-size="9.5" fill="#382502" stroke="none">07</text>
+    <text x="134" y="209.89" font-size="8.5" fill="#382502" stroke="none">R07</text>
   </g>
   <g id="research-R08-8">
     <title>R08: Anchoring — Effective Context Engineering for AI Agents</title>
     <circle cx="207" cy="94" r="10" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/>
-    <text x="207" y="97.25" font-size="9.5" fill="#382502" stroke="none">08</text>
+    <text x="207" y="96.89" font-size="8.5" fill="#382502" stroke="none">R08</text>
   </g>
   <g id="research-R08-9">
     <title>R08: Consolidation — Effective Context Engineering for AI Agents</title>
     <circle cx="288" cy="207" r="10" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/>
-    <text x="288" y="210.25" font-size="9.5" fill="#382502" stroke="none">08</text>
+    <text x="288" y="209.89" font-size="8.5" fill="#382502" stroke="none">R08</text>
   </g>
   <g id="research-R02-10">
     <title>R02: Multifactor research — Conflicting Needles in a Haystack</title>
     <circle cx="170" cy="170" r="10" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/>
-    <text x="170" y="173.25" font-size="9.5" fill="#382502" stroke="none">02</text>
+    <text x="170" y="172.89" font-size="8.5" fill="#382502" stroke="none">R02</text>
   </g>
     <g id="research-I01"><title>I01: Fox–Leopard Displacement</title><circle cx="251" cy="172" r="10" fill="#80cbc4" stroke="#00695c" stroke-width="1.3"/><text x="251" y="174.89" fill="#004d40" font-size="8.5" text-anchor="middle" font-weight="700" stroke="none">I01</text></g>
     <g id="research-I02"><title>I02: Glip Preference Anchoring</title><circle cx="137" cy="122" r="10" fill="#80cbc4" stroke="#00695c" stroke-width="1.3"/><text x="137" y="124.89" fill="#004d40" font-size="8.5" text-anchor="middle" font-weight="700" stroke="none">I02</text></g>
