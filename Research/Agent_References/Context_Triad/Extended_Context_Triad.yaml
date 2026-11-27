@@ -1,0 +1,39 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.extended
+kind: research_reference
+source:
+  path: Research/Context_Triad/Extended_Context_Triad.md
+  url: ../../Context_Triad/Extended_Context_Triad.md
+  fingerprint: fnv1a32-022a8bb3
+section_aliases:
+  paper-extended-context-triad: extended-context-triad
+sections:
+  extended-context-triad: |-
+    Six proposed constructs describe how contextual influence persists, accumulates, and stays attached to use.
+  abstract: |-
+    Continuity, Concentration, and Momentum describe persistence, distribution, and accumulation; Anchoring, Trajectory, and Consolidation describe attachment, progression, and convergence.
+  introduction: |-
+    Compound dimensions combine pairs of primary dimensions; higher-order dimensions combine pairs of compound dimensions. These are conceptual compositions, not independent mechanisms.
+  primary-dimensions: |-
+    Locality: placement relative to use. Shadow: subsequent context and order. Weight: coherent support relative to competitors.
+  compound-dimensions: |-
+    Pairwise primary relationships distinguish persistence, distribution, and directional accumulation of influence.
+  semantic-continuity: |-
+    Locality + Shadow: influence persists as position and intervening context change; reintroduction near use can renew it.
+  semantic-concentration: |-
+    Locality + Weight: equal support totals can differ in concentration or distribution relative to use.
+  semantic-momentum: |-
+    Shadow + Weight: ordered support and competition reinforce, weaken, or redirect influence as context develops.
+  higher-order-dimensions: |-
+    Each compound pair includes all three primary dimensions through a distinct composition.
+  semantic-anchoring: |-
+    Continuity + Concentration: persistent influence remains attached to the operations it should govern.
+  semantic-trajectory: |-
+    Continuity + Momentum: influence retains, gains, loses, or changes direction across successive operations.
+  semantic-consolidation: |-
+    Concentration + Momentum: distributed support accumulates around a shared interpretation or constraint.
+  everyday-examples-of-the-extended-context-triad: |-
+    Hypothetical cases illustrate persistence, support distribution, accumulation, attachment, progression, and convergence; they do not test the constructs.
+  conclusion: |-
+    The extension organizes compound contextual relationships without positing independent mechanisms.

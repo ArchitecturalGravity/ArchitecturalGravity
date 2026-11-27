@@ -16,7 +16,7 @@ sections:
   role-within-the-context-triad: |-
     The Context Triad develops the shared thesis and conceptual interactions. Shadow supplies its semantic-history contrasts and order-sensitive interpretation. This paper defines semantic shadow, describes its behavioral effects and interactions, and presents ways to quantify them.
   construct-definition-and-boundaries: |-
-    Hold an earlier semantic object distinct from the later material that reinforces, competes with, or legitimately revises it. Shadow concerns order-sensitive behavioral influence, not a presumption that later context should suppress earlier authority. Current-state correctness is evaluated separately.
+    Shadow is order-sensitive influence from later context on an earlier object. Later material may reinforce, compete with, or revise it; assess current authority separately.
   semantic-shadow-earlier-object: |-
     An earlier rule, priority, constraint, definition, convention, or state assertion can remain visible while later context alters its effective influence. Measure changes relative to matched continuation baselines.
   semantic-shadow-content: |-
@@ -34,9 +34,7 @@ sections:
   shadow-interpretation-state: |-
     Distinguish conventions learned generally by the model from conversation-specific remappings or demonstrations. A current response may depend on historical interpretation even when explicit current text is unchanged.
   interactions-with-the-other-dimensions: |-
-    Interactions with the Other Dimensions: Shadow and Locality: An earlier object's response to later competition may depend on the placement of both the object and the competing material. Quantification. A placement-dependent order effect compares $ShA^{ord}$ at two target layouts.
-    Shadow and Weight: Strongly and lightly supported objects may respond differently to subsequent competition. Quantification. A support-dependent order effect is:
-    Compound Context Changes: Restating a still-active rule changes its locality profile, adds support, and changes later semantic context.
+    Compare order effects across layouts or support levels. Restating an active rule changes placement, support, and its subsequent context together.
   scope-and-evidence-status: |-
     Shadow specifies model- and task-dependent contrasts for continuation, order, accumulated history, and authorized current state. Prior order and interference research motivates testing, but the proposed measures do not establish a universal suppression mechanism.
   conclusion: |-

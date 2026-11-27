@@ -10,7 +10,7 @@ sections:
   paper-construction-verification: |-
     Requested review, validator coverage, consistency of reported success and repair authority are distinct. Covered violations and uncovered errors require different interpretations of the same validation flag.
   abstract: |-
-    A check is defined by its reference, its tested conditions and its authority to change a result. Those properties differ from the model's statement that checking succeeded. The observations here separate requested review from observed execution, coverage gaps from failures to apply covered checks, and authorized correction from alteration of legitimate outcomes. A wrong aggregate can lie outside a validator's tests, while a missing required key can contradict the very checks the response reports as passed. These distinctions make verification claims useful: they identify what success would establish, what the returned evidence actually shows, and what a repair is allowed to change.
+    Name the verification standard, covered conditions and repair authority. A wrong aggregate may be outside scope; a missing required key can contradict a reported pass. Separate requested checks from demonstrated execution.
   the-construction-distinction: |-
     Construction review compares a proposed result with its source and rules. Prescribed validation applies a specified set of tests. External acceptance evaluates the delivered answer. Each has a different object and scope; one result cannot silently stand for all three.
   observations-and-construction-implications: |-

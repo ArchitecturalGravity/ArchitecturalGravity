@@ -1,0 +1,23 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.atlas
+kind: research_reference
+source:
+  path: Research/Context_Triad/Research_Atlas.md
+  url: ../../Context_Triad/Research_Atlas.md
+  fingerprint: fnv1a32-39859cc3
+sections:
+  context-triad-research-atlas: |-
+    Maps external research and applied engineering to proposed Context Triad constructs; association does not validate the framework.
+  reading-the-map: |-
+    Amber numbers identify publications; repeats mark multiple associations. Positions and density encode neither measurement nor evidence strength.
+  construct-relationships: |-
+    Locality, Shadow, and Weight combine into Continuity, Concentration, and Momentum, then Anchoring, Trajectory, and Consolidation. Composition is conceptual, not arithmetic or statistical.
+  research-index: |-
+    Distinguish direct factor manipulation, related empirical evidence without isolated factors, and applied engineering. Consult R01–R08 for individual methods and findings.
+  scope-and-evidence-status: |-
+    The map offers illustrative interpretations of cited work, not author classifications, exhaustive coverage, or evidence of independent mechanisms.
+  assets: |-
+    The combined SVG and standalone overlay share a viewBox. Map numbers resolve to publications through the research index.
+  related-research: |-
+    Use the framework for definitions, Studies for individual investigations, and the model for illustration.

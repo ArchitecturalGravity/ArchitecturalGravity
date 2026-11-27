@@ -10,7 +10,7 @@ sections:
   paper-interpretive-efficiency: |-
     Interpretive Efficiency measures the representation-specific explanation, acquisition, maintenance, and repair needed before a model reliably recovers intended instruction semantics. It is distinct from serialization token count and downstream task performance.
   abstract: |-
-    Different prompt representations impose different recognition, explanation, acquisition, maintenance and remapping costs even when they encode comparable tasks. ArcGrav hypothesizes lower representation-specific acquisition/repair burden through familiar natural-language and technical structural cues rather than private grammar mappings. The paper proposes zero-specification probes, specification-dose comparisons, cue ablations, randomized isomorphic controls and cross-model tests. Zero-spec examples motivate, but do not establish, general superiority or portability.
+    ArcGrav hypothesizes that familiar structural cues reduce representation-specific acquisition and repair costs. Test zero-specification recovery, specification dose, cue ablations, randomized isomorphic controls and cross-model variation. Illustrative examples do not establish superiority or portability.
   introduction: |-
     Short syntax does not necessarily mean low interpretive cost: models may need local instructions to recover scope, priorities, references, and operations encoded by unfamiliar conventions. The paper compares acquisition and reuse costs while separating semantic interpretation from task success.
   role-within-the-research-program: |-

@@ -16,16 +16,16 @@ sections:
   interpretive-conventions: |-
     Obligations require preservation or action; preferences guide choices without universally excluding alternatives; latitude is intentionally unconstrained. Subjects locate instructions, domains bound decision populations, dependencies link requirements and consequences, and consequential distinctions can change meaning, permissions or results.
   input-and-execution-integrity: |-
-    Distinguish controlling task instructions from source material supplied for analysis. State consequential admission, exclusion, default and failure contracts; preserve supplied values, types and absence states unless transformation is authorized. Inspection or diagnostics must not silently change unrelated decisions. Many cited boundaries are specification analyses rather than tested exceptional-input effects.
+    Separate control from data. State admission, defaults and failure behavior; preserve values, types, and absence unless authorized. Inspection must not silently change unrelated decisions.
   scope-integrity: |-
-    Attach instructions to their proper subjects and keep genuinely independent decisions separate. Specify eligibility domains, comparison operands and equivalence before applying labels; missing source support is not the same as unresolved output. State which selected evidence contributes to aggregation.
+    Bind each instruction to its subject. Separate independent decisions, eligibility, comparison operands, missing evidence, and unresolved results.
   dependency-conservation: |-
     Connect each requirement to the decisions and output consumers it governs; bind shared rules to all intended applications. Specify whether stage contributions persist, replace previous members or reconcile with them rather than letting later empty results silently erase earlier work.
   representational-completeness: |-
-    Where consequential, identify source and output units, count populations and repeat policies before ordering. Distinguish mandatory content from defaults and preferences, collection membership from internal member coverage, and provenance from unqualified paraphrase. Preserve expressive latitude when the task permits it.
+    Specify output units, count/repeat rules, required membership, provenance, and what may vary before ordering or rendering.
   abstraction-fidelity: |-
-    Share invariant rules while specifying actual exceptions and their subjects. Compress redundancy without removing decision domains, source bindings, precedence or protected differences. Placement can clarify scope but cannot substitute for required relationships.
+    Factor shared rules without losing exceptions, bindings, precedence or protected differences.
   verification-boundedness: |-
-    Delegated review requires an authoritative standard, identified material and bounded assurance claim. Check static conformance separately from behavioral success; a claimed validation flag is not proof of a completed check. Distinguish permission to review, revise, recommend and execute, preserving facts and genuine unknowns.
+    Name the standard, material and allowed repair. Separate static conformance, observed execution, and permission to act.
   construction-sufficiency-criterion: |-
     A prompt is sufficiently specified when consequential distinctions, dependencies, required content and permissions are clear, while irrelevant details remain open. More detail is justified only by a necessary constraint or a consequential ambiguity.

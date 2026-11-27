@@ -16,7 +16,7 @@ sections:
   role-within-the-context-triad: |-
     The Context Triad develops the shared thesis and conceptual interactions. Weight supplies its theory of relative coherent support. This paper defines represented support, describes its behavioral effects and interactions, and presents ways to quantify them.
   construct-definition-and-boundaries: |-
-    Semantic Weight characterizes coherent contextual support for a semantic object relative to declared competitors. Represented support is distinct from behavioral compliance, normative authority, raw token volume, and unrelated filler density.
+    Weight is coherent support relative to competitors, not compliance, authority, token volume, or filler.
   support-is-not-its-behavioral-effect: |-
     Classify repetitions, paraphrases, examples, and elaborations by the semantic object they support before observing the model's response. Contradictions, irrelevant material, and authority must be distinguished from support. Increased text volume does not necessarily increase support for the same meaning.
   semantic-weight-semantic-mass: |-
@@ -38,8 +38,7 @@ sections:
   semantic-weight-scale-invariance: |-
     Proportional scaling leaves normalized support ratios unchanged, not necessarily model behavior. Restoring a ratio at a larger total can change placement, absolute volume, and response.
   interactions-with-the-other-dimensions: |-
-    Interactions with the Other Dimensions: Weight and Locality: Adding support changes the distribution of supporting representations even when outer slot boundaries remain fixed. Quantification. A placement-dependent support effect is:
-    Weight and Shadow: Support supplied after an earlier object changes semantic history as well as represented balance. Quantification. A history-dependent support effect compares the same ratio contrast across matched semantic-history conditions.
+    Compare support effects across matched placement and history conditions; added support can change both distribution and subsequent context.
   scope-and-evidence-status: |-
     The paper defines a theoretical support construct, operational proxies, and proposed support–response tests. Support measures are model-, task-, representation-, and competitor-dependent; their ratios do not themselves establish compliance, causal influence, or a universal semantic-mass scale.
   conclusion: |-

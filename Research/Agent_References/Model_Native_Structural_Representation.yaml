@@ -10,7 +10,7 @@ sections:
   paper-mnsr: |-
     Model-Native Structural Representation (MNSR) studies whether model-facing representations make task-relevant identities, scopes, priorities, references, dependencies, and constraints recoverable with less reconstruction. It proposes a general theory, not an ArcGrav-specific performance result.
   abstract: |-
-    Language models must recover task identities, scopes, constraints, priorities, references, dependencies, state and execution criteria before or during reasoning. Although prompts are serialized, these task relationships are often non-sequential. MNSR hypothesizes that external representations preserving consequential relationships with model-familiar structural cues can reduce reconstruction burden. The central claims and comparative advantages are theoretical and require controlled testing; this is not a claim of guaranteed ArcGrav superiority.
+    MNSR hypothesizes that familiar cues exposing task relationships reduce structural recovery effort before or during reasoning. Controlled comparisons must test this; no format superiority is assumed.
   introduction: |-
     Before solving a task, a language model must recover scope, identities, constraints, references, dependencies, and control state from a serialized input. MNSR investigates how faithfully those relationships survive representation and how learned structural conventions can reduce reconstruction burden, without claiming any notation is universally optimal.
   role-within-the-research-program: |-
@@ -22,7 +22,7 @@ sections:
   mnsr-representation-vs-serialization: |-
     Distinguish intended task graph G, external representation R, serialized input S, model activation Z, recovered usable structure Ĝ, and response or action A. Sequential token order is the communication channel; it does not determine whether the represented task is relationally simple.
   the-mnsr-thesis: |-
-    The MNSR thesis rests on four related propositions: consequential relationships are part of task information; serializations differ in how well they preserve relational topology; broadly trained models learn associations between familiar cues and structural functions; and model-native fit is functional recoverability through those priors, not conformity to one syntax or one hidden vector. These propositions motivate controlled performance and reconstruction tests rather than asserting universal gains.
+    Task relationships carry information; serializations preserve them differently. Model-native fit means recovery using learned structural cues, not one syntax or latent vector.
   why-model-native-structure-matters: |-
     An explicit but unfamiliar encoding can still require expensive semantic acquisition. Model-native fit is functional recoverability through learned associations, not geometric closeness to a hidden vector; it is task-, model-, and interface-dependent.
   mnsr-representation-recovery-before-reasoning: |-
@@ -62,7 +62,7 @@ sections:
   where-mnsr-should-matter-and-where-it-can-fail: |-
     MNSR predicts greater benefits when tasks require repeated identity binding, nested scope, priority, mutable state, dependency order, tool coordination, verification, or long-context recovery. Benefits may be small on simple tasks and can fail if novel notation imposes greater interpretation overhead than the structure it exposes.
   research-hypotheses: |-
-    Eight testable propositions, not confirmed effects. They distinguish topology recovery, complexity scaling, prior alignment, downstream fidelity, stateful coordination, representation fit, channel equivalence, and learned interfaces.
+    Eight proposed tests cover recovery, complexity, priors, fidelity, state, representation fit, channel equivalence, and learned interfaces.
   mnsr-structural-recovery-hypothesis: |-
     H1: At matched task semantics, explicitly exposing consequential relations should reduce errors in identity, scope, precedence, dependency, state, control, and verification.
   mnsr-complexity-scaling-hypothesis: |-

@@ -16,9 +16,9 @@ sections:
   role-within-the-research-program: |-
     This study characterizes tool-execution depth and human-text-normalized activity in one persistent ArcGrav software-development workstream. The External Operational Baseline provides a non-ArcGrav reference distribution, while the longitudinal study examines changes across sustained use.
   research-scope-and-comparison-unit: |-
-    Asks how much downstream tool activity one continuous workstream induced per human-authored task specification relative to an external Codex reference. A delegation episode is one objective and its autonomous work; interactive sessions/work packets need explicit mapping to that unit. Sparse follow-up prompts indicate recorded steering density, not independent accepted completion.
+    Compare tool activity per human specification for one workstream and an external reference. Align delegation boundaries before comparing; sparse steering does not establish acceptance.
   dataset-and-methods: |-
-    Pairs standardized July 2026 SWE-rebench Codex episodes with telemetry from a single August–September feature-development workstream; reported views include full cohort and secondary within-workstream endpoint comparisons. Match normalized tool definitions and denominators, but preserve differences in task difficulty, session boundaries, model settings, and observation design.
+    Compare July SWE-rebench Codex episodes with August–September feature-work sessions. Match tool definitions and denominators; task mix, settings and boundaries differ.
   measurements-and-comparability: |-
     Delegation depth counts tool work per episode; specification-normalized activity counts tools per 1,000 authored characters; steering density counts human prompts per episode. Workstream sessions approximate but need not equal externally bounded benchmark tasks. Keep denominators, model settings, event taxonomies, and outcomes separate.
   ol-single-workstream-observations: |-

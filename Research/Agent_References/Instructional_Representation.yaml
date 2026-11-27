@@ -30,7 +30,7 @@ sections:
   scope-and-evidence-status: |-
     This paper defines a model-interpreted, non-executable representation category and its boundaries. Comparative interpretation accuracy and task completion are evaluated by other research strands; they are not established by the category definition.
   conclusion: |-
-    Instruction structure and program structure serve different semantic functions. ArcGrav illustrates how a model can receive explicit scope, priority, references, and transformation roles while the substantive instruction remains natural language. The preferred representation matches the relationship being expressed rather than maximizing its resemblance to code.
+    Match representation to the task relationship: explicit scope, priority, references, and transformation can coexist with natural-language instructions.
   related-papers: |-
     Related Papers: • Model-Native Structural Representation
     • ArcGrav Interpretive Efficiency

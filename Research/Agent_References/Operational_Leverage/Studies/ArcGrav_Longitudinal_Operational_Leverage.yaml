@@ -16,9 +16,9 @@ sections:
   role-within-the-research-program: |-
     This paper measures longitudinal activity leverage during sustained ArcGrav usage. It complements the single-workstream comparison and uses the external operational baseline for broader context. Its primary contribution is the measured change in activity per unit of human-authored text.
   study-scope-and-operational-leverage: |-
-    Observational longitudinal study of human-authored specification burden relative to subsequent Codex model/tool activity during sustained ArcGrav use, including a fixed-model/reasoning comparison. Distinguish activity per prompt, specification-normalized activity, steering density, and successfully accepted work; activity cannot stand in for task outcomes. Representation theory, contextual influence, and causal mechanisms are separate research questions.
+    Track human specification, steering and downstream Codex activity over sustained ArcGrav use. Activity is not accepted work.
   dataset-and-methods: |-
-    Uses the committed longitudinal Codex telemetry and repository chronology to describe exposure to developing ArcGrav notation. The analysis distinguishes prompt-valid data, model/reasoning strata, and a fixed GPT-5.4/xhigh cohort with matched endpoint active-day windows; sessions with no user prompt or unknown model/reasoning require documented exclusions. The observational design cannot isolate ArcGrav from changes in user fluency, task mix, or environment.
+    Join committed telemetry and notation chronology. Match fixed-model/reasoning endpoint windows and disclose prompt and settings exclusions.
   measurements: |-
     Estimate human-authored specification characters for each session as prompt count multiplied by average characters per prompt. Separately track cached and uncached input, model output, tool activity, steering, and recorded non-success. Report denominators explicitly; estimated characters and token-processing totals are not interchangeable.
   results: |-
@@ -44,7 +44,7 @@ sections:
   supporting-result--session-span-and-continuation: |-
     Mean recorded session span fell approximately 75.2 to 43.1 minutes, but outliers and potential idle intervals constrain inference; session duration and continuation are not reliable direct measures of task completion.
   interpretation: |-
-    Shorter, increasingly compositional prompts coincided with preserved downstream model/tool activity, suggesting specification compression rather than suppressed agent execution. Repository chronology indicates mature grouping, reference, aliasing, priority, wildcard, and literal-block usage by the late window. Authoring fluency, general Codex skill, evolving tasks, model/reasoning policy, and temporal confounding remain alternative explanations; independent task-acceptance and controlled comparisons are still needed.
+    Shorter prompts coincided with maintained agent activity. Notation, user fluency, task mix, settings and time covary; controlled acceptance data are needed.
   scope-and-evidence-status: |-
     In matched GPT-5.4/xhigh endpoint windows, recorded user characters per prompt fell 74.3%, while activity per estimated human character rose 4.07×–4.44×. Session telemetry lacks prompt-level ArcGrav usage labels, accepted-task outcomes, and human supervision time. Changes in task mix, skill, repository familiarity, or service behavior remain confounders; the findings are observational.
   conclusion: |-

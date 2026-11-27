@@ -10,7 +10,7 @@ sections:
   paper-operational-baseline: |-
     July 2026 SWE-rebench coding-agent trajectories provide an external, representation-neutral reference for delegation depth, specification-normalized tool activity, and resolved task outcomes. This cohort is not an ArcGrav treatment or a matched causal control.
   abstract: |-
-    The external Codex cohort covers 555 standardized delegation episodes over 111 SWE-rebench tasks and five runs. The compatibility extraction records exact externally supplied task text for all 555 episodes (1,183,515 characters; mean 2,132.46 per episode) and 11,262 normalized tool_call events (20.29 per episode), giving 9.52 tool calls per 1,000 specification characters from aggregate totals. Distinguish these agent-activity measures from resolved outcomes, quality, and causal productivity effects. Comparisons must align episode boundaries, event definitions and denominator coverage.
+    555 Codex delegation episodes across 111 SWE-rebench tasks and five runs retain 1,183,515 exact specification characters and 11,262 normalized tool calls (9.52 per 1,000 characters). Match episode boundaries, event definitions, and denominators before comparison. Activity is not resolution or productivity.
   introduction: |-
     A single engineering task request can initiate a lengthy agent trajectory of repository inspection, tool operations, edits, testing, and recovery. Comparable external operational measurements require a standardized delegation episode and compatible specification, activity, steering, and acceptance boundaries; greater activity alone is not greater productivity.
   role-within-the-research-program: |-
@@ -44,19 +44,13 @@ sections:
   reusable-baseline-profile: |-
     Reuse standardized cohort, episode, exact user specification, tool-call depth, event-depth, steering, and outcome definitions together. Report baseline version and normalization, preserve repeat-run clustering, and avoid equating activity depth or specification leverage with successful task completion.
   scope-and-evidence-status: |-
-    This extraction supplies external operating references, not controlled ArcGrav versus non-ArcGrav effects. Interpret direct comparisons only after matching delegation boundaries, tool categories, task-specification denominators, and outcome standards; tool depth does not establish task success.
+    External operating reference, not an ArcGrav effect estimate. Match episode boundaries, tool counts, specification denominators, and outcome standards.
   conclusion: |-
     The external Codex cohort averages 20.29 normalized tool calls per delegation episode and 9.52 per 1,000 supplied task characters. Treat these as reference-scale activity measures; compare task resolution, cohort boundaries, and event categories separately.
   data-and-reproducibility: |-
-    Data and Reproducibility: • SWE-rebench July 2026 Trajectories: https://huggingface.co/datasets/ibragim-bad/swerebench072026trajectories
-    • SWE-rebench trajectory index: https://huggingface.co/datasets/ibragim-bad/swerebench072026trajectories/blob/main/index.jsonl
-    • SWE-rebench normalized trajectory schema: https://huggingface.co/datasets/ibragim-bad/swerebench072026trajectories/blob/main/schema.json
-    • SWE-rebench methodology and leaderboard: https://swe-rebench.com/
-    • Local compatibility plan: CSVcompatibilityplan.md
-    • Reproducible generator: generatecodexoperationalbaseline.ps1
-    • Generated comparison dataset: codexoperationalbaseline.csv
+    The source links the SWE-rebench July 2026 trajectories, index, schema and methodology, plus the local compatibility plan, PowerShell extractor and derived CSV.
   related-papers: |-
     Related Papers: • Longitudinal Operational Leverage
     • Single-Workstream Delegation Leverage
   references: |-
-    The underlying sources are the SWE-rebench July 2026 Trajectories dataset and the SWE-rebench methodology and leaderboard. Refer to the source manuscript for canonical dataset and methodology links, and to Data and Reproducibility for the local extraction artifacts.
+    Use the archived SWE-rebench trajectories, methodology and leaderboard linked in the source.

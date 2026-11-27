@@ -1,0 +1,43 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.studies.glip
+kind: research_reference
+source:
+  path: Research/Context_Triad/Studies/Glip_Preference_Anchoring.md
+  url: ../../../Context_Triad/Studies/Glip_Preference_Anchoring.md
+  fingerprint: fnv1a32-1161d870
+sections:
+  paper-glip-preference-anchoring: |-
+    Criterion-free selection depended on displayed label, description placement, and rival order.
+  a-gpt-6-luna--low-controlled-study-of-the-context-triad----16-november-2026-utc: |-
+    16–17 November 2026 UTC; 360 completed fresh subthread trials with GPT-6 Luna / Low requested.
+  abstract: |-
+    Crossing fixed labels and unchanged descriptions across 36 layouts changed preference even without a declared evaluation criterion.
+  role-within-the-context-triad: |-
+    The study separates displayed label, body identity, and position; it does not assign greater semantic support by design.
+  1-the-intended-evaluative-equivalence: |-
+    Three fictional descriptions share attributes and match each value on character count. No objective ranking is specified; character matching does not equate token length or meaning.
+  2-design-and-trial-protocol: |-
+    Six heading orders × six body orders × ten fresh trials; the question and body wording stayed fixed. Score displayed label, original description, and physical slot separately.
+  3-central-observation-conditional-preference-anchoring: |-
+    Selections changed with combinations of label, body, slot, and surrounding alternatives. No one variable accounts for all layouts.
+  c2-placement-profiles-for-cases-312-and-321: |-
+    C2 at first/middle/last: 3/12/12 of 20 under heading order 312; 6/3/18 of 20 under 321.
+  rival-order-can-matter-with-the-target-fixed: |-
+    With headings 312 and C2 bound to middle-slot Glip1, C2 rose from 3/10 to 9/10 when rival bodies exchanged first and last positions.
+  4-relation-to-the-context-triad: |-
+    Locality describes placement; Shadow describes rival order. Weight remains a separate proposed manipulation, not an observed advantage inferred from selection.
+  5-proposed-tests-of-conditional-preference-anchoring: |-
+    Proposed controls exchange names, use matched paraphrases or support, permit abstention, and introduce a criterion.
+  6-scope-and-evidence-status: |-
+    360 replies across 36 layouts with exact stimuli, verbatim replies and full counts. Results describe this stimulus and setup; proposed controls were not executed here.
+  7-conclusion: |-
+    Later slots and higher-numbered labels gained selections in some configurations; fixed-target contrasts show rival order also matters.
+  related-papers: |-
+    The Context Triad frames selection dependence; Locality and Shadow address placement and subsequent alternatives, while Weight concerns relative support.
+  appendix-a--original-stimuli: |-
+    Exact description bodies, decision question, and verified example prompts. C1–C3 are scoring identities, not prompt text.
+  appendix-b--layout-and-trial-records: |-
+    Heading order and body order are separate codes. Trial records retain prompts, hashes, replies, selected label, body, and slot.
+  appendix-c--full-layout-counts: |-
+    Each of 36 cells tabulates ten replies by selected displayed label; map to body or slot using the layout codes.

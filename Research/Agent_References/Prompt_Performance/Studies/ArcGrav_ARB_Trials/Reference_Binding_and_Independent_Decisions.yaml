@@ -10,7 +10,7 @@ sections:
   paper-reference-binding: |-
     Identity must survive from a field decision through its consumers and later aggregates. Storage, selected-result provenance and formal binding validity answer different questions, with static diagnostic effects distinguished from output correctness.
   abstract: |-
-    Reference identity determines which subject, evidence or result an instruction denotes. Independent decisions require that identity to survive copying, diagnosis and aggregation. The observations here distinguish a field from its containing object, a result from its storage representation, and selected inputs from the summary built from them. They explain why a legitimate partial result can be lost even when the prompt says to preserve it. Construction implications concern the dependencies a prompt must expose; historical lint repairs provide separate, narrower evidence about static reference validity.
+    Preserve identities through copying, diagnosis and aggregation. Separate fields from containing objects, results from their storage, and selected inputs from summaries. Output failures and historical lint repairs support different claims.
   the-construction-distinction: |-
     A reference is a connection between a phrase and the particular thing it denotes. Its granularity matters: an object, a property, an observation and a selected result are not interchangeable subjects. This category owns identity and authorized dependencies; predicate scope owns the evidence considered by a decision.
   observations-and-construction-implications: |-

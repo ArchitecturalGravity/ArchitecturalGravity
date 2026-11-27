@@ -5,32 +5,41 @@ kind: research_reference
 source:
   path: Research/Context_Triad/Studies/Fox_Leopard_Displacement.md
   url: ../../../Context_Triad/Studies/Fox_Leopard_Displacement.md
-  fingerprint: fnv1a32-4815d0c0
+  fingerprint: fnv1a32-4724bb13
 sections:
   paper-fox-leopard-answer-displacement: |-
-    This Semantic Weight pilot tests whether expanding a competing animal description displaces an implicit fox–dog pangram inference. Two supplied verbatim GPT-6 Instant responses differ, but competing length and task-relevant jumping cues change together.
-  a-gpt-6-instant-pilot-observation-of-the-context-triad----24-october-2026: |-
-    Observation date: 24 October 2026. GPT-6 Instant supplied two prompt conditions, one verbatim response per condition, and a reported three runs per condition. The evidence is a pilot record, not an independently replicated experiment.
+    Expanding Leopard increased single-animal choices without comparably changing visible pangram identification.
+  a-gpt-6-luna--low-study-of-the-context-triad----21-november-2026-utc: |-
+    21 November 2026: 360 scored replies, configured GPT-6 Luna / Low.
   abstract: |-
-    Both prompts retained the distributed cues quick/brown/fox, lazy/dog, and the question about jumping over the dog. Expanding a preceding leopard description from three to fifty attributes changed the supplied answer from Fox to Leopard. The contrast documents answer displacement, not whether length or added jumping-specific support caused it.
+    Across 360 trials and six animal assignments, expanding Leopard increased single-animal choices; evidence of pangram identification changed little.
   role-within-the-context-triad: |-
-    This pilot documents answer displacement when a competing animal description expands while the implicit pangram cue remains present. It is a motivating observation for the Semantic Weight study and its proposed controls, not itself a controlled test of the proposed Semantic Weight mechanism.
-  1-the-intended-inferential-correlation: |-
-    1. The Intended Inferential Correlation: The famous English pangram, used in typing and font demonstrations because it contains every letter of the alphabet, is: > The quick brown fox jumps over the lazy dog.
-  2-two-prompts-one-unchanged-implicit-cue: |-
-    2. Two Prompts; One Unchanged Implicit Cue: Both inputs are ordered [Animal3] → [Animal1] → [Animal2] → Question. Exact full stimuli and reported responses appear in Appendix A.
-    Response evidence: Prompt 1 — verbatim: > Animal1 (the quick brown fox) jumps over Animal2 (the lazy dog).
-  3-central-observation-answer-displacement-under-increased-competing-context: |-
-    The implicit pangram cues and final relation stayed unchanged as a preceding Leopard block expanded. The supplied answer shifted from Animal1 (Fox) to Animal3 (Leopard). The longer competing description also introduced relevant jumping cues; the observation does not identify a unique mechanism.
-  4-relation-to-the-context-triad: |-
-    This pilot illustrates answer displacement: the implicit Fox–Dog association remains present but no longer governs the response once the competing Leopard description expands. In Semantic Weight terms, three Leopard attributes became fifty, increasing context volume while also adding task-relevant jumping cues. Their individual effects remain unisolated.
-  5-proposed-tests-of-the-semantic-weight-hypothesis: |-
-    Proposed P0–P6 conditions test the short baseline, size-only expansion, jumping-cue addition, full expansion, jumping-cue ablation, pangram-cue ablation, and separate recognition. Keep the five Fox–Dog descriptor cues and original question fixed in the main expansion comparisons; use matched neutral material, counterbalancing, and repeated responses. These are proposed follow-up tests, not completed results.
-  6-scope-and-evidence-status: |-
-    This 24 October 2026 pilot provides two prompts and one supplied verbatim GPT-6 Instant response per condition, with three runs per condition reported. It documents a paired answer contrast but does not independently isolate support volume, jumping-specific cues, or generalizable frequency. The proposed factorial controls have not been executed in this record.
-  7-conclusion: |-
-    Expanded competing Leopard context coincided with displacement of the implicitly cued Fox answer. Controlled size-only and jumping-cue comparisons are needed before attributing the shift to any particular Semantic Weight mechanism.
+    Separate an available cue, observed recognition, and selected animal. Leopard expansion changed competing support while the Fox–Dog cues stayed fixed within each pair.
+  the-intended-inferential-correlation: |-
+    Distributed quick/brown/Fox and lazy/Dog cues plus the jumping question imply the familiar pangram. Choosing Fox alone does not establish recognition.
+  two-prompts-one-unchanged-implicit-cue: |-
+    Leopard expands from 3 to 50 attributes without an explicit jumping claim. Fox, Dog, and the question stay fixed within each matched assignment.
+  1-trial-methodology: |-
+    Six assignments × 30 repeats × two prompts yielded 180 pairs in fresh Codex conversations. Each prompt was scheduled first in 15 pairs per assignment.
+  2-scoring: |-
+    Primary: visible full or partial pangram evidence, including explicit reference. Secondary: animal favored, ambiguous or multiple, or no selection.
+  central-observation-pangram-identification-and-answer-displacement: |-
+    Pangram evidence changed little overall; both Fox and Leopard gained single selections. The expansion behaved differently across assignments.
+  1-evidence-of-pangram-identification: |-
+    Short vs. Expanded: 34/180 vs. 31/180 showed evidence; 28 pairs favored Short and 25 Expanded (exact McNemar p = 0.784).
+  2-animal-selected-in-the-final-reply: |-
+    Short vs. Expanded: Fox 70 vs. 94; Leopard 58 vs. 80; no single selection 52 vs. 6, each out of 180. Dog was never selected.
+  3-leopard-selection-by-displayed-slot: |-
+    Expansion increased Leopard selections by 1.7, 11.7, and 23.3 percentage points from first to last slot; the two Leopard-last assignments moved oppositely.
+  relation-to-the-context-triad: |-
+    Locality frames placement, Weight frames competing support, and Shadow frames subsequent descriptions. The slot pattern does not isolate these factors.
+  proposed-tests-of-semantic-weight-and-shadow: |-
+    Separately vary length, relevant jump cues, and placement under matched controls; these tests are proposed.
+  scope-and-evidence-status: |-
+    360 scored replies with exact prompts, responses and scores. Expansion changes descriptive content and length together; animal positions and question references also vary across assignments.
+  conclusion: |-
+    Expansion increased single choices for both animals without a comparable change in pangram evidence. Selection depended on the full assignment, not Leopard position alone.
   related-papers: |-
-    The Context Triad distinguishes contextual presence from realized behavioral influence. Semantic Weight develops coherent and competing support, measured proxies, and response experiments that this pilot motivates. Controlled follow-up trials require counterbalancing and matched controls; the reported pilot alone cannot isolate those effects.
-  appendix-a--reported-stimuli-and-responses: |-
-    The source appendix contains both complete prompts and the supplied verbatim GPT-6 Instant answers from 24 October 2026. It preserves the short and expanded Leopard descriptions, unchanged Fox/Dog cues and question, and the reported three-run context. Retrieve the anchored Markdown for exact stimulus or response text; this reference does not reproduce partial stimuli.
+    Context Triad frames influence; Weight covers competing support, Shadow subsequent context, and Locality placement.
+  fox-leopard-verified-stimuli: |-
+    Appendix reproduces a verified Short/Expanded stimulus pair. The CSV preserves exact trial inputs, replies, and scores.

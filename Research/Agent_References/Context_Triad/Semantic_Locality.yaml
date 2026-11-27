@@ -16,12 +16,11 @@ sections:
   role-within-the-context-triad: |-
     The Context Triad develops the shared thesis that semantic presence is insufficient to explain behavioral influence. Locality supplies its account of placement relative to use. This paper defines positional geometry, describes its behavioral effects and interactions, and presents ways to quantify them.
   construct-definition-and-boundaries: |-
-    Locality is the relative placement of an instruction, constraint, or relevant fact and the task operation that uses it. Record representation boundaries and point of use within the actual input sequence. Its descriptive geometry differs from observed compliance and from semantic support or history.
+    Locality locates a representation relative to its point of use in actual input. Geometry is distinct from compliance, support, and contextual history.
   behavioral-effects: |-
     Prior long-context and instruction-placement findings motivate position-sensitive hypotheses. Evaluate the same semantic requirement across controlled locations while preserving task, authority, competing support, and relevant input-format and layout features. External correlations do not prove a unique locality mechanism.
   interactions-with-the-other-dimensions: |-
-    Interactions with the Other Dimensions: Locality and Weight: Refresh and Distribution: Additional support may compensate for unfavorable placements, and distributed support may differ from one concentrated block at the same measured total.
-    Locality and Shadow: Placement and Semantic History: An earlier rule's response to later competition may depend on where the rule and competitor occur. Changing competitor order also changes competitor position.
+    Support distribution can change placement effects; the effect of later competition can depend on target and competitor positions. Match the other dimension when comparing.
   scope-and-evidence-status: |-
     The paper defines model- and task-specific placement measures and proposes response comparisons within declared active contexts. Existing position-sensitivity literature motivates the construct; the described experiments do not establish a universal locality function or isolate it from altered support and order.
   conclusion: |-

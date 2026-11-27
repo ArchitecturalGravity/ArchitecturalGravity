@@ -11,6 +11,7 @@ coverage:
   include: Curated Markdown documents in Research and all its child directories.
   exclude: Agent_References itself; generated AgMark run reports under Prompt_Performance/Studies/AgMark_Runs/Data/ followed by a generation-prefixed 64-character hexadecimal run directory and report.md; non-Markdown files such as CSV, JSON, HTML, Python, PowerShell and JSONL.
   correspondence: Exactly one YAML research_reference per included Research Markdown document. Generated benchmark reports remain authoritative run evidence but are not separately indexed as semantic research references.
+  notices: Attribution and rights notices are included; their original terms remain authoritative.
   subsection_policy: H1/H2 sections are mandatory; independently retrievable H3 concepts may be added when source-anchored, with no redundant copy of the H2 parent.
   root_index_exception: Research/README.md maps to Agent_References/Overview/README.yaml.
   other_paths: Mirror source Markdown paths beneath Agent_References, replacing .md with .yaml.
@@ -21,7 +22,7 @@ source_contract:
   sections: Compact, complete-at-their-level semantic descriptions under real source heading anchors.
   selective_h3: Promote definitions, hypotheses, distinct findings, and experimental conditions when independently useful; avoid mechanically copying all H3 headings.
   anchors: Prefer existing explicit HTML IDs immediately preceding headings; otherwise use GitHub-style heading slugs.
-  address: Resolve source.url, append # and the section key to open the original passage.
+  address: Resolve source.url and append the canonical anchor. An optional section_aliases entry preserves an existing explicit source ID as a loader selector; it maps to one canonical section without duplicating the digest.
   source_change: Any fingerprint difference requires semantic review and reference refresh.
 interpretation:
   default: Resolve the index first, inspect a selected reference's anchor list, then load only the semantic section(s) needed; do not load the whole catalogue or Markdown by default.
@@ -31,7 +32,7 @@ interpretation:
   evidence_language: >-
     Distinguish definitions, hypotheses, predictions, proposed methods, reported observations, independently verified outcomes, and causal conclusions. A positive-sounding result name or action verb does not establish successful completion or state.
   compression_boundary: >-
-    Compress conventional explanations and repeated headings, not task-specific scope, identity, provenance, authority, comparisons, denominators, units, thresholds, controls, exceptions, unresolved states, or permissions. Provide complete relational prose rather than fragments of equations, lists, or stimuli.
+    Apply the Guide's Lexical Representation and Grammatical Reduction principles per anchor: use the shortest sufficiently unambiguous expression. Remove wording only when its contribution is recoverable. Keep material scope, identity, provenance, authority, comparison direction, denominators, units, thresholds, controls, exceptions and uncertainty. Parent summaries orient; do not repeat children. Keep complete relations rather than fragments of equations, lists or stimuli.
   detail_gate: Open anchored source Markdown only when exact evidence, formulas, experimental stimuli, citations, methods, or unresolved semantic ambiguity matters.
   research_caution: Retain distinctions between postulates, predictions, observational associations, reported pilots, and replicated empirical evidence.
   evidence: Exact numerical tables, equations, model settings, stimuli, quotations, caveats and citations remain authoritative in original Markdown.
@@ -64,10 +65,16 @@ maintenance:
   non_markdown: No per-file references are generated for data, executable code or other non-Markdown resources.
 validation:
   command: python3 Research/Agent_References/validate_agent_references.py
+  tests: python3 -m unittest discover -s Research/Agent_References -p 'test_*.py'
+  anchor_report: python3 Research/Agent_References/validate_agent_references.py --report-anchors
+  anchor_notes: ./SOURCE_ANCHORS.md
+  future_ci: Run tests and the validator on relevant pushes and pull requests when workflow changes are in scope. See SOURCE_ANCHORS.md.
   structural_checks:
     - Exactly one reference for each included Research Markdown document, excluding only the specified generated AgMark reports.
     - Relative source path resolution, fingerprint freshness and mandatory H1/H2 plus optional verified H3 anchor integrity.
     - Unique reference IDs, nonempty sections and index/group/routing integrity.
     - Reference files must be smaller than their corresponding Markdown sources.
+    - Relative inline links in reference digests must resolve; validate Markdown fragments where present.
+    - Report bytes per anchor without imposing a fixed reduction ratio.
     - Reject mechanical summary defects such as repeated heading labels, duplicated title-only meanings and trailing unfinished lead-ins.
   semantic_review: Independently required; mechanical surface checks do not prove semantic completeness, scientific accuracy or interpretive reliability.

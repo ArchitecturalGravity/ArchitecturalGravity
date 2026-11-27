@@ -12,7 +12,7 @@ sections:
   research-program: |-
     Eight strands divide conceptual ownership: MNSR—structural recovery; Instructional Representation—model-interpreted instruction relationships; RCR—accessible task capacity; Syntax Efficiency—encoding and reuse cost; Interpretive Efficiency—representation-specific specification cost; Reasoning–Interaction Substitution—accepted-task cost; Operational Leverage—activity versus useful work; Context Triad—placement, history, and competing support.
   shared-operational-baseline: |-
-    Shared Operational Baseline: [External Operational Baseline for Agentic Software Engineering](./Agentic_Software_Engineering_Operational_Baseline.md#paper-operational-baseline): This representation-neutral baseline uses standardized SWE-rebench software-engineering trajectories to establish external operating references for Codex and other complete coding-agent systems.
+    The [external operational baseline](../../Agentic_Software_Engineering_Operational_Baseline.md#paper-operational-baseline) uses standardized SWE-rebench episodes as a representation-neutral reference.
   efficiency-dimensions: |-
     Keep five outcomes distinct: serialization efficiency measures tokens used to encode an expression; compositional efficiency captures reuse savings; interpretive efficiency measures representation-specific acquisition and repair; operational leverage relates autonomous activity or validated work to human specification; task-completion efficiency measures total resources to accepted completion. A gain in one is not evidence of gains in the others.
   related-representation-and-context-concepts: |-
@@ -22,7 +22,7 @@ sections:
   core-terminology: |-
     Model-native denotes familiarity with learned structural conventions, not a universal latent geometry. Cross-model is a portability objective, not identical performance. Distinguish intended task structure, serialization, recovered relationships, acquisition cost, model/tool activity, and independently accepted work.
   canonical-concept-index: |-
-    Route each construct to its owning paper for definitions and methods. The following sections identify conceptual scope and relationships; original source Markdown remains authoritative for formal notation, exact observations, and citations.
+    Route constructs to their owning papers; use source Markdown for formal definitions, exact observations, and citations.
   foundations--scope: |-
     Distinguishes model-native conventions, cross-model design aims, instruction and task structure, and the theory's boundaries. Model familiarity and portability are research hypotheses, not guarantees. Start with MNSR and Instructional Representation.
   representation-structure-dimensionality--alignment: |-

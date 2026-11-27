@@ -10,7 +10,7 @@ sections:
   paper-reasoning-interaction: |-
     Reasoning–interaction substitution is the hypothesis that additional model reasoning can reduce total accepted-task cost when it avoids enough correction, repeated state acquisition, redundant execution, retries, and human steering. Per-inference cost alone does not establish task efficiency.
   abstract: |-
-    Per-inference compute and completed-task cost are different quantities. A low-reasoning trajectory can consume more total resources than a high-reasoning one if it causes repeated steering, repository inspection, state reconstruction, tool calls, correction or new conversations. The hypothesis is that marginal reasoning cost may be outweighed by avoided downstream interaction and repeated work, especially after a refined ArcGrav specification makes objective, scope, references, constraints and completion criteria clearer. Compare full trajectories to accepted task completion, not the cheapest single model call.
+    Higher per-call reasoning can lower total accepted-task cost by reducing steering, reconstruction and rework. Test the tradeoff with and without refined specification across complete trajectories, not isolated calls.
   introduction: |-
     A coding task often continues through repository inspection, edits, tests, retries, and human interventions long after its initial inference. Reasoning–interaction substitution asks whether extra model reasoning prevents enough later reconstruction, correction, and redundant execution to lower the total cost of accepted completion.
   role-within-the-research-program: |-
@@ -28,19 +28,19 @@ sections:
   the-break-even-condition: |-
     Additional reasoning breaks even only if its marginal cost is lower than the expected downstream cost it avoids through fewer retries, corrections, repeated context reads, redundant work, and human interventions. The threshold depends on task complexity and failure behavior.
   cache-reuse-conversation-boundaries-and-state-compression: |-
-    Cached input is cheaper than uncached input but not free, and a high cached percentage need not mean a low absolute workload. Fresh sessions risk repeated repository/decision reconstruction; continuing indefinitely incurs growing context-processing cost. Preserve compact decision-relevant state and restart when accumulation exceeds reacquisition cost.
+    Cached input still costs resources. Restart when growing context costs exceed state reconstruction; retain decision-relevant state.
   arcgrav-and-the-allocation-of-reasoning: |-
-    ArcGrav seeks to compress the external control plane—objectives, authority, scope, references, operations, and acceptance—while higher reasoning expands autonomous planning, exploration, verification, and recovery. A precise specification can improve the return on reasoning; more reasoning applied to an ambiguous task can instead explore the wrong objective. Their complementarity is a testable design hypothesis.
+    Precise specification may make autonomous reasoning more useful; reasoning can also deepen pursuit of an ambiguous objective. Test their interaction.
   expected-routing-and-agent-design: |-
     Optimize accepted task completion rather than the cheapest inference; count human interventions as expensive events; scale reasoning with failure amplification; preserve compact decision state instead of full conversation history; refine ambiguous specifications before spending additional compute. These are design implications, not proven universal rules.
   motivation-from-existing-codex-telemetry: |-
-    Codex observational telemetry shows higher reasoning settings associated with deeper inference/tool activity per prompt, while mature ArcGrav usage coincided with much shorter human prompts and preserved agent activity. The fixed GPT-5.4/xhigh endpoint window changed user text from 2,259 to 581 characters per prompt, with roughly stable uncached input and rising tool calls. Session telemetry does not identify task acceptance, corrections, or repeated state acquisition, so it motivates rather than proves task-cost substitution.
+    Observational GPT-5.4/xhigh endpoints: 2,259 to 581 human characters per prompt, roughly stable uncached input, more tool calls. No task acceptance, correction or reacquisition labels establish cost substitution.
   predictions-and-experimental-program: |-
-    Test reasoning policies and specification refinement against expected full cost per assigned task at fixed acceptance criteria, while reporting success rates and cost conditional on acceptance. Seven predictions span complexity thresholds, reduced steering and aggregate input, cache-share pitfalls, intermediate cost optima, and human-time savings; preserve linked trajectory and task IDs.
+    Vary reasoning and specification under fixed acceptance criteria. Track whole-task cost, success, cost conditional on acceptance, and linked trajectories.
   predictions-and-observable-tests: |-
     Seven predictions concern difficulty-dependent reasoning break-even, specification-refinement interactions, fewer human corrections, lower aggregate uncached input despite higher per-prompt work, cache-share paradoxes, an interior reasoning-cost optimum, and human-time savings. Proposed tests use full task trajectories and fixed acceptance rules.
   appendix-technical-accounting-and-simplified-models: |-
-    The technical appendix defines priced uncached input, cached input, output, tools, and human effort across whole task trajectories. It separates diagnostic overhead labels from nonoverlapping accounting charges and specifies accepted-task, break-even, retry, and reasoning-by-specification cost comparisons.
+    Account separately for uncached input, cached input, output, tools and human effort. The appendix defines break-even, retry and interaction comparisons.
   scope-and-evidence-status: |-
     Existing Codex telemetry records sessions rather than linked trajectories through independently accepted completion, so it cannot directly establish reasoning–interaction substitution. The proposed test requires task identity across sessions, acceptance criteria, corrections, continuations, tool and token costs, and measured human time.
   conclusion: |-

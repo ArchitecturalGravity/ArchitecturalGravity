@@ -23,7 +23,7 @@ INDEX = ROOT / "research_agent_reference_index.yaml"
 SECTION_RE = re.compile(r"(?m)^  ([a-z0-9_-]+): \|-\s*$")
 HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*#*\s*$")
 EXPLICIT = re.compile(r"<a\s+id=[\"']([^\"']+)[\"']\s*></a>", re.I)
-FENCE = re.compile(r"^\s*(\`\`\`|~~~)")
+FENCE = re.compile(r"^\s*(`{3,}|~{3,})(.*)$")
 
 
 def block(text: str, name: str) -> str:
@@ -88,6 +88,22 @@ def sections(contents: str) -> dict[str, str]:
     return result
 
 
+def section_aliases(contents: str) -> dict[str, str]:
+    """Map explicitly declared compatibility IDs to canonical heading keys."""
+    if not re.search(r"(?m)^section_aliases:\s*$", contents):
+        return {}
+    raw = block(contents, "section_aliases")
+    aliases = {}
+    for line in raw.splitlines():
+        if not line.strip():
+            continue
+        match = re.fullmatch(r"  ([a-z0-9_-]+): ([a-z0-9_-]+)", line)
+        if not match or match[1] in aliases:
+            raise ValueError("Malformed or duplicate section alias")
+        aliases[match[1]] = match[2]
+    return aliases
+
+
 def slug(title: str) -> str:
     title = re.sub(r"!?\[([^\]]+)\]\([^)]+\)", r"\1", title)
     title = re.sub(r"<[^>]*>", "", title)
@@ -101,12 +117,17 @@ def original_section(source: Path, key: str) -> str:
     lines = source.read_text(encoding="utf-8").splitlines()
     candidates: list[tuple[str, int, int]] = []
     counts: dict[str, int] = {}
-    in_fence = False
+    fence = None
     for line_no, line in enumerate(lines):
-        if FENCE.match(line):
-            in_fence = not in_fence
-            continue
-        if in_fence:
+        if match := FENCE.match(line):
+            mark, rest = match.groups()
+            if fence is None:
+                fence = mark
+                continue
+            if mark[0] == fence[0] and len(mark) >= len(fence) and not rest.strip():
+                fence = None
+                continue
+        if fence:
             continue
         match = HEADING.match(line)
         if not match:
@@ -166,25 +187,27 @@ def main() -> int:
         if head["id"] != rid:
             parser.error("Reference ID differs from index")
         chunks = sections(data)
+        aliases = section_aliases(data)
         if args.markdown and not args.section:
             parser.error("--markdown requires explicit --section")
         if args.all and args.section:
             parser.error("Choose --all or --section, not both")
         requested = args.section or (list(chunks) if args.all else [])
         for key in requested:
-            if key not in chunks:
+            if aliases.get(key, key) not in chunks:
                 parser.error(f"Section not found: {key}; use without --section to list available anchors")
         output = {"id": rid, "reference": refs[rid], **head,
                   "available_sections": list(chunks) if not requested else None}
         if requested:
             selected = {}
             for key in requested:
-                item = {"meaning": chunks[key], "source_anchor": f'{head["source_url"]}#{key}'}
+                canonical = aliases.get(key, key)
+                item = {"meaning": chunks[canonical], "source_anchor": f'{head["source_url"]}#{canonical}'}
                 if args.markdown:
                     target = (filepath.parent / head["source_url"]).resolve()
                     if not target.is_relative_to(ROOT.parent.resolve()):
                         parser.error("Source path escapes Research")
-                    item["source_markdown"] = original_section(target, key)
+                    item["source_markdown"] = original_section(target, canonical)
                 selected[key] = item
             output["sections"] = selected
         else:

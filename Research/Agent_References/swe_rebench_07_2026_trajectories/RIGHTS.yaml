@@ -1,0 +1,13 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.swe_rebench_rights
+kind: research_reference
+source:
+  path: Research/swe_rebench_07_2026_trajectories/RIGHTS.md
+  url: ../../swe_rebench_07_2026_trajectories/RIGHTS.md
+  fingerprint: fnv1a32-7185604f
+sections:
+  swe-rebench-materials-rights-exception-and-provenance-review: |-
+    The directory has no blanket project license. Repository content retains upstream licenses; agent traces and outputs retain applicable provider or agent terms. The upstream dataset does not relicense third-party material.
+  file-level-handling: |-
+    Check provenance, licenses and redistribution permissions for traces, schema and derived CSV; withhold affected data if unverified. Project-authored generator code is Apache-2.0 and compatibility prose CC BY 4.0 only to the extent the project controls those rights.

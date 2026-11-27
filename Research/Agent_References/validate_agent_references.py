@@ -5,10 +5,15 @@ Structural and mechanical surface checks only. None proves semantic completeness
 """
 from __future__ import annotations
 
+import argparse
+import csv
 import os
 import re
 import sys
 from pathlib import Path
+from urllib.parse import unquote, urlsplit
+
+from load_agent_reference import section_aliases
 
 REF_ROOT = Path(__file__).resolve().parent
 RESEARCH = REF_ROOT.parent
@@ -22,8 +27,8 @@ GENERATED_AGMARK_REPORT = re.compile(
     r"^Prompt_Performance/Studies/AgMark_Runs/Data/generation-[0-9a-f]{64}/report\.md$"
 )
 
-HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*$")
-FENCE = re.compile(r"^\s*(?:\x60{3,}|~{3,})")
+HEADING = re.compile(r"^(#{1,6})\s+(.+?)\s*#*\s*$")
+FENCE = re.compile(r"^\s*(`{3,}|~{3,})(.*)$")
 EXPLICIT = re.compile(r"""^<a\s+id=["']([^"']+)["']\s*></a>$""", re.I)
 HEADER = re.compile(
     r"^source:\n  path: ([^\n]+)\n  url: ([^\n]+)\n"
@@ -56,18 +61,23 @@ def slug(title: str) -> str:
     return title.replace(" ", "-") or "section"
 
 
-def heading_keys(markdown: str, path: Path, problems: list[str]) -> tuple[list[str], list[str]]:
+def source_headings(markdown: str, path: Path, problems: list[str]):
     lines = markdown.splitlines()
-    keys: list[str] = []  # Required H1/H2 reference anchors
-    allowed: list[str] = []  # Verified H1/H2 plus selectively promoted H3 anchors
+    headings = []
     counts: dict[str, int] = {}
-    fenced = False
+    fence = None
     explicit_ids: set[str] = set()
     for lineno, line in enumerate(lines):
-        if FENCE.match(line):
-            fenced = not fenced
-            continue
-        if fenced:
+        fence_line = FENCE.match(line)
+        if fence_line:
+            mark, rest = fence_line.groups()
+            if fence is None:
+                fence = mark
+                continue
+            if mark[0] == fence[0] and len(mark) >= len(fence) and not rest.strip():
+                fence = None
+                continue
+        if fence:
             continue
 
         existing = EXPLICIT.fullmatch(line.strip())
@@ -94,11 +104,14 @@ def heading_keys(markdown: str, path: Path, problems: list[str]) -> tuple[list[s
             if not found:
                 break
             prior.insert(0, found.group(1))
-        if level <= 3:
-            anchor = prior[0] if prior else generated
-            allowed.append(anchor)
-            if level <= 2:
-                keys.append(anchor)
+        headings.append((level, prior[0] if prior else generated, tuple(prior), lineno))
+    return headings, explicit_ids
+
+
+def heading_keys(markdown: str, path: Path, problems: list[str]) -> tuple[list[str], list[str]]:
+    headings, _ = source_headings(markdown, path, problems)
+    keys = [key for level, key, _, _ in headings if level <= 2]
+    allowed = [key for level, key, _, _ in headings if level <= 3]
     if len(keys) != len(set(keys)):
         problems.append(f"{path}: duplicate effective H1/H2 anchor")
     if len(allowed) != len(set(allowed)):
@@ -152,6 +165,57 @@ def meaning_surface_issues(body: str) -> list[str]:
     if meaning.endswith(":"):
         issues.append("ends with an unfinished lead-in")
     return issues
+
+
+def inline_reference_link_issues(ref_path: Path, ref: str) -> list[str]:
+    """Check inline links in digest prose, not links in source Markdown."""
+    problems = []
+    for target in re.findall(r"\[[^\]\n]+\]\(([^\s)]+)\)", ref):
+        link = urlsplit(target)
+        if link.scheme or link.netloc:
+            continue
+        path = (ref_path.parent / unquote(link.path)).resolve() if link.path else ref_path
+        if not path.is_relative_to(ROOT) or not path.exists():
+            problems.append(f"unresolved relative reference link {target}")
+        elif link.fragment and path.suffix.lower() == ".md":
+            md = path.read_text(encoding="utf-8")
+            headings, _ = source_headings(md, path, [])
+            # Rendered heading slugs resolve even when an explicit ID is present.
+            # Include detached and inline HTML anchors, such as Atlas table IDs.
+            fragments = set(re.findall(r"""<a\s+id=["']([^"']+)""", md, re.I))
+            counts = {}
+            lines = md.splitlines()
+            for _, _, _, line in headings:
+                match = HEADING.match(lines[line])
+                base = slug(match.group(2))
+                n = counts.get(base, 0)
+                counts[base] = n + 1
+                fragments.add(base if not n else f"{base}-{n}")
+            if unquote(link.fragment) not in fragments:
+                problems.append(f"unresolved reference link anchor {target}")
+    return problems
+
+
+def report_anchors() -> None:
+    """TSV inventory for review; ratios are informational, not acceptance gates."""
+    writer = csv.writer(sys.stdout, delimiter="\t", lineterminator="\n")
+    writer.writerow(("source", "line", "level", "anchor", "anchor_kind", "source_own_bytes", "digest_bytes"))
+    for path in sources():
+        md = path.read_text(encoding="utf-8")
+        lines = md.splitlines()
+        headings, explicit = source_headings(md, path, [])
+        ref = expected_reference(path)
+        data = ref.read_text(encoding="utf-8") if ref.is_file() else ""
+        summaries = dict(SECTIONS.findall(yaml_block(data, "sections")))
+        for i, (level, key, attached, line) in enumerate(headings):
+            if level > 2 and key not in summaries:
+                continue
+            end = headings[i + 1][3] if i + 1 < len(headings) else len(lines)
+            own = "\n".join(x for x in lines[line + 1:end] if not EXPLICIT.fullmatch(x.strip())).strip()
+            summary = "\n".join(x[4:] for x in summaries.get(key, "").splitlines()).strip()
+            kind = "explicit" if attached else "detached-explicit" if key in explicit else "generated"
+            writer.writerow((path.relative_to(ROOT), line + 1, level, key, kind,
+                             len(own.encode("utf-8")), len(summary.encode("utf-8"))))
 
 
 def run() -> int:
@@ -219,6 +283,17 @@ def run() -> int:
                 f"{relative}: source heading coverage: missing={missing}, "
                 f"unknown_H3_or_other={extra}, duplicates={duplicates}"
             )
+        try:
+            aliases = section_aliases(ref)
+        except ValueError as exc:
+            problems.append(f"{relative}: {exc}")
+            aliases = {}
+        _, explicit = source_headings(md, markdown_path, [])
+        for alias, target in aliases.items():
+            if alias not in explicit or alias in actual_keys or target not in actual_keys:
+                problems.append(f"{relative}: invalid source section alias {alias} -> {target}")
+        for issue in inline_reference_link_issues(ref_path, ref):
+            problems.append(f"{relative}: {issue}")
         for match in matches:
             for issue in meaning_surface_issues(match.group(2)):
                 problems.append(f"{relative}: section {match.group(1)} {issue}")
@@ -297,10 +372,15 @@ def run() -> int:
         return 1
     print(f"Validated {len(docs)} Research Markdown documents and {len(ids)} source references.")
     print(f"Reference/source bytes: {total_yaml}/{total_markdown} ({total_yaml / total_markdown:.1%}).")
-    print("Source paths, headings, fingerprints, routes and mechanical meaning checks passed.")
+    print("Source paths, headings, aliases, digest links, fingerprints, routes and mechanical meaning checks passed.")
     print("Scientific and semantic completeness requires independent source review.")
     return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(run())
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--report-anchors", action="store_true", help="Emit anchor and byte inventory as TSV")
+    if parser.parse_args().report_anchors:
+        report_anchors()
+    else:
+        raise SystemExit(run())

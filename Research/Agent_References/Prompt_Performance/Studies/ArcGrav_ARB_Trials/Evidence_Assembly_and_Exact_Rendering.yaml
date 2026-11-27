@@ -10,7 +10,7 @@ sections:
   paper-evidence-rendering: |-
     Component completeness, observation provenance, operand conversion, literal template spelling and response envelope can fail separately from selection and object membership.
   abstract: |-
-    Evidence can be selected correctly and still be assembled or rendered incorrectly. A retained finding may omit one required component; a displayed observation may need a different source label from the final decision; a value may require quoting while its authority label does not. The observations in this category distinguish the contents of a result from its representation and the complete response that delivers it. Their implications are specific to the consumer's contract: component inclusion needs its own rule, provenance must attach to the appropriate datum, and exact text requires separation of literal template material from converted operands.
+    Correct evidence selection does not establish complete assembly or exact rendering. Specify each required component, provenance for observations versus decisions, and which operands convert within literal output.
   core-distinction: |-
     Evidence ownership binds a datum to the source that supplies it. Assembly combines the required components; rendering expresses them in the accepted form. This category concerns the inside of an emitted result, while collection membership concerns whether the result itself exists.
   observations: |-

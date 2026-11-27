@@ -2,9 +2,13 @@
 """Ensure generated benchmark reports are not mistaken for research papers."""
 from __future__ import annotations
 
+import tempfile
 import unittest
+from pathlib import Path
 
-from validate_agent_references import RESEARCH, is_generated_agmark_report, sources
+from load_agent_reference import original_section, section_aliases
+
+from validate_agent_references import RESEARCH, is_generated_agmark_report, sources, source_headings, inline_reference_link_issues, ROOT
 
 
 class GeneratedAgMarkReportSelectionTests(unittest.TestCase):
@@ -41,6 +45,43 @@ class GeneratedAgMarkReportSelectionTests(unittest.TestCase):
         for report in run_reports:
             self.assertTrue(is_generated_agmark_report(report))
             self.assertNotIn(report, sources())
+
+
+class ReferenceAnchorTests(unittest.TestCase):
+    def test_explicit_generated_detached_and_nested_fences(self) -> None:
+        source = (
+            '<a id="original"></a>\n\n<p>Cover</p>\n\n'
+            '<a id="current"></a>\n# Title\n\n'
+            '~~~text\n```md\n## Not a heading\n```\n~~~\n\n'
+            '## Real section\nBody\n'
+        )
+        headings, ids = source_headings(source, Path("study.md"), [])
+        self.assertEqual([(x[1], x[2]) for x in headings], [
+            ("current", ("current",)), ("real-section", ())
+        ])
+        self.assertEqual(ids, {"current", "original"})
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "source.md"
+            path.write_text(source)
+            self.assertEqual(original_section(path, "real-section"), "## Real section\nBody")
+            self.assertIn("## Not a heading", original_section(path, "current"))
+
+    def test_alias_parsing_and_duplicate_rejection(self) -> None:
+        self.assertEqual(section_aliases("sections:\n"), {})
+        content = "section_aliases:\n  legacy: current\nsections:\n"
+        self.assertEqual(section_aliases(content), {"legacy": "current"})
+        with self.assertRaises(ValueError):
+            section_aliases(content.replace("sections:", "  legacy: another\nsections:"))
+
+    def test_relative_reference_link_checks(self) -> None:
+        ref = ROOT / "Research/Agent_References/Context_Triad/Context_Triad.yaml"
+        self.assertEqual(inline_reference_link_issues(
+            ref, "[good](../../Context_Triad/Context_Triad.md#paper-context-triad)"
+        ), [])
+        self.assertTrue(inline_reference_link_issues(ref, "[bad](missing.md)"))
+        self.assertTrue(inline_reference_link_issues(
+            ref, "[bad](../../Context_Triad/Context_Triad.md#does-not-exist)"
+        ))
 
 
 if __name__ == "__main__":

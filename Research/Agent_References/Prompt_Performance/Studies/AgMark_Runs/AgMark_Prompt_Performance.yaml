@@ -16,7 +16,7 @@ sections:
   research-question-and-scope: |-
     Prompt performance is operationalized through registered field accuracy, exact-result agreement, execution token counters and duration-derived timing proxies. Five fixed treatment texts are compared on one authority-resolution case; prescribed confidence labels are task values, not estimated model correctness probabilities.
   dataset-and-methods: |-
-    Five accepted generations have ten repetitions for each of five treatments, with all 250 planned observations scored and no exclusions. The model, case and low-reasoning setting stay fixed, while prompt formulation and size differ: ArcGrav is 9,559 bytes versus 30,802–38,704 bytes for alternatives. Archived scores, plans and counters support cross-run joins by generation and observation ID.
+    Five retained runs × five treatments × ten observations, all scored. Model, case and low reasoning fixed; prompt size and formulation differ. Join archives by generation and observation ID.
   retained-runs-and-execution-conditions: |-
     Generations retain identical benchmark, case, treatment hashes and execution-boundary fingerprints. Treatment starts and iteration order are randomized; each observation has one distinct attempt start and fresh process/work directory, while session homes are reused. Fifty observations per formulation are repeats on one case, not 50 independent cases.
   aggregation-and-evidence-linkage: |-
@@ -34,13 +34,13 @@ sections:
   discrepancies-connect-metrics-to-output-obligations: |-
     An ArcGrav run-3 duplicate record preserves all 48 expected units but adds six unexpected units (48/54). Another ArcGrav response assigns incorrect authority metadata (47/48); a YAML relation-finding identity error loses expected units and adds unexpected units (38/58). Collection membership, field metadata and finding identity represent different failures that aggregate scores can obscure.
   interpretation: |-
-    XML offers the highest measured fidelity with the most token use; ArcGrav consumes fewer tokens yet has two non-exact outputs and the highest pooled duration proxy. Representation and length are confounded, so the comparison is not a causal test of notation. Historical strict-response trials and current registered field scores measure different acceptance contracts.
+    XML had highest fidelity and token use. ArcGrav used fewest tokens, with two non-exact results and highest pooled duration proxy. Prompt length confounds notation; historical strict acceptance uses a different metric.
   relationship-to-the-historical-refinement-observations: |-
     The separate historical ArcGrav ARB series contains 407 strict-response trials across 57 tested prompt hashes. Its analyses of collection membership, metadata binding and exact rendering help classify current discrepancies, but its adaptive edits and complete-response acceptance differ from these fixed-treatment AgMark runs. Strict-pass rate and field accuracy must not be pooled.
   tests-suggested-by-the-findings: |-
     Suggested controls cross representation with concise and expanded prompts while preserving task meaning, add held-out cases, and test multiple models and reasoning settings. Preserve partial-credit and consumer-acceptance outcomes; measure actual token timestamps and prices instead of inferring latency or billed cost from proxy counters.
   scope: |-
-    Observed rankings are limited to one authority-resolution case, one model and low reasoning with fixed prompt texts. Syntax and prompt length vary together; savings cannot be attributed to syntax alone. Timing uses duration proxies, token counters are not bills, and cross-task or cross-model transfer has not been established.
+    One case, model, and reasoning setting. Length and syntax covary; duration is a proxy, token usage is not billing, and transfer is untested.
   conclusion: |-
     Near-ceiling yet unequal correctness, input-driven ArcGrav token savings and timing rankings that do not follow token counts must be considered separately. Controlled representation-and-length tests on new cases are needed before causal or transfer conclusions.
   data-and-reproducibility: |-
