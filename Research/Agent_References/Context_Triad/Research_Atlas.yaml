@@ -5,16 +5,16 @@ kind: research_reference
 source:
   path: Research/Context_Triad/Research_Atlas.md
   url: ../../Context_Triad/Research_Atlas.md
-  fingerprint: fnv1a32-2ce7d836
+  fingerprint: fnv1a32-f0299fe5
 sections:
   context-triad-research-atlas: |-
-    Overview maps external research and applied engineering to proposed constructs, with four expanded research regions. No association validates the framework.
+    Overview maps external research, internal investigations and applied engineering to proposed constructs, with four expanded research regions. No association validates the framework.
   reading-the-map: |-
-    Amber numbers identify publications and can repeat across regions. Geometry, positions and density do not encode measurements or evidence strength.
+    Amber numbers identify external publications; teal I-series points identify internal investigations. Both can repeat across regions; color encodes provenance, not evidence strength. Geometry, positions and density do not encode measurements or evidence strength.
   construct-relationships: |-
     Locality, Shadow and Weight compose Continuity, Concentration and Momentum, then Anchoring, Trajectory and Consolidation. Composition is conceptual, not arithmetic or statistical.
   locality-research-atlas: |-
-    Placement and distribution relative to use; persistence, coherent support and attachment to relevant operations. Points link through the unified research index; associations are provisional.
+    Placement and distribution relative to use; persistence, coherent support and attachment to relevant operations. External and internal points link through their respective research indexes; associations are provisional.
   semantic-locality-locality-region: |-
     Research associated with Locality within the Locality region. The association is interpretive and does not validate a derived construct.
   semantic-continuity-locality-region: |-
@@ -24,7 +24,7 @@ sections:
   semantic-anchoring-locality-region: |-
     Research associated with Anchoring within the Locality region. The association is interpretive and does not validate a derived construct.
   shadow-research-atlas: |-
-    Subsequent context and order-sensitive influence; persistence, accumulation and progression across operations. Points link through the unified research index; associations are provisional.
+    Subsequent context and order-sensitive influence; persistence, accumulation and progression across operations. External and internal points link through their respective research indexes; associations are provisional.
   semantic-shadow-shadow-region: |-
     Research associated with Shadow within the Shadow region. The association is interpretive and does not validate a derived construct.
   semantic-continuity-shadow-region: |-
@@ -34,7 +34,7 @@ sections:
   semantic-trajectory-shadow-region: |-
     Research associated with Trajectory within the Shadow region. The association is interpretive and does not validate a derived construct.
   weight-research-atlas: |-
-    Relative coherent support; distribution, accumulation and convergence around an interpretation. Points link through the unified research index; associations are provisional.
+    Relative coherent support; distribution, accumulation and convergence around an interpretation. External and internal points link through their respective research indexes; associations are provisional.
   semantic-weight-weight-region: |-
     Research associated with Weight within the Weight region. The association is interpretive and does not validate a derived construct.
   semantic-concentration-weight-region: |-
@@ -44,20 +44,22 @@ sections:
   semantic-consolidation-weight-region: |-
     Research associated with Consolidation within the Weight region. The association is interpretive and does not validate a derived construct.
   behavioral-research-atlas: |-
-    Joint contextual influences and the behavioral dynamics and outcomes defined in the Context Triad paper. The center is not an additional semantic dimension. Points link through the unified research index; associations are provisional.
+    Joint contextual influences and the behavioral dynamics and outcomes defined in the Context Triad paper. The center is not an additional semantic dimension. External and internal points link through their respective research indexes; associations are provisional.
   behavioral-outcomes: |-
-    Candidate evidence associations for behavioral outcomes from the Context Triad paper. Verify the required contrast before drawing conclusions.
+    External and internal candidate evidence associations for behavioral outcomes. I01 and I03 motivate displacement tests; verify the required contrast before drawing conclusions.
   behavioral-dynamics: |-
-    Candidate evidence associations for behavioral dynamics from the Context Triad paper. Verify the required contrast before drawing conclusions.
+    External and internal candidate evidence associations for behavioral dynamics. I02 and I03 motivate dominance, reversal or instability tests; verify the required contrast before drawing conclusions.
+  adjacent-internal-investigations: |-
+    I04, I07, I13 and I14 appear in the labeled strip outside the behavioral triangle. Representation, verification and operational-leverage investigations are not direct contextual-factor evidence.
   research-index: |-
     87 unique external publications retain R01–R08 and add R09–R87. Repository provenance and evidence relationships distinguish direct factors, related evidence, theory, engineering, conceptual antecedents and methodology. New associations are provisional.
   internal-research-index: |-
-    I01–I14 distinguish internal studies from independent external literature. Three Context Triad studies report 1,110 trials across different tasks; do not pool them as an effect estimate. ARB papers concern related trials, not independent replications.
+    I01–I14 distinguish internal studies from independent external literature. All 14 appear in regional tables and teal markers; adjacent investigations appear outside construct geometry. Three Context Triad studies report 1,110 trials across different tasks; do not pool them as an effect estimate. ARB papers concern related trials, not independent replications.
   supporting-research: |-
     Adjacent literature and methodological or cross-disciplinary work can inform tests without direct geometric placement. SWE-rebench and operational documentation are supporting resources.
   scope-and-evidence-status: |-
     The repository-citation inventory is not an exhaustive literature review. Regional and behavioral associations require source-level review; no evidence establishes independent mechanisms or validates the nine constructs.
   assets: |-
-    The original overview and overlay remain. Four independently editable regional SVGs preserve original dimensional nodes, lavender boundaries and amber publication overlays.
+    The selective overview and its overlay retain R01–R08 and add I01–I03. Four independently editable regional SVGs preserve dimensional nodes, lavender boundaries, amber external and teal internal points; the behavioral strip marks adjacent studies outside the geometry.
   related-research: |-
     Use the framework for definitions, Studies for empirical investigations, and the model for illustration.

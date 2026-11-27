@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 700 580" role="img" aria-labelledby="atlas-title atlas-desc" font-family="Arial, Helvetica, sans-serif">
   <title id="atlas-title">Weight Research Atlas</title>
-  <desc id="atlas-desc">Relative coherent support; distribution, accumulation and convergence around an interpretation. Amber points represent publication identifiers, not measured coordinates or evidence strength. See Research_Atlas.md for the linked index.</desc>
+  <desc id="atlas-desc">Relative coherent support; distribution, accumulation and convergence around an interpretation. Amber points identify external publications; teal points identify internal investigations. Positions do not represent measured coordinates or evidence strength. See Research_Atlas.md for the linked index.</desc>
   <path d="M350 66 L70 506 L630 506 Z" fill="#a0a0a0" fill-opacity="0.5" stroke="none"/>
   <path d="M630 506 L350 66 M630 506 L70 506" fill="none" stroke="#518ac9" stroke-width="2"/>
   <path d="M350 66 L70 506" fill="none" stroke="#9575cd" stroke-width="2.5" stroke-dasharray="8 6"/>
@@ -53,5 +53,10 @@
     <g id="research-R51"><title>R51: MemGPT: Towards LLMs as Operating Systems</title><circle cx="421" cy="340" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="421" y="344" fill="#382502" font-size="12">51</text></g>
     <g id="research-R61"><title>R61: Function Vectors in Large Language Models</title><circle cx="301" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="301" y="404" fill="#382502" font-size="12">61</text></g>
     <g id="research-R68"><title>R68: Label Words are Anchors: An Information Flow Perspective for Understanding In-Context Learning</title><circle cx="421" cy="370" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="421" y="374" fill="#382502" font-size="12">68</text></g>
+    <g id="research-I01"><title>I01: Fox–Leopard Displacement</title><circle cx="451" cy="400" r="13" fill="#80cbc4" stroke="#00695c" stroke-width="1.3"/><text x="451" y="403.57" fill="#004d40" font-size="10.5" text-anchor="middle" font-weight="700" stroke="none">I01</text></g>
+    <g id="research-I03"><title>I03: Planetary Order vs. Greek Genealogy</title><circle cx="451" cy="370" r="13" fill="#80cbc4" stroke="#00695c" stroke-width="1.3"/><text x="451" y="373.57" fill="#004d40" font-size="10.5" text-anchor="middle" font-weight="700" stroke="none">I03</text></g>
+    <g id="research-I05"><title>I05: Collection Membership, Multiplicity and Order</title><circle cx="391" cy="280" r="13" fill="#80cbc4" stroke="#00695c" stroke-width="1.3"/><text x="391" y="283.57" fill="#004d40" font-size="10.5" text-anchor="middle" font-weight="700" stroke="none">I05</text></g>
+    <g id="research-I08"><title>I08: Evidence Assembly and Exact Rendering</title><circle cx="331" cy="190" r="13" fill="#80cbc4" stroke="#00695c" stroke-width="1.3"/><text x="331" y="193.57" fill="#004d40" font-size="10.5" text-anchor="middle" font-weight="700" stroke="none">I08</text></g>
+    <g id="research-I11"><title>I11: Predicate Scope and Decision Separation</title><circle cx="391" cy="190" r="13" fill="#80cbc4" stroke="#00695c" stroke-width="1.3"/><text x="391" y="193.57" fill="#004d40" font-size="10.5" text-anchor="middle" font-weight="700" stroke="none">I11</text></g>
   </g>
 </svg>

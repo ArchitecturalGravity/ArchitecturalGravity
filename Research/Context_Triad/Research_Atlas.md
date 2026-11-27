@@ -1,16 +1,16 @@
 <a id="context-triad-research-atlas"></a>
 
 <p align="center">
-  <img src="./Assets/Triad_Research_Atlas.svg" alt="Expanded Context Triad with numbered research points 01 through 08; repeated numbers indicate relevance to multiple constructs" width="66%">
+  <img src="./Assets/Triad_Research_Atlas.svg" alt="Expanded Context Triad with amber external research points 01 through 08 and teal internal studies I01 through I03; repeated identifiers indicate relevance to multiple constructs" width="66%">
 </p>
 
 # Context Triad Research Atlas
 
-The Research Atlas maps established research and applied engineering practices onto the [Context Triad](./Context_Triad.md#context-triad) and its proposed compound constructs. Its purpose is to relate existing findings, identify overlapping contextual relationships, and guide further investigation rather than claim that the underlying phenomena are newly discovered.
+The Research Atlas maps external research, internal investigations and applied engineering practices onto the [Context Triad](./Context_Triad.md#context-triad) and its proposed compound constructs. Its purpose is to relate existing findings, identify overlapping contextual relationships, and guide further investigation rather than claim that the underlying phenomena are newly discovered.
 
 ## Reading the Map
 
-Amber numbered points identify external publications. Repeated numbers refer to the same publication in more than one location. The main Atlas retains the original overview; the four regions below expand its three outer corners and inverted central triangle. The original dimensional markers and triangular geometry are retained; the research points are a separate layer.
+Amber numbered points identify external publications (R-series; the SVG displays the numeric suffix). Teal points identify internal investigations (I-series). Repeated identifiers refer to the same source in more than one location. The main Atlas retains its overview and adds three representative internal Context Triad studies; the four regions below expand its three outer corners and inverted central triangle. The original dimensional markers and triangular geometry are retained; the research points are a separate layer. Marker color identifies provenance, not evidentiary strength. Both series appear in regional tables and resolve to their respective linked research indexes.
 
 Positions represent conceptual associations, not measured coordinates, effect sizes, publication counts, or evidence strength. The compound and higher-order constructs are proposed descriptive abstractions, not established independent variables or validated mechanisms.
 
@@ -30,21 +30,21 @@ Positions represent conceptual associations, not measured coordinates, effect si
 
 The plus signs indicate conceptual composition, not arithmetic addition or statistical interaction estimates. Consistency with a historical object remains distinct from correctness under the authorized current state.
 
-**Expanded regions:** [Locality](#locality-research-atlas) · [Shadow](#shadow-research-atlas) · [Weight](#weight-research-atlas) · [Behavioral](#behavioral-research-atlas) · [Research Index](#research-index).
+**Expanded regions:** [Locality](#locality-research-atlas) · [Shadow](#shadow-research-atlas) · [Weight](#weight-research-atlas) · [Behavioral](#behavioral-research-atlas) · [Research Index](#research-index) · [Internal Research Index](#internal-research-index).
 
 ## Locality Research Atlas
 
 <p align="center">
-  <img src="./Assets/Locality_Research_Atlas.svg" alt="Locality region of the expanded Context Triad with amber research identifiers" width="90%">
+  <img src="./Assets/Locality_Research_Atlas.svg" alt="Locality region of the expanded Context Triad with amber external research identifiers and teal internal study identifiers" width="90%">
 </p>
 
 Placement and distribution relative to use; persistence, coherent support and attachment to relevant operations.
 
-The SVG displays 30 distinct publication identifiers once in this region. A source may relate to more than one construct; the tables preserve those associations. Cross-disciplinary and methodological references are indexed but not plotted. Positions are illustrative; no geometric distance or density is a measurement.
+The triangle displays 30 distinct external publication identifiers and 8 distinct internal study identifiers, each once in this region. A source may relate to more than one construct or behavioral category; the tables preserve those associations. External cross-disciplinary and methodological references are indexed but not plotted as construct evidence. Positions are illustrative; no geometric distance or density is a measurement.
 
 ### Semantic Locality (Locality region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R01](#r01) | Liu, N. F., et al. (2024) | Information position and retrieval; candidate relevance to Locality. | Direct factor research |
 | [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict; candidate relevance to Locality. | Direct factor research |
@@ -60,10 +60,15 @@ The SVG displays 30 distinct publication identifiers once in this region. A sour
 | [R58](#r58) | Shi, F., et al. (2023) | Interference from irrelevant context; candidate relevance to Locality. | Direct factor research |
 | [R60](#r60) | Tian, R., et al. (2025) | Distance between relevant information pieces; candidate relevance to Locality. | Direct factor research |
 | [R79](#r79) | Zhang, M., Meng, Z., & Collier, N. (2024) | Location guidance and position bias; candidate relevance to Locality. | Direct factor research |
+| [I01](#i01) | Fox–Leopard Displacement | Description placement varies across prompt layouts; the competing expansion is not an isolated placement effect. | Internal controlled study; 360 trials |
+| [I02](#i02) | Glip Preference Anchoring | Heading and description permutations alter criterion-free selection, including contrasts with fixed description order. | Internal controlled study; 360 trials |
+| [I03](#i03) | Planetary Order vs. Greek Genealogy | Permuting the same names changes the prevailing reading; order does not isolate distance to use. | Internal controlled study; 390 scored trials |
+| [I06](#i06) | Compression, Reuse and Instruction Locality | Relocating an unchanged definition produced no observed pass-rate improvement in the recorded contrasts. | Internal ARB trial observations |
+| [I12](#i12) | Reference Binding and Independent Decisions | Explicit producer–consumer binding motivates tests of reference placement; static repairs do not establish behavioral improvement. | Internal ARB trial observations |
 
 ### Semantic Continuity (Locality region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict; candidate relevance to Continuity. | Direct factor research |
 | [R04](#r04) | Li, K., et al. (2024) | Instruction stability across turns; candidate relevance to Continuity. | Related empirical evidence |
@@ -77,10 +82,11 @@ The SVG displays 30 distinct publication identifiers once in this region. A sour
 | [R66](#r66) | Wallace, E., et al. (2024) | Instruction authority and conflict resolution; candidate relevance to Continuity. | Related empirical evidence |
 | [R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates; candidate relevance to Continuity. | Related empirical evidence |
 | [R82](#r82) | Zhou, D., et al. (2023) | Successive task decomposition; candidate relevance to Continuity. | Related empirical evidence |
+| [I09](#i09) | Inheritance, Defaults and Output Construction | Missing inherited keys despite retained defaults motivate tests of obligation persistence; continuity was not independently isolated. | Internal ARB trial observations |
 
 ### Semantic Concentration (Locality region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict; candidate relevance to Concentration. | Direct factor research |
 | [R05](#r05) | Agrawal, D., Gao, S., & Gajek, M. (2024) | Instruction reminders and in-context retrieval; candidate relevance to Concentration. | Related empirical evidence |
@@ -93,10 +99,12 @@ The SVG displays 30 distinct publication identifiers once in this region. A sour
 | [R63](#r63) | Vessey, I. (1991) | Human cognitive fit; candidate relevance to Concentration. | Cross-disciplinary conceptual research |
 | [R80](#r80) | Zhang, X., et al. (2025) | Differentiated many-shot reweighting; candidate relevance to Concentration. | Related empirical evidence |
 | [R84](#r84) | Zou, K., Khalifa, M., & Wang, L. (2025) | Many-shot context utilization; candidate relevance to Concentration. | Related empirical evidence |
+| [I08](#i08) | Evidence Assembly and Exact Rendering | Assembly failures despite correct selection motivate tests of needed evidence distribution; distribution was not independently manipulated. | Internal ARB trial observations |
+| [I11](#i11) | Predicate Scope and Decision Separation | Separating predicate operands and consumer decisions motivates tests of support distribution; not a concentration measurement. | Internal ARB trial observations |
 
 ### Semantic Anchoring (Locality region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R08](#r08) | Anthropic (2025) | Context selection, compaction and memory; candidate relevance to Anchoring. | Applied engineering |
 | [R36](#r36) | Khot, T., et al. (2022) | Modular task-specific prompting; candidate relevance to Anchoring. | Related empirical evidence |
@@ -105,20 +113,25 @@ The SVG displays 30 distinct publication identifiers once in this region. A sour
 | [R68](#r68) | Wang, L., et al. (2023) | Information flow through label representations; candidate relevance to Anchoring. | Theoretical or mechanistic foundation |
 | [R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates; candidate relevance to Anchoring. | Related empirical evidence |
 | [R79](#r79) | Zhang, M., Meng, Z., & Collier, N. (2024) | Location guidance and position bias; candidate relevance to Anchoring. | Direct factor research |
+| [I02](#i02) | Glip Preference Anchoring | Conditional label–description–position preference motivates anchoring tests; the observation does not validate higher-order Anchoring. | Internal controlled study; 360 trials |
+| [I06](#i06) | Compression, Reuse and Instruction Locality | Shared instructions require explicit consumers; relocation observations motivate anchoring tests, with no observed relocation gain. | Internal ARB trial observations |
+| [I09](#i09) | Inheritance, Defaults and Output Construction | Trace inherited obligations through the output producer to use; related construction evidence, not a controlled anchoring test. | Internal ARB trial observations |
+| [I11](#i11) | Predicate Scope and Decision Separation | Bind predicates to comparison domains and consequences; a construction safeguard, not a measured anchoring effect. | Internal ARB trial observations |
+| [I12](#i12) | Reference Binding and Independent Decisions | Reference binding and independent decisions motivate testing whether instructions govern their intended consumers. | Internal ARB trial observations |
 
 ## Shadow Research Atlas
 
 <p align="center">
-  <img src="./Assets/Shadow_Research_Atlas.svg" alt="Shadow region of the expanded Context Triad with amber research identifiers" width="90%">
+  <img src="./Assets/Shadow_Research_Atlas.svg" alt="Shadow region of the expanded Context Triad with amber external research identifiers and teal internal study identifiers" width="90%">
 </p>
 
 Subsequent context and order-sensitive influence; persistence, accumulation and progression across operations.
 
-The SVG displays 21 distinct publication identifiers once in this region. A source may relate to more than one construct; the tables preserve those associations. Cross-disciplinary and methodological references are indexed but not plotted. Positions are illustrative; no geometric distance or density is a measurement.
+The triangle displays 21 distinct external publication identifiers and 4 distinct internal study identifiers, each once in this region. A source may relate to more than one construct or behavioral category; the tables preserve those associations. External cross-disciplinary and methodological references are indexed but not plotted as construct evidence. Positions are illustrative; no geometric distance or density is a measurement.
 
 ### Semantic Shadow (Shadow region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict; candidate relevance to Shadow. | Direct factor research |
 | [R09](#r09) | Bajaj, A., et al. (2026) | Temporal and positional retrieval biases; candidate relevance to Shadow. | Direct factor research |
@@ -130,10 +143,13 @@ The SVG displays 21 distinct publication identifiers once in this region. A sour
 | [R66](#r66) | Wallace, E., et al. (2024) | Instruction authority and conflict resolution; candidate relevance to Shadow. | Related empirical evidence |
 | [R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates; candidate relevance to Shadow. | Related empirical evidence |
 | [R81](#r81) | Zhao, Z., et al. (2021) | Context-induced prediction bias and calibration; candidate relevance to Shadow. | Direct factor research |
+| [I02](#i02) | Glip Preference Anchoring | Within-prompt heading and description order contrasts affect selection; later-context effects are not independently isolated. | Internal controlled study; 360 trials |
+| [I03](#i03) | Planetary Order vs. Greek Genealogy | Order permutations of unchanged names alter interpretation; not an isolated subsequent-context manipulation. | Internal controlled study; 390 scored trials |
+| [I10](#i10) | Input and Execution Integrity | Instruction authority and input-admission failures motivate tests of conflict and authorized consequences; the contrasts do not isolate Shadow. | Internal ARB trial observations |
 
 ### Semantic Continuity (Shadow region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict; candidate relevance to Continuity. | Direct factor research |
 | [R04](#r04) | Li, K., et al. (2024) | Instruction stability across turns; candidate relevance to Continuity. | Related empirical evidence |
@@ -147,10 +163,11 @@ The SVG displays 21 distinct publication identifiers once in this region. A sour
 | [R66](#r66) | Wallace, E., et al. (2024) | Instruction authority and conflict resolution; candidate relevance to Continuity. | Related empirical evidence |
 | [R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates; candidate relevance to Continuity. | Related empirical evidence |
 | [R82](#r82) | Zhou, D., et al. (2023) | Successive task decomposition; candidate relevance to Continuity. | Related empirical evidence |
+| [I09](#i09) | Inheritance, Defaults and Output Construction | Inherited obligations can be absent from output while other defaults survive; motivates tests of persistence across construction steps. | Internal ARB trial observations |
 
 ### Semantic Momentum (Shadow region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict; candidate relevance to Momentum. | Direct factor research |
 | [R06](#r06) | Zhang et al. (2024) | Earlier errors and subsequent false claims; candidate relevance to Momentum. | Related empirical evidence |
@@ -160,7 +177,7 @@ The SVG displays 21 distinct publication identifiers once in this region. A sour
 
 ### Semantic Trajectory (Shadow region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R07](#r07) | Laban et al. (2025) | Multi-turn unreliability and premature assumptions; candidate relevance to Trajectory. | Related empirical evidence |
 | [R14](#r14) | Deshpande, K., et al. (2025) | Multi-turn conversation evaluation; candidate relevance to Trajectory. | Related empirical evidence |
@@ -174,16 +191,16 @@ The SVG displays 21 distinct publication identifiers once in this region. A sour
 ## Weight Research Atlas
 
 <p align="center">
-  <img src="./Assets/Weight_Research_Atlas.svg" alt="Weight region of the expanded Context Triad with amber research identifiers" width="90%">
+  <img src="./Assets/Weight_Research_Atlas.svg" alt="Weight region of the expanded Context Triad with amber external research identifiers and teal internal study identifiers" width="90%">
 </p>
 
 Relative coherent support; distribution, accumulation and convergence around an interpretation.
 
-The SVG displays 30 distinct publication identifiers once in this region. A source may relate to more than one construct; the tables preserve those associations. Cross-disciplinary and methodological references are indexed but not plotted. Positions are illustrative; no geometric distance or density is a measurement.
+The triangle displays 30 distinct external publication identifiers and 5 distinct internal study identifiers, each once in this region. A source may relate to more than one construct or behavioral category; the tables preserve those associations. External cross-disciplinary and methodological references are indexed but not plotted as construct evidence. Positions are illustrative; no geometric distance or density is a measurement.
 
 ### Semantic Weight (Weight region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict; candidate relevance to Weight. | Direct factor research |
 | [R03](#r03) | Jin et al. (2024) | Frequency and consistency of competing evidence; candidate relevance to Weight. | Direct factor research |
@@ -200,10 +217,12 @@ The SVG displays 30 distinct publication identifiers once in this region. A sour
 | [R80](#r80) | Zhang, X., et al. (2025) | Differentiated many-shot reweighting; candidate relevance to Weight. | Related empirical evidence |
 | [R81](#r81) | Zhao, Z., et al. (2021) | Context-induced prediction bias and calibration; candidate relevance to Weight. | Direct factor research |
 | [R84](#r84) | Zou, K., Khalifa, M., & Wang, L. (2025) | Many-shot context utilization; candidate relevance to Weight. | Related empirical evidence |
+| [I01](#i01) | Fox–Leopard Displacement | Expanding a competing description shifts single-animal selection while pangram identification stays similar; descriptive support is not an isolated weight manipulation. | Internal controlled study; 360 trials |
+| [I03](#i03) | Planetary Order vs. Greek Genealogy | The same names support competing readings; order changes selection while support quantity is not independently manipulated. | Internal controlled study; 390 scored trials |
 
 ### Semantic Concentration (Weight region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict; candidate relevance to Concentration. | Direct factor research |
 | [R05](#r05) | Agrawal, D., Gao, S., & Gajek, M. (2024) | Instruction reminders and in-context retrieval; candidate relevance to Concentration. | Related empirical evidence |
@@ -216,10 +235,12 @@ The SVG displays 30 distinct publication identifiers once in this region. A sour
 | [R63](#r63) | Vessey, I. (1991) | Human cognitive fit; candidate relevance to Concentration. | Cross-disciplinary conceptual research |
 | [R80](#r80) | Zhang, X., et al. (2025) | Differentiated many-shot reweighting; candidate relevance to Concentration. | Related empirical evidence |
 | [R84](#r84) | Zou, K., Khalifa, M., & Wang, L. (2025) | Many-shot context utilization; candidate relevance to Concentration. | Related empirical evidence |
+| [I08](#i08) | Evidence Assembly and Exact Rendering | Correct evidence selection can fail during assembly; motivates support-distribution tests without independently manipulating concentration. | Internal ARB trial observations |
+| [I11](#i11) | Predicate Scope and Decision Separation | Eligibility, preference and reporting depend on distinct evidence domains; related construction observations, not an isolated concentration test. | Internal ARB trial observations |
 
 ### Semantic Momentum (Weight region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict; candidate relevance to Momentum. | Direct factor research |
 | [R06](#r06) | Zhang et al. (2024) | Earlier errors and subsequent false claims; candidate relevance to Momentum. | Related empirical evidence |
@@ -229,7 +250,7 @@ The SVG displays 30 distinct publication identifiers once in this region. A sour
 
 ### Semantic Consolidation (Weight region)
 
-| Point | Publication | Regional relevance | Evidence relationship |
+| Point | Research source | Regional relevance | Evidence relationship |
 | --- | --- | --- | --- |
 | [R08](#r08) | Anthropic (2025) | Context selection, compaction and memory; candidate relevance to Consolidation. | Applied engineering |
 | [R12](#r12) | Chiang, J. N., et al. (2021) | Relational representations in human cognition; candidate relevance to Consolidation. | Cross-disciplinary conceptual research |
@@ -250,40 +271,53 @@ The SVG displays 30 distinct publication identifiers once in this region. A sour
 | [R72](#r72) | Wei, J., et al. (2023) | Arbitrary labels and contextual associations; candidate relevance to Consolidation. | Related empirical evidence |
 | [R76](#r76) | Xie, S. M., et al. (2022) | Probabilistic account of in-context learning; candidate relevance to Consolidation. | Theoretical or mechanistic foundation |
 | [R78](#r78) | Yu, Z., & Ananiadou, S. (2024) | Similarity-based contextual information selection; candidate relevance to Consolidation. | Theoretical or mechanistic foundation |
+| [I05](#i05) | Collection Membership, Multiplicity and Order | Membership, multiplicity and order failures motivate tests of assembly around a coherent result; not direct evidence of accumulating support. | Internal ARB trial observations |
+| [I08](#i08) | Evidence Assembly and Exact Rendering | Evidence coverage, provenance and rendering failures motivate tests of convergence into a result; not a controlled test of Consolidation. | Internal ARB trial observations |
 
 ## Behavioral Research Atlas
 
 <p align="center">
-  <img src="./Assets/Behavioral_Research_Atlas.svg" alt="Behavioral region of the expanded Context Triad with amber research identifiers" width="90%">
+  <img src="./Assets/Behavioral_Research_Atlas.svg" alt="Behavioral region of the expanded Context Triad with amber external research identifiers and teal internal study identifiers" width="90%">
 </p>
 
 Joint contextual influences and the behavioral dynamics and outcomes defined in the Context Triad paper. The center is not an additional semantic dimension.
 
-The SVG displays 18 distinct publication identifiers once in this region. A source may relate to more than one construct; the tables preserve those associations. Cross-disciplinary and methodological references are indexed but not plotted. Positions are illustrative; no geometric distance or density is a measurement.
+The triangle displays 18 distinct external publication identifiers and 3 distinct internal study identifiers, each once in this region. Four additional teal markers in the labeled adjacent-research strip identify internal investigations without a sufficiently specific geometric association. A source may relate to more than one construct or behavioral category; the tables preserve those associations. External cross-disciplinary and methodological references are indexed but not plotted as construct evidence. Positions are illustrative; no geometric distance or density is a measurement.
 
 ### Behavioral Outcomes
 
-| Classification | Candidate research points | Relevance and qualification |
-| --- | --- | --- |
-| Preservation | [R04](#r04), [R05](#r05) | Candidate associations: instruction stability and reminders; preservation under a specified contrast must be checked. |
-| Suppression | [R01](#r01), [R58](#r58) | Candidate associations: position sensitivity and irrelevant context; verify that the target meaning remains available. |
-| Displacement | [R02](#r02), [R03](#r03) | Candidate associations: conflicting information and selection of competing evidence. |
-| Transformation | [R06](#r06), [R07](#r07) | Candidate associations: changing or erroneous interpretations; not every error is transformation. |
-| Resolution | [R66](#r66), [R74](#r74) | Candidate associations: instruction authority and memory updates; distinguish authorized change from historical consistency. |
+| Classification | Candidate research points | Relevance and qualification | Internal research relevance |
+| --- | --- | --- | --- |
+| Preservation | [R04](#r04), [R05](#r05) | Candidate associations: instruction stability and reminders; preservation under a specified contrast must be checked. | — |
+| Suppression | [R01](#r01), [R58](#r58) | Candidate associations: position sensitivity and irrelevant context; verify that the target meaning remains available. | — |
+| Displacement | [R02](#r02), [R03](#r03) | Candidate associations: conflicting information and selection of competing evidence. | [I01](#i01): Competing-description expansion changes single-animal selection despite similar pangram identification; a displacement-related observation, not proof that recognized meaning lost all influence. [I03](#i03): Name order changes the prevailing collective reading; competing interpretations remain available, so displacement is a candidate classification. |
+| Transformation | [R06](#r06), [R07](#r07) | Candidate associations: changing or erroneous interpretations; not every error is transformation. | — |
+| Resolution | [R66](#r66), [R74](#r74) | Candidate associations: instruction authority and memory updates; distinguish authorized change from historical consistency. | — |
 
 ### Behavioral Dynamics
 
-| Classification | Candidate research points | Relevance and qualification |
+| Classification | Candidate research points | Relevance and qualification | Internal research relevance |
+| --- | --- | --- | --- |
+| Reinforcement | [R02](#r02), [R03](#r03) | Repeated or coherent evidence may strengthen a tendency. | — |
+| Interference | [R02](#r02), [R58](#r58) | Conflict or irrelevant context can oppose target influence. | — |
+| Compensation | [R27](#r27), [R79](#r79) | Position-bias interventions motivate compensation tests. | — |
+| Dominance | [R02](#r02), [R03](#r03) | Selection of competing information motivates dominance tests. | [I02](#i02): Selection frequencies differ across label and description arrangements without a declared preference criterion; motivates tests of contextual dominance. [I03](#i03): The most common reading changes with order, motivating dominance tests without asserting an isolated weight effect. |
+| Recovery | [R04](#r04), [R05](#r05) | Reminders and stability interventions motivate recovery tests. | — |
+| Reversal | [R09](#r09), [R46](#r46) | Order/temporal effects motivate tests of directional reversal. | [I03](#i03): Forward and reverse reference layouts differ in prevailing readings; motivates reversal tests, not an established general reversal mechanism. |
+| Saturation | [R80](#r80), [R84](#r84) | Many-shot and reweighting work motivates diminishing-return tests. | — |
+| Threshold | [R62](#r62) | Constraint-satisfaction transitions motivate threshold tests; not a Triad-specific measure. | — |
+| Instability | [R07](#r07), [R46](#r46), [R87](#r87) | Multi-turn, order and formatting sensitivity motivate stability tests; matched-condition variability requires separate measurement. | [I02](#i02): Only 5 of 36 layouts have unanimous replies across ten repeats; repeated-layout variability motivates instability research. |
+
+### Adjacent Internal Investigations
+
+These four investigations appear in the labeled strip below the inverted triangle, not inside its geometry. They concern representation, verification or operational leverage; their inclusion documents the research program without treating them as direct evidence of a behavioral construct.
+
+| Point | Internal investigation | Relevance and evidence boundary |
 | --- | --- | --- |
-| Reinforcement | [R02](#r02), [R03](#r03) | Repeated or coherent evidence may strengthen a tendency. |
-| Interference | [R02](#r02), [R58](#r58) | Conflict or irrelevant context can oppose target influence. |
-| Compensation | [R27](#r27), [R79](#r79) | Position-bias interventions motivate compensation tests. |
-| Dominance | [R02](#r02), [R03](#r03) | Selection of competing information motivates dominance tests. |
-| Recovery | [R04](#r04), [R05](#r05) | Reminders and stability interventions motivate recovery tests. |
-| Reversal | [R09](#r09), [R46](#r46) | Order/temporal effects motivate tests of directional reversal. |
-| Saturation | [R80](#r80), [R84](#r84) | Many-shot and reweighting work motivates diminishing-return tests. |
-| Threshold | [R62](#r62) | Constraint-satisfaction transitions motivate threshold tests; not a Triad-specific measure. |
-| Instability | [R07](#r07), [R46](#r46), [R87](#r87) | Multi-turn, order and formatting sensitivity motivate stability tests; matched-condition variability requires separate measurement. |
+| [I04](#i04) | AgMark Prompt Performance | Accuracy, exact-result agreement, token consumption and timing are separate measures; representation comparison, not a Triad-factor manipulation. |
+| [I07](#i07) | Construction Checks and Verification | Separates prescribed checks, evidence of execution and acceptance; methodological relevance without a direct Triad association. |
+| [I13](#i13) | Longitudinal Operational Leverage | Observational specification compression and downstream tool activity; not a controlled contextual-factor or behavioral-dynamics test. |
+| [I14](#i14) | Single Workstream Delegation Leverage | Observational workstream comparison and external benchmark; tool activity is the measured outcome, not Triad behavioral consistency. |
 
 ## Research Index
 
@@ -383,13 +417,13 @@ The inventory comprises 87 unique external publications identified in the reposi
 
 ## Internal Research Index
 
-Internal investigations are distinct from independent external evidence. The three Context Triad studies report 1,110 trials in total; they address different tasks and should not be pooled as an effect estimate. The ARB reports describe related trials and are not eight independent replications. Internal identifiers are not amber publication markers in the initial regional overlays.
+Internal investigations are distinct from independent external evidence. The three Context Triad studies report 1,110 trials in total; they address different tasks and should not be pooled as an effect estimate. The ARB reports describe related trials and are not eight independent replications. Teal internal identifiers appear in applicable regional overlays and tables; three representative Context Triad studies also appear in the selective overview. Internal studies without an adequately specific construct association appear in the Behavioral Atlas's labeled adjacent-research strip. Their placement does not establish independent validation or isolate a causal factor.
 
 | ID | Internal study | Candidate association | Scope and relevance |
 | --- | --- | --- | --- |
-| <a id="i01"></a> I01 | [Fox–Leopard Displacement](./Studies/Fox_Leopard_Displacement.md) | Weight; Locality | 360 trials; competing description expansion and response selection; cue recognition and selection are distinct. |
-| <a id="i02"></a> I02 | [Glip Preference Anchoring](./Studies/Glip_Preference_Anchoring.md) | Locality; Shadow; Anchoring | 360 trials; label, description and position under criterion-free selection. |
-| <a id="i03"></a> I03 | [Planetary Order vs. Greek Genealogy](./Studies/Planetary_Order_vs_Greek_Genealogy.md) | Locality; Shadow; competing interpretations | 390 scored trials; changing name order changes the main reading. |
+| <a id="i01"></a> I01 | [Fox–Leopard Displacement](./Studies/Fox_Leopard_Displacement.md) | Weight; Locality; candidate behavioral displacement | 360 trials; competing description expansion and response selection; cue recognition and selection are distinct. |
+| <a id="i02"></a> I02 | [Glip Preference Anchoring](./Studies/Glip_Preference_Anchoring.md) | Locality; Shadow; Anchoring; candidate dominance and instability | 360 trials; label, description and position under criterion-free selection. |
+| <a id="i03"></a> I03 | [Planetary Order vs. Greek Genealogy](./Studies/Planetary_Order_vs_Greek_Genealogy.md) | Locality; Shadow; Weight (competing interpretations only); candidate dominance, displacement and reversal | 390 scored trials; changing name order changes the main reading. |
 | <a id="i04"></a> I04 | [AgMark Prompt Performance](../Prompt_Performance/Studies/AgMark_Runs/AgMark_Prompt_Performance.md) | Adjacent: representation and resource use | 250 scored observations; compare correctness, exact output, token use and timing separately. |
 | <a id="i05"></a> I05 | [Collection Membership, Multiplicity and Order](../Prompt_Performance/Studies/ArcGrav_ARB_Trials/Collection_Membership_Multiplicity_and_Order.md) | Consolidation | Membership, multiplicity and order are separate output obligations. |
 | <a id="i06"></a> I06 | [Compression, Reuse and Instruction Locality](../Prompt_Performance/Studies/ArcGrav_ARB_Trials/Compression_Reuse_and_Instruction_Locality.md) | Locality; Anchoring | No observed pass-rate improvement from relocation in the recorded contrasts; not an isolated wording effect. |
@@ -410,7 +444,7 @@ The [external operational baseline](../Agentic_Software_Engineering_Operational_
 
 ## Scope and Evidence Status
 
-The mappings are interpretations of the cited work within the Context Triad, not classifications asserted by the original authors. This inventory covers cited publications identified in the repository at the time of the audit, not the entire external literature. Regional and behavioral mappings are provisional and require examination of the original methods and results. The main overview is intentionally selective. The regional points do not encode evidence strength or effect size. No region's density should be interpreted as the amount of available research.
+The mappings are interpretations of the cited work within the Context Triad, not classifications asserted by the original authors. This inventory covers cited publications identified in the repository at the time of the audit, not the entire external literature. Regional and behavioral mappings are provisional and require examination of the original methods and results. The main overview is intentionally selective. Internal studies are identified by provenance rather than excluded from regional evidence maps; adjacent internal investigations remain outside the construct geometry. The regional points do not encode evidence strength or effect size. No region's density should be interpreted as the amount of available research.
 
 The atlas distinguishes existing evidence from proposed constructs and motivates controlled tests of whether the latter add explanatory, predictive, or operational value beyond the primary perspectives. Evidence of overlap does not establish a causal mechanism, the independence of any derived construct, or validation of the nine-construct framework.
 
@@ -425,7 +459,7 @@ The atlas distinguishes existing evidence from proposed constructs and motivates
 | [Weight_Research_Atlas.svg](./Assets/Weight_Research_Atlas.svg) | Expanded weight research region with independent research-point group |
 | [Behavioral_Research_Atlas.svg](./Assets/Behavioral_Research_Atlas.svg) | Expanded behavioral research region with independent research-point group |
 
-The overview SVG and each regional SVG contain an independent group `research-point-overlay`. Each outer region has a blue primary node, two purple compound nodes, a dashed higher-order circle and a dashed lavender edge shared with the inverted behavioral region. The behavioral region has three purple compound nodes and three dashed lavender edges. The SVG numbers correspond to the linked research index above; the index provides accessible publication links when GitHub renders the SVG as an image.
+The overview SVG and each regional SVG contain an independent group `research-point-overlay`. Each outer region has a blue primary node, two purple compound nodes, a dashed higher-order circle and a dashed lavender edge shared with the inverted behavioral region. The behavioral region has three purple compound nodes and three dashed lavender edges. The SVG identifiers correspond to the linked external and internal research indexes above; the tables provide accessible source links when GitHub renders the SVG as an image. The Behavioral SVG includes a labeled adjacent-research strip outside its inverted triangle.
 
 ## Related Research
 
