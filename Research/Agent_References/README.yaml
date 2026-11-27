@@ -67,8 +67,7 @@ validation:
   command: python3 Research/Agent_References/validate_agent_references.py
   tests: python3 -m unittest discover -s Research/Agent_References -p 'test_*.py'
   anchor_report: python3 Research/Agent_References/validate_agent_references.py --report-anchors
-  anchor_notes: ./SOURCE_ANCHORS.md
-  future_ci: Run tests and the validator on relevant pushes and pull requests when workflow changes are in scope. See SOURCE_ANCHORS.md.
+  future_ci: Run tests and the validator on relevant pushes and pull requests when workflow changes are in scope.
   structural_checks:
     - Exactly one reference for each included Research Markdown document, excluding only the specified generated AgMark reports.
     - Relative source path resolution, fingerprint freshness and one-to-one source heading coverage at every depth.
