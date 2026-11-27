@@ -48,5 +48,6 @@
     <g id="research-I03"><title>I03: Planetary Order vs. Greek Genealogy</title><circle cx="241" cy="430" r="13" fill="#80cbc4" stroke="#00695c" stroke-width="1.3"/><text x="241" y="433.57" fill="#004d40" font-size="10.5" text-anchor="middle" font-weight="700" stroke="none">I03</text></g>
     <g id="research-I09"><title>I09: Inheritance, Defaults and Output Construction</title><circle cx="301" cy="190" r="13" fill="#80cbc4" stroke="#00695c" stroke-width="1.3"/><text x="301" y="193.57" fill="#004d40" font-size="10.5" text-anchor="middle" font-weight="700" stroke="none">I09</text></g>
     <g id="research-I10"><title>I10: Input and Execution Integrity</title><circle cx="241" cy="460" r="13" fill="#80cbc4" stroke="#00695c" stroke-width="1.3"/><text x="241" y="463.57" fill="#004d40" font-size="10.5" text-anchor="middle" font-weight="700" stroke="none">I10</text></g>
+    <g id="research-R23"><title>R23: Order effects in belief updating: The belief-adjustment model</title><circle cx="211" cy="370" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="211" y="373.57" fill="#382502" font-size="10.5">R23</text></g>
   </g>
 </svg>

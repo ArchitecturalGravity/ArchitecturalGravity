@@ -42,84 +42,84 @@ The Research Atlas maps external research, internal investigations and applied e
 
 Placement and distribution relative to use; persistence, coherent support and attachment to relevant operations.
 
-**Map:** 30 external publications and 8 internal investigations.
+**Map:** 34 external publications and 8 internal investigations.
 
 ### Semantic Locality (Locality region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| <a id="locality-r01"></a>[R01](#r01) | Liu, N. F., et al. (2024) | Information position and retrieval. | Locality | [R01](#locality-research-atlas) |
-| <a id="locality-r02"></a>[R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Locality | [R02](#locality-research-atlas) |
-| <a id="locality-r09"></a>[R09](#r09) | Bajaj, A., et al. (2026) | Temporal and positional retrieval biases. | Locality | [R09](#locality-research-atlas) |
-| <a id="locality-r17"></a>[R17](#r17) | Gibson, E. (1998) | Human syntactic dependency distance and integration cost. | Locality | — (not plotted in this region) |
-| <a id="locality-r26"></a>[R26](#r26) | Hsieh, C.-P., et al. (2024) | Effective long-context capability evaluation. | Locality | [R26](#locality-research-atlas) |
-| <a id="locality-r27"></a>[R27](#r27) | Hsieh, C.-Y., et al. (2024) | Positional attention bias and calibration. | Locality | [R27](#locality-research-atlas) |
-| <a id="locality-r36"></a>[R36](#r36) | Khot, T., et al. (2022) | Modular task-specific prompting. | Locality | [R36](#locality-research-atlas) |
-| <a id="locality-r38"></a>[R38](#r38) | Lewis, R. L., & Vasishth, S. (2005) | Human retrieval and interference model. | Locality | — (not plotted in this region) |
-| <a id="locality-r45"></a>[R45](#r45) | Liu, Y., Zeng, X., Shao, C., Meng, F., & Zhou, J. (2024) | Instruction placement in sequence generation. | Locality | [R45](#locality-research-atlas) |
-| <a id="locality-r46"></a>[R46](#r46) | Lu, Y., et al. (2022) | Few-shot demonstration-order sensitivity. | Locality | [R46](#locality-research-atlas) |
-| <a id="locality-r49"></a>[R49](#r49) | Modarressi, A., et al. (2025) | Long-context retrieval beyond literal matching. | Locality | [R49](#locality-research-atlas) |
-| <a id="locality-r58"></a>[R58](#r58) | Shi, F., et al. (2023) | Interference from irrelevant context. | Locality | [R58](#locality-research-atlas) |
-| <a id="locality-r60"></a>[R60](#r60) | Tian, R., et al. (2025) | Distance between relevant information pieces. | Locality | [R60](#locality-research-atlas) |
-| <a id="locality-r79"></a>[R79](#r79) | Zhang, M., Meng, Z., & Collier, N. (2024) | Location guidance and position bias. | Locality | [R79](#locality-research-atlas) |
-| <a id="locality-i01"></a>[I01](#i01) | Fox–Leopard Displacement | Description placement and competing-description expansion across prompt layouts. (360 trials) | Locality | [I01](#locality-research-atlas) |
-| <a id="locality-i02"></a>[I02](#i02) | Glip Preference Anchoring | Heading and description permutations alter criterion-free selection, including contrasts with fixed description order. (360 trials) | Locality | [I02](#locality-research-atlas) |
-| <a id="locality-i03"></a>[I03](#i03) | Planetary Order vs. Greek Genealogy | Permuting the same names changes the prevailing reading. (390 scored trials) | Locality | [I03](#locality-research-atlas) |
-| <a id="locality-i06"></a>[I06](#i06) | Compression, Reuse and Instruction Locality | Relocating an unchanged definition produced no observed pass-rate improvement in the recorded contrasts. | Locality | [I06](#locality-research-atlas) |
-| <a id="locality-i12"></a>[I12](#i12) | Reference Binding and Independent Decisions | Explicit producer–consumer binding and reference placement. | Locality | [I12](#locality-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| <a id="locality-r01"></a>[R01](#r01) | Liu, N. F., et al. (2024) | Information position and retrieval. | Locality |
+| <a id="locality-r02"></a>[R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Locality |
+| <a id="locality-r09"></a>[R09](#r09) | Bajaj, A., et al. (2026) | Temporal and positional retrieval biases. | Locality |
+| <a id="locality-r17"></a>[R17](#r17) | Gibson, E. (1998) | Human syntactic dependency distance and integration cost. | Locality |
+| <a id="locality-r26"></a>[R26](#r26) | Hsieh, C.-P., et al. (2024) | Effective long-context capability evaluation. | Locality |
+| <a id="locality-r27"></a>[R27](#r27) | Hsieh, C.-Y., et al. (2024) | Positional attention bias and calibration. | Locality |
+| <a id="locality-r36"></a>[R36](#r36) | Khot, T., et al. (2022) | Modular task-specific prompting. | Locality |
+| <a id="locality-r38"></a>[R38](#r38) | Lewis, R. L., & Vasishth, S. (2005) | Human retrieval and interference model. | Locality |
+| <a id="locality-r45"></a>[R45](#r45) | Liu, Y., Zeng, X., Shao, C., Meng, F., & Zhou, J. (2024) | Instruction placement in sequence generation. | Locality |
+| <a id="locality-r46"></a>[R46](#r46) | Lu, Y., et al. (2022) | Few-shot demonstration-order sensitivity. | Locality |
+| <a id="locality-r49"></a>[R49](#r49) | Modarressi, A., et al. (2025) | Long-context retrieval beyond literal matching. | Locality |
+| <a id="locality-r58"></a>[R58](#r58) | Shi, F., et al. (2023) | Interference from irrelevant context. | Locality |
+| <a id="locality-r60"></a>[R60](#r60) | Tian, R., et al. (2025) | Distance between relevant information pieces. | Locality |
+| <a id="locality-r79"></a>[R79](#r79) | Zhang, M., Meng, Z., & Collier, N. (2024) | Location guidance and position bias. | Locality |
+| <a id="locality-i01"></a>[I01](#i01) | Fox–Leopard Displacement | Description placement and competing-description expansion across prompt layouts. (360 trials) | Locality |
+| <a id="locality-i02"></a>[I02](#i02) | Glip Preference Anchoring | Heading and description permutations alter criterion-free selection, including contrasts with fixed description order. (360 trials) | Locality |
+| <a id="locality-i03"></a>[I03](#i03) | Planetary Order vs. Greek Genealogy | Permuting the same names changes the prevailing reading. (390 scored trials) | Locality |
+| <a id="locality-i06"></a>[I06](#i06) | Compression, Reuse and Instruction Locality | Relocating an unchanged definition produced no observed pass-rate improvement in the recorded contrasts. | Locality |
+| <a id="locality-i12"></a>[I12](#i12) | Reference Binding and Independent Decisions | Explicit producer–consumer binding and reference placement. | Locality |
 
 ### Semantic Continuity (Locality region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Continuity | [R02](#locality-research-atlas) |
-| <a id="locality-r04"></a>[R04](#r04) | Li, K., et al. (2024) | Instruction stability across turns. | Continuity | [R04](#locality-research-atlas) |
-| <a id="locality-r07"></a>[R07](#r07) | Laban et al. (2025) | Multi-turn unreliability and premature assumptions. | Continuity | [R07](#locality-research-atlas) |
-| <a id="locality-r14"></a>[R14](#r14) | Deshpande, K., et al. (2025) | Multi-turn conversation evaluation. | Continuity | [R14](#locality-research-atlas) |
-| <a id="locality-r16"></a>[R16](#r16) | Epstein, E. L., et al. (2024) | Multimodal multi-turn instruction following. | Continuity | [R16](#locality-research-atlas) |
-| <a id="locality-r20"></a>[R20](#r20) | Han, C., et al. (2025) | Interdependent instructions across turns. | Continuity | [R20](#locality-research-atlas) |
-| <a id="locality-r33"></a>[R33](#r33) | Jia, Q., et al. (2026) | Evolving multi-turn instruction requirements. | Continuity | [R33](#locality-research-atlas) |
-| <a id="locality-r39"></a>[R39](#r39) | Li, J., Li, J., Wang, Y., Chang, Y., & Wu, Y. (2025) | Inter-turn structural relations. | Continuity | [R39](#locality-research-atlas) |
-| <a id="locality-r51"></a>[R51](#r51) | Packer, C., et al. (2023) | Structured context and memory management. | Continuity | [R51](#locality-research-atlas) |
-| <a id="locality-r66"></a>[R66](#r66) | Wallace, E., et al. (2024) | Instruction authority and conflict resolution. | Continuity | [R66](#locality-research-atlas) |
-| <a id="locality-r74"></a>[R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates. | Continuity | [R74](#locality-research-atlas) |
-| <a id="locality-r82"></a>[R82](#r82) | Zhou, D., et al. (2023) | Successive task decomposition. | Continuity | [R82](#locality-research-atlas) |
-| <a id="locality-i09"></a>[I09](#i09) | Inheritance, Defaults and Output Construction | Missing inherited keys despite retained defaults; persistence of output obligations. | Continuity | [I09](#locality-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Continuity |
+| <a id="locality-r04"></a>[R04](#r04) | Li, K., et al. (2024) | Instruction stability across turns. | Continuity |
+| <a id="locality-r07"></a>[R07](#r07) | Laban et al. (2025) | Multi-turn unreliability and premature assumptions. | Continuity |
+| <a id="locality-r14"></a>[R14](#r14) | Deshpande, K., et al. (2025) | Multi-turn conversation evaluation. | Continuity |
+| <a id="locality-r16"></a>[R16](#r16) | Epstein, E. L., et al. (2024) | Multimodal multi-turn instruction following. | Continuity |
+| <a id="locality-r20"></a>[R20](#r20) | Han, C., et al. (2025) | Interdependent instructions across turns. | Continuity |
+| <a id="locality-r33"></a>[R33](#r33) | Jia, Q., et al. (2026) | Evolving multi-turn instruction requirements. | Continuity |
+| <a id="locality-r39"></a>[R39](#r39) | Li, J., Li, J., Wang, Y., Chang, Y., & Wu, Y. (2025) | Inter-turn structural relations. | Continuity |
+| <a id="locality-r51"></a>[R51](#r51) | Packer, C., et al. (2023) | Structured context and memory management. | Continuity |
+| <a id="locality-r66"></a>[R66](#r66) | Wallace, E., et al. (2024) | Instruction authority and conflict resolution. | Continuity |
+| <a id="locality-r74"></a>[R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates. | Continuity |
+| <a id="locality-r82"></a>[R82](#r82) | Zhou, D., et al. (2023) | Successive task decomposition. | Continuity |
+| <a id="locality-i09"></a>[I09](#i09) | Inheritance, Defaults and Output Construction | Missing inherited keys despite retained defaults; persistence of output obligations. | Continuity |
 
 ### Semantic Concentration (Locality region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Concentration | [R02](#locality-research-atlas) |
-| <a id="locality-r05"></a>[R05](#r05) | Agrawal, D., Gao, S., & Gajek, M. (2024) | Instruction reminders and in-context retrieval. | Concentration | [R05](#locality-research-atlas) |
-| <a id="locality-r10"></a>[R10](#r10) | Chandra, A., & Krovi, R. (1999) | Representational congruence in human information retrieval. | Concentration | — (not plotted in this region) |
-| [R26](#r26) | Hsieh, C.-P., et al. (2024) | Effective long-context capability evaluation. | Concentration | [R26](#locality-research-atlas) |
-| <a id="locality-r34"></a>[R34](#r34) | Jiang, H., et al. (2023) | Prompt compression and retention. | Concentration | [R34](#locality-research-atlas) |
-| [R49](#r49) | Modarressi, A., et al. (2025) | Long-context retrieval beyond literal matching. | Concentration | [R49](#locality-research-atlas) |
-| <a id="locality-r53"></a>[R53](#r53) | Pan, Z., et al. (2024) | Faithful prompt compression. | Concentration | [R53](#locality-research-atlas) |
-| [R60](#r60) | Tian, R., et al. (2025) | Distance between relevant information pieces. | Concentration | [R60](#locality-research-atlas) |
-| <a id="locality-r63"></a>[R63](#r63) | Vessey, I. (1991) | Human cognitive fit. | Concentration | — (not plotted in this region) |
-| <a id="locality-r80"></a>[R80](#r80) | Zhang, X., et al. (2025) | Differentiated many-shot reweighting. | Concentration | [R80](#locality-research-atlas) |
-| <a id="locality-r84"></a>[R84](#r84) | Zou, K., Khalifa, M., & Wang, L. (2025) | Many-shot context utilization. | Concentration | [R84](#locality-research-atlas) |
-| <a id="locality-i08"></a>[I08](#i08) | Evidence Assembly and Exact Rendering | Assembly failures despite correct selection; distribution of needed evidence. | Concentration | [I08](#locality-research-atlas) |
-| <a id="locality-i11"></a>[I11](#i11) | Predicate Scope and Decision Separation | Predicate operands, consumer decisions and distribution of supporting information. | Concentration | [I11](#locality-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Concentration |
+| <a id="locality-r05"></a>[R05](#r05) | Agrawal, D., Gao, S., & Gajek, M. (2024) | Instruction reminders and in-context retrieval. | Concentration |
+| <a id="locality-r10"></a>[R10](#r10) | Chandra, A., & Krovi, R. (1999) | Representational congruence in human information retrieval. | Concentration |
+| [R26](#r26) | Hsieh, C.-P., et al. (2024) | Effective long-context capability evaluation. | Concentration |
+| <a id="locality-r34"></a>[R34](#r34) | Jiang, H., et al. (2023) | Prompt compression and retention. | Concentration |
+| [R49](#r49) | Modarressi, A., et al. (2025) | Long-context retrieval beyond literal matching. | Concentration |
+| <a id="locality-r53"></a>[R53](#r53) | Pan, Z., et al. (2024) | Faithful prompt compression. | Concentration |
+| [R60](#r60) | Tian, R., et al. (2025) | Distance between relevant information pieces. | Concentration |
+| <a id="locality-r63"></a>[R63](#r63) | Vessey, I. (1991) | Human cognitive fit. | Concentration |
+| <a id="locality-r80"></a>[R80](#r80) | Zhang, X., et al. (2025) | Differentiated many-shot reweighting. | Concentration |
+| <a id="locality-r84"></a>[R84](#r84) | Zou, K., Khalifa, M., & Wang, L. (2025) | Many-shot context utilization. | Concentration |
+| <a id="locality-i08"></a>[I08](#i08) | Evidence Assembly and Exact Rendering | Assembly failures despite correct selection; distribution of needed evidence. | Concentration |
+| <a id="locality-i11"></a>[I11](#i11) | Predicate Scope and Decision Separation | Predicate operands, consumer decisions and distribution of supporting information. | Concentration |
 
 ### Semantic Anchoring (Locality region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| <a id="locality-r08"></a>[R08](#r08) | Anthropic (2025) | Context selection, compaction and memory. | Anchoring | [R08](#locality-research-atlas) |
-| [R36](#r36) | Khot, T., et al. (2022) | Modular task-specific prompting. | Anchoring | [R36](#locality-research-atlas) |
-| [R39](#r39) | Li, J., Li, J., Wang, Y., Chang, Y., & Wu, Y. (2025) | Inter-turn structural relations. | Anchoring | [R39](#locality-research-atlas) |
-| [R51](#r51) | Packer, C., et al. (2023) | Structured context and memory management. | Anchoring | [R51](#locality-research-atlas) |
-| <a id="locality-r68"></a>[R68](#r68) | Wang, L., et al. (2023) | Information flow through label representations. | Anchoring | [R68](#locality-research-atlas) |
-| [R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates. | Anchoring | [R74](#locality-research-atlas) |
-| [R79](#r79) | Zhang, M., Meng, Z., & Collier, N. (2024) | Location guidance and position bias. | Anchoring | [R79](#locality-research-atlas) |
-| [I02](#i02) | Glip Preference Anchoring | Conditional label–description–position preference. (360 trials) | Anchoring | [I02](#locality-research-atlas) |
-| [I06](#i06) | Compression, Reuse and Instruction Locality | Shared instructions and explicit consumers; relocation produced no observed gain. | Anchoring | [I06](#locality-research-atlas) |
-| [I09](#i09) | Inheritance, Defaults and Output Construction | Tracing inherited obligations through the output producer to use. | Anchoring | [I09](#locality-research-atlas) |
-| [I11](#i11) | Predicate Scope and Decision Separation | Binding predicates to comparison domains and consequences. | Anchoring | [I11](#locality-research-atlas) |
-| [I12](#i12) | Reference Binding and Independent Decisions | Reference binding, independent decisions and instruction–consumer relationships. | Anchoring | [I12](#locality-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| <a id="locality-r08"></a>[R08](#r08) | Anthropic (2025) | Context selection, compaction and memory. | Anchoring |
+| [R36](#r36) | Khot, T., et al. (2022) | Modular task-specific prompting. | Anchoring |
+| [R39](#r39) | Li, J., Li, J., Wang, Y., Chang, Y., & Wu, Y. (2025) | Inter-turn structural relations. | Anchoring |
+| [R51](#r51) | Packer, C., et al. (2023) | Structured context and memory management. | Anchoring |
+| <a id="locality-r68"></a>[R68](#r68) | Wang, L., et al. (2023) | Information flow through label representations. | Anchoring |
+| [R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates. | Anchoring |
+| [R79](#r79) | Zhang, M., Meng, Z., & Collier, N. (2024) | Location guidance and position bias. | Anchoring |
+| [I02](#i02) | Glip Preference Anchoring | Conditional label–description–position preference. (360 trials) | Anchoring |
+| [I06](#i06) | Compression, Reuse and Instruction Locality | Shared instructions and explicit consumers; relocation produced no observed gain. | Anchoring |
+| [I09](#i09) | Inheritance, Defaults and Output Construction | Tracing inherited obligations through the output producer to use. | Anchoring |
+| [I11](#i11) | Predicate Scope and Decision Separation | Binding predicates to comparison domains and consequences. | Anchoring |
+| [I12](#i12) | Reference Binding and Independent Decisions | Reference binding, independent decisions and instruction–consumer relationships. | Anchoring |
 
 ## Shadow Research Atlas
 
@@ -133,66 +133,66 @@ Placement and distribution relative to use; persistence, coherent support and at
 
 Subsequent context and order-sensitive influence; persistence, accumulation and progression across operations.
 
-**Map:** 21 external publications and 4 internal investigations.
+**Map:** 22 external publications and 4 internal investigations.
 
 ### Semantic Shadow (Shadow region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| <a id="shadow-r02"></a>[R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Shadow | [R02](#shadow-research-atlas) |
-| <a id="shadow-r09"></a>[R09](#r09) | Bajaj, A., et al. (2026) | Temporal and positional retrieval biases. | Shadow | [R09](#shadow-research-atlas) |
-| <a id="shadow-r14"></a>[R14](#r14) | Deshpande, K., et al. (2025) | Multi-turn conversation evaluation. | Shadow | [R14](#shadow-research-atlas) |
-| <a id="shadow-r23"></a>[R23](#r23) | Hogarth, R. M., & Einhorn, H. J. (1992) | Human sequential belief updating and order effects. | Shadow | — (not plotted in this region) |
-| <a id="shadow-r45"></a>[R45](#r45) | Liu, Y., Zeng, X., Shao, C., Meng, F., & Zhou, J. (2024) | Instruction placement in sequence generation. | Shadow | [R45](#shadow-research-atlas) |
-| <a id="shadow-r46"></a>[R46](#r46) | Lu, Y., et al. (2022) | Few-shot demonstration-order sensitivity. | Shadow | [R46](#shadow-research-atlas) |
-| <a id="shadow-r50"></a>[R50](#r50) | Olsson, C., et al. (2022) | Mechanistic study of induction heads. | Shadow | [R50](#shadow-research-atlas) |
-| <a id="shadow-r66"></a>[R66](#r66) | Wallace, E., et al. (2024) | Instruction authority and conflict resolution. | Shadow | [R66](#shadow-research-atlas) |
-| <a id="shadow-r74"></a>[R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates. | Shadow | [R74](#shadow-research-atlas) |
-| <a id="shadow-r81"></a>[R81](#r81) | Zhao, Z., et al. (2021) | Context-induced prediction bias and calibration. | Shadow | [R81](#shadow-research-atlas) |
-| <a id="shadow-i02"></a>[I02](#i02) | Glip Preference Anchoring | Within-prompt heading and description order contrasts affect selection. (360 trials) | Shadow | [I02](#shadow-research-atlas) |
-| <a id="shadow-i03"></a>[I03](#i03) | Planetary Order vs. Greek Genealogy | Order permutations of unchanged names alter interpretation. (390 scored trials) | Shadow | [I03](#shadow-research-atlas) |
-| <a id="shadow-i10"></a>[I10](#i10) | Input and Execution Integrity | Instruction authority, input admission, conflict and authorized consequences. | Shadow | [I10](#shadow-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| <a id="shadow-r02"></a>[R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Shadow |
+| <a id="shadow-r09"></a>[R09](#r09) | Bajaj, A., et al. (2026) | Temporal and positional retrieval biases. | Shadow |
+| <a id="shadow-r14"></a>[R14](#r14) | Deshpande, K., et al. (2025) | Multi-turn conversation evaluation. | Shadow |
+| <a id="shadow-r23"></a>[R23](#r23) | Hogarth, R. M., & Einhorn, H. J. (1992) | Human sequential belief updating and order effects. | Shadow |
+| <a id="shadow-r45"></a>[R45](#r45) | Liu, Y., Zeng, X., Shao, C., Meng, F., & Zhou, J. (2024) | Instruction placement in sequence generation. | Shadow |
+| <a id="shadow-r46"></a>[R46](#r46) | Lu, Y., et al. (2022) | Few-shot demonstration-order sensitivity. | Shadow |
+| <a id="shadow-r50"></a>[R50](#r50) | Olsson, C., et al. (2022) | Mechanistic study of induction heads. | Shadow |
+| <a id="shadow-r66"></a>[R66](#r66) | Wallace, E., et al. (2024) | Instruction authority and conflict resolution. | Shadow |
+| <a id="shadow-r74"></a>[R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates. | Shadow |
+| <a id="shadow-r81"></a>[R81](#r81) | Zhao, Z., et al. (2021) | Context-induced prediction bias and calibration. | Shadow |
+| <a id="shadow-i02"></a>[I02](#i02) | Glip Preference Anchoring | Within-prompt heading and description order contrasts affect selection. (360 trials) | Shadow |
+| <a id="shadow-i03"></a>[I03](#i03) | Planetary Order vs. Greek Genealogy | Order permutations of unchanged names alter interpretation. (390 scored trials) | Shadow |
+| <a id="shadow-i10"></a>[I10](#i10) | Input and Execution Integrity | Instruction authority, input admission, conflict and authorized consequences. | Shadow |
 
 ### Semantic Continuity (Shadow region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Continuity | [R02](#shadow-research-atlas) |
-| <a id="shadow-r04"></a>[R04](#r04) | Li, K., et al. (2024) | Instruction stability across turns. | Continuity | [R04](#shadow-research-atlas) |
-| <a id="shadow-r07"></a>[R07](#r07) | Laban et al. (2025) | Multi-turn unreliability and premature assumptions. | Continuity | [R07](#shadow-research-atlas) |
-| [R14](#r14) | Deshpande, K., et al. (2025) | Multi-turn conversation evaluation. | Continuity | [R14](#shadow-research-atlas) |
-| <a id="shadow-r16"></a>[R16](#r16) | Epstein, E. L., et al. (2024) | Multimodal multi-turn instruction following. | Continuity | [R16](#shadow-research-atlas) |
-| <a id="shadow-r20"></a>[R20](#r20) | Han, C., et al. (2025) | Interdependent instructions across turns. | Continuity | [R20](#shadow-research-atlas) |
-| <a id="shadow-r33"></a>[R33](#r33) | Jia, Q., et al. (2026) | Evolving multi-turn instruction requirements. | Continuity | [R33](#shadow-research-atlas) |
-| <a id="shadow-r39"></a>[R39](#r39) | Li, J., Li, J., Wang, Y., Chang, Y., & Wu, Y. (2025) | Inter-turn structural relations. | Continuity | [R39](#shadow-research-atlas) |
-| <a id="shadow-r51"></a>[R51](#r51) | Packer, C., et al. (2023) | Structured context and memory management. | Continuity | [R51](#shadow-research-atlas) |
-| [R66](#r66) | Wallace, E., et al. (2024) | Instruction authority and conflict resolution. | Continuity | [R66](#shadow-research-atlas) |
-| [R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates. | Continuity | [R74](#shadow-research-atlas) |
-| <a id="shadow-r82"></a>[R82](#r82) | Zhou, D., et al. (2023) | Successive task decomposition. | Continuity | [R82](#shadow-research-atlas) |
-| <a id="shadow-i09"></a>[I09](#i09) | Inheritance, Defaults and Output Construction | Inherited obligations can be absent from output while other defaults survive; persistence across construction steps. | Continuity | [I09](#shadow-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Continuity |
+| <a id="shadow-r04"></a>[R04](#r04) | Li, K., et al. (2024) | Instruction stability across turns. | Continuity |
+| <a id="shadow-r07"></a>[R07](#r07) | Laban et al. (2025) | Multi-turn unreliability and premature assumptions. | Continuity |
+| [R14](#r14) | Deshpande, K., et al. (2025) | Multi-turn conversation evaluation. | Continuity |
+| <a id="shadow-r16"></a>[R16](#r16) | Epstein, E. L., et al. (2024) | Multimodal multi-turn instruction following. | Continuity |
+| <a id="shadow-r20"></a>[R20](#r20) | Han, C., et al. (2025) | Interdependent instructions across turns. | Continuity |
+| <a id="shadow-r33"></a>[R33](#r33) | Jia, Q., et al. (2026) | Evolving multi-turn instruction requirements. | Continuity |
+| <a id="shadow-r39"></a>[R39](#r39) | Li, J., Li, J., Wang, Y., Chang, Y., & Wu, Y. (2025) | Inter-turn structural relations. | Continuity |
+| <a id="shadow-r51"></a>[R51](#r51) | Packer, C., et al. (2023) | Structured context and memory management. | Continuity |
+| [R66](#r66) | Wallace, E., et al. (2024) | Instruction authority and conflict resolution. | Continuity |
+| [R74](#r74) | Wu, D., et al. (2025) | Long-term interactive memory and updates. | Continuity |
+| <a id="shadow-r82"></a>[R82](#r82) | Zhou, D., et al. (2023) | Successive task decomposition. | Continuity |
+| <a id="shadow-i09"></a>[I09](#i09) | Inheritance, Defaults and Output Construction | Inherited obligations can be absent from output while other defaults survive; persistence across construction steps. | Continuity |
 
 ### Semantic Momentum (Shadow region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Momentum | [R02](#shadow-research-atlas) |
-| <a id="shadow-r06"></a>[R06](#r06) | Zhang et al. (2024) | Earlier errors and subsequent false claims. | Momentum | [R06](#shadow-research-atlas) |
-| [R23](#r23) | Hogarth, R. M., & Einhorn, H. J. (1992) | Human sequential belief updating and order effects. | Momentum | — (not plotted in this region) |
-| <a id="shadow-r65"></a>[R65](#r65) | von Oswald, J., et al. (2022) | Computational accounts of in-context learning. | Momentum | [R65](#shadow-research-atlas) |
-| <a id="shadow-r76"></a>[R76](#r76) | Xie, S. M., et al. (2022) | Probabilistic account of in-context learning. | Momentum | [R76](#shadow-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Momentum |
+| <a id="shadow-r06"></a>[R06](#r06) | Zhang et al. (2024) | Earlier errors and subsequent false claims. | Momentum |
+| [R23](#r23) | Hogarth, R. M., & Einhorn, H. J. (1992) | Human sequential belief updating and order effects. | Momentum |
+| <a id="shadow-r65"></a>[R65](#r65) | von Oswald, J., et al. (2022) | Computational accounts of in-context learning. | Momentum |
+| <a id="shadow-r76"></a>[R76](#r76) | Xie, S. M., et al. (2022) | Probabilistic account of in-context learning. | Momentum |
 
 ### Semantic Trajectory (Shadow region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| [R07](#r07) | Laban et al. (2025) | Multi-turn unreliability and premature assumptions. | Trajectory | [R07](#shadow-research-atlas) |
-| [R14](#r14) | Deshpande, K., et al. (2025) | Multi-turn conversation evaluation. | Trajectory | [R14](#shadow-research-atlas) |
-| [R16](#r16) | Epstein, E. L., et al. (2024) | Multimodal multi-turn instruction following. | Trajectory | [R16](#shadow-research-atlas) |
-| [R20](#r20) | Han, C., et al. (2025) | Interdependent instructions across turns. | Trajectory | [R20](#shadow-research-atlas) |
-| [R33](#r33) | Jia, Q., et al. (2026) | Evolving multi-turn instruction requirements. | Trajectory | [R33](#shadow-research-atlas) |
-| [R39](#r39) | Li, J., Li, J., Wang, Y., Chang, Y., & Wu, Y. (2025) | Inter-turn structural relations. | Trajectory | [R39](#shadow-research-atlas) |
-| <a id="shadow-r70"></a>[R70](#r70) | Wei, J., et al. (2022) | Intermediate reasoning sequences. | Trajectory | [R70](#shadow-research-atlas) |
-| [R82](#r82) | Zhou, D., et al. (2023) | Successive task decomposition. | Trajectory | [R82](#shadow-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| [R07](#r07) | Laban et al. (2025) | Multi-turn unreliability and premature assumptions. | Trajectory |
+| [R14](#r14) | Deshpande, K., et al. (2025) | Multi-turn conversation evaluation. | Trajectory |
+| [R16](#r16) | Epstein, E. L., et al. (2024) | Multimodal multi-turn instruction following. | Trajectory |
+| [R20](#r20) | Han, C., et al. (2025) | Interdependent instructions across turns. | Trajectory |
+| [R33](#r33) | Jia, Q., et al. (2026) | Evolving multi-turn instruction requirements. | Trajectory |
+| [R39](#r39) | Li, J., Li, J., Wang, Y., Chang, Y., & Wu, Y. (2025) | Inter-turn structural relations. | Trajectory |
+| <a id="shadow-r70"></a>[R70](#r70) | Wei, J., et al. (2022) | Intermediate reasoning sequences. | Trajectory |
+| [R82](#r82) | Zhou, D., et al. (2023) | Successive task decomposition. | Trajectory |
 
 ## Weight Research Atlas
 
@@ -206,83 +206,83 @@ Subsequent context and order-sensitive influence; persistence, accumulation and 
 
 Relative coherent support; distribution, accumulation and convergence around an interpretation.
 
-**Map:** 30 external publications and 5 internal investigations.
+**Map:** 36 external publications and 5 internal investigations.
 
 ### Semantic Weight (Weight region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| <a id="weight-r02"></a>[R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Weight | [R02](#weight-research-atlas) |
-| <a id="weight-r03"></a>[R03](#r03) | Jin et al. (2024) | Frequency and consistency of competing evidence. | Weight | [R03](#weight-research-atlas) |
-| <a id="weight-r28"></a>[R28](#r28) | Hu, J., Liu, W., & Du, M. (2024) | Selection of in-context demonstrations. | Weight | [R28](#weight-research-atlas) |
-| <a id="weight-r38"></a>[R38](#r38) | Lewis, R. L., & Vasishth, S. (2005) | Human retrieval and interference model. | Weight | — (not plotted in this region) |
-| <a id="weight-r46"></a>[R46](#r46) | Lu, Y., et al. (2022) | Few-shot demonstration-order sensitivity. | Weight | [R46](#weight-research-atlas) |
-| <a id="weight-r47"></a>[R47](#r47) | Min, S., et al. (2022) | Contributions of different demonstration properties. | Weight | [R47](#weight-research-atlas) |
-| <a id="weight-r52"></a>[R52](#r52) | Pan, J., et al. (2023) | Task recognition versus task learning. | Weight | [R52](#weight-research-atlas) |
-| <a id="weight-r58"></a>[R58](#r58) | Shi, F., et al. (2023) | Interference from irrelevant context. | Weight | [R58](#weight-research-atlas) |
-| <a id="weight-r71"></a>[R71](#r71) | Wei, J., et al. (2023) | Model scale and context-driven task behavior. | Weight | [R71](#weight-research-atlas) |
-| <a id="weight-r72"></a>[R72](#r72) | Wei, J., et al. (2023) | Arbitrary labels and contextual associations. | Weight | [R72](#weight-research-atlas) |
-| <a id="weight-r76"></a>[R76](#r76) | Xie, S. M., et al. (2022) | Probabilistic account of in-context learning. | Weight | [R76](#weight-research-atlas) |
-| <a id="weight-r78"></a>[R78](#r78) | Yu, Z., & Ananiadou, S. (2024) | Similarity-based contextual information selection. | Weight | [R78](#weight-research-atlas) |
-| <a id="weight-r80"></a>[R80](#r80) | Zhang, X., et al. (2025) | Differentiated many-shot reweighting. | Weight | [R80](#weight-research-atlas) |
-| <a id="weight-r81"></a>[R81](#r81) | Zhao, Z., et al. (2021) | Context-induced prediction bias and calibration. | Weight | [R81](#weight-research-atlas) |
-| <a id="weight-r84"></a>[R84](#r84) | Zou, K., Khalifa, M., & Wang, L. (2025) | Many-shot context utilization. | Weight | [R84](#weight-research-atlas) |
-| <a id="weight-i01"></a>[I01](#i01) | Fox–Leopard Displacement | Expanding a competing description shifts single-animal selection while pangram identification stays similar. (360 trials) | Weight | [I01](#weight-research-atlas) |
-| <a id="weight-i03"></a>[I03](#i03) | Planetary Order vs. Greek Genealogy | The same names support competing readings; order changes selection. (390 scored trials) | Weight | [I03](#weight-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| <a id="weight-r02"></a>[R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Weight |
+| <a id="weight-r03"></a>[R03](#r03) | Jin et al. (2024) | Frequency and consistency of competing evidence. | Weight |
+| <a id="weight-r28"></a>[R28](#r28) | Hu, J., Liu, W., & Du, M. (2024) | Selection of in-context demonstrations. | Weight |
+| <a id="weight-r38"></a>[R38](#r38) | Lewis, R. L., & Vasishth, S. (2005) | Human retrieval and interference model. | Weight |
+| <a id="weight-r46"></a>[R46](#r46) | Lu, Y., et al. (2022) | Few-shot demonstration-order sensitivity. | Weight |
+| <a id="weight-r47"></a>[R47](#r47) | Min, S., et al. (2022) | Contributions of different demonstration properties. | Weight |
+| <a id="weight-r52"></a>[R52](#r52) | Pan, J., et al. (2023) | Task recognition versus task learning. | Weight |
+| <a id="weight-r58"></a>[R58](#r58) | Shi, F., et al. (2023) | Interference from irrelevant context. | Weight |
+| <a id="weight-r71"></a>[R71](#r71) | Wei, J., et al. (2023) | Model scale and context-driven task behavior. | Weight |
+| <a id="weight-r72"></a>[R72](#r72) | Wei, J., et al. (2023) | Arbitrary labels and contextual associations. | Weight |
+| <a id="weight-r76"></a>[R76](#r76) | Xie, S. M., et al. (2022) | Probabilistic account of in-context learning. | Weight |
+| <a id="weight-r78"></a>[R78](#r78) | Yu, Z., & Ananiadou, S. (2024) | Similarity-based contextual information selection. | Weight |
+| <a id="weight-r80"></a>[R80](#r80) | Zhang, X., et al. (2025) | Differentiated many-shot reweighting. | Weight |
+| <a id="weight-r81"></a>[R81](#r81) | Zhao, Z., et al. (2021) | Context-induced prediction bias and calibration. | Weight |
+| <a id="weight-r84"></a>[R84](#r84) | Zou, K., Khalifa, M., & Wang, L. (2025) | Many-shot context utilization. | Weight |
+| <a id="weight-i01"></a>[I01](#i01) | Fox–Leopard Displacement | Expanding a competing description shifts single-animal selection while pangram identification stays similar. (360 trials) | Weight |
+| <a id="weight-i03"></a>[I03](#i03) | Planetary Order vs. Greek Genealogy | The same names support competing readings; order changes selection. (390 scored trials) | Weight |
 
 ### Semantic Concentration (Weight region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Concentration | [R02](#weight-research-atlas) |
-| <a id="weight-r05"></a>[R05](#r05) | Agrawal, D., Gao, S., & Gajek, M. (2024) | Instruction reminders and in-context retrieval. | Concentration | [R05](#weight-research-atlas) |
-| <a id="weight-r10"></a>[R10](#r10) | Chandra, A., & Krovi, R. (1999) | Representational congruence in human information retrieval. | Concentration | — (not plotted in this region) |
-| <a id="weight-r26"></a>[R26](#r26) | Hsieh, C.-P., et al. (2024) | Effective long-context capability evaluation. | Concentration | [R26](#weight-research-atlas) |
-| <a id="weight-r34"></a>[R34](#r34) | Jiang, H., et al. (2023) | Prompt compression and retention. | Concentration | [R34](#weight-research-atlas) |
-| <a id="weight-r49"></a>[R49](#r49) | Modarressi, A., et al. (2025) | Long-context retrieval beyond literal matching. | Concentration | [R49](#weight-research-atlas) |
-| <a id="weight-r53"></a>[R53](#r53) | Pan, Z., et al. (2024) | Faithful prompt compression. | Concentration | [R53](#weight-research-atlas) |
-| <a id="weight-r60"></a>[R60](#r60) | Tian, R., et al. (2025) | Distance between relevant information pieces. | Concentration | [R60](#weight-research-atlas) |
-| <a id="weight-r63"></a>[R63](#r63) | Vessey, I. (1991) | Human cognitive fit. | Concentration | — (not plotted in this region) |
-| [R80](#r80) | Zhang, X., et al. (2025) | Differentiated many-shot reweighting. | Concentration | [R80](#weight-research-atlas) |
-| [R84](#r84) | Zou, K., Khalifa, M., & Wang, L. (2025) | Many-shot context utilization. | Concentration | [R84](#weight-research-atlas) |
-| <a id="weight-i08"></a>[I08](#i08) | Evidence Assembly and Exact Rendering | Correct evidence selection can fail during assembly; distribution of supporting information. | Concentration | [I08](#weight-research-atlas) |
-| <a id="weight-i11"></a>[I11](#i11) | Predicate Scope and Decision Separation | Eligibility, preference and reporting depend on distinct evidence domains. | Concentration | [I11](#weight-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Concentration |
+| <a id="weight-r05"></a>[R05](#r05) | Agrawal, D., Gao, S., & Gajek, M. (2024) | Instruction reminders and in-context retrieval. | Concentration |
+| <a id="weight-r10"></a>[R10](#r10) | Chandra, A., & Krovi, R. (1999) | Representational congruence in human information retrieval. | Concentration |
+| <a id="weight-r26"></a>[R26](#r26) | Hsieh, C.-P., et al. (2024) | Effective long-context capability evaluation. | Concentration |
+| <a id="weight-r34"></a>[R34](#r34) | Jiang, H., et al. (2023) | Prompt compression and retention. | Concentration |
+| <a id="weight-r49"></a>[R49](#r49) | Modarressi, A., et al. (2025) | Long-context retrieval beyond literal matching. | Concentration |
+| <a id="weight-r53"></a>[R53](#r53) | Pan, Z., et al. (2024) | Faithful prompt compression. | Concentration |
+| <a id="weight-r60"></a>[R60](#r60) | Tian, R., et al. (2025) | Distance between relevant information pieces. | Concentration |
+| <a id="weight-r63"></a>[R63](#r63) | Vessey, I. (1991) | Human cognitive fit. | Concentration |
+| [R80](#r80) | Zhang, X., et al. (2025) | Differentiated many-shot reweighting. | Concentration |
+| [R84](#r84) | Zou, K., Khalifa, M., & Wang, L. (2025) | Many-shot context utilization. | Concentration |
+| <a id="weight-i08"></a>[I08](#i08) | Evidence Assembly and Exact Rendering | Correct evidence selection can fail during assembly; distribution of supporting information. | Concentration |
+| <a id="weight-i11"></a>[I11](#i11) | Predicate Scope and Decision Separation | Eligibility, preference and reporting depend on distinct evidence domains. | Concentration |
 
 ### Semantic Momentum (Weight region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Momentum | [R02](#weight-research-atlas) |
-| <a id="weight-r06"></a>[R06](#r06) | Zhang et al. (2024) | Earlier errors and subsequent false claims. | Momentum | [R06](#weight-research-atlas) |
-| <a id="weight-r23"></a>[R23](#r23) | Hogarth, R. M., & Einhorn, H. J. (1992) | Human sequential belief updating and order effects. | Momentum | — (not plotted in this region) |
-| <a id="weight-r65"></a>[R65](#r65) | von Oswald, J., et al. (2022) | Computational accounts of in-context learning. | Momentum | [R65](#weight-research-atlas) |
-| [R76](#r76) | Xie, S. M., et al. (2022) | Probabilistic account of in-context learning. | Momentum | [R76](#weight-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| [R02](#r02) | Kurfali, M., & Östling, R. (2025) | Position, repetition and conflict. | Momentum |
+| <a id="weight-r06"></a>[R06](#r06) | Zhang et al. (2024) | Earlier errors and subsequent false claims. | Momentum |
+| <a id="weight-r23"></a>[R23](#r23) | Hogarth, R. M., & Einhorn, H. J. (1992) | Human sequential belief updating and order effects. | Momentum |
+| <a id="weight-r65"></a>[R65](#r65) | von Oswald, J., et al. (2022) | Computational accounts of in-context learning. | Momentum |
+| [R76](#r76) | Xie, S. M., et al. (2022) | Probabilistic account of in-context learning. | Momentum |
 
 ### Semantic Consolidation (Weight region)
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| <a id="weight-r08"></a>[R08](#r08) | Anthropic (2025) | Context selection, compaction and memory. | Consolidation | [R08](#weight-research-atlas) |
-| <a id="weight-r12"></a>[R12](#r12) | Chiang, J. N., et al. (2021) | Relational representations in human cognition. | Consolidation | — (not plotted in this region) |
-| <a id="weight-r22"></a>[R22](#r22) | Hendel, R., et al. (2023) | Context-induced internal task representations. | Consolidation | [R22](#weight-research-atlas) |
-| <a id="weight-r24"></a>[R24](#r24) | Holyoak, K. J., & Monti, M. M. (2021) | Human relational integration. | Consolidation | — (not plotted in this region) |
-| <a id="weight-r25"></a>[R25](#r25) | Honovich, O., et al. (2022) | Task abstraction from demonstrations. | Consolidation | [R25](#weight-research-atlas) |
-| [R34](#r34) | Jiang, H., et al. (2023) | Prompt compression and retention. | Consolidation | [R34](#weight-research-atlas) |
-| <a id="weight-r42"></a>[R42](#r42) | Liu, S., et al. (2023) | Context-derived latent steering. | Consolidation | [R42](#weight-research-atlas) |
-| [R47](#r47) | Min, S., et al. (2022) | Contributions of different demonstration properties. | Consolidation | [R47](#weight-research-atlas) |
-| <a id="weight-r50"></a>[R50](#r50) | Olsson, C., et al. (2022) | Mechanistic study of induction heads. | Consolidation | [R50](#weight-research-atlas) |
-| <a id="weight-r51"></a>[R51](#r51) | Packer, C., et al. (2023) | Structured context and memory management. | Consolidation | [R51](#weight-research-atlas) |
-| [R52](#r52) | Pan, J., et al. (2023) | Task recognition versus task learning. | Consolidation | [R52](#weight-research-atlas) |
-| [R53](#r53) | Pan, Z., et al. (2024) | Faithful prompt compression. | Consolidation | [R53](#weight-research-atlas) |
-| <a id="weight-r61"></a>[R61](#r61) | Todd, E., et al. (2023) | Internal function representations. | Consolidation | [R61](#weight-research-atlas) |
-| [R65](#r65) | von Oswald, J., et al. (2022) | Computational accounts of in-context learning. | Consolidation | [R65](#weight-research-atlas) |
-| <a id="weight-r68"></a>[R68](#r68) | Wang, L., et al. (2023) | Information flow through label representations. | Consolidation | [R68](#weight-research-atlas) |
-| [R71](#r71) | Wei, J., et al. (2023) | Model scale and context-driven task behavior. | Consolidation | [R71](#weight-research-atlas) |
-| [R72](#r72) | Wei, J., et al. (2023) | Arbitrary labels and contextual associations. | Consolidation | [R72](#weight-research-atlas) |
-| [R76](#r76) | Xie, S. M., et al. (2022) | Probabilistic account of in-context learning. | Consolidation | [R76](#weight-research-atlas) |
-| [R78](#r78) | Yu, Z., & Ananiadou, S. (2024) | Similarity-based contextual information selection. | Consolidation | [R78](#weight-research-atlas) |
-| <a id="weight-i05"></a>[I05](#i05) | Collection Membership, Multiplicity and Order | Membership, multiplicity and order failures during assembly of a coherent result. | Consolidation | [I05](#weight-research-atlas) |
-| [I08](#i08) | Evidence Assembly and Exact Rendering | Evidence coverage, provenance and rendering during result assembly. | Consolidation | [I08](#weight-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| <a id="weight-r08"></a>[R08](#r08) | Anthropic (2025) | Context selection, compaction and memory. | Consolidation |
+| <a id="weight-r12"></a>[R12](#r12) | Chiang, J. N., et al. (2021) | Relational representations in human cognition. | Consolidation |
+| <a id="weight-r22"></a>[R22](#r22) | Hendel, R., et al. (2023) | Context-induced internal task representations. | Consolidation |
+| <a id="weight-r24"></a>[R24](#r24) | Holyoak, K. J., & Monti, M. M. (2021) | Human relational integration. | Consolidation |
+| <a id="weight-r25"></a>[R25](#r25) | Honovich, O., et al. (2022) | Task abstraction from demonstrations. | Consolidation |
+| [R34](#r34) | Jiang, H., et al. (2023) | Prompt compression and retention. | Consolidation |
+| <a id="weight-r42"></a>[R42](#r42) | Liu, S., et al. (2023) | Context-derived latent steering. | Consolidation |
+| [R47](#r47) | Min, S., et al. (2022) | Contributions of different demonstration properties. | Consolidation |
+| <a id="weight-r50"></a>[R50](#r50) | Olsson, C., et al. (2022) | Mechanistic study of induction heads. | Consolidation |
+| <a id="weight-r51"></a>[R51](#r51) | Packer, C., et al. (2023) | Structured context and memory management. | Consolidation |
+| [R52](#r52) | Pan, J., et al. (2023) | Task recognition versus task learning. | Consolidation |
+| [R53](#r53) | Pan, Z., et al. (2024) | Faithful prompt compression. | Consolidation |
+| <a id="weight-r61"></a>[R61](#r61) | Todd, E., et al. (2023) | Internal function representations. | Consolidation |
+| [R65](#r65) | von Oswald, J., et al. (2022) | Computational accounts of in-context learning. | Consolidation |
+| <a id="weight-r68"></a>[R68](#r68) | Wang, L., et al. (2023) | Information flow through label representations. | Consolidation |
+| [R71](#r71) | Wei, J., et al. (2023) | Model scale and context-driven task behavior. | Consolidation |
+| [R72](#r72) | Wei, J., et al. (2023) | Arbitrary labels and contextual associations. | Consolidation |
+| [R76](#r76) | Xie, S. M., et al. (2022) | Probabilistic account of in-context learning. | Consolidation |
+| [R78](#r78) | Yu, Z., & Ananiadou, S. (2024) | Similarity-based contextual information selection. | Consolidation |
+| <a id="weight-i05"></a>[I05](#i05) | Collection Membership, Multiplicity and Order | Membership, multiplicity and order failures during assembly of a coherent result. | Consolidation |
+| [I08](#i08) | Evidence Assembly and Exact Rendering | Evidence coverage, provenance and rendering during result assembly. | Consolidation |
 
 ## Behavioral Research Atlas
 
@@ -300,38 +300,38 @@ Joint contextual influences and the behavioral dynamics and outcomes defined in 
 
 ### Behavioral Outcomes
 
-| Triad relationship | External points | Relevance | Internal points and relevance | Map points |
-| --- | --- | --- | --- | --- |
-| <a id="behavioral-r04"></a><a id="behavioral-r05"></a>Preservation | [R04](#r04), [R05](#r05) | Instruction stability and reminders. | — | [R04](#behavioral-research-atlas), [R05](#behavioral-research-atlas) |
-| <a id="behavioral-r01"></a><a id="behavioral-r58"></a>Suppression | [R01](#r01), [R58](#r58) | Position sensitivity and interference from irrelevant context. | — | [R01](#behavioral-research-atlas), [R58](#behavioral-research-atlas) |
-| <a id="behavioral-r02"></a><a id="behavioral-r03"></a><a id="behavioral-i01"></a><a id="behavioral-i03"></a>Displacement | [R02](#r02), [R03](#r03) | Conflicting information and selection of competing evidence. | [I01](#i01): Competing-description expansion changes single-animal selection despite similar pangram identification. [I03](#i03): Name order changes the prevailing collective reading while competing interpretations remain available. | [R02](#behavioral-research-atlas), [R03](#behavioral-research-atlas), [I01](#behavioral-research-atlas), [I03](#behavioral-research-atlas) |
-| <a id="behavioral-r06"></a><a id="behavioral-r07"></a>Transformation | [R06](#r06), [R07](#r07) | Changing or erroneous interpretations. | — | [R06](#behavioral-research-atlas), [R07](#behavioral-research-atlas) |
-| <a id="behavioral-r66"></a><a id="behavioral-r74"></a>Resolution | [R66](#r66), [R74](#r74) | Instruction authority, memory updates and authorized change. | — | [R66](#behavioral-research-atlas), [R74](#behavioral-research-atlas) |
+| Triad relationship | External points | Relevance | Internal points and relevance |
+| --- | --- | --- | --- |
+| <a id="behavioral-r04"></a><a id="behavioral-r05"></a>Preservation | [R04](#r04), [R05](#r05) | Instruction stability and reminders. | — |
+| <a id="behavioral-r01"></a><a id="behavioral-r58"></a>Suppression | [R01](#r01), [R58](#r58) | Position sensitivity and interference from irrelevant context. | — |
+| <a id="behavioral-r02"></a><a id="behavioral-r03"></a><a id="behavioral-i01"></a><a id="behavioral-i03"></a>Displacement | [R02](#r02), [R03](#r03) | Conflicting information and selection of competing evidence. | [I01](#i01): Competing-description expansion changes single-animal selection despite similar pangram identification. [I03](#i03): Name order changes the prevailing collective reading while competing interpretations remain available. |
+| <a id="behavioral-r06"></a><a id="behavioral-r07"></a>Transformation | [R06](#r06), [R07](#r07) | Changing or erroneous interpretations. | — |
+| <a id="behavioral-r66"></a><a id="behavioral-r74"></a>Resolution | [R66](#r66), [R74](#r74) | Instruction authority, memory updates and authorized change. | — |
 
 ### Behavioral Dynamics
 
-| Triad relationship | External points | Relevance | Internal points and relevance | Map points |
-| --- | --- | --- | --- | --- |
-| Reinforcement | [R02](#r02), [R03](#r03) | Repetition and coherent evidence in answer selection. | — | [R02](#behavioral-research-atlas), [R03](#behavioral-research-atlas) |
-| Interference | [R02](#r02), [R58](#r58) | Conflicting information and interference from irrelevant context. | — | [R02](#behavioral-research-atlas), [R58](#behavioral-research-atlas) |
-| <a id="behavioral-r27"></a><a id="behavioral-r79"></a>Compensation | [R27](#r27), [R79](#r79) | Position-bias interventions. | — | [R27](#behavioral-research-atlas), [R79](#behavioral-research-atlas) |
-| <a id="behavioral-i02"></a>Dominance | [R02](#r02), [R03](#r03) | Selection of competing information. | [I02](#i02): Selection frequencies differ across label and description arrangements without a declared preference criterion. [I03](#i03): The most common reading changes with order. | [R02](#behavioral-research-atlas), [R03](#behavioral-research-atlas), [I02](#behavioral-research-atlas), [I03](#behavioral-research-atlas) |
-| Recovery | [R04](#r04), [R05](#r05) | Reminders and stability interventions. | — | [R04](#behavioral-research-atlas), [R05](#behavioral-research-atlas) |
-| <a id="behavioral-r09"></a><a id="behavioral-r46"></a>Reversal | [R09](#r09), [R46](#r46) | Order and temporal effects. | [I03](#i03): Forward and reverse reference layouts differ in prevailing readings. | [R09](#behavioral-research-atlas), [R46](#behavioral-research-atlas), [I03](#behavioral-research-atlas) |
-| <a id="behavioral-r80"></a><a id="behavioral-r84"></a>Saturation | [R80](#r80), [R84](#r84) | Many-shot learning, reweighting and diminishing returns. | — | [R80](#behavioral-research-atlas), [R84](#behavioral-research-atlas) |
-| <a id="behavioral-r62"></a>Threshold | [R62](#r62) | Constraint-satisfaction transitions. | — | [R62](#behavioral-research-atlas) |
-| <a id="behavioral-r87"></a>Instability | [R07](#r07), [R46](#r46), [R87](#r87) | Multi-turn, order and formatting sensitivity. | [I02](#i02): Only 5 of 36 layouts have unanimous replies across ten repeats. | [R07](#behavioral-research-atlas), [R46](#behavioral-research-atlas), [R87](#behavioral-research-atlas), [I02](#behavioral-research-atlas) |
+| Triad relationship | External points | Relevance | Internal points and relevance |
+| --- | --- | --- | --- |
+| Reinforcement | [R02](#r02), [R03](#r03) | Repetition and coherent evidence in answer selection. | — |
+| Interference | [R02](#r02), [R58](#r58) | Conflicting information and interference from irrelevant context. | — |
+| <a id="behavioral-r27"></a><a id="behavioral-r79"></a>Compensation | [R27](#r27), [R79](#r79) | Position-bias interventions. | — |
+| <a id="behavioral-i02"></a>Dominance | [R02](#r02), [R03](#r03) | Selection of competing information. | [I02](#i02): Selection frequencies differ across label and description arrangements without a declared preference criterion. [I03](#i03): The most common reading changes with order. |
+| Recovery | [R04](#r04), [R05](#r05) | Reminders and stability interventions. | — |
+| <a id="behavioral-r09"></a><a id="behavioral-r46"></a>Reversal | [R09](#r09), [R46](#r46) | Order and temporal effects. | [I03](#i03): Forward and reverse reference layouts differ in prevailing readings. |
+| <a id="behavioral-r80"></a><a id="behavioral-r84"></a>Saturation | [R80](#r80), [R84](#r84) | Many-shot learning, reweighting and diminishing returns. | — |
+| <a id="behavioral-r62"></a>Threshold | [R62](#r62) | Constraint-satisfaction transitions. | — |
+| <a id="behavioral-r87"></a>Instability | [R07](#r07), [R46](#r46), [R87](#r87) | Multi-turn, order and formatting sensitivity. | [I02](#i02): Only 5 of 36 layouts have unanimous replies across ten repeats. |
 
 ### Adjacent Internal Investigations
 
 These four investigations concern representation, verification and operational leverage and appear in the adjacent strip below the inverted triangle.
 
-| Point | Source | Relevance | Triad relationship | Map point |
-| --- | --- | --- | --- | --- |
-| <a id="behavioral-i04"></a>[I04](#i04) | AgMark Prompt Performance | Representation comparison: accuracy, exact-result agreement, token consumption and timing. | Adjacent investigation | [I04 (adjacent strip)](#behavioral-research-atlas) |
-| <a id="behavioral-i07"></a>[I07](#i07) | Construction Checks and Verification | Methodological study of prescribed checks, execution evidence and acceptance. | Adjacent investigation | [I07 (adjacent strip)](#behavioral-research-atlas) |
-| <a id="behavioral-i13"></a>[I13](#i13) | Longitudinal Operational Leverage | Observational specification compression and downstream tool activity. | Adjacent investigation | [I13 (adjacent strip)](#behavioral-research-atlas) |
-| <a id="behavioral-i14"></a>[I14](#i14) | Single Workstream Delegation Leverage | Observational workstream comparison and external benchmark of tool activity. | Adjacent investigation | [I14 (adjacent strip)](#behavioral-research-atlas) |
+| Point | Source | Relevance | Triad relationship |
+| --- | --- | --- | --- |
+| <a id="behavioral-i04"></a>[I04](#i04) | AgMark Prompt Performance | Representation comparison: accuracy, exact-result agreement, token consumption and timing. | Adjacent investigation |
+| <a id="behavioral-i07"></a>[I07](#i07) | Construction Checks and Verification | Methodological study of prescribed checks, execution evidence and acceptance. | Adjacent investigation |
+| <a id="behavioral-i13"></a>[I13](#i13) | Longitudinal Operational Leverage | Observational specification compression and downstream tool activity. | Adjacent investigation |
+| <a id="behavioral-i14"></a>[I14](#i14) | Single Workstream Delegation Leverage | Observational workstream comparison and external benchmark of tool activity. | Adjacent investigation |
 
 ## Research Index
 
@@ -350,21 +350,21 @@ The index contains 101 entries: 87 external publications from the repository's M
 | <a id="r07"></a> R07 | Laban et al. (2025), [LLMs Get Lost in Multi-Turn Conversation](https://arxiv.org/abs/2505.06120)<br><sub>External — Original Atlas</sub> | Multi-turn tasks show increased unreliability and persistence of premature assumptions. | Trajectory; Continuity | [Overview](#context-triad-research-atlas) · [Locality](#locality-research-atlas) ([row](#locality-r07)) · [Shadow](#shadow-research-atlas) ([row](#shadow-r07)) · [Behavioral](#behavioral-research-atlas) ([row](#behavioral-r07)) |
 | <a id="r08"></a> R08 | Anthropic (2025), [Effective Context Engineering for AI Agents](https://www.anthropic.com/research/effective-context-engineering-for-ai-agents)<br><sub>External — Original Atlas</sub> | Describes practical approaches to context selection, compaction, structured memory, and agentic retrieval. | Anchoring; Consolidation | [Overview](#context-triad-research-atlas) · [Locality](#locality-research-atlas) ([row](#locality-r08)) · [Weight](#weight-research-atlas) ([row](#weight-r08)) |
 | <a id="r09"></a> R09 | Bajaj, A., et al. (2026), [Beyond Semantics: How Temporal Biases Shapes Retrieval in Transformer and State-Space Models](https://aclanthology.org/2026.eacl-long.355/)<br><sub>External — [Shadow](./Semantic_Shadow.md)</sub> | Temporal and positional retrieval biases. | Locality; Shadow | [Locality](#locality-research-atlas) ([row](#locality-r09)) · [Shadow](#shadow-research-atlas) ([row](#shadow-r09)) · [Behavioral](#behavioral-research-atlas) ([row](#behavioral-r09)) |
-| <a id="r10"></a> R10 | Chandra, A., & Krovi, R. (1999), [Representational congruence and information retrieval: Towards an extended model of cognitive fit](https://doi.org/10.1016/S0167-9236(99)00014-7)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Representational congruence in human information retrieval. | Concentration | — (not plotted)<br>Table only: [Locality table](#locality-r10) · [Weight table](#weight-r10) |
+| <a id="r10"></a> R10 | Chandra, A., & Krovi, R. (1999), [Representational congruence and information retrieval: Towards an extended model of cognitive fit](https://doi.org/10.1016/S0167-9236(99)00014-7)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Representational congruence in human information retrieval. | Concentration | [Locality](#locality-research-atlas) ([row](#locality-r10)) · [Weight](#weight-research-atlas) ([row](#weight-r10)) |
 | <a id="r11"></a> R11 | Chatterjee, A., et al. (2024), [POSIX: A Prompt Sensitivity Index For Large Language Models](https://aclanthology.org/2024.findings-emnlp.852/)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Prompt sensitivity measurement. | Adjacent: representation | — (not plotted) |
-| <a id="r12"></a> R12 | Chiang, J. N., et al. (2021), [Distributed Code for Semantic Relations Predicts Neural Similarity during Analogical Reasoning](https://doi.org/10.1162/jocn_a_01620)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Relational representations in human cognition. | Consolidation | — (not plotted)<br>Table only: [Weight table](#weight-r12) |
+| <a id="r12"></a> R12 | Chiang, J. N., et al. (2021), [Distributed Code for Semantic Relations Predicts Neural Similarity during Analogical Reasoning](https://doi.org/10.1162/jocn_a_01620)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Relational representations in human cognition. | Consolidation | [Weight](#weight-research-atlas) ([row](#weight-r12)) |
 | <a id="r13"></a> R13 | De Sabbata, C. N., et al. (2024), [Rational Metareasoning for Large Language Models](https://arxiv.org/abs/2410.05563)<br><sub>External — [RIS](../ArcGrav_Reasoning_Interaction_Substitution.md)</sub> | Reasoning-resource allocation. | Adjacent: capacity | — (not plotted) |
 | <a id="r14"></a> R14 | Deshpande, K., et al. (2025), [MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs](https://aclanthology.org/2025.findings-acl.958/)<br><sub>External — [Shadow](./Semantic_Shadow.md)</sub> | Multi-turn conversation evaluation. | Shadow; Continuity; Trajectory | [Locality](#locality-research-atlas) ([row](#locality-r14)) · [Shadow](#shadow-research-atlas) ([row](#shadow-r14)) |
 | <a id="r15"></a> R15 | Elhage, N., et al. (2022), [Toy Models of Superposition](https://transformer-circuits.pub/2022/toy_model/index.html)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Representation of overlapping features. | Adjacent: representation | — (not plotted) |
 | <a id="r16"></a> R16 | Epstein, E. L., et al. (2024), [MMMT-IF: A Challenging Multimodal Multi-Turn Instruction Following Benchmark](https://arxiv.org/abs/2409.18216)<br><sub>External — [Locality](./Semantic_Locality.md)</sub> | Multimodal multi-turn instruction following. | Continuity; Trajectory | [Locality](#locality-research-atlas) ([row](#locality-r16)) · [Shadow](#shadow-research-atlas) ([row](#shadow-r16)) |
-| <a id="r17"></a> R17 | Gibson, E. (1998), [Linguistic complexity: locality of syntactic dependencies](https://doi.org/10.1016/S0010-0277(98)00034-1)<br><sub>External — [Locality](./Semantic_Locality.md), [MNSR](../Model_Native_Structural_Representation.md)</sub> | Human syntactic dependency distance and integration cost. | Locality | — (not plotted)<br>Table only: [Locality table](#locality-r17) |
+| <a id="r17"></a> R17 | Gibson, E. (1998), [Linguistic complexity: locality of syntactic dependencies](https://doi.org/10.1016/S0010-0277(98)00034-1)<br><sub>External — [Locality](./Semantic_Locality.md), [MNSR](../Model_Native_Structural_Representation.md)</sub> | Human syntactic dependency distance and integration cost. | Locality | [Locality](#locality-research-atlas) ([row](#locality-r17)) |
 | <a id="r18"></a> R18 | Gonen, H., et al. (2023), [Demystifying Prompts in Language Models via Perplexity Estimation](https://aclanthology.org/2023.findings-emnlp.679/)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Prompt perplexity and effectiveness. | Adjacent: representation | — (not plotted) |
 | <a id="r19"></a> R19 | Halford, G. S., Wilson, W. H., & Phillips, S. (1998), [Processing capacity defined by relational complexity: Implications for comparative, developmental, and cognitive psychology](https://doi.org/10.1017/S0140525X98001769)<br><sub>External — [RCR](../Representational_Capacity_Reclamation.md)</sub> | Relational complexity and processing limits. | Adjacent: capacity | — (not plotted) |
 | <a id="r20"></a> R20 | Han, C., et al. (2025), [Can Language Models Follow Multiple Turns of Entangled Instructions?](https://aclanthology.org/2025.findings-emnlp.1387/)<br><sub>External — [Shadow](./Semantic_Shadow.md)</sub> | Interdependent instructions across turns. | Continuity; Trajectory | [Locality](#locality-research-atlas) ([row](#locality-r20)) · [Shadow](#shadow-research-atlas) ([row](#shadow-r20)) |
 | <a id="r21"></a> R21 | He, J., et al. (2024), [Does Prompt Formatting Have Any Impact on LLM Performance?](https://arxiv.org/abs/2411.10541)<br><sub>External — [Syntax](../ArcGrav_Syntax_Efficiency.md), [RCR](../Representational_Capacity_Reclamation.md)</sub> | Prompt formatting effects. | Adjacent: representation | — (not plotted) |
 | <a id="r22"></a> R22 | Hendel, R., et al. (2023), [In-Context Learning Creates Task Vectors](https://arxiv.org/abs/2310.15916)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Context-induced internal task representations. | Consolidation | [Weight](#weight-research-atlas) ([row](#weight-r22)) |
-| <a id="r23"></a> R23 | Hogarth, R. M., & Einhorn, H. J. (1992), [Order effects in belief updating: The belief-adjustment model](https://doi.org/10.1016/0010-0285(92)90002-J)<br><sub>External — [Shadow](./Semantic_Shadow.md)</sub> | Human sequential belief updating and order effects. | Shadow; Momentum | — (not plotted)<br>Table only: [Shadow table](#shadow-r23) · [Weight table](#weight-r23) |
-| <a id="r24"></a> R24 | Holyoak, K. J., & Monti, M. M. (2021), [Relational Integration in the Human Brain: A Review and Synthesis](https://doi.org/10.1162/jocn_a_01619)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md), [RCR](../Representational_Capacity_Reclamation.md)</sub> | Human relational integration. | Consolidation | — (not plotted)<br>Table only: [Weight table](#weight-r24) |
+| <a id="r23"></a> R23 | Hogarth, R. M., & Einhorn, H. J. (1992), [Order effects in belief updating: The belief-adjustment model](https://doi.org/10.1016/0010-0285(92)90002-J)<br><sub>External — [Shadow](./Semantic_Shadow.md)</sub> | Human sequential belief updating and order effects. | Shadow; Momentum | [Shadow](#shadow-research-atlas) ([row](#shadow-r23)) · [Weight](#weight-research-atlas) ([row](#weight-r23)) |
+| <a id="r24"></a> R24 | Holyoak, K. J., & Monti, M. M. (2021), [Relational Integration in the Human Brain: A Review and Synthesis](https://doi.org/10.1162/jocn_a_01619)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md), [RCR](../Representational_Capacity_Reclamation.md)</sub> | Human relational integration. | Consolidation | [Weight](#weight-research-atlas) ([row](#weight-r24)) |
 | <a id="r25"></a> R25 | Honovich, O., et al. (2022), [Instruction Induction: From Few Examples to Natural Language Task Descriptions](https://arxiv.org/abs/2205.10782)<br><sub>External — [Interpretive](../ArcGrav_Interpretive_Efficiency.md)</sub> | Task abstraction from demonstrations. | Consolidation | [Weight](#weight-research-atlas) ([row](#weight-r25)) |
 | <a id="r26"></a> R26 | Hsieh, C.-P., et al. (2024), [RULER: What's the Real Context Size of Your Long-Context Language Models?](https://arxiv.org/abs/2404.06654)<br><sub>External — [Locality](./Semantic_Locality.md)</sub> | Effective long-context capability evaluation. | Locality; Concentration | [Locality](#locality-research-atlas) ([row](#locality-r26)) · [Weight](#weight-research-atlas) ([row](#weight-r26)) |
 | <a id="r27"></a> R27 | Hsieh, C.-Y., et al. (2024), [Found in the Middle: Calibrating Positional Attention Bias Improves Long Context Utilization](https://arxiv.org/abs/2406.16008)<br><sub>External — [Locality](./Semantic_Locality.md)</sub> | Positional attention bias and calibration. | Locality | [Locality](#locality-research-atlas) ([row](#locality-r27)) · [Behavioral](#behavioral-research-atlas) ([row](#behavioral-r27)) |
@@ -378,7 +378,7 @@ The index contains 101 entries: 87 external publications from the repository's M
 | <a id="r35"></a> R35 | Jiang, Y., et al. (2024), [On the Origins of Linear Representations in Large Language Models](https://proceedings.mlr.press/v235/jiang24d.html)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Origins of linear representations. | Adjacent: representation | — (not plotted) |
 | <a id="r36"></a> R36 | Khot, T., et al. (2022), [Decomposed Prompting: A Modular Approach for Solving Complex Tasks](https://arxiv.org/abs/2210.02406)<br><sub>External — [RCR](../Representational_Capacity_Reclamation.md)</sub> | Modular task-specific prompting. | Locality; Anchoring | [Locality](#locality-research-atlas) ([row](#locality-r36)) |
 | <a id="r37"></a> R37 | Kirsh, D. (2010), [Thinking with external representations](https://doi.org/10.1007/s00146-010-0272-8)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md), [RCR](../Representational_Capacity_Reclamation.md)</sub> | External representations and inferential costs. | Adjacent: representation | — (not plotted) |
-| <a id="r38"></a> R38 | Lewis, R. L., & Vasishth, S. (2005), [An activation-based model of sentence processing as skilled memory retrieval](https://doi.org/10.1207/s15516709cog0000_25)<br><sub>External — [Locality](./Semantic_Locality.md)</sub> | Human retrieval and interference model. | Locality; Weight | — (not plotted)<br>Table only: [Locality table](#locality-r38) · [Weight table](#weight-r38) |
+| <a id="r38"></a> R38 | Lewis, R. L., & Vasishth, S. (2005), [An activation-based model of sentence processing as skilled memory retrieval](https://doi.org/10.1207/s15516709cog0000_25)<br><sub>External — [Locality](./Semantic_Locality.md)</sub> | Human retrieval and interference model. | Locality; Weight | [Locality](#locality-research-atlas) ([row](#locality-r38)) · [Weight](#weight-research-atlas) ([row](#weight-r38)) |
 | <a id="r39"></a> R39 | Li, J., Li, J., Wang, Y., Chang, Y., & Wu, Y. (2025), [StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following](https://aclanthology.org/2025.findings-acl.486/)<br><sub>External — [Shadow](./Semantic_Shadow.md)</sub> | Inter-turn structural relations. | Continuity; Anchoring; Trajectory | [Locality](#locality-research-atlas) ([row](#locality-r39)) · [Shadow](#shadow-research-atlas) ([row](#shadow-r39)) |
 | <a id="r40"></a> R40 | Lieder, F., & Griffiths, T. L. (2017), [Strategy selection as rational metareasoning](https://doi.org/10.1037/rev0000075)<br><sub>External — [RIS](../ArcGrav_Reasoning_Interaction_Substitution.md)</sub> | Resource-sensitive strategy selection. | Adjacent: capacity | — (not plotted) |
 | <a id="r41"></a> R41 | Lieder, F., & Griffiths, T. L. (2019), [Resource-rational analysis: Understanding human cognition as the optimal use of limited computational resources](https://doi.org/10.1017/S0140525X1900061X)<br><sub>External — [RCR](../Representational_Capacity_Reclamation.md)</sub> | Human resource-bounded cognition. | Adjacent: capacity | — (not plotted) |
@@ -403,7 +403,7 @@ The index contains 101 entries: 87 external publications from the repository's M
 | <a id="r60"></a> R60 | Tian, R., et al. (2025), [Distance between Relevant Information Pieces Causes Bias in Long-Context LLMs](https://aclanthology.org/2025.findings-acl.28/)<br><sub>External — [Locality](./Semantic_Locality.md)</sub> | Distance between relevant information pieces. | Locality; Concentration | [Locality](#locality-research-atlas) ([row](#locality-r60)) · [Weight](#weight-research-atlas) ([row](#weight-r60)) |
 | <a id="r61"></a> R61 | Todd, E., et al. (2023), [Function Vectors in Large Language Models](https://arxiv.org/abs/2310.15213)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Internal function representations. | Consolidation | [Weight](#weight-research-atlas) ([row](#weight-r61)) |
 | <a id="r62"></a> R62 | Vasileva, M. I. (2026), [Large Language Models Can Follow Instructions, But Not Many at Once: Phase Transitions in Compositional Constraint Satisfaction](https://arxiv.org/abs/2608.12426)<br><sub>External — [RCR](../Representational_Capacity_Reclamation.md)</sub> | Compositional constraint-satisfaction limits. | Adjacent: capacity | [Behavioral](#behavioral-research-atlas) ([row](#behavioral-r62)) |
-| <a id="r63"></a> R63 | Vessey, I. (1991), [Cognitive Fit: A Theory-Based Analysis of the Graphs Versus Tables Literature](https://doi.org/10.1111/j.1540-5915.1991.tb00344.x)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Human cognitive fit. | Concentration | — (not plotted)<br>Table only: [Locality table](#locality-r63) · [Weight table](#weight-r63) |
+| <a id="r63"></a> R63 | Vessey, I. (1991), [Cognitive Fit: A Theory-Based Analysis of the Graphs Versus Tables Literature](https://doi.org/10.1111/j.1540-5915.1991.tb00344.x)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Human cognitive fit. | Concentration | [Locality](#locality-research-atlas) ([row](#locality-r63)) · [Weight](#weight-research-atlas) ([row](#weight-r63)) |
 | <a id="r64"></a> R64 | Voita, E., & Titov, I. (2020), [Information-Theoretic Probing with Minimum Description Length](https://aclanthology.org/2020.emnlp-main.14/)<br><sub>External — [Interpretive](../ArcGrav_Interpretive_Efficiency.md)</sub> | Minimum-description-length probing. | Adjacent: methodology | — (not plotted) |
 | <a id="r65"></a> R65 | von Oswald, J., et al. (2022), [Transformers Learn In-Context by Gradient Descent](https://arxiv.org/abs/2212.07677)<br><sub>External — [MNSR](../Model_Native_Structural_Representation.md)</sub> | Computational accounts of in-context learning. | Momentum; Consolidation | [Shadow](#shadow-research-atlas) ([row](#shadow-r65)) · [Weight](#weight-research-atlas) ([row](#weight-r65)) |
 | <a id="r66"></a> R66 | Wallace, E., et al. (2024), [The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions](https://arxiv.org/abs/2404.13208)<br><sub>External — [Interpretive](../ArcGrav_Interpretive_Efficiency.md), [Shadow](./Semantic_Shadow.md)</sub> | Instruction authority and conflict resolution. | Shadow; Continuity | [Locality](#locality-research-atlas) ([row](#locality-r66)) · [Shadow](#shadow-research-atlas) ([row](#shadow-r66)) · [Behavioral](#behavioral-research-atlas) ([row](#behavioral-r66)) |
