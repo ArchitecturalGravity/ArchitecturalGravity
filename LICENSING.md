@@ -63,7 +63,9 @@ appropriate credit (including the designated Architectural Gravity attribution
 supplied with the work), the applicable license information, a source link where
 reasonably practicable, and modification indications. The format is flexible
 according to CC BY 4.0 §3. No screen-placement or product-name requirement is
-added here. See `ATTRIBUTION.md` and the component `ATTRIBUTION.md` files.
+added here. See [root attribution](ATTRIBUTION.md), including the
+[Research attribution section](ATTRIBUTION.md#research-attribution), and applicable
+component attribution files.
 
 The conditions above apply only where the relevant license and applicable law
 require them; copyright exceptions, public-domain material, and other rights

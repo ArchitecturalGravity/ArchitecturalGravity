@@ -40,7 +40,6 @@ references:
   research.prompt_performance.rendering: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Evidence_Assembly_and_Exact_Rendering.yaml
   research.prompt_performance.composition: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Compression_Reuse_and_Instruction_Locality.yaml
   research.prompt_performance.checks: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Construction_Checks_and_Verification.yaml
-  research.attribution: ATTRIBUTION.yaml
   research.swe_rebench_rights: swe_rebench_07_2026_trajectories/RIGHTS.yaml
   research.context_triad.extended: Context_Triad/Extended_Context_Triad.yaml
   research.context_triad.atlas: Context_Triad/Research_Atlas.yaml
@@ -54,7 +53,7 @@ groups:
   context_triad_studies: [research.context_triad.studies.index, research.context_triad.studies.fox_leopard, research.context_triad.studies.planetary_chain, research.context_triad.studies.glip]
   methodology_and_style: [research.style_guide, research.prompt_performance.principles, research.prompt_performance.index, research.swe_rebench_csv_compatibility_plan]
   prompt_performance: [research.prompt_performance.overview, research.prompt_performance.principles, research.prompt_performance.studies.index, research.prompt_performance.agmark_runs, research.prompt_performance.index, research.prompt_performance.input_integrity, research.prompt_performance.binding, research.prompt_performance.predicates, research.prompt_performance.construction, research.prompt_performance.collections, research.prompt_performance.rendering, research.prompt_performance.composition, research.prompt_performance.checks]
-  provenance_and_rights: [research.attribution, research.swe_rebench_rights]
+  provenance_and_rights: [research.swe_rebench_rights]
 routing:
   research_program_and_concept_ownership: research.program
   representation_theory_and_relational_recovery: research.model_native_structural_representation
@@ -93,7 +92,6 @@ routing:
   prompt_evidence_assembly_and_exact_rendering: research.prompt_performance.rendering
   prompt_compression_reuse_and_instruction_locality: research.prompt_performance.composition
   prompt_construction_checks_and_verification: research.prompt_performance.checks
-  research_attribution: research.attribution
   swe_rebench_rights: research.swe_rebench_rights
   extended_context_triad: research.context_triad.extended
   context_triad_research_atlas: research.context_triad.atlas
