@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="./Assets/Triad_Research_Atlas.svg" alt="Expanded Context Triad with amber external research points 01 through 08 and teal internal studies I01 through I03; repeated identifiers indicate relevance to multiple constructs" width="66%">
+</p>
+
 <a id="context-triad-research-atlas"></a>
 
 # Context Triad Research Atlas
@@ -5,10 +9,6 @@
 The Research Atlas maps external research, internal investigations and applied engineering practices to the [Context Triad](./Context_Triad.md#context-triad). Each reference identifies the research point, source, relevance, Triad relationship and map location.
 
 **Navigate:** [Locality](#locality-research-atlas) · [Shadow](#shadow-research-atlas) · [Weight](#weight-research-atlas) · [Behavioral](#behavioral-research-atlas) · [Research Index](#research-index) · [Constructs](#construct-relationships) · [Supporting research](#supporting-research)
-
-<p align="center">
-  <img src="./Assets/Triad_Research_Atlas.svg" alt="Expanded Context Triad with amber external research points 01 through 08 and teal internal studies I01 through I03; repeated identifiers indicate relevance to multiple constructs" width="66%">
-</p>
 
 ## Reading the Map
 
