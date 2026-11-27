@@ -5,19 +5,59 @@ kind: research_reference
 source:
   path: Research/Context_Triad/Research_Atlas.md
   url: ../../Context_Triad/Research_Atlas.md
-  fingerprint: fnv1a32-39859cc3
+  fingerprint: fnv1a32-2ce7d836
 sections:
   context-triad-research-atlas: |-
-    Maps external research and applied engineering to proposed Context Triad constructs; association does not validate the framework.
+    Overview maps external research and applied engineering to proposed constructs, with four expanded research regions. No association validates the framework.
   reading-the-map: |-
-    Amber numbers identify publications; repeats mark multiple associations. Positions and density encode neither measurement nor evidence strength.
+    Amber numbers identify publications and can repeat across regions. Geometry, positions and density do not encode measurements or evidence strength.
   construct-relationships: |-
-    Locality, Shadow, and Weight combine into Continuity, Concentration, and Momentum, then Anchoring, Trajectory, and Consolidation. Composition is conceptual, not arithmetic or statistical.
+    Locality, Shadow and Weight compose Continuity, Concentration and Momentum, then Anchoring, Trajectory and Consolidation. Composition is conceptual, not arithmetic or statistical.
+  locality-research-atlas: |-
+    Placement and distribution relative to use; persistence, coherent support and attachment to relevant operations. Points link through the unified research index; associations are provisional.
+  semantic-locality-locality-region: |-
+    Research associated with Locality within the Locality region. The association is interpretive and does not validate a derived construct.
+  semantic-continuity-locality-region: |-
+    Research associated with Continuity within the Locality region. The association is interpretive and does not validate a derived construct.
+  semantic-concentration-locality-region: |-
+    Research associated with Concentration within the Locality region. The association is interpretive and does not validate a derived construct.
+  semantic-anchoring-locality-region: |-
+    Research associated with Anchoring within the Locality region. The association is interpretive and does not validate a derived construct.
+  shadow-research-atlas: |-
+    Subsequent context and order-sensitive influence; persistence, accumulation and progression across operations. Points link through the unified research index; associations are provisional.
+  semantic-shadow-shadow-region: |-
+    Research associated with Shadow within the Shadow region. The association is interpretive and does not validate a derived construct.
+  semantic-continuity-shadow-region: |-
+    Research associated with Continuity within the Shadow region. The association is interpretive and does not validate a derived construct.
+  semantic-momentum-shadow-region: |-
+    Research associated with Momentum within the Shadow region. The association is interpretive and does not validate a derived construct.
+  semantic-trajectory-shadow-region: |-
+    Research associated with Trajectory within the Shadow region. The association is interpretive and does not validate a derived construct.
+  weight-research-atlas: |-
+    Relative coherent support; distribution, accumulation and convergence around an interpretation. Points link through the unified research index; associations are provisional.
+  semantic-weight-weight-region: |-
+    Research associated with Weight within the Weight region. The association is interpretive and does not validate a derived construct.
+  semantic-concentration-weight-region: |-
+    Research associated with Concentration within the Weight region. The association is interpretive and does not validate a derived construct.
+  semantic-momentum-weight-region: |-
+    Research associated with Momentum within the Weight region. The association is interpretive and does not validate a derived construct.
+  semantic-consolidation-weight-region: |-
+    Research associated with Consolidation within the Weight region. The association is interpretive and does not validate a derived construct.
+  behavioral-research-atlas: |-
+    Joint contextual influences and the behavioral dynamics and outcomes defined in the Context Triad paper. The center is not an additional semantic dimension. Points link through the unified research index; associations are provisional.
+  behavioral-outcomes: |-
+    Candidate evidence associations for behavioral outcomes from the Context Triad paper. Verify the required contrast before drawing conclusions.
+  behavioral-dynamics: |-
+    Candidate evidence associations for behavioral dynamics from the Context Triad paper. Verify the required contrast before drawing conclusions.
   research-index: |-
-    Distinguish direct factor manipulation, related empirical evidence without isolated factors, and applied engineering. Consult R01–R08 for individual methods and findings.
+    87 unique external publications retain R01–R08 and add R09–R87. Repository provenance and evidence relationships distinguish direct factors, related evidence, theory, engineering, conceptual antecedents and methodology. New associations are provisional.
+  internal-research-index: |-
+    I01–I14 distinguish internal studies from independent external literature. Three Context Triad studies report 1,110 trials across different tasks; do not pool them as an effect estimate. ARB papers concern related trials, not independent replications.
+  supporting-research: |-
+    Adjacent literature and methodological or cross-disciplinary work can inform tests without direct geometric placement. SWE-rebench and operational documentation are supporting resources.
   scope-and-evidence-status: |-
-    The map offers illustrative interpretations of cited work, not author classifications, exhaustive coverage, or evidence of independent mechanisms.
+    The repository-citation inventory is not an exhaustive literature review. Regional and behavioral associations require source-level review; no evidence establishes independent mechanisms or validates the nine constructs.
   assets: |-
-    The combined SVG and standalone overlay share a viewBox. Map numbers resolve to publications through the research index.
+    The original overview and overlay remain. Four independently editable regional SVGs preserve original dimensional nodes, lavender boundaries and amber publication overlays.
   related-research: |-
-    Use the framework for definitions, Studies for individual investigations, and the model for illustration.
+    Use the framework for definitions, Studies for empirical investigations, and the model for illustration.

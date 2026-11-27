@@ -1,5 +1,5 @@
 {
-  "description": "Canonical scholarly references used across the Architectural Gravity research corpus. Alternate URLs identify other cited editions of the same work.",
+  "description": "Canonical scholarly references and external research publications used across the Architectural Gravity research corpus. Alternate URLs identify other cited editions of the same work.",
   "references": [
     {
       "id": "agrawal2024cantrememberdetails",
@@ -8,6 +8,14 @@
       "title": "Can’t Remember Details in Long Documents? You Need Some R&R",
       "venue": "Findings of EMNLP 2024",
       "url": "https://aclanthology.org/2024.findings-emnlp.742/"
+    },
+    {
+      "id": "anthropic2025contextengineering",
+      "authors": "Anthropic",
+      "year": 2025,
+      "title": "Effective Context Engineering for AI Agents",
+      "venue": "Anthropic research / engineering article",
+      "url": "https://www.anthropic.com/research/effective-context-engineering-for-ai-agents"
     },
     {
       "id": "bajaj2026beyondsemanticshow",
@@ -227,6 +235,22 @@
       "url": "https://proceedings.mlr.press/v235/jiang24d.html"
     },
     {
+      "id": "jin2024tugofwar",
+      "authors": "Jin, Z., Cao, P., Chen, Y., Liu, K., Jiang, X., Xu, J., Li, Q., & Zhao, J.",
+      "year": 2024,
+      "title": "Tug-of-War Between Knowledge: Exploring and Resolving Knowledge Conflicts in Retrieval-Augmented Language Models",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2402.14409"
+    },
+    {
+      "id": "johari2019alwaysvalid",
+      "authors": "Johari, R., Pekelis, L., & Walsh, D. J.",
+      "year": 2019,
+      "title": "Always Valid Inference: Bringing Sequential Analysis to A/B Testing",
+      "venue": "Revised version of the 2015 arXiv preprint",
+      "url": "https://arxiv.org/abs/1512.04922v3"
+    },
+    {
       "id": "khot2022",
       "authors": "Khot, T., et al.",
       "year": 2022,
@@ -251,6 +275,14 @@
       "url": "https://aclanthology.org/2025.emnlp-main.1742/"
     },
     {
+      "id": "laban2025lostmultiturn",
+      "authors": "Laban, P., Hayashi, H., Zhou, Y., & Neville, J.",
+      "year": 2025,
+      "title": "LLMs Get Lost in Multi-Turn Conversation",
+      "venue": "arXiv preprint",
+      "url": "https://arxiv.org/abs/2505.06120"
+    },
+    {
       "id": "lewis2005anactivationbasedmodel",
       "authors": "Lewis, R. L., & Vasishth, S.",
       "year": 2005,
@@ -272,15 +304,10 @@
       "year": 2024,
       "title": "Measuring and Controlling Instruction (In)Stability in Language Model Dialogs",
       "venue": "COLM 2024",
-      "url": "https://openreview.net/forum?id=60a1SAtH4e"
-    },
-    {
-      "id": "lieder2017",
-      "authors": "Lieder, F., & Griffiths, T. L.",
-      "year": 2017,
-      "title": "Strategy selection as rational metareasoning",
-      "venue": "Psychological Review",
-      "url": "https://doi.org/10.1037/rev0000075"
+      "url": "https://openreview.net/forum?id=60a1SAtH4e",
+      "alternate_urls": [
+        "https://arxiv.org/abs/2402.10962"
+      ]
     },
     {
       "id": "lieder2019",
@@ -289,6 +316,14 @@
       "title": "Resource-rational analysis: Understanding human cognition as the optimal use of limited computational resources",
       "venue": "Behavioral and Brain Sciences",
       "url": "https://doi.org/10.1017/S0140525X1900061X"
+    },
+    {
+      "id": "lieder2017",
+      "authors": "Lieder, F., & Griffiths, T. L.",
+      "year": 2017,
+      "title": "Strategy selection as rational metareasoning",
+      "venue": "Psychological Review",
+      "url": "https://doi.org/10.1037/rev0000075"
     },
     {
       "id": "liu2024lostmiddle",
@@ -406,6 +441,14 @@
       "url": "https://proceedings.mlr.press/v235/park24c.html"
     },
     {
+      "id": "pryzant2023automaticprompt",
+      "authors": "Pryzant, R., Iter, D., Li, J., Lee, Y., Zhu, C., & Zeng, M.",
+      "year": 2023,
+      "title": "Automatic Prompt Optimization with “Gradient Descent” and Beam Search",
+      "venue": "EMNLP 2023",
+      "url": "https://aclanthology.org/2023.emnlp-main.494/"
+    },
+    {
       "id": "puerto2024",
       "authors": "Puerto, H., et al.",
       "year": 2024,
@@ -428,6 +471,14 @@
       "title": "Cognitive Offloading",
       "venue": "Trends in Cognitive Sciences",
       "url": "https://doi.org/10.1016/j.tics.2016.07.002"
+    },
+    {
+      "id": "sclar2024quantifying",
+      "authors": "Sclar, M., Choi, Y., Tsvetkov, Y., & Suhr, A.",
+      "year": 2024,
+      "title": "Quantifying Language Models' Sensitivity to Spurious Features in Prompt Design or: How I learned to start worrying about prompt formatting",
+      "venue": "ICLR 2024",
+      "url": "https://arxiv.org/abs/2310.11324v2"
     },
     {
       "id": "shi2023largelanguagemodels",
@@ -596,6 +647,14 @@
       "title": "How do Large Language Models Learn In-Context? Query and Key Matrices of In-Context Heads are Two Towers for Metric Learning",
       "venue": "EMNLP 2024",
       "url": "https://aclanthology.org/2024.emnlp-main.192/"
+    },
+    {
+      "id": "zhang2024snowball",
+      "authors": "Zhang, M., Press, O., Merrill, W., Liu, A., & Smith, N. A.",
+      "year": 2024,
+      "title": "How Language Model Hallucinations Can Snowball",
+      "venue": "ICML / PMLR",
+      "url": "https://proceedings.mlr.press/v235/zhang24ay.html"
     },
     {
       "id": "zhang2024canweinstruct",

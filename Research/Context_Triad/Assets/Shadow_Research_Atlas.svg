@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 700 580" role="img" aria-labelledby="atlas-title atlas-desc" font-family="Arial, Helvetica, sans-serif">
+  <title id="atlas-title">Shadow Research Atlas</title>
+  <desc id="atlas-desc">Subsequent context and order-sensitive influence; persistence, accumulation and progression across operations. Amber points represent publication identifiers, not measured coordinates or evidence strength. See Research_Atlas.md for the linked index.</desc>
+  <path d="M350 66 L70 506 L630 506 Z" fill="#a0a0a0" fill-opacity="0.5" stroke="none"/>
+  <path d="M70 506 L350 66 M70 506 L630 506" fill="none" stroke="#518ac9" stroke-width="2"/>
+  <path d="M350 66 L630 506" fill="none" stroke="#9575cd" stroke-width="2.5" stroke-dasharray="8 6"/>
+  <g id="construct-continuity">
+    <circle cx="350" cy="66" r="18" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="350" cy="66" r="5" fill="#9575cd"/>
+  </g>
+  <g id="construct-shadow">
+    <circle cx="82" cy="498" r="28" fill="#518ac9" fill-opacity=".12"/>
+    <circle cx="82" cy="498" r="17" fill="#518ac9" fill-opacity=".2"/>
+    <circle cx="82" cy="498" r="6" fill="#518ac9"/>
+  </g>
+  <g id="construct-momentum">
+    <circle cx="630" cy="506" r="18" fill="#9575cd" fill-opacity=".14"/>
+    <circle cx="630" cy="506" r="5" fill="#9575cd"/>
+  </g>
+  <text x="350" y="24" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Continuity</text>
+  <text x="70" y="558" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Shadow</text>
+  <text x="630" y="558" text-anchor="middle" font-size="18" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Momentum</text>
+  <circle cx="350" cy="346" r="42" fill="none" stroke="#000000" stroke-width="1.5" stroke-dasharray="5 5"/>
+  <text x="350" y="351" text-anchor="middle" font-size="15" font-weight="600" stroke="#000000" stroke-width="3" stroke-linejoin="round" paint-order="stroke" fill="#ffffff">Trajectory</text>
+  <g id="research-point-overlay" font-family="Arial, Helvetica, sans-serif" text-anchor="middle" font-weight="700">
+    <g id="research-R02"><title>R02: Conflicting Needles in a Haystack: How LLMs behave when faced with contradictory information</title><circle cx="151" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="151" y="464" fill="#382502" font-size="12">02</text></g>
+    <g id="research-R09"><title>R09: Beyond Semantics: How Temporal Biases Shapes Retrieval in Transformer and State-Space Models</title><circle cx="121" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="121" y="464" fill="#382502" font-size="12">09</text></g>
+    <g id="research-R14"><title>R14: MultiChallenge: A Realistic Multi-Turn Conversation Evaluation Benchmark Challenging to Frontier LLMs</title><circle cx="151" cy="430" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="151" y="434" fill="#382502" font-size="12">14</text></g>
+    <g id="research-R45"><title>R45: Instruction Position Matters in Sequence Generation with Large Language Models</title><circle cx="181" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="181" y="464" fill="#382502" font-size="12">45</text></g>
+    <g id="research-R46"><title>R46: Fantastically Ordered Prompts and Where to Find Them: Overcoming Few-Shot Prompt Order Sensitivity</title><circle cx="181" cy="430" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="181" y="434" fill="#382502" font-size="12">46</text></g>
+    <g id="research-R50"><title>R50: In-context Learning and Induction Heads</title><circle cx="211" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="211" y="464" fill="#382502" font-size="12">50</text></g>
+    <g id="research-R66"><title>R66: The Instruction Hierarchy: Training LLMs to Prioritize Privileged Instructions</title><circle cx="181" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="181" y="404" fill="#382502" font-size="12">66</text></g>
+    <g id="research-R74"><title>R74: LongMemEval: Benchmarking Chat Assistants on Long-Term Interactive Memory</title><circle cx="211" cy="430" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="211" y="434" fill="#382502" font-size="12">74</text></g>
+    <g id="research-R81"><title>R81: Calibrate Before Use: Improving Few-shot Performance of Language Models</title><circle cx="211" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="211" y="404" fill="#382502" font-size="12">81</text></g>
+    <g id="research-R04"><title>R04: Measuring and Controlling Instruction (In)Stability in Language Model Dialogs</title><circle cx="361" cy="130" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="134" fill="#382502" font-size="12">04</text></g>
+    <g id="research-R07"><title>R07: LLMs Get Lost in Multi-Turn Conversation</title><circle cx="361" cy="160" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="164" fill="#382502" font-size="12">07</text></g>
+    <g id="research-R16"><title>R16: MMMT-IF: A Challenging Multimodal Multi-Turn Instruction Following Benchmark</title><circle cx="331" cy="130" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="134" fill="#382502" font-size="12">16</text></g>
+    <g id="research-R20"><title>R20: Can Language Models Follow Multiple Turns of Entangled Instructions?</title><circle cx="331" cy="160" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="164" fill="#382502" font-size="12">20</text></g>
+    <g id="research-R33"><title>R33: One Battle After Another: Probing LLMs’ Limits on Multi-Turn Instruction Following with a Benchmark Evolving Framework</title><circle cx="391" cy="160" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="391" y="164" fill="#382502" font-size="12">33</text></g>
+    <g id="research-R39"><title>R39: StructFlowBench: A Structured Flow Benchmark for Multi-turn Instruction Following</title><circle cx="361" cy="190" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="361" y="194" fill="#382502" font-size="12">39</text></g>
+    <g id="research-R51"><title>R51: MemGPT: Towards LLMs as Operating Systems</title><circle cx="331" cy="190" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="194" fill="#382502" font-size="12">51</text></g>
+    <g id="research-R82"><title>R82: Least-to-Most Prompting Enables Complex Reasoning in Large Language Models</title><circle cx="391" cy="190" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="391" y="194" fill="#382502" font-size="12">82</text></g>
+    <g id="research-R06"><title>R06: How Language Model Hallucinations Can Snowball</title><circle cx="541" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="541" y="464" fill="#382502" font-size="12">06</text></g>
+    <g id="research-R65"><title>R65: Transformers Learn In-Context by Gradient Descent</title><circle cx="571" cy="460" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="571" y="464" fill="#382502" font-size="12">65</text></g>
+    <g id="research-R76"><title>R76: An Explanation of In-context Learning as Implicit Bayesian Inference</title><circle cx="541" cy="430" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="541" y="434" fill="#382502" font-size="12">76</text></g>
+    <g id="research-R70"><title>R70: Chain-of-Thought Prompting Elicits Reasoning in Large Language Models</title><circle cx="331" cy="400" r="12" fill="#ffcf70" stroke="#704b11" stroke-width="1.1"/><text x="331" y="404" fill="#382502" font-size="12">70</text></g>
+  </g>
+</svg>
