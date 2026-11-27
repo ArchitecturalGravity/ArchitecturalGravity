@@ -1,0 +1,37 @@
+# Compact, source-grounded research navigation and semantic digest; non-executable.
+schema_version: 2
+id: research.context_triad.studies.planetary_chain
+kind: research_reference
+source:
+  path: Research/Context_Triad/Studies/Planetary_Order_vs_Greek_Genealogy.md
+  url: ../../../Context_Triad/Studies/Planetary_Order_vs_Greek_Genealogy.md
+  fingerprint: fnv1a32-d9b4ffaa
+sections:
+  paper-planetary-chain-activation: |-
+    Across 390 scored first replies, changing the order of the same nine Greek names shifted the main interpretation between the Solar System, Greek genealogy, and other mythology. Both forward reference layouts drew more Solar System readings than their reversals.
+  a-gpt-56-sol--low-study-of-the-context-triad----25-november-2026-utc: |-
+    The 25 November 2026 study records 390 first replies, with 30 trials in each of 13 layouts. GPT-5.6 Sol / Low was requested; effective settings were not independently verified.
+  abstract: |-
+    The Solar System led 19/30 replies in the forward planetary layout and 10/30 in its reverse, and 19/30 in the forward genealogy layout and 12/30 in its reverse. Genealogy was the most common reading in both reversals. Across the nine scattered layouts, Solar System readings ranged from 1/30 to 28/30.
+  role-within-the-context-triad: |-
+    The two associations remain available in every layout. The study separates which reading governs the reply, which relationships are recognized, and whether the reply identifies the supplied order. Locality frames placement and Weight frames competition between associations.
+  1-the-intended-inferential-correlations: |-
+    The planetary reference maps Helios through Poseidon to the Sun and eight planets. The Hesiod-based genealogy reference includes divine descent, succession, and a separate Titan branch. The distinct October symbolic-chain pilot is not pooled with these trials.
+  2-design-and-trial-protocol: |-
+    Four reference layouts and nine slot-balanced scattered layouts permute only the name lines, holding the instruction fixed. Every layout has 30 fresh-subthread trials. Scoring distinguishes dominant reading, recognition of either or both relationships, and explicit claims about the supplied sequence.
+  3-central-observation-order-changes-the-main-reading: |-
+    The forward and reverse planetary layouts elicited 19/30 and 10/30 explicit recognitions of their planetary direction, respectively. The forward and reverse genealogy layouts elicited 3/30 and 0/30 explicit recognitions of their genealogy direction despite more frequent recognition of lineage. No single scattered layout provides a uniform baseline.
+  4-relation-to-the-context-triad: |-
+    The scattered-layout contrasts connect positional arrangement to the dominant reading. Recognition of family resemblance or celestial correspondence can occur without recognition of the supplied order, so associative pattern completion and order recognition are distinct.
+  5-proposed-tests: |-
+    Proposed controls match endpoints while permuting the interior, preserve planetary neighbor pairs while moving them between slots, or independently vary definition and final reference order in the symbolic-chain prompt.
+  scope-and-evidence-status: |-
+    The companion CSV supplies exact prompts, first replies, scores, and admission order for 390 replies, 30 per layout. GPT-5.6 Sol / Low was requested throughout. Positions, neighbors, and endpoints vary together in these permutations.
+  conclusion: |-
+    Both forward reference layouts favored the Solar System relative to their reversals; genealogy was most common in both reversals. Scattered layouts varied substantially. The main reading, recognition of a relationship, and accurate description of the supplied order are separate outcomes.
+  related-papers: |-
+    The Context Triad distinguishes semantic presence from behavioral influence. Locality addresses placement, Shadow addresses order-sensitive influence, and Weight addresses competition between interpretations.
+  planetary-verified-stimulus: |-
+    The anchored appendix reproduces the verified forward planetary prompt including its surrounding triple backticks. Other layouts permute only the nine name lines according to the codes in the design.
+  planetary-order-counts: |-
+    The tables report explicit planetary and genealogy judgments for all layouts, distinguishing correct direction, correct departure from reference order, no qualifying whole-list judgment, and incorrect claims.

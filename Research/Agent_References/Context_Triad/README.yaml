@@ -5,7 +5,7 @@ kind: research_reference
 source:
   path: Research/Context_Triad/README.md
   url: ../../Context_Triad/README.md
-  fingerprint: fnv1a32-cb5ecc1a
+  fingerprint: fnv1a32-b4c84aaa
 sections:
   context-triad-portal: |-
     The research portal organizes theory, extensions, literature mapping, an illustrative model, and empirical investigations around the distinction between represented meaning and behavioral influence.
@@ -16,4 +16,4 @@ sections:
   interactive-model: |-
     The model provides an interactive visual demonstration of how Locality, Shadow, and Weight may interact.
   empirical-studies: |-
-    The Studies index catalogs investigations and their evidence status. Fox–Leopard examines weight and pangram inference across 360 scored trials; Planetary Chain reports a three-condition associative-recognition pilot; Glip examines label, description, position, and rival-order dependence across 360 trials.
+    The Studies index catalogs investigations and their evidence status. Fox–Leopard examines weight and pangram inference across 360 scored trials; Planetary Order vs. Greek Genealogy compares readings of the same nine names across 13 layouts and 390 scored trials; Glip examines label, description, position, and rival-order dependence across 360 trials.

@@ -29,7 +29,7 @@ references:
   research.context_triad.context_triad_model: Context_Triad/Context_Triad_Model/README.yaml
   research.context_triad.studies.index: Context_Triad/Studies/README.yaml
   research.context_triad.studies.fox_leopard: Context_Triad/Studies/Fox_Leopard_Displacement.yaml
-  research.context_triad.studies.planetary_chain: Context_Triad/Studies/Planetary_Chain_Activation.yaml
+  research.context_triad.studies.planetary_chain: Context_Triad/Studies/Planetary_Order_vs_Greek_Genealogy.yaml
   research.style_guide: Style_Guide/README.yaml
   research.swe_rebench_csv_compatibility_plan: swe_rebench_07_2026_trajectories/CSV_compatibility_plan.yaml
   research.prompt_performance.input_integrity: Prompt_Performance/Studies/ArcGrav_ARB_Trials/Input_and_Execution_Integrity.yaml
